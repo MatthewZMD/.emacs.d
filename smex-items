@@ -1,0 +1,47 @@
+
+;; ----- smex-history -----
+(
+ eww
+ package-install
+ shell
+ emacs-lisp-mode
+ web-mode
+ web-mode-test
+ package-menu-mark-upgrades
+)
+
+;; ----- smex-data -----
+(
+ (eval-buffer . 39)
+ (package-delete . 3)
+ (dired . 2)
+ (package-install . 18)
+ (org-mode . 1)
+ (emacs-lisp-mode . 3)
+ (ace-jump-mode . 2)
+ (package-refresh-contents . 2)
+ (flycheck-mode . 2)
+ (flycheck-copy-errors-as-kill . 1)
+ (toggle-frame-fullscreen . 5)
+ (swiper . 4)
+ (counsel-M-x . 5)
+ (eww . 14)
+ (find-name-dired . 1)
+ (find-grep-dired . 1)
+ (bookmark-delete . 1)
+ (2048-game . 1)
+ (bookmark-load . 1)
+ (avy-goto-char . 2)
+ (ace-jump-move . 1)
+ (avy-goto-word-0 . 1)
+ (avy-goto-char-2 . 1)
+ (avy-goto-char-timer . 3)
+ (avy-resume . 1)
+ (popup-kill-ring . 5)
+ (eshell . 1)
+ (shell . 3)
+ (package-menu-mark-upgrades . 4)
+ (list-packages . 1)
+ (web-mode-test . 2)
+ (web-mode . 1)
+)
