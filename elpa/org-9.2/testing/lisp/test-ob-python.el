@@ -1,0 +1,140 @@
+;;; test-ob-python.el --- tests for ob-python.el
+
+;; Copyright (c) 2011-2014 Eric Schulte
+;; Authors: Eric Schulte
+
+;; This file is not part of GNU Emacs.
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Code:
+(org-test-for-executable "python")
+(unless (featurep 'ob-python)
+  (signal 'missing-test-dependency "Support for Python code blocks"))
+
+(ert-deftest test-ob-python/colnames-yes-header-argument ()
+  (org-test-with-temp-text "#+name: eg
+| col |
+|-----|
+| a   |
+| b   |
+
+#+header: :colnames yes
+#+header: :var x = eg
+#+begin_src python
+return x
+#+end_src"
+    (org-babel-next-src-block)
+    (should (equal '(("col") hline ("a") ("b"))
+		   (org-babel-execute-src-block)))))
+
+(ert-deftest test-ob-python/colnames-yes-header-argument-again ()
+  (org-test-with-temp-text "#+name: less-cols
+| a |
+|---|
+| b |
+| c |
+
+#+header: :colnames yes
+#+begin_src python :var tab=less-cols
+  return [[val + '*' for val in row] for row in tab]
+#+end_src"
+    (org-babel-next-src-block)
+    (should (equal '(("a") hline ("b*") ("c*"))
+		   (org-babel-execute-src-block)))))
+
+(ert-deftest test-ob-python/colnames-nil-header-argument ()
+  (org-test-with-temp-text "#+name: eg
+| col |
+|-----|
+| a   |
+| b   |
+
+#+header: :colnames nil
+#+header: :var x = eg
+#+begin_src python
+return x
+#+end_src"
+    (org-babel-next-src-block)
+    (should (equal '(("col") hline ("a") ("b"))
+		   (org-babel-execute-src-block)))))
+
+(ert-deftest test-ob-python/colnames-no-header-argument-again ()
+  (org-test-with-temp-text "#+name: less-cols
+| a |
+|---|
+| b |
+| c |
+
+#+header: :colnames no
+#+begin_src python :var tab=less-cols
+  return [[val + '*' for val in row] for row in tab]
+#+end_src"
+    (org-babel-next-src-block)
+    (should (equal '(("a*") ("b*") ("c*"))
+		   (org-babel-execute-src-block)))))
+
+(ert-deftest test-ob-python/colnames-no-header-argument ()
+  (org-test-with-temp-text "#+name: eg
+| col |
+|-----|
+| a   |
+| b   |
+
+#+header: :colnames no
+#+header: :var x = eg
+#+begin_src python
+return x
+#+end_src"
+    (org-babel-next-src-block)
+    (should (equal '(("col") ("a") ("b"))
+		   (org-babel-execute-src-block)))))
+
+(ert-deftest test-ob-python/session-multiline ()
+  ;; FIXME workaround to prevent starting prompt leaking into output
+  (run-python)
+  (sleep-for 0 10)
+  (org-test-with-temp-text "
+#+begin_src python :session :results output
+  foo = 0
+  for _ in range(10):
+      foo += 1
+
+      foo += 1
+
+  print(foo)
+#+end_src"
+   (org-babel-next-src-block)
+   (should (equal "20" (org-babel-execute-src-block)))))
+
+(ert-deftest test-ob-python/insert-necessary-blank-line-when-sending-code-to-interpreter ()
+  (org-test-with-temp-text "#+begin_src python :session :results value
+if True:
+    1
+2
+#+end_src"
+    ;; Previously, while adding `:session' to a normal code block, also need to add extra blank lines
+    ;; to end indent block or indicate logical sections. Now, the `org-babel-python-evaluate-session'
+    ;; can do it automatically:
+    ;; >>> if True:
+    ;; >>>     1
+    ;; >>> <insert_blank_line_here>
+    ;; >>> 2
+    (org-babel-execute-maybe)
+    (should (equal 2 (org-babel-execute-src-block)))))
+
+(provide 'test-ob-python)
+
+;;; test-ob-python.el ends here
+ 

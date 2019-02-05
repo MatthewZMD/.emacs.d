@@ -1,0 +1,1048 @@
+This is use-package.info, produced by makeinfo version 6.5 from
+use-package.texi.
+
+     Copyright (C) 2012-2017 John Wiegley <johnw@newartisans.com>
+
+     You can redistribute this document and/or modify it under the terms
+     of the GNU General Public License as published by the Free Software
+     Foundation, either version 3 of the License, or (at your option)
+     any later version.
+
+     This document is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+     General Public License for more details.
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* use-package: (use-package). Declarative package configuration for Emacs.
+END-INFO-DIR-ENTRY
+
+
+File: use-package.info,  Node: Top,  Next: Introduction,  Up: (dir)
+
+use-package User Manual
+***********************
+
+use-package is...
+
+     Copyright (C) 2012-2017 John Wiegley <johnw@newartisans.com>
+
+     You can redistribute this document and/or modify it under the terms
+     of the GNU General Public License as published by the Free Software
+     Foundation, either version 3 of the License, or (at your option)
+     any later version.
+
+     This document is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+     General Public License for more details.
+
+* Menu:
+
+* Introduction::
+* Installation::
+* Getting Started::
+* Keywords::
+* FAQ::
+* Debugging Tools::
+* Command Index::
+* Function Index::
+* Variable Index::
+
+— The Detailed Node Listing —
+
+
+Installation
+
+* Installing from an Elpa Archive::
+* Installing from the Git Repository::
+* Post-Installation Tasks::
+
+
+
+
+Keywords
+
+* ‘:after’: after.
+* ‘:bind-keymap’, ‘:bind-keymap*’: bind-keymap bind-keymap*.
+* ‘:bind’, ‘:bind*’: bind bind*.
+* ‘:commands’: commands.
+* ‘:preface’, ‘:init’, ‘:config’: preface init config.
+* ‘:custom’: custom.
+* ‘:custom-face’: custom-face.
+* ‘:defer’, ‘:demand’: defer demand.
+* ‘:defines’, ‘:functions’: defines functions.
+* ‘:diminish’, ‘:delight’: diminish delight.
+* ‘:disabled’: disabled.
+* ‘:ensure’, ‘:pin’: ensure pin.
+* ‘:hook’: hook.
+* ‘:if’, ‘:when’, ‘:unless’: if when unless.
+* ‘:load-path’: load-path.
+* ‘:mode’, ‘:interpreter’: mode interpreter.
+* ‘:magic’, ‘:magic-fallback’: magic magic-fallback.
+* ‘:no-require’: no-require.
+* ‘:requires’: requires.
+
+
+
+‘:bind’, ‘:bind*’
+
+* Binding to local keymaps::
+
+FAQ
+
+* FAQ - How to ...?::
+* FAQ - Issues and Errors::
+
+FAQ - How to ...?
+
+* This is a question::
+
+
+FAQ - Issues and Errors
+
+* This is an issues::
+
+
+File: use-package.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
+
+1 Introduction
+**************
+
+The ‘use-package’ macro allows you to isolate package configuration in
+your ‘.emacs’ file in a way that is both performance-oriented and, well,
+tidy.  I created it because I have over 400 packages that I use in
+Emacs, and things were getting difficult to manage.  Yet with this
+utility my total load time is around 2 seconds, with no loss of
+functionality!
+
+
+File: use-package.info,  Node: Installation,  Next: Getting Started,  Prev: Introduction,  Up: Top
+
+2 Installation
+**************
+
+use-package can be installed using Emacs’ package manager or manually
+from its development repository.
+
+* Menu:
+
+* Installing from an Elpa Archive::
+* Installing from the Git Repository::
+* Post-Installation Tasks::
+
+
+File: use-package.info,  Node: Installing from an Elpa Archive,  Next: Installing from the Git Repository,  Up: Installation
+
+2.1 Installing from an Elpa Archive
+===================================
+
+use-package is available from Melpa and Melpa-Stable.  If you haven’t
+used Emacs’ package manager before, then it is high time you familiarize
+yourself with it by reading the documentation in the Emacs manual, see
+*note (emacs)Packages::.  Then add one of the archives to
+‘package-archives’:
+
+   • To use Melpa:
+
+     (require 'package)
+     (add-to-list 'package-archives
+     	     '("melpa" . "https://melpa.org/packages/") t)
+
+   • To use Melpa-Stable:
+
+     (require 'package)
+     (add-to-list 'package-archives
+     	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+   Once you have added your preferred archive, you need to update the
+local package list using:
+
+     M-x package-refresh-contents RET
+
+   Once you have done that, you can install use-package and its
+dependencies using:
+
+     M-x package-install RET use-package RET
+
+   Now see *note Post-Installation Tasks::.
+
+
+File: use-package.info,  Node: Installing from the Git Repository,  Next: Post-Installation Tasks,  Prev: Installing from an Elpa Archive,  Up: Installation
+
+2.2 Installing from the Git Repository
+======================================
+
+First, use Git to clone the use-package repository:
+
+     $ git clone https://github.com/jwiegley/use-package.git ~/.emacs.d/site-lisp/use-package
+     $ cd ~/.emacs.d/site-lisp/use-package
+
+   Then compile the libraries and generate the info manuals:
+
+     $ make
+
+   You may need to create ‘/path/to/use-package/config.mk’ with the
+following content before running ‘make’:
+
+     LOAD_PATH  = -L /path/to/use-package
+
+   Finally add this to your init file:
+
+     (add-to-list 'load-path "~/.emacs.d/site-lisp/use-package")
+     (require 'use-package)
+
+     (with-eval-after-load 'info
+       (info-initialize)
+       (add-to-list 'Info-directory-list
+     	       "~/.emacs.d/site-lisp/use-package/"))
+
+   Note that elements of ‘load-path’ should not end with a slash, while
+those of ‘Info-directory-list’ should.
+
+   Instead of running use-package directly from the repository by adding
+it to the ‘load-path’, you might want to instead install it in some
+other directory using ‘sudo make install’ and setting ‘load-path’
+accordingly.
+
+   To update use-package use:
+
+     $ git pull
+     $ make
+
+   At times it might be necessary to run ‘make clean all’ instead.
+
+   To view all available targets use ‘make help’.
+
+   Now see *note Post-Installation Tasks::.
+
+
+File: use-package.info,  Node: Post-Installation Tasks,  Prev: Installing from the Git Repository,  Up: Installation
+
+2.3 Post-Installation Tasks
+===========================
+
+After installing use-package you should verify that you are indeed using
+the use-package release you think you are using.  It’s best to restart
+Emacs before doing so, to make sure you are not using an outdated value
+for ‘load-path’.
+
+     C-h v use-package-version RET
+
+   should display something like
+
+     use-package-version’s value is "2.4"
+
+   If you are completely new to use-package then see *note Getting
+Started::.
+
+   If you run into problems, then please see the *note FAQ::.  Also see
+the *note Debugging Tools::.
+
+
+File: use-package.info,  Node: Getting Started,  Next: Keywords,  Prev: Installation,  Up: Top
+
+3 Getting Started
+*****************
+
+TODO. For now, see ‘README.md’.
+
+
+File: use-package.info,  Node: Keywords,  Next: FAQ,  Prev: Getting Started,  Up: Top
+
+4 Keywords
+**********
+
+* Menu:
+
+* ‘:after’: after.
+* ‘:bind-keymap’, ‘:bind-keymap*’: bind-keymap bind-keymap*.
+* ‘:bind’, ‘:bind*’: bind bind*.
+* ‘:commands’: commands.
+* ‘:preface’, ‘:init’, ‘:config’: preface init config.
+* ‘:custom’: custom.
+* ‘:custom-face’: custom-face.
+* ‘:defer’, ‘:demand’: defer demand.
+* ‘:defines’, ‘:functions’: defines functions.
+* ‘:diminish’, ‘:delight’: diminish delight.
+* ‘:disabled’: disabled.
+* ‘:ensure’, ‘:pin’: ensure pin.
+* ‘:hook’: hook.
+* ‘:if’, ‘:when’, ‘:unless’: if when unless.
+* ‘:load-path’: load-path.
+* ‘:mode’, ‘:interpreter’: mode interpreter.
+* ‘:magic’, ‘:magic-fallback’: magic magic-fallback.
+* ‘:no-require’: no-require.
+* ‘:requires’: requires.
+
+
+File: use-package.info,  Node: after,  Next: bind-keymap bind-keymap*,  Up: Keywords
+
+4.1 ‘:after’
+============
+
+Sometimes it only makes sense to configure a package after another has
+been loaded, because certain variables or functions are not in scope
+until that time.  This can achieved using an ‘:after’ keyword that
+allows a fairly rich description of the exact conditions when loading
+should occur.  Here is an example:
+
+     (use-package hydra
+       :load-path "site-lisp/hydra")
+
+     (use-package ivy
+       :load-path "site-lisp/swiper")
+
+     (use-package ivy-hydra
+       :after (ivy hydra))
+
+   In this case, because all of these packages are demand-loaded in the
+order they occur, the use of ‘:after’ is not strictly necessary.  By
+using it, however, the above code becomes order-independent, without an
+implicit depedence on the nature of your init file.
+
+   By default, ‘:after (foo bar)’ is the same as ‘:after (:all foo
+bar)’, meaning that loading of the given package will not happen until
+both ‘foo’ and ‘bar’ have been loaded.  Here are some of the other
+possibilities:
+
+     :after (foo bar)
+     :after (:all foo bar)
+     :after (:any foo bar)
+     :after (:all (:any foo bar) (:any baz quux))
+     :after (:any (:all foo bar) (:all baz quux))
+
+   When you nest selectors, such as ‘(:any (:all foo bar) (:all baz
+quux))’, it means that the package will be loaded when either both ‘foo’
+and ‘bar’ have been loaded, or both ‘baz’ and ‘quux’ have been loaded.
+
+
+File: use-package.info,  Node: bind-keymap bind-keymap*,  Next: bind bind*,  Prev: after,  Up: Keywords
+
+4.2 ‘:bind-keymap’, ‘:bind-keymap*’
+===================================
+
+Normally ‘:bind’ expects that commands are functions that will be
+autoloaded from the given package.  However, this does not work if one
+of those commands is actually a keymap, since keymaps are not functions,
+and cannot be autoloaded using Emacs’ ‘autoload’ mechanism.
+
+   To handle this case, ‘use-package’ offers a special, limited variant
+of ‘:bind’ called ‘:bind-keymap’.  The only difference is that the
+"commands" bound to by ‘:bind-keymap’ must be keymaps defined in the
+package, rather than command functions.  This is handled behind the
+scenes by generating custom code that loads the package containing the
+keymap, and then re-executes your keypress after the first load, to
+reinterpret that keypress as a prefix key.
+
+   For example:
+
+     (use-package projectile
+       :bind-keymap
+       ("C-c p" . projectile-command-map)
+
+
+File: use-package.info,  Node: bind bind*,  Next: commands,  Prev: bind-keymap bind-keymap*,  Up: Keywords
+
+4.3 ‘:bind’, ‘:bind*’
+=====================
+
+Another common thing to do when loading a module is to bind a key to
+primary commands within that module:
+
+     (use-package ace-jump-mode
+       :bind ("C-." . ace-jump-mode))
+
+   This does two things: first, it creates an autoload for the
+‘ace-jump-mode’ command and defers loading of ‘ace-jump-mode’ until you
+actually use it.  Second, it binds the key ‘C-.’ to that command.  After
+loading, you can use ‘M-x describe-personal-keybindings’ to see all such
+keybindings you’ve set throughout your ‘.emacs’ file.
+
+   A more literal way to do the exact same thing is:
+
+     (use-package ace-jump-mode
+       :commands ace-jump-mode
+       :init
+       (bind-key "C-." 'ace-jump-mode))
+
+   When you use the ‘:commands’ keyword, it creates autoloads for those
+commands and defers loading of the module until they are used.  Since
+the ‘:init’ form is always run—even if ‘ace-jump-mode’ might not be on
+your system—remember to restrict ‘:init’ code to only what would succeed
+either way.
+
+   The ‘:bind’ keyword takes either a cons or a list of conses:
+
+     (use-package hi-lock
+       :bind (("M-o l" . highlight-lines-matching-regexp)
+     	 ("M-o r" . highlight-regexp)
+     	 ("M-o w" . highlight-phrase)))
+
+   The ‘:commands’ keyword likewise takes either a symbol or a list of
+symbols.
+
+   NOTE: Special keys like ‘tab’ or ‘F1’-‘Fn’ can be written in square
+brackets, i.e.  ‘[tab]’ instead of ‘"tab"’.  The syntax for the
+keybindings is similar to the "kbd" syntax: see the Emacs Manual
+(https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-Rebinding.html)
+for more information.
+
+   Examples:
+
+     (use-package helm
+       :bind (("M-x" . helm-M-x)
+     	 ("M-<f5>" . helm-find-files)
+     	 ([f10] . helm-buffers-list)
+     	 ([S-f10] . helm-recentf)))
+
+* Menu:
+
+* Binding to local keymaps::
+
+
+File: use-package.info,  Node: Binding to local keymaps,  Up: bind bind*
+
+4.3.1 Binding to local keymaps
+------------------------------
+
+Slightly different from binding a key to a keymap, is binding a key
+*within* a local keymap that only exists after the package is loaded.
+‘use-package’ supports this with a ‘:map’ modifier, taking the local
+keymap to bind to:
+
+     (use-package helm
+       :bind (:map helm-command-map
+     	 ("C-c h" . helm-execute-persistent-action)))
+
+   The effect of this statement is to wait until ‘helm’ has loaded, and
+then to bind the key ‘C-c h’ to ‘helm-execute-persistent-action’ within
+Helm’s local keymap, ‘helm-mode-map’.
+
+   Multiple uses of ‘:map’ may be specified.  Any binding occurring
+before the first use of ‘:map’ are applied to the global keymap:
+
+     (use-package term
+       :bind (("C-c t" . term)
+     	 :map term-mode-map
+     	 ("M-p" . term-send-up)
+     	 ("M-n" . term-send-down)
+     	 :map term-raw-map
+     	 ("M-o" . other-window)
+     	 ("M-p" . term-send-up)
+     	 ("M-n" . term-send-down)))
+
+
+File: use-package.info,  Node: commands,  Next: preface init config,  Prev: bind bind*,  Up: Keywords
+
+4.4 ‘:commands’
+===============
+
+
+File: use-package.info,  Node: preface init config,  Next: custom,  Prev: commands,  Up: Keywords
+
+4.5 ‘:preface’, ‘:init’, ‘:config’
+==================================
+
+Here is the simplest ‘use-package’ declaration:
+
+     ;; This is only needed once, near the top of the file
+     (eval-when-compile
+       ;; Following line is not needed if use-package.el is in ~/.emacs.d
+       (add-to-list 'load-path "<path where use-package is installed>")
+       (require 'use-package))
+
+     (use-package foo)
+
+   This loads in the package ‘foo’, but only if ‘foo’ is available on
+your system.  If not, a warning is logged to the ‘*Messages*’ buffer.
+If it succeeds, a message about ‘"Loading foo"’ is logged, along with
+the time it took to load, if it took over 0.1 seconds.
+
+   Use the ‘:init’ keyword to execute code before a package is loaded.
+It accepts one or more forms, up until the next keyword:
+
+     (use-package foo
+       :init
+       (setq foo-variable t))
+
+   Similarly, ‘:config’ can be used to execute code after a package is
+loaded.  In cases where loading is done lazily (see more about
+autoloading below), this execution is deferred until after the autoload
+occurs:
+
+     (use-package foo
+       :init
+       (setq foo-variable t)
+       :config
+       (foo-mode 1))
+
+   As you might expect, you can use ‘:init’ and ‘:config’ together:
+
+     (use-package color-moccur
+       :commands (isearch-moccur isearch-all)
+       :bind (("M-s O" . moccur)
+     	 :map isearch-mode-map
+     	 ("M-o" . isearch-moccur)
+     	 ("M-O" . isearch-moccur-all))
+       :init
+       (setq isearch-lazy-highlight t)
+       :config
+       (use-package moccur-edit))
+
+   In this case, I want to autoload the commands ‘isearch-moccur’ and
+‘isearch-all’ from ‘color-moccur.el’, and bind keys both at the global
+level and within the ‘isearch-mode-map’ (see next section).  When the
+package is actually loaded (by using one of these commands),
+‘moccur-edit’ is also loaded, to allow editing of the ‘moccur’ buffer.
+
+
+File: use-package.info,  Node: custom,  Next: custom-face,  Prev: preface init config,  Up: Keywords
+
+4.6 ‘:custom’
+=============
+
+The ‘:custom’ keyword allows customization of package custom variables.
+
+     (use-package comint
+       :custom
+       (comint-buffer-maximum-size 20000 "Increase comint buffer size.")
+       (comint-prompt-read-only t "Make the prompt read only."))
+
+   The documentation string is not mandatory.
+
+
+File: use-package.info,  Node: custom-face,  Next: defer demand,  Prev: custom,  Up: Keywords
+
+4.7 ‘:custom-face’
+==================
+
+The ‘:custom-face’ keyword allows customization of package custom faces.
+
+     (use-package eruby-mode
+       :custom-face
+       (eruby-standard-face ((t (:slant italic)))))
+
+
+File: use-package.info,  Node: defer demand,  Next: defines functions,  Prev: custom-face,  Up: Keywords
+
+4.8 ‘:defer’, ‘:demand’
+=======================
+
+In almost all cases you don’t need to manually specify ‘:defer t’.  This
+is implied whenever ‘:bind’ or ‘:mode’ or ‘:interpreter’ is used.
+Typically, you only need to specify ‘:defer’ if you know for a fact that
+some other package will do something to cause your package to load at
+the appropriate time, and thus you would like to defer loading even
+though use-package isn’t creating any autoloads for you.
+
+   You can override package deferral with the ‘:demand’ keyword.  Thus,
+even if you use ‘:bind’, using ‘:demand’ will force loading to occur
+immediately and not establish an autoload for the bound key.
+
+
+File: use-package.info,  Node: defines functions,  Next: diminish delight,  Prev: defer demand,  Up: Keywords
+
+4.9 ‘:defines’, ‘:functions’
+============================
+
+Another feature of ‘use-package’ is that it always loads every file that
+it can when ‘.emacs’ is being byte-compiled.  This helps to silence
+spurious warnings about unknown variables and functions.
+
+   However, there are times when this is just not enough.  For those
+times, use the ‘:defines’ and ‘:functions’ keywords to introduce dummy
+variable and function declarations solely for the sake of the
+byte-compiler:
+
+     (use-package texinfo
+       :defines texinfo-section-list
+       :commands texinfo-mode
+       :init
+       (add-to-list 'auto-mode-alist '("\\.texi$" . texinfo-mode)))
+
+   If you need to silence a missing function warning, you can use
+‘:functions’:
+
+     (use-package ruby-mode
+       :mode "\\.rb\\'"
+       :interpreter "ruby"
+       :functions inf-ruby-keys
+       :config
+       (defun my-ruby-mode-hook ()
+         (require 'inf-ruby)
+         (inf-ruby-keys))
+
+       (add-hook 'ruby-mode-hook 'my-ruby-mode-hook))
+
+
+File: use-package.info,  Node: diminish delight,  Next: disabled,  Prev: defines functions,  Up: Keywords
+
+4.10 ‘:diminish’, ‘:delight’
+============================
+
+‘use-package’ also provides built-in support for the diminish and
+delight utilities—if you have them installed.  Their purpose is to
+remove or change minor mode strings in your mode-line.
+
+   diminish (https://github.com/myrjola/diminish.el) is invoked with the
+‘:diminish’ keyword, which is passed either a minor mode symbol, a cons
+of the symbol and its replacement string, or just a replacement string,
+in which case the minor mode symbol is guessed to be the package name
+with "-mode" appended at the end:
+
+     (use-package abbrev
+       :diminish abbrev-mode
+       :config
+       (if (file-exists-p abbrev-file-name)
+           (quietly-read-abbrev-file)))
+
+   delight (https://elpa.gnu.org/packages/delight.html) is invoked with
+the ‘:delight’ keyword, which is passed a minor mode symbol, a
+replacement string or quoted mode-line data
+(https://www.gnu.org/software/emacs/manual/html_node/elisp/Mode-Line-Data.html)
+(in which case the minor mode symbol is guessed to be the package name
+with "-mode" appended at the end), both of these, or several lists of
+both.  If no arguments are provided, the default mode name is hidden
+completely.
+
+     ;; Don't show anything for rainbow-mode.
+     (use-package rainbow-mode
+       :delight)
+
+     ;; Don't show anything for auto-revert-mode, which doesn't match
+     ;; its package name.
+     (use-package autorevert
+       :delight auto-revert-mode)
+
+     ;; Remove the mode name for projectile-mode, but show the project name.
+     (use-package projectile
+       :delight '(:eval (concat " " (projectile-project-name))))
+
+     ;; Completely hide visual-line-mode and change auto-fill-mode to " AF".
+     (use-package emacs
+       :delight
+       (auto-fill-function " AF")
+       (visual-line-mode))
+
+
+File: use-package.info,  Node: disabled,  Next: ensure pin,  Prev: diminish delight,  Up: Keywords
+
+4.11 ‘:disabled’
+================
+
+The ‘:disabled’ keyword can turn off a module you’re having difficulties
+with, or stop loading something you’re not using at the present time:
+
+     (use-package ess-site
+       :disabled
+       :commands R)
+
+   When byte-compiling your ‘.emacs’ file, disabled declarations are
+omitted from the output entirely, to accelerate startup times.
+
+
+File: use-package.info,  Node: ensure pin,  Next: hook,  Prev: disabled,  Up: Keywords
+
+4.12 ‘:ensure’, ‘:pin’
+======================
+
+You can use ‘use-package’ to load packages from ELPA with ‘package.el’.
+This is particularly useful if you share your ‘.emacs’ among several
+machines; the relevant packages are downloaded automatically once
+declared in your ‘.emacs’.  The ‘:ensure’ keyword causes the package(s)
+to be installed automatically if not already present on your system (set
+‘(setq use-package-always-ensure t)’ if you wish this behavior to be
+global for all packages):
+
+     (use-package magit
+       :ensure t)
+
+   If you need to install a different package from the one named by
+‘use-package’, you can specify it like this:
+
+     (use-package tex
+       :ensure auctex)
+
+   Lastly, when running on Emacs 24.4 or later, use-package can pin a
+package to a specific archive, allowing you to mix and match packages
+from different archives.  The primary use-case for this is preferring
+packages from the ‘melpa-stable’ and ‘gnu’ archives, but using specific
+packages from ‘melpa’ when you need to track newer versions than what is
+available in the ‘stable’ archives is also a valid use-case.
+
+   By default ‘package.el’ prefers ‘melpa’ over ‘melpa-stable’ due to
+the versioning ‘(> evil-20141208.623 evil-1.0.9)’, so even if you are
+tracking only a single package from ‘melpa’, you will need to tag all
+the non-‘melpa’ packages with the appropriate archive.  If this really
+annoys you, then you can set ‘use-package-always-pin’ to set a default.
+
+   If you want to manually keep a package updated and ignore upstream
+updates, you can pin it to ‘manual’, which as long as there is no
+repository by that name, will Just Work(tm).
+
+   ‘use-package’ throws an error if you try to pin a package to an
+archive that has not been configured using ‘package-archives’ (apart
+from the magic ‘manual’ archive mentioned above):
+
+     Archive 'foo' requested for package 'bar' is not available.
+
+   Example:
+
+     (use-package company
+       :ensure t
+       :pin melpa-stable)
+
+     (use-package evil
+       :ensure t)
+       ;; no :pin needed, as package.el will choose the version in melpa
+
+     (use-package adaptive-wrap
+       :ensure t
+       ;; as this package is available only in the gnu archive, this is
+       ;; technically not needed, but it helps to highlight where it
+       ;; comes from
+       :pin gnu)
+
+     (use-package org
+       :ensure t
+       ;; ignore org-mode from upstream and use a manually installed version
+       :pin manual)
+
+   *NOTE*: the ‘:pin’ argument has no effect on emacs versions < 24.4.
+
+
+File: use-package.info,  Node: hook,  Next: if when unless,  Prev: ensure pin,  Up: Keywords
+
+4.13 ‘:hook’
+============
+
+The ‘:hook’ keyword allows adding functions onto hooks, here only the
+basename of the hook is required.  Thus, all of the following are
+equivalent:
+
+     (use-package ace-jump-mode
+       :hook prog-mode)
+
+     (use-package ace-jump-mode
+       :hook (prog-mode . ace-jump-mode))
+
+     (use-package ace-jump-mode
+       :commands ace-jump-mode
+       :init
+       (add-hook 'prog-mode-hook #'ace-jump-mode))
+
+   And likewise, when multiple hooks should be applied, the following
+are also equivalent:
+
+     (use-package ace-jump-mode
+       :hook (prog-mode text-mode))
+
+     (use-package ace-jump-mode
+       :hook ((prog-mode text-mode) . ace-jump-mode))
+
+     (use-package ace-jump-mode
+       :hook ((prog-mode . ace-jump-mode)
+     	 (text-mode . ace-jump-mode)))
+
+     (use-package ace-jump-mode
+       :commands ace-jump-mode
+       :init
+       (add-hook 'prog-mode-hook #'ace-jump-mode)
+       (add-hook 'text-mode-hook #'ace-jump-mode))
+
+   The use of ‘:hook’, as with ‘:bind’, ‘:mode’, ‘:interpreter’, etc.,
+causes the functions being hooked to implicitly be read as ‘:commands’
+(meaning they will establish interactive ‘autoload’ definitions for that
+module, if not already defined as functions), and so ‘:defer t’ is also
+implied by ‘:hook’.
+
+
+File: use-package.info,  Node: if when unless,  Next: load-path,  Prev: hook,  Up: Keywords
+
+4.14 ‘:if’, ‘:when’, ‘:unless’
+==============================
+
+You can use the ‘:if’ keyword to predicate the loading and
+initialization of modules.
+
+   For example, I only want ‘edit-server’ running for my main, graphical
+Emacs, not for other Emacsen I may start at the command line:
+
+     (use-package edit-server
+       :if window-system
+       :init
+       (add-hook 'after-init-hook 'server-start t)
+       (add-hook 'after-init-hook 'edit-server-start t))
+
+   In another example, we can load things conditional on the operating
+system:
+
+     (use-package exec-path-from-shell
+       :if (memq window-system '(mac ns))
+       :ensure t
+       :config
+       (exec-path-from-shell-initialize))
+
+   Note that ‘:when’ is provided as an alias for ‘:if’, and ‘:unless
+foo’ means the same thing as ‘:if (not foo)’.
+
+
+File: use-package.info,  Node: load-path,  Next: mode interpreter,  Prev: if when unless,  Up: Keywords
+
+4.15 ‘:load-path’
+=================
+
+If your package needs a directory added to the ‘load-path’ in order to
+load, use ‘:load-path’.  This takes a symbol, a function, a string or a
+list of strings.  If the path is relative, it is expanded within
+‘user-emacs-directory’:
+
+     (use-package ess-site
+       :load-path "site-lisp/ess/lisp/"
+       :commands R)
+
+   Note that when using a symbol or a function to provide a dynamically
+generated list of paths, you must inform the byte-compiler of this
+definition so the value is available at byte-compilation time.  This is
+done by using the special form ‘eval-and-compile’ (as opposed to
+‘eval-when-compile’).  Further, this value is fixed at whatever was
+determined during compilation, to avoid looking up the same information
+again on each startup:
+
+     (eval-and-compile
+       (defun ess-site-load-path ()
+         (shell-command "find ~ -path ess/lisp")))
+
+     (use-package ess-site
+       :load-path (lambda () (list (ess-site-load-path)))
+       :commands R)
+
+
+File: use-package.info,  Node: mode interpreter,  Next: magic magic-fallback,  Prev: load-path,  Up: Keywords
+
+4.16 ‘:mode’, ‘:interpreter’
+============================
+
+Similar to ‘:bind’, you can use ‘:mode’ and ‘:interpreter’ to establish
+a deferred binding within the ‘auto-mode-alist’ and
+‘interpreter-mode-alist’ variables.  The specifier to either keyword can
+be a cons cell, a list of cons cells, or a string or regexp:
+
+     (use-package ruby-mode
+       :mode "\\.rb\\'"
+       :interpreter "ruby")
+
+     ;; The package is "python" but the mode is "python-mode":
+     (use-package python
+       :mode ("\\.py\\'" . python-mode)
+       :interpreter ("python" . python-mode))
+
+   If you aren’t using ‘:commands’, ‘:bind’, ‘:bind*’, ‘:bind-keymap’,
+‘:bind-keymap*’, ‘:mode’, or ‘:interpreter’ (all of which imply
+‘:defer’; see the docstring for ‘use-package’ for a brief description of
+each), you can still defer loading with the ‘:defer’ keyword:
+
+     (use-package ace-jump-mode
+       :defer t
+       :init
+       (autoload 'ace-jump-mode "ace-jump-mode" nil t)
+       (bind-key "C-." 'ace-jump-mode))
+
+   This does exactly the same thing as the following:
+
+     (use-package ace-jump-mode
+       :bind ("C-." . ace-jump-mode))
+
+
+File: use-package.info,  Node: magic magic-fallback,  Next: no-require,  Prev: mode interpreter,  Up: Keywords
+
+4.17 ‘:magic’, ‘:magic-fallback’
+================================
+
+Similar to ‘:mode‘ and ‘:interpreter‘, you can also use ‘:magic‘ and
+‘:magic-fallback‘ to cause certain function to be run if the beginning
+of a file matches a given regular expression.  The difference between
+the two is that ‘:magic-fallback‘ has a lower priority than ‘:mode‘.
+For example:
+
+   “‘ elisp (use-package pdf-tools :load-path "site-lisp/pdf-tools/lisp"
+:magic ("%PDF" .  pdf-view-mode) :config (pdf-tools-install)) “‘
+
+   This registers an autoloaded command for ‘pdf-view-mode‘, defers
+loading of ‘pdf-tools‘, and runs ‘pdf-view-mode‘ if the beginning of a
+buffer matches the string ‘"%PDF"‘.
+
+
+File: use-package.info,  Node: no-require,  Next: requires,  Prev: magic magic-fallback,  Up: Keywords
+
+4.18 ‘:no-require’
+==================
+
+Normally, ‘use-package’ will load each package at compile time before
+compiling the configuration, to ensure that any necessary symbols are in
+scope to satisfy the byte-compiler.  At times this can cause problems,
+since a package may have special loading requirements, and all that you
+want to use ‘use-package’ for is to add a configuration to the
+‘eval-after-load’ hook.  In such cases, use the ‘:no-require’ keyword:
+
+     (use-package foo
+       :no-require t
+       :config
+       (message "This is evaluated when `foo' is loaded"))
+
+
+File: use-package.info,  Node: requires,  Prev: no-require,  Up: Keywords
+
+4.19 ‘:requires’
+================
+
+While the ‘:after’ keyword delays loading until the dependencies are
+loaded, the somewhat simpler ‘:requires’ keyword simply never loads the
+package if the dependencies are not available at the time the
+‘use-package’ declaration is encountered.  By "available" in this
+context it means that ‘foo’ is available of ‘(featurep 'foo)’ evaulates
+to a non-nil value.  For example:
+
+     (use-package abbrev
+       :requires foo)
+
+   This is the same as:
+
+     (use-package abbrev
+       :if (featurep 'foo))
+
+   As a convenience, a list of such packages may be specified:
+
+     (use-package abbrev
+       :requires (foo bar baz))
+
+   For more complex logic, such as that supported by ‘:after’, simply
+use ‘:if’ and the appropriate Lisp expression.
+
+
+File: use-package.info,  Node: FAQ,  Next: Debugging Tools,  Prev: Keywords,  Up: Top
+
+Appendix A FAQ
+**************
+
+The next two nodes lists frequently asked questions.
+
+   Please also use the *note Debugging Tools::.
+
+* Menu:
+
+* FAQ - How to ...?::
+* FAQ - Issues and Errors::
+
+
+File: use-package.info,  Node: FAQ - How to ...?,  Next: FAQ - Issues and Errors,  Up: FAQ
+
+A.1 FAQ - How to ...?
+=====================
+
+* Menu:
+
+* This is a question::
+
+
+File: use-package.info,  Node: This is a question,  Up: FAQ - How to ...?
+
+A.1.1 This is a question
+------------------------
+
+This is an answer.
+
+
+File: use-package.info,  Node: FAQ - Issues and Errors,  Prev: FAQ - How to ...?,  Up: FAQ
+
+A.2 FAQ - Issues and Errors
+===========================
+
+* Menu:
+
+* This is an issues::
+
+
+File: use-package.info,  Node: This is an issues,  Up: FAQ - Issues and Errors
+
+A.2.1 This is an issues
+-----------------------
+
+This is a description.
+
+
+File: use-package.info,  Node: Debugging Tools,  Next: Command Index,  Prev: FAQ,  Up: Top
+
+B Debugging Tools
+*****************
+
+TODO
+
+   Please also see the *note FAQ::.
+
+
+File: use-package.info,  Node: Command Index,  Next: Function Index,  Prev: Debugging Tools,  Up: Top
+
+Appendix C Command Index
+************************
+
+
+File: use-package.info,  Node: Function Index,  Next: Variable Index,  Prev: Command Index,  Up: Top
+
+Appendix D Function Index
+*************************
+
+
+File: use-package.info,  Node: Variable Index,  Prev: Function Index,  Up: Top
+
+Appendix E Variable Index
+*************************
+
+
+
+Tag Table:
+Node: Top784
+Node: Introduction2819
+Node: Installation3306
+Node: Installing from an Elpa Archive3658
+Node: Installing from the Git Repository4773
+Node: Post-Installation Tasks6309
+Node: Getting Started7022
+Node: Keywords7194
+Node: after8113
+Node: bind-keymap bind-keymap*9645
+Node: bind bind*10698
+Node: Binding to local keymaps12738
+Node: commands13829
+Node: preface init config13971
+Node: custom16049
+Node: custom-face16489
+Node: defer demand16809
+Node: defines functions17621
+Node: diminish delight18766
+Node: disabled20709
+Node: ensure pin21204
+Node: hook23934
+Node: if when unless25352
+Node: load-path26298
+Node: mode interpreter27444
+Node: magic magic-fallback28755
+Node: no-require29600
+Node: requires30304
+Node: FAQ31191
+Node: FAQ - How to ...?31474
+Node: This is a question31646
+Node: FAQ - Issues and Errors31794
+Node: This is an issues31977
+Node: Debugging Tools32132
+Node: Command Index32306
+Node: Function Index32462
+Node: Variable Index32619
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
