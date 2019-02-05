@@ -204,6 +204,13 @@
   :ensure t
   :bind ("M-y" . popup-kill-ring))
 
+;; Company
+(use-package company
+  :ensure t
+  :diminish company-mode
+  :defer t
+  :init (global-company-mode))
+
 ;; FlyCheck
 (use-package flycheck
   :ensure t
