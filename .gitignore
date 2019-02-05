@@ -1,3 +1,6 @@
 auto-save-list/
 elpa/
+server/
 ac-comphist.dat
+init.el~
+recentf
