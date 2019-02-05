@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ magit-version
  package-reinstall
  package-refresh-contents
  display-time-mode
  eval-buffer
  shell
  eww
- magit-version
 )
 
 ;; ----- smex-data -----
@@ -47,4 +47,5 @@
  (smartparens-mode . 1)
  (display-time-mode . 1)
  (package-reinstall . 1)
+ (magit-version . 2)
 )
