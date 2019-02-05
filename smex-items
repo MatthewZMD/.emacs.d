@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
- eww
- package-install
+ display-time-mode
+ smartparens-mode
+ eval-buffer
  shell
- emacs-lisp-mode
- web-mode
- web-mode-test
- package-menu-mark-upgrades
+ eww
+ magit-version
+ package-install
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 39)
+ (eval-buffer . 41)
  (package-delete . 3)
  (dired . 2)
  (package-install . 18)
@@ -44,4 +44,6 @@
  (list-packages . 1)
  (web-mode-test . 2)
  (web-mode . 1)
+ (smartparens-mode . 1)
+ (display-time-mode . 1)
 )

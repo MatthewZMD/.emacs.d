@@ -862,7 +862,7 @@
 	  ((:url . "http://elpa.gnu.org/packages/oauth2.html")
 	   (:keywords "comm"))])
  (objed .
-	[(0 4 1)
+	[(0 5 0)
 	 ((emacs
 	   (25))
 	  (cl-lib
@@ -1336,7 +1336,7 @@
 	 ((:url . "http://elpa.gnu.org/packages/xclip.html")
 	  (:keywords "convenience" "tools"))])
  (xelb .
-       [(0 16)
+       [(0 17)
 	((emacs
 	  (24 4))
 	 (cl-generic

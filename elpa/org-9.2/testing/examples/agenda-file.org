@@ -1,6 +1,0 @@
-* Test Agenda
-
-<2017-03-10 Fri>
-* test agenda
-SCHEDULED: <2017-07-19 Wed>
-** subnote

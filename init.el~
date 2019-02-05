@@ -236,6 +236,7 @@
 ;; TypeScript mode
 (use-package typescript-mode :ensure t)
 
+
 ;; Tide
 (use-package tide
   :ensure t
