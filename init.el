@@ -112,7 +112,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -122,9 +122,6 @@
 
 
 ;; Packages
-
-;; Diminish (hide minor modes from mode line
-(use-package diminish :ensure t)
 
 ;; Doom-theme
 (use-package doom-themes
@@ -137,6 +134,21 @@
   :ensure t
   :defer t
   :bind ("C-x g" . magit-status))
+
+;; Diminish (hide minor modes from mode line
+(use-package diminish :ensure t)
+
+(use-package page-break-lines
+  :ensure t
+  :config
+  (page-break-lines-mode))
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-banner-logo-title "Welcome to The Wired")
+  (setq dashboard-startup-banner "~/.emacs.d/images/KEC.png"))
 
 ;; Avy
 (use-package avy

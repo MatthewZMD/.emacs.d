@@ -1,6 +1,7 @@
 auto-save-list/
 elpa/
 server/
+url/
 ac-comphist.dat
 init.el~
 recentf
