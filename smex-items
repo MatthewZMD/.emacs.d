@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ package-reinstall
+ package-refresh-contents
  display-time-mode
- smartparens-mode
  eval-buffer
  shell
  eww
  magit-version
- package-install
 )
 
 ;; ----- smex-data -----
@@ -19,7 +19,7 @@
  (org-mode . 1)
  (emacs-lisp-mode . 3)
  (ace-jump-mode . 2)
- (package-refresh-contents . 2)
+ (package-refresh-contents . 3)
  (flycheck-mode . 2)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
@@ -46,4 +46,5 @@
  (web-mode . 1)
  (smartparens-mode . 1)
  (display-time-mode . 1)
+ (package-reinstall . 1)
 )
