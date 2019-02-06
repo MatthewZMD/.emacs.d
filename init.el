@@ -113,7 +113,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -148,7 +148,7 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-banner-logo-title "Welcome to The Wired.")
+  (setq dashboard-banner-logo-title "Present Day, Present Time...")
   (setq dashboard-startup-banner "~/.emacs.d/images/KEC.png"))
 
 ;; init time shown on dashboard
@@ -245,11 +245,21 @@
   :ensure t
   :init (format-all-mode))
 
+(use-package dimmer
+  :ensure t
+  :init (dimmer-mode)
+  :config
+  (setq dimmer-fraction 0.35)
+  (setq dimmer-exclusion-regexp " *Minibuf-1*")
+  (setq dimmer-exclusion-regexp " *Minibuf-2*")
+  (setq dimmer-exclusion-regexp "*dashboard*"))
+
 ;; Smartparens (customize this more)
 (use-package smartparens
   :ensure t
   :diminish smartparens-mode
-  :config (add-hook 'prog-mode-hook #'smartparens-mode))
+  :config
+  (add-hook 'prog-mode-hook #'smartparens-mode))
 
 ;; 2048 Game
 (use-package 2048-game :ensure t)
@@ -290,7 +300,11 @@
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save))
-  :config (flycheck-add-mode 'typescript-tslint 'web-mode))
+  :config
+  (flycheck-add-mode 'typescript-tslint 'web-mode)
+  (add-hook 'js2-mode-hook #'setup-tide-mode)
+  ;; configure javascript-tide checker to run after your default javascript checker
+  (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
 
 ;; Emmet-mode
 (use-package emmet-mode
@@ -300,5 +314,5 @@
   (add-hook 'css-mode-hook  'emmet-mode)) ;; enable Emmet's css abbreviation.)
 
 
-  (provide 'init)
+(provide 'init)
 ;;; init.el ends here

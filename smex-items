@@ -1,11 +1,11 @@
 
 ;; ----- smex-history -----
 (
+ shell
  eval-buffer
  flycheck-verify-checker
  typescript-mode
  web-mode
- shell
  revert-buffer
  eww
 )
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 9)
+ (shell . 11)
  (package-menu-mark-upgrades . 4)
  (list-packages . 1)
  (web-mode-test . 2)
