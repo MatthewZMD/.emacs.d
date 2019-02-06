@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ window-resize-width
+ shrink-window
+ enlarge-window
+ enlarge-window-horizontally
+ eww
  shell
  eval-buffer
- flycheck-verify-checker
- typescript-mode
- web-mode
- revert-buffer
- eww
 )
 
 ;; ----- smex-data -----
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 18)
+ (eww . 20)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 11)
+ (shell . 16)
  (package-menu-mark-upgrades . 4)
  (list-packages . 1)
  (web-mode-test . 2)
@@ -49,7 +49,16 @@
  (package-reinstall . 2)
  (magit-version . 2)
  (speed-type-text . 1)
- (revert-buffer . 2)
+ (revert-buffer . 4)
  (flycheck-verify-checker . 6)
  (typescript-mode . 2)
+ (isearch-highlight-regexp . 1)
+ (isearch-query-replace-regexp . 2)
+ (regexp-builder . 1)
+ (shrink-window . 2)
+ (enlarge-window-horizontally . 1)
+ (enlarge-window . 2)
+ (window-resize-70 . 2)
+ (window-resize-66 . 2)
+ (window-resize-width . 9)
 )
