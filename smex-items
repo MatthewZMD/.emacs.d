@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
+ eval-buffer
  flycheck-verify-checker
- revert-buffer
+ typescript-mode
+ web-mode
  shell
+ revert-buffer
  eww
- package-install
- package-refresh-contents
- package-reinstall
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 41)
+ (eval-buffer . 42)
  (package-delete . 3)
  (dired . 2)
  (package-install . 22)
@@ -39,16 +39,17 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 5)
+ (shell . 9)
  (package-menu-mark-upgrades . 4)
  (list-packages . 1)
  (web-mode-test . 2)
- (web-mode . 1)
+ (web-mode . 3)
  (smartparens-mode . 1)
  (display-time-mode . 1)
  (package-reinstall . 2)
  (magit-version . 2)
  (speed-type-text . 1)
  (revert-buffer . 2)
- (flycheck-verify-checker . 4)
+ (flycheck-verify-checker . 6)
+ (typescript-mode . 2)
 )
