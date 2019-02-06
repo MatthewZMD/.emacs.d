@@ -1,3 +1,4 @@
+
 ;;; package --- Summary
 ;;; This is MT`s personal init.el file for EMACS
 ;;; Commentary:
@@ -95,9 +96,12 @@
   "Resizes the window width based on W."
   (interactive "nSet the current window width (0~1): ")
   (window-resize nil (- (truncate (* w (frame-width))) (window-total-width)) t))
+(global-set-key (kbd "C-x C-|") 'window-resize-width)
 
 
-;; Package configs
+
+
+;;; Package configs
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
@@ -182,7 +186,7 @@
   :init (ivy-mode 1)
   :config
   (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "[%d/%d] ")
+  (setq ivy-count-format "【%d/%d】")
   (setq ivy-wrap t))
 
 ;; Counsel
