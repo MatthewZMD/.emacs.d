@@ -230,7 +230,10 @@
 ;; FlyCheck
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode))
+  :init (global-flycheck-mode)
+  :config
+  (flycheck-add-mode 'typescript-tslint 'js2-mode)
+  (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
 
 ;; Auto-complete
 (use-package auto-complete
@@ -268,6 +271,15 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
 
+;; JS2-mode
+(use-package js2-mode :ensure t)
+
+;; JSon-mode
+(use-package json-mode :ensure t)
+
+;; Rjsx-mode
+(use-package rjsx-mode :ensure t)
+
 ;; TypeScript mode
 (use-package typescript-mode :ensure t)
 
@@ -277,7 +289,8 @@
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
+         (before-save . tide-format-before-save))
+  :config (flycheck-add-mode 'typescript-tslint 'web-mode))
 
 ;; Emmet-mode
 (use-package emmet-mode
@@ -287,5 +300,5 @@
   (add-hook 'css-mode-hook  'emmet-mode)) ;; enable Emmet's css abbreviation.)
 
 
-(provide 'init)
+  (provide 'init)
 ;;; init.el ends here
