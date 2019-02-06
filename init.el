@@ -1,3 +1,4 @@
+
 ;;; package --- Summary
 ;;; This is MT`s personal init.el file for EMACS
 ;;; Commentary:
@@ -112,7 +113,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -147,7 +148,7 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-banner-logo-title "Welcome to The Wired")
+  (setq dashboard-banner-logo-title "Welcome to The Wired.")
   (setq dashboard-startup-banner "~/.emacs.d/images/KEC.png"))
 
 ;; Avy
@@ -226,7 +227,7 @@
   :ensure t
   :init (format-all-mode))
 
-;; smartparens (customize this more)
+;; Smartparens (customize this more)
 (use-package smartparens
   :ensure t
   :diminish smartparens-mode
@@ -269,7 +270,6 @@
   :config
   (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook  'emmet-mode)) ;; enable Emmet's css abbreviation.)
-
 
 
 (provide 'init)
