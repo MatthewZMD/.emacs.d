@@ -90,6 +90,12 @@
 ;; add to target in the shortcut properties
 ;; "path to emacsclientw.exe\emacsclientw.exe" -c -n -a ""
 
+;; Resizes the window width based on the input
+(defun window-resize-width (w)
+  "Resizes the window width based on W."
+  (interactive "nSet the current window width (0~1): ")
+  (window-resize nil (- (truncate (* w (frame-width))) (window-total-width)) t))
+
 
 ;; Package configs
 (require 'package)
@@ -250,9 +256,7 @@
   :init (dimmer-mode)
   :config
   (setq dimmer-fraction 0.35)
-  (setq dimmer-exclusion-regexp " *Minibuf-1*")
-  (setq dimmer-exclusion-regexp " *Minibuf-2*")
-  (setq dimmer-exclusion-regexp "*dashboard*"))
+  (setq dimmer-exclusion-regexp "\\*Minibuf-[0-9]+\\*\\|\\*dashboard\\*"))
 
 ;; Smartparens (customize this more)
 (use-package smartparens
