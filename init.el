@@ -277,7 +277,7 @@
 ;; JSon-mode
 (use-package json-mode :ensure t)
 
-;; Rjsx-mode
+;; RJSX-mode
 (use-package rjsx-mode :ensure t)
 
 ;; TypeScript mode
