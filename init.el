@@ -1,4 +1,3 @@
-
 ;;; package --- Summary
 ;;; This is MT`s personal init.el file for EMACS
 ;;; Commentary:
@@ -42,7 +41,6 @@
     (tooltip-mode    -1)
     (menu-bar-mode   -1)
 
-
     ;; Maximize the frame
     (toggle-frame-maximized)
 
@@ -53,8 +51,8 @@
     (global-hl-line-mode)
     (blink-cursor-mode -1)
 
-    (when (version<= "26.0.50" emacs-version )
-      (global-display-line-numbers-mode))
+    ;; (when (version<= "26.0.50" emacs-version )
+    ;;   (global-display-line-numbers-mode))
 
     ;; NOTE(nox): This needs to be here, else it doesn't work
     (setq-default system-time-locale "C")))
@@ -63,6 +61,8 @@
     (add-hook 'after-make-frame-functions 'nox/setup-appearance)
   (nox/setup-appearance (car (frame-list))))
 
+;; hook line numbers to only when files are opened
+(add-hook 'find-file-hook #'display-line-numbers-mode)
 
 ;; Eval-buffer ELisp Code
 (global-set-key (kbd "<f5>") 'eval-buffer)
@@ -151,6 +151,15 @@
   (setq dashboard-banner-logo-title "Welcome to The Wired.")
   (setq dashboard-startup-banner "~/.emacs.d/images/KEC.png"))
 
+;; init time shown on dashboard
+(defun dashboard-init-time (list-size)
+  """Set a dashboard item including information on package initialization
+   time and garbage collections."""
+  (insert (format "Emacs ready in %.2f seconds with %d garbage collections."
+		  (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
+(add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
+(add-to-list 'dashboard-items '(init-time)) ;; note adding t as 4 param adds to back of list
+
 ;; Avy
 (use-package avy
   :ensure t
@@ -210,7 +219,13 @@
   :ensure t
   :diminish company-mode
   :defer t
-  :init (global-company-mode))
+  :init (global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 1)
+  (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
+  (setq company-idle-delay 0)                           ; decrease delay before autocompletion popup shows
+  (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+  (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)) ; tab -> autocompletion
 
 ;; FlyCheck
 (use-package flycheck
