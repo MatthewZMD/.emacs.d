@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
- dashboard-refresh-buffer
- nox/change-font
- set-face-font
- shell
- window-resize-width
- shrink-window
+ eval-region
  eval-buffer
+ toggle-frame-maximized
+ dired-do-copy
+ shell
+ comment-dwim
+ eww
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 42)
+ (eval-buffer . 44)
  (package-delete . 3)
  (dired . 2)
  (package-install . 22)
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 20)
+ (eww . 21)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 17)
+ (shell . 20)
  (package-menu-mark-upgrades . 4)
  (list-packages . 1)
  (web-mode-test . 2)
@@ -65,4 +65,8 @@
  (set-face-font . 1)
  (change-dashboard-title-face . 6)
  (dashboard-refresh-buffer . 7)
+ (comment-dwim . 1)
+ (dired-do-copy . 1)
+ (toggle-frame-maximized . 1)
+ (eval-region . 1)
 )

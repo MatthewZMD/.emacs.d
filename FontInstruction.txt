@@ -1,2 +1,0 @@
-I personally recommend Input font (download from http://input.fontbureau.com/)
-Set Line Height to 1.3 and Monaco style.
