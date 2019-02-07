@@ -87,10 +87,10 @@
 ;; "path to emacsclientw.exe\emacsclientw.exe" -c -n -a ""
 
 ;; run-bash command
-(defun run-bash ()
-  (interactive)
-  (let ((shell-file-name "C:\\Program Files\\Git\\bin\\bash.exe"))
-    (shell "*bash*")))
+;; (defun run-bash ()
+;;   (interactive)
+;;   (let ((shell-file-name "C:\\Program Files\\Git\\bin\\bash.exe"))
+;;     (shell "*bash*")))
 
 ;; Resizes the window width based on the input
 (defun window-resize-width (w)
