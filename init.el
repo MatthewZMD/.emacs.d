@@ -15,7 +15,7 @@
     (dolist (font nox/fonts (setq available-fonts (nreverse available-fonts)))
       (when (member (car font) (font-family-list))
         (push font available-fonts)))
-    
+
     (if (not available-fonts)
         (error "No fonts from the chosen set are available")
       (if (called-interactively-p 'interactive)
@@ -68,11 +68,6 @@
 ;; Eval-buffer ELisp Code
 (global-set-key (kbd "<f5>") 'eval-buffer)
 
-
-;; Column Number
-;; (global-linum-mode t)
-
-
 ;; Auto-rename new eww buffers
 (defun xah-rename-eww-hook ()
   "Rename eww browser's buffer so sites open in new page."
@@ -97,7 +92,6 @@
   (interactive "nSet the current window width (0~1): ")
   (window-resize nil (- (truncate (* w (frame-width))) (window-total-width)) t))
 (global-set-key (kbd "C-x C-|") 'window-resize-width)
-
 
 
 ;;; Package configs
@@ -167,6 +161,10 @@
 		  (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
 (add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
 (add-to-list 'dashboard-items '(init-time)) ;; note adding t as 4 param adds to back of list
+
+;;Set the Dashboard banner logo title font to Love LetterTW
+(custom-set-faces '(dashboard-banner-logo-title-face ((t (:family "Love LetterTW" :height 120)))))
+
 
 ;; Avy
 (use-package avy
