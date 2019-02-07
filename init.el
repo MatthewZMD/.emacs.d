@@ -142,7 +142,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(dashboard-banner-logo-title-face ((t (:family "Love LetterTW" :height 120)))))
+ '(dashboard-banner-logo-title-face ((t (:family "Love LetterTW" :height 125)))))
 
 
 ;; Packages
@@ -151,7 +151,7 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-solarized-light t))
+  (load-theme 'doom-spacegrey t))
 
 ;; Magit
 (use-package magit
@@ -172,7 +172,9 @@
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Present Day, Present Time...")
-  (setq dashboard-startup-banner "~/.emacs.d/images/KEC.png"))
+  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK.png"))
+;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
+
 
 ;; init time shown on dashboard
 (defun dashboard-init-time (list-size)
