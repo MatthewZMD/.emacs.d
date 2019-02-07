@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ load-theme
+ shell
  eval-region
  eval-buffer
  toggle-frame-maximized
  dired-do-copy
- shell
  comment-dwim
- eww
 )
 
 ;; ----- smex-data -----
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 20)
+ (shell . 21)
  (package-menu-mark-upgrades . 4)
  (list-packages . 1)
  (web-mode-test . 2)
@@ -69,4 +69,5 @@
  (dired-do-copy . 1)
  (toggle-frame-maximized . 1)
  (eval-region . 1)
+ (load-theme . 3)
 )
