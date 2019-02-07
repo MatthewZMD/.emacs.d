@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
+ nox/change-font
+ recenter
+ package-reinstall
+ eval-buffer
  window-resize-width
  shrink-window
  enlarge-window
- enlarge-window-horizontally
- eww
- shell
- eval-buffer
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 42)
+ (eval-buffer . 43)
  (package-delete . 3)
  (dired . 2)
  (package-install . 22)
@@ -46,7 +46,7 @@
  (web-mode . 3)
  (smartparens-mode . 1)
  (display-time-mode . 1)
- (package-reinstall . 2)
+ (package-reinstall . 3)
  (magit-version . 2)
  (speed-type-text . 1)
  (revert-buffer . 4)
@@ -61,4 +61,6 @@
  (window-resize-70 . 2)
  (window-resize-66 . 2)
  (window-resize-width . 9)
+ (nox/change-font . 36)
+ (recenter . 1)
 )

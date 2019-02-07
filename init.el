@@ -1,11 +1,11 @@
-
 ;;; package --- Summary
 ;;; This is MT`s personal init.el file for EMACS
 ;;; Commentary:
 ;;; Code:
 
 ;; next few lines are from a guy on reddit basically sets font and theme for the daemon
-(defvar nox/fonts '(("Input" . 11) ("SF Mono" . 11) ("Consolas" . 11))
+;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
+(defvar nox/fonts '(("Input" . 11) ("SF Mono" . 11) ("Consolas" . 11) ("Love LetterTW" . 13))
   "List of fonts and sizes.  The first one available will be used.")
 
 (defun nox/change-font ()
@@ -15,7 +15,7 @@
     (dolist (font nox/fonts (setq available-fonts (nreverse available-fonts)))
       (when (member (car font) (font-family-list))
         (push font available-fonts)))
-
+    
     (if (not available-fonts)
         (error "No fonts from the chosen set are available")
       (if (called-interactively-p 'interactive)
@@ -100,7 +100,6 @@
 
 
 
-
 ;;; Package configs
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -123,7 +122,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -163,8 +162,7 @@
 
 ;; init time shown on dashboard
 (defun dashboard-init-time (list-size)
-  """Set a dashboard item including information on package initialization
-   time and garbage collections."""
+  "LIST-SIZE Set a dashboard item including information on package initialization time and garbage collections."
   (insert (format "Emacs ready in %.2f seconds with %d garbage collections."
 		  (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
 (add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
