@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
+ dashboard-refresh-buffer
  nox/change-font
- recenter
- package-reinstall
- eval-buffer
+ set-face-font
+ shell
  window-resize-width
  shrink-window
- enlarge-window
+ eval-buffer
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 43)
+ (eval-buffer . 42)
  (package-delete . 3)
  (dired . 2)
  (package-install . 22)
@@ -46,7 +46,7 @@
  (web-mode . 3)
  (smartparens-mode . 1)
  (display-time-mode . 1)
- (package-reinstall . 3)
+ (package-reinstall . 2)
  (magit-version . 2)
  (speed-type-text . 1)
  (revert-buffer . 4)
@@ -58,7 +58,11 @@
  (shrink-window . 2)
  (enlarge-window-horizontally . 1)
  (enlarge-window . 2)
+ (window-resize-70 . 2)
+ (window-resize-66 . 2)
  (window-resize-width . 9)
- (nox/change-font . 36)
- (recenter . 1)
+ (nox/change-font . 7)
+ (set-face-font . 1)
+ (change-dashboard-title-face . 6)
+ (dashboard-refresh-buffer . 7)
 )
