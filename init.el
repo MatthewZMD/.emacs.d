@@ -89,9 +89,23 @@
 ;; Resizes the window width based on the input
 (defun window-resize-width (w)
   "Resizes the window width based on W."
-  (interactive "nSet the current window width (0~1): ")
+  (interactive (list (if (> (count-windows) 1)
+			 (read-number "Set the current window width (0~1): ")
+		       (error "You need more than 1 window to execute this function!"))))
+  (message "%s" w)
   (window-resize nil (- (truncate (* w (frame-width))) (window-total-width)) t))
 (global-set-key (kbd "C-x C-|") 'window-resize-width)
+
+;; Resizes the window height based on the input
+(defun window-resize-height (h)
+  "Resizes the window height based on H."
+  (interactive (list (if (> (count-windows) 1)
+			 (read-number "Set the current window height (0~1): ")
+		       (error "You need more than 1 window to execute this function!"))))
+  (message "%s" h)
+  (window-resize nil (- (truncate (* h (frame-height))) (window-total-height)) nil))
+(global-set-key (kbd "C-x C-_") 'window-resize-height)
+
 
 
 ;;; Package configs
