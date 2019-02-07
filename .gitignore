@@ -1,10 +1,13 @@
+.cache/
 auto-save-list/
 elpa/
 server/
 url/
 ac-comphist.dat
+emacs_backtrace
 init.el~
+projectile.cache
+projectile-bookmarks.eld~
 recentf
 recentf~
-emacs_backtrace
 #init.el#
