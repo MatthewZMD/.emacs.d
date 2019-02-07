@@ -1,12 +1,12 @@
 
 ;; ----- smex-history -----
 (
+ shell
  window-resize-width
  shrink-window
  enlarge-window
  enlarge-window-horizontally
  eww
- shell
  eval-buffer
 )
 
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 16)
+ (shell . 17)
  (package-menu-mark-upgrades . 4)
  (list-packages . 1)
  (web-mode-test . 2)
