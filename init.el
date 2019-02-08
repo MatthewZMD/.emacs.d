@@ -1,4 +1,3 @@
-
 ;;; package --- Summary
 ;;; This is MT`s personal init.el file for EMACS
 ;;; Commentary:
@@ -53,6 +52,9 @@
     (global-hl-line-mode)
     (blink-cursor-mode -1)
 
+    ;; Column Number
+    ;;(global-linum-mode t)
+
     ;; (when (version<= "26.0.50" emacs-version )
     ;;   (global-display-line-numbers-mode))
 
@@ -65,6 +67,7 @@
 
 ;; hook line numbers to only when files are opened
 (add-hook 'find-file-hook #'display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;; Eval-buffer ELisp Code
 (global-set-key (kbd "<f5>") 'eval-buffer)
@@ -137,7 +140,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (ag dumb-jump ng2-mode spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -188,12 +191,16 @@
 ;;Set the Dashboard banner logo title font to Love LetterTW
 
 
+;; AG Silver Searcher
+;; #TODO not working
+(use-package ag :ensure t)
+
 
 ;; Avy
 (use-package avy
   :ensure t
-  :bind (("C-c C-SPC" . avy-goto-char-timer)
-	 ("C-c C-l" . avy-goto-line)))
+  :bind (("C-;" . avy-goto-char-timer)
+	 ("C-:" . avy-goto-line)))
 
 ;; Smex
 (use-package smex :ensure t)
@@ -256,7 +263,7 @@
 ;; Spaceline
 (use-package spaceline
   :ensure t
-  :config (spaceline-emacs-theme))
+  :config (spaceline-spacemacs-theme))
 
 ;; All the Icons
 ;; Execute (all-the-icons-install-fonts) in first time
@@ -297,13 +304,26 @@
   :ensure t
   :init (format-all-mode))
 
+(use-package dumb-jump
+  :ensure t
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
+  :ensure)
+
+
+;; Dimmer mode highlights current buffer
 (use-package dimmer
   :ensure t
   :init (dimmer-mode)
   :config
-  (setq dimmer-fraction 0.35)
+  (setq dimmer-fraction 0.2)
   (setq dimmer-exclusion-regexp "\\*Minibuf-[0-9]+\\*\\|\\*dashboard\\*"))
 
+;; Treemacs shows left panel
 (use-package treemacs
   :ensure t
   :defer t
@@ -404,6 +424,15 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
 
+;; Angular 2+ mode
+;; #TODO not working
+(use-package ng2-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.component.ts\\'" . ng2-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.component.html\\'" . ng2-html-mode))
+  (add-to-list 'auto-mode-alist '("\\.component.thtml\\'" . ng2-html-mode)))
+
 ;; JS2-mode
 (use-package js2-mode :ensure t)
 
@@ -425,16 +454,19 @@
          (before-save . tide-format-before-save))
   :config
   (flycheck-add-mode 'typescript-tslint 'web-mode)
+  (flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
+  (flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
   (add-hook 'js2-mode-hook #'setup-tide-mode)
   ;; configure javascript-tide checker to run after your default javascript checker
   (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
+
 
 ;; Emmet-mode
 (use-package emmet-mode
   :ensure t
   :config
   (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-  (add-hook 'css-mode-hook  'emmet-mode)) ;; enable Emmet's css abbreviation.)
+  (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation.)
 
 
 (provide 'init)

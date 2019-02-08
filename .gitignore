@@ -7,7 +7,9 @@ ac-comphist.dat
 emacs_backtrace
 init.el~
 projectile.cache
+projectile-bookmarks.eld
 projectile-bookmarks.eld~
 recentf
 recentf~
 #init.el#
+/projectile-bookmarks.eld
