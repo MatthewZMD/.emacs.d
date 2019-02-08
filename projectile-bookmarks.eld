@@ -1,1 +1,1 @@
-("~/code/angular/hello-world/" "~/.emacs.d/")
+("~/.emacs.d/")
