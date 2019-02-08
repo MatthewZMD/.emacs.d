@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- load-theme
+ all-the-icons-install-fonts
+ package-install
  shell
+ package-refresh-contents
+ load-theme
  eval-region
  eval-buffer
- toggle-frame-maximized
- dired-do-copy
- comment-dwim
 )
 
 ;; ----- smex-data -----
@@ -15,11 +15,11 @@
  (eval-buffer . 44)
  (package-delete . 3)
  (dired . 2)
- (package-install . 22)
+ (package-install . 26)
  (org-mode . 1)
  (emacs-lisp-mode . 3)
  (ace-jump-mode . 2)
- (package-refresh-contents . 5)
+ (package-refresh-contents . 6)
  (flycheck-mode . 2)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 21)
+ (shell . 22)
  (package-menu-mark-upgrades . 4)
  (list-packages . 1)
  (web-mode-test . 2)
@@ -70,4 +70,5 @@
  (toggle-frame-maximized . 1)
  (eval-region . 1)
  (load-theme . 3)
+ (all-the-icons-install-fonts . 1)
 )

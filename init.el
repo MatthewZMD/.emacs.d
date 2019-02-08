@@ -1,3 +1,4 @@
+
 ;;; package --- Summary
 ;;; This is MT`s personal init.el file for EMACS
 ;;; Commentary:
@@ -5,7 +6,7 @@
 
 ;; next few lines are from a guy on reddit basically sets font and theme for the daemon
 ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
-(defvar nox/fonts '(("Input" . 11) ("SF Mono" . 11) ("Consolas" . 11) ("Love LetterTW" . 13))
+(defvar nox/fonts '(("Input" . 11) ("SF Mono" . 11) ("Consolas" . 11) ("Love LetterTW" . 12.5))
   "List of fonts and sizes.  The first one available will be used.")
 
 (defun nox/change-font ()
@@ -136,7 +137,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -228,7 +229,6 @@
   (add-to-list 'projectile-globally-ignored-directories "node_modules"))
 
 
-
 ;; Smooth Scrolling
 (use-package smooth-scrolling
   :ensure t
@@ -252,6 +252,19 @@
 (use-package popup-kill-ring
   :ensure t
   :bind ("M-y" . popup-kill-ring))
+
+;; Spaceline
+(use-package spaceline
+  :ensure t
+  :config (spaceline-emacs-theme))
+
+;; All the Icons
+;; Execute (all-the-icons-install-fonts) in first time
+(use-package all-the-icons :ensure t)
+
+;; Spaceline All The Icons
+(use-package spaceline-all-the-icons
+  :ensure t)
 
 ;; Company
 (use-package company
