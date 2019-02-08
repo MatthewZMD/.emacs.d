@@ -1,11 +1,12 @@
 
 ;; ----- smex-history -----
 (
+<<<<<<< HEAD
  shell
  treemacs-find-file
  treemacs-find-tag
+ package-install
  package-refresh-contents
- load-theme
  eval-region
  eval-buffer
 )
@@ -15,7 +16,7 @@
  (eval-buffer . 44)
  (package-delete . 3)
  (dired . 2)
- (package-install . 22)
+ (package-install . 26)
  (org-mode . 1)
  (emacs-lisp-mode . 3)
  (ace-jump-mode . 2)
@@ -72,4 +73,5 @@
  (load-theme . 3)
  (treemacs-find-tag . 3)
  (treemacs-find-file . 1)
+ (all-the-icons-install-fonts . 1)
 )
