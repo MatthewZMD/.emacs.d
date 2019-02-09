@@ -74,6 +74,17 @@
 ;; Eval-buffer ELisp Code
 (global-set-key (kbd "<f5>") 'eval-buffer)
 
+;; Force UTF-8 in Emacs everywhere
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(when (display-graphic-p)
+  (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
+
+
+
 ;; Auto-rename new eww buffers
 (defun xah-rename-eww-hook ()
   "Rename eww browser's buffer so sites open in new page."
@@ -156,7 +167,10 @@
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
   ("C-c c" . org-capture)
-  ("C-c b" . org-switch))
+  ("C-c b" . org-switch)
+  :config
+  (setq org-todo-keywords
+	'((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
 
 ;; Bullets for org mode
 (use-package org-bullets
