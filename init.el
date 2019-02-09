@@ -118,7 +118,7 @@
 
 
 
-;;; Package configs
+;;; Package configs---------------------------------------------------------
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
@@ -140,7 +140,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ag dumb-jump ng2-mode spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (ag dumb-jump spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -150,6 +150,14 @@
 
 
 ;; Packages
+
+(use-package org
+  :ensure t
+  :bind
+  ("C-c l" . org-store-link)
+  ("C-c a" . org-agenda)
+  ("C-c c" . org-capture)
+  ("C-c b" . org-switch))
 
 ;; Doom-theme
 (use-package doom-themes
@@ -179,7 +187,6 @@
   (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK.png"))
 ;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
 
-
 ;; init time shown on dashboard
 (defun dashboard-init-time (list-size)
   "LIST-SIZE Set a dashboard item including information on package initialization time and garbage collections."
@@ -192,7 +199,6 @@
 
 
 ;; AG Silver Searcher
-;; #TODO working at home
 (use-package ag :ensure t)
 
 
@@ -425,13 +431,12 @@
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
 
 ;; Angular 2+ mode
-;; #TODO not working
-(use-package ng2-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.component.ts\\'" . ng2-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.component.html\\'" . ng2-html-mode))
-  (add-to-list 'auto-mode-alist '("\\.component.thtml\\'" . ng2-html-mode)))
+;; (use-package ng2-mode
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'auto-mode-alist '("\\.component.ts\\'" . ng2-ts-mode))
+;;   (add-to-list 'auto-mode-alist '("\\.component.html\\'" . ng2-html-mode))
+;;   (add-to-list 'auto-mode-alist '("\\.component.thtml\\'" . ng2-html-mode)))
 
 ;; JS2-mode
 (use-package js2-mode :ensure t)
@@ -454,8 +459,8 @@
          (before-save . tide-format-before-save))
   :config
   (flycheck-add-mode 'typescript-tslint 'web-mode)
-  (flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
-  (flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
+  ;;  (flycheck-add-mode 'typescript-tslint 'ng2-ts-mode)
+  ;;  (flycheck-add-mode 'typescript-tide 'ng2-ts-mode)
   (add-hook 'js2-mode-hook #'setup-tide-mode)
   ;; configure javascript-tide checker to run after your default javascript checker
   (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
