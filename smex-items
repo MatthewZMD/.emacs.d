@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- ag
- ag-dired
- dashboard-mode
- ag-mode
- recover-file
- shell
- all-the-icons-install-fonts
+ emacs-lisp-mode
+ org-mode
+ eww
+ list-packages
+ package-install
+ package-reinstall
+ treemacs-icons-dired-mode
 )
 
 ;; ----- smex-data -----
@@ -15,9 +15,9 @@
  (eval-buffer . 44)
  (package-delete . 3)
  (dired . 2)
- (package-install . 26)
- (org-mode . 1)
- (emacs-lisp-mode . 3)
+ (package-install . 27)
+ (org-mode . 2)
+ (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 6)
  (flycheck-mode . 2)
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 21)
+ (eww . 23)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -41,12 +41,12 @@
  (eshell . 1)
  (shell . 23)
  (package-menu-mark-upgrades . 4)
- (list-packages . 1)
+ (list-packages . 2)
  (web-mode-test . 2)
  (web-mode . 3)
  (smartparens-mode . 1)
  (display-time-mode . 1)
- (package-reinstall . 2)
+ (package-reinstall . 4)
  (magit-version . 2)
  (speed-type-text . 1)
  (revert-buffer . 4)
@@ -76,4 +76,7 @@
  (dashboard-mode . 1)
  (ag-dired . 1)
  (ag . 1)
+ (projectile-ag . 1)
+ (projectile-add-known-project . 1)
+ (treemacs-icons-dired-mode . 2)
 )
