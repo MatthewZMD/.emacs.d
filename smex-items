@@ -1,21 +1,21 @@
 
 ;; ----- smex-history -----
 (
- emacs-lisp-mode
- org-mode
- eww
- list-packages
  package-install
- package-reinstall
- treemacs-icons-dired-mode
+ customize-variable
+ shell
+ nox/change-font
+ org-indent-mode
+ speed-type-text
+ eval-buffer
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 44)
+ (eval-buffer . 45)
  (package-delete . 3)
  (dired . 2)
- (package-install . 27)
+ (package-install . 28)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 23)
+ (eww . 24)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 23)
+ (shell . 24)
  (package-menu-mark-upgrades . 4)
  (list-packages . 2)
  (web-mode-test . 2)
@@ -48,7 +48,7 @@
  (display-time-mode . 1)
  (package-reinstall . 4)
  (magit-version . 2)
- (speed-type-text . 1)
+ (speed-type-text . 3)
  (revert-buffer . 4)
  (flycheck-verify-checker . 6)
  (typescript-mode . 2)
@@ -61,7 +61,7 @@
  (window-resize-70 . 2)
  (window-resize-66 . 2)
  (window-resize-width . 9)
- (nox/change-font . 7)
+ (nox/change-font . 9)
  (set-face-font . 1)
  (change-dashboard-title-face . 6)
  (dashboard-refresh-buffer . 7)
@@ -79,4 +79,6 @@
  (projectile-ag . 1)
  (projectile-add-known-project . 1)
  (treemacs-icons-dired-mode . 2)
+ (org-indent-mode . 1)
+ (customize-variable . 3)
 )
