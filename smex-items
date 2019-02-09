@@ -2,12 +2,12 @@
 ;; ----- smex-history -----
 (
  ag
- package-install
- revert-buffer
- projectile-add-known-project
- treemacs-projectile
- ng2-mode
- tide-mode
+ ag-dired
+ dashboard-mode
+ ag-mode
+ recover-file
+ shell
+ all-the-icons-install-fonts
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 44)
  (package-delete . 3)
  (dired . 2)
- (package-install . 27)
+ (package-install . 26)
  (org-mode . 1)
  (emacs-lisp-mode . 3)
  (ace-jump-mode . 2)
@@ -39,17 +39,17 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 30)
+ (shell . 23)
  (package-menu-mark-upgrades . 4)
  (list-packages . 1)
  (web-mode-test . 2)
- (web-mode . 4)
- (smartparens-mode . 5)
+ (web-mode . 3)
+ (smartparens-mode . 1)
  (display-time-mode . 1)
  (package-reinstall . 2)
  (magit-version . 2)
  (speed-type-text . 1)
- (revert-buffer . 6)
+ (revert-buffer . 4)
  (flycheck-verify-checker . 6)
  (typescript-mode . 2)
  (isearch-highlight-regexp . 1)
@@ -70,16 +70,10 @@
  (toggle-frame-maximized . 1)
  (eval-region . 1)
  (load-theme . 3)
- (treemacs-find-tag . 3)
- (treemacs-find-file . 1)
- (all-the-icons-install-fonts . 2)
- (find-function . 1)
- (ng2-html-mode . 1)
- (ng2-ts-mode . 1)
- (ng2-mode . 7)
- (line-number-mode . 2)
- (tide-mode . 1)
- (treemacs-projectile . 1)
- (projectile-add-known-project . 1)
- (ag . 2)
+ (all-the-icons-install-fonts . 1)
+ (recover-file . 1)
+ (ag-mode . 1)
+ (dashboard-mode . 1)
+ (ag-dired . 1)
+ (ag . 1)
 )

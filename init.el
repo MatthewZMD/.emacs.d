@@ -192,7 +192,7 @@
 
 
 ;; AG Silver Searcher
-;; #TODO not working
+;; #TODO working at home
 (use-package ag :ensure t)
 
 
