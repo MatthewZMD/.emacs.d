@@ -5,7 +5,7 @@
 
 ;; next few lines are from a guy on reddit basically sets font and theme for the daemon
 ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
-(defvar nox/fonts '(("Input" . 12) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
+(defvar nox/fonts '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
   "List of fonts and sizes.  The first one available will be used.")
 
 (defun nox/change-font ()
@@ -64,6 +64,8 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions 'nox/setup-appearance)
   (nox/setup-appearance (car (frame-list))))
+;; add to target in the shortcut properties
+;; "path to emacsclientw.exe\emacsclientw.exe" -c -n -a ""
 
 ;; hook line numbers to only when files are opened
 (add-hook 'find-file-hook #'display-line-numbers-mode)
@@ -86,9 +88,6 @@
         (apply orig-fun args))
     (apply orig-fun args)))
 (advice-add 'eww :around #'modi/force-new-eww-buffer)
-
-;; add to target in the shortcut properties
-;; "path to emacsclientw.exe\emacsclientw.exe" -c -n -a ""
 
 ;; run-bash command
 ;; (defun run-bash ()
@@ -140,7 +139,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cyberpunk-theme org-bullets ag dumb-jump spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (org-bullets ag dumb-jump spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -168,13 +167,8 @@
 ;; Doom-theme
 (use-package doom-themes
   :ensure t
-  ;;  :config (load-theme 'doom-spacegrey t)
+  :config (load-theme 'doom-spacegrey t)
   )
-
-;; Cyberpunk Theme
-(use-package cyberpunk-theme
-  :ensure t
-  :config (load-theme 'cyberpunk t))
 
 ;; Magit
 (use-package magit
