@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- list-packages
  nox/change-font
+ eww
  load-theme
+ list-packages
  package-install
  customize-variable
  shell
- org-indent-mode
 )
 
 ;; ----- smex-data -----
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 24)
+ (eww . 25)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -61,7 +61,7 @@
  (window-resize-70 . 2)
  (window-resize-66 . 2)
  (window-resize-width . 9)
- (nox/change-font . 12)
+ (nox/change-font . 16)
  (set-face-font . 1)
  (change-dashboard-title-face . 6)
  (dashboard-refresh-buffer . 7)
@@ -69,7 +69,7 @@
  (dired-do-copy . 1)
  (toggle-frame-maximized . 1)
  (eval-region . 1)
- (load-theme . 4)
+ (load-theme . 6)
  (all-the-icons-install-fonts . 1)
  (recover-file . 1)
  (ag-mode . 1)
