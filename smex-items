@@ -1,10 +1,10 @@
 
 ;; ----- smex-history -----
 (
+ web-mode
  disable-theme
  load-theme
  shell
- web-mode
  projectile-find-dir-other-frame
  projectile-switch-project
  eval-buffer
@@ -43,7 +43,7 @@
  (package-menu-mark-upgrades . 4)
  (list-packages . 3)
  (web-mode-test . 2)
- (web-mode . 4)
+ (web-mode . 6)
  (smartparens-mode . 1)
  (display-time-mode . 1)
  (package-reinstall . 4)
