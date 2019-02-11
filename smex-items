@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ projectile-switch-project
+ projectile-find-file
  shell
  rename-file
  eval-buffer
  package-install
- counsel-ag
- ag
- rgrep
+ eww
 )
 
 ;; ----- smex-data -----
@@ -77,11 +77,13 @@
  (ag-dired . 1)
  (ag . 2)
  (projectile-ag . 1)
- (projectile-add-known-project . 1)
+ (projectile-add-known-project . 3)
  (treemacs-icons-dired-mode . 2)
  (org-indent-mode . 1)
  (customize-variable . 3)
  (rgrep . 1)
  (counsel-ag . 1)
  (rename-file . 4)
+ (projectile-switch-project . 5)
+ (projectile-find-file . 2)
 )
