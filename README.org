@@ -167,6 +167,18 @@
    ;; Real emacs knights don't use shift to mark things
    (setq shift-select-mode nil)
 
+   ;; Eval-buffer for ELisp Code
+   (global-set-key (kbd "<f5>") 'eval-buffer)
+
+   ;; Compile for C code
+   (global-set-key (kbd "C-<f5>") 'compile)
+
+   ;; Use iBuffer instead of Buffer List
+   (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+   ;; Truncate lines
+   (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines);
+
    ;; Add personal lisp files
    (add-to-list 'load-path "~/.emacs.d/lisp/")
    #+END_SRC
@@ -841,18 +853,6 @@
 * Bindings
   Place any global keybindings here.
   #+BEGIN_SRC emacs-lisp
-  ;; Eval-buffer for ELisp Code
-  (global-set-key (kbd "<f5>") 'eval-buffer)
-
-  ;; Compile for C code
-  (global-set-key (kbd "C-<f5>") 'compile)
-
-  
-  ;; Use iBuffer instead of Buffer List
-  (global-set-key (kbd "C-x C-b") 'ibuffer)
-
-  ;; Truncate lines
-  (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines);
   #+END_SRC
 * Credits
   This =.emacs.d/= was heavily influenced and inspired by the following configurations.
