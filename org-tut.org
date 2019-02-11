@@ -36,6 +36,8 @@
   - C-c C-t :: rotates the todo state
   - C-c a t :: displays global todo list
   - S-M-RET :: creates new todo entry below curr
+  - C-c , :: sets the priority of current headline
+  - S-up/down :: increase/decrease priority
 * TODO A
 * TODO B
 * TODO C

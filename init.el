@@ -3,7 +3,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; next few lines are from a guy on reddit basically sets font and theme for the daemon
 ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
 (defvar nox/fonts '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
   "List of fonts and sizes.  The first one available will be used.")
@@ -55,9 +54,6 @@
     ;; Column Number
     ;;(global-linum-mode t)
 
-    ;; (when (version<= "26.0.50" emacs-version )
-    ;;   (global-display-line-numbers-mode))
-
     ;; NOTE(nox): This needs to be here, else it doesn't work
     (setq-default system-time-locale "C")))
 
@@ -82,8 +78,6 @@
 (prefer-coding-system 'utf-8)
 (when (display-graphic-p)
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
-
-
 
 ;; Auto-rename new eww buffers
 (defun xah-rename-eww-hook ()
@@ -198,6 +192,7 @@
   :config
   (page-break-lines-mode))
 
+;; Dashboard
 (use-package dashboard
   :ensure t
   :config
@@ -214,12 +209,8 @@
 (add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
 (add-to-list 'dashboard-items '(init-time)) ;; note adding t as 4 param adds to back of list
 
-;;Set the Dashboard banner logo title font to Love LetterTW
-
-
 ;; AG Silver Searcher
 (use-package ag :ensure t)
-
 
 ;; Avy
 (use-package avy
@@ -259,7 +250,6 @@
   (projectile-mode +1)
   (setq projectile-completion-system 'ivy)
   (add-to-list 'projectile-globally-ignored-directories "node_modules"))
-
 
 ;; Smooth Scrolling
 (use-package smooth-scrolling
@@ -483,7 +473,6 @@
   (add-hook 'js2-mode-hook #'setup-tide-mode)
   ;; configure javascript-tide checker to run after your default javascript checker
   (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
-
 
 ;; Emmet-mode
 (use-package emmet-mode
