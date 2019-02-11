@@ -144,7 +144,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (undo-tree org-bullets ag dumb-jump spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (darkokai-theme undo-tree org-bullets ag dumb-jump treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -175,8 +175,15 @@
 ;; Doom-theme
 (use-package doom-themes
   :ensure t
-  :config (load-theme 'doom-vibrant t)
+  ;;  :config (load-theme 'doom-vibrant t)
   )
+
+;; Darkokai-theme
+(use-package darkokai-theme
+  :ensure t
+  :config
+  ;; (setq darkokai-mode-line-padding 1)
+  (load-theme 'darkokai t))
 
 ;; Magit
 (use-package magit
@@ -277,18 +284,12 @@
   :ensure t
   :bind ("M-y" . popup-kill-ring))
 
-;; Spaceline
-(use-package spaceline
+;; Ace-window
+(use-package ace-window
   :ensure t
-  :config (spaceline-spacemacs-theme))
-
-;; All the Icons
-;; Execute (all-the-icons-install-fonts) in first time
-(use-package all-the-icons :ensure t)
-
-;; Spaceline All The Icons
-(use-package spaceline-all-the-icons
-  :ensure t)
+  :bind (("M-p" . ace-window))
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 ;; Company
 (use-package company
