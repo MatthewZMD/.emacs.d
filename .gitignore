@@ -4,6 +4,7 @@ elpa/
 server/
 url/
 ac-comphist.dat
+bookmarks
 emacs_backtrace
 init.el~
 projectile.cache
@@ -13,3 +14,4 @@ recentf
 recentf~
 #init.el#
 /projectile-bookmarks.eld
+/bookmarks

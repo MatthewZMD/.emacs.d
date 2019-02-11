@@ -249,6 +249,8 @@
   :config
   (projectile-mode +1)
   (setq projectile-completion-system 'ivy)
+  (setq projectile-enable-caching t)
+  (setq projectile-use-native-indexing t)
   (add-to-list 'projectile-globally-ignored-directories "node_modules"))
 
 ;; Smooth Scrolling
