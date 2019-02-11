@@ -1,21 +1,21 @@
 
 ;; ----- smex-history -----
 (
- nox/change-font
- eww
- load-theme
- list-packages
- package-install
- customize-variable
  shell
+ rename-file
+ eval-buffer
+ package-install
+ counsel-ag
+ ag
+ rgrep
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 45)
+ (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 28)
+ (package-install . 29)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 25)
+ (eww . 26)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 24)
+ (shell . 25)
  (package-menu-mark-upgrades . 4)
  (list-packages . 3)
  (web-mode-test . 2)
@@ -75,10 +75,13 @@
  (ag-mode . 1)
  (dashboard-mode . 1)
  (ag-dired . 1)
- (ag . 1)
+ (ag . 2)
  (projectile-ag . 1)
  (projectile-add-known-project . 1)
  (treemacs-icons-dired-mode . 2)
  (org-indent-mode . 1)
  (customize-variable . 3)
+ (rgrep . 1)
+ (counsel-ag . 1)
+ (rename-file . 4)
 )
