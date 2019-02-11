@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
- projectile-switch-project
- projectile-find-file
- shell
- rename-file
+ disable-theme
+ load-theme
  eval-buffer
- package-install
- eww
+ revert-buffer
+ treemacs-add-project-to-workspace
+ ag
+ flycheck-mode
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 46)
+ (eval-buffer . 47)
  (package-delete . 3)
  (dired . 2)
  (package-install . 29)
@@ -20,7 +20,7 @@
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 6)
- (flycheck-mode . 2)
+ (flycheck-mode . 6)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
@@ -43,13 +43,13 @@
  (package-menu-mark-upgrades . 4)
  (list-packages . 3)
  (web-mode-test . 2)
- (web-mode . 3)
+ (web-mode . 5)
  (smartparens-mode . 1)
  (display-time-mode . 1)
  (package-reinstall . 4)
  (magit-version . 2)
  (speed-type-text . 3)
- (revert-buffer . 4)
+ (revert-buffer . 6)
  (flycheck-verify-checker . 6)
  (typescript-mode . 2)
  (isearch-highlight-regexp . 1)
@@ -69,13 +69,13 @@
  (dired-do-copy . 1)
  (toggle-frame-maximized . 1)
  (eval-region . 1)
- (load-theme . 6)
+ (load-theme . 8)
  (all-the-icons-install-fonts . 1)
  (recover-file . 1)
  (ag-mode . 1)
  (dashboard-mode . 1)
  (ag-dired . 1)
- (ag . 2)
+ (ag . 4)
  (projectile-ag . 1)
  (projectile-add-known-project . 3)
  (treemacs-icons-dired-mode . 2)
@@ -84,6 +84,12 @@
  (rgrep . 1)
  (counsel-ag . 1)
  (rename-file . 4)
- (projectile-switch-project . 5)
+ (projectile-switch-project . 6)
  (projectile-find-file . 2)
+ (projectile-find-dir-other-frame . 1)
+ (tide-jump-to-definition . 1)
+ (tide-jump-to-implementation . 1)
+ (emmet-mode . 2)
+ (treemacs-add-project-to-workspace . 1)
+ (disable-theme . 7)
 )
