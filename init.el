@@ -144,7 +144,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org-bullets ag dumb-jump spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+    (undo-tree org-bullets ag dumb-jump spaceline-all-the-icons spaceline treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -175,7 +175,7 @@
 ;; Doom-theme
 (use-package doom-themes
   :ensure t
-  :config (load-theme 'doom-spacegrey t)
+  :config (load-theme 'doom-vibrant t)
   )
 
 ;; Magit
@@ -331,6 +331,10 @@
   :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
   :ensure)
 
+;;Undo-tree - gives a visualization of undos in a file
+(use-package undo-tree
+  :ensure t
+  :init (global-undo-tree-mode))
 
 ;; Dimmer mode highlights current buffer
 (use-package dimmer
