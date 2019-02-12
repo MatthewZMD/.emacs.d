@@ -1,5 +1,5 @@
 #+TITLE: MT's EMACS Configuration
-#+TOC: headlines 2
+#+OPTIONS: toc:2
 * Description
   This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
 
@@ -620,7 +620,8 @@
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]] is a game to practice touch/speed typing in Emacs.
    #+BEGIN_SRC emacs-lisp
-   (use-package speed-type :ensure t)
+   (use-package spee
+d-type :ensure t)
    #+END_SRC
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]] is an implementation of 2048 in Emacs.
