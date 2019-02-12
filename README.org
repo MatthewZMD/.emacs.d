@@ -124,8 +124,6 @@
    (add-hook 'find-file-hook #'display-line-numbers-mode)
    (add-hook 'prog-mode-hook #'display-line-numbers-mode)
    
-   ;; Scrol one line when hitting bottom of window
-   (setq scroll-conservatively 10000)
    
    ;; Prevent Extraneous Tabs
    (setq-default indent-tabs-mode nil)
@@ -151,7 +149,8 @@
 
     ;; C-u M-x eww will force a new eww buffer
     (defun modi/force-new-eww-buffer (orig-fun &rest args)
-      "ORIG-FUN ARGS When prefix argument is used, a new eww buffer will be created, regardless of whether the current buffer is in `eww-mode'."
+      "ORIG-FUN ARGS When prefix argument is used, a new eww buffer will be created,
+      regardless of whether the current buffer is in `eww-mode'."
       (if current-prefix-arg
         (with-temp-buffer
           (apply orig-fun args))
@@ -295,4 +294,42 @@
      :ensure t
      :init (smex-initialize))
    #+END_SRC
-** TODO more things
+** Ivy
+   [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs.
+   #+BEGIN_SRC emacs-lisp
+   (use-package ivy
+     :ensure t
+     :diminish ivy-mode ;;Hide ivy in the button screen
+     :init (ivy-mode 1)
+     :config
+     (setq ivy-use-virtual-buffers t)
+     (setq ivy-count-format "【%d/%d】")
+     (setq ivy-wrap t))
+   #+END_SRC
+** Counsel
+   [[https://github.com/abo-abo/swiper][Counsel]], a collection of Ivy-enhanced versions of common Emacs commands.
+   #+BEGIN_SRC emacs-lisp
+   (use-package counsel
+     :ensure t
+     :diminish counsel-mode
+     :init (counsel-mode 1))
+   #+END_SRC
+** Swiper
+   [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
+   #+BEGIN_SRC emacs-lisp
+   (use-package swiper
+     :ensure t
+     :bind ("C-s" . swiper))
+   #+END_SRC
+** Smooth Scrolling
+*** Add description
+   #+BEGIN_SRC emacs-lisp
+   (use-package smooth-scrolling
+     :ensure t
+     :config
+     (setq scroll-margin 1
+       scroll-conservatively 9999
+       scroll-step 1
+       mouse-wheel-scroll-amount '(2)
+       mouse-wheel-progressive-speed nil))
+   #+END_SRC
