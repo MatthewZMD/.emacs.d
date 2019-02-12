@@ -15,7 +15,7 @@
    (package-initialize)
    #+END_SRC
 ** Bootstrap =use-package=
-   My =emacs.d/= is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
+   My =.emacs.d/= is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
    #+BEGIN_QUOTE
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
    #+END_QUOTE
@@ -598,8 +598,24 @@
    #+END_SRC
 *** Elpy
     [[https://github.com/jorgenschaefer/elpy][Elpy]] is Emacs Python Development Environment.
+    #+BEGIN_SRC emacs-lisp
+    (use-package elpy
+      :ensure t
+      :defer 2
+      :config
+      (progn
+        ;; Use Flycheck instead of Flymake
+        (when (require 'flycheck nil t)
+              (remove-hook 'elpy-modules 'elpy-module-flymake)
+              (remove-hook 'elpy-modules 'elpy-module-yasnippet)
+              (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
+              (add-hook 'elpy-mode-hook 'flycheck-mode))
+        (elpy-enable)
+        ;; jedi is great
+        (setq elpy-rpc-backend "jedi")))
+    #+END_SRC
 *** TODO Jedi package, etc.
-* Misc
+* Miscellaneous
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]] is a game to practice touch/speed typing in Emacs.
    #+BEGIN_SRC emacs-lisp
