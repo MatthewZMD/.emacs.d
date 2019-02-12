@@ -1,5 +1,7 @@
 .cache/
 auto-save-list/
+autosaves/
+backups/
 elpa/
 server/
 speed-type/
