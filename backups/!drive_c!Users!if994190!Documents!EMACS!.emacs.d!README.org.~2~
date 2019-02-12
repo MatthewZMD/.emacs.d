@@ -37,7 +37,6 @@
      (quote
        (elpy undo-tree org-bullets ag dumb-jump treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
    (custom-set-faces
-
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
@@ -353,7 +352,6 @@
    #+BEGIN_SRC emacs-lisp
    (use-package undo-tree
      :ensure t
-     :diminish undo-tree-mode
      :init (global-undo-tree-mode))
    #+END_SRC
 ** Dimmer
@@ -429,24 +427,6 @@
           treemacs-tag-follow-cleanup         t
           treemacs-tag-follow-delay           1.5
           treemacs-width                      35)
-          ;; The default width and height of the icons is 22 pixels. If you are
-          ;; using a Hi-DPI display, uncomment this to double the icon size.
-          ;;(treemacs-resize-icons 44)
-          (treemacs-follow-mode t)
-          (treemacs-filewatch-mode t)
-          (treemacs-fringe-indicator-mode t)
-          (pcase (cons (not (null (executable-find "git")))
-                       (not (null (executable-find "python3"))))
-                 (`(t . t) (treemacs-git-mode 'deferred))
-                 (`(t . _) (treemacs-git-mode 'simple))))
-      :bind
-      (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
    #+END_SRC
 *** Treemacs Icons Dired
     #+BEGIN_SRC emacs-lisp
@@ -486,7 +466,7 @@
      (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
      (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
      (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
-     (setq company-require-match 'never))
+     (setq company-require-match 'never)
    #+END_SRC
 ** Flycheck
    [[https://www.flycheck.org/en/latest/][Flycheck]] is a syntax checking extension.
