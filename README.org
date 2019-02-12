@@ -1,8 +1,11 @@
 #+TITLE: MT's EMACS Configuration
+#+OPTIONS: toc:nil
 * Description
   This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
 
   This configuration is designed for Emacs 24.5 and above.
+
+#+TOC: headlines 2
 * Package Management
 ** Package Sources
    #+BEGIN_SRC emacs-lisp
@@ -384,8 +387,8 @@
      :config
      (projectile-mode +1)
      (setq projectile-completion-system 'ivy)
-     (setq projectile-enable-caching t)
-     (setq projectile-use-native-indexing t)
+       (when (eq system-type 'windows-nt)
+       (setq projectile-indexing-method 'alien))
      (add-to-list 'projectile-globally-ignored-directories "node_modules"))
    #+END_SRC
 ** Treemacs
@@ -540,7 +543,7 @@
      (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
      (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
      (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+     (add-to-list 'auto-mode-alist '("\\.[t]?html?\\'" . web-mode))
      (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
    #+END_SRC
 ** Emmet
