@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- projectile-switch-project
- project-find-file
- projectile-remove-known-project
- projectile-find-file
  web-mode
  js2-mode
+ dired-jump
  eval-buffer
+ shell
+ disable-theme
+ package-install
 )
 
 ;; ----- smex-data -----
@@ -77,15 +77,15 @@
  (ag-dired . 1)
  (ag . 2)
  (projectile-ag . 1)
- (projectile-add-known-project . 4)
+ (projectile-add-known-project . 3)
  (treemacs-icons-dired-mode . 2)
  (org-indent-mode . 1)
  (customize-variable . 3)
  (rgrep . 1)
  (counsel-ag . 1)
  (rename-file . 4)
- (projectile-switch-project . 8)
- (projectile-find-file . 5)
+ (projectile-switch-project . 6)
+ (projectile-find-file . 2)
  (projectile-find-dir-other-frame . 1)
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
@@ -95,6 +95,4 @@
  (treemacs-delete . 1)
  (treemacs-remove-workspace . 1)
  (js2-mode . 2)
- (projectile-remove-known-project . 3)
- (project-find-file . 1)
 )
