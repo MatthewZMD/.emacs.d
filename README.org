@@ -1,11 +1,9 @@
 #+TITLE: MT's EMACS Configuration
-#+OPTIONS: toc:nil
+#+TOC: headlines 2
 * Description
   This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
 
   This configuration is designed for Emacs 24.5 and above.
-
-#+TOC: headlines 2
 * Package Management
 ** Package Sources
    #+BEGIN_SRC emacs-lisp
