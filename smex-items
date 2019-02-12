@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
+ dired-jump
+ eval-buffer
  shell
  web-mode
  disable-theme
  load-theme
  projectile-find-dir-other-frame
- projectile-switch-project
- eval-buffer
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 46)
+ (eval-buffer . 47)
  (package-delete . 3)
  (dired . 2)
  (package-install . 29)
@@ -91,4 +91,5 @@
  (tide-jump-to-implementation . 1)
  (treemacs-add-project . 1)
  (disable-theme . 3)
+ (dired-jump . 1)
 )
