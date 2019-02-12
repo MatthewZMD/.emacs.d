@@ -1,0 +1,298 @@
+#+TITLE: MT's EMACS Configuration
+* Description
+  This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
+
+  This configuration is designed for Emacs 24.5 and above.
+
+** Basic Directory Structure
+   #+BEGIN_SRC text
+   +-- .emacs.d
+       +-- fonts/ # required fonts for my customization
+       +-- images/ # required images for my customization
+       +-- .gitignore # git ignore file
+       +-- init.el # the actual init file
+       +-- org-tut.org # my personal org tut file.. will be removed later
+       +-- README.org # this file
+       +-- smex-items # this file stores my frequently used commands in Smex
+   #+END_SRC
+* Package Management
+** Package Sources
+   #+BEGIN_SRC emacs-lisp
+   (require 'package)
+   (setq package-enable-at-startup nil)
+   (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
+                            ("gnu"   . "http://elpa.gnu.org/packages/")
+                            ("melpa" . "https://melpa.org/packages/")
+			    ("melpa stable" . "http://stable.melpa.org/packages/")))
+   (package-initialize)
+   #+END_SRC
+** Bootstrap =use-package=
+   My =emacs.d/= is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
+   #+BEGIN_QUOTE
+   The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
+   #+END_QUOTE
+   Start using =use-package=
+   #+BEGIN_SRC emacs-lisp
+   (unless (package-installed-p 'use-package)
+     (package-refresh-contents)
+     (package-install 'use-package))
+   (require 'use-package)
+   #+END_SRC
+** Custom Set Variables
+   #+BEGIN_SRC emacs-lisp
+   (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(package-selected-packages
+     (quote
+       (elpy undo-tree org-bullets ag dumb-jump treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile rjsx-mode json-mode dimmer company page-break-lines dashboard typescript-mode emmet-mode speed-type smartparens smooth-scrolling diminish web-mode flycheck magit tide web-mode-edit-element popup-kill-ring 2048-game format-all counsel ivy avy smex auto-complete which-key use-package doom-themes))))
+   (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(dashboard-banner-logo-title-face ((t (:family "Love LetterTW" :height 125)))))
+   #+END_SRC
+* Essentials
+** Configs
+   Some essential configs that make my life a lot easier
+   #+BEGIN_SRC emacs-lisp
+   ;; Minimal UI, turn off unnecessary interface
+   (scroll-bar-mode -1)
+   (tool-bar-mode   -1)
+   (tooltip-mode    -1)
+   (menu-bar-mode   -1)
+   
+   ;; Maximize window
+   (toggle-frame-maximized)
+
+   ;; No alarms
+   (setq ring-bell-function 'ignore)
+
+   ;; Disable splash screen and change scratch message
+   (setq inhibit-startup-screen t)
+   (setq initial-scratch-message ";; Close the World, Open the nExt")
+   
+   ;; Show keystrokes in progress
+   (setq echo-keystrokes 0.1)
+   
+   ;; Move files to trash when deleting
+   (setq delete-by-moving-to-trash t)
+   
+   ;; Cursor modification
+   (blink-cursor-mode -1)
+   
+   ;; Force UTF-8 in Emacs everywhere
+   (setq locale-coding-system 'utf-8)
+   (set-terminal-coding-system 'utf-8)
+   (set-keyboard-coding-system 'utf-8)
+   (set-selection-coding-system 'utf-8)
+   (prefer-coding-system 'utf-8)
+   (when (display-graphic-p)
+   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
+   
+   ;; Make sentences end with a single space
+   (setq-default sentence-end-double-space nil)
+   
+   ;; Always have a new line at the end of a file
+   (setq require-final-newline t)
+   
+   ;; Load the newest version of a file
+   (setq load-prefer-newer t)
+   
+   ;; Detect external file changes and auto refresh file
+   (global-auto-revert-mode t)
+   
+   ;; Auto refresh Dired, but be quiet about it
+   (setq global-auto-revert-non-file-buffers t)
+   (setq auto-revert-verbose nil)
+   ;; Quickly copy/move file in Dired
+   (setq dired-dwim-target t)
+   
+   ;; Transparently open compressed files
+   (auto-compression-mode t)
+   
+   ;; When buffer is closed, saves the cursor location
+   (save-place-mode 1)
+   
+   ;; Change yes or no prompts to y or n
+   (fset 'yes-or-no-p 'y-or-n-p)
+
+   ;; hook line numbers to only when files are opened
+   (add-hook 'find-file-hook #'display-line-numbers-mode)
+   (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+   
+   ;; Scrol one line when hitting bottom of window
+   (setq scroll-conservatively 10000)
+   
+   ;; Prevent Extraneous Tabs
+   (setq-default indent-tabs-mode nil)
+   
+   ;; Real emacs knights don't use shift to mark things
+   (setq shift-select-mode nil)
+
+   ;; Eval-buffer for ELisp Code
+   (global-set-key (kbd "<f5>") 'eval-buffer)
+   
+   ;; Unbind C-z
+   (global-set-key (kbd "C-z") 'nil)
+   
+   #+END_SRC
+** More Configs
+   Other important, but longer configs
+*** Auto-rename New EWW Buffers
+    #+BEGIN_SRC emacs-lisp
+    (defun xah-rename-eww-hook ()
+      "Rename eww browser's buffer so sites open in new page."
+      (rename-buffer "eww" t))
+    (add-hook 'eww-mode-hook #'xah-rename-eww-hook)
+
+    ;; C-u M-x eww will force a new eww buffer
+    (defun modi/force-new-eww-buffer (orig-fun &rest args)
+      "ORIG-FUN ARGS When prefix argument is used, a new eww buffer will be created, regardless of whether the current buffer is in `eww-mode'."
+      (if current-prefix-arg
+        (with-temp-buffer
+          (apply orig-fun args))
+	(apply orig-fun args)))
+    (advice-add 'eww :around #'modi/force-new-eww-buffer)
+    #+END_SRC
+*** Resize Window Width / Height Functions
+    #+BEGIN_SRC emacs-lisp
+    ;; Resizes the window width based on the input
+    (defun window-resize-width (w)
+      "Resizes the window width based on W."
+      (interactive (list (if (> (count-windows) 1)
+                             (read-number "Set the current window width (0~1): ")
+                             (error "You need more than 1 window to execute this function!"))))
+      (message "%s" w)
+      (window-resize nil (- (truncate (* w (frame-width))) (window-total-width)) t))
+    (global-set-key (kbd "C-x C-|") 'window-resize-width)
+
+    ;; Resizes the window height based on the input
+    (defun window-resize-height (h)
+    "Resizes the window height based on H."
+    (interactive (list (if (> (count-windows) 1)
+                           (read-number "Set the current window height (0~1): ")
+			   (error "You need more than 1 window to execute this function!"))))
+      (message "%s" h)
+      (window-resize nil (- (truncate (* h (frame-height))) (window-total-height)) nil))
+    (global-set-key (kbd "C-x C-_") 'window-resize-height)
+    #+END_SRC
+* Appearance
+** Fonts
+   Prepare fonts
+   #+BEGIN_SRC emacs-lisp
+   ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
+   (defvar nox/fonts '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
+     "List of fonts and sizes.  The first one available will be used.")
+   #+END_SRC
+   Change-fonts 
+   #+BEGIN_SRC emacs-lisp
+   (defun nox/change-font ()
+     "Documentation."
+     (interactive)
+     (let* (available-fonts font-name font-size font-setting)
+       (dolist (font nox/fonts (setq available-fonts (nreverse available-fonts)))
+         (when (member (car font) (font-family-list))
+           (push font available-fonts)))
+
+       (if (not available-fonts)
+         (error "No fonts from the chosen set are available")
+	 (if (called-interactively-p 'interactive)
+           (let* ((chosen (assoc-string (completing-read "What font to use? " available-fonts nil t) available-fonts)))
+             (setq font-name (car chosen) font-size (read-number "Font size: " (cdr chosen))))
+           (setq font-name (caar available-fonts) font-size (cdar available-fonts)))
+
+      (setq font-setting (format "%s-%d" font-name font-size))
+      (set-frame-font font-setting nil t)
+      (add-to-list 'default-frame-alist (cons 'font font-setting)))))
+
+   (nox/change-font)
+   #+END_SRC
+** Doom Theme
+   [[https://github.com/hlissner/emacs-doom-themes][doom-themes]] is an opinionated UI plugin and pack of theme, and my Emacs currenty using Molokai theme
+   #+BEGIN_SRC emacs-lisp
+   (use-package doom-themes
+     :ensure t
+     :config (load-theme 'doom-molokai t))
+   #+END_SRC
+** Dashboard
+   [[https://github.com/rakanalh/emacs-dashboard][Dashboard]] is an extensible Emacs startup screen.
+   Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme
+   #+BEGIN_SRC emacs-lisp
+   (use-package dashboard
+     :ensure t
+     :config
+     (dashboard-setup-startup-hook)
+     (setq dashboard-banner-logo-title "Present Day, Present Time...")
+     (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK.png"))
+   ;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
+
+   ;; init time shown on dashboard
+   (defun dashboard-init-time (list-size)
+     (insert (format "Emacs ready in %.2f seconds with %d garbage collections."
+                     (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
+   (add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
+   (add-to-list 'dashboard-items '(init-time)) ;; note adding t as 4 param adds to back of list
+   #+END_SRC
+** Page Break Lines
+   [[https://github.com/purcell/page-break-lines][Page-break-lines]] displays ugly form feed characters as tidy horizontal rules.
+   #+BEGIN_SRC emacs-lisp
+   (use-package page-break-lines
+     :ensure t
+     :init (global-page-break-lines-mode))
+   #+END_SRC
+* Global Functionalities
+** Org
+   [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
+*** Org Mode Setup
+    #+BEGIN_SRC emacs-lisp
+    (use-package org
+      :ensure t
+      :bind
+      ("C-c l" . org-store-link)
+      ("C-c a" . org-agenda)
+      ("C-c c" . org-capture)
+      ("C-c b" . org-switch)
+      :config
+      (setq org-todo-keywords
+        '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
+    #+END_SRC
+*** Org Bullets
+    [[https://github.com/sabof/org-bullets][Org bullets]] shows bullets as UTF-8 characters.
+    #+BEGIN_SRC emacs-lisp
+    (use-package org-bullets
+      :ensure t
+      :config
+      (add-hook 'org-mode-hook #'org-bullets-mode))
+    #+END_SRC
+
+** Diminish
+   [[https://github.com/emacsmirror/diminish][Diminish]] removes certain minor modes from mode-line
+   #+BEGIN_SRC emacs-lisp
+   (use-package diminish :ensure t)
+   #+END_SRC
+** AG The Silver Searcher
+   [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]] is a fast code searching tool.
+   However [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path before using it.
+   #+BEGIN_SRC emacs-lisp
+   (use-package ag :ensure t)
+   #+END_SRC
+** Avy
+   [[https://github.com/abo-abo/avy][Avy]] is a nice way to move around text.
+   #+BEGIN_SRC emacs-lisp
+   (use-package avy
+     :ensure t
+     :bind (("C-;" . avy-goto-char-timer)
+            ("C-:" . avy-goto-line)))
+   #+END_SRC
+** Smex
+   [[https://github.com/nonsequitur/smex][Smex]] is a M-x enhancement tool for Emacs.
+   #+BEGIN_SRC emacs-lisp
+   (use-package smex
+     :ensure t
+     :init (smex-initialize))
+   #+END_SRC
+** TODO more things
