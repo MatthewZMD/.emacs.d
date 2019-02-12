@@ -4,10 +4,10 @@
  dired-jump
  eval-buffer
  shell
- web-mode
  disable-theme
  load-theme
- projectile-find-dir-other-frame
+ package-install
+ eww
 )
 
 ;; ----- smex-data -----

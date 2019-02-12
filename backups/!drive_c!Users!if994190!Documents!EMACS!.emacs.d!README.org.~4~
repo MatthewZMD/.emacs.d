@@ -353,7 +353,6 @@
    #+BEGIN_SRC emacs-lisp
    (use-package undo-tree
      :ensure t
-     :diminish undo-tree-mode
      :init (global-undo-tree-mode))
    #+END_SRC
 ** Dimmer
