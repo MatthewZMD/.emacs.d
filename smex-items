@@ -1,10 +1,10 @@
 
 ;; ----- smex-history -----
 (
+ shell
  web-mode
  disable-theme
  load-theme
- shell
  projectile-find-dir-other-frame
  projectile-switch-project
  eval-buffer
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 26)
+ (shell . 27)
  (package-menu-mark-upgrades . 4)
  (list-packages . 3)
  (web-mode-test . 2)
