@@ -413,7 +413,9 @@
      :bind ("C-x g" . magit-status))
    #+END_SRC
 ** Projectile
-   [[https://github.com/bbatsov/projectile][Projectile]] is a Project Interaction Library for Emacs
+   [[https://github.com/bbatsov/projectile][Projectile]] is a Project Interaction Library for Emacs.
+   Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path.
+   [[https://github.com/bmatzelle/go][Gow]] is a lightweight intaller that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
    #+BEGIN_SRC emacs-lisp
    (use-package projectile
      :ensure t
