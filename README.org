@@ -1,9 +1,57 @@
 #+TITLE: MT's EMACS Configuration
-#+OPTIONS: toc:2
+* Table of Contents                                                   :TOC_2:
+- [[#description][Description]]
+- [[#package-management][Package Management]]
+  - [[#package-sources][Package Sources]]
+  - [[#bootstrap-use-package][Bootstrap =use-package=]]
+- [[#essentials][Essentials]]
+  - [[#configs][Configs]]
+  - [[#more-configs][More Configs]]
+- [[#appearance][Appearance]]
+  - [[#fonts][Fonts]]
+  - [[#doom-theme][Doom Theme]]
+  - [[#dashboard][Dashboard]]
+  - [[#page-break-lines][Page Break Lines]]
+- [[#global-functionalities][Global Functionalities]]
+  - [[#org][Org]]
+  - [[#diminish][Diminish]]
+  - [[#ag-the-silver-searcher][AG The Silver Searcher]]
+  - [[#avy][Avy]]
+  - [[#smex][Smex]]
+  - [[#ivy][Ivy]]
+  - [[#counsel][Counsel]]
+  - [[#swiper][Swiper]]
+  - [[#smooth-scrolling][Smooth Scrolling]]
+  - [[#which-key][Which Key]]
+  - [[#popup-kill-ring][Popup Kill Ring]]
+  - [[#undo-tree][Undo Tree]]
+  - [[#dimmer][Dimmer]]
+- [[#programming-general][Programming (general)]]
+  - [[#magit][Magit]]
+  - [[#projectile][Projectile]]
+  - [[#treemacs][Treemacs]]
+  - [[#company][Company]]
+  - [[#flycheck][Flycheck]]
+  - [[#format-all][Format All]]
+  - [[#dumb-jump][Dumb Jump]]
+  - [[#smartparens][Smartparens]]
+- [[#web-development][Web Development]]
+  - [[#web-mode][Web Mode]]
+  - [[#emmet][Emmet]]
+  - [[#js2][JS2]]
+  - [[#typescript][TypeScript]]
+- [[#programming][Programming]]
+  - [[#python][Python]]
+- [[#miscellaneous][Miscellaneous]]
+  - [[#speed-type][Speed Type]]
+  - [[#2048-game][2048 Game]]
+- [[#bindings][Bindings]]
+
 * Description
   This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
 
   This configuration is designed for Emacs 24.5 and above.
+
 * Package Management
 ** Package Sources
    #+BEGIN_SRC emacs-lisp
@@ -247,7 +295,13 @@
       :config
       (add-hook 'org-mode-hook #'org-bullets-mode))
     #+END_SRC
-
+*** TOC Org
+    [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
+    #+BEGIN_SRC emacs-lisp
+    (use-package toc-org
+      :ensure t
+      :config (add-hook 'org-mode-hook 'toc-org-mode))
+    #+END_SRC
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]] removes certain minor modes from mode-line
    #+BEGIN_SRC emacs-lisp
@@ -598,7 +652,7 @@
         (setq elpy-rpc-backend "jedi")))
     #+END_SRC
 *** TODO Jedi package, etc.
-* Miscelllaneous
+* Miscellaneous
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]] is a game to practice touch/speed typing in Emacs.
    #+BEGIN_SRC emacs-lisp
