@@ -208,6 +208,10 @@
 			   (error "You need more than 1 window to execute this function!"))))
       (message "%s" h)
       (window-resize nil (- (truncate (* h (frame-height))) (window-total-height)) nil))
+
+    ;; Setup shorcuts for window resize width and height
+    (global-set-key (kbd "C-x C-|") 'window-resize-width)
+    (global-set-key (kbd "C-x C-_") 'window-resize-height)
     #+END_SRC
 *** Autosave and Backup
     Create directory where Emacs stores backups and autosave files.
@@ -843,9 +847,6 @@
   ;; Compile for C code
   (global-set-key (kbd "C-<f5>") 'compile)
 
-  ;; Setup shorcuts for window resize width and height
-  (global-set-key (kbd "C-x C-|") 'window-resize-width)
-  (global-set-key (kbd "C-x C-_") 'window-resize-height)
   
   ;; Use iBuffer instead of Buffer List
   (global-set-key (kbd "C-x C-b") 'ibuffer)
