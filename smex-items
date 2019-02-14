@@ -6,13 +6,14 @@
  toc-org-mode
  projectile-find-file
  revert-buffer
+ shell
  web-mode
  eval-buffer
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 47)
+ (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
  (package-install . 29)
@@ -43,8 +44,8 @@
  (package-menu-mark-upgrades . 4)
  (list-packages . 3)
  (web-mode-test . 2)
- (web-mode . 7)
- (smartparens-mode . 1)
+ (web-mode . 6)
+ (smartparens-mode . 3)
  (display-time-mode . 1)
  (package-reinstall . 4)
  (magit-version . 2)
@@ -90,7 +91,6 @@
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
  (treemacs-add-project . 1)
- (disable-theme . 3)
  (dired-jump . 1)
  (treemacs-delete . 1)
  (treemacs-remove-workspace . 1)
@@ -98,4 +98,7 @@
  (toc-org-mode . 1)
  (toc-org-insert-toc . 1)
  (projectile-switch-open-project . 3)
+ (disable-theme . 4)
+ (enable-theme . 1)
+ (indent-region . 2)
 )
