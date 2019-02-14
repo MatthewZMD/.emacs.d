@@ -47,6 +47,7 @@
 - [[#miscellaneous][Miscellaneous]]
   - [[#speed-type][Speed Type]]
   - [[#2048-game][2048 Game]]
+  - [[#pacmacs][Pacmacs]]
 - [[#bindings][Bindings]]
 
 * Description
@@ -715,6 +716,11 @@
    [[https://bitbucket.org/zck/2048.el][2048 Game]] is an implementation of 2048 in Emacs.
    #+BEGIN_SRC emacs-lisp
    (use-package 2048-game :ensure t)
+   #+END_SRC
+** Pacmacs
+   [[https://github.com/emacsmirror/pacmacs][Pacmacs]] is Pacman for Emacs.
+   #+BEGIN_SRC emacs-lisp
+   (use-package pacmacs :ensure t)
    #+END_SRC
 * Bindings
   Place any global keybindings here.
