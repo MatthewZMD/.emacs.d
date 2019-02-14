@@ -41,7 +41,9 @@
   - [[#js2][JS2]]
   - [[#typescript][TypeScript]]
 - [[#programming][Programming]]
+  - [[#cc][C/C++]]
   - [[#python][Python]]
+  - [[#arduino][Arduino]]
 - [[#miscellaneous][Miscellaneous]]
   - [[#speed-type][Speed Type]]
   - [[#2048-game][2048 Game]]
@@ -622,6 +624,35 @@
       (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
     #+END_SRC
 * Programming
+** C/C++
+*** Irony
+    [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
+    #+BEGIN_SRC emacs-lisp
+    (use-package irony
+      :ensure t
+      :config
+      (add-hook 'c++-mode-hook 'irony-mode)
+      (add-hook 'c-mode-hook 'irony-mode)
+      (add-hook 'objc-mode-hook 'irony-mode)
+      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+    #+END_SRC
+*** Company Irony
+    [[https://github.com/Sarcasm/company-irony][Company Irony]] provides completion backend for the C, C++ and Objective-C languages.
+    #+BEGIN_SRC emacs-lisp
+    (use-package company-irony
+      :ensure t
+      :config
+      (add-to-list 'company-backends 'company-irony))
+    #+END_SRC
+*** Company Irony C Headers
+    [[https://github.com/hotpxl/company-irony-c-headers/][Company Irony C Headers]] provides a company-mode backend for C/C++ header files that works with irony-mode.
+    This package is meant to be complementary to company-irony by offering completion suggestions to header files.
+    #+BEGIN_SRC emacs-lisp
+    (use-package company-irony-c-headers
+      :ensure t
+      :config
+      (add-to-list 'company-backends '(company-irony-c-headers company-irony)))
+    #+END_SRC
 ** Python
    Install required Python packages before proceding:
    #+BEGIN_SRC text
@@ -654,6 +685,18 @@
         (setq elpy-rpc-backend "jedi")))
     #+END_SRC
 *** TODO Jedi package, etc.
+** Arduino
+*** Arduino Mode
+    [[https://github.com/bookest/arduino-mode][Arduino mode]] is a major mode for editing Arduino sketches.
+    #+BEGIN_SRC emacs-lisp
+    (use-package arduino-mode
+      :ensure t
+      :config
+      (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
+      (add-to-list 'auto-mode-alist '("\\.pde\\'" . arduino-mode))
+      (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
+    #+END_SRC
+*** 
 * Miscellaneous
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]] is a game to practice touch/speed typing in Emacs.
