@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- projectile-switch-project
  projectile-switch-open-project
  toc-org-insert-toc
  toc-org-mode
  projectile-find-file
  revert-buffer
  web-mode
+ eval-buffer
 )
 
 ;; ----- smex-data -----
@@ -77,14 +77,14 @@
  (ag-dired . 1)
  (ag . 2)
  (projectile-ag . 1)
- (projectile-add-known-project . 4)
+ (projectile-add-known-project . 5)
  (treemacs-icons-dired-mode . 2)
  (org-indent-mode . 1)
  (customize-variable . 3)
  (rgrep . 1)
  (counsel-ag . 1)
  (rename-file . 4)
- (projectile-switch-project . 7)
+ (projectile-switch-project . 6)
  (projectile-find-file . 3)
  (projectile-find-dir-other-frame . 1)
  (tide-jump-to-definition . 1)
@@ -97,5 +97,5 @@
  (js2-mode . 2)
  (toc-org-mode . 1)
  (toc-org-insert-toc . 1)
- (projectile-switch-open-project . 1)
+ (projectile-switch-open-project . 3)
 )

@@ -88,6 +88,9 @@
    ;; Maximize window
    (toggle-frame-maximized)
 
+   ;; Unbind C-z to use as prefix
+   (global-set-key (kbd "C-z") 'nil)
+
    ;; No alarms
    (setq ring-bell-function 'ignore)
 
@@ -311,7 +314,9 @@
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]] is a fast code searching tool.
    However [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path before using it.
    #+BEGIN_SRC emacs-lisp
-   (use-package ag :ensure t)
+   (use-package ag
+     :ensure t
+     :bind ("C-z C-s" . ag))
    #+END_SRC
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]] is a nice way to move around text.
@@ -419,7 +424,9 @@
    #+BEGIN_SRC emacs-lisp
    (use-package projectile
      :ensure t
-     :bind ("C-c p" . projectile-command-map)
+     :bind
+     ("C-c p" . projectile-command-map)
+     ("C-z C-d" . projectile-switch-project)
      :config
      (projectile-mode +1)
      (setq projectile-completion-system 'ivy)
@@ -617,6 +624,7 @@
              (typescript-mode . tide-hl-identifier-mode)
              (before-save . tide-format-before-save))
       :config
+      (setq tide-completion-enable-autoimport-suggestions t)
       (flycheck-add-mode 'typescript-tslint 'web-mode)
       (add-hook 'js2-mode-hook #'setup-tide-mode)
       (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
@@ -671,10 +679,8 @@
   ;; Eval-buffer for ELisp Code
   (global-set-key (kbd "<f5>") 'eval-buffer)
 
-  ;; Unbind C-z
-  (global-set-key (kbd "C-z") 'nil)
-
   ;; Setup shorcuts for window resize width and height
   (global-set-key (kbd "C-x C-|") 'window-resize-width)
   (global-set-key (kbd "C-x C-_") 'window-resize-height)
+  
   #+END_SRC
