@@ -8,6 +8,7 @@
   - [[#configs][Configs]]
   - [[#more-configs][More Configs]]
 - [[#appearance][Appearance]]
+  - [[#zone-mode-screensaver][Zone Mode Screensaver]]
   - [[#fonts][Fonts]]
   - [[#doom-theme][Doom Theme]]
   - [[#dashboard][Dashboard]]
@@ -215,6 +216,21 @@
       vc-make-backup-files t)
     #+END_SRC
 * Appearance
+** Zone Mode Screensaver
+   [[https://www.emacswiki.org/emacs/ZoneMode][Zone mode]] 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer, which can be used as a screensaver.
+   #+BEGIN_SRC emacs-lisp
+   (require 'zone)
+   (zone-when-idle 60)
+   (defun zone-choose (pgm)
+     "Choose a PGM to run for `zone'."
+     (interactive
+     (list
+       (completing-read
+         "Program: "
+         (mapcar 'symbol-name zone-programs))))
+     (let ((zone-programs (list (intern pgm))))
+       (zone)))
+   #+END_SRC
 ** Fonts
    Prepare fonts
    #+BEGIN_SRC emacs-lisp
