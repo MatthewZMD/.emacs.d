@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ zone
+ zone-choose
  tetris
  lunar-phases
- zone
  ielm
  2048-game
  org-mode
- eww
 )
 
 ;; ----- smex-data -----
@@ -102,6 +102,7 @@
  (pacmacs-start . 1)
  (tetris . 3)
  (ielm . 1)
- (zone . 3)
+ (zone . 4)
  (lunar-phases . 1)
+ (zone-choose . 1)
 )
