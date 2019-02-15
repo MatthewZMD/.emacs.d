@@ -1,4 +1,4 @@
-#+TILE: MT's EMACS Configuration
+#+TITLE: MT's EMACS Configuration
 * Table of Contents                                                   :TOC_2:
 - [[#description][Description]]
 - [[#package-management][Package Management]]
