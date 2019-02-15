@@ -2,12 +2,12 @@
 ;; ----- smex-history -----
 (
  tetris
+ lunar-phases
+ zone
+ ielm
  2048-game
  org-mode
  eww
- pacmacs-start
- pacmacs-mode
- shell
 )
 
 ;; ----- smex-data -----
@@ -100,5 +100,8 @@
  (projectile-switch-open-project . 3)
  (pacmacs-mode . 2)
  (pacmacs-start . 1)
- (tetris . 2)
+ (tetris . 3)
+ (ielm . 1)
+ (zone . 3)
+ (lunar-phases . 1)
 )
