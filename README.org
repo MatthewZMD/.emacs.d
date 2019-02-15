@@ -1,4 +1,4 @@
-#+TITLE: MT's EMACS Configuration
+#+TILE: MT's EMACS Configuration
 * Table of Contents                                                   :TOC_2:
 - [[#description][Description]]
 - [[#package-management][Package Management]]
@@ -45,6 +45,7 @@
   - [[#python][Python]]
   - [[#arduino][Arduino]]
 - [[#miscellaneous][Miscellaneous]]
+  - [[#tetris][Tetris]]
   - [[#speed-type][Speed Type]]
   - [[#2048-game][2048 Game]]
   - [[#pacmacs][Pacmacs]]
@@ -707,6 +708,19 @@
     #+END_SRC
 *** 
 * Miscellaneous
+** Tetris
+   Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
+   #+BEGIN_SRC emacs-lisp
+   (defvar tetris-mode-map
+     (make-sparse-keymap 'tetris-mode-map))
+   (define-key tetris-mode-map (kbd "C-p") 'tetris-rotate-prev)
+   (define-key tetris-mode-map (kbd "C-n") 'tetris-move-down)
+   (define-key tetris-mode-map (kbd "C-b") 'tetris-move-left)
+   (define-key tetris-mode-map (kbd "C-f") 'tetris-move-right)
+   (define-key tetris-mode-map (kbd "C-SPC") 'tetris-move-bottom)
+   (defadvice tetris-end-game (around zap-scores activate)
+     (save-window-excursion ad-do-it))
+   #+END_SRC
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]] is a game to practice touch/speed typing in Emacs.
    #+BEGIN_SRC emacs-lisp
@@ -732,4 +746,6 @@
   (global-set-key (kbd "C-x C-|") 'window-resize-width)
   (global-set-key (kbd "C-x C-_") 'window-resize-height)
   
+  ;; Use iBuffer instead of Buffer List
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
   #+END_SRC

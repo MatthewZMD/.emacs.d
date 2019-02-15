@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ tetris
+ 2048-game
+ org-mode
+ eww
+ pacmacs-start
+ pacmacs-mode
  shell
- revert-buffer
- projectile-switch-open-project
- toc-org-insert-toc
- toc-org-mode
- projectile-find-file
- web-mode
 )
 
 ;; ----- smex-data -----
@@ -16,7 +16,7 @@
  (package-delete . 3)
  (dired . 2)
  (package-install . 29)
- (org-mode . 2)
+ (org-mode . 3)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 6)
@@ -25,11 +25,11 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 26)
+ (eww . 27)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
- (2048-game . 1)
+ (2048-game . 2)
  (bookmark-load . 1)
  (avy-goto-char . 2)
  (ace-jump-move . 1)
@@ -98,4 +98,7 @@
  (toc-org-mode . 1)
  (toc-org-insert-toc . 1)
  (projectile-switch-open-project . 3)
+ (pacmacs-mode . 2)
+ (pacmacs-start . 1)
+ (tetris . 2)
 )
