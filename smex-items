@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ irony-install-server
+ zone-choose
  compile
  eww
  c-mode
  load-theme
  shell
- zone
- tetris
 )
 
 ;; ----- smex-data -----
@@ -101,5 +101,7 @@
  (doctor . 1)
  (ielm . 3)
  (c-mode . 1)
- (compile . 5)
+ (compile . 8)
+ (zone-choose . 5)
+ (irony-install-server . 1)
 )

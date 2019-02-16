@@ -655,8 +655,8 @@
 ** C/C++
 *** Irony
     [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
-**** Prerequisite:
-     Read [[https://github.com/Sarcasm/irony-mode#irony-server-prerequisites][Irony Server Prerequisites]] and download [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://clang.llvm.org/doxygen/group__CINDEX.html][libclang]].
+**** Prerequisite
+     Read [[https://github.com/Sarcasm/irony-mode#irony-server-prerequisites][Irony Server Prerequisites]] and download [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]].
     #+BEGIN_SRC emacs-lisp
     (use-package irony
       :ensure t
