@@ -332,7 +332,8 @@
    #+END_SRC
 ** AG The Silver Searcher
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]] is a fast code searching tool.
-   However [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path before using it.
+**** Prerequisite
+     [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path before using it.
    #+BEGIN_SRC emacs-lisp
    (use-package ag
      :ensure t
@@ -439,8 +440,9 @@
    #+END_SRC
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]] is a Project Interaction Library for Emacs.
-   Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path.
-   [[https://github.com/bmatzelle/go][Gow]] is a lightweight intaller that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
+**** Prerequisite
+     Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path.
+     [[https://github.com/bmatzelle/go][Gow]] is a lightweight intaller that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
    #+BEGIN_SRC emacs-lisp
    (use-package projectile
      :ensure t
@@ -653,6 +655,8 @@
 ** C/C++
 *** Irony
     [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
+**** Prerequisite:
+     Read [[https://github.com/Sarcasm/irony-mode#irony-server-prerequisites][Irony Server Prerequisites]] and download [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://clang.llvm.org/doxygen/group__CINDEX.html][libclang]].
     #+BEGIN_SRC emacs-lisp
     (use-package irony
       :ensure t
@@ -662,6 +666,7 @@
       (add-hook 'objc-mode-hook 'irony-mode)
       (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
     #+END_SRC
+    After irony is install
 *** Company Irony
     [[https://github.com/Sarcasm/company-irony][Company Irony]] provides completion backend for the C, C++ and Objective-C languages.
     #+BEGIN_SRC emacs-lisp
@@ -681,18 +686,19 @@
       (add-to-list 'company-backends 'company-c-headers))
     #+END_SRC
 ** Python
-   Install required Python packages before proceding:
-   #+BEGIN_SRC text
-   # Either of these
-   pip install rope
-   pip install jedi
-   # flake8 for code checks
-   pip install flake8
-   # and autopep8 for automatic PEP8 formatting
-   pip install autopep8
-   # and yapf for code formatting
-   pip install yapf
-   #+END_SRC
+**** Prerequisite
+     Install required Python packages:
+     #+BEGIN_SRC text
+     # Either of these
+     pip install rope
+     pip install jedi
+     # flake8 for code checks
+     pip install flake8
+     # and autopep8 for automatic PEP8 formatting
+     pip install autopep8
+     # and yapf for code formatting
+     pip install yapf
+     #+END_SRC
 *** Elpy
     [[https://github.com/jorgenschaefer/elpy][Elpy]] is Emacs Python Development Environment.
     #+BEGIN_SRC emacs-lisp

@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ compile
  eww
  c-mode
  load-theme
  shell
  zone
  tetris
- ielm
 )
 
 ;; ----- smex-data -----
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 29)
+ (eww . 36)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -101,4 +101,5 @@
  (doctor . 1)
  (ielm . 3)
  (c-mode . 1)
+ (compile . 5)
 )
