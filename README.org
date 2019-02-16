@@ -677,7 +677,8 @@
     (use-package company-irony-c-headers
       :ensure t
       :config
-      (add-to-list 'company-backends '(company-irony-c-headers company-irony)))
+      (add-to-list 'company-backends 'company-irony)
+      (add-to-list 'company-backends 'company-c-headers))
     #+END_SRC
 ** Python
    Install required Python packages before proceding:
@@ -721,8 +722,30 @@
       (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
       (add-to-list 'auto-mode-alist '("\\.pde\\'" . arduino-mode))
       (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
+   #+END_SRC
+*** Company Arduino
+    [[https://github.com/yuutayamada/company-arduino][Company Arduino]] is a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
+    #+BEGIN_SRC emacs-lisp
+    (use-package company-arduino
+      :ensure t
+      :config
+      (add-hook 'irony-mode-hook 'company-arduino-turn-on))
+
+    ;; Configuration for company-c-headers.el
+    ;; The `company-arduino-append-include-dirs' function appends
+    ;; Arduino's include directories to the default directories
+    ;; if `default-directory' is inside `company-arduino-home'. Otherwise
+    ;; just returns the default directories.
+    ;; Please change the default include directories accordingly.
+    (defun my-company-c-headers-get-system-path ()
+      "Return the system include path for the current buffer."
+      (let ((default '("/usr/include/" "/usr/local/include/")))
+        (company-arduino-append-include-dirs default t)))
+    (setq company-c-headers-path-system 'my-company-c-headers-get-system-path) 
+    
+    ;; Activate irony-mode on arduino-mode
+    (add-hook 'arduino-mode-hook 'irony-mode)
     #+END_SRC
-*** 
 * Miscellaneous
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
