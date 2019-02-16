@@ -1,22 +1,22 @@
 
 ;; ----- smex-history -----
 (
+ eww
+ c-mode
+ load-theme
+ shell
  zone
- zone-choose
  tetris
- lunar-phases
  ielm
- 2048-game
- org-mode
 )
 
 ;; ----- smex-data -----
 (
- (eval-buffer . 47)
+ (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
  (package-install . 29)
- (org-mode . 3)
+ (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 6)
@@ -25,11 +25,11 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 27)
+ (eww . 29)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
- (2048-game . 2)
+ (2048-game . 1)
  (bookmark-load . 1)
  (avy-goto-char . 2)
  (ace-jump-move . 1)
@@ -39,17 +39,17 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 30)
+ (shell . 28)
  (package-menu-mark-upgrades . 4)
  (list-packages . 3)
  (web-mode-test . 2)
- (web-mode . 7)
- (smartparens-mode . 1)
+ (web-mode . 6)
+ (smartparens-mode . 3)
  (display-time-mode . 1)
  (package-reinstall . 4)
  (magit-version . 2)
  (speed-type-text . 3)
- (revert-buffer . 6)
+ (revert-buffer . 5)
  (flycheck-verify-checker . 6)
  (typescript-mode . 2)
  (isearch-highlight-regexp . 1)
@@ -69,7 +69,7 @@
  (dired-do-copy . 1)
  (toggle-frame-maximized . 1)
  (eval-region . 1)
- (load-theme . 8)
+ (load-theme . 9)
  (all-the-icons-install-fonts . 1)
  (recover-file . 1)
  (ag-mode . 1)
@@ -77,7 +77,7 @@
  (ag-dired . 1)
  (ag . 2)
  (projectile-ag . 1)
- (projectile-add-known-project . 5)
+ (projectile-add-known-project . 3)
  (treemacs-icons-dired-mode . 2)
  (org-indent-mode . 1)
  (customize-variable . 3)
@@ -85,24 +85,20 @@
  (counsel-ag . 1)
  (rename-file . 4)
  (projectile-switch-project . 6)
- (projectile-find-file . 3)
+ (projectile-find-file . 2)
  (projectile-find-dir-other-frame . 1)
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
  (treemacs-add-project . 1)
- (disable-theme . 3)
- (dired-jump . 1)
- (treemacs-delete . 1)
- (treemacs-remove-workspace . 1)
- (js2-mode . 2)
- (toc-org-mode . 1)
- (toc-org-insert-toc . 1)
- (projectile-switch-open-project . 3)
- (pacmacs-mode . 2)
+ (disable-theme . 4)
+ (enable-theme . 1)
+ (indent-region . 2)
+ (dired-create-directory . 1)
+ (ivy-immediate-done . 1)
  (pacmacs-start . 1)
  (tetris . 3)
- (ielm . 1)
- (zone . 4)
- (lunar-phases . 1)
- (zone-choose . 1)
+ (zone . 7)
+ (doctor . 1)
+ (ielm . 3)
+ (c-mode . 1)
 )
