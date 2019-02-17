@@ -161,6 +161,9 @@
    
    ;; Real emacs knights don't use shift to mark things
    (setq shift-select-mode nil)
+
+   ;; Add personal lisp files
+   (add-to-list 'load-path "~/.emacs.d/lisp/")
    #+END_SRC
 ** More Configs
    Other important, but longer configs.
@@ -332,8 +335,7 @@
    #+END_SRC
 ** AG The Silver Searcher
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]] is a fast code searching tool.
-**** Prerequisite
-     [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path before using it.
+   Prerequisite: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
    #+BEGIN_SRC emacs-lisp
    (use-package ag
      :ensure t
@@ -440,9 +442,7 @@
    #+END_SRC
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]] is a Project Interaction Library for Emacs.
-**** Prerequisite
-     Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path.
-     [[https://github.com/bmatzelle/go][Gow]] is a lightweight intaller that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
+   Prerequisite: Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
    #+BEGIN_SRC emacs-lisp
    (use-package projectile
      :ensure t
@@ -655,8 +655,7 @@
 ** C/C++
 *** Irony
     [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
-**** Prerequisite
-     Read [[https://github.com/Sarcasm/irony-mode#irony-server-prerequisites][Irony Server Prerequisites]] and download [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]].
+    Prerequisite: Read [[https://github.com/Sarcasm/irony-mode#irony-server-prerequisites][Irony Server Prerequisites]] and download [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]].
     #+BEGIN_SRC emacs-lisp
     (use-package irony
       :ensure t
@@ -666,7 +665,14 @@
       (add-hook 'objc-mode-hook 'irony-mode)
       (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
     #+END_SRC
-    After irony is install
+    Windows performance tweaks
+    #+BEGIN_SRC emacs-lisp
+    (when (boundp 'w32-pipe-read-delay)
+      (setq w32-pipe-read-delay 0))
+    ;; Set the buffer size to 64K on Windows (from the original 4K)
+    (when (boundp 'w32-pipe-buffer-size)
+    (setq irony-server-w32-pipe-buffer-size (* 64 1024)))
+    #+END_SRC
 *** Company Irony
     [[https://github.com/Sarcasm/company-irony][Company Irony]] provides completion backend for the C, C++ and Objective-C languages.
     #+BEGIN_SRC emacs-lisp
@@ -686,19 +692,19 @@
       (add-to-list 'company-backends 'company-c-headers))
     #+END_SRC
 ** Python
-**** Prerequisite
-     Install required Python packages:
-     #+BEGIN_SRC text
-     # Either of these
-     pip install rope
-     pip install jedi
-     # flake8 for code checks
-     pip install flake8
-     # and autopep8 for automatic PEP8 formatting
-     pip install autopep8
-     # and yapf for code formatting
-     pip install yapf
-     #+END_SRC
+   Prerequisite:
+   Install required Python packages:
+   #+BEGIN_SRC text
+   # Either of these
+   pip install rope
+   pip install jedi
+   # flake8 for code checks
+   pip install flake8
+   # and autopep8 for automatic PEP8 formatting
+   pip install autopep8
+   # and yapf for code formatting
+   pip install yapf
+   #+END_SRC
 *** Elpy
     [[https://github.com/jorgenschaefer/elpy][Elpy]] is Emacs Python Development Environment.
     #+BEGIN_SRC emacs-lisp
@@ -717,7 +723,7 @@
         ;; jedi is great
         (setq elpy-rpc-backend "jedi")))
     #+END_SRC
-*** TODO Jedi package, etc.
+*** TODO Jedi package, e     
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]] is a major mode for editing Arduino sketches.
@@ -786,6 +792,9 @@
   #+BEGIN_SRC emacs-lisp
   ;; Eval-buffer for ELisp Code
   (global-set-key (kbd "<f5>") 'eval-buffer)
+
+  ;; Compile for C code
+  (global-set-key (kbd "C-<f5>") 'compile)
 
   ;; Setup shorcuts for window resize width and height
   (global-set-key (kbd "C-x C-|") 'window-resize-width)
