@@ -1,10 +1,10 @@
 
 ;; ----- smex-history -----
 (
- irony-install-server
- zone-choose
+ ielm
  compile
  eww
+ zone-choose
  c-mode
  load-theme
  shell
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 36)
+ (eww . 37)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -99,9 +99,9 @@
  (tetris . 3)
  (zone . 7)
  (doctor . 1)
- (ielm . 3)
+ (ielm . 4)
  (c-mode . 1)
- (compile . 8)
+ (compile . 16)
  (zone-choose . 5)
- (irony-install-server . 1)
+ (irony-install-server . 3)
 )
