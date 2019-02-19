@@ -1,19 +1,19 @@
 
 ;; ----- smex-history -----
 (
- shell
- zone
- zone-choose
- tetris
- lunar-phases
- ielm
- 2048-game
+ list-packages
+ package-delete
+ package-list-packages
+ package-reinstall
+ life
+ dissociated-press
+ butterfly
 )
 
 ;; ----- smex-data -----
 (
  (eval-buffer . 47)
- (package-delete . 3)
+ (package-delete . 4)
  (dired . 2)
  (package-install . 29)
  (org-mode . 3)
@@ -39,14 +39,14 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 31)
+ (shell . 33)
  (package-menu-mark-upgrades . 4)
- (list-packages . 3)
+ (list-packages . 4)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 1)
  (display-time-mode . 1)
- (package-reinstall . 4)
+ (package-reinstall . 7)
  (magit-version . 2)
  (speed-type-text . 3)
  (revert-buffer . 6)
@@ -100,9 +100,16 @@
  (projectile-switch-open-project . 3)
  (pacmacs-mode . 2)
  (pacmacs-start . 1)
- (tetris . 3)
+ (tetris . 4)
  (ielm . 1)
- (zone . 4)
+ (zone . 5)
  (lunar-phases . 1)
- (zone-choose . 1)
+ (zone-choose . 11)
+ (life . 8)
+ (hanoi . 4)
+ (morse-region . 1)
+ (solitaire . 1)
+ (butterfly . 1)
+ (dissociated-press . 1)
+ (package-list-packages . 1)
 )
