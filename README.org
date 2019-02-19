@@ -54,7 +54,8 @@
 
 * Description
   This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
-  It is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]] below, then they can use most of my custom EMACS configurations out of the box! Exceptions are noted as =Prerequisite=, simple =Ctrl-F= will lead you there.
+  
+  It is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]] below, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
 
   This configuration is designed and tested for Emacs 26.1 and above.
 
@@ -266,7 +267,7 @@
    (nox/change-font)
    #+END_SRC
 ** Doom Theme
-   [[https://github.com/hlissner/emacs-doom-themes][doom-themes]] is an opinionated UI plugin and pack of theme, and my Emacs currenty using Molokai theme
+   [[https://github.com/hlissner/emacs-doom-themes][doom-themes]] is an UI plugin and pack of theme, and my Emacs currenty using Molokai theme
    #+BEGIN_SRC emacs-lisp
    (use-package doom-themes
      :ensure t
@@ -274,6 +275,7 @@
    #+END_SRC
 ** Dashboard
    [[https://github.com/rakanalh/emacs-dashboard][Dashboard]] is an extensible Emacs startup screen.
+   
    Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme
    #+BEGIN_SRC emacs-lisp
    (use-package dashboard
@@ -336,7 +338,8 @@
    #+END_SRC
 ** AG The Silver Searcher
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]] is a fast code searching tool.
-   Prerequisite: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
+   
+   *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
    #+BEGIN_SRC emacs-lisp
    (use-package ag
      :ensure t
@@ -443,7 +446,8 @@
    #+END_SRC
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]] is a Project Interaction Library for Emacs.
-   Prerequisite: Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
+   
+   *Prerequisite*: Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
    #+BEGIN_SRC emacs-lisp
    (use-package projectile
      :ensure t
@@ -656,7 +660,8 @@
 ** C/C++
 *** Irony
     [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
-    Prerequisite: Read [[https://github.com/Sarcasm/irony-mode#irony-server-prerequisites][Irony Server Prerequisites]] and download [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]].
+    
+    *Prerequisite*: Read [[https://github.com/Sarcasm/irony-mode#irony-server-prerequisites][Irony Server Prerequisites]] and download [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]].
     #+BEGIN_SRC emacs-lisp
     (use-package irony
       :ensure t
@@ -684,6 +689,7 @@
     #+END_SRC
 *** Company Irony C Headers
     [[https://github.com/hotpxl/company-irony-c-headers/][Company Irony C Headers]] provides a company-mode backend for C/C++ header files that works with irony-mode.
+    
     This package is meant to be complementary to company-irony by offering completion suggestions to header files.
     #+BEGIN_SRC emacs-lisp
     (use-package company-irony-c-headers
@@ -693,7 +699,7 @@
       (add-to-list 'company-backends 'company-c-headers))
     #+END_SRC
 ** Python
-   Prerequisite:
+   *Prerequisite*:
    Install required Python packages:
    #+BEGIN_SRC text
    # Either of these
