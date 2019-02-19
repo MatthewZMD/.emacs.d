@@ -54,8 +54,9 @@
 
 * Description
   This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
+  It is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]] below, then they can use most of my custom EMACS configurations out of the box! Exceptions are noted as =Prerequisite=, simple =Ctrl-F= will lead you there.
 
-  This configuration is designed for Emacs 24.5 and above.
+  This configuration is designed and tested for Emacs 26.1 and above.
 
 * Package Management
 ** Package Sources
