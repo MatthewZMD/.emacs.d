@@ -238,6 +238,8 @@
    #+END_SRC
 ** Fonts
    Prepare fonts
+
+   *Prerequisite*: Install =Input= and =Love Letter TW= fonts from the =/fonts=.
    #+BEGIN_SRC emacs-lisp
    ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
    (defvar nox/fonts '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
