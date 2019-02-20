@@ -732,7 +732,24 @@
         ;; jedi is great
         (setq elpy-rpc-backend "jedi")))
     #+END_SRC
-*** TODO Jedi package, e     
+*** Jedi
+    [[https://github.com/tkf/emacs-jedi][Jedi]] is a Python auto-completion package for Emacs.
+    #+BEGIN_SRC emacs-lisp
+    (use-package jedi
+      :ensure t
+      :init
+      (add-to-list 'company-backends 'company-jedi))
+    #+END_SRC
+*** Company Jedi
+    [[https://github.com/syohex/emacs-company-jedi][Company Jedi]] is a Company backend for Python jedi
+    #+BEGIN_SRC emacs-lisp    
+    (use-package company-jedi
+      :ensure t
+      :init
+      (add-hook 'python-mode-hook
+        (lambda () (add-to-list 'company-backends 'company-jedi)))
+      (setq company-jedi-python-bin "python"))
+    #+END_SRC
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]] is a major mode for editing Arduino sketches.
