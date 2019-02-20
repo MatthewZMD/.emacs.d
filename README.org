@@ -8,6 +8,7 @@
   - [[#configs][Configs]]
   - [[#more-configs][More Configs]]
 - [[#appearance][Appearance]]
+  - [[#title-bar][Title Bar]]
   - [[#zone-mode-screensaver][Zone Mode Screensaver]]
   - [[#fonts][Fonts]]
   - [[#doom-theme][Doom Theme]]
@@ -221,6 +222,10 @@
       vc-make-backup-files t)
     #+END_SRC
 * Appearance
+** Title Bar
+   #+BEGIN_SRC emacs-lisp
+   (setq-default frame-title-format '("Emacs " emacs-version " - " user-login-name "@" system-name " - %b"))
+   #+END_SRC
 ** Zone Mode Screensaver
    [[https://www.emacswiki.org/emacs/ZoneMode][Zone mode]] 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer, which can be used as a screensaver.
    #+BEGIN_SRC emacs-lisp
@@ -352,8 +357,12 @@
    #+BEGIN_SRC emacs-lisp
    (use-package avy
      :ensure t
-     :bind (("C-;" . avy-goto-char-timer)
-            ("C-:" . avy-goto-line)))
+     :bind 
+     (("C-;" . avy-goto-char-timer)
+      ("C-:" . avy-goto-line))
+     :config
+     (setq avy-timeout-seconds 0.3)
+     (setq avy-style 'pre))
    #+END_SRC
 ** Smex
    [[https://github.com/nonsequitur/smex][Smex]] is a M-x enhancement tool for Emacs.
