@@ -14,6 +14,7 @@
   - [[#doom-theme][Doom Theme]]
   - [[#dashboard][Dashboard]]
   - [[#page-break-lines][Page Break Lines]]
+  - [[#smart-mode-lines][Smart Mode Lines]]
 - [[#global-functionalities][Global Functionalities]]
   - [[#org][Org]]
   - [[#diminish][Diminish]]
@@ -52,6 +53,7 @@
   - [[#2048-game][2048 Game]]
   - [[#pacmacs][Pacmacs]]
 - [[#bindings][Bindings]]
+- [[#credits][Credits]]
 
 * Description
   This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
@@ -306,6 +308,16 @@
    (use-package page-break-lines
      :ensure t
      :init (global-page-break-lines-mode))
+   #+END_SRC
+** Smart Mode Lines
+   [[https://github.com/Malabarba/smart-mode-line][Smart mode lines]] is a mode-line for Emacs. It aims to be easy to read from small to large monitors by using colors, a prefix feature, and smart truncation.
+   #+BEGIN_SRC emacs-lisp
+   (use-package smart-mode-line
+     :ensure t
+     :config 
+     (setq sml/no-confirm-load-theme t)
+     (setq sml/theme 'respectful)
+     (sml/setup))
    #+END_SRC
 * Global Functionalities
 ** Org
@@ -838,3 +850,7 @@
   ;; Use iBuffer instead of Buffer List
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   #+END_SRC
+* Credits
+  This =.emacs.d/= was heavily influenced and inspired by the following configurations.
+  - [[https://github.com/anschwa/emacs.d][Adam Schwartz's .emacs.d]]
+  - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]
