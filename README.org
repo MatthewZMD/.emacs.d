@@ -849,6 +849,10 @@
   
   ;; Use iBuffer instead of Buffer List
   (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+  ;; Truncate lines
+  (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines);
+
   #+END_SRC
 * Credits
   This =.emacs.d/= was heavily influenced and inspired by the following configurations.
