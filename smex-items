@@ -4,10 +4,10 @@
  package-install
  gnus
  shell
- irony-install-server
  ag
  eww
  tetris
+ eval-buffer
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 31)
+ (package-install . 33)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
