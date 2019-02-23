@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- org-toggle-inline-images
- org-remove-inline-images
- org-display-inline-images
- doctor
  package-install
- ielm
- compile
+ gnus
+ shell
+ irony-install-server
+ ag
+ eww
+ tetris
 )
 
 ;; ----- smex-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 30)
+ (package-install . 31)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 37)
+ (eww . 39)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 28)
+ (shell . 30)
  (package-menu-mark-upgrades . 4)
  (list-packages . 3)
  (web-mode-test . 2)
@@ -75,7 +75,7 @@
  (ag-mode . 1)
  (dashboard-mode . 1)
  (ag-dired . 1)
- (ag . 2)
+ (ag . 3)
  (projectile-ag . 1)
  (projectile-add-known-project . 3)
  (treemacs-icons-dired-mode . 2)
@@ -96,16 +96,17 @@
  (dired-create-directory . 1)
  (ivy-immediate-done . 1)
  (pacmacs-start . 1)
- (tetris . 3)
+ (tetris . 4)
  (zone . 7)
  (doctor . 2)
  (ielm . 4)
  (c-mode . 1)
  (compile . 16)
  (zone-choose . 5)
- (irony-install-server . 3)
+ (irony-install-server . 4)
  (flycheck-compile . 1)
  (org-display-inline-images . 2)
  (org-remove-inline-images . 1)
  (org-toggle-inline-images . 3)
+ (gnus . 1)
 )
