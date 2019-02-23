@@ -52,7 +52,6 @@
   - [[#speed-type][Speed Type]]
   - [[#2048-game][2048 Game]]
   - [[#pacmacs][Pacmacs]]
-- [[#bindings][Bindings]]
 - [[#credits][Credits]]
 
 * Description
@@ -850,10 +849,6 @@
    #+BEGIN_SRC emacs-lisp
    (use-package pacmacs :ensure t)
    #+END_SRC
-* Bindings
-  Place any global keybindings here.
-  #+BEGIN_SRC emacs-lisp
-  #+END_SRC
 * Credits
   This =.emacs.d/= was heavily influenced and inspired by the following configurations.
   - [[https://github.com/anschwa/emacs.d][Adam Schwartz's .emacs.d]]
