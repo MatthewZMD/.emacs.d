@@ -636,7 +636,8 @@
      :ensure t
      :diminish smartparens-mode
      :config
-     (add-hook 'prog-mode-hook #'smartparens-mode))
+     (add-hook 'prog-mode-hook #'smartparens-mode)
+     (setq sp-escape-quotes-after-insert nil))
    #+END_SRC
 * Web Development
 ** Web Mode
