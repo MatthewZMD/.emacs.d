@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ dashboard-mode
+ dumb-jump-go
  package-install
  gnus
  shell
  ag
  eww
- tetris
- eval-buffer
 )
 
 ;; ----- smex-data -----
@@ -73,7 +73,7 @@
  (all-the-icons-install-fonts . 1)
  (recover-file . 1)
  (ag-mode . 1)
- (dashboard-mode . 1)
+ (dashboard-mode . 2)
  (ag-dired . 1)
  (ag . 3)
  (projectile-ag . 1)
@@ -109,4 +109,5 @@
  (org-remove-inline-images . 1)
  (org-toggle-inline-images . 3)
  (gnus . 1)
+ (dumb-jump-go . 1)
 )

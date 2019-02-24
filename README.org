@@ -29,6 +29,7 @@
   - [[#popup-kill-ring][Popup Kill Ring]]
   - [[#undo-tree][Undo Tree]]
   - [[#dimmer][Dimmer]]
+  - [[#discover-my-major][Discover My Major]]
 - [[#programming-general][Programming (general)]]
   - [[#magit][Magit]]
   - [[#projectile][Projectile]]
@@ -64,13 +65,13 @@
 * Package Management
 ** Package Sources
    #+BEGIN_SRC emacs-lisp
-   (require 'package)
-   (setq package-enable-at-startup nil)
-   (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
-                            ("gnu"   . "http://elpa.gnu.org/packages/")
-                            ("melpa" . "https://melpa.org/packages/")
-			    ("melpa stable" . "http://stable.melpa.org/packages/")))
-   (package-initialize)
+     (require 'package)
+     (setq package-enable-at-startup nil)
+     (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
+                              ("gnu"   . "http://elpa.gnu.org/packages/")
+                              ("melpa" . "https://melpa.org/packages/")
+                              ("melpa stable" . "http://stable.melpa.org/packages/")))
+     (package-initialize)
    #+END_SRC
 ** Bootstrap =use-package=
    My =.emacs.d/= is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
@@ -474,6 +475,13 @@
      (setq dimmer-fraction 0.2)
      (setq dimmer-exclusion-regexp "\\*Minibuf-[0-9]+\\*\\|\\*dashboard\\*"))
    #+END_SRC
+** Discover My Major
+   [[https://github.com/jguenther/discover-my-major][Discover my major]] discovers key bindings and their meaning for the current Emacs major mode.
+   #+BEGIN_SRC emacs-lisp
+     (use-package discover-my-major
+       :ensure t
+       :bind (("C-h C-m" . discover-my-major)))
+   #+END_SRC
 * Programming (general)
 ** Magit
    [[https://magit.vc/][Magit]] is an interface to the version control system Git
@@ -700,7 +708,7 @@
 ** C/C++
    *Prerequisite*: To compile and execute C/C++ files in Emacs for Windows, install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] first. 
 
-   Then compile using =C-<f5>= (=compile=). The command =gcc -o <file>.exe <file>.c= is to compile C code into =<file>.exe=.
+   Then compile using =C-<f5>= or =compile=. The command =gcc( -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
 *** Irony
     [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
     
