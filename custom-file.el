@@ -11,4 +11,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(dashboard-banner-logo-title-face ((t (:family "Love LetterTW" :height 125)))))
+ '(dashboard-banner-logo-title-face ((t (:family "Love LetterTW" :height 125))))
+ '(font-lock-comment-face ((t (:foreground "dim grey")))))
