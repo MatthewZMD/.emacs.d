@@ -1,12 +1,13 @@
 #+TITLE: MT's GNU Emacs Configuration
 * Table of Contents                                                   :TOC_2:
 - [[#description][Description]]
+- [[#essentials][Essentials]]
+  - [[#startup-optimization][Startup Optimization]]
+  - [[#configs][Configs]]
+  - [[#more-configs][More Configs]]
 - [[#package-management][Package Management]]
   - [[#package-sources][Package Sources]]
   - [[#bootstrap-use-package][Bootstrap =use-package=]]
-- [[#essentials][Essentials]]
-  - [[#configs][Configs]]
-  - [[#more-configs][More Configs]]
 - [[#appearance][Appearance]]
   - [[#title-bar][Title Bar]]
   - [[#zone-mode-screensaver][Zone Mode Screensaver]]
@@ -62,30 +63,25 @@
 
   This configuration is designed and tested for Emacs 26.1 and above.
 
-* Package Management
-** Package Sources
-   #+BEGIN_SRC emacs-lisp
-     (require 'package)
-     (setq package-enable-at-startup nil)
-     (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
-                              ("gnu"   . "http://elpa.gnu.org/packages/")
-                              ("melpa" . "https://melpa.org/packages/")
-                              ("melpa stable" . "http://stable.melpa.org/packages/")))
-     (package-initialize)
-   #+END_SRC
-** Bootstrap =use-package=
-   My =.emacs.d/= is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
-   #+BEGIN_QUOTE
-   The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
-   #+END_QUOTE
-   Start using =use-package=
-   #+BEGIN_SRC emacs-lisp
-   (unless (package-installed-p 'use-package)
-     (package-refresh-contents)
-     (package-install 'use-package))
-   (require 'use-package)
-   #+END_SRC
 * Essentials
+** Startup Optimization
+   #+BEGIN_SRC emacs-lisp
+     ;; Set garbage collection threshold
+     (setq gc-cons-threshold-original gc-cons-threshold)
+     (setq gc-cons-threshold (* 1024 1024 100))
+     ;; Set file-name-handler-alist
+     (setq file-name-handler-alist-original file-name-handler-alist)
+     (setq file-name-handler-alist nil)
+     ;; Set deferred timer to reset the changes
+     (run-with-idle-timer
+      5 nil
+      (lambda ()
+        (setq gc-cons-threshold gc-cons-threshold-original)
+        (setq file-name-handler-alist file-name-handler-alist-original)
+        (makunbound 'gc-cons-threshold-original)
+        (makunbound 'file-name-handler-alist-original)
+        (message "gc-cons-threshold and file-name-handler-alist restored")))
+   #+END_SRC
 ** Configs
    Some essential configs that make my life a lot easier
    #+BEGIN_SRC emacs-lisp
@@ -117,12 +113,14 @@
    ;; Cursor modification
    (blink-cursor-mode -1)
    
-   ;; Force UTF-8 in Emacs everywhere
-   (setq locale-coding-system 'utf-8)
-   (set-terminal-coding-system 'utf-8)
-   (set-keyboard-coding-system 'utf-8)
-   (set-selection-coding-system 'utf-8)
-   (prefer-coding-system 'utf-8)
+   ;; Use UTF-8 as much as possible with unix line endings
+   (prefer-coding-system 'utf-8-unix)
+   (set-default-coding-systems 'utf-8-unix)
+   (set-terminal-coding-system 'utf-8-unix)
+   (set-keyboard-coding-system 'utf-8-unix)
+   (set-selection-coding-system 'utf-8-unix)
+   (setq locale-coding-system 'utf-8-unix)
+   ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
    (when (display-graphic-p)
    (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
    
@@ -167,6 +165,9 @@
    ;; Real emacs knights don't use shift to mark things
    (setq shift-select-mode nil)
 
+   ;; Replace selection on insert
+   (delete-selection-mode 1)
+
    ;; Eval-buffer for ELisp Code
    (global-set-key (kbd "<f5>") 'eval-buffer)
 
@@ -181,6 +182,10 @@
 
    ;; Add personal lisp files
    (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+   ;; Move the custom-set-variables to a different files
+   (setq custom-file "~/.emacs.d/custom-file.el")
+   (load custom-file 'noerror)
    #+END_SRC
 ** More Configs
    Other important, but longer configs.
@@ -247,6 +252,32 @@
         (let ((shell-file-name "C:\\Windows\\System32\\bash.exe"))
           (shell "*bash*")))
     #+END_SRC
+* Package Management
+** Package Sources
+   #+BEGIN_SRC emacs-lisp
+     (require 'package)
+     (setq package-enable-at-startup nil)
+     (setq package-archives '(
+       ;; Comment / Uncomment when necessary sites are needed
+       ("gnu"   . "http://elpa.gnu.org/packages/")
+       ("melpa" . "https://melpa.org/packages/")
+       ;("melpa stable" . "http://stable.melpa.org/packages/")
+       ;;("org"   . "http://orgmode.org/elpa/")
+     ))
+     (package-initialize)
+   #+END_SRC
+** Bootstrap =use-package=
+   My =.emacs.d/= is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
+   #+BEGIN_QUOTE
+   The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
+   #+END_QUOTE
+   Start using =use-package=
+   #+BEGIN_SRC emacs-lisp
+   (unless (package-installed-p 'use-package)
+     (package-refresh-contents)
+     (package-install 'use-package))
+   (require 'use-package)
+   #+END_SRC
 * Appearance
 ** Title Bar
    #+BEGIN_SRC emacs-lisp
