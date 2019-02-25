@@ -12,4 +12,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(dashboard-banner-logo-title-face ((t (:family "Love LetterTW" :height 125))))
- '(font-lock-comment-face ((t (:foreground "dim grey")))))
+ '(font-lock-comment-face ((t (:foreground "#BEE86A")))))
