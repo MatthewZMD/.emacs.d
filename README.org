@@ -65,6 +65,7 @@
 
 * Essentials
 ** Startup Optimization
+   Optimize startup time.
    #+BEGIN_SRC emacs-lisp
      ;; Set garbage collection threshold
      (setq gc-cons-threshold-original gc-cons-threshold)
@@ -246,6 +247,8 @@
     #+END_SRC
 *** Run-Bash Command
     *Prerequisite*: This is configured for [[https://docs.microsoft.com/en-ca/windows/wsl/about][Windows Subsystem for Linux]] in Windows 10.
+
+    Run the Linux Bash in an Emacs buffer.
     #+BEGIN_SRC emacs-lisp
       (defun run-bash ()
         (interactive)

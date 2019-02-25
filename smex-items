@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ smex-save-to-file
  package-install
  treemacs-select-window
  run-bash
  package-autoremove
  list-packages
  shell
- org-toggle-inline-images
 )
 
 ;; ----- smex-data -----
@@ -111,4 +111,5 @@
  (package-autoremove . 1)
  (run-bash . 1)
  (treemacs-select-window . 1)
+ (smex-save-to-file . 1)
 )
