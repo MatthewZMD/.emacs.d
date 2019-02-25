@@ -5,8 +5,8 @@
  package-install
  treemacs-select-window
  run-bash
- package-autoremove
- list-packages
+ eval-buffer
+ eww
  shell
 )
 
@@ -108,8 +108,21 @@
  (org-display-inline-images . 2)
  (org-remove-inline-images . 1)
  (org-toggle-inline-images . 3)
+ <<<<<<<
+ Updated
+ upstream
  (package-autoremove . 1)
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
+ =======
+ (gnus . 1)
+ (dumb-jump-go . 1)
+ (org-edit-special . 1)
+ (auto-complete-mode . 2)
+ (company-mode . 1)
+ (run-bash . 1)
+ >>>>>>>
+ Stashed
+ changes
 )

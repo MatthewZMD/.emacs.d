@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (pacmacs 2048-game speed-type company-arduino arduino-mode company-jedi jedi elpy company-irony-c-headers company-irony irony tide typescript-mode js2-mode emmet-mode web-mode smartparens dumb-jump format-all flycheck company treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile magit discover-my-major dimmer undo-tree popup-kill-ring which-key smooth-scrolling counsel ivy smex avy ag diminish toc-org org-bullets smart-mode-line dashboard doom-themes use-package))))
+    (auto-package-update pacmacs 2048-game speed-type company-arduino arduino-mode company-jedi jedi elpy company-irony-c-headers company-irony irony tide typescript-mode js2-mode emmet-mode web-mode smartparens dumb-jump format-all flycheck company treemacs-projectile treemacs-magit treemacs-icons-dired treemacs projectile magit discover-my-major dimmer undo-tree popup-kill-ring which-key smooth-scrolling counsel ivy smex avy ag diminish toc-org org-bullets smart-mode-line dashboard doom-themes use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

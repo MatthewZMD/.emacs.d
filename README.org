@@ -4,10 +4,11 @@
 - [[#essentials][Essentials]]
   - [[#startup-optimization][Startup Optimization]]
   - [[#configs][Configs]]
-  - [[#more-configs][More Configs]]
+  - [[#more-functions][More Functions]]
 - [[#package-management][Package Management]]
   - [[#package-sources][Package Sources]]
   - [[#bootstrap-use-package][Bootstrap =use-package=]]
+  - [[#auto-update-packages][Auto-update Packages]]
 - [[#appearance][Appearance]]
   - [[#title-bar][Title Bar]]
   - [[#zone-mode-screensaver][Zone Mode Screensaver]]
@@ -86,164 +87,164 @@
 ** Configs
    Some essential configs that make my life a lot easier
    #+BEGIN_SRC emacs-lisp
-   ;; Minimal UI, turn off unnecessary interface
-   (scroll-bar-mode -1)
-   (tool-bar-mode   -1)
-   (tooltip-mode    -1)
-   (menu-bar-mode   -1)
-   
-   ;; Maximize window
-   (toggle-frame-maximized)
+     ;; Minimal UI, turn off unnecessary interface
+     (scroll-bar-mode -1)
+     (tool-bar-mode   -1)
+     (tooltip-mode    -1)
+     (menu-bar-mode   -1)
 
-   ;; Unbind C-z to use as prefix
-   (global-set-key (kbd "C-z") 'nil)
+     ;; Maximize window
+     (toggle-frame-maximized)
 
-   ;; No alarms
-   (setq ring-bell-function 'ignore)
+     ;; Unbind C-z to use as prefix
+     (global-set-key (kbd "C-z") 'nil)
 
-   ;; Disable splash screen and change scratch message
-   (setq inhibit-startup-screen t)
-   (setq initial-scratch-message ";; Close the World, Open the nExt")
-   
-   ;; Show keystrokes in progress
-   (setq echo-keystrokes 0.1)
-   
-   ;; Move files to trash when deleting
-   (setq delete-by-moving-to-trash t)
-   
-   ;; Cursor modification
-   (blink-cursor-mode -1)
-   
-   ;; Use UTF-8 as much as possible with unix line endings
-   (prefer-coding-system 'utf-8-unix)
-   (set-default-coding-systems 'utf-8-unix)
-   (set-terminal-coding-system 'utf-8-unix)
-   (set-keyboard-coding-system 'utf-8-unix)
-   (set-selection-coding-system 'utf-8-unix)
-   (setq locale-coding-system 'utf-8-unix)
-   ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
-   (when (display-graphic-p)
-   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
-   
-   ;; Make sentences end with a single space
-   (setq-default sentence-end-double-space nil)
-   
-   ;; Always have a new line at the end of a file
-   (setq require-final-newline t)
-   
-   ;; Load the newest version of a file
-   (setq load-prefer-newer t)
-   
-   ;; Detect external file changes and auto refresh file
-   (global-auto-revert-mode t)
-   
-   ;; Auto refresh Dired, but be quiet about it
-   (setq global-auto-revert-non-file-buffers t)
-   (setq auto-revert-verbose nil)
-   ;; Quickly copy/move file in Dired
-   (setq dired-dwim-target t)
-   
-   ;; Transparently open compressed files
-   (auto-compression-mode t)
-   
-   ;; When buffer is closed, saves the cursor location
-   (save-place-mode 1)
-   
-   ;; Change yes or no prompts to y or n
-   (fset 'yes-or-no-p 'y-or-n-p)
+     ;; No alarms
+     (setq ring-bell-function 'ignore)
 
-   ;; hook line numbers to only when files are opened
-   (add-hook 'find-file-hook #'display-line-numbers-mode)
-   (add-hook 'prog-mode-hook #'display-line-numbers-mode)
-   
-   ;; Show matching parentheses
-   (setq show-paren-delay 0)
-   (show-paren-mode 1)
-   
-   ;; Prevent Extraneous Tabs
-   (setq-default indent-tabs-mode nil)
-   
-   ;; Real emacs knights don't use shift to mark things
-   (setq shift-select-mode nil)
+     ;; Disable splash screen and change scratch message
+     (setq inhibit-startup-screen t)
+     (setq initial-scratch-message ";; Close the World, Open the nExt")
 
-   ;; Replace selection on insert
-   (delete-selection-mode 1)
+     ;; Show keystrokes in progress
+     (setq echo-keystrokes 0.1)
 
-   ;; Eval-buffer for ELisp Code
-   (global-set-key (kbd "<f5>") 'eval-buffer)
+     ;; Move files to trash when deleting
+     (setq delete-by-moving-to-trash t)
 
-   ;; Compile for C code
-   (global-set-key (kbd "C-<f5>") 'compile)
+     ;; Cursor modification
+     (blink-cursor-mode -1)
 
-   ;; Use iBuffer instead of Buffer List
-   (global-set-key (kbd "C-x C-b") 'ibuffer)
+     ;; Use UTF-8 as much as possible with unix line endings
+     (prefer-coding-system 'utf-8-unix)
+     (set-default-coding-systems 'utf-8-unix)
+     (set-terminal-coding-system 'utf-8-unix)
+     (set-keyboard-coding-system 'utf-8-unix)
+     (set-selection-coding-system 'utf-8-unix)
+     (setq locale-coding-system 'utf-8-unix)
+     ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+     (when (display-graphic-p)
+     (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 
-   ;; Truncate lines
-   (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines);
+     ;; Make sentences end with a single space
+     (setq-default sentence-end-double-space nil)
 
-   ;; Add personal lisp files
-   (add-to-list 'load-path "~/.emacs.d/lisp/")
+     ;; Always have a new line at the end of a file
+     (setq require-final-newline t)
 
-   ;; Move the custom-set-variables to a different files
-   (setq custom-file "~/.emacs.d/custom-file.el")
-   (load custom-file 'noerror)
+     ;; Load the newest version of a file
+     (setq load-prefer-newer t)
+
+     ;; Detect external file changes and auto refresh file
+     (global-auto-revert-mode t)
+
+     ;; Auto refresh Dired, but be quiet about it
+     (setq global-auto-revert-non-file-buffers t)
+     (setq auto-revert-verbose nil)
+     ;; Quickly copy/move file in Dired
+     (setq dired-dwim-target t)
+
+     ;; Transparently open compressed files
+     (auto-compression-mode t)
+
+     ;; When buffer is closed, saves the cursor location
+     (save-place-mode 1)
+
+     ;; Change yes or no prompts to y or n
+     (fset 'yes-or-no-p 'y-or-n-p)
+
+     ;; hook line numbers to only when files are opened
+     (add-hook 'find-file-hook #'display-line-numbers-mode)
+     (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+
+     ;; Show matching parentheses
+     (setq show-paren-delay 0)
+     (show-paren-mode 1)
+
+     ;; Prevent Extraneous Tabs
+     (setq-default indent-tabs-mode nil)
+
+     ;; Real emacs knights don't use shift to mark things
+     (setq shift-select-mode nil)
+
+     ;; Replace selection on insert
+     (delete-selection-mode 1)
+
+     ;; Eval-buffer for ELisp Code
+     (global-set-key (kbd "<f5>") 'eval-buffer)
+
+     ;; Compile for C code
+     (global-set-key (kbd "C-<f5>") 'compile)
+
+     ;; Use iBuffer instead of Buffer List
+     (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+     ;; Truncate lines
+     (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines);
+
+     ;; Add personal lisp files
+     (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+     ;; Move the custom-set-variables to a different files
+     (setq custom-file "~/.emacs.d/custom-file.el")
+     (load custom-file 'noerror)
    #+END_SRC
-** More Configs
-   Other important, but longer configs.
+** More Functions
+   Other important, but longer functions.
 *** Auto-rename New EWW Buffers
     #+BEGIN_SRC emacs-lisp
-    (defun xah-rename-eww-hook ()
-      "Rename eww browser's buffer so sites open in new page."
-      (rename-buffer "eww" t))
-    (add-hook 'eww-mode-hook #'xah-rename-eww-hook)
+      (defun xah-rename-eww-hook ()
+        "Rename eww browser's buffer so sites open in new page."
+        (rename-buffer "eww" t))
+      (add-hook 'eww-mode-hook #'xah-rename-eww-hook)
 
-    ;; C-u M-x eww will force a new eww buffer
-    (defun modi/force-new-eww-buffer (orig-fun &rest args)
-      "ORIG-FUN ARGS When prefix argument is used, a new eww buffer will be created,
-      regardless of whether the current buffer is in `eww-mode'."
-      (if current-prefix-arg
-        (with-temp-buffer
-          (apply orig-fun args))
-	(apply orig-fun args)))
-    (advice-add 'eww :around #'modi/force-new-eww-buffer)
+      ;; C-u M-x eww will force a new eww buffer
+      (defun modi/force-new-eww-buffer (orig-fun &rest args)
+        "ORIG-FUN ARGS When prefix argument is used, a new eww buffer will be created,
+        regardless of whether the current buffer is in `eww-mode'."
+        (if current-prefix-arg
+          (with-temp-buffer
+            (apply orig-fun args))
+          (apply orig-fun args)))
+      (advice-add 'eww :around #'modi/force-new-eww-buffer)
     #+END_SRC
 *** Resize Window Width / Height Functions
     #+BEGIN_SRC emacs-lisp
-    ;; Resizes the window width based on the input
-    (defun window-resize-width (w)
-      "Resizes the window width based on W."
+      ;; Resizes the window width based on the input
+      (defun window-resize-width (w)
+        "Resizes the window width based on W."
+        (interactive (list (if (> (count-windows) 1)
+                               (read-number "Set the current window width (0~1): ")
+                               (error "You need more than 1 window to execute this function!"))))
+        (message "%s" w)
+        (window-resize nil (- (truncate (* w (frame-width))) (window-total-width)) t))
+
+      ;; Resizes the window height based on the input
+      (defun window-resize-height (h)
+      "Resizes the window height based on H."
       (interactive (list (if (> (count-windows) 1)
-                             (read-number "Set the current window width (0~1): ")
+                             (read-number "Set the current window height (0~1): ")
                              (error "You need more than 1 window to execute this function!"))))
-      (message "%s" w)
-      (window-resize nil (- (truncate (* w (frame-width))) (window-total-width)) t))
+        (message "%s" h)
+        (window-resize nil (- (truncate (* h (frame-height))) (window-total-height)) nil))
 
-    ;; Resizes the window height based on the input
-    (defun window-resize-height (h)
-    "Resizes the window height based on H."
-    (interactive (list (if (> (count-windows) 1)
-                           (read-number "Set the current window height (0~1): ")
-			   (error "You need more than 1 window to execute this function!"))))
-      (message "%s" h)
-      (window-resize nil (- (truncate (* h (frame-height))) (window-total-height)) nil))
-
-    ;; Setup shorcuts for window resize width and height
-    (global-set-key (kbd "C-x C-|") 'window-resize-width)
-    (global-set-key (kbd "C-x C-_") 'window-resize-height)
+      ;; Setup shorcuts for window resize width and height
+      (global-set-key (kbd "C-x C-|") 'window-resize-width)
+      (global-set-key (kbd "C-x C-_") 'window-resize-height)
     #+END_SRC
 *** Autosave and Backup
     Create directory where Emacs stores backups and autosave files.
     #+BEGIN_SRC emacs-lisp
-    (make-directory "~/.emacs.d/autosaves" t)
-    (make-directory "~/.emacs.d/backups" t)
+      (make-directory "~/.emacs.d/autosaves" t)
+      (make-directory "~/.emacs.d/backups" t)
     #+END_SRC
     Set autosave and backup directory.
     #+BEGIN_SRC emacs-lisp
-    (setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
-      auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
-      delete-old-versions -1
-      version-control t
-      vc-make-backup-files t)
+      (setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
+        auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
+        delete-old-versions -1
+        version-control t
+        vc-make-backup-files t)
     #+END_SRC
 *** Run-Bash Command
     *Prerequisite*: This is configured for [[https://docs.microsoft.com/en-ca/windows/wsl/about][Windows Subsystem for Linux]] in Windows 10.
@@ -276,39 +277,51 @@
    #+END_QUOTE
    Start using =use-package=
    #+BEGIN_SRC emacs-lisp
-   (unless (package-installed-p 'use-package)
-     (package-refresh-contents)
-     (package-install 'use-package))
-   (require 'use-package)
+     (unless (package-installed-p 'use-package)
+       (package-refresh-contents)
+       (package-install 'use-package))
+     (require 'use-package)
+     ;; Always ensure package is installed
+     (require 'use-package-ensure)
+     (setq use-package-always-ensure t)
+   #+END_SRC
+** Auto-update Packages
+   [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
+   #+BEGIN_SRC emacs-lisp
+     (use-package auto-package-update
+       :config
+       (setq auto-package-update-delete-old-versions t)
+       (setq auto-package-update-hide-results t)
+       (auto-package-update-maybe))
    #+END_SRC
 * Appearance
 ** Title Bar
    #+BEGIN_SRC emacs-lisp
-   (setq-default frame-title-format '("Emacs " emacs-version " - " user-login-name "@" system-name " - %b"))
+     (setq-default frame-title-format '("Emacs " emacs-version " - " user-login-name "@" system-name " - %b"))
    #+END_SRC
 ** Zone Mode Screensaver
    [[https://www.emacswiki.org/emacs/ZoneMode][Zone mode]] 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer, which can be used as a screensaver.
    #+BEGIN_SRC emacs-lisp
-   (require 'zone)
-   (zone-when-idle 120)
-   (defun zone-choose (pgm)
-     "Choose a PGM to run for `zone'."
-     (interactive
-     (list
-       (completing-read
-         "Program: "
-         (mapcar 'symbol-name zone-programs))))
-     (let ((zone-programs (list (intern pgm))))
-       (zone)))
+     (require 'zone)
+     (zone-when-idle 120)
+     (defun zone-choose (pgm)
+       "Choose a PGM to run for `zone'."
+       (interactive
+       (list
+         (completing-read
+           "Program: "
+           (mapcar 'symbol-name zone-programs))))
+       (let ((zone-programs (list (intern pgm))))
+         (zone)))
    #+END_SRC
 ** Fonts
-   Prepare fonts
+   Prepare fonts to use
 
    *Prerequisite*: Install =Input= and =Love Letter TW= fonts from =/fonts=.
    #+BEGIN_SRC emacs-lisp
-   ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
-   (defvar nox/fonts '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
-     "List of fonts and sizes.  The first one available will be used.")
+     ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
+     (defvar nox/fonts '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
+       "List of fonts and sizes.  The first one available will be used.")
    #+END_SRC
    Change-fonts 
    #+BEGIN_SRC emacs-lisp
@@ -336,415 +349,381 @@
 ** Doom Theme
    [[https://github.com/hlissner/emacs-doom-themes][doom-themes]] is an UI plugin and pack of theme, and my Emacs currenty using Molokai theme
    #+BEGIN_SRC emacs-lisp
-   (use-package doom-themes
-     :ensure t
-     :config (load-theme 'doom-molokai t))
+     (use-package doom-themes
+       :config (load-theme 'doom-molokai t))
    #+END_SRC
 ** Dashboard
    [[https://github.com/rakanalh/emacs-dashboard][Dashboard]] is an extensible Emacs startup screen.
    
    Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme
    #+BEGIN_SRC emacs-lisp
-   (use-package dashboard
-     :ensure t
-     :config
-     (dashboard-setup-startup-hook)
-     (setq dashboard-banner-logo-title "Present Day, Present Time...")
-     (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK.png"))
-   ;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
+     (use-package dashboard
+       :config
+       (dashboard-setup-startup-hook)
+       (setq dashboard-banner-logo-title "Present Day, Present Time...")
+       (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK.png"))
+     ;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
 
-   ;; init time shown on dashboard
-   (defun dashboard-init-time (list-size)
-     (insert (format "Emacs ready in %.2f seconds with %d garbage collections."
-                     (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
-   (add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
-   (add-to-list 'dashboard-items '(init-time)) ;; note adding t as 4 param adds to back of list
+     ;; init time shown on dashboard
+     (defun dashboard-init-time (list-size)
+       (insert (format "Emacs ready in %.2f seconds with %d garbage collections."
+                       (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
+     (add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
+     (add-to-list 'dashboard-items '(init-time)) ;; note adding t as 4 param adds to back of list
    #+END_SRC
 ** Page Break Lines
    [[https://github.com/purcell/page-break-lines][Page-break-lines]] displays ugly form feed characters as tidy horizontal rules.
    #+BEGIN_SRC emacs-lisp
-   (use-package page-break-lines
-     :ensure t
-     :init (global-page-break-lines-mode))
+     (use-package page-break-lines
+       :init (global-page-break-lines-mode))
    #+END_SRC
 ** Smart Mode Lines
    [[https://github.com/Malabarba/smart-mode-line][Smart mode lines]] is a mode-line for Emacs. It aims to be easy to read from small to large monitors by using colors, a prefix feature, and smart truncation.
    #+BEGIN_SRC emacs-lisp
-   (use-package smart-mode-line
-     :ensure t
-     :config 
-     (setq sml/no-confirm-load-theme t)
-     (setq sml/theme 'respectful)
-     (sml/setup))
+     (use-package smart-mode-line
+       :config 
+       (setq sml/no-confirm-load-theme t)
+       (setq sml/theme 'respectful)
+       (sml/setup))
    #+END_SRC
 * Global Functionalities
 ** Org
    [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 *** Org Mode Setup
     #+BEGIN_SRC emacs-lisp
-    (use-package org
-      :ensure t
-      :bind
-      ("C-c l" . org-store-link)
-      ("C-c a" . org-agenda)
-      ("C-c c" . org-capture)
-      ("C-c b" . org-switch)
-      :config
-      (setq org-todo-keywords
-        '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
+      (use-package org
+        :bind
+        ("C-c l" . org-store-link)
+        ("C-c a" . org-agenda)
+        ("C-c c" . org-capture)
+        ("C-c b" . org-switch)
+        :config
+        (setq org-todo-keywords
+          '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
     #+END_SRC
 *** Org Bullets
     [[https://github.com/sabof/org-bullets][Org bullets]] shows bullets as UTF-8 characters.
     #+BEGIN_SRC emacs-lisp
-    (use-package org-bullets
-      :ensure t
-      :config
-      (add-hook 'org-mode-hook #'org-bullets-mode))
+      (use-package org-bullets
+        :config
+        (add-hook 'org-mode-hook #'org-bullets-mode))
     #+END_SRC
 *** TOC Org
     [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
     #+BEGIN_SRC emacs-lisp
-    (use-package toc-org
-      :ensure t
-      :config (add-hook 'org-mode-hook 'toc-org-mode))
+      (use-package toc-org
+        :config (add-hook 'org-mode-hook 'toc-org-mode))
     #+END_SRC
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]] removes certain minor modes from mode-line
    #+BEGIN_SRC emacs-lisp
-   (use-package diminish :ensure t)
+     (use-package diminish)
    #+END_SRC
 ** AG The Silver Searcher
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]] is a fast code searching tool.
    
    *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
    #+BEGIN_SRC emacs-lisp
-   (use-package ag
-     :ensure t
-     :bind ("C-z C-s" . ag))
+     (use-package ag
+       :bind ("C-z C-s" . ag))
    #+END_SRC
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]] is a nice way to move around text.
    #+BEGIN_SRC emacs-lisp
-   (use-package avy
-     :ensure t
-     :bind 
-     (("C-;" . avy-goto-char-timer)
-      ("C-:" . avy-goto-line))
-     :config
-     (setq avy-timeout-seconds 0.3)
-     (setq avy-style 'pre))
+     (use-package avy
+       :bind 
+       (("C-;" . avy-goto-char-timer)
+        ("C-:" . avy-goto-line))
+       :config
+       (setq avy-timeout-seconds 0.3)
+       (setq avy-style 'pre))
    #+END_SRC
 ** Smex
    [[https://github.com/nonsequitur/smex][Smex]] is a M-x enhancement tool for Emacs.
    #+BEGIN_SRC emacs-lisp
-   (use-package smex
-     :ensure t
-     :init (smex-initialize))
+     (use-package smex
+       :init (smex-initialize))
    #+END_SRC
 ** Ivy
    [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs.
    #+BEGIN_SRC emacs-lisp
-   (use-package ivy
-     :ensure t
-     :diminish ivy-mode ;;Hide ivy in the button screen
-     :init (ivy-mode 1)
-     :config
-     (setq ivy-use-virtual-buffers t)
-     (setq ivy-magic-slash-non-match-action nil)
-     (setq ivy-count-format "【%d/%d】")
-     (setq ivy-wrap t))
+     (use-package ivy
+       :diminish ivy-mode ;;Hide ivy in the button screen
+       :init (ivy-mode 1)
+       :config
+       (setq ivy-use-virtual-buffers t)
+       (setq ivy-magic-slash-non-match-action nil)
+       (setq ivy-count-format "【%d/%d】")
+       (setq ivy-wrap t))
    #+END_SRC
 ** Counsel
    [[https://github.com/abo-abo/swiper][Counsel]], a collection of Ivy-enhanced versions of common Emacs commands.
    #+BEGIN_SRC emacs-lisp
-   (use-package counsel
-     :ensure t
-     :diminish counsel-mode
-     :init (counsel-mode 1))
+     (use-package counsel
+       :diminish counsel-mode
+       :init (counsel-mode 1))
    #+END_SRC
 ** Swiper
    [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
    #+BEGIN_SRC emacs-lisp
-   (use-package swiper
-     :ensure t
-     :bind ("C-s" . swiper))
+     (use-package swiper
+       :bind ("C-s" . swiper))
    #+END_SRC
 ** Smooth Scrolling
    [[https://github.com/aspiers/smooth-scrolling][Smooth scrolling]] offers a minor mode that makes Emacs scroll smoothly.
    #+BEGIN_SRC emacs-lisp
-   (use-package smooth-scrolling
-     :ensure t
-     :config
-     (setq scroll-margin 1
-       scroll-conservatively 10000
-       scroll-step 1
-       mouse-wheel-scroll-amount '(2)
-       mouse-wheel-progressive-speed nil))
+     (use-package smooth-scrolling
+       :config
+       (setq scroll-margin 1
+         scroll-conservatively 10000
+         scroll-step 1
+         mouse-wheel-scroll-amount '(2)
+         mouse-wheel-progressive-speed nil))
    #+END_SRC
 ** Which Key
    [[https://github.com/justbur/emacs-which-key][Which key]] is a minor mode that displays the key bindings following the incomplete command.
    #+BEGIN_SRC emacs-lisp
-   (use-package which-key
-     :ensure t
-     :init
-     (setq which-key-separator " ")
-     (setq which-key-prefix-prefix "+")
-     :config
-     (which-key-mode))
+     (use-package which-key
+       :init
+       (setq which-key-separator " ")
+       (setq which-key-prefix-prefix "+")
+       :config
+       (which-key-mode))
    #+END_SRC
 ** Popup Kill Ring
    [[https://github.com/waymondo/popup-kill-ring][Popup kill ring]] provides the ability to browse Emacs kill ring in autocomplete style popup menu.
    #+BEGIN_SRC emacs-lisp
-   (use-package popup-kill-ring
-     :ensure t
-     :bind ("M-y" . popup-kill-ring))
+     (use-package popup-kill-ring
+       :bind ("M-y" . popup-kill-ring))
    #+END_SRC
 ** Undo Tree
    [[https://www.emacswiki.org/emacs/UndoTree][Undo tree]] provides a visualization of the undos in a file.
    #+BEGIN_SRC emacs-lisp
-   (use-package undo-tree
-     :ensure t
-     :diminish undo-tree-mode
-     :init (global-undo-tree-mode))
+     (use-package undo-tree
+       :diminish undo-tree-mode
+       :init (global-undo-tree-mode))
    #+END_SRC
 ** Dimmer
    [[https://github.com/gonewest818/dimmer.el][Dimmer]] visually highlights the selected buffer.
    #+BEGIN_SRC emacs-lisp
-   (use-package dimmer
-     :ensure t
-     :init (dimmer-mode)
-     :config
-     (setq dimmer-fraction 0.2)
-     (setq dimmer-exclusion-regexp "\\*Minibuf-[0-9]+\\*\\|\\*dashboard\\*"))
+     (use-package dimmer
+       :init (dimmer-mode)
+       :config
+       (setq dimmer-fraction 0.2)
+       (setq dimmer-exclusion-regexp "\\*Minibuf-[0-9]+\\*\\|\\*dashboard\\*"))
    #+END_SRC
 ** Discover My Major
    [[https://github.com/jguenther/discover-my-major][Discover my major]] discovers key bindings and their meaning for the current Emacs major mode.
    #+BEGIN_SRC emacs-lisp
      (use-package discover-my-major
-       :ensure t
        :bind (("C-h C-m" . discover-my-major)))
    #+END_SRC
 * Programming (general)
 ** Magit
    [[https://magit.vc/][Magit]] is an interface to the version control system Git
    #+BEGIN_SRC emacs-lisp
-   (use-package magit
-     :ensure t
-     :defer t
-     :bind ("C-x g" . magit-status))
+     (use-package magit
+       :defer t
+       :bind ("C-x g" . magit-status))
    #+END_SRC
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]] is a Project Interaction Library for Emacs.
    
    *Prerequisite*: Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
    #+BEGIN_SRC emacs-lisp
-   (use-package projectile
-     :ensure t
-     :bind
-     ("C-c p" . projectile-command-map)
-     ("C-z C-d" . projectile-switch-project)
-     :config
-     (projectile-mode +1)
-     (setq projectile-completion-system 'ivy)
-       (when (eq system-type 'windows-nt)
-       (setq projectile-indexing-method 'alien))
-     (add-to-list 'projectile-globally-ignored-directories "node_modules"))
+     (use-package projectile
+       :bind
+       ("C-c p" . projectile-command-map)
+       ("C-z C-d" . projectile-switch-project)
+       :config
+       (projectile-mode +1)
+       (setq projectile-completion-system 'ivy)
+         (when (eq system-type 'windows-nt)
+         (setq projectile-indexing-method 'alien))
+       (add-to-list 'projectile-globally-ignored-directories "node_modules"))
    #+END_SRC
 ** Treemacs
    [[https://github.com/Alexander-Miller/treemacs][Treemacs]] is a tree layout file explorer for Emacs.
 *** Treemacs
     #+BEGIN_SRC emacs-lisp
-    (use-package treemacs
-      :ensure t
-      :defer t
-      :init
-      (with-eval-after-load 'winum
-      (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
-      :config
-      (progn
-        (setq treemacs-collapse-dirs
-          (if (executable-find "python") 3 0)
-          treemacs-deferred-git-apply-delay   0.5
-	  treemacs-display-in-side-window     t
-          treemacs-file-event-delay           5000
-          treemacs-file-follow-delay          0.2
-          treemacs-follow-after-init          t
-          treemacs-follow-recenter-distance   0.1
-          treemacs-git-command-pipe           ""
-          treemacs-goto-tag-strategy          'refetch-index
-          treemacs-indentation                2
-          treemacs-indentation-string         " "
-          treemacs-is-never-other-window      nil
-          treemacs-max-git-entries            5000
-          treemacs-no-png-images              nil
-          treemacs-no-delete-other-windows    t
-          treemacs-project-follow-cleanup     nil
-          treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-          treemacs-recenter-after-file-follow nil
-          treemacs-recenter-after-tag-follow  nil
-          treemacs-show-cursor                nil
-          treemacs-show-hidden-files          t
-          treemacs-silent-filewatch           nil
-          treemacs-silent-refresh             nil
-          treemacs-sorting                    'alphabetic-desc
-          treemacs-space-between-root-nodes   t
-          treemacs-tag-follow-cleanup         t
-          treemacs-tag-follow-delay           1.5
-          treemacs-width                      35)
-          ;; The default width and height of the icons is 22 pixels. If you are
-          ;; using a Hi-DPI display, uncomment this to double the icon size.
-          ;;(treemacs-resize-icons 44)
-          (treemacs-follow-mode t)
-          (treemacs-filewatch-mode t)
-          (treemacs-fringe-indicator-mode t)
-          (pcase (cons (not (null (executable-find "git")))
-                       (not (null (executable-find "python3"))))
-                 (`(t . t) (treemacs-git-mode 'deferred))
-                 (`(t . _) (treemacs-git-mode 'simple))))
-      :bind
-      (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+      (use-package treemacs
+        :defer t
+        :init
+        (with-eval-after-load 'winum
+        (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+        :config
+        (progn
+          (setq treemacs-collapse-dirs
+            (if (executable-find "python") 3 0)
+            treemacs-deferred-git-apply-delay   0.5
+            treemacs-display-in-side-window     t
+            treemacs-file-event-delay           5000
+            treemacs-file-follow-delay          0.2
+            treemacs-follow-after-init          t
+            treemacs-follow-recenter-distance   0.1
+            treemacs-git-command-pipe           ""
+            treemacs-goto-tag-strategy          'refetch-index
+            treemacs-indentation                2
+            treemacs-indentation-string         " "
+            treemacs-is-never-other-window      nil
+            treemacs-max-git-entries            5000
+            treemacs-no-png-images              nil
+            treemacs-no-delete-other-windows    t
+            treemacs-project-follow-cleanup     nil
+            treemacs-persist-file               (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+            treemacs-recenter-after-file-follow nil
+            treemacs-recenter-after-tag-follow  nil
+            treemacs-show-cursor                nil
+            treemacs-show-hidden-files          t
+            treemacs-silent-filewatch           nil
+            treemacs-silent-refresh             nil
+            treemacs-sorting                    'alphabetic-desc
+            treemacs-space-between-root-nodes   t
+            treemacs-tag-follow-cleanup         t
+            treemacs-tag-follow-delay           1.5
+            treemacs-width                      35)
+            ;; The default width and height of the icons is 22 pixels. If you are
+            ;; using a Hi-DPI display, uncomment this to double the icon size.
+            ;;(treemacs-resize-icons 44)
+            (treemacs-follow-mode t)
+            (treemacs-filewatch-mode t)
+            (treemacs-fringe-indicator-mode t)
+            (pcase (cons (not (null (executable-find "git")))
+                         (not (null (executable-find "python3"))))
+                   (`(t . t) (treemacs-git-mode 'deferred))
+                   (`(t . _) (treemacs-git-mode 'simple))))
+        :bind
+        (:map global-map
+          ("M-0"       . treemacs-select-window)
+          ("C-x t 1"   . treemacs-delete-other-windows)
+          ("C-x t t"   . treemacs)
+          ("C-x t B"   . treemacs-bookmark)
+          ("C-x t C-t" . treemacs-find-file)
+          ("C-x t M-t" . treemacs-find-tag)))
    #+END_SRC
 *** Treemacs Icons Dired
     #+BEGIN_SRC emacs-lisp
-    (use-package treemacs-icons-dired
-      :after treemacs dired
-      :ensure t
-      :config
-      (treemacs-icons-dired-mode))
+      (use-package treemacs-icons-dired
+        :after treemacs dired
+        :config
+        (treemacs-icons-dired-mode))
     #+END_SRC
 *** Treemacs Magit
     #+BEGIN_SRC emacs-lisp
-    (use-package treemacs-magit
-      :after treemacs magit
-      :ensure t)
+      (use-package treemacs-magit
+        :after treemacs magit)
     #+END_SRC
 *** Treemacs Projectile
     #+BEGIN_SRC emacs-lisp
-    (use-package treemacs-projectile
-      :after treemacs projectile
-      :ensure t)
+      (use-package treemacs-projectile
+        :after treemacs projectile)
     #+END_SRC
 ** Company
    [[http://company-mode.github.io/][Company]] stands for Complete Anything, it is a text completion framework for Emacs.
    #+BEGIN_SRC emacs-lisp
-   (use-package company
-     :ensure t
-     :diminish company-mode
-     :defer t
-     :init (global-company-mode)
-     :config
-     (setq company-minimum-prefix-length 1)
-     (setq company-tooltip-align-annotations 't) ; align annotations to the right tooltip border
-     (setq company-idle-delay 0) ; decrease delay before autocompletion popup shows
-     (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-     (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
-     (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
-     (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
-     (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
-     (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
-     (setq company-require-match 'never))
+     (use-package company
+       :diminish company-mode
+       :defer t
+       :init (global-company-mode)
+       :config
+       (setq company-minimum-prefix-length 1)
+       (setq company-tooltip-align-annotations 't) ; align annotations to the right tooltip border
+       (setq company-idle-delay 0) ; decrease delay before autocompletion popup shows
+       (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+       (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
+       (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+       (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
+       (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
+       (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
+       (setq company-require-match 'never))
    #+END_SRC
 ** Flycheck
    [[https://www.flycheck.org/en/latest/][Flycheck]] is a syntax checking extension.
    #+BEGIN_SRC emacs-lisp
-   (use-package flycheck
-     :ensure t
-     :init (global-flycheck-mode)
-     :config
-     (flycheck-add-mode 'typescript-tslint 'js2-mode)
-     (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
+     (use-package flycheck
+       :init (global-flycheck-mode)
+       :config
+       (flycheck-add-mode 'typescript-tslint 'js2-mode)
+       (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
    #+END_SRC
 ** Format All
    [[https://github.com/lassik/emacs-format-all-the-code][Format all]] lets you auto-format source code.
    #+BEGIN_SRC emacs-lisp
-   (use-package format-all
-     :ensure t
-     :init (format-all-mode))
+     (use-package format-all
+       :init (format-all-mode))
    #+END_SRC
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]] is an Emacs "jump to definition" package.
    #+BEGIN_SRC emacs-lisp
-   (use-package dumb-jump
-     :ensure t
-     :bind (("M-g o" . dumb-jump-go-other-window)
-            ("M-g j" . dumb-jump-go)
-            ("M-g i" . dumb-jump-go-prompt)
-            ("M-g x" . dumb-jump-go-prefer-external)
-            ("M-g z" . dumb-jump-go-prefer-external-other-window))
-     :config (setq dumb-jump-selector 'ivy))
+     (use-package dumb-jump
+       :bind (("M-g o" . dumb-jump-go-other-window)
+              ("M-g j" . dumb-jump-go)
+              ("M-g i" . dumb-jump-go-prompt)
+              ("M-g x" . dumb-jump-go-prefer-external)
+              ("M-g z" . dumb-jump-go-prefer-external-other-window))
+       :config (setq dumb-jump-selector 'ivy))
    #+END_SRC
 ** Smartparens
    [[https://github.com/Fuco1/smartparens][Smartparens]] is a minor mode for dealing with pairs.
    #+BEGIN_SRC emacs-lisp
-   (use-package smartparens
-     :ensure t
-     :diminish smartparens-mode
-     :config
-     (add-hook 'prog-mode-hook #'smartparens-mode)
-     (setq sp-escape-quotes-after-insert nil))
+     (use-package smartparens
+       :diminish smartparens-mode
+       :config
+       (add-hook 'prog-mode-hook #'smartparens-mode)
+       (setq sp-escape-quotes-after-insert nil))
    #+END_SRC
 * Web Development
 ** Web Mode
    [[https://github.com/fxbois/web-mode][Web mode]] is a major mode for editing web templates.
    #+BEGIN_SRC emacs-lisp
-   (use-package web-mode
-     :ensure t
-     :config
-     (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.[t]?html?\\'" . web-mode))
-     (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
+     (use-package web-mode
+       :config
+       (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.[t]?html?\\'" . web-mode))
+       (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
    #+END_SRC
 ** Emmet
    [[https://github.com/smihica/emmet-mode][Emmet]] writes HTML by using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
    #+BEGIN_SRC emacs-lisp
-   (use-package emmet-mode
-     :ensure t
-     :config
-     (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-     (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
+     (use-package emmet-mode
+       :config
+       (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+       (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
    #+END_SRC
 ** JS2
    [[https://github.com/mooz/js2-mode][JS2 mode]] offers improved JavsScript editing mode.
    #+BEGIN_SRC emacs-lisp
-   (use-package js2-mode 
-     :ensure t
-     :config
-     (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-     (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
+     (use-package js2-mode 
+       :config
+       (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+       (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
    #+END_SRC
 ** TypeScript
 *** TypeScript Mode
     [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]] offers TypeScript support for Emacs.
     #+BEGIN_SRC emacs-lisp
-    (use-package typescript-mode :ensure t)
+      (use-package typescript-mode)
     #+END_SRC
 *** Tide
     [[https://github.com/ananthakumaran/tide][Tide]] is TypeScript Interactive Development Environment for Emacs.
     Tip: enter =M-.= to jump to definition
     #+BEGIN_SRC emacs-lisp
-    (use-package tide
-      :ensure t
-      :after (typescript-mode company flycheck)
-      :hook ((typescript-mode . tide-setup)
-             (typescript-mode . tide-hl-identifier-mode)
-             (before-save . tide-format-before-save))
-      :config
-      (setq tide-completion-enable-autoimport-suggestions t)
-      (flycheck-add-mode 'typescript-tslint 'web-mode)
-      (add-hook 'js2-mode-hook #'setup-tide-mode)
-      (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
+      (use-package tide
+        :after (typescript-mode company flycheck)
+        :hook ((typescript-mode . tide-setup)
+               (typescript-mode . tide-hl-identifier-mode)
+               (before-save . tide-format-before-save))
+        :config
+        (setq tide-completion-enable-autoimport-suggestions t)
+        (flycheck-add-mode 'typescript-tslint 'web-mode)
+        (add-hook 'js2-mode-hook #'setup-tide-mode)
+        (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
     #+END_SRC
 * Programming
 ** C/C++
@@ -756,13 +735,12 @@
     
     *Prerequisite*: Execute =irony-install-server=. This provides the libclang interface to irony-mode. It uses a simple protocol based on S-expression. This server also requires [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]] to be installed on your system.
     #+BEGIN_SRC emacs-lisp
-    (use-package irony
-      :ensure t
-      :config
-      (add-hook 'c++-mode-hook 'irony-mode)
-      (add-hook 'c-mode-hook 'irony-mode)
-      (add-hook 'objc-mode-hook 'irony-mode)
-      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+      (use-package irony
+        :config
+        (add-hook 'c++-mode-hook 'irony-mode)
+        (add-hook 'c-mode-hook 'irony-mode)
+        (add-hook 'objc-mode-hook 'irony-mode)
+        (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
     #+END_SRC
     Windows performance tweaks
     #+BEGIN_SRC emacs-lisp
@@ -775,21 +753,19 @@
 *** Company Irony
     [[https://github.com/Sarcasm/company-irony][Company Irony]] provides completion backend for the C, C++ and Objective-C languages.
     #+BEGIN_SRC emacs-lisp
-    (use-package company-irony
-      :ensure t
-      :config
-      (add-to-list 'company-backends 'company-irony))
+      (use-package company-irony
+        :config
+        (add-to-list 'company-backends 'company-irony))
     #+END_SRC
 *** Company Irony C Headers
     [[https://github.com/hotpxl/company-irony-c-headers/][Company Irony C Headers]] provides a company-mode backend for C/C++ header files that works with irony-mode.
     
     This package is meant to be complementary to company-irony by offering completion suggestions to header files.
     #+BEGIN_SRC emacs-lisp
-    (use-package company-irony-c-headers
-      :ensure t
-      :config
-      (add-to-list 'company-backends 'company-irony)
-      (add-to-list 'company-backends 'company-c-headers))
+      (use-package company-irony-c-headers
+        :config
+        (add-to-list 'company-backends 'company-irony)
+        (add-to-list 'company-backends 'company-c-headers))
     #+END_SRC
 ** Python
    *Prerequisite*:
@@ -808,72 +784,67 @@
 *** Elpy
     [[https://github.com/jorgenschaefer/elpy][Elpy]] is Emacs Python Development Environment.
     #+BEGIN_SRC emacs-lisp
-    (use-package elpy
-      :ensure t
-      :defer 2
-      :config
-      (progn
-        ;; Use Flycheck instead of Flymake
-        (when (require 'flycheck nil t)
-              (remove-hook 'elpy-modules 'elpy-module-flymake)
-              (remove-hook 'elpy-modules 'elpy-module-yasnippet)
-              (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
-              (add-hook 'elpy-mode-hook 'flycheck-mode))
-        (elpy-enable)
-        ;; jedi is great
-        (setq elpy-rpc-backend "jedi")))
+      (use-package elpy
+        :defer 2
+        :config
+        (progn
+          ;; Use Flycheck instead of Flymake
+          (when (require 'flycheck nil t)
+                (remove-hook 'elpy-modules 'elpy-module-flymake)
+                (remove-hook 'elpy-modules 'elpy-module-yasnippet)
+                (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
+                (add-hook 'elpy-mode-hook 'flycheck-mode))
+          (elpy-enable)
+          ;; jedi is great
+          (setq elpy-rpc-backend "jedi")))
     #+END_SRC
 *** Jedi
     [[https://github.com/tkf/emacs-jedi][Jedi]] is a Python auto-completion package for Emacs.
     #+BEGIN_SRC emacs-lisp
-    (use-package jedi
-      :ensure t
-      :init
-      (add-to-list 'company-backends 'company-jedi))
+      (use-package jedi
+        :init
+        (add-to-list 'company-backends 'company-jedi))
     #+END_SRC
 *** Company Jedi
     [[https://github.com/syohex/emacs-company-jedi][Company Jedi]] is a Company backend for Python Jedi.
     #+BEGIN_SRC emacs-lisp    
-    (use-package company-jedi
-      :ensure t
-      :init
-      (add-hook 'python-mode-hook
-        (lambda () (add-to-list 'company-backends 'company-jedi)))
-      (setq company-jedi-python-bin "python"))
+      (use-package company-jedi
+        :init
+        (add-hook 'python-mode-hook
+          (lambda () (add-to-list 'company-backends 'company-jedi)))
+        (setq company-jedi-python-bin "python"))
     #+END_SRC
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]] is a major mode for editing Arduino sketches.
     #+BEGIN_SRC emacs-lisp
-    (use-package arduino-mode
-      :ensure t
-      :config
-      (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
-      (add-to-list 'auto-mode-alist '("\\.pde\\'" . arduino-mode))
-      (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
+      (use-package arduino-mode
+        :config
+        (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
+        (add-to-list 'auto-mode-alist '("\\.pde\\'" . arduino-mode))
+        (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
    #+END_SRC
 *** Company Arduino
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]] is a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     #+BEGIN_SRC emacs-lisp
-    (use-package company-arduino
-      :ensure t
-      :config
-      (add-hook 'irony-mode-hook 'company-arduino-turn-on))
+      (use-package company-arduino
+        :config
+        (add-hook 'irony-mode-hook 'company-arduino-turn-on))
 
-    ;; Configuration for company-c-headers.el
-    ;; The `company-arduino-append-include-dirs' function appends
-    ;; Arduino's include directories to the default directories
-    ;; if `default-directory' is inside `company-arduino-home'. Otherwise
-    ;; just returns the default directories.
-    ;; Please change the default include directories accordingly.
-    (defun my-company-c-headers-get-system-path ()
-      "Return the system include path for the current buffer."
-      (let ((default '("/usr/include/" "/usr/local/include/")))
-        (company-arduino-append-include-dirs default t)))
-    (setq company-c-headers-path-system 'my-company-c-headers-get-system-path) 
-    
-    ;; Activate irony-mode on arduino-mode
-    (add-hook 'arduino-mode-hook 'irony-mode)
+      ;; Configuration for company-c-headers.el
+      ;; The `company-arduino-append-include-dirs' function appends
+      ;; Arduino's include directories to the default directories
+      ;; if `default-directory' is inside `company-arduino-home'. Otherwise
+      ;; just returns the default directories.
+      ;; Please change the default include directories accordingly.
+      (defun my-company-c-headers-get-system-path ()
+        "Return the system include path for the current buffer."
+        (let ((default '("/usr/include/" "/usr/local/include/")))
+          (company-arduino-append-include-dirs default t)))
+      (setq company-c-headers-path-system 'my-company-c-headers-get-system-path) 
+
+      ;; Activate irony-mode on arduino-mode
+      (add-hook 'arduino-mode-hook 'irony-mode)
     #+END_SRC
 * Miscellaneous
 ** Tetris
@@ -892,17 +863,17 @@
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]] is a game to practice touch/speed typing in Emacs.
    #+BEGIN_SRC emacs-lisp
-   (use-package speed-type :ensure t)
+     (use-package speed-type)
    #+END_SRC
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]] is an implementation of 2048 in Emacs.
    #+BEGIN_SRC emacs-lisp
-   (use-package 2048-game :ensure t)
+     (use-package 2048-game)
    #+END_SRC
 ** Pacmacs
    [[https://github.com/emacsmirror/pacmacs][Pacmacs]] is Pacman for Emacs.
    #+BEGIN_SRC emacs-lisp
-   (use-package pacmacs :ensure t)
+     (use-package pacmacs)
    #+END_SRC
 * Credits
   This =.emacs.d/= was heavily influenced and inspired by the following configurations.
