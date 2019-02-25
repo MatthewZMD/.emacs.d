@@ -239,6 +239,14 @@
       version-control t
       vc-make-backup-files t)
     #+END_SRC
+*** Run-Bash Command
+    *Prerequisite*: This is configured for [[https://docs.microsoft.com/en-ca/windows/wsl/about][Windows Subsystem for Linux]] in Windows 10.
+    #+BEGIN_SRC emacs-lisp
+      (defun run-bash ()
+        (interactive)
+        (let ((shell-file-name "C:\\Windows\\System32\\bash.exe"))
+          (shell "*bash*")))
+    #+END_SRC
 * Appearance
 ** Title Bar
    #+BEGIN_SRC emacs-lisp

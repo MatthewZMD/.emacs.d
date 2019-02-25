@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ nox/change-font
+ company-mode
+ auto-complete-mode
+ shell
+ org-edit-special
  dashboard-mode
  dumb-jump-go
- package-install
- gnus
- shell
- ag
- eww
 )
 
 ;; ----- smex-data -----
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 30)
+ (shell . 31)
  (package-menu-mark-upgrades . 4)
  (list-packages . 3)
  (web-mode-test . 2)
@@ -61,7 +61,7 @@
  (window-resize-70 . 2)
  (window-resize-66 . 2)
  (window-resize-width . 9)
- (nox/change-font . 16)
+ (nox/change-font . 17)
  (set-face-font . 1)
  (change-dashboard-title-face . 6)
  (dashboard-refresh-buffer . 7)
@@ -110,4 +110,7 @@
  (org-toggle-inline-images . 3)
  (gnus . 1)
  (dumb-jump-go . 1)
+ (org-edit-special . 1)
+ (auto-complete-mode . 2)
+ (company-mode . 1)
 )
