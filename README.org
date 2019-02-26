@@ -4,7 +4,7 @@
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
 ** Cool little thing about this README                             :noexport:
-  This README will be parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup. Which means this README file is not only useful for you, a human's understanding, it also serves as the fundation for my entire Emacs configuration!
+  This README will be parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup. Which means this README file is not only useful for you, a human's understanding, it also serves as the foundation for my entire Emacs configuration!
 * Table of Contents                                                   :TOC_2:
 - [[#about][About]]
 - [[#essentials][Essentials]]
@@ -244,12 +244,12 @@
         version-control t
         vc-make-backup-files t)
     #+END_SRC
-*** Run-Bash Command
+*** Bash Command
     *Prerequisite*: This is configured for [[https://docs.microsoft.com/en-ca/windows/wsl/about][Windows Subsystem for Linux]] in Windows 10.
 
     Run the Linux Bash in an Emacs buffer.
     #+BEGIN_SRC emacs-lisp
-      (defun run-bash ()
+      (defun bash ()
         (interactive)
         (let ((shell-file-name "C:\\Windows\\System32\\bash.exe"))
           (shell "*bash*")))
