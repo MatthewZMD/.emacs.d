@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ flycheck-mode
  smex-save-to-file
  package-install
  treemacs-select-window
  run-bash
  eval-buffer
  eww
- shell
 )
 
 ;; ----- smex-data -----
@@ -20,7 +20,7 @@
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 6)
- (flycheck-mode . 2)
+ (flycheck-mode . 4)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)

@@ -1,6 +1,12 @@
 #+TITLE: MT's GNU Emacs Configuration
+* About
+  This is Matthew/MT's custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]] below, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
+
+  This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
+** Cool little thing about this README                             :noexport:
+  This README will be parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup. Which means this README file is not only useful for you, a human's understanding, it also serves as the fundation for my entire Emacs configuration!
 * Table of Contents                                                   :TOC_2:
-- [[#description][Description]]
+- [[#about][About]]
 - [[#essentials][Essentials]]
   - [[#startup-optimization][Startup Optimization]]
   - [[#configs][Configs]]
@@ -8,7 +14,7 @@
 - [[#package-management][Package Management]]
   - [[#package-sources][Package Sources]]
   - [[#bootstrap-use-package][Bootstrap =use-package=]]
-  - [[#auto-update-packages][Auto-update Packages]]
+  - [[#auto-package-update][Auto Package Update]]
 - [[#appearance][Appearance]]
   - [[#title-bar][Title Bar]]
   - [[#zone-mode-screensaver][Zone Mode Screensaver]]
@@ -57,32 +63,24 @@
   - [[#pacmacs][Pacmacs]]
 - [[#credits][Credits]]
 
-* Description
-  This file is parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup.
-  
-  It is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]] below, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
-
-  This configuration is designed and tested for Emacs 26.1 and above.
-
 * Essentials
 ** Startup Optimization
    Optimize startup time.
    #+BEGIN_SRC emacs-lisp
-     ;; Set garbage collection threshold
-     (setq gc-cons-threshold-original gc-cons-threshold)
-     (setq gc-cons-threshold (* 1024 1024 100))
-     ;; Set file-name-handler-alist
-     (setq file-name-handler-alist-original file-name-handler-alist)
-     (setq file-name-handler-alist nil)
-     ;; Set deferred timer to reset the changes
-     (run-with-idle-timer
-      5 nil
-      (lambda ()
-        (setq gc-cons-threshold gc-cons-threshold-original)
-        (setq file-name-handler-alist file-name-handler-alist-original)
-        (makunbound 'gc-cons-threshold-original)
-        (makunbound 'file-name-handler-alist-original)
-        (message "gc-cons-threshold and file-name-handler-alist restored")))
+     (defvar default-file-name-handler-alist file-name-handler-alist)
+       (setq file-name-handler-alist nil)
+       (setq gc-cons-threshold 80000000)
+       (add-hook 'emacs-startup-hook
+                 (lambda ()
+                   "Restore defalut values after init."
+                   (setq file-name-handler-alist default-file-name-handler-alist)
+                   (setq gc-cons-threshold 800000)
+                   (if (boundp 'after-focus-change-function)
+                       (add-function :after after-focus-change-function
+                                     (lambda ()
+                                       (unless (frame-focus-state)
+                                         (garbage-collect))))
+                     (add-hook 'focus-out-hook 'garbage-collect))))
    #+END_SRC
 ** Configs
    Some essential configs that make my life a lot easier
@@ -285,7 +283,7 @@
      (require 'use-package-ensure)
      (setq use-package-always-ensure t)
    #+END_SRC
-** Auto-update Packages
+** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
    #+BEGIN_SRC emacs-lisp
      (use-package auto-package-update
@@ -358,6 +356,7 @@
    Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme
    #+BEGIN_SRC emacs-lisp
      (use-package dashboard
+       :diminish (dashboard-mode page-break-lines-mode)
        :config
        (dashboard-setup-startup-hook)
        (setq dashboard-banner-logo-title "Present Day, Present Time...")
@@ -368,6 +367,7 @@
      (defun dashboard-init-time (list-size)
        (insert (format "Emacs ready in %.2f seconds with %d garbage collections."
                        (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
+
      (add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
      (add-to-list 'dashboard-items '(init-time)) ;; note adding t as 4 param adds to back of list
    #+END_SRC
@@ -392,6 +392,7 @@
 *** Org Mode Setup
     #+BEGIN_SRC emacs-lisp
       (use-package org
+        :ensure nil
         :bind
         ("C-c l" . org-store-link)
         ("C-c a" . org-agenda)
