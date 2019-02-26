@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- edit-configs
  open-dashboard
+ customize-face
+ set-face-font
  shell
+ edit-configs
  smex-save-to-file
  package-install
- treemacs-select-window
- package-autoremove
 )
 
 ;; ----- smex-data -----
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 31)
+ (shell . 32)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
@@ -62,7 +62,7 @@
  (window-resize-66 . 2)
  (window-resize-width . 9)
  (nox/change-font . 16)
- (set-face-font . 1)
+ (set-face-font . 2)
  (change-dashboard-title-face . 6)
  (dashboard-refresh-buffer . 7)
  (comment-dwim . 1)
@@ -112,6 +112,7 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 4)
+ (open-dashboard . 9)
  (edit-configs . 1)
+ (customize-face . 3)
 )
