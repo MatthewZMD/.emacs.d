@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- flycheck-mode
+ edit-configs
+ open-dashboard
+ shell
  smex-save-to-file
  package-install
  treemacs-select-window
- run-bash
- eval-buffer
- eww
+ package-autoremove
 )
 
 ;; ----- smex-data -----
@@ -20,7 +20,7 @@
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 6)
- (flycheck-mode . 4)
+ (flycheck-mode . 2)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 29)
+ (shell . 31)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
@@ -108,21 +108,10 @@
  (org-display-inline-images . 2)
  (org-remove-inline-images . 1)
  (org-toggle-inline-images . 3)
- <<<<<<<
- Updated
- upstream
  (package-autoremove . 1)
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- =======
- (gnus . 1)
- (dumb-jump-go . 1)
- (org-edit-special . 1)
- (auto-complete-mode . 2)
- (company-mode . 1)
- (run-bash . 1)
- >>>>>>>
- Stashed
- changes
+ (open-dashboard . 4)
+ (edit-configs . 1)
 )

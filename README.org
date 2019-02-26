@@ -3,7 +3,7 @@
   This is Matthew/MT's custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]] below, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
-** Cool little thing about this README                             :noexport:
+** Cool Little Thing About This README                             :noexport:
   This README will be parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup. Which means this README file is not only useful for you, a human's understanding, it also serves as the foundation for my entire Emacs configuration!
 * Table of Contents                                                   :TOC_2:
 - [[#about][About]]
@@ -167,6 +167,10 @@
 
      ;; Replace selection on insert
      (delete-selection-mode 1)
+     
+     ;; Set eww as the default browser in Emacs
+     ;; In eww, hit & to browse this url system browser
+     (setq browse-url-browser-function 'eww-browse-url)
 
      ;; Eval-buffer for ELisp Code
      (global-set-key (kbd "<f5>") 'eval-buffer)
@@ -244,7 +248,7 @@
         version-control t
         vc-make-backup-files t)
     #+END_SRC
-*** Bash Command
+*** Bash
     *Prerequisite*: This is configured for [[https://docs.microsoft.com/en-ca/windows/wsl/about][Windows Subsystem for Linux]] in Windows 10.
 
     Run the Linux Bash in an Emacs buffer.
@@ -253,6 +257,32 @@
         (interactive)
         (let ((shell-file-name "C:\\Windows\\System32\\bash.exe"))
           (shell "*bash*")))
+    #+END_SRC
+*** Rename File and Buffer
+    #+BEGIN_SRC emacs-lisp
+      ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
+      (defun rename-file-and-buffer (new-name)
+        "Renames both current buffer and file it's visiting to NEW-NAME."
+        (interactive "sNew name: ")
+        (let ((name (buffer-name))
+              (filename (buffer-file-name)))
+          (if (not filename)
+              (message "Buffer '%s' is not visiting a file!" name)
+            (if (get-buffer new-name)
+                (message "A buffer named '%s' already exists!" new-name)
+              (progn
+                (rename-file filename new-name 1)
+                (rename-buffer new-name)
+                (set-visited-file-name new-name)
+                (set-buffer-modified-p nil))))))
+    #+END_SRC
+*** Edit Configuration Shortcut Function
+    #+BEGIN_SRC emacs-lisp
+      (defun edit-configs ()
+        "Opens the README.org file."
+        (interactive)
+        (quit-window t)
+        (find-file "~/.emacs.d/README.org"))
     #+END_SRC
 * Package Management
 ** Package Sources
@@ -363,13 +393,43 @@
        (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK.png"))
      ;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
 
-     ;; init time shown on dashboard
-     (defun dashboard-init-time (list-size)
-       (insert (format "Emacs ready in %.2f seconds with %d garbage collections."
-                       (float-time (time-subtract after-init-time before-init-time)) gcs-done)))
+     (defun open-dashboard ()
+       "Open the *dashboard* buffer and jump to the first widget."
+       (interactive)
+       (if (get-buffer dashboard-buffer-name)
+           (kill-buffer dashboard-buffer-name))
+       (dashboard-insert-startupify-lists)
+       (switch-to-buffer dashboard-buffer-name)
+       (goto-char (point-min))
+       (if (> (length (window-list-1))
+              ;; exclude `treemacs' window
+              (if (and (fboundp 'treemacs-current-visibility)
+                       (eq (treemacs-current-visibility) 'visible)) 2 1))
+           (setq dashboard-recover-layout-p t))
+       (delete-other-windows))
+   #+END_SRC
+   Additional Dashboard widgets
+   #+BEGIN_SRC emacs-lisp
+     (defun dashboard-insert-widgets (list-size)
+       (insert (format "%d packages loaded with %d garbage collections in %s.\n" (length package-activated-list) gcs-done (emacs-init-time)))
+       (insert "Quick Navigation:\n    ")
+       ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
+       (widget-create 'url-link
+                      :tag (propertize "Homepage" 'face 'font-lock-keyword-face)
+                      :help-echo "Open the Emacs Configuration Github page"
+                      :mouse-face 'highlight
+                      "https://github.com/MatthewZMD/.emacs.d")
+       (insert " ")
+       (widget-create 'push-button
+                      :help-echo "Edit This Emacs' Configuration"
+                      :action (lambda (&rest _) (edit-configs))
+                      :mouse-face 'highlight
+                      :button-prefix ""
+                      :button-suffix ""
+                      (propertize "Configuration" 'face 'font-lock-keyword-face)))
 
-     (add-to-list 'dashboard-item-generators  '(init-time . dashboard-init-time))
-     (add-to-list 'dashboard-items '(init-time)) ;; note adding t as 4 param adds to back of list
+     (add-to-list 'dashboard-item-generators  '(buttons . dashboard-insert-widgets))
+     (add-to-list 'dashboard-items '(buttons))
    #+END_SRC
 ** Page Break Lines
    [[https://github.com/purcell/page-break-lines][Page-break-lines]] displays ugly form feed characters as tidy horizontal rules.
@@ -877,6 +937,7 @@
      (use-package pacmacs)
    #+END_SRC
 * Credits
-  This =.emacs.d/= was heavily influenced and inspired by the following configurations.
+  This Emacs configuration was heavily influenced and inspired by the following configurations.
   - [[https://github.com/anschwa/emacs.d][Adam Schwartz's .emacs.d]]
+  - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
   - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]
