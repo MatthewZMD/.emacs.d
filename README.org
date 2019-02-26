@@ -168,15 +168,20 @@
      ;; Replace selection on insert
      (delete-selection-mode 1)
 
-     ;;;;; Garbage collect when Emacs is not in focus
+     ;; Garbage collect when Emacs is not in focus
      (add-hook 'focus-out-hook #'garbage-collect)
 
-     ;;;;; Merge system clipboard with Emacs
+     ;; Merge system clipboard with Emacs
      (setq-default select-enable-clipboard t)
      
      ;; Set eww as the default browser in Emacs
      ;; In eww, hit & to browse this url system browser
      (setq browse-url-browser-function 'eww-browse-url)
+
+     ;; Enable tabs and set indent size to two
+     (setq-default indent-tabs-mode t)
+     (setq-default standard-indent 2)
+     (setq-default tab-width 2)
 
      ;; Eval-buffer for ELisp Code
      (global-set-key (kbd "<f5>") 'eval-buffer)
@@ -190,7 +195,7 @@
      ;; Truncate lines
      (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
 
-     ;;;;; Adjust font size like web browsers
+     ;; Adjust font size like web browsers
      (global-set-key (kbd "C-+") 'text-scale-increase)
      (global-set-key (kbd"C--") 'text-scale-decrease)
 
