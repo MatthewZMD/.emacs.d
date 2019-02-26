@@ -412,7 +412,7 @@
    #+BEGIN_SRC emacs-lisp
      (defun dashboard-insert-widgets (list-size)
        (insert (format "%d packages loaded with %d garbage collections in %s.\n" (length package-activated-list) gcs-done (emacs-init-time)))
-       (insert "Quick Navigation:\n    ")
+       (insert "Navigation: ")
        ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
        (widget-create 'url-link
                       :tag (propertize "Homepage" 'face 'font-lock-keyword-face)
