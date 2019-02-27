@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ zone-mode
+ zone
  open-dashboard
+ package-install
+ treemacs-icons-dired-mode
  display-line-numbers-mode
  line-number-mode
- amx-mode
- package-install
- customize-face
- set-face-font
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 32)
+ (package-install . 34)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -78,7 +78,7 @@
  (ag . 2)
  (projectile-ag . 1)
  (projectile-add-known-project . 3)
- (treemacs-icons-dired-mode . 2)
+ (treemacs-icons-dired-mode . 4)
  (org-indent-mode . 1)
  (customize-variable . 3)
  (rgrep . 1)
@@ -97,7 +97,7 @@
  (ivy-immediate-done . 1)
  (pacmacs-start . 1)
  (tetris . 3)
- (zone . 7)
+ (zone . 8)
  (doctor . 2)
  (ielm . 4)
  (c-mode . 1)
@@ -112,10 +112,11 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 10)
+ (open-dashboard . 14)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
  (line-number-mode . 5)
  (display-line-numbers-mode . 2)
+ (zone-mode . 2)
 )

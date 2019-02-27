@@ -88,108 +88,110 @@
 ** Configs
    Some essential configs that make my life a lot easier
    #+BEGIN_SRC emacs-lisp
-	   ;; Minimal UI, turn off unnecessary interface. Need to be in the beginning.
+		 ;; Minimal UI, turn off unnecessary interface. Need to be in the beginning.
 		 (scroll-bar-mode -1)
 		 (tool-bar-mode   -1)
 		 (tooltip-mode    -1)
 		 (menu-bar-mode   -1)
 
-     ;; Unbind C-z to use as prefix
-     (global-set-key (kbd "C-z") 'nil)
+		 ;; Unbind C-z to use as prefix
+		 (global-set-key (kbd "C-z") 'nil)
 
-     ;; No alarms
-     (setq ring-bell-function 'ignore)
+		 ;; No alarms
+		 (setq ring-bell-function 'ignore)
 
-     ;; Show keystrokes in progress
-     (setq echo-keystrokes 0.1)
+		 ;; Show keystrokes in progress
+		 (setq echo-keystrokes 0.1)
 
-     ;; Move files to trash when deleting
-     (setq delete-by-moving-to-trash t)
+		 ;; Cursor modification
+		 (blink-cursor-mode -1)
 
-     ;; Cursor modification
-     (blink-cursor-mode -1)
+		 ;; Always delete and copy recursively
+		 (setq dired-recursive-deletes 'always)
+		 (setq dired-recursive-copies 'always)
+		 ;; Auto refresh Dired, but be quiet about it
+		 (setq global-auto-revert-non-file-buffers t)
+		 (setq auto-revert-verbose nil)
+		 ;; Quickly copy/move file in Dired
+		 (setq dired-dwim-target t)
+		 ;; Move files to trash when deleting
+		 (setq delete-by-moving-to-trash t)
 
-     ;; Use UTF-8 as much as possible with unix line endings
-     (prefer-coding-system 'utf-8-unix)
-     (set-default-coding-systems 'utf-8-unix)
-     (set-terminal-coding-system 'utf-8-unix)
-     (set-keyboard-coding-system 'utf-8-unix)
-     (set-selection-coding-system 'utf-8-unix)
-     (setq locale-coding-system 'utf-8-unix)
-     ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
-     (when (display-graphic-p)
-     (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
+		 ;; Use UTF-8 as much as possible with unix line endings
+		 (prefer-coding-system 'utf-8-unix)
+		 (set-default-coding-systems 'utf-8-unix)
+		 (set-terminal-coding-system 'utf-8-unix)
+		 (set-keyboard-coding-system 'utf-8-unix)
+		 (set-selection-coding-system 'utf-8-unix)
+		 (setq locale-coding-system 'utf-8-unix)
+		 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+		 (when (display-graphic-p)
+		 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 
-     ;; Make sentences end with a single space
-     (setq-default sentence-end-double-space nil)
+		 ;; Make sentences end with a single space
+		 (setq-default sentence-end-double-space nil)
 
-     ;; Always have a new line at the end of a file
-     (setq require-final-newline t)
+		 ;; Always have a new line at the end of a file
+		 (setq require-final-newline t)
 
-     ;; Load the newest version of a file
-     (setq load-prefer-newer t)
+		 ;; Load the newest version of a file
+		 (setq load-prefer-newer t)
 
-     ;; Detect external file changes and auto refresh file
-     (global-auto-revert-mode t)
+		 ;; Detect external file changes and auto refresh file
+		 (global-auto-revert-mode t)
 
-     ;; Auto refresh Dired, but be quiet about it
-     (setq global-auto-revert-non-file-buffers t)
-     (setq auto-revert-verbose nil)
-     ;; Quickly copy/move file in Dired
-     (setq dired-dwim-target t)
+		 ;; Transparently open compressed files
+		 (auto-compression-mode t)
 
-     ;; Transparently open compressed files
-     (auto-compression-mode t)
+		 ;; When buffer is closed, saves the cursor location
+		 (save-place-mode 1)
 
-     ;; When buffer is closed, saves the cursor location
-     (save-place-mode 1)
+		 ;; Real emacs knights don't use shift to mark things
+		 (setq shift-select-mode nil)
 
-     ;; Real emacs knights don't use shift to mark things
-     (setq shift-select-mode nil)
+		 ;; Replace selection on insert
+		 (delete-selection-mode 1)
 
-     ;; Replace selection on insert
-     (delete-selection-mode 1)
+		 ;; Garbage collect when Emacs is not in focus
+		 (add-hook 'focus-out-hook #'garbage-collect)
 
-     ;; Garbage collect when Emacs is not in focus
-     (add-hook 'focus-out-hook #'garbage-collect)
+		 ;; Merge system clipboard with Emacs
+		 (setq-default select-enable-clipboard t)
 
-     ;; Merge system clipboard with Emacs
-     (setq-default select-enable-clipboard t)
-     
-     ;; Set eww as the default browser in Emacs
-     ;; In eww, hit & to browse this url system browser
-     (setq browse-url-browser-function 'eww-browse-url)
+		 ;; Set eww as the default browser in Emacs
+		 ;; In eww, hit & to browse this url system browser
+		 (setq browse-url-browser-function 'eww-browse-url)
 
-     ;; Prevent Extraneous Tabs
-     (setq-default indent-tabs-mode nil)
+		 ;; Prevent Extraneous Tabs
+		 (setq-default indent-tabs-mode nil)
 
-     ;; Enable tabs and set indent size to two
-     (setq-default indent-tabs-mode t)
-     (setq-default standard-indent 2)
-     (setq-default tab-width 2)
+		 ;; Enable tabs and set indent size to two
+		 (setq-default indent-tabs-mode t)
+		 (setq-default standard-indent 2)
+		 (setq-default tab-width 2)
 
-     ;; Eval-buffer for ELisp Code
-     (global-set-key (kbd "<f5>") 'eval-buffer)
+		 ;; Eval-buffer for ELisp Code
+		 (global-set-key (kbd "<f5>") 'eval-buffer)
 
-     ;; Compile for C code
-     (global-set-key (kbd "C-<f5>") 'compile)
+		 ;; Compile for C code
+		 (global-set-key (kbd "C-<f5>") 'compile)
 
-     ;; Use iBuffer instead of Buffer List
-     (global-set-key (kbd "C-x C-b") 'ibuffer)
+		 ;; Use iBuffer instead of Buffer List
+		 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-     ;; Truncate lines
-     (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
+		 ;; Truncate lines
+		 (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
 
-     ;; Adjust font size like web browsers
-     (global-set-key (kbd "C-+") 'text-scale-increase)
-     (global-set-key (kbd"C--") 'text-scale-decrease)
+		 ;; Adjust font size like web browsers
+		 (global-set-key (kbd "C-+") 'text-scale-increase)
+		 (global-set-key (kbd"C--") 'text-scale-decrease)
 
-     ;; Add personal lisp files
-     (add-to-list 'load-path "~/.emacs.d/lisp/")
+		 ;; Add personal lisp files
+		 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-     ;; Move the custom-set-variables to a different files
-     (setq custom-file "~/.emacs.d/custom-file.el")
-     (load custom-file 'noerror)
+		 ;; Move the custom-set-variables to a different files
+		 (setq custom-file "~/.emacs.d/custom-file.el")
+		 (load custom-file 'noerror)
    #+END_SRC
 ** More Functions
    Other important, but longer functions.
@@ -345,6 +347,26 @@
 	 #+BEGIN_SRC emacs-lisp
 		 (use-package all-the-icons)
 	 #+END_SRC
+*** All The Icons Dired
+		[[https://github.com/jtbm37/all-the-icons-dired][All The Icons Dired
+		#+BEGIN_SRC emacs-lisp
+			(use-package all-the-icons-dired
+			  :after all-the-icons
+				:diminish
+				:custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
+				:hook (dired-mode . all-the-icons-dired-mode))
+		#+END_SRC
+*** All The Icons Ivy
+		[[https://github.com/asok/all-the-icons-ivy][All The Icons Ivy]] is for Ivy.
+		#+BEGIN_SRC emacs-lisp
+			(use-package all-the-icons-ivy
+			  :after all-the-icons
+				:config
+				(all-the-icons-ivy-setup)
+				(setq all-the-icons-ivy-buffer-commands '())
+				(setq all-the-icons-ivy-file-commands
+  				'(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
+		#+END_SRC
 ** Doom Modeline
 	 [[https://github.com/seagle0128/doom-modeline][Doom modeline]] is a modeline from DOOM Emacs, but more powerful and faster.
 	 #+BEGIN_SRC emacs-lisp
@@ -354,7 +376,7 @@
 			 ;; Don't compact font caches during GC. Windows Laggy Issue
 			 (setq inhibit-compacting-font-caches t)
 			 (setq doom-modeline-minor-modes t)
-			 (setq doom-modeline-github t) ;; requires ghub package
+			 ;(setq doom-modeline-github t) ;; requires ghub package
 			 (setq doom-modeline-icon t)
 			 (setq doom-modeline-major-mode-color-icon t)
 			 (setq doom-modeline-height 15))
@@ -464,18 +486,17 @@
        (let ((zone-programs (list (intern pgm))))
          (zone)))
    #+END_SRC
-
 ** Smooth Scrolling
    [[https://github.com/aspiers/smooth-scrolling][Smooth scrolling]] offers a minor mode that makes Emacs scroll smoothly.
    #+BEGIN_SRC emacs-lisp
-     (use-package smooth-scrolling
-       :config
+		 (use-package smooth-scrolling
+			 :config
 			 (smooth-scrolling-mode 1)
-       (setq scroll-margin 0
-         scroll-conservatively 10000
-         scroll-step 1
-				 mouse-wheel-scroll-amount '(1 ((shift) . 1))
-         mouse-wheel-progressive-speed nil))
+			 (setq scroll-margin 0)
+			 (setq scroll-conservatively 100)
+			 (setq scroll-step 1)
+			 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+			 (setq mouse-wheel-progressive-speed nil))
    #+END_SRC
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]] removes certain minor modes from mode-line
@@ -530,23 +551,23 @@
 * Global Functionalities
 ** Org
    [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
-*** Org Mode Setup
-    #+BEGIN_SRC emacs-lisp
-      (use-package org
-        :ensure nil
-        :bind
-        ("C-c l" . org-store-link)
-        ("C-c a" . org-agenda)
-        ("C-c c" . org-capture)
-        ("C-c b" . org-switch)
-        :config
-        (setq org-todo-keywords
-          '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
-    #+END_SRC
+   #+BEGIN_SRC emacs-lisp
+		 (use-package org
+			 :ensure nil
+			 :bind
+			 ("C-c l" . org-store-link)
+			 ("C-c a" . org-agenda)
+			 ("C-c c" . org-capture)
+			 ("C-c b" . org-switch)
+			 :config
+			 (setq org-todo-keywords
+				 '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
+   #+END_SRC
 *** Org Bullets
     [[https://github.com/sabof/org-bullets][Org bullets]] shows bullets as UTF-8 characters.
     #+BEGIN_SRC emacs-lisp
       (use-package org-bullets
+			  :after org
         :config
         (add-hook 'org-mode-hook #'org-bullets-mode))
     #+END_SRC
@@ -554,6 +575,7 @@
     [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
     #+BEGIN_SRC emacs-lisp
       (use-package toc-org
+			  :after org
         :config (add-hook 'org-mode-hook 'toc-org-mode))
     #+END_SRC
 ** AG The Silver Searcher
@@ -594,12 +616,14 @@
 	  [[https://github.com/DarwinAwardWinner/amx][Amx]] is a M-x enhancement tool forked from [[https://github.com/nonsequitur/smex][Smex]].
     #+BEGIN_SRC emacs-lisp
 		  (use-package amx
+			  :after (:any ivy ido)
 		    :config (amx-mode))
     #+END_SRC
 *** Counsel
 		[[https://github.com/abo-abo/swiper][Counsel]], a collection of Ivy-enhanced versions of common Emacs commands.
     #+BEGIN_SRC emacs-lisp
 			(use-package counsel
+			  :after ivy
 				:diminish counsel-mode
 				:init (counsel-mode 1))
     #+END_SRC
@@ -739,22 +763,16 @@
           ("C-x t C-t" . treemacs-find-file)
           ("C-x t M-t" . treemacs-find-tag)))
    #+END_SRC
-*** Treemacs Icons Dired
-    #+BEGIN_SRC emacs-lisp
-      (use-package treemacs-icons-dired
-        :after treemacs dired
-        :config
-        (treemacs-icons-dired-mode))
     #+END_SRC
 *** Treemacs Magit
     #+BEGIN_SRC emacs-lisp
       (use-package treemacs-magit
-        :after treemacs magit)
+        :after (treemacs magit))
     #+END_SRC
 *** Treemacs Projectile
     #+BEGIN_SRC emacs-lisp
       (use-package treemacs-projectile
-        :after treemacs projectile)
+        :after (treemacs projectile))
     #+END_SRC
 ** Company
    [[http://company-mode.github.io/][Company]] stands for Complete Anything, it is a text completion framework for Emacs.
