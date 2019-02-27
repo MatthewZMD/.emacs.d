@@ -1,11 +1,11 @@
 
 ;; ----- amx-history -----
 (
+ open-dashboard
  display-line-numbers-mode
  line-number-mode
  amx-mode
  package-install
- open-dashboard
  customize-face
  set-face-font
 )
@@ -112,7 +112,7 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 9)
+ (open-dashboard . 10)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
