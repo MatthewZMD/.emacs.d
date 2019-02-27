@@ -1,16 +1,16 @@
 
-;; ----- smex-history -----
+;; ----- amx-history -----
 (
- smex-save-to-file
- open-dashboard
- shell
- eww
+ display-line-numbers-mode
+ line-number-mode
+ amx-mode
  package-install
- speed-type-text
- bash
+ open-dashboard
+ customize-face
+ set-face-font
 )
 
-;; ----- smex-data -----
+;; ----- amx-data -----
 (
  (eval-buffer . 46)
  (package-delete . 3)
@@ -20,12 +20,12 @@
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 6)
- (flycheck-mode . 4)
+ (flycheck-mode . 2)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 38)
+ (eww . 37)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 30)
+ (shell . 32)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
@@ -48,7 +48,7 @@
  (display-time-mode . 1)
  (package-reinstall . 4)
  (magit-version . 2)
- (speed-type-text . 4)
+ (speed-type-text . 3)
  (revert-buffer . 5)
  (flycheck-verify-checker . 7)
  (typescript-mode . 2)
@@ -62,7 +62,7 @@
  (window-resize-66 . 2)
  (window-resize-width . 9)
  (nox/change-font . 16)
- (set-face-font . 1)
+ (set-face-font . 2)
  (change-dashboard-title-face . 6)
  (dashboard-refresh-buffer . 7)
  (comment-dwim . 1)
@@ -108,24 +108,14 @@
  (org-display-inline-images . 2)
  (org-remove-inline-images . 1)
  (org-toggle-inline-images . 3)
- <<<<<<<
- Updated
- upstream
  (package-autoremove . 1)
  (run-bash . 1)
  (treemacs-select-window . 1)
- (smex-save-to-file . 2)
- =======
- (gnus . 1)
- (dumb-jump-go . 1)
- (org-edit-special . 1)
- (auto-complete-mode . 2)
- (company-mode . 1)
- (run-bash . 1)
- >>>>>>>
- Stashed
- changes
- (bash . 1)
- (treemacs-add-project-to-workspace . 1)
- (open-dashboard . 2)
+ (smex-save-to-file . 1)
+ (open-dashboard . 9)
+ (edit-configs . 1)
+ (customize-face . 3)
+ (amx-mode . 1)
+ (line-number-mode . 5)
+ (display-line-numbers-mode . 2)
 )
