@@ -167,6 +167,12 @@
 
      ;; Replace selection on insert
      (delete-selection-mode 1)
+
+     ;;;;; Garbage collect when Emacs is not in focus
+     (add-hook 'focus-out-hook #'garbage-collect)
+
+     ;;;;; Merge system clipboard with Emacs
+     (setq-default select-enable-clipboard t)
      
      ;; Set eww as the default browser in Emacs
      ;; In eww, hit & to browse this url system browser
@@ -182,7 +188,11 @@
      (global-set-key (kbd "C-x C-b") 'ibuffer)
 
      ;; Truncate lines
-     (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines);
+     (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
+
+     ;;;;; Adjust font size like web browsers
+     (global-set-key (kbd "C-+") 'text-scale-increase)
+     (global-set-key (kbd"C--") 'text-scale-decrease)
 
      ;; Add personal lisp files
      (add-to-list 'load-path "~/.emacs.d/lisp/")
