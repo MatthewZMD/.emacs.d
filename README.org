@@ -430,7 +430,7 @@
        (insert "Navigation: ")
        ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
        (widget-create 'url-link
-                      :tag (propertize "Homepage" 'face 'font-lock-keyword-face)
+                      :tag (propertize "Github" 'face 'font-lock-keyword-face)
                       :help-echo "Open the Emacs Configuration Github page"
                       :mouse-face 'highlight
                       "https://github.com/MatthewZMD/.emacs.d")
