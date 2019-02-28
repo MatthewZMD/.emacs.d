@@ -1,6 +1,6 @@
 #+TITLE: MT's GNU Emacs Configuration
 * About
-  This is Matthew/MT's custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]] below, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
+  This is Matthew/MT's custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]], then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
 ** Cool Little Thing About This README                             :noexport:
@@ -31,7 +31,7 @@
   - [[#ui-configs][UI Configs]]
 - [[#global-functionalities][Global Functionalities]]
   - [[#org][Org]]
-  - [[#ag-the-silver-searcher][AG The Silver Searcher]]
+  - [[#ag][AG]]
   - [[#avy][Avy]]
   - [[#ivy][Ivy]]
   - [[#winner][Winner]]
@@ -596,7 +596,7 @@
         :after org
         :config (add-hook 'org-mode-hook 'toc-org-mode))
     #+END_SRC
-** AG The Silver Searcher
+** AG
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]] is a fast code searching tool.
 
    *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
