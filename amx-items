@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ global-prettify-symbols-mode
+ set-language-environment
  untabify
  tabify
  electric-pair-mode
  open-dashboard
  term
- snake
- mpc
 )
 
 ;; ----- amx-data -----
@@ -126,4 +126,6 @@
  (electric-pair-mode . 3)
  (untabify . 2)
  (tabify . 2)
+ (set-language-environment . 1)
+ (global-prettify-symbols-mode . 1)
 )

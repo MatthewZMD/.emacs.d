@@ -127,12 +127,12 @@
      (add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
 
      ;; Use UTF-8 as much as possible with unix line endings
-     (prefer-coding-system 'utf-8-unix)
-     (set-default-coding-systems 'utf-8-unix)
-     (set-terminal-coding-system 'utf-8-unix)
-     (set-keyboard-coding-system 'utf-8-unix)
-     (set-selection-coding-system 'utf-8-unix)
-     (setq locale-coding-system 'utf-8-unix)
+     (prefer-coding-system 'utf-8)
+     (set-default-coding-systems 'utf-8)
+     (set-terminal-coding-system 'utf-8)
+     (set-keyboard-coding-system 'utf-8)
+     (set-selection-coding-system 'utf-8)
+     (setq locale-coding-system 'utf-8)
      ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
      (when (display-graphic-p)
      (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
@@ -551,6 +551,20 @@
    Change yes or no prompts to y or n.
    #+BEGIN_SRC emacs-lisp
      (fset 'yes-or-no-p 'y-or-n-p)
+   #+END_SRC
+   Pretty Symbols
+   #+BEGIN_SRC emacs-lisp
+     (global-prettify-symbols-mode 1)
+       (defun my-add-pretty-lambda ()
+         "make some word or string show as pretty Unicode symbols"
+         (setq prettify-symbols-alist
+               '(
+                 ("lambda" . 955)
+                 ("->" . 8594)
+                 ("=>" . 8658)
+                 ("map" . 8614)
+                 )))
+       (add-hook 'prog-mode-hook 'my-add-pretty-lambda)
    #+END_SRC
 * Global Functionalities
 ** Org
