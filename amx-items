@@ -1,11 +1,11 @@
 
 ;; ----- amx-history -----
 (
+ package-install
  open-dashboard
  electric-pair-mode
  shell
  auto-insert
- package-install
  global-prettify-symbols-mode
  set-language-environment
 )
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 35)
+ (package-install . 36)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
