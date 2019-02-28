@@ -295,7 +295,7 @@
        ;; Comment / Uncomment when necessary sites are needed
        ("gnu"   . "http://elpa.gnu.org/packages/")
        ("melpa" . "https://melpa.org/packages/")
-       ;("melpa stable" . "http://stable.melpa.org/packages/")
+       ("melpa stable" . "http://stable.melpa.org/packages/")
        ;;("org"   . "http://orgmode.org/elpa/")
      ))
      (package-initialize)
