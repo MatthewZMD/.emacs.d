@@ -1,6 +1,6 @@
 #+TITLE: MT's GNU Emacs Configuration
 * About
-  This is Matthew/MT's custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#package-sources][Package Sources]], then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
+  This is Matthew/MT's custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#elpamelpa-package-sources][Elpa/Melpa Package Sources]], then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
 ** Cool Little Thing About This README                             :noexport:
@@ -12,7 +12,8 @@
   - [[#configs][Configs]]
   - [[#more-functions][More Functions]]
 - [[#package-management][Package Management]]
-  - [[#package-sources][Package Sources]]
+  - [[#elpamelpa-package-sources][Elpa/Melpa Package Sources]]
+  - [[#other-package-in-local][Other Package in Local]]
   - [[#bootstrap-use-package][Bootstrap =use-package=]]
   - [[#auto-package-update][Auto Package Update]]
 - [[#user-interface-enhancements][User Interface Enhancements]]
@@ -48,13 +49,14 @@
   - [[#flycheck][Flycheck]]
   - [[#format-all][Format All]]
   - [[#dumb-jump][Dumb Jump]]
-  - [[#parenthesis-pairing-configs][Parenthesis Pairing Configs]]
+  - [[#parenthesis-pairing][Parenthesis Pairing]]
 - [[#web-development][Web Development]]
   - [[#web-mode][Web Mode]]
   - [[#emmet][Emmet]]
   - [[#js2][JS2]]
   - [[#typescript][TypeScript]]
 - [[#programming][Programming]]
+  - [[#emacs-lisp][Emacs Lisp]]
   - [[#cc][C/C++]]
   - [[#python][Python]]
   - [[#arduino][Arduino]]
@@ -174,12 +176,6 @@
      ;; Prevent Extraneous Tabs
      (setq-default indent-tabs-mode nil)
 
-     ;; Eval-buffer for ELisp Code
-     (global-set-key (kbd "<f5>") 'eval-buffer)
-
-     ;; Compile for C code
-     (global-set-key (kbd "C-<f5>") 'compile)
-
      ;; Use iBuffer instead of Buffer List
      (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -189,9 +185,6 @@
      ;; Adjust font size like web browsers
      (global-set-key (kbd "C-+") 'text-scale-increase)
      (global-set-key (kbd"C--") 'text-scale-decrease)
-
-     ;; Add personal lisp files
-     (add-to-list 'load-path "~/.emacs.d/lisp/")
 
      ;; Move the custom-set-variables to a different files
      (setq custom-file "~/.emacs.d/custom-file.el")
@@ -291,7 +284,7 @@
         (find-file "~/.emacs.d/README.org"))
     #+END_SRC
 * Package Management
-** Package Sources
+** Elpa/Melpa Package Sources
    #+BEGIN_SRC emacs-lisp
      (require 'package)
      (setq package-enable-at-startup nil)
@@ -303,6 +296,18 @@
              ;;("org"   . "http://orgmode.org/elpa/")
              ))
      (package-initialize)
+   #+END_SRC
+** Other Package in Local
+   This will add all the packages in =/lisp= into the =load-path=.
+   #+BEGIN_SRC emacs-lisp
+     (let ((base "~/.emacs.d/lisp"))
+       (add-to-list 'load-path base)
+       (dolist (f (directory-files base))
+         (let ((name (concat base "/" f)))
+           (when (and (file-directory-p name)
+                      (not (equal f ".."))
+                      (not (equal f ".")))
+             (add-to-list 'load-path name)))))
    #+END_SRC
 ** Bootstrap =use-package=
    My =.emacs.d/= is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
@@ -838,15 +843,33 @@
         ("M-g z" . dumb-jump-go-prefer-external-other-window))
        :config (setq dumb-jump-selector 'ivy))
    #+END_SRC
-** Parenthesis Pairing Configs
+** Parenthesis Pairing
    #+BEGIN_SRC emacs-lisp
      ;; Show matching parentheses
      (setq show-paren-delay 0)
      (show-paren-mode 1)
 
      ;; Electric Pair mode, a global minor mode, provides a way to easily insert matching delimiters
-     (electric-pair-mode t)
+     ;; (electric-pair-mode t)
    #+END_SRC
+*** Smartparens
+    [[https://github.com/Fuco1/smartparens][Smartparens]] is a minor mode for dealing with pairs.
+    #+BEGIN_SRC emacs-lisp
+      (use-package smartparens
+        :diminish smartparens-mode
+        :config
+        (add-hook 'prog-mode-hook #'smartparens-mode)
+        (setq sp-escape-quotes-after-insert nil))
+    #+END_SRC
+*** Awesome Pair
+    [[https://github.com/manateelazycat/awesome-pair][Awesome Pair]] provides grammatical parenthesis completion. All I need is this smart kill.
+    #+BEGIN_SRC emacs-lisp
+      (require 'awesome-pair)
+
+      (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1)))
+
+      (define-key awesome-pair-mode-map (kbd "C-k") 'awesome-pair-kill)
+    #+END_SRC
 * Web Development
 ** Web Mode
    [[https://github.com/fxbois/web-mode][Web mode]] is a major mode for editing web templates.
@@ -901,10 +924,20 @@
         (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
     #+END_SRC
 * Programming
+** Emacs Lisp
+   #+BEGIN_SRC emacs-lisp
+     ;; Eval-buffer for ELisp Code
+     (define-key emacs-lisp-mode-map (kbd "<f5>") 'eval-buffer)
+   #+END_SRC
+
 ** C/C++
    *Prerequisite*: To compile and execute C/C++ files in Emacs for Windows, install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] first.
 
-   Then compile using =C-<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
+   Compile using =C-<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
+   #+BEGIN_SRC emacs-lisp
+     ;; Compile
+     (define-key c-mode-map (kbd "C-<f5>") 'compile)
+   #+END_SRC
 *** Irony
     [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
 

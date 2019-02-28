@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ open-dashboard
+ electric-pair-mode
+ shell
+ auto-insert
+ package-install
  global-prettify-symbols-mode
  set-language-environment
- untabify
- tabify
- electric-pair-mode
- open-dashboard
- term
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 34)
+ (package-install . 35)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 32)
+ (shell . 36)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
@@ -112,7 +112,7 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 16)
+ (open-dashboard . 17)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
@@ -123,9 +123,10 @@
  (mpc . 1)
  (snake . 1)
  (term . 1)
- (electric-pair-mode . 3)
+ (electric-pair-mode . 6)
  (untabify . 2)
  (tabify . 2)
  (set-language-environment . 1)
  (global-prettify-symbols-mode . 1)
+ (auto-insert . 1)
 )
