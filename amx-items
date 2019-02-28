@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- disable-theme
- eww
- package-install
+ electric-pair-mode
  open-dashboard
- package-refresh-contents
- zone-mode
- zone
+ term
+ snake
+ mpc
+ life
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -15,17 +15,17 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 37)
+ (package-install . 34)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
- (package-refresh-contents . 7)
+ (package-refresh-contents . 6)
  (flycheck-mode . 2)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 39)
+ (eww . 37)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -44,7 +44,7 @@
  (list-packages . 4)
  (web-mode-test . 2)
  (web-mode . 6)
- (smartparens-mode . 3)
+ (smartparens-mode . 6)
  (display-time-mode . 1)
  (package-reinstall . 4)
  (magit-version . 2)
@@ -90,7 +90,7 @@
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
  (treemacs-add-project . 1)
- (disable-theme . 5)
+ (disable-theme . 4)
  (enable-theme . 1)
  (indent-region . 2)
  (dired-create-directory . 1)
@@ -112,11 +112,16 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 15)
+ (open-dashboard . 16)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
  (line-number-mode . 5)
  (display-line-numbers-mode . 2)
  (zone-mode . 2)
+ (life . 1)
+ (mpc . 1)
+ (snake . 1)
+ (term . 1)
+ (electric-pair-mode . 3)
 )
