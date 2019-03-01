@@ -532,9 +532,8 @@
    #+END_SRC
    Display line numbers, and column numbers in modeline.
    #+BEGIN_SRC emacs-lisp
-
      ;; Hook line numbers to only when files are opened
-     (if (version< emacs-version "26") (setq global-linum-mode t)
+     (if (version< emacs-version "26") (add-hook 'prog-mode-hook #'global-linum-mode)
        (progn (add-hook 'find-file-hook #'display-line-numbers-mode)
               (add-hook 'prog-mode-hook #'display-line-numbers-mode)))
 

@@ -3,11 +3,11 @@
 (
  open-dashboard
  shell
- bash
  compile
  linum-mode
  disable-theme
  eww
+ eval-buffer
 )
 
 ;; ----- amx-data -----
