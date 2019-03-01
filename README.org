@@ -248,16 +248,6 @@
             version-control t
             vc-make-backup-files t)
     #+END_SRC
-*** Bash
-    *Prerequisite*: This is configured for [[https://docs.microsoft.com/en-ca/windows/wsl/about][Windows Subsystem for Linux]] in Windows 10.
-
-    Run the Linux Bash in an Emacs buffer.
-    #+BEGIN_SRC emacs-lisp
-      (defun bash ()
-        (interactive)
-        (let ((shell-file-name "C:\\Windows\\System32\\bash.exe"))
-          (shell "*bash*")))
-    #+END_SRC
 *** Rename File and Buffer
     #+BEGIN_SRC emacs-lisp
       ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file

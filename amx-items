@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ open-dashboard
  shell
+ bash
+ compile
+ linum-mode
  disable-theme
  eww
- package-install
- open-dashboard
- package-refresh-contents
- zone-mode
 )
 
 ;; ----- amx-data -----
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 33)
+ (shell . 34)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
@@ -101,7 +101,7 @@
  (doctor . 2)
  (ielm . 4)
  (c-mode . 1)
- (compile . 16)
+ (compile . 22)
  (zone-choose . 5)
  (irony-install-server . 3)
  (flycheck-compile . 1)
@@ -112,11 +112,13 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 15)
+ (open-dashboard . 16)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
  (line-number-mode . 5)
  (display-line-numbers-mode . 2)
  (zone-mode . 2)
+ (linum-mode . 1)
+ (bash . 1)
 )
