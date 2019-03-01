@@ -468,7 +468,7 @@
              (push font available-fonts)))
 
          (if (not available-fonts)
-             (error "No fonts from the chosen set are available")
+             (message "No fonts from the chosen set are available")
            (if (called-interactively-p 'interactive)
                (let* ((chosen (assoc-string (completing-read "What font to use? " available-fonts nil t) available-fonts)))
                  (setq font-name (car chosen) font-size (read-number "Font size: " (cdr chosen))))
@@ -542,9 +542,11 @@
    #+END_SRC
    Display line numbers, and column numbers in modeline.
    #+BEGIN_SRC emacs-lisp
+
      ;; Hook line numbers to only when files are opened
-     (add-hook 'find-file-hook #'display-line-numbers-mode)
-     (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+     (if (version< emacs-version "26") (setq global-linum-mode t)
+       (progn (add-hook 'find-file-hook #'display-line-numbers-mode)
+              (add-hook 'prog-mode-hook #'display-line-numbers-mode)))
 
      ;; Display column numbers in modeline
      (column-number-mode 1)
@@ -822,8 +824,8 @@
    #+BEGIN_SRC emacs-lisp
      (use-package flycheck
        :diminish flycheck-mode
-       :init (global-flycheck-mode)
        :config
+       (global-flycheck-mode)
        (flycheck-add-mode 'typescript-tslint 'js2-mode)
        (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
    #+END_SRC
