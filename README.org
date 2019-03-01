@@ -862,7 +862,7 @@
 
       (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1)))
 
-      (define-key awesome-pair-mode-map (kbd "C-k") 'awesome-pair-kill)
+      (define-key awesome-pair-mode-map (kbd "C-c C-k") 'awesome-pair-kill)
     #+END_SRC
 * Web Development
 ** Web Mode

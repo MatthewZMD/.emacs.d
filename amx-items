@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- open-dashboard
+ make-header
  shell
+ open-dashboard
  compile
  linum-mode
  disable-theme
  eww
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 36)
+ (shell . 37)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
@@ -121,4 +121,5 @@
  (zone-mode . 2)
  (linum-mode . 1)
  (bash . 1)
+ (make-header . 1)
 )
