@@ -248,16 +248,6 @@
             version-control t
             vc-make-backup-files t)
     #+END_SRC
-*** Bash
-    *Prerequisite*: This is configured for [[https://docs.microsoft.com/en-ca/windows/wsl/about][Windows Subsystem for Linux]] in Windows 10.
-
-    Run the Linux Bash in an Emacs buffer.
-    #+BEGIN_SRC emacs-lisp
-      (defun bash ()
-        (interactive)
-        (let ((shell-file-name "C:\\Windows\\System32\\bash.exe"))
-          (shell "*bash*")))
-    #+END_SRC
 *** Rename File and Buffer
     #+BEGIN_SRC emacs-lisp
       ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
@@ -468,7 +458,7 @@
              (push font available-fonts)))
 
          (if (not available-fonts)
-             (error "No fonts from the chosen set are available")
+             (message "No fonts from the chosen set are available")
            (if (called-interactively-p 'interactive)
                (let* ((chosen (assoc-string (completing-read "What font to use? " available-fonts nil t) available-fonts)))
                  (setq font-name (car chosen) font-size (read-number "Font size: " (cdr chosen))))
@@ -543,8 +533,11 @@
    Display line numbers, and column numbers in modeline.
    #+BEGIN_SRC emacs-lisp
      ;; Hook line numbers to only when files are opened
-     (add-hook 'find-file-hook #'display-line-numbers-mode)
-     (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+     (if (version< emacs-version "26")
+         (progn (add-hook 'find-file-hook #'linum-mode)
+                (add-hook 'prog-mode-hook #'linum-mode))
+       (progn (add-hook 'find-file-hook #'display-line-numbers-mode)
+              (add-hook 'prog-mode-hook #'display-line-numbers-mode)))
 
      ;; Display column numbers in modeline
      (column-number-mode 1)
@@ -822,8 +815,8 @@
    #+BEGIN_SRC emacs-lisp
      (use-package flycheck
        :diminish flycheck-mode
-       :init (global-flycheck-mode)
        :config
+       (global-flycheck-mode)
        (flycheck-add-mode 'typescript-tslint 'js2-mode)
        (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
    #+END_SRC
@@ -869,7 +862,7 @@
 
       (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1)))
 
-      (define-key awesome-pair-mode-map (kbd "C-k") 'awesome-pair-kill)
+      (define-key awesome-pair-mode-map (kbd "C-c C-k") 'awesome-pair-kill)
     #+END_SRC
 * Web Development
 ** Web Mode
@@ -934,10 +927,10 @@
 ** C/C++
    *Prerequisite*: To compile and execute C/C++ files in Emacs for Windows, install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] first.
 
-   Compile using =C-<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
+   Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
    #+BEGIN_SRC emacs-lisp
      ;; Compile
-     (define-key c-mode-map (kbd "C-<f5>") 'compile)
+     (define-key c-mode-map (kbd "<f5>") 'compile)
    #+END_SRC
 *** Irony
     [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
@@ -1126,7 +1119,7 @@
      (use-package pacmacs)
    #+END_SRC
 * Credits
-  This Emacs configuration was heavily influenced and inspired by the following configurations.
+  This Emacs configuration was influenced and inspired by the following configurations.
   - [[https://github.com/anschwa/emacs.d][Adam Schwartz's .emacs.d]]
   - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
   - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]

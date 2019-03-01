@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- package-install
- open-dashboard
- electric-pair-mode
+ make-header
  shell
  auto-insert
  global-prettify-symbols-mode
  eval-buffer
+ open-dashboard
+ compile
 )
 
 ;; ----- amx-data -----
@@ -15,17 +15,17 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 36)
+ (package-install . 37)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
- (package-refresh-contents . 6)
+ (package-refresh-contents . 7)
  (flycheck-mode . 2)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 37)
+ (eww . 39)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,12 +39,12 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 36)
+ (shell . 37)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
  (web-mode . 6)
- (smartparens-mode . 6)
+ (smartparens-mode . 3)
  (display-time-mode . 1)
  (package-reinstall . 4)
  (magit-version . 2)
@@ -90,7 +90,7 @@
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
  (treemacs-add-project . 1)
- (disable-theme . 4)
+ (disable-theme . 5)
  (enable-theme . 1)
  (indent-region . 2)
  (dired-create-directory . 1)
@@ -101,7 +101,7 @@
  (doctor . 2)
  (ielm . 4)
  (c-mode . 1)
- (compile . 16)
+ (compile . 28)
  (zone-choose . 5)
  (irony-install-server . 3)
  (flycheck-compile . 1)
@@ -112,7 +112,7 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 17)
+ (open-dashboard . 18)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
@@ -129,5 +129,6 @@
  (set-language-environment . 1)
  (global-prettify-symbols-mode . 1)
  (auto-insert . 1)
+ (linum-mode . 1)
  (make-header . 1)
 )
