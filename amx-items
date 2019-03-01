@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ shell
  disable-theme
  eww
  package-install
  open-dashboard
  package-refresh-contents
  zone-mode
- zone
 )
 
 ;; ----- amx-data -----
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 32)
+ (shell . 33)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
