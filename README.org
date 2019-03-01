@@ -61,7 +61,6 @@
   - [[#python][Python]]
   - [[#arduino][Arduino]]
 - [[#miscellaneous][Miscellaneous]]
-  - [[#header2][Header2]]
   - [[#tetris][Tetris]]
   - [[#speed-type][Speed Type]]
   - [[#2048-game][2048 Game]]
@@ -714,7 +713,8 @@
      (use-package projectile
        :bind
        ("C-c p" . projectile-command-map)
-       ("C-z C-d" . projectile-switch-project)
+       ("C-z C-o" . projectile-switch-project)
+       ("C-z C-p" . projectile-add-known-project)
        :config
        (projectile-mode +1)
        (setq projectile-completion-system 'ivy)
@@ -1050,46 +1050,6 @@
       (add-hook 'arduino-mode-hook 'irony-mode)
     #+END_SRC
 * Miscellaneous
-** Header2
-   [[https://www.emacswiki.org/emacs/AutomaticFileHeaders#toc2][Header2]] is a lets you automatically insert a header when you open a new file buffer
-*** TODO [[https://emacs.stackexchange.com/questions/11005/how-change-the-contents-of-a-package-header2-el][Header2 works]]
-   #+BEGIN_SRC emacs-lisp
-     (require 'header2)
-
-     (defsubst header-timestamp ()
-       "Insert field for timestamp"
-       (insert header-prefix-string  "Time-stamp: <>\n"))
-
-     (defsubst header-projectname ()
-       "Insert Project Name"
-       (insert header-prefix-string "Project    : "
-               (when (featurep 'projectile)
-                 (replace-regexp-in-string "/proj/\\(.*?\\)/.*"
-                                           "\\1"
-                                           (projectile-project-root)))
-               "\n"))
-
-     (defsubst header-description ()
-       "Insert \"Description: \" line."
-       (insert header-prefix-string "Description: \n"))
-
-     (defsubst header-dash-line ()
-       "Insert dashed line"
-       (insert header-prefix-string)
-       (insert-char ?- fill-column)
-       (insert "\n"))
-
-     (setq make-header-hook '(header-timestamp
-                              header-blank
-                              header-dash-line
-                              header-projectname
-                              header-file-name
-                              header-author
-                              header-description
-                              header-dash-line))
-
-     (add-hook 'emacs-lisp-mode-hook #'auto-make-header)
-   #+END_SRC
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
    #+BEGIN_SRC emacs-lisp
