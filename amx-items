@@ -7,7 +7,7 @@
  shell
  auto-insert
  global-prettify-symbols-mode
- set-language-environment
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -129,4 +129,5 @@
  (set-language-environment . 1)
  (global-prettify-symbols-mode . 1)
  (auto-insert . 1)
+ (make-header . 1)
 )
