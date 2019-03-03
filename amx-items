@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- projectile-find-file
- projectile-switch-project
- projectile-remove-known-project
- web-mode
- doc-view-mode
  open-dashboard
- eval-buffer
+ linum-mode
+ ielm
+ disable-theme
+ eww
+ package-install
+ package-refresh-contents
 )
 
 ;; ----- amx-data -----
@@ -39,11 +39,11 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 37)
+ (shell . 32)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
- (web-mode . 7)
+ (web-mode . 6)
  (smartparens-mode . 3)
  (display-time-mode . 1)
  (package-reinstall . 4)
@@ -77,15 +77,15 @@
  (ag-dired . 1)
  (ag . 2)
  (projectile-ag . 1)
- (projectile-add-known-project . 8)
+ (projectile-add-known-project . 3)
  (treemacs-icons-dired-mode . 4)
  (org-indent-mode . 1)
  (customize-variable . 3)
  (rgrep . 1)
  (counsel-ag . 1)
  (rename-file . 4)
- (projectile-switch-project . 8)
- (projectile-find-file . 4)
+ (projectile-switch-project . 6)
+ (projectile-find-file . 2)
  (projectile-find-dir-other-frame . 1)
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
@@ -99,9 +99,9 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 4)
+ (ielm . 6)
  (c-mode . 1)
- (compile . 28)
+ (compile . 16)
  (zone-choose . 5)
  (irony-install-server . 3)
  (flycheck-compile . 1)
@@ -112,25 +112,12 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 19)
+ (open-dashboard . 17)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
  (line-number-mode . 5)
  (display-line-numbers-mode . 2)
  (zone-mode . 2)
- (life . 1)
- (mpc . 1)
- (snake . 1)
- (term . 1)
- (electric-pair-mode . 6)
- (untabify . 2)
- (tabify . 2)
- (set-language-environment . 1)
- (global-prettify-symbols-mode . 1)
- (auto-insert . 1)
  (linum-mode . 1)
- (make-header . 1)
- (doc-view-mode . 1)
- (projectile-remove-known-project . 1)
 )

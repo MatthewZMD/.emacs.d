@@ -474,7 +474,7 @@
    [[https://www.emacswiki.org/emacs/ZoneMode][Zone mode]] 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer, which can be used as a screensaver.
    #+BEGIN_SRC emacs-lisp
      (require 'zone)
-     (zone-when-idle 120)
+     (zone-when-idle 300) ;; in seconds
      (defun zone-choose (pgm)
        "Choose a PGM to run for `zone'."
        (interactive
