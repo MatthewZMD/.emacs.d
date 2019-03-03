@@ -1,4 +1,4 @@
-;;; package --- Summary
+;;; init.el --- Initialize Emacs       -*- lexical-binding: t -*-
 ;;; This is MT`s personal init.el file for EMACS
 ;;; Commentary:
 

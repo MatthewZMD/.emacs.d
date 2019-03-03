@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ format-all-buffer
+ format-all-mode
  open-dashboard
- linum-mode
- ielm
- disable-theme
- eww
  package-install
- package-refresh-contents
+ electric-indent-mode
+ newline-and-indent
+ shell
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 37)
+ (package-install . 38)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 32)
+ (shell . 37)
  (package-menu-mark-upgrades . 4)
  (list-packages . 4)
  (web-mode-test . 2)
@@ -99,11 +99,11 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 6)
+ (ielm . 4)
  (c-mode . 1)
- (compile . 16)
+ (compile . 28)
  (zone-choose . 5)
- (irony-install-server . 3)
+ (irony-install-server . 6)
  (flycheck-compile . 1)
  (org-display-inline-images . 2)
  (org-remove-inline-images . 1)
@@ -112,7 +112,7 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 17)
+ (open-dashboard . 20)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
@@ -120,4 +120,10 @@
  (display-line-numbers-mode . 2)
  (zone-mode . 2)
  (linum-mode . 1)
+ (bash . 1)
+ (make-header . 1)
+ (newline-and-indent . 4)
+ (format-all-mode . 9)
+ (format-all-buffer . 8)
+ (electric-indent-mode . 4)
 )

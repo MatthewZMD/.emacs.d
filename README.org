@@ -8,7 +8,7 @@
 * Table of Contents                                                   :TOC_2:
 - [[#about][About]]
 - [[#essentials][Essentials]]
-  - [[#startup-optimization][Startup Optimization]]
+  - [[#startup][Startup]]
   - [[#configs][Configs]]
   - [[#more-functions][More Functions]]
 - [[#package-management][Package Management]]
@@ -28,7 +28,6 @@
   - [[#smooth-scrolling][Smooth Scrolling]]
   - [[#diminish][Diminish]]
   - [[#dimmer][Dimmer]]
-  - [[#time][Time]]
   - [[#ui-configs][UI Configs]]
 - [[#global-functionalities][Global Functionalities]]
   - [[#org][Org]]
@@ -47,9 +46,9 @@
   - [[#treemacs][Treemacs]]
   - [[#company][Company]]
   - [[#flycheck][Flycheck]]
-  - [[#format-all][Format All]]
   - [[#dumb-jump][Dumb Jump]]
   - [[#parenthesis-pairing][Parenthesis Pairing]]
+  - [[#format-all][Format All]]
 - [[#web-development][Web Development]]
   - [[#web-mode][Web Mode]]
   - [[#emmet][Emmet]]
@@ -68,7 +67,14 @@
 - [[#credits][Credits]]
 
 * Essentials
-** Startup Optimization
+** Startup
+   Use lexical-binding. [[https://nullprogram.com/blog/2016/12/22/][Why?]]
+   #+BEGIN_QUOTE
+   Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables  a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
+   #+END_QUOTE
+   #+BEGIN_SRC emacs-lisp
+     ;; -*- lexical-binding: t; -*-
+   #+END_SRC
    Optimize startup time.
    #+BEGIN_SRC emacs-lisp
      (defvar default-file-name-handler-alist file-name-handler-alist)
@@ -87,7 +93,7 @@
                    (add-hook 'focus-out-hook 'garbage-collect))))
    #+END_SRC
 ** Configs
-   Some essential configs that make my life a lot easier
+   Some essential configs that make my life a lot easier.
    #+BEGIN_SRC emacs-lisp
      ;; Minimal UI, turn off unnecessary interface. Need to be in the beginning.
      (scroll-bar-mode -1)
@@ -273,6 +279,18 @@
         (quit-window t)
         (find-file "~/.emacs.d/README.org"))
     #+END_SRC
+*** Always add lexical binding to new elisp file
+    #+BEGIN_SRC emacs-lisp
+      (add-hook 'emacs-lisp-mode-hook
+                (lambda ()
+                  (let  ((auto-insert-query nil)
+                         (auto-insert-alist
+                          '((("\\.el\\'" . "Emacs Lisp header")
+                             ""
+                             ";;; -*- lexical-binding: t; -*-\n\n" '(setq lexical-binding t)))))
+                    (auto-insert))))
+
+    #+END_SRC
 * Package Management
 ** Elpa/Melpa Package Sources
    #+BEGIN_SRC emacs-lisp
@@ -383,7 +401,7 @@
 ** Dashboard
    [[https://github.com/rakanalh/emacs-dashboard][Dashboard]] is an extensible Emacs startup screen.
 
-   Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme
+   Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme.
    #+BEGIN_SRC emacs-lisp
      (use-package dashboard
        :diminish (dashboard-mode page-break-lines-mode)
@@ -438,7 +456,7 @@
        :init (global-page-break-lines-mode))
    #+END_SRC
 ** Fonts
-   Prepare fonts to use
+   Prepares fonts to use.
 
    *Prerequisite*: Install =Input= and =Love Letter TW= fonts from =/fonts=.
    #+BEGIN_SRC emacs-lisp
@@ -498,7 +516,7 @@
        (setq mouse-wheel-progressive-speed nil))
    #+END_SRC
 ** Diminish
-   [[https://github.com/emacsmirror/diminish][Diminish]] removes certain minor modes from mode-line
+   [[https://github.com/emacsmirror/diminish][Diminish]] removes certain minor modes from mode-line.
    #+BEGIN_SRC emacs-lisp
      (use-package diminish)
    #+END_SRC
@@ -513,17 +531,6 @@
        (setq dimmer-exclusion-regexp "\\*Minibuf-[0-9]+\\*\\|\\*dashboard\\*"))
    #+END_SRC
 
-** Time
-   Display time in the modeline.
-   #+BEGIN_SRC emacs-lisp
-     (use-package time
-       :ensure nil
-       :unless (display-graphic-p)
-       :hook (after-init . display-time-mode)
-       :init
-       (setq display-time-24hr-format t)
-       (setq display-time-day-and-date t))
-   #+END_SRC
 ** UI Configs
    Maximize frame.
    #+BEGIN_SRC emacs-lisp
@@ -820,12 +827,6 @@
        (flycheck-add-mode 'typescript-tslint 'js2-mode)
        (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
    #+END_SRC
-** Format All
-   [[https://github.com/lassik/emacs-format-all-the-code][Format all]] lets you auto-format source code.
-   #+BEGIN_SRC emacs-lisp
-     (use-package format-all
-       :init (format-all-mode))
-   #+END_SRC
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]] is an Emacs "jump to definition" package.
    #+BEGIN_SRC emacs-lisp
@@ -864,6 +865,16 @@
 
       (define-key awesome-pair-mode-map (kbd "C-c C-k") 'awesome-pair-kill)
     #+END_SRC
+** Format All
+   [[https://github.com/lassik/emacs-format-all-the-code][Format all]] lets you auto-format source code.
+
+   *Prerequisite*: Read [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][Supported Languages]] to see which additional tool you need to install for the specific language.
+   #+BEGIN_SRC emacs-lisp
+     (use-package format-all
+       :bind ("C-z C-f" . format-all-buffer)
+       :config (add-hook 'prog-mode-hook #'format-all-mode))
+   #+END_SRC
+
 * Web Development
 ** Web Mode
    [[https://github.com/fxbois/web-mode][Web mode]] is a major mode for editing web templates.
@@ -933,7 +944,7 @@
      (define-key c-mode-map (kbd "<f5>") 'compile)
    #+END_SRC
 *** Irony
-    [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that improves editing experience in C/C++.
+    [[https://github.com/Sarcasm/irony-mode][Irony mode]] is an Emacs minor mode that supports code completion, syntax checking, etc.
 
     *Prerequisite*: Execute =irony-install-server=. This provides the libclang interface to irony-mode. It uses a simple protocol based on S-expression. This server also requires [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]] to be installed on your system.
     #+BEGIN_SRC emacs-lisp
