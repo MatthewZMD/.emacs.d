@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ open-dashboard
+ projectile-find-file
+ projectile-switch-project
+ list-packages
  server-start
  eww
- list-packages
- open-dashboard
  change-font
- buffer-face-toggle
- customize-face
 )
 
 ;; ----- amx-data -----
@@ -41,7 +41,7 @@
  (eshell . 1)
  (shell . 37)
  (package-menu-mark-upgrades . 4)
- (list-packages . 5)
+ (list-packages . 6)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
@@ -84,8 +84,8 @@
  (rgrep . 1)
  (counsel-ag . 1)
  (rename-file . 4)
- (projectile-switch-project . 8)
- (projectile-find-file . 4)
+ (projectile-switch-project . 9)
+ (projectile-find-file . 5)
  (projectile-find-dir-other-frame . 1)
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
@@ -112,7 +112,7 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 20)
+ (open-dashboard . 21)
  (edit-configs . 1)
  (customize-face . 4)
  (amx-mode . 1)
@@ -136,4 +136,7 @@
  (buffer-face-toggle . 1)
  (change-font . 1)
  (server-start . 1)
+ (ibuffer-customize . 1)
+ (treemacs-add-project-to-workspace . 1)
+ (treemacs-delete . 1)
 )

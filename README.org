@@ -138,9 +138,6 @@
      ;; Make sentences end with a single space
      (setq-default sentence-end-double-space nil)
 
-     ;; Always have a new line at the end of a file
-     (setq require-final-newline t)
-
      ;; Load the newest version of a file
      (setq load-prefer-newer t)
 
