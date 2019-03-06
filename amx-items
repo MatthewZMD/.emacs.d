@@ -1,12 +1,13 @@
+
 ;; ----- amx-history -----
 (
+ open-dashboard
+ set-face-font
  list-packages
  org-html-export-to-html
  org-html-export-as-html
  package-list-packages
  package-refresh-contents
- open-dashboard
- linum-mode
 )
 
 ;; ----- amx-data -----
@@ -61,7 +62,7 @@
  (window-resize-66 . 2)
  (window-resize-width . 9)
  (nox/change-font . 16)
- (set-face-font . 2)
+ (set-face-font . 3)
  (change-dashboard-title-face . 6)
  (dashboard-refresh-buffer . 7)
  (comment-dwim . 1)
@@ -109,18 +110,9 @@
  (org-toggle-inline-images . 3)
  (package-autoremove . 1)
  (run-bash . 1)
- (life . 1)
- (mpc . 1)
- (snake . 1)
- (term . 1)
- (electric-pair-mode . 6)
- (untabify . 2)
- (tabify . 2)
- (set-language-environment . 1)
- (global-prettify-symbols-mode . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 17)
+ (open-dashboard . 19)
  (edit-configs . 1)
  (customize-face . 3)
  (amx-mode . 1)
@@ -128,14 +120,6 @@
  (display-line-numbers-mode . 2)
  (zone-mode . 2)
  (linum-mode . 1)
- (make-header . 1)
- (doc-view-mode . 1)
- (projectile-remove-known-project . 1)
- (buffer-face-toggle . 1)
- (change-font . 1)
- (server-start . 1)
- (ibuffer-customize . 1)
- (treemacs-add-project-to-workspace . 1)
  (package-list-packages . 1)
  (org-html-export-as-html . 1)
  (org-html-export-to-html . 1)

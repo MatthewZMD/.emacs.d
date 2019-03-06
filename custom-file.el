@@ -7,8 +7,8 @@
  ;; If there is more than one, they won't work right.
  '(all-the-icons-dired-dir-face ((t (\` (:foreground (\, (face-background (quote default))))))))
  '(css-selector ((t (:inherit default :foreground "#66CCFF"))))
- '(dashboard-banner-logo-title-face ((t (:family "Love LetterTW" :height 125))))
- '(font-lock-comment-face ((t (:foreground "#828282")))))
+ '(font-lock-comment-face ((t (:foreground "#828282"))))
+ '(dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 125)))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
