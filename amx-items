@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- open-dashboard
- set-face-font
+ projectile-find-file
+ projectile-switch-project
  list-packages
- org-html-export-to-html
- org-html-export-as-html
- package-list-packages
- package-refresh-contents
+ server-start
+ eww
+ eval-buffer
+ shell
 )
 
 ;; ----- amx-data -----
@@ -19,13 +19,13 @@
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
- (package-refresh-contents . 8)
+ (package-refresh-contents . 7)
  (flycheck-mode . 2)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 39)
+ (eww . 40)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,11 +39,11 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 32)
+ (shell . 37)
  (package-menu-mark-upgrades . 4)
- (list-packages . 5)
+ (list-packages . 6)
  (web-mode-test . 2)
- (web-mode . 6)
+ (web-mode . 7)
  (smartparens-mode . 3)
  (display-time-mode . 1)
  (package-reinstall . 4)
@@ -62,7 +62,7 @@
  (window-resize-66 . 2)
  (window-resize-width . 9)
  (nox/change-font . 16)
- (set-face-font . 3)
+ (set-face-font . 2)
  (change-dashboard-title-face . 6)
  (dashboard-refresh-buffer . 7)
  (comment-dwim . 1)
@@ -77,15 +77,15 @@
  (ag-dired . 1)
  (ag . 2)
  (projectile-ag . 1)
- (projectile-add-known-project . 3)
+ (projectile-add-known-project . 8)
  (treemacs-icons-dired-mode . 4)
  (org-indent-mode . 1)
  (customize-variable . 3)
  (rgrep . 1)
  (counsel-ag . 1)
  (rename-file . 4)
- (projectile-switch-project . 6)
- (projectile-find-file . 2)
+ (projectile-switch-project . 9)
+ (projectile-find-file . 5)
  (projectile-find-dir-other-frame . 1)
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
@@ -99,9 +99,9 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 6)
+ (ielm . 4)
  (c-mode . 1)
- (compile . 16)
+ (compile . 28)
  (zone-choose . 5)
  (irony-install-server . 3)
  (flycheck-compile . 1)
@@ -112,15 +112,31 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 19)
+ (open-dashboard . 22)
  (edit-configs . 1)
- (customize-face . 3)
+ (customize-face . 4)
  (amx-mode . 1)
  (line-number-mode . 5)
  (display-line-numbers-mode . 2)
  (zone-mode . 2)
+ (life . 1)
+ (mpc . 1)
+ (snake . 1)
+ (term . 1)
+ (electric-pair-mode . 6)
+ (untabify . 2)
+ (tabify . 2)
+ (set-language-environment . 1)
+ (global-prettify-symbols-mode . 1)
+ (auto-insert . 1)
  (linum-mode . 1)
- (package-list-packages . 1)
- (org-html-export-as-html . 1)
- (org-html-export-to-html . 1)
+ (make-header . 1)
+ (doc-view-mode . 1)
+ (projectile-remove-known-project . 1)
+ (buffer-face-toggle . 1)
+ (change-font . 1)
+ (server-start . 1)
+ (ibuffer-customize . 1)
+ (treemacs-add-project-to-workspace . 1)
+ (treemacs-delete . 1)
 )
