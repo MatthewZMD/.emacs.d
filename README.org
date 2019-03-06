@@ -570,6 +570,7 @@
        ("C-c c" . org-capture)
        ("C-c b" . org-switch)
        :config
+       (setq org-log-done 'time)
        (setq org-todo-keywords
              '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
    #+END_SRC
