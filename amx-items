@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ recode-region
+ org-html-htmlize-generate-css
+ copy-file
  projectile-find-file
  projectile-switch-project
  list-packages
- server-start
- eww
  eval-buffer
- shell
 )
 
 ;; ----- amx-data -----
@@ -112,8 +112,8 @@
  (run-bash . 1)
  (treemacs-select-window . 1)
  (smex-save-to-file . 1)
- (open-dashboard . 22)
- (edit-configs . 1)
+ (open-dashboard . 23)
+ (edit-configs . 5)
  (customize-face . 4)
  (amx-mode . 1)
  (line-number-mode . 5)
@@ -139,4 +139,7 @@
  (ibuffer-customize . 1)
  (treemacs-add-project-to-workspace . 1)
  (treemacs-delete . 1)
+ (copy-file . 1)
+ (org-html-htmlize-generate-css . 1)
+ (recode-region . 3)
 )

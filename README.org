@@ -12,13 +12,13 @@
   - [[#optimization][Optimization]]
   - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
   - [[#author-information][Author Information]]
-  - [[#shortcuts][Shortcuts]]
 - [[#package-management][Package Management]]
   - [[#elpamelpa-package-sources][Elpa/Melpa Package Sources]]
   - [[#other-package-in-local][Other Package in Local]]
   - [[#bootstrap-use-package][Bootstrap =use-package=]]
   - [[#auto-package-update][Auto Package Update]]
 - [[#global-functionalities][Global Functionalities]]
+  - [[#bindings][Bindings]]
   - [[#file-management][File Management]]
   - [[#ag][AG]]
   - [[#avy][Avy]]
@@ -103,17 +103,6 @@
                                        (garbage-collect))))
                    (add-hook 'focus-out-hook 'garbage-collect))))
    #+END_SRC
-   Set deferred timer to reset the changes.
-   #+BEGIN_SRC emacs-lisp
-     (run-with-idle-timer
-      5 nil
-      (lambda ()
-        (setq gc-cons-threshold gc-cons-threshold-original)
-        (setq file-name-handler-alist file-name-handler-alist-original)
-        (makunbound 'gc-cons-threshold-original)
-        (makunbound 'file-name-handler-alist-original)
-        (message "gc-cons-threshold and file-name-handler-alist restored")))
-   #+END_SRC
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
    #+BEGIN_SRC emacs-lisp
@@ -128,21 +117,6 @@
      (setq user-full-name "Mingde (Matthew) Zeng")
      (setq user-mail-address "matthewzmd@gmail.com")
    #+END_SRC
-** Shortcuts
-   #+BEGIN_SRC emacs-lisp
-     ;; Unbind C-z to use as prefix
-     (global-set-key (kbd "C-z") 'nil)
-
-     ;; Use iBuffer instead of Buffer List
-     (global-set-key (kbd "C-x C-b") 'ibuffer)
-
-     ;; Truncate lines
-     (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
-
-     ;; Adjust font size like web browsers
-     (global-set-key (kbd "C-+") 'text-scale-increase)
-     (global-set-key (kbd"C--") 'text-scale-decrease)
-  #+END_SRC
 * Package Management
 ** Elpa/Melpa Package Sources
    #+BEGIN_SRC emacs-lisp
@@ -194,6 +168,21 @@
        (auto-package-update-maybe))
    #+END_SRC
 * Global Functionalities
+** Bindings
+   #+BEGIN_SRC emacs-lisp
+     ;; Unbind C-z to use as prefix
+     (global-set-key (kbd "C-z") 'nil)
+
+     ;; Use iBuffer instead of Buffer List
+     (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+     ;; Truncate lines
+     (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
+
+     ;; Adjust font size like web browsers
+     (global-set-key (kbd "C-+") 'text-scale-increase)
+     (global-set-key (kbd"C--") 'text-scale-decrease)
+  #+END_SRC
 ** File Management
 *** Dired
     Dired, the directory editor.
@@ -267,7 +256,7 @@
    *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
    #+BEGIN_SRC emacs-lisp
      (use-package ag
-       :bind ("C-z C-s" . ag))
+       :bind ("C-z s" . ag))
    #+END_SRC
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
@@ -369,12 +358,12 @@
 *** UTF-8 Coding System
     Use UTF-8 as much as possible with unix line endings.
     #+BEGIN_SRC emacs-lisp
-      (prefer-coding-system 'utf-8)
-      (set-default-coding-systems 'utf-8)
-      (set-terminal-coding-system 'utf-8)
-      (set-keyboard-coding-system 'utf-8)
-      (set-selection-coding-system 'utf-8)
-      (setq locale-coding-system 'utf-8)
+      (prefer-coding-system 'utf-8-unix)
+      (set-default-coding-systems 'utf-8-unix)
+      (set-terminal-coding-system 'utf-8-unix)
+      (set-keyboard-coding-system 'utf-8-unix)
+      (set-selection-coding-system 'utf-8-unix)
+      (setq locale-coding-system 'utf-8-unix)
       ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
       (when (display-graphic-p)
         (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
@@ -449,18 +438,19 @@
         (window-resize nil (- (truncate (* h (frame-height))) (window-total-height)) nil))
 
       ;; Setup shorcuts for window resize width and height
-      (global-set-key (kbd "C-x C-|") 'window-resize-width)
-      (global-set-key (kbd "C-x C-_") 'window-resize-height)
+      (global-set-key (kbd "C-x C-|") #'window-resize-width)
+      (global-set-key (kbd "C-x C-_") #'window-resize-height)
     #+END_SRC
 *** Edit This Configuration File Shortcut
     #+BEGIN_SRC emacs-lisp
       (defun edit-configs ()
         "Opens the README.org file."
         (interactive)
-        (quit-window t)
+        (quit-window nil)
         (find-file "~/.emacs.d/README.org"))
-    #+END_SRC
 
+      (global-set-key (kbd "C-z e") #'edit-configs)
+    #+END_SRC
 * User Interface Enhancements
 ** Title Bar
    #+BEGIN_SRC emacs-lisp
@@ -545,6 +535,7 @@
                        (eq (treemacs-current-visibility) 'visible)) 2 1))
            (setq dashboard-recover-layout-p t))
        (delete-other-windows))
+     (global-set-key (kbd "C-z d") #'open-dashboard)
    #+END_SRC
    Additional Dashboard widgets.
    #+BEGIN_SRC emacs-lisp
@@ -705,8 +696,9 @@
      (use-package projectile
        :bind
        ("C-c p" . projectile-command-map)
-       ("C-z C-o" . projectile-switch-project)
-       ("C-z C-p" . projectile-add-known-project)
+       ("C-z i" . projectile-switch-project)
+       ("C-z o" . projectile-find-file)
+       ("C-z p" . projectile-add-known-project)
        :config
        (projectile-mode +1)
        (setq projectile-completion-system 'ivy)
@@ -854,7 +846,7 @@
    *Prerequisite*: Read [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][Supported Languages]] to see which additional tool you need to install for the specific language.
    #+BEGIN_SRC emacs-lisp
      (use-package format-all
-       :bind ("C-z C-f" . format-all-buffer)
+       :bind ("C-z f" . format-all-buffer)
        :config (add-hook 'prog-mode-hook #'format-all-mode))
    #+END_SRC
 
