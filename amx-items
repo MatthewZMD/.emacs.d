@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ package-install
  set-cursor-color
  customize-face
  ielm
  load-theme
  recode-region
  org-html-htmlize-generate-css
- copy-file
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 37)
+ (package-install . 38)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)

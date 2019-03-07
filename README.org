@@ -54,6 +54,7 @@
   - [[#dumb-jump][Dumb Jump]]
   - [[#parenthesis-pairing][Parenthesis Pairing]]
   - [[#format-all][Format All]]
+  - [[#highlight-indent-guides][Highlight Indent Guides]]
 - [[#web-development][Web Development]]
   - [[#web-mode][Web Mode]]
   - [[#emmet][Emmet]]
@@ -864,6 +865,14 @@
        :config (add-hook 'prog-mode-hook #'format-all-mode))
    #+END_SRC
 
+** Highlight Indent Guides
+   [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
+   #+BEGIN_SRC emacs-lisp
+     (use-package highlight-indent-guides
+       :config
+       (setq highlight-indent-guides-method 'character)
+       (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+   #+END_SRC
 * Web Development
 ** Web Mode
    [[https://github.com/fxbois/web-mode][Web mode]], a major mode for editing web templates.
