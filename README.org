@@ -307,7 +307,7 @@
      (use-package winner
        :ensure nil
        :commands (winner-undo winner-redo)
-       :hook (after-init . winner-mode)
+       :hook after-init
        :init (setq winner-boring-buffers
                    '("*Completions*"
                      "*Compile-Log*"
@@ -471,7 +471,7 @@
         :after all-the-icons
         :diminish
         :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
-        :hook (dired-mode . all-the-icons-dired-mode))
+        :hook dired-mode)
     #+END_SRC
 *** All The Icons Ivy
     [[https://github.com/asok/all-the-icons-ivy][All The Icons Ivy]], an icon set for Ivy.
@@ -512,7 +512,7 @@
    [[https://github.com/seagle0128/doom-modeline][Doom modeline]], a modeline from DOOM Emacs, but more powerful and faster.
    #+BEGIN_SRC emacs-lisp
      (use-package doom-modeline
-       :hook (after-init . doom-modeline-mode)
+       :hook after-init
        :config
        ;; Don't compact font caches during GC. Windows Laggy Issue
        (setq inhibit-compacting-font-caches t)
@@ -700,7 +700,6 @@
    [[https://magit.vc/][Magit]], an interface to the version control system Git.
    #+BEGIN_SRC emacs-lisp
      (use-package magit
-       :defer t
        :bind ("C-x g" . magit-status))
    #+END_SRC
 ** Projectile
@@ -726,7 +725,6 @@
 *** Treemacs
     #+BEGIN_SRC emacs-lisp
       (use-package treemacs
-        :defer t
         :init
         (with-eval-after-load 'winum
           (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
@@ -783,11 +781,13 @@
 *** Treemacs Magit
     #+BEGIN_SRC emacs-lisp
       (use-package treemacs-magit
+        :defer t
         :after (treemacs magit))
     #+END_SRC
 *** Treemacs Projectile
     #+BEGIN_SRC emacs-lisp
       (use-package treemacs-projectile
+        :defer t
         :after (treemacs projectile))
     #+END_SRC
 ** Company
@@ -813,6 +813,7 @@
    [[https://www.flycheck.org/en/latest/][Flycheck]], a syntax checking extension.
    #+BEGIN_SRC emacs-lisp
      (use-package flycheck
+       :defer t
        :diminish flycheck-mode
        :config
        (global-flycheck-mode)
@@ -842,8 +843,8 @@
     #+BEGIN_SRC emacs-lisp
       (use-package smartparens
         :diminish smartparens-mode
+        :hook prog-mode
         :config
-        (add-hook 'prog-mode-hook #'smartparens-mode)
         (setq sp-escape-quotes-after-insert nil))
     #+END_SRC
 *** Awesome Pair
@@ -869,25 +870,28 @@
    [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
    #+BEGIN_SRC emacs-lisp
      (use-package highlight-indent-guides
+       :hook prog-mode
        :config
-       (setq highlight-indent-guides-method 'character)
-       (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+       (setq highlight-indent-guides-method 'character))
    #+END_SRC
 * Web Development
 ** Web Mode
    [[https://github.com/fxbois/web-mode][Web mode]], a major mode for editing web templates.
    #+BEGIN_SRC emacs-lisp
      (use-package web-mode
-       :config
-       (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-       (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-       (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-       (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-       (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-       (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-       (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-       (add-to-list 'auto-mode-alist '("\\.[t]?html?\\'" . web-mode))
-       (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
+       :mode
+       ("\\.phtml\\'" "\\.tpl\\.php\\'" "\\.[agj]sp\\'" "\\.as[cp]x\\'"
+        "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'" "\\.tsx\\'"))
+       ;; :config
+       ;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+       ;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+       ;; (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+       ;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+       ;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+       ;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+       ;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+       ;; (add-to-list 'auto-mode-alist '("\\.[t]?html?\\'" . web-mode))
+       ;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
    #+END_SRC
 ** Emmet
    [[https://github.com/smihica/emmet-mode][Emmet]], a feature that allows writing HTML using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
