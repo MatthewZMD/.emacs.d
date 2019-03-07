@@ -33,8 +33,9 @@
   - [[#more-functions][More Functions]]
 - [[#user-interface-enhancements][User Interface Enhancements]]
   - [[#title-bar][Title Bar]]
-  - [[#doom-theme][Doom Theme]]
   - [[#all-the-icons][All The Icons]]
+  - [[#doom-theme][Doom Theme]]
+  - [[#solaire][Solaire]]
   - [[#doom-modeline][Doom Modeline]]
   - [[#dashboard][Dashboard]]
   - [[#page-break-lines][Page Break Lines]]
@@ -423,19 +424,19 @@
       (defun window-resize-width (w)
         "Resizes the window width based on W."
         (interactive (list (if (> (count-windows) 1)
-                               (read-number "Set the current window width (0~1): ")
+                               (read-number "Set the current window width in % (0~100): ")
                              (error "You need more than 1 window to execute this function!"))))
         (message "%s" w)
-        (window-resize nil (- (truncate (* w (frame-width))) (window-total-width)) t))
+        (window-resize nil (- (truncate (* (/ w 100.0) (frame-width))) (window-total-width)) t))
 
       ;; Resizes the window height based on the input
       (defun window-resize-height (h)
         "Resizes the window height based on H."
         (interactive (list (if (> (count-windows) 1)
-                               (read-number "Set the current window height (0~1): ")
+                               (read-number "Set the current window height in % (0~100): ")
                              (error "You need more than 1 window to execute this function!"))))
         (message "%s" h)
-        (window-resize nil (- (truncate (* h (frame-height))) (window-total-height)) nil))
+        (window-resize nil (- (truncate (* (/ h 100.0) (frame-height))) (window-total-height)) nil))
 
       ;; Setup shorcuts for window resize width and height
       (global-set-key (kbd "C-x C-|") #'window-resize-width)
@@ -454,17 +455,6 @@
 ** Title Bar
    #+BEGIN_SRC emacs-lisp
      (setq-default frame-title-format '("Emacs " emacs-version " - " user-login-name "@" system-name " - %b"))
-   #+END_SRC
-** Doom Theme
-   [[https://github.com/hlissner/emacs-doom-themes][doom-themes]], an UI plugin and pack of theme, and my Emacs currenty using Molokai theme.
-   #+BEGIN_SRC emacs-lisp
-     (use-package doom-themes
-       :config
-       ;; flashing mode-line on errors
-       (doom-themes-visual-bell-config)
-       ;; improves org-mode's native fontification.
-       (doom-themes-org-config)
-       (load-theme 'doom-molokai t))
    #+END_SRC
 ** All The Icons
    [[https://github.com/domtronn/all-the-icons.el][All The Icons]], a utility package to collect various Icon Fonts and propertize them within Emacs.
@@ -493,6 +483,30 @@
         (setq all-the-icons-ivy-file-commands
               '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
     #+END_SRC
+** Doom Theme
+   [[https://github.com/hlissner/emacs-doom-themes][doom-themes]], an UI plugin and pack of theme. It is set to default to Molokai theme.
+   #+BEGIN_SRC emacs-lisp
+     (use-package doom-themes
+       :config
+       ;; flashing mode-line on errors
+       (doom-themes-visual-bell-config)
+       ;; Corrects (and improves) org-mode's native fontification.
+       (doom-themes-org-config)
+       (load-theme 'doom-molokai t))
+   #+END_SRC
+** Solaire
+   [[https://github.com/hlissner/emacs-solaire-mode][Solaire]], a feature that makes certain buffers grossly incandescent.
+   #+BEGIN_SRC emacs-lisp
+     (use-package solaire-mode
+       :functions persp-load-state-from-file
+       :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+              (minibuffer-setup . solaire-mode-in-minibuffer)
+              (after-load-theme . solaire-mode-swap-bg))
+       :config
+       (solaire-mode-swap-bg)
+       (advice-add #'persp-load-state-from-file
+                   :after #'solaire-mode-restore-persp-mode-buffers))
+   #+END_SRC
 ** Doom Modeline
    [[https://github.com/seagle0128/doom-modeline][Doom modeline]], a modeline from DOOM Emacs, but more powerful and faster.
    #+BEGIN_SRC emacs-lisp

@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ set-cursor-color
+ customize-face
+ ielm
+ load-theme
  recode-region
  org-html-htmlize-generate-css
  copy-file
- projectile-find-file
- projectile-switch-project
- list-packages
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -69,7 +69,7 @@
  (dired-do-copy . 1)
  (toggle-frame-maximized . 1)
  (eval-region . 1)
- (load-theme . 9)
+ (load-theme . 10)
  (all-the-icons-install-fonts . 1)
  (recover-file . 1)
  (ag-mode . 1)
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 4)
+ (ielm . 8)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -114,7 +114,7 @@
  (smex-save-to-file . 1)
  (open-dashboard . 23)
  (edit-configs . 5)
- (customize-face . 4)
+ (customize-face . 5)
  (amx-mode . 1)
  (line-number-mode . 5)
  (display-line-numbers-mode . 2)
@@ -142,4 +142,5 @@
  (copy-file . 1)
  (org-html-htmlize-generate-css . 1)
  (recode-region . 3)
+ (set-cursor-color . 13)
 )
