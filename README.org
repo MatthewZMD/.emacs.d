@@ -446,7 +446,6 @@
       (defun edit-configs ()
         "Opens the README.org file."
         (interactive)
-        (quit-window nil)
         (find-file "~/.emacs.d/README.org"))
 
       (global-set-key (kbd "C-z e") #'edit-configs)
@@ -619,7 +618,8 @@
      (use-package smooth-scrolling
        :config
        (smooth-scrolling-mode 1)
-       (setq scroll-margin 0)
+       (setq scroll-margin 1)
+       (setq smooth-scroll-margin 1)
        (setq scroll-conservatively 100)
        (setq scroll-step 1)
        (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
