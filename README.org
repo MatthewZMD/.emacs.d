@@ -882,38 +882,28 @@
        :mode
        ("\\.phtml\\'" "\\.tpl\\.php\\'" "\\.[agj]sp\\'" "\\.as[cp]x\\'"
         "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'" "\\.tsx\\'"))
-       ;; :config
-       ;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-       ;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-       ;; (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-       ;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-       ;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-       ;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-       ;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-       ;; (add-to-list 'auto-mode-alist '("\\.[t]?html?\\'" . web-mode))
-       ;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode)))
    #+END_SRC
 ** Emmet
    [[https://github.com/smihica/emmet-mode][Emmet]], a feature that allows writing HTML using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
    #+BEGIN_SRC emacs-lisp
      (use-package emmet-mode
+       :hook web-mode
        :config
-       (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
        (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
    #+END_SRC
 ** JS2
    [[https://github.com/mooz/js2-mode][JS2 mode]], a feature that offers improved JavsScript editing mode.
    #+BEGIN_SRC emacs-lisp
      (use-package js2-mode
-       :config
-       (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-       (add-to-list 'interpreter-mode-alist '("node" . js2-mode)))
+       :mode "\\.js\\'"
+       :interpreter "node")
    #+END_SRC
 ** TypeScript
 *** TypeScript Mode
     [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]], a feature that offers TypeScript support for Emacs.
     #+BEGIN_SRC emacs-lisp
-      (use-package typescript-mode)
+      (use-package typescript-mode
+        :defer t)
     #+END_SRC
 *** Tide
     [[https://github.com/ananthakumaran/tide][Tide]], a *T*ypeScript *I*nteractive *D*evelopment *E*nvironment for *E*macs.
@@ -947,14 +937,19 @@
 *** Shortcut for Evaluating Elisp
     Eval-buffer for ELisp Code.
     #+BEGIN_SRC emacs-lisp
-      (define-key emacs-lisp-mode-map (kbd "<f5>") 'eval-buffer)
+      (define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
     #+END_SRC
 ** C/C++
    *Prerequisite*: To compile and execute C/C++ files in Windows OS, install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] first.
 
    Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
+*** CC Mode
+    CC Mode, a mode for editing files containing C, C++, Objective-C, Java, CORBA IDL (and the variants CORBA PSDL and CIDL), Pike and AWK code.
    #+BEGIN_SRC emacs-lisp
-     (define-key c-mode-map (kbd "<f5>") 'compile)
+     (use-package cc-mode
+       :ensure nil
+       :defer t
+       :bind ("<f5>" . compile))
    #+END_SRC
 *** Irony
     [[https://github.com/Sarcasm/irony-mode][Irony mode]], an Emacs minor mode that supports code completion, syntax checking, etc.
@@ -962,10 +957,8 @@
     *Prerequisite*: Execute =irony-install-server=. This provides the libclang interface to irony-mode. It uses a simple protocol based on S-expression. This server also requires [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]] to be installed on your system.
     #+BEGIN_SRC emacs-lisp
       (use-package irony
+        :hook (c++-mode c-mode objc-mode)
         :config
-        (add-hook 'c++-mode-hook 'irony-mode)
-        (add-hook 'c-mode-hook 'irony-mode)
-        (add-hook 'objc-mode-hook 'irony-mode)
         (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
     #+END_SRC
     Windows performance tweaks.
@@ -1012,7 +1005,7 @@
     [[https://github.com/jorgenschaefer/elpy][Elpy]], a Emacs Python Development Environment.
     #+BEGIN_SRC emacs-lisp
       (use-package elpy
-        :defer 2
+        :defer t
         :config
         (progn
           ;; Use Flycheck instead of Flymake
@@ -1029,6 +1022,7 @@
     [[https://github.com/tkf/emacs-jedi][Jedi]], a Python auto-completion package for Emacs.
     #+BEGIN_SRC emacs-lisp
       (use-package jedi
+        :after elpy
         :init
         (add-to-list 'company-backends 'company-jedi))
     #+END_SRC
@@ -1036,6 +1030,7 @@
     [[https://github.com/syohex/emacs-company-jedi][Company Jedi]], a Company backend for Python Jedi.
     #+BEGIN_SRC emacs-lisp
       (use-package company-jedi
+        :after (company jedi)
         :init
         (add-hook 'python-mode-hook
                   (lambda () (add-to-list 'company-backends 'company-jedi)))
@@ -1046,6 +1041,7 @@
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
     #+BEGIN_SRC emacs-lisp
       (use-package arduino-mode
+        :defer t
         :config
         (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
         (add-to-list 'auto-mode-alist '("\\.pde\\'" . arduino-mode))
@@ -1055,23 +1051,11 @@
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     #+BEGIN_SRC emacs-lisp
       (use-package company-arduino
+        :defer t
         :config
-        (add-hook 'irony-mode-hook 'company-arduino-turn-on))
-
-      ;; Configuration for company-c-headers.el
-      ;; The `company-arduino-append-include-dirs' function appends
-      ;; Arduino's include directories to the default directories
-      ;; if `default-directory' is inside `company-arduino-home'. Otherwise
-      ;; just returns the default directories.
-      ;; Please change the default include directories accordingly.
-      (defun my-company-c-headers-get-system-path ()
-        "Return the system include path for the current buffer."
-        (let ((default '("/usr/include/" "/usr/local/include/")))
-          (company-arduino-append-include-dirs default t)))
-      (setq company-c-headers-path-system 'my-company-c-headers-get-system-path)
-
-      ;; Activate irony-mode on arduino-mode
-      (add-hook 'arduino-mode-hook 'irony-mode)
+        (add-hook 'irony-mode-hook 'company-arduino-turn-on)
+        ;; Activate irony-mode on arduino-mode
+        (add-hook 'arduino-mode-hook 'irony-mode))
     #+END_SRC
 * Miscellaneous
 ** Org
