@@ -41,9 +41,11 @@
   - [[#page-break-lines][Page Break Lines]]
   - [[#fonts][Fonts]]
   - [[#zone-mode-screensaver][Zone Mode Screensaver]]
-  - [[#smooth-scrolling][Smooth Scrolling]]
   - [[#diminish][Diminish]]
   - [[#dimmer][Dimmer]]
+  - [[#smooth-scroll][Smooth Scroll]]
+  - [[#line-numbers][Line Numbers]]
+  - [[#pretty-symbols][Pretty Symbols]]
   - [[#ui-configs][UI Configs]]
 - [[#general-programming][General Programming]]
   - [[#magit][Magit]]
@@ -512,7 +514,6 @@
    [[https://github.com/seagle0128/doom-modeline][Doom modeline]], a modeline from DOOM Emacs, but more powerful and faster.
    #+BEGIN_SRC emacs-lisp
      (use-package doom-modeline
-       :hook after-init
        :config
        ;; Don't compact font caches during GC. Windows Laggy Issue
        (setq inhibit-compacting-font-caches t)
@@ -520,7 +521,8 @@
        ;;(setq doom-modeline-github t) ;; requires ghub package
        (setq doom-modeline-icon t)
        (setq doom-modeline-major-mode-color-icon t)
-       (setq doom-modeline-height 15))
+       (setq doom-modeline-height 15)
+       (doom-modeline-mode 1))
    #+END_SRC
 ** Dashboard
    [[https://github.com/rakanalh/emacs-dashboard][Dashboard]], an extensible Emacs startup screen.
@@ -627,19 +629,6 @@
        (let ((zone-programs (list (intern pgm))))
          (zone)))
    #+END_SRC
-** Smooth Scrolling
-   [[https://github.com/aspiers/smooth-scrolling][Smooth scrolling]], a feature that offers a minor mode that makes Emacs scroll smoothly.
-   #+BEGIN_SRC emacs-lisp
-     (use-package smooth-scrolling
-       :config
-       (smooth-scrolling-mode 1)
-       (setq scroll-margin 1)
-       (setq smooth-scroll-margin 1)
-       (setq scroll-conservatively 100)
-       (setq scroll-step 1)
-       (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-       (setq mouse-wheel-progressive-speed nil))
-   #+END_SRC
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
    #+BEGIN_SRC emacs-lisp
@@ -655,11 +644,21 @@
        (setq dimmer-fraction 0.2)
        (setq dimmer-exclusion-regexp "\\*Minibuf-[0-9]+\\*\\|\\*dashboard\\*"))
    #+END_SRC
-** UI Configs
-   Maximize frame.
+** Smooth Scroll
+   Smoothens Scrolling.
    #+BEGIN_SRC emacs-lisp
-     (add-to-list 'default-frame-alist '(fullscreen . maximized))
+     (setq scroll-step 1)
+     (setq scroll-margin 1)
+     (setq scroll-conservatively 101)
+     (setq scroll-up-aggressively 0.01)
+     (setq scroll-down-aggressively 0.01)
+     (setq auto-window-vscroll nil)
+     (setq redisplay-dont-pause t)
+     (setq fast-but-imprecise-scrolling nil)
+     (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+     (setq mouse-wheel-progressive-speed nil)
    #+END_SRC
+** Line Numbers
    Display line numbers, and column numbers in modeline.
    #+BEGIN_SRC emacs-lisp
      ;; Hook line numbers to only when files are opened
@@ -672,15 +671,7 @@
      ;; Display column numbers in modeline
      (column-number-mode 1)
    #+END_SRC
-   Disable splash screen and change scratch message.
-   #+BEGIN_SRC emacs-lisp
-     (setq inhibit-startup-screen t)
-     (setq initial-scratch-message ";; Close the World, Open the nExt")
-   #+END_SRC
-   Change yes or no prompts to y or n.
-   #+BEGIN_SRC emacs-lisp
-     (fset 'yes-or-no-p 'y-or-n-p)
-   #+END_SRC
+** Pretty Symbols
    Pretty the Symbols.
    #+BEGIN_SRC emacs-lisp
      (global-prettify-symbols-mode 1)
@@ -694,6 +685,20 @@
                  ("map" . 8614)
                  )))
        (add-hook 'prog-mode-hook 'add-pretty-lambda)
+   #+END_SRC
+** UI Configs
+   Maximize frame.
+   #+BEGIN_SRC emacs-lisp
+     (add-to-list 'default-frame-alist '(fullscreen . maximized))
+   #+END_SRC
+   Disable splash screen and change scratch message.
+   #+BEGIN_SRC emacs-lisp
+     (setq inhibit-startup-screen t)
+     (setq initial-scratch-message ";; Close the World, Open the nExt")
+   #+END_SRC
+   Change yes or no prompts to y or n.
+   #+BEGIN_SRC emacs-lisp
+     (fset 'yes-or-no-p 'y-or-n-p)
    #+END_SRC
 * General Programming
 ** Magit

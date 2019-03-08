@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ shell
+ ielm
  package-install
  set-cursor-color
  customize-face
- ielm
  load-theme
  recode-region
- org-html-htmlize-generate-css
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 38)
+ (package-install . 39)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 37)
+ (shell . 38)
  (package-menu-mark-upgrades . 4)
  (list-packages . 6)
  (web-mode-test . 2)
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 8)
+ (ielm . 9)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
