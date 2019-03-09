@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- package-reinstall
  jedi:install-server
+ describe-variable
+ package-reinstall
  list-packages
  highlight-indentation-mode
  shell
  ielm
- package-install
 )
 
 ;; ----- amx-data -----
@@ -144,5 +144,6 @@
  (recode-region . 3)
  (set-cursor-color . 13)
  (highlight-indentation-mode . 2)
- (jedi:install-server . 1)
+ (jedi:install-server . 4)
+ (describe-variable . 1)
 )

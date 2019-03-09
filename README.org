@@ -997,10 +997,11 @@
     #+END_SRC
 ** Python
    *Prerequisite*:
-   Install required Python packages using =pip= then execute =M-x jedi:install-server=.
+   Install Python and =pip= and verify they are in the PATH. Then execute the following code.
    #+BEGIN_SRC text
-     pip install jedi flake8 autopep8 yapf
+     pip install jedi flake8 autopep8 importmagic yapf virtualenv
    #+END_SRC
+   Verify =virtualenv= is in the PATH too. Now execute =M-x jedi:install-server=.
 *** Jedi
     [[https://github.com/tkf/emacs-jedi][Jedi]], a Python auto-completion package for Emacs.
     #+BEGIN_SRC emacs-lisp
