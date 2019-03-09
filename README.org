@@ -997,35 +997,19 @@
     #+END_SRC
 ** Python
    *Prerequisite*:
-   Install required Python packages:
+   Install required Python packages using =pip= then execute =M-x jedi:install-server=.
    #+BEGIN_SRC text
      pip install jedi flake8 autopep8 yapf
    #+END_SRC
-*** Elpy
-    [[https://github.com/jorgenschaefer/elpy][Elpy]], a Emacs Python Development Environment.
-    #+BEGIN_SRC emacs-lisp
-      (use-package elpy
-        :defer t
-        :init (add-hook 'python-mode-hook #'elpy-enable)
-        :config
-        (progn
-          (when (require 'flycheck nil t)
-            (remove-hook 'elpy-modules 'elpy-module-flymake)
-            (remove-hook 'elpy-modules 'elpy-module-yasnippet)
-            (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
-            (add-hook 'elpy-mode-hook 'flycheck-mode))
-          ;; jedi is great
-          (setq elpy-rpc-backend "jedi")))
-    #+END_SRC
 *** Jedi
     [[https://github.com/tkf/emacs-jedi][Jedi]], a Python auto-completion package for Emacs.
     #+BEGIN_SRC emacs-lisp
       (use-package jedi
-        :after elpy
-        :init
-        (add-to-list 'company-backends 'company-jedi)
+        :defer t
+        :config
         (add-hook 'python-mode-hook 'jedi:setup)
-        (add-hook 'python-mode-hook 'jedi:ac-setup))
+        (add-hook 'python-mode-hook 'jedi:ac-setup)
+        (add-to-list 'company-backends 'company-jedi))
     #+END_SRC
 *** Company Jedi
     [[https://github.com/syohex/emacs-company-jedi][Company Jedi]], a Company backend for Python Jedi.
@@ -1036,6 +1020,22 @@
         (add-hook 'python-mode-hook
                   (lambda () (add-to-list 'company-backends 'company-jedi)))
         (setq company-jedi-python-bin "python"))
+    #+END_SRC
+*** Elpy
+    [[https://github.com/jorgenschaefer/elpy][Elpy]], a Emacs Python Development Environment.
+    #+BEGIN_SRC emacs-lisp
+      (use-package elpy
+        :defer 2
+        :config
+        (progn
+          (when (require 'flycheck nil t)
+            (remove-hook 'elpy-modules 'elpy-module-flymake)
+            (remove-hook 'elpy-modules 'elpy-module-yasnippet)
+            (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
+            (add-hook 'elpy-mode-hook 'flycheck-mode))
+          (elpy-enable)
+          ;; jedi is great
+          (setq elpy-rpc-backend "jedi")))
     #+END_SRC
 ** Arduino
 *** Arduino Mode
