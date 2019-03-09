@@ -57,16 +57,18 @@
   - [[#parenthesis-pairing][Parenthesis Pairing]]
   - [[#format-all][Format All]]
   - [[#highlight-indent-guides][Highlight Indent Guides]]
+  - [[#lsp][LSP]]
+- [[#programming][Programming]]
+  - [[#emacs-lisp][Emacs Lisp]]
+  - [[#java][Java]]
+  - [[#cc][C/C++]]
+  - [[#python][Python]]
+  - [[#arduino][Arduino]]
 - [[#web-development][Web Development]]
   - [[#web-mode][Web Mode]]
   - [[#emmet][Emmet]]
   - [[#js2][JS2]]
   - [[#typescript][TypeScript]]
-- [[#programming][Programming]]
-  - [[#emacs-lisp][Emacs Lisp]]
-  - [[#cc][C/C++]]
-  - [[#python][Python]]
-  - [[#arduino][Arduino]]
 - [[#miscellaneous][Miscellaneous]]
   - [[#org][Org]]
   - [[#eww][EWW]]
@@ -882,52 +884,36 @@
        (add-hook prog-mode-hook #'highlight-indent-guides-mode)
        (setq highlight-indent-guides-method 'character))
    #+END_SRC
-* Web Development
-** Web Mode
-   [[https://github.com/fxbois/web-mode][Web mode]], a major mode for editing web templates.
-   #+BEGIN_SRC emacs-lisp
-     (use-package web-mode
-       :mode
-       ("\\.phtml\\'" "\\.tpl\\.php\\'" "\\.[agj]sp\\'" "\\.as[cp]x\\'"
-        "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'" "\\.tsx\\'"))
-   #+END_SRC
-** Emmet
-   [[https://github.com/smihica/emmet-mode][Emmet]], a feature that allows writing HTML using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
-   #+BEGIN_SRC emacs-lisp
-     (use-package emmet-mode
-       :hook web-mode
-       :config
-       (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
-   #+END_SRC
-** JS2
-   [[https://github.com/mooz/js2-mode][JS2 mode]], a feature that offers improved JavsScript editing mode.
-   #+BEGIN_SRC emacs-lisp
-     (use-package js2-mode
-       :mode "\\.js\\'"
-       :interpreter "node")
-   #+END_SRC
-** TypeScript
-*** TypeScript Mode
-    [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]], a feature that offers TypeScript support for Emacs.
+** LSP
+   [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][*L*anguage *S*erver *P*rotocol]].
+*** LSP Mode
     #+BEGIN_SRC emacs-lisp
-      (use-package typescript-mode
-        :defer t)
+      (use-package lsp-mode
+        :defer 2
+        :commands lsp)
     #+END_SRC
-*** Tide
-    [[https://github.com/ananthakumaran/tide][Tide]], a *T*ypeScript *I*nteractive *D*evelopment *E*nvironment for *E*macs.
-
-    Tip: enter =M-.= to jump to definition.
+*** LSP UI
+    [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+BEGIN_SRC emacs-lisp
-      (use-package tide
-        :after (typescript-mode company flycheck)
-        :hook ((typescript-mode . tide-setup)
-               (typescript-mode . tide-hl-identifier-mode)
-               (before-save . tide-format-before-save))
+      (use-package lsp-ui
+        :after lsp
+        :commands lsp-ui-mode)
+    #+END_SRC
+*** Company LSP
+    [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
+    #+BEGIN_SRC emacs-lisp
+      (use-package company-lsp
+        :after (company lsp)
+        :commands company-lsp)
+    #+END_SRC
+*** DAP
+    [[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][*D*ebug *A*dapter *P*rotocol]].
+    #+BEGIN_SRC emacs-lisp
+      (use-package dap-mode
+        :after lsp-mode
         :config
-        (setq tide-completion-enable-autoimport-suggestions t)
-        (flycheck-add-mode 'typescript-tslint 'web-mode)
-        (add-hook 'js2-mode-hook #'setup-tide-mode)
-        (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
+        (dap-mode t)
+        (dap-ui-mode t))
     #+END_SRC
 * Programming
 ** Emacs Lisp
@@ -946,6 +932,14 @@
     Eval-buffer for ELisp Code.
     #+BEGIN_SRC emacs-lisp
       (define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
+    #+END_SRC
+** Java
+*** LSP Java
+    [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]].
+    #+BEGIN_SRC emacs-lisp
+      (use-package lsp-java
+        :after lsp
+        :config (add-hook 'java-mode-hook 'lsp))
     #+END_SRC
 ** C/C++
    *Prerequisite*: To compile and execute C/C++ files in Windows OS, install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] first.
@@ -1059,6 +1053,54 @@
         ;; Activate irony-mode on arduino-mode
         (add-hook 'arduino-mode-hook 'irony-mode))
     #+END_SRC
+* Web Development
+** Web Mode
+   [[https://github.com/fxbois/web-mode][Web mode]], a major mode for editing web templates.
+   #+BEGIN_SRC emacs-lisp
+     (use-package web-mode
+       :mode
+       ("\\.phtml\\'" "\\.tpl\\.php\\'" "\\.[agj]sp\\'" "\\.as[cp]x\\'"
+        "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'" "\\.tsx\\'"))
+   #+END_SRC
+** Emmet
+   [[https://github.com/smihica/emmet-mode][Emmet]], a feature that allows writing HTML using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
+   #+BEGIN_SRC emacs-lisp
+     (use-package emmet-mode
+       :hook web-mode
+       :config
+       (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
+   #+END_SRC
+** JS2
+   [[https://github.com/mooz/js2-mode][JS2 mode]], a feature that offers improved JavsScript editing mode.
+   #+BEGIN_SRC emacs-lisp
+     (use-package js2-mode
+       :mode "\\.js\\'"
+       :interpreter "node")
+   #+END_SRC
+** TypeScript
+*** TypeScript Mode
+    [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]], a feature that offers TypeScript support for Emacs.
+    #+BEGIN_SRC emacs-lisp
+      (use-package typescript-mode
+        :defer t)
+    #+END_SRC
+*** Tide
+    [[https://github.com/ananthakumaran/tide][Tide]], a *T*ypeScript *I*nteractive *D*evelopment *E*nvironment for *E*macs.
+
+    Tip: enter =M-.= to jump to definition.
+    #+BEGIN_SRC emacs-lisp
+      (use-package tide
+        :after (typescript-mode company flycheck)
+        :hook ((typescript-mode . tide-setup)
+               (typescript-mode . tide-hl-identifier-mode)
+               (before-save . tide-format-before-save))
+        :config
+        (setq tide-completion-enable-autoimport-suggestions t)
+        (flycheck-add-mode 'typescript-tslint 'web-mode)
+        (add-hook 'js2-mode-hook #'setup-tide-mode)
+        (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
+    #+END_SRC
+
 * Miscellaneous
 ** Org
    [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
