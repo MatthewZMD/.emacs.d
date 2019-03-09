@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ highlight-indentation-mode
  shell
  ielm
  package-install
  set-cursor-color
  customize-face
  load-theme
- recode-region
 )
 
 ;; ----- amx-data -----
@@ -143,4 +143,5 @@
  (org-html-htmlize-generate-css . 1)
  (recode-region . 3)
  (set-cursor-color . 13)
+ (highlight-indentation-mode . 2)
 )

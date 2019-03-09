@@ -309,7 +309,6 @@
      (use-package winner
        :ensure nil
        :commands (winner-undo winner-redo)
-       :hook after-init
        :init (setq winner-boring-buffers
                    '("*Completions*"
                      "*Compile-Log*"
@@ -472,8 +471,8 @@
       (use-package all-the-icons-dired
         :after all-the-icons
         :diminish
-        :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
-        :hook dired-mode)
+        :hook dired-mode
+        :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default))))))
     #+END_SRC
 *** All The Icons Ivy
     [[https://github.com/asok/all-the-icons-ivy][All The Icons Ivy]], an icon set for Ivy.
@@ -847,9 +846,10 @@
     [[https://github.com/Fuco1/smartparens][Smartparens]], a minor mode for dealing with pairs.
     #+BEGIN_SRC emacs-lisp
       (use-package smartparens
+        :defer t
         :diminish smartparens-mode
-        :hook prog-mode
         :config
+        (add-hook prog-mode-hook #'smartparens-mode)
         (setq sp-escape-quotes-after-insert nil))
     #+END_SRC
 *** Awesome Pair
@@ -875,8 +875,9 @@
    [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
    #+BEGIN_SRC emacs-lisp
      (use-package highlight-indent-guides
-       :hook prog-mode
+       :defer t
        :config
+       (add-hook prog-mode-hook #'highlight-indent-guides-mode)
        (setq highlight-indent-guides-method 'character))
    #+END_SRC
 * Web Development
