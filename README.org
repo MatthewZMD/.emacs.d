@@ -86,26 +86,28 @@
      ;; -*- lexical-binding: t; -*-
    #+END_SRC
 ** Optimization
-   Set file name handler alist.
+   Avoid garbage collection during startup.
    #+BEGIN_SRC emacs-lisp
-     (defvar default-file-name-handler-alist file-name-handler-alist)
-     (setq file-name-handler-alist nil)
+     (eval-and-compile
+       (defun srs--revert-gc ()
+         (setq gc-cons-threshold 16777216
+               gc-cons-percentage 0.1))
+
+       (setq gc-cons-threshold 402653184
+             gc-cons-percentage 0.6)
+
+       (add-hook 'emacs-startup-hook 'srs--revert-gc))
    #+END_SRC
-   Set garbage collection threshold.
+   Unset file name handler alist.
    #+BEGIN_SRC emacs-lisp
-     (setq gc-cons-threshold 80000000)
-     (setq gc-cons-threshold-original gc-cons-threshold)
-     (add-hook 'emacs-startup-hook
-               (lambda ()
-                 "Restore defalut values after init."
-                 (setq file-name-handler-alist default-file-name-handler-alist)
-                 (setq gc-cons-threshold 800000)
-                 (if (boundp 'after-focus-change-function)
-                     (add-function :after after-focus-change-function
-                                   (lambda ()
-                                     (unless (frame-focus-state)
-                                       (garbage-collect))))
-                   (add-hook 'focus-out-hook 'garbage-collect))))
+     (eval-and-compile
+       (defun srs-reset-file-name-handler-alist ()
+         (setq file-name-handler-alist orig-file-name-handler-alist))
+
+       (defvar orig-file-name-handler-alist file-name-handler-alist)
+       (setq file-name-handler-alist nil)
+
+       (add-hook 'emacs-startup-hook 'srs-reset-file-name-handler-alist))
    #+END_SRC
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
@@ -426,19 +428,19 @@
       (defun window-resize-width (w)
         "Resizes the window width based on W."
         (interactive (list (if (> (count-windows) 1)
-                               (read-number "Set the current window width in % (0~100): ")
+                               (read-number "Set the current window width in [1~9]x10%: ")
                              (error "You need more than 1 window to execute this function!"))))
         (message "%s" w)
-        (window-resize nil (- (truncate (* (/ w 100.0) (frame-width))) (window-total-width)) t))
+        (window-resize nil (- (truncate (* (/ w 10.0) (frame-width))) (window-total-width)) t))
 
       ;; Resizes the window height based on the input
       (defun window-resize-height (h)
         "Resizes the window height based on H."
         (interactive (list (if (> (count-windows) 1)
-                               (read-number "Set the current window height in % (0~100): ")
+                               (read-number "Set the current window height in [1~9]x10%: ")
                              (error "You need more than 1 window to execute this function!"))))
         (message "%s" h)
-        (window-resize nil (- (truncate (* (/ h 100.0) (frame-height))) (window-total-height)) nil))
+        (window-resize nil (- (truncate (* (/ h 10.0) (frame-height))) (window-total-height)) nil))
 
       ;; Setup shorcuts for window resize width and height
       (global-set-key (kbd "C-x C-|") #'window-resize-width)
@@ -471,7 +473,7 @@
       (use-package all-the-icons-dired
         :after all-the-icons
         :diminish
-        :hook dired-mode
+        :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
         :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default))))))
     #+END_SRC
 *** All The Icons Ivy
@@ -555,7 +557,7 @@
    Additional Dashboard widgets.
    #+BEGIN_SRC emacs-lisp
      (defun dashboard-insert-widgets (list-size)
-       (insert (format "%d packages loaded with %d garbage collections in %s.\n" (length package-activated-list) gcs-done (emacs-init-time)))
+       (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
        (insert "Navigation: ")
        ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
        (widget-create 'url-link
@@ -997,30 +999,21 @@
    *Prerequisite*:
    Install required Python packages:
    #+BEGIN_SRC text
-     # Either of these
-     pip install rope
-     pip install jedi
-     # flake8 for code checks
-     pip install flake8
-     # and autopep8 for automatic PEP8 formatting
-     pip install autopep8
-     # and yapf for code formatting
-     pip install yapf
+     pip install jedi flake8 autopep8 yapf
    #+END_SRC
 *** Elpy
     [[https://github.com/jorgenschaefer/elpy][Elpy]], a Emacs Python Development Environment.
     #+BEGIN_SRC emacs-lisp
       (use-package elpy
         :defer t
+        :init (add-hook 'python-mode-hook #'elpy-enable)
         :config
         (progn
-          ;; Use Flycheck instead of Flymake
           (when (require 'flycheck nil t)
             (remove-hook 'elpy-modules 'elpy-module-flymake)
             (remove-hook 'elpy-modules 'elpy-module-yasnippet)
             (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
             (add-hook 'elpy-mode-hook 'flycheck-mode))
-          (elpy-enable)
           ;; jedi is great
           (setq elpy-rpc-backend "jedi")))
     #+END_SRC
@@ -1030,7 +1023,9 @@
       (use-package jedi
         :after elpy
         :init
-        (add-to-list 'company-backends 'company-jedi))
+        (add-to-list 'company-backends 'company-jedi)
+        (add-hook 'python-mode-hook 'jedi:setup)
+        (add-hook 'python-mode-hook 'jedi:ac-setup))
     #+END_SRC
 *** Company Jedi
     [[https://github.com/syohex/emacs-company-jedi][Company Jedi]], a Company backend for Python Jedi.

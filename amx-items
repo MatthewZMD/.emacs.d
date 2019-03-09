@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ list-packages
  highlight-indentation-mode
  shell
  ielm
  package-install
  set-cursor-color
  customize-face
- load-theme
 )
 
 ;; ----- amx-data -----
@@ -41,7 +41,7 @@
  (eshell . 1)
  (shell . 38)
  (package-menu-mark-upgrades . 4)
- (list-packages . 6)
+ (list-packages . 7)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
