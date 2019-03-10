@@ -853,7 +853,7 @@
         :defer t
         :diminish smartparens-mode
         :config
-        (add-hook prog-mode-hook #'smartparens-mode)
+        (add-hook prog-mode-hook 'smartparens-mode)
         (setq sp-escape-quotes-after-insert nil))
     #+END_SRC
 *** Awesome Pair
@@ -885,7 +885,7 @@
        (setq highlight-indent-guides-method 'character))
    #+END_SRC
 ** LSP
-   [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][*L*anguage *S*erver *P*rotocol]].
+   [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]].
 *** LSP Mode
     #+BEGIN_SRC emacs-lisp
       (use-package lsp-mode
@@ -897,6 +897,10 @@
     #+BEGIN_SRC emacs-lisp
       (use-package lsp-ui
         :after lsp
+        :init
+        (setq lsp-auto-guess-root t)       ; Detect project root
+        (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
+        :diminish lsp-mode
         :commands lsp-ui-mode)
     #+END_SRC
 *** Company LSP
@@ -907,7 +911,7 @@
         :commands company-lsp)
     #+END_SRC
 *** DAP
-    [[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][*D*ebug *A*dapter *P*rotocol]].
+    [[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
     #+BEGIN_SRC emacs-lisp
       (use-package dap-mode
         :after lsp-mode
@@ -991,20 +995,23 @@
     #+END_SRC
 ** Python
    *Prerequisite*:
-   Install Python and =pip= and verify they are in the PATH. Then execute the following code.
+   Install Python3 with =pip= and verify they are in the PATH. Then execute the following commands.
    #+BEGIN_SRC text
-     pip install jedi flake8 autopep8 importmagic yapf virtualenv
+     pip install jedi flake8 autopep8 importmagic yapf
+     pip install virtualenv pyls-mypy
+     pip install -U setuptools
+     pip install python-language-server[all]
    #+END_SRC
    Verify =virtualenv= is in the PATH too. Now execute =M-x jedi:install-server=.
 *** Jedi
     [[https://github.com/tkf/emacs-jedi][Jedi]], a Python auto-completion package for Emacs.
     #+BEGIN_SRC emacs-lisp
-      (use-package jedi
-        :defer t
-        :config
-        (add-hook 'python-mode-hook 'jedi:setup)
-        (add-hook 'python-mode-hook 'jedi:ac-setup)
-        (add-to-list 'company-backends 'company-jedi))
+      ;; (use-package jedi
+      ;;   :defer t
+      ;;   :config
+      ;;   (add-hook 'python-mode-hook 'jedi:setup)
+      ;;   (add-hook 'python-mode-hook 'jedi:ac-setup)
+      ;;   (add-to-list 'company-backends 'company-jedi))
     #+END_SRC
 *** Company Jedi
     [[https://github.com/syohex/emacs-company-jedi][Company Jedi]], a Company backend for Python Jedi.

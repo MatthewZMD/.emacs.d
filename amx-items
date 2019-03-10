@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ lsp-restart-workspace
  package-install
+ company-jedi
  shell
- jedi:install-server
  describe-variable
  package-reinstall
- list-packages
- highlight-indentation-mode
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -15,12 +15,12 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 41)
+ (package-install . 42)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 7)
- (flycheck-mode . 2)
+ (flycheck-mode . 4)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 39)
+ (shell . 42)
  (package-menu-mark-upgrades . 4)
  (list-packages . 7)
  (web-mode-test . 2)
@@ -146,4 +146,7 @@
  (highlight-indentation-mode . 2)
  (jedi:install-server . 4)
  (describe-variable . 1)
+ (jedi:setup . 1)
+ (company-jedi . 1)
+ (lsp-restart-workspace . 1)
 )
