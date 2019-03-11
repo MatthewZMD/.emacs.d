@@ -1051,6 +1051,8 @@
 ** Java
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]].
+
+    *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]].
     #+BEGIN_SRC emacs-lisp
       (def-package lsp-java
         :after lsp-mode
