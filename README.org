@@ -545,7 +545,7 @@
 * User Interface Enhancements
 ** Title Bar
    #+BEGIN_SRC emacs-lisp
-     (setq-default frame-title-format '("Emacs " emacs-version " - " user-login-name "@" system-name " - %b"))
+     (setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
    #+END_SRC
 ** All The Icons
    [[https://github.com/domtronn/all-the-icons.el][All The Icons]], a utility package to collect various Icon Fonts and propertize them within Emacs.
@@ -1109,7 +1109,7 @@
 ** Python
 *** TODO Microsoft's Python Language Server - [[https://github.com/melpa/melpa/pull/6027][Use Melpa Once it's Ready]]
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
-    
+
     *Prerequisite*:
     Install [[https://dotnet.microsoft.com/download][.NET Core SDK]]. Then execute the following commands from your =HOME= or =~= path:
     #+BEGIN_SRC text
