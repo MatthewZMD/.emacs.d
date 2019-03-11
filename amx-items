@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- lsp-restart-workspace
  package-install
  company-jedi
  shell
  describe-variable
  package-reinstall
  eval-buffer
+ eww
 )
 
 ;; ----- amx-data -----

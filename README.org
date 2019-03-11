@@ -140,9 +140,9 @@
      (package-initialize)
    #+END_SRC
 ** Other Package in Local
-   This will add all the packages in =/lisp= into the =load-path=.
+   This will add all the packages in =/elisp= into the =load-path=.
    #+BEGIN_SRC emacs-lisp
-     (let ((base "~/.emacs.d/lisp"))
+     (let ((base "~/.emacs.d/elisp"))
        (add-to-list 'load-path base)
        (dolist (f (directory-files base))
          (let ((name (concat base "/" f)))
@@ -419,7 +419,7 @@
     #+END_SRC
 *** Move Custom-Set-Variables to Different File
     #+BEGIN_SRC emacs-lisp
-      (setq custom-file "~/.emacs.d/custom-file.el")
+      (setq custom-file "~/.emacs.d/elisp/custom-file.el")
       (load custom-file 'noerror)
     #+END_SRC
 ** More Functions
