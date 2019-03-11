@@ -1109,6 +1109,7 @@
 ** Python
 *** TODO Microsoft's Python Language Server - [[https://github.com/melpa/melpa/pull/6027][Use Melpa Once it's Ready]]
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
+    
     *Prerequisite*:
     Install [[https://dotnet.microsoft.com/download][.NET Core SDK]]. Then execute the following commands from your =HOME= or =~= path:
     #+BEGIN_SRC text
