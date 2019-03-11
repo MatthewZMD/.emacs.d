@@ -4,10 +4,10 @@
  package-refresh-contents
  list-packages
  ielm
- smartparens-strict-mode
- jedi:install-server
- jedi:reinstall-server
  flymake-mode
+ eval-buffer
+ shell
+ package-install
 )
 
 ;; ----- amx-data -----

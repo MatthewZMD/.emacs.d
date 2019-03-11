@@ -36,7 +36,6 @@
   - [[#title-bar][Title Bar]]
   - [[#all-the-icons][All The Icons]]
   - [[#doom-theme][Doom Theme]]
-  - [[#solaire][Solaire]]
   - [[#doom-modeline][Doom Modeline]]
   - [[#dashboard][Dashboard]]
   - [[#page-break-lines][Page Break Lines]]
@@ -585,19 +584,6 @@
        (doom-themes-org-config)
        (load-theme 'doom-molokai t))
    #+END_SRC
-** Solaire
-   [[https://github.com/hlissner/emacs-solaire-mode][Solaire]], a feature that makes certain buffers grossly incandescent.
-   #+BEGIN_SRC emacs-lisp
-     (def-package solaire-mode
-       :functions persp-load-state-from-file
-       :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
-              (minibuffer-setup . solaire-mode-in-minibuffer)
-              (after-load-theme . solaire-mode-swap-bg))
-       :config
-       (solaire-mode-swap-bg)
-       (advice-add #'persp-load-state-from-file
-                   :after #'solaire-mode-restore-persp-mode-buffers))
-   #+END_SRC
 ** Doom Modeline
    [[https://github.com/seagle0128/doom-modeline][Doom modeline]], a modeline from DOOM Emacs, but more powerful and faster.
    #+BEGIN_SRC emacs-lisp
@@ -622,7 +608,7 @@
        :config
        (dashboard-setup-startup-hook)
        (setq dashboard-banner-logo-title "Present Day, Present Time...")
-       (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK.png"))
+       (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png"))
      ;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
 
      (defun open-dashboard ()
@@ -775,10 +761,6 @@
        (add-hook 'prog-mode-hook 'add-pretty-lambda)
    #+END_SRC
 ** UI Configs
-   Maximize frame.
-   #+BEGIN_SRC emacs-lisp
-     (add-to-list 'default-frame-alist '(fullscreen . maximized))
-   #+END_SRC
    Disable splash screen and change scratch message.
    #+BEGIN_SRC emacs-lisp
      (setq inhibit-startup-screen t)
@@ -1250,7 +1232,8 @@
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]], an implementation of 2048 in Emacs.
    #+BEGIN_SRC emacs-lisp
-     (def-package 2048-game)
+     (def-package 2048-game
+       :defer t)
    #+END_SRC
 ** Pacmacs
    [[https://github.com/emacsmirror/pacmacs][Pacmacs]], Pacman for Emacs.
