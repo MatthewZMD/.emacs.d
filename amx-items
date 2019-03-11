@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ ielm
+ byte-compile-file
+ 2048-game
  package-refresh-contents
  list-packages
- ielm
  flymake-mode
  eval-buffer
- shell
- package-install
 )
 
 ;; ----- amx-data -----
@@ -29,7 +29,7 @@
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
- (2048-game . 1)
+ (2048-game . 2)
  (bookmark-load . 1)
  (avy-goto-char . 2)
  (ace-jump-move . 1)
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 10)
+ (ielm . 15)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -153,4 +153,5 @@
  (jedi:reinstall-server . 1)
  (smartparens-strict-mode . 2)
  (sp-kill-sexp . 1)
+ (byte-compile-file . 2)
 )

@@ -140,14 +140,14 @@
    #+BEGIN_SRC emacs-lisp
      ;; Disable package initialize after us.  We either initialize it
      ;; anyway in case of interpreted .emacs, or we don't want slow
-     ;; initizlization in case of byte-compiled .emacs.el.
+     ;; initizlization in case of byte-compiled .emacs.elc.
      (setq package-enable-at-startup nil)
 
      ;; Ask package.el to not add (package-initialize) to .emacs.d
      (setq package--init-file-ensured t)
 
      ;; set use-package-verbose to t for interpreted .emacs,
-     ;; and to nil for byte-compiled .emacs.el
+     ;; and to nil for byte-compiled .emacs.elc.
      (eval-and-compile
        (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
    #+END_SRC
@@ -761,6 +761,10 @@
        (add-hook 'prog-mode-hook 'add-pretty-lambda)
    #+END_SRC
 ** UI Configs
+   Maximize frame.
+   #+BEGIN_SRC emacs-lisp
+     (add-to-list 'default-frame-alist '(fullscreen . maximized))
+   #+END_SRC
    Disable splash screen and change scratch message.
    #+BEGIN_SRC emacs-lisp
      (setq inhibit-startup-screen t)
@@ -966,7 +970,7 @@
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+BEGIN_SRC emacs-lisp
       (def-package lsp-ui
-        :after lsp
+        :after lsp-mode
         :diminish lsp-mode
         :commands lsp-ui-mode)
     #+END_SRC
@@ -974,7 +978,7 @@
     [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
     #+BEGIN_SRC emacs-lisp
       (def-package company-lsp
-        :after (company lsp)
+        :after (company lsp-mode)
         :commands company-lsp)
     #+END_SRC
 *** DAP
@@ -982,6 +986,7 @@
     #+BEGIN_SRC emacs-lisp
       (def-package dap-mode
         :after lsp-mode
+        :defer t
         :config
         (dap-mode t)
         (dap-ui-mode t))
@@ -1009,7 +1014,7 @@
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]].
     #+BEGIN_SRC emacs-lisp
       (def-package lsp-java
-        :after lsp
+        :after lsp-mode
         :config (add-hook 'java-mode-hook 'lsp))
     #+END_SRC
 ** C/C++
@@ -1047,6 +1052,7 @@
     [[https://github.com/Sarcasm/company-irony][Company Irony]], a completion backend for the C, C++ and Objective-C languages.
     #+BEGIN_SRC emacs-lisp
       (def-package company-irony
+        :defer t
         :config
         (add-to-list 'company-backends 'company-irony))
     #+END_SRC
@@ -1056,6 +1062,7 @@
     This package is meant to be complementary to company-irony by offering completion suggestions to header files.
     #+BEGIN_SRC emacs-lisp
       (def-package company-irony-c-headers
+        :defer t
         :config
         (add-to-list 'company-backends 'company-irony)
         (add-to-list 'company-backends 'company-c-headers))
@@ -1076,7 +1083,7 @@
     Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your PATH.
    #+BEGIN_SRC emacs-lisp
      (def-package lsp-python-ms
-       :after lsp
+       :after lsp-mode
        :ensure nil
        :hook (python-mode . lsp)
        :config
@@ -1177,6 +1184,7 @@
     #+BEGIN_SRC emacs-lisp
       (def-package org-bullets
         :after org
+        :defer t
         :config
         (add-hook 'org-mode-hook #'org-bullets-mode))
     #+END_SRC
@@ -1185,6 +1193,7 @@
     #+BEGIN_SRC emacs-lisp
       (def-package toc-org
         :after org
+        :defer t
         :config (add-hook 'org-mode-hook 'toc-org-mode))
     #+END_SRC
 ** EWW
@@ -1227,7 +1236,8 @@
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]], a game to practice touch/speed typing in Emacs.
    #+BEGIN_SRC emacs-lisp
-     (def-package speed-type)
+     (def-package speed-type
+       :defer t)
    #+END_SRC
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]], an implementation of 2048 in Emacs.
@@ -1238,7 +1248,8 @@
 ** Pacmacs
    [[https://github.com/emacsmirror/pacmacs][Pacmacs]], Pacman for Emacs.
    #+BEGIN_SRC emacs-lisp
-     (def-package pacmacs)
+     (def-package pacmacs
+       :defer t)
    #+END_SRC
 * Credits
   This Emacs configuration was influenced and inspired by the following configurations.
