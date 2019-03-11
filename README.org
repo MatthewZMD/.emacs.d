@@ -10,14 +10,15 @@
 - [[#startup][Startup]]
   - [[#lexical-binding][Lexical-binding]]
   - [[#optimization][Optimization]]
-  - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
-  - [[#author-information][Author Information]]
-- [[#package-management][Package Management]]
-  - [[#melpa-package-sources][Melpa Package Sources]]
+- [[#efficient-package-management][Efficient Package Management]]
   - [[#local-packages-not-in-melpa][Local Packages Not in Melpa]]
-  - [[#bootstrap-use-package][Bootstrap =use-package=]]
+  - [[#melpa-package-sources][Melpa Package Sources]]
+  - [[#configure-package-management][Configure Package Management]]
+  - [[#use-def-package-a-faster-use-package][Use =def-package=, a Faster =use-package=]]
   - [[#auto-package-update][Auto Package Update]]
 - [[#global-functionalities][Global Functionalities]]
+  - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
+  - [[#owner-information][Owner Information]]
   - [[#bindings][Bindings]]
   - [[#file-management][File Management]]
   - [[#ag][AG]]
@@ -111,34 +112,7 @@
 
        (add-hook 'emacs-startup-hook 'srs-reset-file-name-handler-alist))
    #+END_SRC
-** Disable Unnecessary Interface
-   This need to be in the beginning of initialization to smooth the experience.
-   #+BEGIN_SRC emacs-lisp
-     (scroll-bar-mode -1)
-     (tool-bar-mode   -1)
-     (tooltip-mode    -1)
-     (menu-bar-mode   -1)
-   #+END_SRC
-** Author Information
-   *Prerequisite*: Change this to your personal information.
-   #+BEGIN_SRC emacs-lisp
-     (setq user-full-name "Mingde (Matthew) Zeng")
-     (setq user-mail-address "matthewzmd@gmail.com")
-   #+END_SRC
-* Package Management
-** Melpa Package Sources
-   #+BEGIN_SRC emacs-lisp
-     (require 'package)
-     (setq package-enable-at-startup nil)
-     (setq package-archives
-           '(;; Comment / Uncomment when necessary sites are used
-             ("gnu"   . "http://elpa.gnu.org/packages/")
-             ("melpa" . "https://melpa.org/packages/")
-             ("melpa stable" . "http://stable.melpa.org/packages/")
-             ;;("org"   . "http://orgmode.org/elpa/")
-             ))
-     (package-initialize)
-   #+END_SRC
+* Efficient Package Management
 ** Local Packages Not in Melpa
    This will add all the packages in =/elisp= into the =load-path=.
    #+BEGIN_SRC emacs-lisp
@@ -151,31 +125,104 @@
                       (not (equal f ".")))
              (add-to-list 'load-path name)))))
    #+END_SRC
-** Bootstrap =use-package=
-   My =.emacs.d/= is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
+** Melpa Package Sources
+   #+BEGIN_SRC emacs-lisp
+     ;; Select the folder to store packages
+     (setq package-user-dir "~/.emacs.d/elpa"
+           package-archives
+           '(;; Comment / Uncomment when necessary sites are used
+             ("gnu"   . "http://elpa.gnu.org/packages/")
+             ("melpa" . "https://melpa.org/packages/")
+             ("melpa stable" . "http://stable.melpa.org/packages/")
+             ;;("org"   . "http://orgmode.org/elpa/")
+             ))
+   #+END_SRC
+** Configure Package Management
+   #+BEGIN_SRC emacs-lisp
+     ;; Disable package initialize after us.  We either initialize it
+     ;; anyway in case of interpreted .emacs, or we don't want slow
+     ;; initizlization in case of byte-compiled .emacs.el.
+     (setq package-enable-at-startup nil)
+
+     ;; Ask package.el to not add (package-initialize) to .emacs.d
+     (setq package--init-file-ensured t)
+
+     ;; set use-package-verbose to t for interpreted .emacs,
+     ;; and to nil for byte-compiled .emacs.el
+     (eval-and-compile
+       (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
+   #+END_SRC
+** Use =def-package=, a Faster =use-package=
+   My Emacs configuration is almost entirely dependant on a faster implementation of [[https://github.com/jwiegley/use-package][use-package]] based on [[https://github.com/hlissner/doom-emacs/blob/master/core/core-packages.el#L323][Doom Emacs]].
    #+BEGIN_QUOTE
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
    #+END_QUOTE
-   Start using =use-package=.
+   Add the macro generated list of package.el loadpaths to load-path.
    #+BEGIN_SRC emacs-lisp
-     (unless (package-installed-p 'use-package)
-       (package-refresh-contents)
-       (package-install 'use-package))
-     (require 'use-package)
-     ;; Always ensure package is installed
-     (require 'use-package-ensure)
-     (setq use-package-always-ensure t)
+     (mapc #'(lambda (add) (add-to-list 'load-path add))
+           (eval-when-compile
+             ;; (require 'package)
+             (package-initialize)
+             ;; Install use-package if not installed yet.
+             (unless (package-installed-p 'use-package)
+               (package-refresh-contents)
+               (package-install 'use-package))
+             ;; (require 'use-package)
+             ;; (setq use-package-always-ensure t) ;; I will handle this myself
+             (let ((package-user-dir-real (file-truename package-user-dir)))
+               ;; The reverse is necessary, because outside we mapc
+               ;; add-to-list element-by-element, which reverses.
+               (nreverse (apply #'nconc
+                                ;; Only keep package.el provided loadpaths.
+                                (mapcar #'(lambda (path)
+                                            (if (string-prefix-p package-user-dir-real path)
+                                                (list path)
+                                              nil))
+                                        load-path))))))
+
+     (eval-when-compile
+       (require 'use-package)
+       ;; Always ensure package is installed
+       (setq use-package-always-ensure t))
+     (require 'bind-key)
+   #+END_SRC
+   The =use-package= wrapper.
+   #+BEGIN_SRC emacs-lisp
+     (defmacro def-package (name &rest plist)
+       "A thin wrapper around `use-package'."
+       ;; If byte-compiling, ignore this package if it doesn't meet the condition.
+       ;; This avoids false-positive load errors.
+       (unless (and (bound-and-true-p byte-compile-current-file)
+                    (or (and (plist-member plist :if)     (not (eval (plist-get plist :if))))
+                        (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
+                        (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
+         `(use-package ,name ,@plist)))
    #+END_SRC
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
    #+BEGIN_SRC emacs-lisp
-     (use-package auto-package-update
+     (def-package auto-package-update
        :config
        (setq auto-package-update-delete-old-versions t)
        (setq auto-package-update-hide-results t)
        (auto-package-update-maybe))
    #+END_SRC
 * Global Functionalities
+** Disable Unnecessary Interface
+   This need to be in the beginning of initialization to smooth the experience.
+   #+BEGIN_SRC emacs-lisp
+     (scroll-bar-mode -1)
+     (tool-bar-mode   -1)
+     (tooltip-mode    -1)
+     (menu-bar-mode   -1)
+   #+END_SRC
+
+** Owner Information
+   *Prerequisite*: Change this to your information.
+   #+BEGIN_SRC emacs-lisp
+     (setq user-full-name "Mingde (Matthew) Zeng")
+     (setq user-mail-address "matthewzmd@gmail.com")
+   #+END_SRC
 ** Bindings
    Unbind C-z to use as prefix
    #+BEGIN_SRC emacs-lisp
@@ -271,13 +318,13 @@
 
    *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
    #+BEGIN_SRC emacs-lisp
-     (use-package ag
+     (def-package ag
        :bind ("C-z s" . ag))
    #+END_SRC
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+BEGIN_SRC emacs-lisp
-     (use-package avy
+     (def-package avy
        :bind
        (("C-;" . avy-goto-char-timer)
         ("C-:" . avy-goto-line))
@@ -289,7 +336,7 @@
 *** Main Ivy
     [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs.
     #+BEGIN_SRC emacs-lisp
-      (use-package ivy
+      (def-package ivy
         :diminish ivy-mode ;;Hide ivy in the button screen
         :init (ivy-mode 1)
         :config
@@ -303,14 +350,14 @@
 *** Amx
     [[https://github.com/DarwinAwardWinner/amx][Amx]], a M-x enhancement tool forked from [[https://github.com/nonsequitur/smex][Smex]].
     #+BEGIN_SRC emacs-lisp
-      (use-package amx
+      (def-package amx
         :after (:any ivy ido)
         :config (amx-mode))
     #+END_SRC
 *** Counsel
     [[https://github.com/abo-abo/swiper][Counsel]], a collection of Ivy-enhanced versions of common Emacs commands.
     #+BEGIN_SRC emacs-lisp
-      (use-package counsel
+      (def-package counsel
         :after ivy
         :diminish counsel-mode
         :init (counsel-mode 1))
@@ -318,7 +365,7 @@
 ** Winner
    Winner mode restores old window layout.
    #+BEGIN_SRC emacs-lisp
-     (use-package winner
+     (def-package winner
        :ensure nil
        :commands (winner-undo winner-redo)
        :init (setq winner-boring-buffers
@@ -336,13 +383,13 @@
 ** Swiper
    [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
    #+BEGIN_SRC emacs-lisp
-     (use-package swiper
+     (def-package swiper
        :bind ("C-s" . swiper))
    #+END_SRC
 ** Which Key
    [[https://github.com/justbur/emacs-which-key][Which key]], a feature that displays the key bindings following the incomplete command.
    #+BEGIN_SRC emacs-lisp
-     (use-package which-key
+     (def-package which-key
        :init
        (setq which-key-separator " ")
        (setq which-key-prefix-prefix "+")
@@ -352,20 +399,20 @@
 ** Popup Kill Ring
    [[https://github.com/waymondo/popup-kill-ring][Popup kill ring]], a feature that provides the ability to browse Emacs kill ring in autocomplete style popup menu.
    #+BEGIN_SRC emacs-lisp
-     (use-package popup-kill-ring
+     (def-package popup-kill-ring
        :bind ("M-y" . popup-kill-ring))
    #+END_SRC
 ** Undo Tree
    [[https://www.emacswiki.org/emacs/UndoTree][Undo tree]], a feature that provides a visualization of the undos in a file.
    #+BEGIN_SRC emacs-lisp
-     (use-package undo-tree
+     (def-package undo-tree
        :diminish undo-tree-mode
        :init (global-undo-tree-mode))
    #+END_SRC
 ** Discover My Major
    [[https://github.com/jguenther/discover-my-major][Discover my major]], a feature that discovers key bindings and their meaning for the current Emacs major mode.
    #+BEGIN_SRC emacs-lisp
-     (use-package discover-my-major
+     (def-package discover-my-major
        :bind (("C-h C-m" . discover-my-major)))
    #+END_SRC
 ** Configs
@@ -505,12 +552,12 @@
 
    *Prerequisite*: Install all fonts from =/fonts/all-the-icons-fonts=.
    #+BEGIN_SRC emacs-lisp
-     (use-package all-the-icons)
+     (def-package all-the-icons)
    #+END_SRC
 *** All The Icons Dired
     [[https://github.com/jtbm37/all-the-icons-dired][All The Icons Dired]], an icon set for Dired.
     #+BEGIN_SRC emacs-lisp
-      (use-package all-the-icons-dired
+      (def-package all-the-icons-dired
         :after all-the-icons
         :diminish
         :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
@@ -519,7 +566,7 @@
 *** All The Icons Ivy
     [[https://github.com/asok/all-the-icons-ivy][All The Icons Ivy]], an icon set for Ivy.
     #+BEGIN_SRC emacs-lisp
-      (use-package all-the-icons-ivy
+      (def-package all-the-icons-ivy
         :after all-the-icons
         :config
         (all-the-icons-ivy-setup)
@@ -530,7 +577,7 @@
 ** Doom Theme
    [[https://github.com/hlissner/emacs-doom-themes][doom-themes]], an UI plugin and pack of theme. It is set to default to Molokai theme.
    #+BEGIN_SRC emacs-lisp
-     (use-package doom-themes
+     (def-package doom-themes
        :config
        ;; flashing mode-line on errors
        (doom-themes-visual-bell-config)
@@ -541,7 +588,7 @@
 ** Solaire
    [[https://github.com/hlissner/emacs-solaire-mode][Solaire]], a feature that makes certain buffers grossly incandescent.
    #+BEGIN_SRC emacs-lisp
-     (use-package solaire-mode
+     (def-package solaire-mode
        :functions persp-load-state-from-file
        :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
               (minibuffer-setup . solaire-mode-in-minibuffer)
@@ -554,7 +601,7 @@
 ** Doom Modeline
    [[https://github.com/seagle0128/doom-modeline][Doom modeline]], a modeline from DOOM Emacs, but more powerful and faster.
    #+BEGIN_SRC emacs-lisp
-     (use-package doom-modeline
+     (def-package doom-modeline
        :config
        ;; Don't compact font caches during GC. Windows Laggy Issue
        (setq inhibit-compacting-font-caches t)
@@ -570,7 +617,7 @@
 
    Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme.
    #+BEGIN_SRC emacs-lisp
-     (use-package dashboard
+     (def-package dashboard
        :diminish (dashboard-mode page-break-lines-mode)
        :config
        (dashboard-setup-startup-hook)
@@ -620,7 +667,7 @@
 ** Page Break Lines
    [[https://github.com/purcell/page-break-lines][Page-break-lines]], a feature that displays ugly form feed characters as tidy horizontal rules.
    #+BEGIN_SRC emacs-lisp
-     (use-package page-break-lines
+     (def-package page-break-lines
        :init (global-page-break-lines-mode))
    #+END_SRC
 ** Fonts
@@ -673,13 +720,13 @@
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
    #+BEGIN_SRC emacs-lisp
-     (use-package diminish)
+     (def-package diminish)
    #+END_SRC
 
 ** Dimmer
    [[https://github.com/gonewest818/dimmer.el][Dimmer]], a feature that visually highlights the selected buffer.
    #+BEGIN_SRC emacs-lisp
-     (use-package dimmer
+     (def-package dimmer
        :init (dimmer-mode)
        :config
        (setq dimmer-fraction 0.2)
@@ -745,7 +792,7 @@
 ** Magit
    [[https://magit.vc/][Magit]], an interface to the version control system Git.
    #+BEGIN_SRC emacs-lisp
-     (use-package magit
+     (def-package magit
        :bind ("C-x g" . magit-status))
    #+END_SRC
 ** Projectile
@@ -753,7 +800,7 @@
 
    *Prerequisite*: Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
    #+BEGIN_SRC emacs-lisp
-     (use-package projectile
+     (def-package projectile
        :bind
        ("C-c p" . projectile-command-map)
        ("C-z i" . projectile-switch-project)
@@ -770,7 +817,7 @@
    [[https://github.com/Alexander-Miller/treemacs][Treemacs]], a tree layout file explorer for Emacs.
 *** Treemacs
     #+BEGIN_SRC emacs-lisp
-      (use-package treemacs
+      (def-package treemacs
         :init
         (with-eval-after-load 'winum
           (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
@@ -826,20 +873,20 @@
    #+END_SRC
 *** Treemacs Magit
     #+BEGIN_SRC emacs-lisp
-      (use-package treemacs-magit
+      (def-package treemacs-magit
         :defer t
         :after (treemacs magit))
     #+END_SRC
 *** Treemacs Projectile
     #+BEGIN_SRC emacs-lisp
-      (use-package treemacs-projectile
+      (def-package treemacs-projectile
         :defer t
         :after (treemacs projectile))
     #+END_SRC
 ** Company
    [[http://company-mode.github.io/][Company]], short for *Comp*lete *any*thing, a text completion framework for Emacs.
    #+BEGIN_SRC emacs-lisp
-     (use-package company
+     (def-package company
        :diminish company-mode
        :defer t
        :init (global-company-mode)
@@ -858,7 +905,7 @@
 ** Flycheck
    [[https://www.flycheck.org/en/latest/][Flycheck]], a syntax checking extension.
    #+BEGIN_SRC emacs-lisp
-     (use-package flycheck
+     (def-package flycheck
        :defer t
        :diminish flycheck-mode
        :config
@@ -869,7 +916,7 @@
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]], an Emacs "jump to definition" package.
    #+BEGIN_SRC emacs-lisp
-     (use-package dumb-jump
+     (def-package dumb-jump
        :bind (("M-g o" . dumb-jump-go-other-window)
         ("M-g j" . dumb-jump-go)
         ("M-g i" . dumb-jump-go-prompt)
@@ -887,7 +934,7 @@
 *** Smartparens
     [[https://github.com/Fuco1/smartparens][Smartparens]], a minor mode for dealing with pairs.
     #+BEGIN_SRC emacs-lisp
-      (use-package smartparens
+      (def-package smartparens
         :diminish smartparens-mode
         :config
         (add-hook 'prog-mode-hook 'smartparens-mode)
@@ -907,7 +954,7 @@
 
    *Prerequisite*: Read [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][Supported Languages]] to see which additional tool you need to install for the specific language.
    #+BEGIN_SRC emacs-lisp
-     (use-package format-all
+     (def-package format-all
        :bind ("C-z f" . format-all-buffer)
        :config (add-hook 'prog-mode-hook #'format-all-mode))
    #+END_SRC
@@ -915,7 +962,7 @@
 ** Highlight Indent Guides
    [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
    #+BEGIN_SRC emacs-lisp
-     (use-package highlight-indent-guides
+     (def-package highlight-indent-guides
        :defer t
        :config
        (add-hook prog-mode-hook #'highlight-indent-guides-mode)
@@ -925,7 +972,7 @@
    [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]].
 *** LSP Mode
     #+BEGIN_SRC emacs-lisp
-      (use-package lsp-mode
+      (def-package lsp-mode
         :demand t
         :commands lsp
         :init
@@ -936,7 +983,7 @@
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+BEGIN_SRC emacs-lisp
-      (use-package lsp-ui
+      (def-package lsp-ui
         :after lsp
         :diminish lsp-mode
         :commands lsp-ui-mode)
@@ -944,14 +991,14 @@
 *** Company LSP
     [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
     #+BEGIN_SRC emacs-lisp
-      (use-package company-lsp
+      (def-package company-lsp
         :after (company lsp)
         :commands company-lsp)
     #+END_SRC
 *** DAP
     [[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
     #+BEGIN_SRC emacs-lisp
-      (use-package dap-mode
+      (def-package dap-mode
         :after lsp-mode
         :config
         (dap-mode t)
@@ -979,7 +1026,7 @@
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]].
     #+BEGIN_SRC emacs-lisp
-      (use-package lsp-java
+      (def-package lsp-java
         :after lsp
         :config (add-hook 'java-mode-hook 'lsp))
     #+END_SRC
@@ -990,7 +1037,7 @@
 *** CC Mode
     CC Mode, a mode for editing files containing C, C++, Objective-C, Java, CORBA IDL (and the variants CORBA PSDL and CIDL), Pike and AWK code.
    #+BEGIN_SRC emacs-lisp
-     (use-package cc-mode
+     (def-package cc-mode
        :ensure nil
        :defer t
        :bind ("<f5>" . compile))
@@ -1000,7 +1047,7 @@
 
     *Prerequisite*: Execute =irony-install-server=. This provides the libclang interface to irony-mode. It uses a simple protocol based on S-expression. This server also requires [[https://cmake.org/download/][CMake]] >= 2.8.3 and [[http://releases.llvm.org/download.html][libclang]] to be installed on your system.
     #+BEGIN_SRC emacs-lisp
-      (use-package irony
+      (def-package irony
         :hook (c++-mode c-mode objc-mode)
         :config
         (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
@@ -1017,7 +1064,7 @@
 *** Company Irony
     [[https://github.com/Sarcasm/company-irony][Company Irony]], a completion backend for the C, C++ and Objective-C languages.
     #+BEGIN_SRC emacs-lisp
-      (use-package company-irony
+      (def-package company-irony
         :config
         (add-to-list 'company-backends 'company-irony))
     #+END_SRC
@@ -1026,7 +1073,7 @@
 
     This package is meant to be complementary to company-irony by offering completion suggestions to header files.
     #+BEGIN_SRC emacs-lisp
-      (use-package company-irony-c-headers
+      (def-package company-irony-c-headers
         :config
         (add-to-list 'company-backends 'company-irony)
         (add-to-list 'company-backends 'company-c-headers))
@@ -1046,7 +1093,7 @@
 
     Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your PATH.
    #+BEGIN_SRC emacs-lisp
-     (use-package lsp-python-ms
+     (def-package lsp-python-ms
        :after lsp
        :ensure nil
        :hook (python-mode . lsp)
@@ -1062,7 +1109,7 @@
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
     #+BEGIN_SRC emacs-lisp
-      (use-package arduino-mode
+      (def-package arduino-mode
         :defer t
         :config
         (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
@@ -1072,7 +1119,7 @@
 *** Company Arduino
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     #+BEGIN_SRC emacs-lisp
-      (use-package company-arduino
+      (def-package company-arduino
         :defer t
         :config
         (add-hook 'irony-mode-hook 'company-arduino-turn-on)
@@ -1083,7 +1130,7 @@
 ** Web Mode
    [[https://github.com/fxbois/web-mode][Web mode]], a major mode for editing web templates.
    #+BEGIN_SRC emacs-lisp
-     (use-package web-mode
+     (def-package web-mode
        :mode
        ("\\.phtml\\'" "\\.tpl\\.php\\'" "\\.[agj]sp\\'" "\\.as[cp]x\\'"
         "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'" "\\.tsx\\'"))
@@ -1091,7 +1138,7 @@
 ** Emmet
    [[https://github.com/smihica/emmet-mode][Emmet]], a feature that allows writing HTML using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
    #+BEGIN_SRC emacs-lisp
-     (use-package emmet-mode
+     (def-package emmet-mode
        :hook web-mode
        :config
        (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
@@ -1099,7 +1146,7 @@
 ** JavaScript
    [[https://github.com/mooz/js2-mode][JS2 mode]], a feature that offers improved JavsScript editing mode.
    #+BEGIN_SRC emacs-lisp
-     (use-package js2-mode
+     (def-package js2-mode
        :mode "\\.js\\'"
        :interpreter "node")
    #+END_SRC
@@ -1107,7 +1154,7 @@
 *** TypeScript Mode
     [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]], a feature that offers TypeScript support for Emacs.
     #+BEGIN_SRC emacs-lisp
-      (use-package typescript-mode
+      (def-package typescript-mode
         :defer t)
     #+END_SRC
 *** Tide
@@ -1115,7 +1162,7 @@
 
     Tip: enter =M-.= to jump to definition.
     #+BEGIN_SRC emacs-lisp
-      (use-package tide
+      (def-package tide
         :after (typescript-mode company flycheck)
         :hook ((typescript-mode . tide-setup)
                (typescript-mode . tide-hl-identifier-mode)
@@ -1131,7 +1178,7 @@
 ** Org
    [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
    #+BEGIN_SRC emacs-lisp
-     (use-package org
+     (def-package org
        :ensure nil
        :bind
        ("C-c l" . org-store-link)
@@ -1146,7 +1193,7 @@
 *** Org Bullets
     [[https://github.com/sabof/org-bullets][Org bullets]] shows bullets as UTF-8 characters.
     #+BEGIN_SRC emacs-lisp
-      (use-package org-bullets
+      (def-package org-bullets
         :after org
         :config
         (add-hook 'org-mode-hook #'org-bullets-mode))
@@ -1154,7 +1201,7 @@
 *** TOC Org
     [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
     #+BEGIN_SRC emacs-lisp
-      (use-package toc-org
+      (def-package toc-org
         :after org
         :config (add-hook 'org-mode-hook 'toc-org-mode))
     #+END_SRC
@@ -1198,20 +1245,20 @@
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]], a game to practice touch/speed typing in Emacs.
    #+BEGIN_SRC emacs-lisp
-     (use-package speed-type)
+     (def-package speed-type)
    #+END_SRC
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]], an implementation of 2048 in Emacs.
    #+BEGIN_SRC emacs-lisp
-     (use-package 2048-game)
+     (def-package 2048-game)
    #+END_SRC
 ** Pacmacs
    [[https://github.com/emacsmirror/pacmacs][Pacmacs]], Pacman for Emacs.
    #+BEGIN_SRC emacs-lisp
-     (use-package pacmacs)
+     (def-package pacmacs)
    #+END_SRC
 * Credits
   This Emacs configuration was influenced and inspired by the following configurations.
-  - [[https://github.com/anschwa/emacs.d][Adam Schwartz's .emacs.d]]
   - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
+  - [[https://github.com/hlissner/doom-emacs][Henrik Lissner's Doom Emacs]]
   - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]

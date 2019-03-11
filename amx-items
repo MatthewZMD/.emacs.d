@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ package-refresh-contents
+ list-packages
  ielm
  smartparens-strict-mode
  jedi:install-server
  jedi:reinstall-server
- list-packages
  flymake-mode
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -19,7 +19,7 @@
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
- (package-refresh-contents . 7)
+ (package-refresh-contents . 8)
  (flycheck-mode . 4)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
@@ -41,7 +41,7 @@
  (eshell . 1)
  (shell . 42)
  (package-menu-mark-upgrades . 4)
- (list-packages . 8)
+ (list-packages . 9)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
