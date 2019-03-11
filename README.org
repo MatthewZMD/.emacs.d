@@ -13,8 +13,8 @@
   - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
   - [[#author-information][Author Information]]
 - [[#package-management][Package Management]]
-  - [[#elpamelpa-package-sources][Elpa/Melpa Package Sources]]
-  - [[#other-package-in-local][Other Package in Local]]
+  - [[#melpa-package-sources][Melpa Package Sources]]
+  - [[#local-packages-not-in-melpa][Local Packages Not in Melpa]]
   - [[#bootstrap-use-package][Bootstrap =use-package=]]
   - [[#auto-package-update][Auto Package Update]]
 - [[#global-functionalities][Global Functionalities]]
@@ -67,7 +67,7 @@
 - [[#web-development][Web Development]]
   - [[#web-mode][Web Mode]]
   - [[#emmet][Emmet]]
-  - [[#js2][JS2]]
+  - [[#javascript][JavaScript]]
   - [[#typescript][TypeScript]]
 - [[#miscellaneous][Miscellaneous]]
   - [[#org][Org]]
@@ -126,12 +126,12 @@
      (setq user-mail-address "matthewzmd@gmail.com")
    #+END_SRC
 * Package Management
-** Elpa/Melpa Package Sources
+** Melpa Package Sources
    #+BEGIN_SRC emacs-lisp
      (require 'package)
      (setq package-enable-at-startup nil)
      (setq package-archives
-           '(;; Comment / Uncomment when necessary sites are needed
+           '(;; Comment / Uncomment when necessary sites are used
              ("gnu"   . "http://elpa.gnu.org/packages/")
              ("melpa" . "https://melpa.org/packages/")
              ("melpa stable" . "http://stable.melpa.org/packages/")
@@ -139,7 +139,7 @@
              ))
      (package-initialize)
    #+END_SRC
-** Other Package in Local
+** Local Packages Not in Melpa
    This will add all the packages in =/elisp= into the =load-path=.
    #+BEGIN_SRC emacs-lisp
      (let ((base "~/.emacs.d/elisp"))
@@ -177,20 +177,28 @@
    #+END_SRC
 * Global Functionalities
 ** Bindings
+   Unbind C-z to use as prefix
    #+BEGIN_SRC emacs-lisp
-     ;; Unbind C-z to use as prefix
-     (global-set-key (kbd "C-z") 'nil)
-
-     ;; Use iBuffer instead of Buffer List
+     (global-set-key (kbd "C-z") nil)
+   #+END_SRC
+   Use iBuffer instead of Buffer List
+   #+BEGIN_SRC emacs-lisp
      (global-set-key (kbd "C-x C-b") 'ibuffer)
-
-     ;; Truncate lines
+   #+END_SRC
+   Truncate lines
+   #+BEGIN_SRC emacs-lisp
      (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
-
-     ;; Adjust font size like web browsers
+   #+END_SRC
+   Adjust font size like web browsers
+   #+BEGIN_SRC emacs-lisp
      (global-set-key (kbd "C-+") 'text-scale-increase)
      (global-set-key (kbd"C--") 'text-scale-decrease)
-  #+END_SRC
+   #+END_SRC
+   Move up/down paragraph
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "M-n") 'forward-paragraph)
+     (global-set-key (kbd "M-p") 'backward-paragraph)
+   #+END_SRC
 ** File Management
 *** Dired
     Dired, the directory editor.
@@ -456,6 +464,36 @@
         (find-file "~/.emacs.d/README.org"))
 
       (global-set-key (kbd "C-z e") #'edit-configs)
+    #+END_SRC
+*** Smarter Move Beginning of Line
+    Smarter navigation to the beginning of a line by [[https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/][Bozhidar Batsov]].
+    #+BEGIN_SRC emacs-lisp
+      (defun smarter-move-beginning-of-line (arg)
+        "Move point back to indentation of beginning of line.
+
+      Move point to the first non-whitespace character on this line.
+      If point is already there, move to the beginning of the line.
+      Effectively toggle between the first non-whitespace character and
+      the beginning of the line.
+
+      If ARG is not nil or 1, move forward ARG - 1 lines first.  If
+      point reaches the beginning or end of the buffer, stop there."
+        (interactive "^p")
+        (setq arg (or arg 1))
+
+        ;; Move lines first
+        (when (/= arg 1)
+          (let ((line-move-visual nil))
+            (forward-line (1- arg))))
+
+        (let ((orig-point (point)))
+          (back-to-indentation)
+          (when (= orig-point (point))
+            (move-beginning-of-line 1))))
+
+      ;; remap C-a to `smarter-move-beginning-of-line'
+      (global-set-key [remap move-beginning-of-line]
+                      'smarter-move-beginning-of-line)
     #+END_SRC
 * User Interface Enhancements
 ** Title Bar
@@ -850,10 +888,9 @@
     [[https://github.com/Fuco1/smartparens][Smartparens]], a minor mode for dealing with pairs.
     #+BEGIN_SRC emacs-lisp
       (use-package smartparens
-        :defer t
         :diminish smartparens-mode
         :config
-        (add-hook prog-mode-hook 'smartparens-mode)
+        (add-hook 'prog-mode-hook 'smartparens-mode)
         (setq sp-escape-quotes-after-insert nil))
     #+END_SRC
 *** Awesome Pair
@@ -889,17 +926,18 @@
 *** LSP Mode
     #+BEGIN_SRC emacs-lisp
       (use-package lsp-mode
-        :defer 2
-        :commands lsp)
+        :demand t
+        :commands lsp
+        :init
+        (setq lsp-auto-guess-root t)       ; Detect project root
+        (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
+        :hook (prog-mode . lsp))
     #+END_SRC
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+BEGIN_SRC emacs-lisp
       (use-package lsp-ui
         :after lsp
-        :init
-        (setq lsp-auto-guess-root t)       ; Detect project root
-        (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
         :diminish lsp-mode
         :commands lsp-ui-mode)
     #+END_SRC
@@ -994,51 +1032,32 @@
         (add-to-list 'company-backends 'company-c-headers))
     #+END_SRC
 ** Python
-   *Prerequisite*:
-   Install Python3 with =pip= and verify they are in the PATH. Then execute the following commands.
-   #+BEGIN_SRC text
-     pip install jedi flake8 autopep8 importmagic yapf
-     pip install virtualenv pyls-mypy
-     pip install -U setuptools
-     pip install python-language-server[all]
+*** TODO Microsoft's Python Language Server - [[https://github.com/melpa/melpa/pull/6027][Use Melpa Once it's Ready]]
+    [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
+    *Prerequisite*:
+    Install [[https://dotnet.microsoft.com/download][.NET Core SDK]]. Then execute the following commands from your =HOME= or =~= path:
+    #+BEGIN_SRC text
+      git clone https://github.com/Microsoft/python-language-server.git
+      cd python-language-server/src/LanguageServer/Impl
+      dotnet build -c Release
+      dotnet publish -c Release -r win10-x64
+    #+END_SRC
+    Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
+
+    Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your PATH.
+   #+BEGIN_SRC emacs-lisp
+     (use-package lsp-python-ms
+       :after lsp
+       :ensure nil
+       :hook (python-mode . lsp)
+       :config
+       ;; for dev build of language server
+       (setq lsp-python-ms-dir
+             (expand-file-name "~/.emacs.d/python-language-server/output/bin/Release/"))
+       ;; for executable of language server, if it's not symlinked on your PATH
+       (setq lsp-python-ms-executable
+             "~/.emacs.d/python-language-server/output/bin/Release/win10-x64/publish/Microsoft.Python.LanguageServer"))
    #+END_SRC
-   Verify =virtualenv= is in the PATH too. Now execute =M-x jedi:install-server=.
-*** Jedi
-    [[https://github.com/tkf/emacs-jedi][Jedi]], a Python auto-completion package for Emacs.
-    #+BEGIN_SRC emacs-lisp
-      ;; (use-package jedi
-      ;;   :defer t
-      ;;   :config
-      ;;   (add-hook 'python-mode-hook 'jedi:setup)
-      ;;   (add-hook 'python-mode-hook 'jedi:ac-setup)
-      ;;   (add-to-list 'company-backends 'company-jedi))
-    #+END_SRC
-*** Company Jedi
-    [[https://github.com/syohex/emacs-company-jedi][Company Jedi]], a Company backend for Python Jedi.
-    #+BEGIN_SRC emacs-lisp
-      (use-package company-jedi
-        :after (company jedi)
-        :init
-        (add-hook 'python-mode-hook
-                  (lambda () (add-to-list 'company-backends 'company-jedi)))
-        (setq company-jedi-python-bin "python"))
-    #+END_SRC
-*** Elpy
-    [[https://github.com/jorgenschaefer/elpy][Elpy]], a Emacs Python Development Environment.
-    #+BEGIN_SRC emacs-lisp
-      (use-package elpy
-        :defer 2
-        :config
-        (progn
-          (when (require 'flycheck nil t)
-            (remove-hook 'elpy-modules 'elpy-module-flymake)
-            (remove-hook 'elpy-modules 'elpy-module-yasnippet)
-            (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
-            (add-hook 'elpy-mode-hook 'flycheck-mode))
-          (elpy-enable)
-          ;; jedi is great
-          (setq elpy-rpc-backend "jedi")))
-    #+END_SRC
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
@@ -1077,7 +1096,7 @@
        :config
        (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
    #+END_SRC
-** JS2
+** JavaScript
    [[https://github.com/mooz/js2-mode][JS2 mode]], a feature that offers improved JavsScript editing mode.
    #+BEGIN_SRC emacs-lisp
      (use-package js2-mode

@@ -12,8 +12,6 @@ emacs_backtrace
 projectile.cache
 projectile-bookmarks.eld
 recentf
-recentf~
-#init.el#
 /projectile-bookmarks.eld
 /bookmarks
 /speed-type
@@ -23,8 +21,8 @@ recentf~
 /irony/bin/irony-server.exe
 /places
 /.last-package-update-day
-/session.20c19401d-d2f5-44c9-bbe6-82a7d6b649f1
 /README.html
-.python-environments/
 /.lsp-session-v1
 workspace/
+python-language-server/
+.lsp-python/

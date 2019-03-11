@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- package-install
- company-jedi
- shell
- describe-variable
- package-reinstall
+ ielm
+ smartparens-strict-mode
+ jedi:install-server
+ jedi:reinstall-server
+ list-packages
+ flymake-mode
  eval-buffer
- eww
 )
 
 ;; ----- amx-data -----
@@ -41,7 +41,7 @@
  (eshell . 1)
  (shell . 42)
  (package-menu-mark-upgrades . 4)
- (list-packages . 7)
+ (list-packages . 8)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 9)
+ (ielm . 10)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -144,9 +144,13 @@
  (recode-region . 3)
  (set-cursor-color . 13)
  (highlight-indentation-mode . 2)
- (jedi:install-server . 4)
+ (jedi:install-server . 5)
  (describe-variable . 1)
  (jedi:setup . 1)
  (company-jedi . 1)
  (lsp-restart-workspace . 1)
+ (flymake-mode . 2)
+ (jedi:reinstall-server . 1)
+ (smartparens-strict-mode . 2)
+ (sp-kill-sexp . 1)
 )
