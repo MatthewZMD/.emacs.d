@@ -2,12 +2,12 @@
 ;; ----- amx-history -----
 (
  ielm
+ recover-this-file
  byte-compile-file
  2048-game
  package-refresh-contents
  list-packages
  flymake-mode
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 15)
+ (ielm . 16)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -154,4 +154,6 @@
  (smartparens-strict-mode . 2)
  (sp-kill-sexp . 1)
  (byte-compile-file . 2)
+ (irony . 1)
+ (recover-this-file . 1)
 )
