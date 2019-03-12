@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- lsp-restart-workspace
- lsp-shutdown-workspace
  ielm
  company-lsp
  list-load-path-shadows
  package-reinstall
  package-refresh-contents
+ eval-buffer
+ shell
 )
 
 ;; ----- amx-data -----

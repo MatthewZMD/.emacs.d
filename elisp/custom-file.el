@@ -8,7 +8,7 @@
  '(all-the-icons-dired-dir-face ((t (\` (:foreground (\, (face-background (quote default))))))))
  '(css-selector ((t (:inherit default :foreground "#66CCFF"))))
  '(cursor ((t (:background "BlanchedAlmond"))))
- '(dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 125))))
+ '(dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 120))))
  '(font-lock-comment-face ((t (:foreground "#828282")))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

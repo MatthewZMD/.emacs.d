@@ -421,6 +421,7 @@
     Use UTF-8 as much as possible with unix line endings.
     #+BEGIN_SRC emacs-lisp
       (prefer-coding-system 'utf-8-unix)
+      (set-language-environment "UTF-8")
       (set-default-coding-systems 'utf-8-unix)
       (set-terminal-coding-system 'utf-8-unix)
       (set-keyboard-coding-system 'utf-8-unix)
@@ -608,7 +609,7 @@
        :diminish (dashboard-mode page-break-lines-mode)
        :config
        (dashboard-setup-startup-hook)
-       (setq dashboard-banner-logo-title "Present Day, Present Time...")
+       (setq dashboard-banner-logo-title "Close the world. Open the nExt.")
        (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png"))
      ;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
 
@@ -769,7 +770,7 @@
    Disable splash screen and change scratch message.
    #+BEGIN_SRC emacs-lisp
      (setq inhibit-startup-screen t)
-     (setq initial-scratch-message ";; Close the World, Open the nExt")
+     (setq initial-scratch-message ";; Present Day, Present Time...")
    #+END_SRC
    Change yes or no prompts to y or n.
    #+BEGIN_SRC emacs-lisp
