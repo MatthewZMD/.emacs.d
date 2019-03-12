@@ -151,7 +151,7 @@
      (eval-and-compile
        (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
    #+END_SRC
-** Use =def-package=, a Faster =use-package=
+** =use-package= Wrapper
    My Emacs configuration is almost entirely dependant on a faster implementation of [[https://github.com/jwiegley/use-package][use-package]] based on [[https://github.com/hlissner/doom-emacs/blob/master/core/core-packages.el#L323][Doom Emacs]].
    #+BEGIN_QUOTE
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
@@ -636,6 +636,8 @@
        (insert "Navigation: ")
        ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
        (widget-create 'url-link
+
+
           :tag (propertize "Github" 'face 'font-lock-keyword-face)
           :help-echo "Open the Emacs Configuration Github page"
           :mouse-face 'highlight
