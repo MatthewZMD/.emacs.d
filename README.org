@@ -178,7 +178,6 @@
                                                 (list path)
                                               nil))
                                         load-path))))))
-
      (eval-when-compile
        (require 'use-package)
        ;; Always ensure package is installed
@@ -265,6 +264,7 @@
 
       ;; Reuse same dired buffer, so doesn't create new buffer each time
       (put 'dired-find-alternate-file 'disabled nil)
+      (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)))
       (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
       (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
                                          (lambda () (interactive) (find-alternate-file "..")))))
