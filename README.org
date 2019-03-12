@@ -992,7 +992,7 @@
      (def-package highlight-indent-guides
        :defer t
        :config
-       (add-hook prog-mode-hook #'highlight-indent-guides-mode)
+       (add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
        (setq highlight-indent-guides-method 'character))
    #+END_SRC
 ** LSP
@@ -1005,15 +1005,42 @@
         :init
         (setq lsp-auto-guess-root t)       ; Detect project root
         (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
+        (setq lsp-message-project-root-warning t)
         :hook (prog-mode . lsp))
     #+END_SRC
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+BEGIN_SRC emacs-lisp
-      (def-package lsp-ui
+      (use-package lsp-ui
         :after lsp-mode
-        :diminish lsp-mode
-        :commands lsp-ui-mode)
+        :diminish
+        :commands lsp-ui-mode
+        :custom-face
+        (lsp-ui-doc-background ((t (:background nil))))
+        (lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
+        :bind (:map lsp-ui-mode-map
+                    ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+                    ([remap xref-find-references] . lsp-ui-peek-find-references)
+                    ("C-c u" . lsp-ui-imenu))
+        :init
+        (setq lsp-ui-doc-enable t
+              lsp-ui-doc-header t
+              lsp-ui-doc-include-signature t
+              lsp-ui-doc-position 'top
+              lsp-ui-doc-use-webkit t
+              lsp-ui-doc-border (face-foreground 'default)
+
+              lsp-ui-sideline-enable t
+              lsp-ui-sideline-ignore-duplicate t
+              lsp-ui-sideline-show-diagnostics nil
+              lsp-ui-sideline-show-symbol t
+              lsp-ui-sideline-show-hover t
+              lsp-ui-sideline-show-code-actions t)
+        :config
+        ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
+        ;; https://github.com/emacs-lsp/lsp-ui/issues/243
+        (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
+          (setq mode-line-format nil)))
     #+END_SRC
 *** Company LSP
     [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
