@@ -897,9 +897,8 @@
    #+BEGIN_SRC emacs-lisp
      (def-package flycheck
        :defer t
-       :diminish flycheck-mode
+       :hook (prog-mode . flycheck-mode)
        :config
-       (global-flycheck-mode)
        (flycheck-add-mode 'typescript-tslint 'js2-mode)
        (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
    #+END_SRC
@@ -1184,7 +1183,18 @@
     [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]], a feature that offers TypeScript support for Emacs.
     #+BEGIN_SRC emacs-lisp
       (def-package typescript-mode
-        :defer t)
+        :defer t
+        :commands (typescript-mode)
+        :bind (:map typescript-mode-map
+                    ("M-." . tide-jump-to-definition))
+        :init
+        (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+        (defun setup-tide-ts ()
+          "Setup tide for typescript."
+          (interactive)
+          (tide-setup)
+          (tide-hl-identifier-mode))
+        (add-hook 'typescript-mode-hook #'setup-tide-ts))
     #+END_SRC
 *** Tide
     [[https://github.com/ananthakumaran/tide][Tide]], a *T*ypeScript *I*nteractive *D*evelopment *E*nvironment for *E*macs.
@@ -1192,15 +1202,12 @@
     Tip: enter =M-.= to jump to definition.
     #+BEGIN_SRC emacs-lisp
       (def-package tide
-        :after (typescript-mode company flycheck)
-        :hook ((typescript-mode . tide-setup)
-               (typescript-mode . tide-hl-identifier-mode)
-               (before-save . tide-format-before-save))
-        :config
-        (setq tide-completion-enable-autoimport-suggestions t)
-        (flycheck-add-mode 'typescript-tslint 'web-mode)
-        (add-hook 'js2-mode-hook #'setup-tide-mode)
-        (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
+        :defer t
+        :ensure t
+        :bind (:map tide-mode-map
+                    ("M-." . nil))
+        :commands (tide-setup)
+        :after (company flycheck))
     #+END_SRC
 * Miscellaneous
 ** Org
@@ -1275,16 +1282,8 @@
      (def-package 2048-game
        :defer t)
    #+END_SRC
-** Pacmacs
-   [[https://github.com/emacsmirror/pacmacs][Pacmacs]], Pacman for Emacs.
-   #+BEGIN_SRC emacs-lisp
-     (def-package pacmacs
-       :defer t)
-   #+END_SRC
 * Credits
   This Emacs configuration was influenced and inspired by the following configurations.
   - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
   - [[https://github.com/hlissner/doom-emacs][Henrik Lissner's Doom Emacs]]
   - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]
-* Test:
-#+INCLUDE: ~/.emacs.d/elisp/custom-file.el

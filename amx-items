@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ global-flycheck-mode
  ielm
  company-lsp
  list-load-path-shadows
  package-reinstall
  package-refresh-contents
  eval-buffer
- shell
 )
 
 ;; ----- amx-data -----
@@ -158,4 +158,5 @@
  (company-lsp . 4)
  (company-diag . 1)
  (lsp-shutdown-workspace . 2)
+ (global-flycheck-mode . 2)
 )
