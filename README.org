@@ -1202,7 +1202,6 @@
         (add-hook 'js2-mode-hook #'setup-tide-mode)
         (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append))
     #+END_SRC
-
 * Miscellaneous
 ** Org
    [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
@@ -1219,15 +1218,6 @@
        (setq org-todo-keywords
              '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
    #+END_SRC
-*** Org Bullets
-    [[https://github.com/sabof/org-bullets][Org bullets]] shows bullets as UTF-8 characters.
-    #+BEGIN_SRC emacs-lisp
-      (def-package org-bullets
-        :after org
-        :defer t
-        :config
-        (add-hook 'org-mode-hook #'org-bullets-mode))
-    #+END_SRC
 *** TOC Org
     [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
     #+BEGIN_SRC emacs-lisp
@@ -1296,3 +1286,5 @@
   - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
   - [[https://github.com/hlissner/doom-emacs][Henrik Lissner's Doom Emacs]]
   - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]
+* Test:
+#+INCLUDE: ~/.emacs.d/elisp/custom-file.el
