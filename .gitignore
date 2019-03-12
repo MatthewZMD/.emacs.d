@@ -24,5 +24,4 @@ recentf
 /README.html
 /.lsp-session-v1
 workspace/
-python-language-server/
-.lsp-python/
+.python-environments/

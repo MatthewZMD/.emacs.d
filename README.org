@@ -1017,6 +1017,8 @@
     #+BEGIN_SRC emacs-lisp
       (def-package company-lsp
         :after (company lsp-mode)
+        :config
+        (setq company-lsp-cache-candidates 'auto)
         :commands company-lsp)
     #+END_SRC
 *** DAP

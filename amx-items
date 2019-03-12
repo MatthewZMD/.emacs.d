@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ lsp-restart-workspace
+ lsp-shutdown-workspace
  ielm
- recover-this-file
- byte-compile-file
- 2048-game
+ company-lsp
+ list-load-path-shadows
+ package-reinstall
  package-refresh-contents
- list-packages
- flymake-mode
 )
 
 ;; ----- amx-data -----
@@ -19,7 +19,7 @@
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
- (package-refresh-contents . 8)
+ (package-refresh-contents . 9)
  (flycheck-mode . 4)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
@@ -46,7 +46,7 @@
  (web-mode . 7)
  (smartparens-mode . 3)
  (display-time-mode . 1)
- (package-reinstall . 5)
+ (package-reinstall . 6)
  (magit-version . 2)
  (speed-type-text . 3)
  (revert-buffer . 5)
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 16)
+ (ielm . 17)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -148,12 +148,14 @@
  (describe-variable . 1)
  (jedi:setup . 1)
  (company-jedi . 1)
- (lsp-restart-workspace . 1)
+ (lsp-restart-workspace . 2)
  (flymake-mode . 2)
  (jedi:reinstall-server . 1)
  (smartparens-strict-mode . 2)
  (sp-kill-sexp . 1)
  (byte-compile-file . 2)
- (irony . 1)
- (recover-this-file . 1)
+ (list-load-path-shadows . 2)
+ (company-lsp . 4)
+ (company-diag . 1)
+ (lsp-shutdown-workspace . 2)
 )
