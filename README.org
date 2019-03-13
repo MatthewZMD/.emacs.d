@@ -1010,7 +1010,7 @@
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+BEGIN_SRC emacs-lisp
-      (use-package lsp-ui
+      (def-package lsp-ui
         :after lsp-mode
         :diminish
         :commands lsp-ui-mode
