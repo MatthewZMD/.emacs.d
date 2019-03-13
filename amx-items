@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- list-processes
- list-packages
- package-install
  package-reinstall
  ivy-switch-buffer
  ivy-avy
  global-flycheck-mode
+ ielm
+ company-lsp
+ list-load-path-shadows
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 43)
+ (package-install . 42)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -41,12 +41,12 @@
  (eshell . 1)
  (shell . 42)
  (package-menu-mark-upgrades . 4)
- (list-packages . 10)
+ (list-packages . 9)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
  (display-time-mode . 1)
- (package-reinstall . 8)
+ (package-reinstall . 9)
  (magit-version . 2)
  (speed-type-text . 3)
  (revert-buffer . 5)
@@ -161,5 +161,4 @@
  (global-flycheck-mode . 2)
  (ivy-avy . 1)
  (ivy-switch-buffer . 1)
- (list-processes . 1)
 )
