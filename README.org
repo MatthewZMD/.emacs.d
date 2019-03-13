@@ -82,11 +82,9 @@
 ** Lexical-binding
    Use lexical-binding. [[https://nullprogram.com/blog/2016/12/22/][Why?]]
    #+BEGIN_QUOTE
-   Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables  a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
+   Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
-   #+BEGIN_SRC emacs-lisp
-     ;; -*- lexical-binding: t; -*-
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "2-3"
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
    #+BEGIN_SRC emacs-lisp
@@ -123,7 +121,7 @@
 ** Local Packages Not in Melpa
    This will add all the packages in =/elisp= into the =load-path=.
    #+BEGIN_SRC emacs-lisp
-     (let ((base "~/.emacs.d/elisp"))
+     (let ((base "~/.emacs.d/site-elisp"))
        (add-to-list 'load-path base)
        (dolist (f (directory-files base))
          (let ((name (concat base "/" f)))
@@ -1238,6 +1236,10 @@
         :after org
         :defer t
         :config (add-hook 'org-mode-hook 'toc-org-mode))
+    #+END_SRC
+*** HTMLIZE
+    #+BEGIN_SRC emacs-lisp
+      (use-package htmlize :defer t)
     #+END_SRC
 ** EWW
    EWW, the Emacs Web Wowser.
