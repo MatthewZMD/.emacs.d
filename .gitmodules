@@ -1,3 +1,0 @@
-[submodule "site-elisp/lsp-python-ms"]
-	path = site-elisp/lsp-python-ms
-	url = https://github.com/andrew-christianson/lsp-python-ms.git
