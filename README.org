@@ -1,6 +1,6 @@
 #+TITLE: M-EMACS
 * About
-  M-EMACS is a custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#elpamelpa-package-sources][Elpa/Melpa Package Sources]], then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
+  M-EMACS is a custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to [[#melpa-packages][Melpa Packages]], then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
 ** Cool Little Thing About This README                             :noexport:
@@ -9,15 +9,15 @@
 - [[#about][About]]
 - [[#startup][Startup]]
   - [[#lexical-binding][Lexical-binding]]
+  - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
   - [[#optimization][Optimization]]
 - [[#efficient-package-management][Efficient Package Management]]
   - [[#local-packages-not-in-melpa][Local Packages Not in Melpa]]
-  - [[#melpa-package-sources][Melpa Package Sources]]
+  - [[#melpa-packages][Melpa Packages]]
   - [[#configure-package-management][Configure Package Management]]
   - [[#use-package-wrapper][Use-Package Wrapper]]
   - [[#auto-package-update][Auto Package Update]]
 - [[#global-functionalities][Global Functionalities]]
-  - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
   - [[#owner-information][Owner Information]]
   - [[#bindings][Bindings]]
   - [[#file-management][File Management]]
@@ -75,7 +75,6 @@
   - [[#tetris][Tetris]]
   - [[#speed-type][Speed Type]]
   - [[#2048-game][2048 Game]]
-  - [[#pacmacs][Pacmacs]]
 - [[#credits][Credits]]
 
 * Startup
@@ -84,7 +83,7 @@
    #+BEGIN_QUOTE
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "2-3"
+   #+INCLUDE: "~/.emacs.d/elisp/custom-file.el" src emacs-lisp :lines "1-2"
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
    #+BEGIN_SRC emacs-lisp
@@ -130,7 +129,7 @@
                       (not (equal f ".")))
              (add-to-list 'load-path name)))))
    #+END_SRC
-** Melpa Package Sources
+** Melpa Packages
    #+BEGIN_SRC emacs-lisp
      ;; Select the folder to store packages
      (setq package-user-dir "~/.emacs.d/elpa"
@@ -1234,8 +1233,7 @@
     #+BEGIN_SRC emacs-lisp
       (def-package toc-org
         :after org
-        :defer t
-        :config (add-hook 'org-mode-hook 'toc-org-mode))
+        :hook org-mode)
     #+END_SRC
 *** HTMLIZE
     #+BEGIN_SRC emacs-lisp

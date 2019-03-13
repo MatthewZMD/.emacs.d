@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ list-processes
+ list-packages
  package-install
  package-reinstall
  ivy-switch-buffer
  ivy-avy
  global-flycheck-mode
- ielm
- company-lsp
 )
 
 ;; ----- amx-data -----
@@ -41,7 +41,7 @@
  (eshell . 1)
  (shell . 42)
  (package-menu-mark-upgrades . 4)
- (list-packages . 9)
+ (list-packages . 10)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
@@ -161,4 +161,5 @@
  (global-flycheck-mode . 2)
  (ivy-avy . 1)
  (ivy-switch-buffer . 1)
+ (list-processes . 1)
 )
