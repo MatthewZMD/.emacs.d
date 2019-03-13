@@ -1087,7 +1087,6 @@
     *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]].
     #+BEGIN_SRC emacs-lisp
       (def-package lsp-java
-        :defer t
         :after lsp-mode
         :config (add-hook 'java-mode-hook 'lsp))
     #+END_SRC

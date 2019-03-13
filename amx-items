@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- package-reinstall
- ivy-switch-buffer
- ivy-avy
- global-flycheck-mode
  ielm
+ re-search-forward
+ global-flycheck-mode
  company-lsp
  list-load-path-shadows
+ package-reinstall
+ package-refresh-contents
 )
 
 ;; ----- amx-data -----
@@ -46,7 +46,7 @@
  (web-mode . 7)
  (smartparens-mode . 3)
  (display-time-mode . 1)
- (package-reinstall . 9)
+ (package-reinstall . 6)
  (magit-version . 2)
  (speed-type-text . 3)
  (revert-buffer . 5)
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 17)
+ (ielm . 18)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -159,6 +159,5 @@
  (company-diag . 1)
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
- (ivy-avy . 1)
- (ivy-switch-buffer . 1)
+ (re-search-forward . 1)
 )
