@@ -214,7 +214,6 @@
      (tooltip-mode    -1)
      (menu-bar-mode   -1)
    #+END_SRC
-
 ** Owner Information
    *Prerequisite*: Change this to your information.
    #+BEGIN_SRC emacs-lisp
@@ -248,26 +247,29 @@
 *** Dired
     Dired, the directory editor.
     #+BEGIN_SRC emacs-lisp
-      ;; Always delete and copy recursively
-      (setq dired-recursive-deletes 'always)
-      (setq dired-recursive-copies 'always)
+      (def-package dired
+        :ensure nil
+        :config
+        ;; Always delete and copy recursively
+        (setq dired-recursive-deletes 'always)
+        (setq dired-recursive-copies 'always)
 
-      ;; Auto refresh Dired, but be quiet about it
-      (setq global-auto-revert-non-file-buffers t)
-      (setq auto-revert-verbose nil)
+        ;; Auto refresh Dired, but be quiet about it
+        (setq global-auto-revert-non-file-buffers t)
+        (setq auto-revert-verbose nil)
 
-      ;; Quickly copy/move file in Dired
-      (setq dired-dwim-target t)
+        ;; Quickly copy/move file in Dired
+        (setq dired-dwim-target t)
 
-      ;; Move files to trash when deleting
-      (setq delete-by-moving-to-trash t)
+        ;; Move files to trash when deleting
+        (setq delete-by-moving-to-trash t)
 
-      ;; Reuse same dired buffer, so doesn't create new buffer each time
-      (put 'dired-find-alternate-file 'disabled nil)
-      (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)))
-      (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
-      (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
-                                         (lambda () (interactive) (find-alternate-file "..")))))
+        ;; Reuse same dired buffer, so doesn't create new buffer each time
+        (put 'dired-find-alternate-file 'disabled nil)
+        (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)))
+        (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
+        (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
+                                           (lambda () (interactive) (find-alternate-file ".."))))))
     #+END_SRC
 *** Autosave and Backup
     Create directory where Emacs stores backups and autosave files.
@@ -318,12 +320,14 @@
    *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
    #+BEGIN_SRC emacs-lisp
      (def-package ag
+       :defer t
        :bind ("C-z s" . ag))
    #+END_SRC
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+BEGIN_SRC emacs-lisp
      (def-package avy
+       :defer t
        :bind
        (("C-;" . avy-goto-char-timer)
         ("C-:" . avy-goto-line))
@@ -336,7 +340,7 @@
     [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs.
     #+BEGIN_SRC emacs-lisp
       (def-package ivy
-        :diminish ivy-mode ;;Hide ivy in the button screen
+        :diminish ivy-mode
         :init (ivy-mode 1)
         :config
         (setq ivy-use-virtual-buffers t)
@@ -406,6 +410,7 @@
    [[https://www.emacswiki.org/emacs/UndoTree][Undo tree]], a feature that provides a visualization of the undos in a file.
    #+BEGIN_SRC emacs-lisp
      (def-package undo-tree
+       :defer t
        :diminish undo-tree-mode
        :init (global-undo-tree-mode))
    #+END_SRC
@@ -475,7 +480,7 @@
     #+END_SRC
 *** Move Custom-Set-Variables to Different File
     #+BEGIN_SRC emacs-lisp
-      (setq custom-file "~/.emacs.d/elisp/custom-file.el")
+      (setq custom-file (concat user-emacs-directory "elisp/custom-file.el"))
       (load custom-file 'noerror)
     #+END_SRC
 ** More Functions
@@ -590,6 +595,7 @@
    [[https://github.com/seagle0128/doom-modeline][Doom modeline]], a modeline from DOOM Emacs, but more powerful and faster.
    #+BEGIN_SRC emacs-lisp
      (def-package doom-modeline
+       :hook (after-init . doom-modeline-mode)
        :config
        ;; Don't compact font caches during GC. Windows Laggy Issue
        (setq inhibit-compacting-font-caches t)
@@ -597,8 +603,7 @@
        ;;(setq doom-modeline-github t) ;; requires ghub package
        (setq doom-modeline-icon t)
        (setq doom-modeline-major-mode-color-icon t)
-       (setq doom-modeline-height 15)
-       (doom-modeline-mode 1))
+       (setq doom-modeline-height 15))
    #+END_SRC
 ** Dashboard
    [[https://github.com/rakanalh/emacs-dashboard][Dashboard]], an extensible Emacs startup screen.
@@ -610,54 +615,51 @@
        :config
        (dashboard-setup-startup-hook)
        (setq dashboard-banner-logo-title "Close the world. Open the nExt.")
-       (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png"))
-     ;;  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Light_BK.png"))
+       (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
 
-     (defun open-dashboard ()
-       "Open the *dashboard* buffer and jump to the first widget."
-       (interactive)
-       (if (get-buffer dashboard-buffer-name)
-           (kill-buffer dashboard-buffer-name))
-       (dashboard-insert-startupify-lists)
-       (switch-to-buffer dashboard-buffer-name)
-       (goto-char (point-min))
-       (if (> (length (window-list-1))
-              ;; exclude `treemacs' window
-              (if (and (fboundp 'treemacs-current-visibility)
-                       (eq (treemacs-current-visibility) 'visible)) 2 1))
-           (setq dashboard-recover-layout-p t))
-       (delete-other-windows))
-     (global-set-key (kbd "C-z d") #'open-dashboard)
-   #+END_SRC
-   Additional Dashboard widgets.
-   #+BEGIN_SRC emacs-lisp
-     (defun dashboard-insert-widgets (list-size)
-       (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
-       (insert "Navigation: ")
-       ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
-       (widget-create 'url-link
+       (defun open-dashboard ()
+         "Open the *dashboard* buffer and jump to the first widget."
+         (interactive)
+         (if (get-buffer dashboard-buffer-name)
+             (kill-buffer dashboard-buffer-name))
+         (dashboard-insert-startupify-lists)
+         (switch-to-buffer dashboard-buffer-name)
+         (goto-char (point-min))
+         (if (> (length (window-list-1))
+                ;; exclude `treemacs' window
+                (if (and (fboundp 'treemacs-current-visibility)
+                         (eq (treemacs-current-visibility) 'visible)) 2 1))
+             (setq dashboard-recover-layout-p t))
+         (delete-other-windows))
+       (global-set-key (kbd "C-z d") #'open-dashboard)
 
+       ;; Additional Dashboard widgets.
+       (defun dashboard-insert-widgets (list-size)
+         (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
+         (insert "Navigation: ")
+         ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
+         (widget-create 'url-link
+                        :tag (propertize "Github" 'face 'font-lock-keyword-face)
+                        :help-echo "Open the Emacs Configuration Github page"
+                        :mouse-face 'highlight
+                        "https://github.com/MatthewZMD/.emacs.d")
+         (insert " ")
+         (widget-create 'push-button
+                        :help-echo "Edit This Emacs' Configuration"
+                        :action (lambda (&rest _) (edit-configs))
+                        :mouse-face 'highlight
+                        :button-prefix ""
+                        :button-suffix ""
+                        (propertize "Configuration" 'face 'font-lock-keyword-face)))
 
-          :tag (propertize "Github" 'face 'font-lock-keyword-face)
-          :help-echo "Open the Emacs Configuration Github page"
-          :mouse-face 'highlight
-          "https://github.com/MatthewZMD/.emacs.d")
-       (insert " ")
-       (widget-create 'push-button
-          :help-echo "Edit This Emacs' Configuration"
-          :action (lambda (&rest _) (edit-configs))
-          :mouse-face 'highlight
-                :button-prefix ""
-                :button-suffix ""
-                (propertize "Configuration" 'face 'font-lock-keyword-face)))
-
-     (add-to-list 'dashboard-item-generators  '(buttons . dashboard-insert-widgets))
-     (add-to-list 'dashboard-items '(buttons))
+       (add-to-list 'dashboard-item-generators  '(buttons . dashboard-insert-widgets))
+       (add-to-list 'dashboard-items '(buttons)))
    #+END_SRC
 ** Page Break Lines
    [[https://github.com/purcell/page-break-lines][Page-break-lines]], a feature that displays ugly form feed characters as tidy horizontal rules.
    #+BEGIN_SRC emacs-lisp
      (def-package page-break-lines
+       :diminish
        :init (global-page-break-lines-mode))
    #+END_SRC
 ** Fonts
@@ -695,17 +697,20 @@
 ** Zone Mode Screensaver
    [[https://www.emacswiki.org/emacs/ZoneMode][Zone mode]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer, which is used as my Emacs screensaver.
    #+BEGIN_SRC emacs-lisp
-     (require 'zone)
-     (zone-when-idle 300) ;; in seconds
-     (defun zone-choose (pgm)
-       "Choose a PGM to run for `zone'."
-       (interactive
-        (list
-         (completing-read
-          "Program: "
-          (mapcar 'symbol-name zone-programs))))
-       (let ((zone-programs (list (intern pgm))))
-         (zone)))
+     (def-package zone
+       :ensure nil
+       :config
+       (zone-when-idle 300) ;; in seconds
+
+       (defun zone-choose (pgm)
+         "Choose a PGM to run for `zone'."
+         (interactive
+          (list
+           (completing-read
+            "Program: "
+            (mapcar 'symbol-name zone-programs))))
+         (let ((zone-programs (list (intern pgm))))
+           (zone))))
    #+END_SRC
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
@@ -999,7 +1004,7 @@
 *** LSP Mode
     #+BEGIN_SRC emacs-lisp
       (def-package lsp-mode
-        :demand t
+        :defer t
         :commands lsp
         :init
         (setq lsp-auto-guess-root t)       ; Detect project root
@@ -1085,6 +1090,7 @@
     *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]].
     #+BEGIN_SRC emacs-lisp
       (def-package lsp-java
+        :defer t
         :after lsp-mode
         :config (add-hook 'java-mode-hook 'lsp))
     #+END_SRC
