@@ -55,6 +55,10 @@
 
 (require 'init-dired)
 
+(require 'init-ag)
+
+(require 'init-avy)
+
 (org-babel-load-file (expand-file-name "~/.emacs.d/inits.org"))
 
 (provide 'init)

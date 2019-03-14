@@ -167,53 +167,20 @@
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]], a code-searching tool similar to ack, but faster.
 
    *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
-   #+BEGIN_SRC emacs-lisp
-     (def-package ag
-       :defer t
-       :bind ("C-z s" . ag))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-ag.el" src emacs-lisp :lines "3-6"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
-   #+BEGIN_SRC emacs-lisp
-     (def-package avy
-       :defer t
-       :bind
-       (("C-;" . avy-goto-char-timer)
-        ("C-:" . avy-goto-line))
-       :config
-       (setq avy-timeout-seconds 0.3)
-       (setq avy-style 'pre))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :lines "3-11"
 ** Ivy
 *** Main Ivy
     [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs.
-    #+BEGIN_SRC emacs-lisp
-      (def-package ivy
-        :diminish ivy-mode
-        :init (ivy-mode 1)
-        :config
-        (setq ivy-use-virtual-buffers t)
-        (setq ivy-height 10)
-        (setq ivy-on-del-error-function nil)
-        (setq ivy-magic-slash-non-match-action nil)
-        (setq ivy-count-format "【%d/%d】")
-        (setq ivy-wrap t))
-   #+END_SRC
+    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :lines "4-14"
 *** Amx
     [[https://github.com/DarwinAwardWinner/amx][Amx]], a M-x enhancement tool forked from [[https://github.com/nonsequitur/smex][Smex]].
-    #+BEGIN_SRC emacs-lisp
-      (def-package amx
-        :after (:any ivy ido)
-        :config (amx-mode))
-    #+END_SRC
+    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :lines "16-19"
 *** Counsel
     [[https://github.com/abo-abo/swiper][Counsel]], a collection of Ivy-enhanced versions of common Emacs commands.
-    #+BEGIN_SRC emacs-lisp
-      (def-package counsel
-        :after ivy
-        :diminish counsel-mode
-        :init (counsel-mode 1))
-    #+END_SRC
+    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :lines "21-25"
 ** Winner
    Winner mode restores old window layout.
    #+BEGIN_SRC emacs-lisp
