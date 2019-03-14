@@ -86,7 +86,8 @@
    #+BEGIN_SRC sh :wrap src emacs-lisp :exports results
      sed -n 1,2p elisp/custom-file.el
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/custom-file.el" src emacs-lisp :lines "1-2"
+   #+RESULTS:
+
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
    #+BEGIN_SRC emacs-lisp
