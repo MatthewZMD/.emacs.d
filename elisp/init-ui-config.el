@@ -1,21 +1,21 @@
-;;; init-avy.el --- -*- lexical-binding: t -*-
+;;; init-ui-config.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-avy.el
-;; Description: Initialize Avy
+;; Filename: init-ui-config.el
+;; Description: Initialize UI Configuration
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 11:12:49 2019 (-0400)
+;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d avy
+;; Keywords: M-EMACS .emacs.d ui
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes avy
+;; This initializes UI configurations
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,19 +41,10 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
+;; TitleBar
+(setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
+;; -TitleBar
 
-;; AvyPac
-(def-package avy
-  :defer t
-  :bind
-  (("C-;" . avy-goto-char-timer)
-   ("C-:" . avy-goto-line))
-  :config
-  (setq avy-timeout-seconds 0.3)
-  (setq avy-style 'pre))
-;; -AvyPac
-
-(provide 'init-avy)
+(provide 'init-ui-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-avy.el ends here
+;;; init-ui-config.el ends here

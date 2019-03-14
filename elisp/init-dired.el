@@ -43,6 +43,7 @@
 
 (require 'init-package)
 
+;; DiredPackage
 (def-package dired
   :ensure nil
   :config
@@ -66,18 +67,22 @@
   (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
   (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
                                      (lambda () (interactive) (find-alternate-file ".."))))))
+;; -DiredPackage
 
-;; Autosave and Backup
+;; AutosaveBackupDir
 (make-directory "~/.emacs.d/autosaves" t)
 (make-directory "~/.emacs.d/backups" t)
+;; -AutosaveBackupDir
 
+;; AutosaveBackupAlist
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
       auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
       delete-old-versions -1
       version-control t
       vc-make-backup-files t)
+;; -AutosaveBackupAlist
 
-;; Rename Both File and Buffer
+;; RenameFileBuffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
@@ -93,7 +98,9 @@
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
+;; -RenameFileBuffer
 
+;; DiredConfigs
 ;; Load the newest version of a file
 (setq load-prefer-newer t)
 
@@ -102,6 +109,7 @@
 
 ;; Transparently open compressed files
 (auto-compression-mode t)
+;; -DiredConfigs
 
 (provide 'init-dired)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

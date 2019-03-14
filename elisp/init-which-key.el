@@ -1,21 +1,21 @@
-;;; init-avy.el --- -*- lexical-binding: t -*-
+;;; init-which-key.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-avy.el
-;; Description: Initialize Avy
+;; Filename: init-which-key.el
+;; Description: Initialize Which-key
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 11:12:49 2019 (-0400)
+;; Created: Thu Mar 14 15:06:27 2019 (-0400)
 ;; Version: 1.2.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d avy
+;; URL: URL: https://github.com/MatthewZMD/.emacs.d
+;; Keywords: M-EMACS .emacs.d which-key
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes avy
+;; This initializes which-key
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,17 +43,16 @@
 
 (require 'init-package)
 
-;; AvyPac
-(def-package avy
-  :defer t
-  :bind
-  (("C-;" . avy-goto-char-timer)
-   ("C-:" . avy-goto-line))
+;; WhichKeyPac
+(def-package which-key
+  :diminish
+  :init
+  (setq which-key-separator " ")
+  (setq which-key-prefix-prefix "+")
   :config
-  (setq avy-timeout-seconds 0.3)
-  (setq avy-style 'pre))
-;; -AvyPac
+  (which-key-mode))
+;; -WhichKeyPac
 
-(provide 'init-avy)
+(provide 'init-which-key)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-avy.el ends here
+;;; init-which-key.el ends here

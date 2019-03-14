@@ -1,21 +1,22 @@
-;;; init-avy.el --- -*- lexical-binding: t -*-
+;;; init-winner.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-avy.el
-;; Description: Initialize Avy
+;; Filename: init-winner.el
+;; Description: Initialize Winner Mode
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 11:12:49 2019 (-0400)
+;; Created: Thu Mar 14 14:39:31 2019 (-0400)
 ;; Version: 1.2.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d avy
-;; Compatibility: emacs-version >= 25.1
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes avy
+;; This initializes winner mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,17 +44,24 @@
 
 (require 'init-package)
 
-;; AvyPac
-(def-package avy
-  :defer t
-  :bind
-  (("C-;" . avy-goto-char-timer)
-   ("C-:" . avy-goto-line))
-  :config
-  (setq avy-timeout-seconds 0.3)
-  (setq avy-style 'pre))
-;; -AvyPac
+;; WinnerPac
+(def-package winner
+  :ensure nil
+  :commands (winner-undo winner-redo)
+  :init (setq winner-boring-buffers
+              '("*Completions*"
+                "*Compile-Log*"
+                "*inferior-lisp*"
+                "*Fuzzy Completions*"
+                "*Apropos*"
+                "*Help*"
+                "*cvs*"
+                "*Buffer List*"
+                "*Ibuffer*"
+                "*esh command on file*"))
+  :config (winner-mode 1))
+;; -WinnerPac
 
-(provide 'init-avy)
+(provide 'init-winner)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-avy.el ends here
+;;; init-winner.el ends here

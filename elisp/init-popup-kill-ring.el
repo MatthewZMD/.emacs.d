@@ -1,21 +1,21 @@
-;;; init-avy.el --- -*- lexical-binding: t -*-
+;;; init-popup-kill-ring.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-avy.el
-;; Description: Initialize Avy
+;; Filename: init-popup-kill-ring.el
+;; Description: Initialize Popup-Kill-Ring
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 11:12:49 2019 (-0400)
+;; Created: Thu Mar 14 15:15:40 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d avy
+;; Keywords: M-EMACS .emacs.d popup-kill-ring
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes avy
+;; This initializes popup-kill-ring
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,17 +43,11 @@
 
 (require 'init-package)
 
-;; AvyPac
-(def-package avy
-  :defer t
-  :bind
-  (("C-;" . avy-goto-char-timer)
-   ("C-:" . avy-goto-line))
-  :config
-  (setq avy-timeout-seconds 0.3)
-  (setq avy-style 'pre))
-;; -AvyPac
+;; PopKillRing
+(def-package popup-kill-ring
+  :bind ("M-y" . popup-kill-ring))
+;; -PopKillRing
 
-(provide 'init-avy)
+(provide 'init-popup-kill-ring)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-avy.el ends here
+;;; init-popup-kill-ring.el ends here

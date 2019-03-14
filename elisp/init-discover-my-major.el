@@ -1,21 +1,21 @@
-;;; init-avy.el --- -*- lexical-binding: t -*-
+;;; init-discover-my-major.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-avy.el
-;; Description: Initialize Avy
+;; Filename: init-discover-my-major.el
+;; Description: Initialize Discover-My-Major
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 11:12:49 2019 (-0400)
+;; Created: Thu Mar 14 15:38:29 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d avy
+;; Keywords: M-EMACS .emacs.d discover-my-major
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes avy
+;; This initializes discover-my-major
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,20 +40,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-
 (require 'init-package)
 
-;; AvyPac
-(def-package avy
-  :defer t
-  :bind
-  (("C-;" . avy-goto-char-timer)
-   ("C-:" . avy-goto-line))
-  :config
-  (setq avy-timeout-seconds 0.3)
-  (setq avy-style 'pre))
-;; -AvyPac
+;; DiscMyMajor
+(def-package discover-my-major
+  :bind (("C-h C-m" . discover-my-major)))
+;; -DiscMyMajor
 
-(provide 'init-avy)
+(provide 'init-discover-my-major)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-avy.el ends here
+;;; init-discover-my-major.el ends here

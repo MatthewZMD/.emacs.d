@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ update-load-path
  rename-file-and-buffer
+ org-gfm-export-to-markdown
+ check-parens
  winner-mode
  time-stamp
  package-install
- kmacro-edit-macro
- eval-buffer
- shell
 )
 
 ;; ----- amx-data -----
@@ -160,8 +160,8 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 13)
- (rename-file-and-buffer . 12)
+ (org-gfm-export-to-markdown . 24)
+ (rename-file-and-buffer . 17)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (kmacro-edit-macro . 1)
@@ -169,4 +169,6 @@
  (winner-redo . 1)
  (winner-undo . 2)
  (winner-mode . 3)
+ (check-parens . 1)
+ (update-load-path . 3)
 )

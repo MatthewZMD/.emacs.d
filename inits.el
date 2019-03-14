@@ -1,25 +1,3 @@
-(setq user-full-name "Mingde (Matthew) Zeng")
-(setq user-mail-address "matthewzmd@gmail.com")
-
-(def-package swiper
-  :bind ("C-s" . swiper))
-
-(def-package winner
-  :ensure nil
-  :commands (winner-undo winner-redo)
-  :init (setq winner-boring-buffers
-              '("*Completions*"
-                "*Compile-Log*"
-                "*inferior-lisp*"
-                "*Fuzzy Completions*"
-                "*Apropos*"
-                "*Help*"
-                "*cvs*"
-                "*Buffer List*"
-                "*Ibuffer*"
-                "*esh command on file*"))
-  :config (winner-mode 1))
-
 (def-package which-key
   :diminish
   :init

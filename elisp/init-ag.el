@@ -44,9 +44,11 @@
 (require 'init-package)
 (require 'init-global-config)
 
+;; AgPac
 (def-package ag
   :defer t
   :bind ("C-z s" . ag))
+;; -AgPac
 
 (provide 'init-ag)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

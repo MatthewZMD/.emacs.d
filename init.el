@@ -45,14 +45,14 @@
 (when (version< emacs-version "25.1")
   (error "This requires Emacs 25.1 and above!"))
 
-;; Disable Unnecessary Interface
+;; DisableUnnecessaryInterface
 (scroll-bar-mode -1)
 (tool-bar-mode   -1)
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
-;; -Disable Unnecessary Interface
+;; -DisableUnnecessaryInterface
 
-;; Avoid Garbage Collect During Startup
+;; AvoidStartupGarbageCollect
 (eval-and-compile
   (defun revert-gc ()
     (setq gc-cons-threshold 16777216
@@ -62,9 +62,9 @@
         gc-cons-percentage 0.6)
 
   (add-hook 'emacs-startup-hook 'revert-gc))
-;; -Avoid Garbage Collect During Startup
+;; -AvoidStartupGarbageCollect
 
-;; Unset FNHA
+;; UnsetFNHA
 (eval-and-compile
   (defun reset-file-name-handler-alist ()
     (setq file-name-handler-alist orig-file-name-handler-alist))
@@ -73,11 +73,12 @@
   (setq file-name-handler-alist nil)
 
   (add-hook 'emacs-startup-hook 'reset-file-name-handler-alist))
-;; -Unset FNHA
+;; -UnsetFNHA
 
-;; Load LP
+;; LoadLP
 (defun update-load-path (&rest _)
   "Update `load-path'."
+  (interactive)
   (push (expand-file-name "site-elisp" user-emacs-directory) load-path)
   (push (expand-file-name "elisp" user-emacs-directory) load-path))
 
@@ -91,7 +92,7 @@
 (advice-add #'package-initialize :after #'add-subdirs-to-load-path)
 
 (update-load-path)
-;; -Load LP
+;; -LoadLP
 
 ;; Packages
 ;; Without this comment Emacs25 adds (package-initialize) here
@@ -106,6 +107,18 @@
 (require 'init-avy)
 
 (require 'init-ivy)
+
+(require 'init-winner)
+
+(require 'init-which-key)
+
+(require 'init-popup-kill-ring)
+
+(require 'init-undo-tree)
+
+(require 'init-discover-my-major)
+
+(require 'init-ui-config)
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/inits.org"))
 

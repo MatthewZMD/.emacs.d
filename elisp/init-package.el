@@ -41,7 +41,7 @@
 ;;
 ;;; Code:
 
-;; Melpa packages
+;; MelpaPackages
 ;; Select the folder to store packages
 (setq package-user-dir "~/.emacs.d/elpa"
       package-archives
@@ -51,9 +51,9 @@
         ("melpa stable" . "http://stable.melpa.org/packages/")
         ;;("org"   . "http://orgmode.org/elpa/")
         ))
-;; -Melpa packages
+;; -MelpaPackages
 
-;; Configure Package Management
+;; ConfigurePackageManagement
 ;; Disable package initialize after us.  We either initialize it
 ;; anyway in case of interpreted .emacs, or we don't want slow
 ;; initizlization in case of byte-compiled .emacs.elc.
@@ -66,9 +66,9 @@
 ;; and to nil for byte-compiled .emacs.elc.
 (eval-and-compile
   (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
-;; -Configure Package Management
+;; -ConfigurePackageManagement
 
-;; Use-Package Wrapper Macro
+;; UsePackageWrapperMacro
 (mapc #'(lambda (add) (add-to-list 'load-path add))
       (eval-when-compile
         ;; (require 'package)
@@ -94,9 +94,9 @@
   ;; Always ensure package is installed
   (setq use-package-always-ensure t))
 (require 'bind-key)
-;; -Use-Package Wrapper Macro
+;; -UsePackageWrapperMacro
 
-;; Def-Package
+;; DefPackage
 (defmacro def-package (name &rest plist)
   "A thin wrapper around `use-package'."
   ;; If byte-compiling, ignore this package if it doesn't meet the condition.
@@ -106,15 +106,15 @@
                    (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
                    (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
     `(use-package ,name ,@plist)))
-;; -Def-Package
+;; -DefPackage
 
-;; Auto Package Update
+;; AutoPackageUpdate
 (def-package auto-package-update
   :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
-;; -Auto Package Update
+;; -AutoPackageUpdate
 
 (provide 'init-package)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
