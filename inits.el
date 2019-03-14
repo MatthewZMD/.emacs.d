@@ -1,101 +1,3 @@
-(scroll-bar-mode -1)
-(tool-bar-mode   -1)
-(tooltip-mode    -1)
-(menu-bar-mode   -1)
-
-(eval-and-compile
-  (defun revert-gc ()
-    (setq gc-cons-threshold 16777216
-          gc-cons-percentage 0.1))
-
-  (setq gc-cons-threshold 402653184
-        gc-cons-percentage 0.6)
-
-  (add-hook 'emacs-startup-hook 'revert-gc))
-
-(eval-and-compile
-  (defun reset-file-name-handler-alist ()
-    (setq file-name-handler-alist orig-file-name-handler-alist))
-
-  (defvar orig-file-name-handler-alist file-name-handler-alist)
-  (setq file-name-handler-alist nil)
-
-  (add-hook 'emacs-startup-hook 'reset-file-name-handler-alist))
-
-(let ((base "~/.emacs.d/site-elisp"))
-  (add-to-list 'load-path base)
-  (dolist (f (directory-files base))
-    (let ((name (concat base "/" f)))
-      (when (and (file-directory-p name)
-                 (not (equal f ".."))
-                 (not (equal f ".")))
-        (add-to-list 'load-path name)))))
-
-;; Select the folder to store packages
-(setq package-user-dir "~/.emacs.d/elpa"
-      package-archives
-      '(;; Comment / Uncomment when necessary sites are used
-        ("gnu"   . "http://elpa.gnu.org/packages/")
-        ("melpa" . "https://melpa.org/packages/")
-        ("melpa stable" . "http://stable.melpa.org/packages/")
-        ;;("org"   . "http://orgmode.org/elpa/")
-        ))
-
-;; Disable package initialize after us.  We either initialize it
-;; anyway in case of interpreted .emacs, or we don't want slow
-;; initizlization in case of byte-compiled .emacs.elc.
-(setq package-enable-at-startup nil)
-
-;; Ask package.el to not add (package-initialize) to .emacs.d
-(setq package--init-file-ensured t)
-
-;; set use-package-verbose to t for interpreted .emacs,
-;; and to nil for byte-compiled .emacs.elc.
-(eval-and-compile
-  (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
-
-(mapc #'(lambda (add) (add-to-list 'load-path add))
-      (eval-when-compile
-        ;; (require 'package)
-        (package-initialize)
-        ;; Install use-package if not installed yet.
-        (unless (package-installed-p 'use-package)
-          (package-refresh-contents)
-          (package-install 'use-package))
-        ;; (require 'use-package)
-        ;; (setq use-package-always-ensure t) ;; I will handle this myself
-        (let ((package-user-dir-real (file-truename package-user-dir)))
-          ;; The reverse is necessary, because outside we mapc
-          ;; add-to-list element-by-element, which reverses.
-          (nreverse (apply #'nconc
-                           ;; Only keep package.el provided loadpaths.
-                           (mapcar #'(lambda (path)
-                                       (if (string-prefix-p package-user-dir-real path)
-                                           (list path)
-                                         nil))
-                                   load-path))))))
-(eval-when-compile
-  (require 'use-package)
-  ;; Always ensure package is installed
-  (setq use-package-always-ensure t))
-(require 'bind-key)
-
-(defmacro def-package (name &rest plist)
-  "A thin wrapper around `use-package'."
-  ;; If byte-compiling, ignore this package if it doesn't meet the condition.
-  ;; This avoids false-positive load errors.
-  (unless (and (bound-and-true-p byte-compile-current-file)
-               (or (and (plist-member plist :if)     (not (eval (plist-get plist :if))))
-                   (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
-                   (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
-    `(use-package ,name ,@plist)))
-
-(def-package auto-package-update
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
-
 (setq user-full-name "Mingde (Matthew) Zeng")
 (setq user-mail-address "matthewzmd@gmail.com")
 
@@ -110,64 +12,6 @@
 
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
-
-(def-package dired
-  :ensure nil
-  :config
-  ;; Always delete and copy recursively
-  (setq dired-recursive-deletes 'always)
-  (setq dired-recursive-copies 'always)
-
-  ;; Auto refresh Dired, but be quiet about it
-  (setq global-auto-revert-non-file-buffers t)
-  (setq auto-revert-verbose nil)
-
-  ;; Quickly copy/move file in Dired
-  (setq dired-dwim-target t)
-
-  ;; Move files to trash when deleting
-  (setq delete-by-moving-to-trash t)
-
-  ;; Reuse same dired buffer, so doesn't create new buffer each time
-  (put 'dired-find-alternate-file 'disabled nil)
-  (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)))
-  (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
-  (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
-                                     (lambda () (interactive) (find-alternate-file ".."))))))
-
-(make-directory "~/.emacs.d/autosaves" t)
-(make-directory "~/.emacs.d/backups" t)
-
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
-      auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
-      delete-old-versions -1
-      version-control t
-      vc-make-backup-files t)
-
-;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
-(defun rename-file-and-buffer (new-name)
-  "Renames both current buffer and file it's visiting to NEW-NAME."
-  (interactive "sNew name: ")
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
-        (progn
-          (rename-file filename new-name 1)
-          (rename-buffer new-name)
-          (set-visited-file-name new-name)
-          (set-buffer-modified-p nil))))))
-
-;; Load the newest version of a file
-(setq load-prefer-newer t)
-
-;; Detect external file changes and auto refresh file
-(global-auto-revert-mode t)
-
-;; Transparently open compressed files
-(auto-compression-mode t)
 
 (def-package ag
   :defer t
@@ -689,7 +533,7 @@ point reaches the beginning or end of the buffer, stop there."
   :defer t
   :commands lsp
   :init
-  (setq lsp-auto-guess-root t)       ; Detect project root
+  (setq lsp-auto-guess-root nil)
   (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
   (setq lsp-message-project-root-warning t)
   :hook (prog-mode . lsp))

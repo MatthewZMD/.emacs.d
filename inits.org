@@ -5,10 +5,16 @@
   M-EMACS is a custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to Melpa Packages, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
-** Cool Little Thing About This README                             :noexport:
-   This README originated from [[file:init.org][init.org]] that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from =elisp/= directory. You will not see their presence in the init file.
+*** Cool Thing About This README
+    This README originated from [[file:init.org][init.org]] that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from =elisp/= directory. You will not see their presence in
+*** Modifications?
+    Of course you can modify M-EMACS! You have the permission to use, modify, distribute however you want and free of charge, but without any warranty. (See [[file:LICENSE][LICENSE]])
 
-   Therefore, you need to manually sync this README with all the new changes you made yourself by adding =#+INCLUDE:= in the appropriate section below and call =M-x org-gfm-export-to-markdown=.
+    *Remember* you must manually sync this README with all the new changes you made by:
+    1. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
+    2. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
+    3. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :lines "<start-line>-<end-line-exclusive>"= in the appropriate section in [[file:init.org][init.org]].
+    4. Call =M-x org-gfm-export-to-markdown= to update this README.
 * Table of Contents                                               :TOC_2_org:
 - [[About][About]]
 - [[Startup][Startup]]
@@ -16,7 +22,6 @@
   - [[Disable Unnecessary Interface][Disable Unnecessary Interface]]
   - [[Optimization][Optimization]]
 - [[Package Management][Package Management]]
-  - [[Local Packages Not in Melpa][Local Packages Not in Melpa]]
   - [[Melpa Packages][Melpa Packages]]
   - [[Configure Package Management][Configure Package Management]]
   - [[Use-Package Wrapper][Use-Package Wrapper]]
@@ -24,7 +29,7 @@
 - [[Global Functionalities][Global Functionalities]]
   - [[Owner Information][Owner Information]]
   - [[Bindings][Bindings]]
-  - [[File Management][File Management]]
+  - [[Directory Management][Directory Management]]
   - [[AG][AG]]
   - [[Avy][Avy]]
   - [[Ivy][Ivy]]
@@ -87,109 +92,34 @@
    #+BEGIN_QUOTE
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-startup.el" src emacs-lisp :lines "1-2"
+   #+INCLUDE: "~/.emacs.d/elisp/init-customization.el" src emacs-lisp :lines "1-2"
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
-   #+INCLUDE: "~/.emacs.d/elisp/init-startup.el" src emacs-lisp :lines "4-8"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "10-14"
 ** Optimization
    Avoid garbage collection during startup.
-   #+INCLUDE: "~/.emacs.d/elisp/init-startup.el" src emacs-lisp :lines "10-19"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "16-25"
    Unset file name handler alist.
-   #+INCLUDE: "~/.emacs.d/elisp/init-startup.el" src emacs-lisp :lines "20-28"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "26-34"
+   Load all elisp files in =elisp/= and =site-elisp/= to reduce startup time.
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "36-51"
 * Package Management
-** Local Packages Not in Melpa
-   This will add all the packages in =/site-elisp= into the =load-path=.
-   #+BEGIN_SRC emacs-lisp
-     (let ((base "~/.emacs.d/site-elisp"))
-       (add-to-list 'load-path base)
-       (dolist (f (directory-files base))
-         (let ((name (concat base "/" f)))
-           (when (and (file-directory-p name)
-                      (not (equal f ".."))
-                      (not (equal f ".")))
-             (add-to-list 'load-path name)))))
-   #+END_SRC
 ** Melpa Packages
-   #+BEGIN_SRC emacs-lisp
-     ;; Select the folder to store packages
-     (setq package-user-dir "~/.emacs.d/elpa"
-           package-archives
-           '(;; Comment / Uncomment when necessary sites are used
-             ("gnu"   . "http://elpa.gnu.org/packages/")
-             ("melpa" . "https://melpa.org/packages/")
-             ("melpa stable" . "http://stable.melpa.org/packages/")
-             ;;("org"   . "http://orgmode.org/elpa/")
-             ))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "4-13"
 ** Configure Package Management
-   #+BEGIN_SRC emacs-lisp
-     ;; Disable package initialize after us.  We either initialize it
-     ;; anyway in case of interpreted .emacs, or we don't want slow
-     ;; initizlization in case of byte-compiled .emacs.elc.
-     (setq package-enable-at-startup nil)
-
-     ;; Ask package.el to not add (package-initialize) to .emacs.d
-     (setq package--init-file-ensured t)
-
-     ;; set use-package-verbose to t for interpreted .emacs,
-     ;; and to nil for byte-compiled .emacs.elc.
-     (eval-and-compile
-       (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "15-27"
 ** Use-Package Wrapper
    My Emacs configuration is almost entirely dependant on a faster implementation of [[https://github.com/jwiegley/use-package][use-package]] based on [[https://github.com/hlissner/doom-emacs/blob/master/core/core-packages.el#L323][Doom Emacs]].
    #+BEGIN_QUOTE
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
    #+END_QUOTE
    Add the macro generated list of package.el loadpaths to load-path.
-   #+BEGIN_SRC emacs-lisp
-     (mapc #'(lambda (add) (add-to-list 'load-path add))
-           (eval-when-compile
-             ;; (require 'package)
-             (package-initialize)
-             ;; Install use-package if not installed yet.
-             (unless (package-installed-p 'use-package)
-               (package-refresh-contents)
-               (package-install 'use-package))
-             ;; (require 'use-package)
-             ;; (setq use-package-always-ensure t) ;; I will handle this myself
-             (let ((package-user-dir-real (file-truename package-user-dir)))
-               ;; The reverse is necessary, because outside we mapc
-               ;; add-to-list element-by-element, which reverses.
-               (nreverse (apply #'nconc
-                                ;; Only keep package.el provided loadpaths.
-                                (mapcar #'(lambda (path)
-                                            (if (string-prefix-p package-user-dir-real path)
-                                                (list path)
-                                              nil))
-                                        load-path))))))
-     (eval-when-compile
-       (require 'use-package)
-       ;; Always ensure package is installed
-       (setq use-package-always-ensure t))
-     (require 'bind-key)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "29-54"
    The =use-package= wrapper.
-   #+BEGIN_SRC emacs-lisp
-     (defmacro def-package (name &rest plist)
-       "A thin wrapper around `use-package'."
-       ;; If byte-compiling, ignore this package if it doesn't meet the condition.
-       ;; This avoids false-positive load errors.
-       (unless (and (bound-and-true-p byte-compile-current-file)
-                    (or (and (plist-member plist :if)     (not (eval (plist-get plist :if))))
-                        (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
-                        (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
-         `(use-package ,name ,@plist)))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "55-64"
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
-   #+BEGIN_SRC emacs-lisp
-     (def-package auto-package-update
-       :config
-       (setq auto-package-update-delete-old-versions t)
-       (setq auto-package-update-hide-results t)
-       (auto-package-update-maybe))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "66-71"
 * Global Functionalities
 ** Owner Information
    *Prerequisite*: Change this to your information.
@@ -220,77 +150,19 @@
      (global-set-key (kbd "M-n") 'forward-paragraph)
      (global-set-key (kbd "M-p") 'backward-paragraph)
    #+END_SRC
-** File Management
+** Directory Management
 *** Dired
     Dired, the directory editor.
-    #+BEGIN_SRC emacs-lisp
-      (def-package dired
-        :ensure nil
-        :config
-        ;; Always delete and copy recursively
-        (setq dired-recursive-deletes 'always)
-        (setq dired-recursive-copies 'always)
-
-        ;; Auto refresh Dired, but be quiet about it
-        (setq global-auto-revert-non-file-buffers t)
-        (setq auto-revert-verbose nil)
-
-        ;; Quickly copy/move file in Dired
-        (setq dired-dwim-target t)
-
-        ;; Move files to trash when deleting
-        (setq delete-by-moving-to-trash t)
-
-        ;; Reuse same dired buffer, so doesn't create new buffer each time
-        (put 'dired-find-alternate-file 'disabled nil)
-        (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)))
-        (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
-        (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
-                                           (lambda () (interactive) (find-alternate-file ".."))))))
-    #+END_SRC
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :lines "3-26"
 *** Autosave and Backup
     Create directory where Emacs stores backups and autosave files.
-    #+BEGIN_SRC emacs-lisp
-      (make-directory "~/.emacs.d/autosaves" t)
-      (make-directory "~/.emacs.d/backups" t)
-    #+END_SRC
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :lines "28-30"
     Set autosave and backup directory.
-    #+BEGIN_SRC emacs-lisp
-      (setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
-            auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
-            delete-old-versions -1
-            version-control t
-            vc-make-backup-files t)
-    #+END_SRC
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :lines "31-36"
 *** Rename Both File and Buffer
-    #+BEGIN_SRC emacs-lisp
-      ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
-      (defun rename-file-and-buffer (new-name)
-        "Renames both current buffer and file it's visiting to NEW-NAME."
-        (interactive "sNew name: ")
-        (let ((name (buffer-name))
-              (filename (buffer-file-name)))
-          (if (not filename)
-              (message "Buffer '%s' is not visiting a file!" name)
-            (if (get-buffer new-name)
-                (message "A buffer named '%s' already exists!" new-name)
-              (progn
-                (rename-file filename new-name 1)
-                (rename-buffer new-name)
-                (set-visited-file-name new-name)
-                (set-buffer-modified-p nil))))))
-    #+END_SRC
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :lines "39-53"
 *** File Configs
-    #+BEGIN_SRC emacs-lisp
-      ;; Load the newest version of a file
-      (setq load-prefer-newer t)
-
-      ;; Detect external file changes and auto refresh file
-      (global-auto-revert-mode t)
-
-      ;; Transparently open compressed files
-      (auto-compression-mode t)
-    #+END_SRC
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :lines "54-62"
 ** AG
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]], a code-searching tool similar to ack, but faster.
 
@@ -984,7 +856,7 @@
         :defer t
         :commands lsp
         :init
-        (setq lsp-auto-guess-root t)       ; Detect project root
+        (setq lsp-auto-guess-root nil)
         (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
         (setq lsp-message-project-root-warning t)
         :hook (prog-mode . lsp))
