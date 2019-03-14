@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- update-load-path
- rename-file-and-buffer
  org-gfm-export-to-markdown
+ update-load-path
+ byte-compile-file
+ rename-file-and-buffer
  check-parens
  winner-mode
  time-stamp
- package-install
 )
 
 ;; ----- amx-data -----
@@ -153,14 +153,14 @@
  (jedi:reinstall-server . 1)
  (smartparens-strict-mode . 2)
  (sp-kill-sexp . 1)
- (byte-compile-file . 2)
+ (byte-compile-file . 3)
  (list-load-path-shadows . 2)
  (company-lsp . 4)
  (company-diag . 1)
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 24)
+ (org-gfm-export-to-markdown . 25)
  (rename-file-and-buffer . 17)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
@@ -170,5 +170,5 @@
  (winner-undo . 2)
  (winner-mode . 3)
  (check-parens . 1)
- (update-load-path . 3)
+ (update-load-path . 5)
 )

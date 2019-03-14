@@ -95,9 +95,11 @@
 ;; -LoadLP
 
 ;; Packages
-;; Without this comment Emacs25 adds (package-initialize) here
+
+;; Package Management
 (require 'init-package)
 
+;; Global Functionalities
 (require 'init-global-config)
 
 (require 'init-dired)
@@ -118,7 +120,18 @@
 
 (require 'init-discover-my-major)
 
+;; User Interface Enhancements
 (require 'init-ui-config)
+
+(require 'init-all-the-icons)
+
+(require 'init-doom)
+
+(require 'init-dashboard)
+
+(require 'init-fonts)
+
+(require 'init-zone)
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/inits.org"))
 
