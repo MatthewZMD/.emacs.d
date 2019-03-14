@@ -6,7 +6,7 @@
 
 ;;; Code:
 
-(org-babel-load-file (expand-file-name "~/.emacs.d/README.org"))
+(org-babel-load-file (expand-file-name "~/.emacs.d/inits.org"))
 
 (provide 'init)
 ;;; init.el ends here

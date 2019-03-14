@@ -1,81 +1,83 @@
 #+TITLE: M-EMACS
+#+OPTIONS: toc:nil
+#+EXPORT_FILE_NAME: README.md
 * About
   M-EMACS is a custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to Melpa Packages, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
 ** Cool Little Thing About This README                             :noexport:
    This README will be parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup. Which means this README file is not only useful for you, a human's understanding, it also serves as the foundation for my entire Emacs configuration!
-* Table of Contents                                                   :TOC_2:
-- [[#about][About]]
-- [[#startup][Startup]]
-  - [[#lexical-binding][Lexical-binding]]
-  - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
-  - [[#optimization][Optimization]]
-- [[#efficient-package-management][Efficient Package Management]]
-  - [[#local-packages-not-in-melpa][Local Packages Not in Melpa]]
-  - [[#melpa-packages][Melpa Packages]]
-  - [[#configure-package-management][Configure Package Management]]
-  - [[#use-package-wrapper][Use-Package Wrapper]]
-  - [[#auto-package-update][Auto Package Update]]
-- [[#global-functionalities][Global Functionalities]]
-  - [[#owner-information][Owner Information]]
-  - [[#bindings][Bindings]]
-  - [[#file-management][File Management]]
-  - [[#ag][AG]]
-  - [[#avy][Avy]]
-  - [[#ivy][Ivy]]
-  - [[#winner][Winner]]
-  - [[#swiper][Swiper]]
-  - [[#which-key][Which Key]]
-  - [[#popup-kill-ring][Popup Kill Ring]]
-  - [[#undo-tree][Undo Tree]]
-  - [[#discover-my-major][Discover My Major]]
-  - [[#configs][Configs]]
-  - [[#more-functions][More Functions]]
-- [[#user-interface-enhancements][User Interface Enhancements]]
-  - [[#title-bar][Title Bar]]
-  - [[#all-the-icons][All The Icons]]
-  - [[#doom-theme][Doom Theme]]
-  - [[#doom-modeline][Doom Modeline]]
-  - [[#dashboard][Dashboard]]
-  - [[#page-break-lines][Page Break Lines]]
-  - [[#fonts][Fonts]]
-  - [[#zone-mode-screensaver][Zone Mode Screensaver]]
-  - [[#diminish][Diminish]]
-  - [[#dimmer][Dimmer]]
-  - [[#smooth-scroll][Smooth Scroll]]
-  - [[#line-numbers][Line Numbers]]
-  - [[#pretty-symbols][Pretty Symbols]]
-  - [[#ui-configs][UI Configs]]
-- [[#general-programming][General Programming]]
-  - [[#magit][Magit]]
-  - [[#projectile][Projectile]]
-  - [[#treemacs][Treemacs]]
-  - [[#company][Company]]
-  - [[#flycheck][Flycheck]]
-  - [[#dumb-jump][Dumb Jump]]
-  - [[#parenthesis-pairing][Parenthesis Pairing]]
-  - [[#format-all][Format All]]
-  - [[#highlight-indent-guides][Highlight Indent Guides]]
-  - [[#lsp][LSP]]
-- [[#programming][Programming]]
-  - [[#emacs-lisp][Emacs Lisp]]
-  - [[#java][Java]]
-  - [[#cc][C/C++]]
-  - [[#python][Python]]
-  - [[#arduino][Arduino]]
-- [[#web-development][Web Development]]
-  - [[#web-mode][Web Mode]]
-  - [[#emmet][Emmet]]
-  - [[#javascript][JavaScript]]
-  - [[#typescript][TypeScript]]
-- [[#miscellaneous][Miscellaneous]]
-  - [[#org][Org]]
-  - [[#eww][EWW]]
-  - [[#tetris][Tetris]]
-  - [[#speed-type][Speed Type]]
-  - [[#2048-game][2048 Game]]
-- [[#credits][Credits]]
+* Table of Contents                                                   :TOC_2_ORG:
+- [[About][About]]
+- [[Startup][Startup]]
+  - [[Lexical-binding][Lexical-binding]]
+  - [[Disable Unnecessary Interface][Disable Unnecessary Interface]]
+  - [[Optimization][Optimization]]
+- [[Efficient Package Management][Efficient Package Management]]
+  - [[Local Packages Not in Melpa][Local Packages Not in Melpa]]
+  - [[Melpa Packages][Melpa Packages]]
+  - [[Configure Package Management][Configure Package Management]]
+  - [[Use-Package Wrapper][Use-Package Wrapper]]
+  - [[Auto Package Update][Auto Package Update]]
+- [[Global Functionalities][Global Functionalities]]
+  - [[Owner Information][Owner Information]]
+  - [[Bindings][Bindings]]
+  - [[File Management][File Management]]
+  - [[AG][AG]]
+  - [[Avy][Avy]]
+  - [[Ivy][Ivy]]
+  - [[Winner][Winner]]
+  - [[Swiper][Swiper]]
+  - [[Which Key][Which Key]]
+  - [[Popup Kill Ring][Popup Kill Ring]]
+  - [[Undo Tree][Undo Tree]]
+  - [[Discover My Major][Discover My Major]]
+  - [[Configs][Configs]]
+  - [[More Functions][More Functions]]
+- [[User Interface Enhancements][User Interface Enhancements]]
+  - [[Title Bar][Title Bar]]
+  - [[All The Icons][All The Icons]]
+  - [[Doom Theme][Doom Theme]]
+  - [[Doom Modeline][Doom Modeline]]
+  - [[Dashboard][Dashboard]]
+  - [[Page Break Lines][Page Break Lines]]
+  - [[Fonts][Fonts]]
+  - [[Zone Mode Screensaver][Zone Mode Screensaver]]
+  - [[Diminish][Diminish]]
+  - [[Dimmer][Dimmer]]
+  - [[Smooth Scroll][Smooth Scroll]]
+  - [[Line Numbers][Line Numbers]]
+  - [[Pretty Symbols][Pretty Symbols]]
+  - [[UI Configs][UI Configs]]
+- [[General Programming][General Programming]]
+  - [[Magit][Magit]]
+  - [[Projectile][Projectile]]
+  - [[Treemacs][Treemacs]]
+  - [[Company][Company]]
+  - [[Flycheck][Flycheck]]
+  - [[Dumb Jump][Dumb Jump]]
+  - [[Parenthesis Pairing][Parenthesis Pairing]]
+  - [[Format All][Format All]]
+  - [[Highlight Indent Guides][Highlight Indent Guides]]
+  - [[LSP][LSP]]
+- [[Programming][Programming]]
+  - [[Emacs Lisp][Emacs Lisp]]
+  - [[Java][Java]]
+  - [[C/C++][C/C++]]
+  - [[Python][Python]]
+  - [[Arduino][Arduino]]
+- [[Web Development][Web Development]]
+  - [[Web Mode][Web Mode]]
+  - [[Emmet][Emmet]]
+  - [[JavaScript][JavaScript]]
+  - [[TypeScript][TypeScript]]
+- [[Miscellaneous][Miscellaneous]]
+  - [[Org][Org]]
+  - [[EWW][EWW]]
+  - [[Tetris][Tetris]]
+  - [[Speed Type][Speed Type]]
+  - [[2048 Game][2048 Game]]
+- [[Credits][Credits]]
 
 * Startup
 ** Lexical-binding
@@ -83,11 +85,7 @@
    #+BEGIN_QUOTE
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
-   #+BEGIN_SRC sh :wrap src emacs-lisp :exports results
-     sed -n 1,2p elisp/custom-file.el
-   #+END_SRC
-   #+RESULTS:
-
+   #+INCLUDE: "~/.emacs.d/elisp/custom-file.el" src emacs-lisp :lines "1-2"
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
    #+BEGIN_SRC emacs-lisp
@@ -100,25 +98,25 @@
    Avoid garbage collection during startup.
    #+BEGIN_SRC emacs-lisp
      (eval-and-compile
-       (defun srs--revert-gc ()
+       (defun revert-gc ()
          (setq gc-cons-threshold 16777216
                gc-cons-percentage 0.1))
 
        (setq gc-cons-threshold 402653184
              gc-cons-percentage 0.6)
 
-       (add-hook 'emacs-startup-hook 'srs--revert-gc))
+       (add-hook 'emacs-startup-hook 'revert-gc))
    #+END_SRC
    Unset file name handler alist.
    #+BEGIN_SRC emacs-lisp
      (eval-and-compile
-       (defun srs-reset-file-name-handler-alist ()
+       (defun reset-file-name-handler-alist ()
          (setq file-name-handler-alist orig-file-name-handler-alist))
 
        (defvar orig-file-name-handler-alist file-name-handler-alist)
        (setq file-name-handler-alist nil)
 
-       (add-hook 'emacs-startup-hook 'srs-reset-file-name-handler-alist))
+       (add-hook 'emacs-startup-hook 'reset-file-name-handler-alist))
    #+END_SRC
 * Efficient Package Management
 ** Local Packages Not in Melpa
@@ -1237,9 +1235,15 @@
       (def-package toc-org
         :hook (org-mode . toc-org-mode))
     #+END_SRC
-*** HTMLIZE
+*** HTMLize
+    [[https://github.com/hniksic/emacs-htmlize][HTMLize]], a tool that converts buffer text and decorations to HTML.
     #+BEGIN_SRC emacs-lisp
       (use-package htmlize :defer t)
+    #+END_SRC
+*** OX-GFM
+    [[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
+    #+BEGIN_SRC emacs-lisp
+      (def-package ox-gfm)
     #+END_SRC
 ** EWW
    EWW, the Emacs Web Wowser.
