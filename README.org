@@ -83,6 +83,9 @@
    #+BEGIN_QUOTE
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
+   #+BEGIN_SRC sh :wrap src emacs-lisp
+     sed -n 1,2p elisp/custom-file.el
+   #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/custom-file.el" src emacs-lisp :lines "1-2"
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
