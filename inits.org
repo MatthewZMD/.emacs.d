@@ -7,7 +7,7 @@
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
 ** Cool Little Thing About This README                             :noexport:
    This README will be parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup. Which means this README file is not only useful for you, a human's understanding, it also serves as the foundation for my entire Emacs configuration!
-* Table of Contents                                                   :TOC_2_ORG:
+* Table of Contents                                                   :TOC_2_org:
 - [[About][About]]
 - [[Startup][Startup]]
   - [[Lexical-binding][Lexical-binding]]
