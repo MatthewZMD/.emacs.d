@@ -1,8 +1,8 @@
 
 ;; ----- amx-history -----
 (
- rename-file-and-buffer
  org-gfm-export-to-markdown
+ rename-file-and-buffer
  ielm
  package-install
  re-search-forward
@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 12)
+ (org-gfm-export-to-markdown . 13)
  (rename-file-and-buffer . 7)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
