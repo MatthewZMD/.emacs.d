@@ -22,3 +22,6 @@
   :after ivy
   :diminish counsel-mode
   :init (counsel-mode 1))
+
+
+(provide 'init-ivy)
