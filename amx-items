@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- org-gfm-export-to-markdown
  rename-file-and-buffer
- ielm
+ winner-mode
+ time-stamp
  package-install
- re-search-forward
- global-flycheck-mode
+ kmacro-edit-macro
  eval-buffer
+ shell
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 43)
+ (package-install . 44)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -41,7 +41,7 @@
  (eshell . 1)
  (shell . 42)
  (package-menu-mark-upgrades . 4)
- (list-packages . 9)
+ (list-packages . 10)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
@@ -161,7 +161,12 @@
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
  (org-gfm-export-to-markdown . 13)
- (rename-file-and-buffer . 7)
+ (rename-file-and-buffer . 12)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
+ (kmacro-edit-macro . 1)
+ (time-stamp . 1)
+ (winner-redo . 1)
+ (winner-undo . 2)
+ (winner-mode . 3)
 )

@@ -8,14 +8,14 @@
 *** Cool Thing About This README
     This README originated from [[file:init.org][init.org]] that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from =elisp/= directory. You will not see their presence in
 *** Modifications?
-    Of course you can modify M-EMACS! You have the permission to use, modify, distribute however you want and free of charge, but without any warranty. (See [[file:LICENSE][LICENSE]])
+    Of course! You have the permission to use, modify, distribute however you want and free of charge, but without any warranty. (See [[file:LICENSE][LICENSE]])
 
     *Remember* you must manually sync this README with all the new changes you made by:
     1. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
     2. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
-    3. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :lines "<start-line>-<end-line-exclusive>"= in the appropriate section in [[file:init.org][init.org]].
+    3. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in [[file:init.org][init.org]].
     4. Call =M-x org-gfm-export-to-markdown= to update this README.
-* Table of Contents                                               :TOC_2_org:
+* Table of Contents                                               :TOC_2_ORG:
 - [[About][About]]
 - [[Startup][Startup]]
   - [[Lexical-binding][Lexical-binding]]
@@ -34,14 +34,13 @@
   - [[Avy][Avy]]
   - [[Ivy][Ivy]]
   - [[Winner][Winner]]
-  - [[Swiper][Swiper]]
   - [[Which Key][Which Key]]
   - [[Popup Kill Ring][Popup Kill Ring]]
   - [[Undo Tree][Undo Tree]]
   - [[Discover My Major][Discover My Major]]
   - [[Configs][Configs]]
   - [[More Functions][More Functions]]
-- [[User Interface Enhancements][User Interface Enhancements]]
+- [[User Interpface Enhancements][User Interpface Enhancements]]
   - [[Title Bar][Title Bar]]
   - [[All The Icons][All The Icons]]
   - [[Doom Theme][Doom Theme]]
@@ -66,6 +65,7 @@
   - [[Parenthesis Pairing][Parenthesis Pairing]]
   - [[Format All][Format All]]
   - [[Highlight Indent Guides][Highlight Indent Guides]]
+  - [[Header][Header]]
   - [[LSP][LSP]]
 - [[Programming][Programming]]
   - [[Emacs Lisp][Emacs Lisp]]
@@ -92,34 +92,34 @@
    #+BEGIN_QUOTE
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-customization.el" src emacs-lisp :lines "1-2"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "1-2"
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "10-14"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin ";; Disable Unnecessary Interface" :range-end ";; -Disable Unnecessary Interface" :lines "49-53"
 ** Optimization
    Avoid garbage collection during startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "16-25"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin ";; Avoid Garbage Collect During Startup" :range-end ";; -Avoid Garbage Collect During Startup" :lines "56-65"
    Unset file name handler alist.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "26-34"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin ";; Unset FNHA" :range-end ";; -Unset FNHA" :lines "68-76"
    Load all elisp files in =elisp/= and =site-elisp/= to reduce startup time.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "36-51"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin ";; Load LP" :range-end ";; -Load LP" :lines "79-94"
 * Package Management
 ** Melpa Packages
-   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "4-13"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin ";; Melpa packages" :range-end ";; -Melpa packages" :lines "45-54"
 ** Configure Package Management
-   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "15-27"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin ";; Configure Package Management" :range-end ";; -Configure Package Management" :lines "57-69"
 ** Use-Package Wrapper
    My Emacs configuration is almost entirely dependant on a faster implementation of [[https://github.com/jwiegley/use-package][use-package]] based on [[https://github.com/hlissner/doom-emacs/blob/master/core/core-packages.el#L323][Doom Emacs]].
    #+BEGIN_QUOTE
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
    #+END_QUOTE
    Add the macro generated list of package.el loadpaths to load-path.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "29-54"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin ";; Use-Package Wrapper Macro" :range-end ";; -Use-Package Wrapper Macro" :lines "72-97"
    The =use-package= wrapper.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "55-64"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin ";; Def-Package" :range-end ";; -Def-Package" :lines "100-109"
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package-management.el" src emacs-lisp :lines "66-71"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin ";; Auto Package Update" :range-end ";; -Auto Package Update" :lines "112-117"
 * Global Functionalities
 ** Owner Information
    *Prerequisite*: Change this to your information.
@@ -129,31 +129,19 @@
    #+END_SRC
 ** Bindings
    Unbind C-z to use as prefix
-   #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "C-z") nil)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :lines "5-6"
    Use iBuffer instead of Buffer List
-   #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "C-x C-b") 'ibuffer)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :lines "7-8"
    Truncate lines
-   #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :lines "9-10"
    Adjust font size like web browsers
-   #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "C-+") 'text-scale-increase)
-     (global-set-key (kbd"C--") 'text-scale-decrease)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :lines "11-13"
    Move up/down paragraph
-   #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "M-n") 'forward-paragraph)
-     (global-set-key (kbd "M-p") 'backward-paragraph)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :lines "14-16"
 ** Directory Management
 *** Dired
     Dired, the directory editor.
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :lines "3-26"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :lines "46-69"
 *** Autosave and Backup
     Create directory where Emacs stores backups and autosave files.
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :lines "28-30"
@@ -167,10 +155,10 @@
    [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]], a code-searching tool similar to ack, but faster.
 
    *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
-   #+INCLUDE: "~/.emacs.d/elisp/init-ag.el" src emacs-lisp :lines "3-6"
+   #+INCLUDE: "~/.emacs.d/elisp/init-ag.el" src emacs-lisp :lines "46-49"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
-   #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :lines "3-11"
+   #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :lines "46-54"
 ** Ivy
 *** Main Ivy
     [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs.
@@ -181,6 +169,12 @@
 *** Counsel
     [[https://github.com/abo-abo/swiper][Counsel]], a collection of Ivy-enhanced versions of common Emacs commands.
     #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :lines "21-25"
+*** Swiper
+    [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
+    #+BEGIN_SRC emacs-lisp
+      (def-package swiper
+        :bind ("C-s" . swiper))
+    #+END_SRC
 ** Winner
    Winner mode restores old window layout.
    #+BEGIN_SRC emacs-lisp
@@ -197,13 +191,8 @@
                      "*cvs*"
                      "*Buffer List*"
                      "*Ibuffer*"
-                     "*esh command on file*")))
-   #+END_SRC
-** Swiper
-   [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
-   #+BEGIN_SRC emacs-lisp
-     (def-package swiper
-       :bind ("C-s" . swiper))
+                     "*esh command on file*"))
+       :config (winner-mode 1))
    #+END_SRC
 ** Which Key
    [[https://github.com/justbur/emacs-which-key][Which key]], a feature that displays the key bindings following the incomplete command.
@@ -364,7 +353,56 @@
       (global-set-key [remap move-beginning-of-line]
                       'smarter-move-beginning-of-line)
     #+END_SRC
-* User Interface Enhancements
+*** Update Org Mode Include Automatically
+    Update Org Mode INCLUDE Statements Automatically from [[http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html][Artur Malabarba]].
+    #+BEGIN_SRC emacs-lisp
+      (add-hook 'before-save-hook #'update-includes)
+
+      (defun update-includes (&rest ignore)
+        "Update the line numbers of #+INCLUDE:s in current buffer.
+      Only looks at INCLUDEs that have either :range-begin or :range-end.
+      This function does nothing if not in org-mode, so you can safely
+      add it to `before-save-hook'."
+        (interactive)
+        (when (derived-mode-p 'org-mode)
+          (save-excursion
+            (goto-char (point-min))
+            (while (search-forward-regexp
+                    "^\\s-*#\\+INCLUDE: *\"\\([^\"]+\\)\".*:range-\\(begin\\|end\\)"
+                    nil 'noerror)
+              (let* ((file (expand-file-name (match-string-no-properties 1)))
+                     lines begin end)
+                (forward-line 0)
+                (when (looking-at "^.*:range-begin *\"\\([^\"]+\\)\"")
+                  (setq begin (match-string-no-properties 1)))
+                (when (looking-at "^.*:range-end *\"\\([^\"]+\\)\"")
+                  (setq end (match-string-no-properties 1)))
+                (setq lines (decide-line-range file begin end))
+                (when lines
+                  (if (looking-at ".*:lines *\"\\([-0-9]+\\)\"")
+                      (replace-match lines :fixedcase :literal nil 1)
+                    (goto-char (line-end-position))
+                    (insert " :lines \"" lines "\""))))))))
+
+      (defun decide-line-range (file begin end)
+        "Visit FILE and decide which lines to include.
+      BEGIN and END are regexps which define the line range to use."
+        (let (l r)
+          (save-match-data
+            (with-temp-buffer
+              (insert-file file)
+              (goto-char (point-min))
+              (if (null begin)
+                  (setq l "")
+                (search-forward-regexp begin)
+                (setq l (line-number-at-pos (match-beginning 0))))
+              (if (null end)
+                  (setq r "")
+                (search-forward-regexp end)
+                (setq r (1+ (line-number-at-pos (match-end 0)))))
+              (format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
+    #+END_SRC
+* User Interpface Enhancements
 ** Title Bar
    #+BEGIN_SRC emacs-lisp
      (setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
@@ -720,6 +758,7 @@
        :defer t
        :hook (prog-mode . flycheck-mode)
        :config
+       (setq flycheck-emacs-lisp-load-path 'inherit)
        (flycheck-add-mode 'typescript-tslint 'js2-mode)
        (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
    #+END_SRC
@@ -815,6 +854,18 @@
        (add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
        (setq highlight-indent-guides-method 'character))
    #+END_SRC
+** Header
+   [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
+   #+BEGIN_SRC emacs-lisp
+     (use-package header2
+       :ensure nil
+       :config
+       (autoload 'auto-make-header "header2")
+       (autoload 'auto-update-file-header "header2")
+       (add-hook 'write-file-hooks 'auto-update-file-header)
+       (add-hook 'emacs-lisp-mode-hook 'auto-make-header)
+       (add-hook 'c-mode-common-hook   'auto-make-header))
+   #+END_SRC
 ** LSP
    [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]].
 *** LSP Mode
@@ -883,17 +934,6 @@
     #+END_SRC
 * Programming
 ** Emacs Lisp
-*** Always Add Lexical Binding to New Elisp File
-    #+BEGIN_SRC emacs-lisp
-      (add-hook 'emacs-lisp-mode-hook
-                (lambda () (let  ((auto-insert-query nil)
-                             (auto-insert-alist
-                              '((("\\.el\\'" . "Emacs Lisp header")
-                                 ""
-                                 ";;; -*- lexical-binding: t; -*-\n\n"
-                                 '(setq lexical-binding t)))))
-                        (auto-insert))))
-    #+END_SRC
 *** Shortcut for Evaluating Elisp
     Eval-buffer for ELisp Code.
     #+BEGIN_SRC emacs-lisp

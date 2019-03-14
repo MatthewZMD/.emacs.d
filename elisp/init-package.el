@@ -1,4 +1,45 @@
-;;; -*- lexical-binding: t; -*-
+;;; init-package.el --- -*- lexical-binding: t -*-
+;;
+;; Copyright (C) 2019 Mingde Zeng
+;;
+;; Filename: init-package.el
+;; Description: Initialize Package Management for M-EMACS
+;; Author: Mingde (Matthew) Zeng
+;; Created: Thu Mar 14 10:53:00 2019 (-0400)
+;; Version: 1.2.0
+;; URL: https://github.com/MatthewZMD/.emacs.d
+;; Keywords: M-EMACS .emacs.d packages use-package def-package
+;; Compatibility: emacs-version >= 25.1
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; This file initializes packages from melpa as well as creating def-package macro
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or (at
+;; your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Code:
 
 ;; Melpa packages
 ;; Select the folder to store packages
@@ -10,6 +51,7 @@
         ("melpa stable" . "http://stable.melpa.org/packages/")
         ;;("org"   . "http://orgmode.org/elpa/")
         ))
+;; -Melpa packages
 
 ;; Configure Package Management
 ;; Disable package initialize after us.  We either initialize it
@@ -24,8 +66,9 @@
 ;; and to nil for byte-compiled .emacs.elc.
 (eval-and-compile
   (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
+;; -Configure Package Management
 
-;; Use-Package Wrapper
+;; Use-Package Wrapper Macro
 (mapc #'(lambda (add) (add-to-list 'load-path add))
       (eval-when-compile
         ;; (require 'package)
@@ -51,7 +94,9 @@
   ;; Always ensure package is installed
   (setq use-package-always-ensure t))
 (require 'bind-key)
+;; -Use-Package Wrapper Macro
 
+;; Def-Package
 (defmacro def-package (name &rest plist)
   "A thin wrapper around `use-package'."
   ;; If byte-compiling, ignore this package if it doesn't meet the condition.
@@ -61,6 +106,7 @@
                    (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
                    (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
     `(use-package ,name ,@plist)))
+;; -Def-Package
 
 ;; Auto Package Update
 (def-package auto-package-update
@@ -68,5 +114,8 @@
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
+;; -Auto Package Update
 
-(provide 'init-package-management)
+(provide 'init-package)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; init-package.el ends here

@@ -1,17 +1,8 @@
 (setq user-full-name "Mingde (Matthew) Zeng")
 (setq user-mail-address "matthewzmd@gmail.com")
 
-(global-set-key (kbd "C-z") nil)
-
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
-(global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
-
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd"C--") 'text-scale-decrease)
-
-(global-set-key (kbd "M-n") 'forward-paragraph)
-(global-set-key (kbd "M-p") 'backward-paragraph)
+(def-package swiper
+  :bind ("C-s" . swiper))
 
 (def-package winner
   :ensure nil
@@ -26,10 +17,8 @@
                 "*cvs*"
                 "*Buffer List*"
                 "*Ibuffer*"
-                "*esh command on file*")))
-
-(def-package swiper
-  :bind ("C-s" . swiper))
+                "*esh command on file*"))
+  :config (winner-mode 1))
 
 (def-package which-key
   :diminish
@@ -148,6 +137,52 @@ point reaches the beginning or end of the buffer, stop there."
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'smarter-move-beginning-of-line)
+
+(add-hook 'before-save-hook #'update-includes)
+
+(defun update-includes (&rest ignore)
+  "Update the line numbers of #+INCLUDE:s in current buffer.
+Only looks at INCLUDEs that have either :range-begin or :range-end.
+This function does nothing if not in org-mode, so you can safely
+add it to `before-save-hook'."
+  (interactive)
+  (when (derived-mode-p 'org-mode)
+    (save-excursion
+      (goto-char (point-min))
+      (while (search-forward-regexp
+              "^\\s-*#\\+INCLUDE: *\"\\([^\"]+\\)\".*:range-\\(begin\\|end\\)"
+              nil 'noerror)
+        (let* ((file (expand-file-name (match-string-no-properties 1)))
+               lines begin end)
+          (forward-line 0)
+          (when (looking-at "^.*:range-begin *\"\\([^\"]+\\)\"")
+            (setq begin (match-string-no-properties 1)))
+          (when (looking-at "^.*:range-end *\"\\([^\"]+\\)\"")
+            (setq end (match-string-no-properties 1)))
+          (setq lines (decide-line-range file begin end))
+          (when lines
+            (if (looking-at ".*:lines *\"\\([-0-9]+\\)\"")
+                (replace-match lines :fixedcase :literal nil 1)
+              (goto-char (line-end-position))
+              (insert " :lines \"" lines "\""))))))))
+
+(defun decide-line-range (file begin end)
+  "Visit FILE and decide which lines to include.
+BEGIN and END are regexps which define the line range to use."
+  (let (l r)
+    (save-match-data
+      (with-temp-buffer
+        (insert-file file)
+        (goto-char (point-min))
+        (if (null begin)
+            (setq l "")
+          (search-forward-regexp begin)
+          (setq l (line-number-at-pos (match-beginning 0))))
+        (if (null end)
+            (setq r "")
+          (search-forward-regexp end)
+          (setq r (1+ (line-number-at-pos (match-end 0)))))
+        (format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
 
 (setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
 
@@ -421,6 +456,7 @@ point reaches the beginning or end of the buffer, stop there."
   :defer t
   :hook (prog-mode . flycheck-mode)
   :config
+  (setq flycheck-emacs-lisp-load-path 'inherit)
   (flycheck-add-mode 'typescript-tslint 'js2-mode)
   (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
 
@@ -496,6 +532,15 @@ point reaches the beginning or end of the buffer, stop there."
   (add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
   (setq highlight-indent-guides-method 'character))
 
+(use-package header2
+  :ensure nil
+  :config
+  (autoload 'auto-make-header "header2")
+  (autoload 'auto-update-file-header "header2")
+  (add-hook 'write-file-hooks 'auto-update-file-header)
+  (add-hook 'emacs-lisp-mode-hook 'auto-make-header)
+  (add-hook 'c-mode-common-hook   'auto-make-header))
+
 (def-package lsp-mode
   :defer t
   :commands lsp
@@ -548,15 +593,6 @@ point reaches the beginning or end of the buffer, stop there."
   :config
   (dap-mode t)
   (dap-ui-mode t))
-
-(add-hook 'emacs-lisp-mode-hook
-          (lambda () (let  ((auto-insert-query nil)
-                       (auto-insert-alist
-                        '((("\\.el\\'" . "Emacs Lisp header")
-                           ""
-                           ";;; -*- lexical-binding: t; -*-\n\n"
-                           '(setq lexical-binding t)))))
-                  (auto-insert))))
 
 (define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
 
