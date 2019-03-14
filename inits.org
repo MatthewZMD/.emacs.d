@@ -6,14 +6,16 @@
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
 ** Cool Little Thing About This README                             :noexport:
-   This README will be parsed by [[./init.el][init.el]] which then evaluates all =emacs-lisp= code blocks during startup. Which means this README file is not only useful for you, a human's understanding, it also serves as the foundation for my entire Emacs configuration!
-* Table of Contents                                                   :TOC_2_org:
+   This README originated from [[file:init.org][init.org]] that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from =elisp/= directory. You will not see their presence in the init file.
+
+   Therefore, you need to manually sync this README with all the new changes you made yourself by adding =#+INCLUDE:= in the appropriate section below and call =M-x org-gfm-export-to-markdown=.
+* Table of Contents                                               :TOC_2_org:
 - [[About][About]]
 - [[Startup][Startup]]
   - [[Lexical-binding][Lexical-binding]]
   - [[Disable Unnecessary Interface][Disable Unnecessary Interface]]
   - [[Optimization][Optimization]]
-- [[Efficient Package Management][Efficient Package Management]]
+- [[Package Management][Package Management]]
   - [[Local Packages Not in Melpa][Local Packages Not in Melpa]]
   - [[Melpa Packages][Melpa Packages]]
   - [[Configure Package Management][Configure Package Management]]
@@ -85,42 +87,18 @@
    #+BEGIN_QUOTE
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/custom-file.el" src emacs-lisp :lines "1-2"
+   #+INCLUDE: "~/.emacs.d/elisp/init-startup.el" src emacs-lisp :lines "1-2"
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
-   #+BEGIN_SRC emacs-lisp
-     (scroll-bar-mode -1)
-     (tool-bar-mode   -1)
-     (tooltip-mode    -1)
-     (menu-bar-mode   -1)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-startup.el" src emacs-lisp :lines "4-8"
 ** Optimization
    Avoid garbage collection during startup.
-   #+BEGIN_SRC emacs-lisp
-     (eval-and-compile
-       (defun revert-gc ()
-         (setq gc-cons-threshold 16777216
-               gc-cons-percentage 0.1))
-
-       (setq gc-cons-threshold 402653184
-             gc-cons-percentage 0.6)
-
-       (add-hook 'emacs-startup-hook 'revert-gc))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-startup.el" src emacs-lisp :lines "10-19"
    Unset file name handler alist.
-   #+BEGIN_SRC emacs-lisp
-     (eval-and-compile
-       (defun reset-file-name-handler-alist ()
-         (setq file-name-handler-alist orig-file-name-handler-alist))
-
-       (defvar orig-file-name-handler-alist file-name-handler-alist)
-       (setq file-name-handler-alist nil)
-
-       (add-hook 'emacs-startup-hook 'reset-file-name-handler-alist))
-   #+END_SRC
-* Efficient Package Management
+   #+INCLUDE: "~/.emacs.d/elisp/init-startup.el" src emacs-lisp :lines "20-28"
+* Package Management
 ** Local Packages Not in Melpa
-   This will add all the packages in =/elisp= into the =load-path=.
+   This will add all the packages in =/site-elisp= into the =load-path=.
    #+BEGIN_SRC emacs-lisp
      (let ((base "~/.emacs.d/site-elisp"))
        (add-to-list 'load-path base)
@@ -479,7 +457,7 @@
     #+END_SRC
 *** Move Custom-Set-Variables to Different File
     #+BEGIN_SRC emacs-lisp
-      (setq custom-file (concat user-emacs-directory "elisp/custom-file.el"))
+      (setq custom-file (concat user-emacs-directory "elisp/init-customization.el"))
       (load custom-file 'noerror)
     #+END_SRC
 ** More Functions
@@ -1243,7 +1221,8 @@
 *** OX-GFM
     [[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
     #+BEGIN_SRC emacs-lisp
-      (def-package ox-gfm)
+      (def-package ox-gfm
+        :defer t)
     #+END_SRC
 ** EWW
    EWW, the Emacs Web Wowser.

@@ -279,7 +279,7 @@
 
 (add-hook 'focus-out-hook #'garbage-collect)
 
-(setq custom-file (concat user-emacs-directory "elisp/custom-file.el"))
+(setq custom-file (concat user-emacs-directory "elisp/init-customization.el"))
 (load custom-file 'noerror)
 
 ;; Resizes the window width based on the input
@@ -837,7 +837,8 @@ point reaches the beginning or end of the buffer, stop there."
 
 (use-package htmlize :defer t)
 
-(def-package ox-gfm)
+(def-package ox-gfm
+  :defer t)
 
 (setq browse-url-browser-function 'eww-browse-url)
 

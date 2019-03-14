@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- org-gfm-export-to-markdown
  rename-file-and-buffer
- package-install
+ org-gfm-export-to-markdown
  ielm
+ package-install
  re-search-forward
  global-flycheck-mode
- company-lsp
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 18)
+ (ielm . 19)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -160,6 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 6)
- (rename-file-and-buffer . 5)
+ (org-gfm-export-to-markdown . 9)
+ (rename-file-and-buffer . 6)
+ (org-export-stack . 1)
 )
