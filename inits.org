@@ -1,7 +1,6 @@
 #+TITLE: M-EMACS
 #+OPTIONS: toc:nil
 #+EXPORT_FILE_NAME: README
-# Please do *NOT* edit README.md file! edit init.org instead!
 * M-EMACS
 * About
   M-EMACS is a custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to Melpa Packages, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
@@ -16,7 +15,8 @@
     1. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
     2. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
     3. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in [[file:init.org][init.org]].
-    4. Call =M-x org-gfm-export-to-markdown= to update this README.
+    4. Please do *NOT* edit README.md file, edit [[file:init.org][init.org]] instead!
+    5. Call =M-x org-gfm-export-to-markdown= to update this README.
 * Table of Contents                                               :TOC_2_ORG:
 - [[M-EMACS][M-EMACS]]
 - [[About][About]]

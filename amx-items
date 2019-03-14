@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 25)
+ (org-gfm-export-to-markdown . 27)
  (rename-file-and-buffer . 17)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
