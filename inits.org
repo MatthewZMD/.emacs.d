@@ -50,7 +50,7 @@
   - [[Doom Modeline][Doom Modeline]]
   - [[Dashboard][Dashboard]]
   - [[Fonts][Fonts]]
-  - [[Zone Screensaver][Zone Screensaver]]
+  - [[Zone][Zone]]
   - [[Diminish][Diminish]]
   - [[Dimmer][Dimmer]]
   - [[Smooth Scroll][Smooth Scroll]]
@@ -243,74 +243,32 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-fonts.el" src emacs-lisp :range-begin "FontsList" :range-end "-FontsList" :lines "45-48"
    Change Font Function.
    #+INCLUDE: "~/.emacs.d/elisp/init-fonts.el" src emacs-lisp :range-begin "FontFun" :range-end "-FontFun" :lines "51-71"
-** Zone Screensaver
+** Zone
    [[https://www.emacswiki.org/emacs/ZoneMode][Zone mode]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer, which is used as my Emacs screensaver.
    #+INCLUDE: "~/.emacs.d/elisp/init-zone.el" src emacs-lisp :range-begin "ZonePac" :range-end "-ZonePac" :lines "47-61"
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
-   #+BEGIN_SRC emacs-lisp
-     (def-package diminish)
-   #+END_SRC
-
+   #+INCLUDE: "~/.emacs.d/elisp/init-diminish.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "46-47"
 ** Dimmer
    [[https://github.com/gonewest818/dimmer.el][Dimmer]], a feature that visually highlights the selected buffer.
-   #+BEGIN_SRC emacs-lisp
-     (def-package dimmer
-       :init (dimmer-mode)
-       :config
-       (setq dimmer-fraction 0.2)
-       (setq dimmer-exclusion-regexp "\\*Minibuf-[0-9]+\\*\\|\\*dashboard\\*"))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-dimmer.el" src emacs-lisp :range-begin "DimmPac" :range-end "-DimmPac" :lines "47-52"
 ** Smooth Scroll
    Smoothens Scrolling.
-   #+BEGIN_SRC emacs-lisp
-     (setq scroll-step 1)
-     (setq scroll-margin 1)
-     (setq scroll-conservatively 101)
-     (setq scroll-up-aggressively 0.01)
-     (setq scroll-down-aggressively 0.01)
-     (setq auto-window-vscroll nil)
-     (setq redisplay-dont-pause t)
-     (setq fast-but-imprecise-scrolling nil)
-     (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-     (setq mouse-wheel-progressive-speed nil)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-scroll.el" src emacs-lisp :range-begin "SmoothScroll" :range-end "-SmoothScroll" :lines "45-54"
 ** Pretty Symbols
    Pretty the Symbols.
-   #+BEGIN_SRC emacs-lisp
-     (global-prettify-symbols-mode 1)
-       (defun add-pretty-lambda ()
-         "make some word or string show as pretty Unicode symbols"
-         (setq prettify-symbols-alist
-               '(
-                 ("lambda" . 955)
-                 ("->" . 8594)
-                 ("=>" . 8658)
-                 ("map" . 8614)
-                 )))
-       (add-hook 'prog-mode-hook 'add-pretty-lambda)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-symbol.el" src emacs-lisp :range-begin "PreSym" :range-end "-PreSym" :lines "45-56"
 ** UI Configs
    Maximize frame.
-   #+BEGIN_SRC emacs-lisp
-     (add-to-list 'default-frame-alist '(fullscreen . maximized))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "MaxFrame" :range-end "-MaxFrame" :lines "49-50"
    Disable splash screen and change scratch message.
-   #+BEGIN_SRC emacs-lisp
-     (setq inhibit-startup-screen t)
-     (setq initial-scratch-message ";; Present Day, Present Time...")
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "StartupScreen" :range-end "-StartupScreen" :lines "53-55"
    Change yes or no prompts to y or n.
-   #+BEGIN_SRC emacs-lisp
-     (fset 'yes-or-no-p 'y-or-n-p)
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "YorN" :range-end "-YorN" :lines "58-59"
 * General Programming
 ** Magit
    [[https://magit.vc/][Magit]], an interface to the version control system Git.
-   #+BEGIN_SRC emacs-lisp
-     (def-package magit
-       :bind ("C-x g" . magit-status))
-   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "MagitPac" :range-end "-MagitPac" :lines "46-48"
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]], a Project Interaction Library for Emacs.
 

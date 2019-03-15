@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- org-gfm-export-to-markdown
- update-load-path
- byte-compile-file
  rename-file-and-buffer
- check-parens
- winner-mode
- time-stamp
+ winner-undo
+ org-gfm-export-to-markdown
+ ielm
+ package-install
+ re-search-forward
+ global-flycheck-mode
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 44)
+ (package-install . 43)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -41,7 +41,7 @@
  (eshell . 1)
  (shell . 42)
  (package-menu-mark-upgrades . 4)
- (list-packages . 10)
+ (list-packages . 9)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
@@ -153,22 +153,16 @@
  (jedi:reinstall-server . 1)
  (smartparens-strict-mode . 2)
  (sp-kill-sexp . 1)
- (byte-compile-file . 3)
+ (byte-compile-file . 2)
  (list-load-path-shadows . 2)
  (company-lsp . 4)
  (company-diag . 1)
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 27)
- (rename-file-and-buffer . 17)
+ (org-gfm-export-to-markdown . 13)
+ (rename-file-and-buffer . 8)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
- (kmacro-edit-macro . 1)
- (time-stamp . 1)
- (winner-redo . 1)
- (winner-undo . 2)
- (winner-mode . 3)
- (check-parens . 1)
- (update-load-path . 5)
+ (winner-undo . 1)
 )

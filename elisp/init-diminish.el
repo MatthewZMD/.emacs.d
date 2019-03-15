@@ -1,21 +1,21 @@
-;;; init-ui-config.el --- -*- lexical-binding: t -*-
+;;; init-diminish.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-ui-config.el
-;; Description: Initialize UI Configuration
+;; Filename: init-diminish.el
+;; Description: Initialize Diminish
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 16:12:56 2019 (-0400)
+;; Created: Fri Mar 15 08:19:14 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ui
+;; Keywords: M-EMACS .emacs.d diminish
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes UI configurations
+;; This initializes diminish
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,24 +40,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+(require 'init-package)
 
-;; TitleBar
-(setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
-;; -TitleBar
+;; DimPac
+(def-package diminish)
+;; -DimPac
 
-;; MaxFrame
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-;; -MaxFrame
-
-;; StartupScreen
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message ";; Present Day, Present Time...")
-;; -StartupScreen
-
-;; YorN
-(fset 'yes-or-no-p 'y-or-n-p)
-;; -YorN
-
-(provide 'init-ui-config)
+(provide 'init-diminish)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ui-config.el ends here
+;;; init-diminish.el ends here

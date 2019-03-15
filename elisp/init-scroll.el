@@ -1,21 +1,21 @@
-;;; init-ui-config.el --- -*- lexical-binding: t -*-
+;;; init-scroll.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-ui-config.el
-;; Description: Initialize UI Configuration
+;; Filename: init-scroll.el
+;; Description: Initialize Smooth Scroll
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 16:12:56 2019 (-0400)
+;; Created: Fri Mar 15 08:30:08 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ui
+;; Keywords: M-EMACS .emacs.d smooth-scroll
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes UI configurations
+;; This initializes smooth scroll
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,23 +41,18 @@
 ;;
 ;;; Code:
 
-;; TitleBar
-(setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
-;; -TitleBar
+;; SmoothScroll
+(setq scroll-step 1)
+(setq scroll-margin 1)
+(setq scroll-conservatively 101)
+(setq scroll-up-aggressively 0.01)
+(setq scroll-down-aggressively 0.01)
+(setq auto-window-vscroll nil)
+(setq fast-but-imprecise-scrolling nil)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+;; -SmoothScroll
 
-;; MaxFrame
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-;; -MaxFrame
-
-;; StartupScreen
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message ";; Present Day, Present Time...")
-;; -StartupScreen
-
-;; YorN
-(fset 'yes-or-no-p 'y-or-n-p)
-;; -YorN
-
-(provide 'init-ui-config)
+(provide 'init-scroll)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ui-config.el ends here
+;;; init-scroll.el ends here

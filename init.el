@@ -133,6 +133,17 @@
 
 (require 'init-zone)
 
+(require 'init-diminish)
+
+(require 'init-dimmer)
+
+(require 'init-scroll)
+
+(require 'init-symbol)
+
+;; General Programming
+(require 'init-magit)
+
 (org-babel-load-file (expand-file-name "~/.emacs.d/inits.org"))
 
 

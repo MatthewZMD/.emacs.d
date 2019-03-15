@@ -1,21 +1,21 @@
-;;; init-ui-config.el --- -*- lexical-binding: t -*-
+;;; init-magit.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-ui-config.el
-;; Description: Initialize UI Configuration
+;; Filename: init-magit.el
+;; Description: Initialize Magit
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 16:12:56 2019 (-0400)
+;; Created: Fri Mar 15 08:40:27 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ui
+;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes UI configurations
+;; This initializes magit
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,24 +40,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+(require 'init-package)
 
-;; TitleBar
-(setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
-;; -TitleBar
-
-;; MaxFrame
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-;; -MaxFrame
-
-;; StartupScreen
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message ";; Present Day, Present Time...")
-;; -StartupScreen
-
-;; YorN
-(fset 'yes-or-no-p 'y-or-n-p)
-;; -YorN
-
-(provide 'init-ui-config)
+;; MagitPac
+(def-package magit
+  :bind ("C-x g" . magit-status))
+;; -MagitPac
+(provide 'init-magit)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ui-config.el ends here
+;;; init-magit.el ends here

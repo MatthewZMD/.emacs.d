@@ -1,21 +1,21 @@
-;;; init-ui-config.el --- -*- lexical-binding: t -*-
+;;; init-symbol.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-ui-config.el
-;; Description: Initialize UI Configuration
+;; Filename: init-symbol.el
+;; Description: Initialize Pretty Symbols
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 16:12:56 2019 (-0400)
+;; Created: Fri Mar 15 08:33:44 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d ui
+;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes UI configurations
+;; This initializes pretty symbols
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,23 +41,20 @@
 ;;
 ;;; Code:
 
-;; TitleBar
-(setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
-;; -TitleBar
+;; PreSym
+(global-prettify-symbols-mode 1)
+  (defun add-pretty-lambda ()
+    "make some word or string show as pretty Unicode symbols"
+    (setq prettify-symbols-alist
+          '(
+            ("lambda" . 955)
+            ("->" . 8594)
+            ("=>" . 8658)
+            ("map" . 8614)
+            )))
+  (add-hook 'prog-mode-hook 'add-pretty-lambda)
+;; -PreSym
 
-;; MaxFrame
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-;; -MaxFrame
-
-;; StartupScreen
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message ";; Present Day, Present Time...")
-;; -StartupScreen
-
-;; YorN
-(fset 'yes-or-no-p 'y-or-n-p)
-;; -YorN
-
-(provide 'init-ui-config)
+(provide 'init-symbol)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ui-config.el ends here
+;;; init-symbol.el ends here
