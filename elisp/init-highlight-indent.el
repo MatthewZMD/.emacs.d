@@ -1,21 +1,21 @@
-;;; init-all-the-icons.el --- -*- lexical-binding: t -*-
+;;; init-highlight-indent.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-all-the-icons.el
-;; Description: Initialize All-The-Icons
+;; Filename: init-highlight-indent.el
+;; Description: Initialize Highlight-Indent-Guides
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 17:06:08 2019 (-0400)
+;; Created: Fri Mar 15 10:29:56 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d all-the-icons
+;; Keywords: M-EMACS .emacs.d highlight-indent-guides
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes all-the-icons, all-the-icons-dired, all-the-icons-ivy
+;; This initializes highlight-indent-guides
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,30 +40,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
 (require 'init-package)
 
-;; ATIPac
-(def-package all-the-icons)
-;; -ATIPac
-
-;; ATIDiredPac
-(def-package all-the-icons-dired
-  :after all-the-icons
-  :diminish
-  :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-  :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default))))))
-;; -ATIDiredPac
-
-;; ATIIvyPac
-(def-package all-the-icons-ivy
-  :after all-the-icons
+;; HighLightIndentPac
+(def-package highlight-indent-guides
+  :defer t
   :config
-  (all-the-icons-ivy-setup)
-  (setq all-the-icons-ivy-buffer-commands '())
-  (setq all-the-icons-ivy-file-commands
-        '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
-;; -ATIIvyPac
+  (add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-method 'character))
+;; -HighLightIndentPac
 
-(provide 'init-all-the-icons)
+(provide 'init-highlight-indent)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-all-the-icons.el ends here
+;;; init-highlight-indent.el ends here

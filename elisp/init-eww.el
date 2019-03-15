@@ -1,21 +1,21 @@
-;;; init-all-the-icons.el --- -*- lexical-binding: t -*-
+;;; init-eww.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-all-the-icons.el
-;; Description: Initialize All-The-Icons
+;; Filename: init-eww.el
+;; Description: Configure Eww
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 17:06:08 2019 (-0400)
+;; Created: Fri Mar 15 11:13:42 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d all-the-icons
+;; Keywords: M-EMACS .emacs.d eww
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes all-the-icons, all-the-icons-dired, all-the-icons-ivy
+;; This initializes eww
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,30 +40,28 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
-;; ATIPac
-(def-package all-the-icons)
-;; -ATIPac
+;; EwwDefault
+(setq browse-url-browser-function 'eww-browse-url)
+;; -EwwDefault
 
-;; ATIDiredPac
-(def-package all-the-icons-dired
-  :after all-the-icons
-  :diminish
-  :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-  :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default))))))
-;; -ATIDiredPac
+;; EwwRenameBuffer
+(defun xah-rename-eww-hook ()
+  "Rename eww browser's buffer so sites open in new page."
+  (rename-buffer "eww" t))
+(add-hook 'eww-mode-hook #'xah-rename-eww-hook)
 
-;; ATIIvyPac
-(def-package all-the-icons-ivy
-  :after all-the-icons
-  :config
-  (all-the-icons-ivy-setup)
-  (setq all-the-icons-ivy-buffer-commands '())
-  (setq all-the-icons-ivy-file-commands
-        '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
-;; -ATIIvyPac
+;; C-u M-x eww will force a new eww buffer
+(defun force-new-eww-buffer (orig-fun &rest args)
+  "ORIG-FUN ARGS When prefix argument is used, a new eww buffer will be created,
+  regardless of whether the current buffer is in `eww-mode'."
+  (if current-prefix-arg
+      (with-temp-buffer
+        (apply orig-fun args))
+    (apply orig-fun args)))
+(advice-add 'eww :around #'force-new-eww-buffer)
+;; -EwwRenameBuffer
 
-(provide 'init-all-the-icons)
+(provide 'init-eww)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-all-the-icons.el ends here
+;;; init-eww.el ends here

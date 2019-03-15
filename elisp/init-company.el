@@ -1,21 +1,22 @@
-;;; init-all-the-icons.el --- -*- lexical-binding: t -*-
+;;; init-company.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-all-the-icons.el
-;; Description: Initialize All-The-Icons
+;; Filename: init-company.el
+;; Description: Initialize Company
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 17:06:08 2019 (-0400)
+;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 1.2.0
+;; Package-Requires: ()
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d all-the-icons
+;; Keywords: M-EMACS .emacs.d company
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes all-the-icons, all-the-icons-dired, all-the-icons-ivy
+;; This initializes company
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,28 +43,24 @@
 ;;; Code:
 (require 'init-package)
 
-;; ATIPac
-(def-package all-the-icons)
-;; -ATIPac
-
-;; ATIDiredPac
-(def-package all-the-icons-dired
-  :after all-the-icons
-  :diminish
-  :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-  :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default))))))
-;; -ATIDiredPac
-
-;; ATIIvyPac
-(def-package all-the-icons-ivy
-  :after all-the-icons
+;; ComPac
+(def-package company
+  :diminish company-mode
+  :defer t
+  :init (global-company-mode)
   :config
-  (all-the-icons-ivy-setup)
-  (setq all-the-icons-ivy-buffer-commands '())
-  (setq all-the-icons-ivy-file-commands
-        '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
-;; -ATIIvyPac
+  (setq company-minimum-prefix-length 1)
+  (setq company-tooltip-align-annotations 't) ; align annotations to the right tooltip border
+  (setq company-idle-delay 0) ; decrease delay before autocompletion popup shows
+  (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+  (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
+  (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+  (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
+  (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
+  (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
+  (setq company-require-match 'never))
+;; -ComPac
 
-(provide 'init-all-the-icons)
+(provide 'init-company)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-all-the-icons.el ends here
+;;; init-company.el ends here

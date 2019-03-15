@@ -1,21 +1,21 @@
-;;; init-all-the-icons.el --- -*- lexical-binding: t -*-
+;;; init-emacs-lisp.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-all-the-icons.el
-;; Description: Initialize All-The-Icons
+;; Filename: init-emacs-lisp.el
+;; Description: Initialize Emacs Lisp
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 17:06:08 2019 (-0400)
+;; Created: Fri Mar 15 10:51:55 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d all-the-icons
+;; Keywords: M-EMACS .emacs.d emacs-lisp
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes all-the-icons, all-the-icons-dired, all-the-icons-ivy
+;; This initialize Emacs-lisp
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,30 +40,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
-;; ATIPac
-(def-package all-the-icons)
-;; -ATIPac
+;; ELispEval
+(define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
+;; -ELispEval
 
-;; ATIDiredPac
-(def-package all-the-icons-dired
-  :after all-the-icons
-  :diminish
-  :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-  :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default))))))
-;; -ATIDiredPac
-
-;; ATIIvyPac
-(def-package all-the-icons-ivy
-  :after all-the-icons
-  :config
-  (all-the-icons-ivy-setup)
-  (setq all-the-icons-ivy-buffer-commands '())
-  (setq all-the-icons-ivy-file-commands
-        '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
-;; -ATIIvyPac
-
-(provide 'init-all-the-icons)
+(provide 'init-emacs-lisp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-all-the-icons.el ends here
+;;; init-emacs-lisp.el ends here

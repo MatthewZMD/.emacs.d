@@ -1,21 +1,21 @@
-;;; init-all-the-icons.el --- -*- lexical-binding: t -*-
+;;; init-arduino.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-all-the-icons.el
-;; Description: Initialize All-The-Icons
+;; Filename: init-arduino.el
+;; Description: Initialize Arduino Mode
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 17:06:08 2019 (-0400)
+;; Created: Fri Mar 15 11:00:55 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d all-the-icons
+;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes all-the-icons, all-the-icons-dired, all-the-icons-ivy
+;; This initializes arduino-mode and company-arduino
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,30 +40,27 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
 (require 'init-package)
 
-;; ATIPac
-(def-package all-the-icons)
-;; -ATIPac
-
-;; ATIDiredPac
-(def-package all-the-icons-dired
-  :after all-the-icons
-  :diminish
-  :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-  :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default))))))
-;; -ATIDiredPac
-
-;; ATIIvyPac
-(def-package all-the-icons-ivy
-  :after all-the-icons
+;; ArduinoPac
+(def-package arduino-mode
+  :defer t
   :config
-  (all-the-icons-ivy-setup)
-  (setq all-the-icons-ivy-buffer-commands '())
-  (setq all-the-icons-ivy-file-commands
-        '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
-;; -ATIIvyPac
+  (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
+  (add-to-list 'auto-mode-alist '("\\.pde\\'" . arduino-mode))
+  (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
+;; -ArduinoPac
 
-(provide 'init-all-the-icons)
+;; CompanyArduinoPac
+(def-package company-arduino
+  :defer t
+  :config
+  (add-hook 'irony-mode-hook 'company-arduino-turn-on)
+  ;; Activate irony-mode on arduino-mode
+  (add-hook 'arduino-mode-hook 'irony-mode))
+;; -CompanyArduinoPac
+
+(provide 'init-arduino)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-all-the-icons.el ends here
+;;; init-arduino.el ends here

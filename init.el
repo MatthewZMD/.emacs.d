@@ -42,8 +42,10 @@
 ;;
 ;;; Code:
 
+;; CheckVer
 (when (version< emacs-version "25.1")
   (error "This requires Emacs 25.1 and above!"))
+;; -CheckVer
 
 ;; DisableUnnecessaryInterface
 (scroll-bar-mode -1)
@@ -144,8 +146,42 @@
 ;; General Programming
 (require 'init-magit)
 
-(org-babel-load-file (expand-file-name "~/.emacs.d/inits.org"))
+(require 'init-projectile)
 
+(require 'init-treemacs)
+
+(require 'init-company)
+
+(require 'init-flycheck)
+
+(require 'init-dumb-jump)
+
+(require 'init-linenum)
+
+(require 'init-parens)
+
+(require 'init-format)
+
+(require 'init-highlight-indent)
+
+(require 'init-header)
+
+(require 'init-lsp)
+
+;; Programming
+(require 'init-emacs-lisp)
+
+(require 'init-c)
+
+(require 'init-arduino)
+
+(require 'init-webdev)
+
+(require 'init-org)
+
+(require 'init-eww)
+
+(require 'init-games)
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

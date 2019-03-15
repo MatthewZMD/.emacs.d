@@ -2,12 +2,12 @@
 ;; ----- amx-history -----
 (
  rename-file-and-buffer
- winner-undo
  org-gfm-export-to-markdown
  ielm
  package-install
  re-search-forward
  global-flycheck-mode
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -160,8 +160,8 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 13)
- (rename-file-and-buffer . 8)
+ (org-gfm-export-to-markdown . 16)
+ (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
