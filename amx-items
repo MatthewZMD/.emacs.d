@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ rename-file-and-buffer
  ielm
+ package-install
  re-search-forward
- global-flycheck-mode
- company-lsp
- list-load-path-shadows
- package-reinstall
- package-refresh-contents
+ eval-buffer
+ shell
+ eww
 )
 
 ;; ----- amx-data -----
@@ -15,7 +15,7 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 42)
+ (package-install . 43)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 18)
+ (ielm . 19)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -160,4 +160,9 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
+ (org-gfm-export-to-markdown . 18)
+ (rename-file-and-buffer . 9)
+ (org-export-stack . 1)
+ (toc-org-insert-toc . 2)
+ (winner-undo . 1)
 )
