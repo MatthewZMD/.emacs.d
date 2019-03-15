@@ -1,4 +1,3 @@
-#+TITLE: M-EMACS
 #+OPTIONS: toc:nil
 #+EXPORT_FILE_NAME: README
 * M-EMACS
@@ -13,11 +12,12 @@
     Of course! You have the permission to use, modify, distribute however you want and free of charge, but without any warranty. (See [[file:LICENSE][LICENSE]])
 
     *Remember* you must manually sync this README with all the new changes you made by:
-    1. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
-    2. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
-    3. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in [[file:init.org][init.org]].
-    4. Please do *NOT* edit README.md file, edit [[file:init.org][init.org]] instead!
-    5. Call =M-x org-gfm-export-to-markdown= to update this README.
+    1. Please do *NOT* edit README.md file, edit [[file:init.org][init.org]] instead!
+    2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
+    3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
+    4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in [[file:init.org][init.org]].
+    5. Following any modification in =#+INCLUDEL= statement as well as any of the =init-.el= files, please press =C-x C-s= to update the =:lines=.
+    6. Call =M-x org-gfm-export-to-markdown= to update this README.
 * Table of Contents                                               :TOC_2_ORG:
 - [[M-EMACS][M-EMACS]]
 - [[About][About]]
@@ -165,7 +165,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "SwiperPac" :range-end "-SwiperPac" :lines "73-75"
 ** Winner
    Winner mode restores old window layout.
-   #+INCLUDE: "~/.emacs.d/elisp/init-winner.el" src emacs-lisp :range-begin "WinnerPac" :range-end "-WinnerPac" :lines "48-63"
+   #+INCLUDE: "~/.emacs.d/elisp/init-winner.el" src emacs-lisp :range-begin "WinnerPac" :range-end "-WinnerPac" :lines "48-60"
 ** Which Key
    [[https://github.com/justbur/emacs-which-key][Which key]], a feature that displays the key bindings following the incomplete command.
    #+INCLUDE: "~/.emacs.d/elisp/init-which-key.el" src emacs-lisp :range-begin "WhichKeyPac" :range-end "-WhichKeyPac" :lines "47-54"

@@ -45,21 +45,18 @@
 (require 'init-package)
 
 ;; WinnerPac
-(def-package winner
-  :ensure nil
-  :commands (winner-undo winner-redo)
-  :init (setq winner-boring-buffers
-              '("*Completions*"
-                "*Compile-Log*"
-                "*inferior-lisp*"
-                "*Fuzzy Completions*"
-                "*Apropos*"
-                "*Help*"
-                "*cvs*"
-                "*Buffer List*"
-                "*Ibuffer*"
-                "*esh command on file*"))
-  :config (winner-mode 1))
+(setq winner-boring-buffers
+      '("*Completions*"
+        "*Compile-Log*"
+        "*inferior-lisp*"
+        "*Fuzzy Completions*"
+        "*Apropos*"
+        "*Help*"
+        "*cvs*"
+        "*Buffer List*"
+        "*Ibuffer*"
+        "*esh command on file*"))
+(winner-mode 1)
 ;; -WinnerPac
 
 (provide 'init-winner)
