@@ -146,7 +146,7 @@
    [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep.
 
    *Prerequisite*: Please follow the [[https://github.com/BurntSushi/ripgrep#installation][installation]] to install ripgrep. Put it in the Path if necessary.
-   k#+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SrPac" :range-end "-SrPac" :lines "47-51"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SrPac" :range-end "-SrPac" :lines "48-54"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "47-55"

@@ -41,13 +41,16 @@
 ;;
 ;;; Code:
 
+(require 'init-package)
 (require 'init-global-config)
 
 ;; SrPac
-(require 'color-rg)
-(global-set-key (kbd "C-z s s") #'color-rg-search-symbol)
-(global-set-key (kbd "C-z s f") #'color-rg-search-input)
-(global-set-key (kbd "C-z s d") #'color-rg-search-project)
+(def-package color-rg
+  :ensure nil
+  :bind
+  (("C-z s s" . color-rg-search-symbol)
+   ("C-z s f" . color-rg-search-input)
+   ("C-z s d" . color-rg-search-project)))
 ;; -SrPac
 
 (provide 'init-search)

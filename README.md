@@ -1,9 +1,9 @@
-<a id="orgf5a86e5"></a>
+<a id="org43798e8"></a>
 
 # M-EMACS
 
 
-<a id="org7c67001"></a>
+<a id="orgcb6102d"></a>
 
 # About
 
@@ -38,83 +38,83 @@ Of course! You have the permission to use, modify, distribute however you want a
 
 # Table of Contents     :TOC_2_ORG:
 
--   [M-EMACS](#orgf5a86e5)
--   [About](#org7c67001)
--   [Startup](#org5d2d0ad)
-    -   [Lexical-binding](#org1c141f9)
-    -   [Disable Unnecessary Interface](#org5a37298)
-    -   [Optimization](#org7b15f29)
--   [Package Management](#orgbf409bd)
-    -   [Melpa Packages](#org7c98363)
-    -   [Configure Package Management](#org74726df)
-    -   [Use-Package Wrapper](#org1f78fd4)
-    -   [Auto Package Update](#org3eab43a)
--   [Global Functionalities](#org49e4cc7)
-    -   [Owner Information](#orgedc834d)
-    -   [Bindings](#org46fa544)
-    -   [Dired](#orgfadf62b)
-    -   [Search](#org0d4c45a)
-    -   [Avy](#orgc835061)
-    -   [Ivy](#orgcbfd986)
-    -   [Winner](#org4d0b9e3)
-    -   [Which Key](#orgc8161a9)
-    -   [Popup Kill Ring](#org89f0da8)
-    -   [Undo Tree](#orgbebe896)
-    -   [Discover My Major](#org5dd0214)
-    -   [Configs](#orgfa1010b)
-    -   [More Functions](#org6d0f110)
--   [User Interface Enhancements](#org22f81e5)
-    -   [Title Bar](#org2a5e6da)
-    -   [All The Icons](#org23ce41d)
-    -   [Doom Theme](#org590c331)
-    -   [Doom Modeline](#org7329580)
-    -   [Dashboard](#org64dc9d9)
-    -   [Fonts](#org5682f03)
-    -   [Zone](#org34d1d5e)
-    -   [Diminish](#org589e2e2)
-    -   [Dimmer](#orgf5dd71a)
-    -   [Smooth Scroll](#org5926d11)
-    -   [Pretty Symbols](#org340a41d)
-    -   [UI Configs](#org4ba9ebf)
--   [General Programming](#org2defae5)
-    -   [Magit](#org97eff03)
-    -   [Projectile](#org50c3f14)
-    -   [Treemacs](#org472dc6b)
-    -   [Company](#orgd020e38)
-    -   [Flycheck](#org7f7c41d)
-    -   [Dumb Jump](#orga781304)
-    -   [Line Numbers](#org4d445ce)
-    -   [Parenthesis Pairing](#orgfbc62a8)
-    -   [Format All](#orgadccecf)
-    -   [Highlight Indent Guides](#orgc621a96)
-    -   [Header](#orgda7ee52)
-    -   [LSP](#orga9c8314)
--   [Programming](#org9d90305)
-    -   [Emacs Lisp](#org0c12520)
-    -   [Java](#org7e604e1)
-    -   [C/C++](#org13cc1d0)
-    -   [Python](#org3dc6eaf)
-    -   [Arduino](#orgf7ddde4)
--   [Web Development](#orgd5067fa)
-    -   [Web Mode](#org37568db)
-    -   [Emmet](#orgb268d8b)
-    -   [JavaScript](#orgb734e44)
-    -   [TypeScript](#orge7c5713)
--   [Miscellaneous](#org282be0f)
-    -   [Org](#orga002e6a)
-    -   [EWW](#orgffb602a)
-    -   [Tetris](#org5301040)
-    -   [Speed Type](#orgf0f403b)
-    -   [2048 Game](#orgd96360d)
--   [Credits](#orgeddef46)
+-   [M-EMACS](#org43798e8)
+-   [About](#orgcb6102d)
+-   [Startup](#org5748f02)
+    -   [Lexical-binding](#org94f7350)
+    -   [Disable Unnecessary Interface](#org2c57814)
+    -   [Optimization](#org5495194)
+-   [Package Management](#orgbdbf05e)
+    -   [Melpa Packages](#orgd4ed8c2)
+    -   [Configure Package Management](#orgeb40c78)
+    -   [Use-Package Wrapper](#org184ed68)
+    -   [Auto Package Update](#orgb307804)
+-   [Global Functionalities](#org23f25c2)
+    -   [Owner Information](#orgf19542a)
+    -   [Bindings](#org8b62eb8)
+    -   [Dired](#org6366489)
+    -   [Search](#orgeed8db7)
+    -   [Avy](#orga6201fc)
+    -   [Ivy](#org72e6184)
+    -   [Winner](#org0b5206d)
+    -   [Which Key](#org6e657ff)
+    -   [Popup Kill Ring](#org04815c4)
+    -   [Undo Tree](#orge192cdc)
+    -   [Discover My Major](#org5f189b0)
+    -   [Configs](#org98cb931)
+    -   [More Functions](#org99087e9)
+-   [User Interface Enhancements](#org38e0333)
+    -   [Title Bar](#org8c58812)
+    -   [All The Icons](#org3d85776)
+    -   [Doom Theme](#orgb12c604)
+    -   [Doom Modeline](#org06f49fc)
+    -   [Dashboard](#org31b39a5)
+    -   [Fonts](#org395cb9f)
+    -   [Zone](#org08a2fa8)
+    -   [Diminish](#org89e2081)
+    -   [Dimmer](#orgec62b4f)
+    -   [Smooth Scroll](#orgfb9dfef)
+    -   [Pretty Symbols](#org575d088)
+    -   [UI Configs](#org2d4dd48)
+-   [General Programming](#orgc90d556)
+    -   [Magit](#orgcd52543)
+    -   [Projectile](#org5063d89)
+    -   [Treemacs](#org5b12165)
+    -   [Company](#org1ed312a)
+    -   [Flycheck](#org72b9ef6)
+    -   [Dumb Jump](#org34ee76a)
+    -   [Line Numbers](#org599037b)
+    -   [Parenthesis Pairing](#org82879b9)
+    -   [Format All](#orgaee9541)
+    -   [Highlight Indent Guides](#org1af765f)
+    -   [Header](#orgc6f6c0c)
+    -   [LSP](#orgbe04b23)
+-   [Programming](#orgb598a1d)
+    -   [Emacs Lisp](#org5cd3287)
+    -   [Java](#org682d57e)
+    -   [C/C++](#orga60e336)
+    -   [Python](#org4cfc8e4)
+    -   [Arduino](#org7faaaa2)
+-   [Web Development](#orgc1174f3)
+    -   [Web Mode](#org6d8ad5d)
+    -   [Emmet](#org5025c72)
+    -   [JavaScript](#org76e03d7)
+    -   [TypeScript](#orgabf1d6e)
+-   [Miscellaneous](#orgcabfaac)
+    -   [Org](#org19739e2)
+    -   [EWW](#orgf6e4c73)
+    -   [Tetris](#org7349717)
+    -   [Speed Type](#org53de7f3)
+    -   [2048 Game](#orgf3b74db)
+-   [Credits](#org83e3709)
 
 
-<a id="org5d2d0ad"></a>
+<a id="org5748f02"></a>
 
 # Startup
 
 
-<a id="org1c141f9"></a>
+<a id="org94f7350"></a>
 
 ## Lexical-binding
 
@@ -127,7 +127,7 @@ Use lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 ```
 
 
-<a id="org5a37298"></a>
+<a id="org2c57814"></a>
 
 ## Disable Unnecessary Interface
 
@@ -141,7 +141,7 @@ This need to be in the beginning of initialization to smooth the experience.
 ```
 
 
-<a id="org7b15f29"></a>
+<a id="org5495194"></a>
 
 ## Optimization
 
@@ -194,12 +194,12 @@ Load all elisp files in `elisp/` and `site-elisp/` to reduce startup time.
 ```
 
 
-<a id="orgbf409bd"></a>
+<a id="orgbdbf05e"></a>
 
 # Package Management
 
 
-<a id="org7c98363"></a>
+<a id="orgd4ed8c2"></a>
 
 ## Melpa Packages
 
@@ -216,7 +216,7 @@ Load all elisp files in `elisp/` and `site-elisp/` to reduce startup time.
 ```
 
 
-<a id="org74726df"></a>
+<a id="orgeb40c78"></a>
 
 ## Configure Package Management
 
@@ -236,7 +236,7 @@ Load all elisp files in `elisp/` and `site-elisp/` to reduce startup time.
 ```
 
 
-<a id="org1f78fd4"></a>
+<a id="org184ed68"></a>
 
 ## Use-Package Wrapper
 
@@ -289,7 +289,7 @@ The `use-package` wrapper.
 ```
 
 
-<a id="org3eab43a"></a>
+<a id="orgb307804"></a>
 
 ## Auto Package Update
 
@@ -304,12 +304,12 @@ The `use-package` wrapper.
 ```
 
 
-<a id="org49e4cc7"></a>
+<a id="org23f25c2"></a>
 
 # Global Functionalities
 
 
-<a id="orgedc834d"></a>
+<a id="orgf19542a"></a>
 
 ## Owner Information
 
@@ -321,7 +321,7 @@ The `use-package` wrapper.
 ```
 
 
-<a id="org46fa544"></a>
+<a id="org8b62eb8"></a>
 
 ## Bindings
 
@@ -341,7 +341,7 @@ The `use-package` wrapper.
 ```
 
 
-<a id="orgfadf62b"></a>
+<a id="org6366489"></a>
 
 ## Dired
 
@@ -432,7 +432,7 @@ Set autosave and backup directory.
 ```
 
 
-<a id="org0d4c45a"></a>
+<a id="orgeed8db7"></a>
 
 ## Search
 
@@ -441,14 +441,16 @@ Set autosave and backup directory.
 **Prerequisite**: Please follow the [installation](https://github.com/BurntSushi/ripgrep#installation) to install ripgrep. Put it in the Path if necessary.
 
 ```emacs-lisp
-(require 'color-rg)
-(global-set-key (kbd "C-z s s") #'color-rg-search-symbol)
-(global-set-key (kbd "C-z s f") #'color-rg-search-input)
-(global-set-key (kbd "C-z s d") #'color-rg-search-project)
+(def-package color-rg
+  :ensure nil
+  :bind
+  (("C-z s s" . color-rg-search-symbol)
+   ("C-z s f" . color-rg-search-input)
+   ("C-z s d" . color-rg-search-project)))
 ```
 
 
-<a id="orgc835061"></a>
+<a id="orga6201fc"></a>
 
 ## Avy
 
@@ -466,7 +468,7 @@ Set autosave and backup directory.
 ```
 
 
-<a id="orgcbfd986"></a>
+<a id="org72e6184"></a>
 
 ## Ivy
 
@@ -522,7 +524,7 @@ Set autosave and backup directory.
 ```
 
 
-<a id="org4d0b9e3"></a>
+<a id="org0b5206d"></a>
 
 ## Winner
 
@@ -544,7 +546,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="orgc8161a9"></a>
+<a id="org6e657ff"></a>
 
 ## Which Key
 
@@ -561,7 +563,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="org89f0da8"></a>
+<a id="org04815c4"></a>
 
 ## Popup Kill Ring
 
@@ -573,7 +575,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="orgbebe896"></a>
+<a id="orge192cdc"></a>
 
 ## Undo Tree
 
@@ -587,7 +589,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="org5dd0214"></a>
+<a id="org5f189b0"></a>
 
 ## Discover My Major
 
@@ -599,7 +601,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="orgfa1010b"></a>
+<a id="org98cb931"></a>
 
 ## Configs
 
@@ -689,7 +691,7 @@ Garbage collect when Emacs is not in focus.
 ```
 
 
-<a id="org6d0f110"></a>
+<a id="org99087e9"></a>
 
 ## More Functions
 
@@ -822,12 +824,12 @@ BEGIN and END are regexps which define the line range to use."
 ```
 
 
-<a id="org22f81e5"></a>
+<a id="org38e0333"></a>
 
 # User Interface Enhancements
 
 
-<a id="org2a5e6da"></a>
+<a id="org8c58812"></a>
 
 ## Title Bar
 
@@ -836,7 +838,7 @@ BEGIN and END are regexps which define the line range to use."
 ```
 
 
-<a id="org23ce41d"></a>
+<a id="org3d85776"></a>
 
 ## All The Icons
 
@@ -877,7 +879,7 @@ BEGIN and END are regexps which define the line range to use."
 ```
 
 
-<a id="org590c331"></a>
+<a id="orgb12c604"></a>
 
 ## Doom Theme
 
@@ -894,7 +896,7 @@ BEGIN and END are regexps which define the line range to use."
 ```
 
 
-<a id="org7329580"></a>
+<a id="org06f49fc"></a>
 
 ## Doom Modeline
 
@@ -914,7 +916,7 @@ BEGIN and END are regexps which define the line range to use."
 ```
 
 
-<a id="org64dc9d9"></a>
+<a id="org31b39a5"></a>
 
 ## Dashboard
 
@@ -984,7 +986,7 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
 ```
 
 
-<a id="org5682f03"></a>
+<a id="org395cb9f"></a>
 
 ## Fonts
 
@@ -1024,7 +1026,7 @@ Change Font Function.
 ```
 
 
-<a id="org34d1d5e"></a>
+<a id="org08a2fa8"></a>
 
 ## Zone
 
@@ -1048,7 +1050,7 @@ Change Font Function.
 ```
 
 
-<a id="org589e2e2"></a>
+<a id="org89e2081"></a>
 
 ## Diminish
 
@@ -1059,7 +1061,7 @@ Change Font Function.
 ```
 
 
-<a id="orgf5dd71a"></a>
+<a id="orgec62b4f"></a>
 
 ## Dimmer
 
@@ -1074,7 +1076,7 @@ Change Font Function.
 ```
 
 
-<a id="org5926d11"></a>
+<a id="orgfb9dfef"></a>
 
 ## Smooth Scroll
 
@@ -1093,7 +1095,7 @@ Smoothens Scrolling.
 ```
 
 
-<a id="org340a41d"></a>
+<a id="org575d088"></a>
 
 ## Pretty Symbols
 
@@ -1114,7 +1116,7 @@ Pretty the Symbols.
 ```
 
 
-<a id="org4ba9ebf"></a>
+<a id="org2d4dd48"></a>
 
 ## UI Configs
 
@@ -1138,12 +1140,12 @@ Change yes or no prompts to y or n.
 ```
 
 
-<a id="org2defae5"></a>
+<a id="orgc90d556"></a>
 
 # General Programming
 
 
-<a id="org97eff03"></a>
+<a id="orgcd52543"></a>
 
 ## Magit
 
@@ -1155,7 +1157,7 @@ Change yes or no prompts to y or n.
 ```
 
 
-<a id="org50c3f14"></a>
+<a id="org5063d89"></a>
 
 ## Projectile
 
@@ -1179,7 +1181,7 @@ Change yes or no prompts to y or n.
 ```
 
 
-<a id="org472dc6b"></a>
+<a id="org5b12165"></a>
 
 ## Treemacs
 
@@ -1263,7 +1265,7 @@ Change yes or no prompts to y or n.
 ```
 
 
-<a id="orgd020e38"></a>
+<a id="org1ed312a"></a>
 
 ## Company
 
@@ -1288,7 +1290,7 @@ Change yes or no prompts to y or n.
 ```
 
 
-<a id="org7f7c41d"></a>
+<a id="org72b9ef6"></a>
 
 ## Flycheck
 
@@ -1305,7 +1307,7 @@ Change yes or no prompts to y or n.
 ```
 
 
-<a id="orga781304"></a>
+<a id="org34ee76a"></a>
 
 ## Dumb Jump
 
@@ -1322,7 +1324,7 @@ Change yes or no prompts to y or n.
 ```
 
 
-<a id="org4d445ce"></a>
+<a id="org599037b"></a>
 
 ## Line Numbers
 
@@ -1341,7 +1343,7 @@ Display line numbers, and column numbers in modeline.
 ```
 
 
-<a id="orgfbc62a8"></a>
+<a id="org82879b9"></a>
 
 ## Parenthesis Pairing
 
@@ -1418,7 +1420,7 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="orgadccecf"></a>
+<a id="orgaee9541"></a>
 
 ## Format All
 
@@ -1433,7 +1435,7 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="orgc621a96"></a>
+<a id="org1af765f"></a>
 
 ## Highlight Indent Guides
 
@@ -1448,7 +1450,7 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="orgda7ee52"></a>
+<a id="orgc6f6c0c"></a>
 
 ## Header
 
@@ -1466,7 +1468,7 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="orga9c8314"></a>
+<a id="orgbe04b23"></a>
 
 ## LSP
 
@@ -1552,12 +1554,12 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="org9d90305"></a>
+<a id="orgb598a1d"></a>
 
 # Programming
 
 
-<a id="org0c12520"></a>
+<a id="org5cd3287"></a>
 
 ## Emacs Lisp
 
@@ -1571,7 +1573,7 @@ Eval-buffer for ELisp Code.
 ```
 
 
-<a id="org7e604e1"></a>
+<a id="org682d57e"></a>
 
 ## Java
 
@@ -1589,7 +1591,7 @@ Eval-buffer for ELisp Code.
 ```
 
 
-<a id="org13cc1d0"></a>
+<a id="orga60e336"></a>
 
 ## C/C++
 
@@ -1617,7 +1619,7 @@ CC Mode, a mode for editing files containing C, C++, Objective-C, Java, CORBA ID
 Rest of the features will be provided by [LSP Mode](https://github.com/emacs-lsp/lsp-mode).
 
 
-<a id="org3dc6eaf"></a>
+<a id="org4cfc8e4"></a>
 
 ## Python
 
@@ -1654,7 +1656,7 @@ Now, put `~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish
 ```
 
 
-<a id="orgf7ddde4"></a>
+<a id="org7faaaa2"></a>
 
 ## Arduino
 
@@ -1687,12 +1689,12 @@ Now, put `~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish
 ```
 
 
-<a id="orgd5067fa"></a>
+<a id="orgc1174f3"></a>
 
 # Web Development
 
 
-<a id="org37568db"></a>
+<a id="org6d8ad5d"></a>
 
 ## Web Mode
 
@@ -1706,7 +1708,7 @@ Now, put `~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish
 ```
 
 
-<a id="orgb268d8b"></a>
+<a id="org5025c72"></a>
 
 ## Emmet
 
@@ -1720,7 +1722,7 @@ Now, put `~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish
 ```
 
 
-<a id="orgb734e44"></a>
+<a id="org76e03d7"></a>
 
 ## JavaScript
 
@@ -1733,7 +1735,7 @@ Now, put `~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish
 ```
 
 
-<a id="orge7c5713"></a>
+<a id="orgabf1d6e"></a>
 
 ## TypeScript
 
@@ -1776,12 +1778,12 @@ Tip: enter `M-.` to jump to definition.
 ```
 
 
-<a id="org282be0f"></a>
+<a id="orgcabfaac"></a>
 
 # Miscellaneous
 
 
-<a id="orga002e6a"></a>
+<a id="org19739e2"></a>
 
 ## Org
 
@@ -1831,7 +1833,7 @@ Tip: enter `M-.` to jump to definition.
 ```
 
 
-<a id="orgffb602a"></a>
+<a id="orgf6e4c73"></a>
 
 ## EWW
 
@@ -1867,7 +1869,7 @@ In Eww, hit & to browse this url system browser
 ```
 
 
-<a id="org5301040"></a>
+<a id="org7349717"></a>
 
 ## Tetris
 
@@ -1886,7 +1888,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="orgf0f403b"></a>
+<a id="org53de7f3"></a>
 
 ## Speed Type
 
@@ -1898,7 +1900,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="orgd96360d"></a>
+<a id="orgf3b74db"></a>
 
 ## 2048 Game
 
@@ -1910,7 +1912,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="orgeddef46"></a>
+<a id="org83e3709"></a>
 
 # Credits
 
