@@ -34,7 +34,7 @@
   - [[Owner Information][Owner Information]]
   - [[Bindings][Bindings]]
   - [[Dired][Dired]]
-  - [[AG][AG]]
+  - [[Search][Search]]
   - [[Avy][Avy]]
   - [[Ivy][Ivy]]
   - [[Winner][Winner]]
@@ -142,11 +142,11 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "86-101"
 *** File Configs
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "104-112"
-** AG
-   [[https://github.com/ggreer/the_silver_searcher][AG The Silver Searcher]], a code-searching tool similar to ack, but faster.
+** Search
+   [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep.
 
-   *Prerequisite*: [[https://github.com/k-takata/the_silver_searcher-win32][AG for Windows]] must be installed and put in the Path.
-   #+INCLUDE: "~/.emacs.d/elisp/init-ag.el" src emacs-lisp :range-begin "AgPac" :range-end "-AgPac" :lines "48-51"
+   *Prerequisite*: Please follow the [[https://github.com/BurntSushi/ripgrep#installation][installation]] to install ripgrep. Put it in the Path if necessary.
+   k#+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SrPac" :range-end "-SrPac" :lines "47-51"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "47-55"
@@ -396,16 +396,16 @@
 * Miscellaneous
 ** Org
    [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
-   #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgPac" :range-end "-OrgPac" :lines "47-58"
+   #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgPac" :range-end "-OrgPac" :lines "47-59"
 *** TOC Org
     [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
-    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "TocOrgPac" :range-end "-TocOrgPac" :lines "61-63"
+    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "TocOrgPac" :range-end "-TocOrgPac" :lines "62-64"
 *** HTMLize
     [[https://github.com/hniksic/emacs-htmlize][HTMLize]], a tool that converts buffer text and decorations to HTML.
-    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "HTMLIZEPac" :range-end "-HTMLIZEPac" :lines "66-67"
+    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "HTMLIZEPac" :range-end "-HTMLIZEPac" :lines "67-68"
 *** OX-GFM
     [[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "70-72"
+    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "71-72"
 ** EWW
    EWW, the Emacs Web Wowser.
 *** Set EWW as Default Browser

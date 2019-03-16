@@ -106,7 +106,7 @@
 
 (require 'init-dired)
 
-(require 'init-ag)
+(require 'init-search)
 
 (require 'init-avy)
 
