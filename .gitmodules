@@ -1,0 +1,9 @@
+[submodule "site-elisp/lsp-python-ms"]
+        path = site-elisp/lsp-python-ms
+        url = https://github.com/andrew-christianson/lsp-python-ms.git
+[submodule "site-elisp/color-rg"]
+        path = site-elisp/color-rg
+        url = https://github.com/manateelazycat/color-rg.git
+[submodule "site-elisp/awesome-pair"]
+        path = site-elisp/awesome-pair
+        url = https://github.com/manateelazycat/awesome-pair.git

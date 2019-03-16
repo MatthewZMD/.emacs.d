@@ -46,6 +46,7 @@
 ;; OrgPac
 (def-package org
   :ensure nil
+  :defer t
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
@@ -67,8 +68,7 @@
 ;; -HTMLIZEPac
 
 ;; OXGFMPac
-(def-package ox-gfm
-  :defer t)
+(def-package ox-gfm :defer t)
 ;; -OXGFMPac
 
 (provide 'init-org)

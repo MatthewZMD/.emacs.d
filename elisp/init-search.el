@@ -1,21 +1,21 @@
-;;; init-ag.el --- -*- lexical-binding: t -*-
+;;; init-search.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-ag.el
-;; Description: Initialize AG
+;; Filename: init-search.el
+;; Description: Initialize Color-RG
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d AG
+;; Keywords: M-EMACS .emacs.d color-rg rg
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes AG The Silver Searcher
+;; This initializes Color-RG
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,12 +44,15 @@
 (require 'init-package)
 (require 'init-global-config)
 
-;; AgPac
-(def-package ag
-  :defer t
-  :bind ("C-z s" . ag))
-;; -AgPac
+;; SrPac
+(def-package color-rg
+  :ensure nil
+  :bind
+  (("C-z s s" . color-rg-search-symbol)
+   ("C-z s f" . color-rg-search-input)
+   ("C-z s d" . color-rg-search-project)))
+;; -SrPac
 
-(provide 'init-ag)
+(provide 'init-search)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-ag.el ends here

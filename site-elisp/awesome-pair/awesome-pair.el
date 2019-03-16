@@ -6,8 +6,8 @@
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Copyright (C) 2018, Andy Stewart, all rights reserved.
 ;; Created: 2018-11-11 09:27:58
-;; Version: 1.3
-;; Last-Updated: 2019-02-27 08:56:34
+;; Version: 1.4
+;; Last-Updated: 2019-03-12 22:27:42
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/awesome-pair.el
 ;; Keywords:
@@ -69,6 +69,9 @@
 ;;
 
 ;;; Change log:
+;;
+;; 2019/03/12
+;;      * Add new command `awesome-pair-equal'.
 ;;
 ;; 2019/02/27
 ;;      * Don't insert \" in string that wrap by `...` when current mode is golang.
@@ -969,6 +972,17 @@ If current line is not blank, do `awesome-pair-kill' first, re-indent line if re
                      )))
     (save-excursion
       (indent-region bound-start bound-end))))
+
+(defun awesome-pair-equal ()
+  (interactive)
+  (cond
+   ((derived-mode-p 'web-mode)
+    (if (awesome-pair-in-string-p)
+        (insert "=")
+      (insert "=\"\"")
+      (backward-char 1)))
+   (t
+    (insert "="))))
 
 ;;;;;;;;;;;;;;;;; Utils functions ;;;;;;;;;;;;;;;;;;;;;;
 (defun awesome-pair-current-parse-state ()
