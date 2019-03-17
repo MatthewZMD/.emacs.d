@@ -7,15 +7,15 @@
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "46-48"
 *** Cool Thing About This README
-    This README originated from [[file:init.org][init.org]] that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from =elisp/= directory. You will not see their presence in
+    This README originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from =elisp/= directory. You will not see their presence in
 *** Modifications?
     Of course! You have the permission to use, modify, distribute however you want and free of charge, but without any warranty. (See [[file:LICENSE][LICENSE]])
 
     *Remember* you must manually sync this README with all the new changes you made by:
-    1. Please do *NOT* edit README.md file, edit [[file:init.org][init.org]] instead!
+    1. Please do *NOT* edit README.md file, edit init.org instead!
     2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
     3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
-    4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in [[file:init.org][init.org]].
+    4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in init.org.
     5. Following any modification in =#+INCLUDEL= statement as well as any of the =init-.el= files, please press =C-x C-s= to update the =:lines=.
     6. Call =M-x org-gfm-export-to-markdown= to update this README.
 * Table of Contents                                               :TOC_2_ORG:

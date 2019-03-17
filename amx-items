@@ -2,12 +2,12 @@
 ;; ----- amx-history -----
 (
  org-gfm-export-to-markdown
- color-rg-search-symbol
- projectile-find-file
- color-rg-search-input
- color-rg-search-project
- projectile-switch-project
+ rename-file-and-buffer
+ ielm
+ package-install
+ re-search-forward
  eval-buffer
+ shell
 )
 
 ;; ----- amx-data -----
@@ -84,8 +84,8 @@
  (rgrep . 1)
  (counsel-ag . 1)
  (rename-file . 4)
- (projectile-switch-project . 10)
- (projectile-find-file . 6)
+ (projectile-switch-project . 9)
+ (projectile-find-file . 5)
  (projectile-find-dir-other-frame . 1)
  (tide-jump-to-definition . 1)
  (tide-jump-to-implementation . 1)
@@ -160,17 +160,9 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 21)
+ (org-gfm-export-to-markdown . 22)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
- (recentf-mode . 1)
- (recentf-cleanup . 1)
- (recentf-load-list . 1)
- (color-rg-mode . 2)
- (color-rg-search-input . 7)
- (color-rg-search-symbol . 3)
- (color-rg-search-project . 4)
- (color-rg-search-project-with-type . 1)
 )
