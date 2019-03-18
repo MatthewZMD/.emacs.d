@@ -396,6 +396,7 @@
 * Miscellaneous
 ** Org
    [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
+
    *Prerequisite*: Modify =(setq org-agenda-files (list "~/org/"))= to your agenda folder.
    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgPac" :range-end "-OrgPac" :lines "47-61"
 *** TOC Org
