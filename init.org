@@ -16,7 +16,7 @@
     2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
     3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
     4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in init.org.
-    5. Following any modification in =#+INCLUDEL= statement as well as any of the =init-.el= files, please press =C-x C-s= to update the =:lines=.
+    5. Following any modification in =#+INCLUDE:= statement as well as any of the =init-.el= files, please press =C-x C-s= to update the =:lines=.
     6. Call =M-x org-gfm-export-to-markdown= to update this README.
 * Table of Contents                                               :TOC_2_ORG:
 - [[M-EMACS][M-EMACS]]
