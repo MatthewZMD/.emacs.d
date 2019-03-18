@@ -41,11 +41,6 @@
 ;;
 ;;; Code:
 
-;; User-Info
-(setq user-full-name "Mingde (Matthew) Zeng")
-(setq user-mail-address "matthewzmd@gmail.com")
-;; -User-info
-
 ;; Bindings
 ;; Unbind C-z to use as prefix
 (global-set-key (kbd "C-z") nil)

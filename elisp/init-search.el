@@ -43,14 +43,16 @@
 
 (require 'init-package)
 (require 'init-global-config)
+(require 'init-const)
 
 ;; SrPac
-(def-package color-rg
-  :ensure nil
-  :bind
-  (("C-z s s" . color-rg-search-symbol)
-   ("C-z s f" . color-rg-search-input)
-   ("C-z s d" . color-rg-search-project)))
+(when *rg*
+  (def-package color-rg
+    :ensure nil
+    :bind
+    (("C-z s s" . color-rg-search-symbol)
+     ("C-z s d" . color-rg-search-project)
+     ("C-z s f" . color-rg-search-input))))
 ;; -SrPac
 
 (provide 'init-search)

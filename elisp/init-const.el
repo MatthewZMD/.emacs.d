@@ -1,21 +1,21 @@
-;;; init-projectile.el --- -*- lexical-binding: t -*-
+;;; init-const.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-projectile.el
-;; Description: Initialize Projectile
+;; Filename: init-const.el
+;; Description: Initialize Constants
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 09:10:23 2019 (-0400)
-;; Version: 1.2.0
+;; Created: Mon Mar 18 14:20:54 2019 (-0400)
+;; Version: 1.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d projectile
-;; Compatibility: emacs-version >= 25.1
+;; Keywords: M-EMACS .emacs.d constants
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes projectile
+;; This initializes constants
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,25 +41,23 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
+;; Consts
+(defconst *rg* (executable-find "rg"))
 
-(require 'init-const)
+(defconst *tr* (executable-find "tr"))
 
-;; ProjPac
-(def-package projectile
-  :bind
-  ("C-c p" . projectile-command-map)
-  ("C-z i" . projectile-switch-project)
-  ("C-z o" . projectile-find-file)
-  ("C-z p" . projectile-add-known-project)
-  :config
-  (projectile-mode 1)
-  (setq projectile-completion-system 'ivy)
-  (when (and (eq system-type 'windows-nt) *tr*)
-    (setq projectile-indexing-method 'alien))
-  (add-to-list 'projectile-globally-ignored-directories "node_modules"))
-;; -ProjPac
+(defconst *mvn* (executable-find "mvn"))
 
-(provide 'init-projectile)
+(defconst *clangd* (or (executable-find "clangd")  ;; usually
+                       (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
+(defconst *gcc* (executable-find "gcc"))
+;; -Consts
+
+;; UserInfo
+(setq user-full-name "Mingde (Matthew) Zeng")
+(setq user-mail-address "matthewzmd@gmail.com")
+;; -UserInfo
+
+(provide 'init-const)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-projectile.el ends here
+;;; init-const.el ends here

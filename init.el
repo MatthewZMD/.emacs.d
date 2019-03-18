@@ -96,6 +96,10 @@
 (update-load-path)
 ;; -LoadLP
 
+;; Constants
+
+(require 'init-const)
+
 ;; Packages
 
 ;; Package Management

@@ -42,12 +42,16 @@
 ;;; Code:
 
 (require 'init-package)
+(require 'init-const)
 
 ;; CCPac
 (def-package cc-mode
   :ensure nil
   :defer t
-  :bind ("<f5>" . compile))
+  :bind ("<f5>" . compile)
+  :config
+  (unless *clangd* (message "Please install clangd and put it in PATH"))
+  (unless *gcc* (message "Please install GCC and put it in PATH")))
 ;; -CCPac
 
 (provide 'init-c)

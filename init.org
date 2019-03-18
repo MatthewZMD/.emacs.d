@@ -2,29 +2,22 @@
 #+EXPORT_FILE_NAME: README
 * M-EMACS
 * About
-  M-EMACS is a custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience. This configuration is designed that, if the user clones this repository into their =HOME= directory set in Windows Environment Variables, and there is a stable connection to Melpa Packages, then they can use most of my custom EMACS configurations out-of-the-box! Exceptions are noted as *Prerequisite*, simple =Ctrl-F= will lead you there.
+  M-EMACS is a custom GNU Emacs setup and configurations that aims to enhance the default Emacs experience.
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*.
   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "46-48"
 *** Cool Thing About This README
-    This README originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from =elisp/= directory. You will not see their presence in
-*** Modifications?
-    Of course! You have the permission to use, modify, distribute however you want and free of charge, but without any warranty. (See [[file:LICENSE][LICENSE]])
-
-    *Remember* you must manually sync this README with all the new changes you made by:
-    1. Please do *NOT* edit README.md file, edit init.org instead!
-    2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
-    3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
-    4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in init.org.
-    5. Following any modification in =#+INCLUDE:= statement as well as any of the =init-.el= files, please press =C-x C-s= to update the =:lines=.
-    6. Call =M-x org-gfm-export-to-markdown= to update this README.
+    This README originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from =elisp/= directory. You will not see their presence in init.org.
 * Table of Contents                                               :TOC_2_ORG:
 - [[M-EMACS][M-EMACS]]
 - [[About][About]]
+- [[Installation][Installation]]
+- [[Modification][Modification]]
 - [[Startup][Startup]]
   - [[Lexical-binding][Lexical-binding]]
   - [[Disable Unnecessary Interface][Disable Unnecessary Interface]]
   - [[Optimization][Optimization]]
+  - [[Define Constants][Define Constants]]
 - [[Package Management][Package Management]]
   - [[Melpa Packages][Melpa Packages]]
   - [[Configure Package Management][Configure Package Management]]
@@ -89,6 +82,29 @@
   - [[2048 Game][2048 Game]]
 - [[Credits][Credits]]
 
+* Installation
+  1. Install latest version of [[https://www.gnu.org/software/emacs/][GNU Emacs]].
+  2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
+     #+BEGIN_SRC text
+       git clone https://github.com/MatthewZMD/.emacs.d.git
+       cd .emacs.d
+       git submodule init
+       git submodule update
+     #+END_SRC
+  3. Ensure a stable connection to Melpa Packages, then open Emacs.
+  4. Wait for all the packages to install.
+  5. In your favourite browser, =Ctrl-F Prerequisite= through this webpage and follow the *Prerequisite* instructions.
+  6. Restart Emacs.
+* Modification
+  You have the permission to use, modify, distribute however you want and free of charge, but without any warranty. (See [[file:LICENSE][LICENSE]])
+
+  *Remember* you must manually sync this README with all the new changes you made by:
+  1. Please do *NOT* edit README.md file, edit init.org instead!
+  2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
+  3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
+  4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in init.org.
+  5. Following any modification in =#+INCLUDE:= statement as well as any of the =init-.el= files, please press =C-x C-s= to update the =:lines=.
+  6. Call =M-x org-gfm-export-to-markdown= to update this README.
 * Startup
 ** Lexical-binding
    Use lexical-binding. [[https://nullprogram.com/blog/2016/12/22/][Why?]]
@@ -106,6 +122,8 @@
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "70-78"
    Load all elisp files in =elisp/= and =site-elisp/= to reduce startup time.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadLP" :range-end "-LoadLP"  :lines "81-97"
+** Define Constants
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-54"
 * Package Management
 ** Melpa Packages
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "45-54"
@@ -126,9 +144,9 @@
 * Global Functionalities
 ** Owner Information
    *Prerequisite*: Change this to your information.
-   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "User-Info" :range-end "-User-Info"" :lines "45-47"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "57-59"
 ** Bindings
-   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "Bindings" :range-end "-Bindings"" :lines "50-62"
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "Bindings" :range-end "-Bindings"" :lines "45-57"
 ** Dired
 *** Dired
     Dired, the directory editor.
@@ -145,8 +163,8 @@
 ** Search
    [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep.
 
-   *Prerequisite*: Please follow the [[https://github.com/BurntSushi/ripgrep#installation][installation]] to install ripgrep. Put it in the Path if necessary.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SrPac" :range-end "-SrPac" :lines "48-54"
+   *Prerequisite*: Please follow the [[https://github.com/BurntSushi/ripgrep#installation][installation]] to install ripgrep and verify =rg= is in the =PATH=.
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SrPac" :range-end "-SrPac" :lines "49-56"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "47-55"
@@ -182,32 +200,32 @@
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
     Use UTF-8 as much as possible with unix line endings.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "65-75"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "60-70"
 *** Turn Off Cursor Alarms
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "78-79"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "73-74"
 *** Turn Off Blink Cursor
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OffBlink" :range-end "-OffBlink" :lines "82-83"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OffBlink" :range-end "-OffBlink" :lines "77-78"
 *** Show Keystrokes in Progress Instantly
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "86-87"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "81-82"
 *** Optimize Editing Experience
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "90-111"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "85-106"
 *** Automatic Garbage Collect
     Garbage collect when Emacs is not in focus.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "114-115"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "109-110"
 *** Move Custom-Set-Variables to Different File
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "118-120"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "113-115"
 ** More Functions
    Other important, but longer functions.
 *** Resize Window Width / Height Functions
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "125-146"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "120-141"
 *** Edit This Configuration File Shortcut
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "149-155"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "144-150"
 *** Smarter Move Beginning of Line
     Smarter navigation to the beginning of a line by [[https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/][Bozhidar Batsov]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "158-184"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "153-179"
 *** Update Org Mode Include Automatically
     Update Org Mode INCLUDE Statements Automatically from [[http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html][Artur Malabarba]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "187-232"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "182-227"
 * User Interface Enhancements
 ** Title Bar
    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "TitleBar" :range-end "-TitleBar" :lines "45-46"
@@ -273,8 +291,8 @@
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]], a Project Interaction Library for Emacs.
 
-   *Prerequisite*: Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the Path. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Especially, =tr= is needed for Projectile alien indexing.
-   #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "47-59"
+   *Prerequisite*: Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the =PATH=. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
+   #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "49-61"
 ** Treemacs
    [[https://github.com/Alexander-Miller/treemacs][Treemacs]], a tree layout file explorer for Emacs.
 *** Treemacs
@@ -318,16 +336,16 @@
 ** LSP
    [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]].
 *** LSP Mode
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "51-59"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "52-60"
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "62-92"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "63-93"
 *** Company LSP
     [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "95-100"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "96-101"
 *** DAP
     [[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "103-109"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "104-110"
 * Programming
 ** Emacs Lisp
 *** Shortcut for Evaluating Elisp
@@ -337,19 +355,19 @@
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]].
 
-    *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "114-117"
+    *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]] and ensure it is in =PATH=.
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "115-119"
 ** C/C++
    *Prerequisite*:
    - Windows OS: Install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] for Compilation and [[https://cmake.org/download/][CMake]] >= 2.8.3 first.
-   - ALl OS: Install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]].
+   - ALl OS: Install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and put it in =PATH=.
 
    Note: If Displaying =No LSP server for c-mode=, execute =M-x ielm= and verify clangd is installed using =(executable-find "clangd")= or =(executable-find lsp-clients-clangd-executable)=.
 
    Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
 *** CC Mode
     CC Mode, a mode for editing files containing C, C++, Objective-C, Java, CORBA IDL (and the variants CORBA PSDL and CIDL), Pike and AWK code.
-    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CCPac" :range-end "-CCPac" :lines "47-51"
+    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CCPac" :range-end "-CCPac" :lines "48-55"
     Rest of the features will be provided by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]].
 ** Python
 *** TODO Microsoft's Python Language Server - [[https://github.com/melpa/melpa/pull/6027][Use Melpa Once it's Ready]]
@@ -365,8 +383,8 @@
     #+END_SRC
     Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
 
-    Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your PATH.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "120-131"
+    Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "122-133"
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.

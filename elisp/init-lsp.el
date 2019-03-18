@@ -46,6 +46,7 @@
 ;;; Code:
 
 (require 'init-package)
+(require 'init-const)
 
 ;; LSPPac
 (def-package lsp-mode
@@ -111,9 +112,10 @@
 ;; Language Specific Modes:
 
 ;; LSPJavaPac
-(def-package lsp-java
-  :after lsp-mode
-  :config (add-hook 'java-mode-hook 'lsp))
+(when *mvn*
+  (def-package lsp-java
+    :after lsp-mode
+    :config (add-hook 'java-mode-hook 'lsp)))
 ;; -LSPJavaPac
 
 ;; LSPPythonPac
