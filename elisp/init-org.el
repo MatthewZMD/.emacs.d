@@ -57,7 +57,7 @@
   (setq org-export-backends (quote (ascii html icalendar latex md odt)))
   (setq org-agenda-files (list "~/org/"))
   (setq org-todo-keywords
-        '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
+        '((sequence "TODO" "PROCESS" "REVIEW" "|" "DONE"))))
 ;; -OrgPac
 
 ;; TocOrgPac
