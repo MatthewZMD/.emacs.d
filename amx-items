@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- org-gfm-export-to-markdown
  ielm
  update-load-path
  rename-file-and-buffer
  package-install
  re-search-forward
  eval-buffer
+ shell
 )
 
 ;; ----- amx-data -----
