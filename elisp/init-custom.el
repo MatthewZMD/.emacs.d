@@ -57,7 +57,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(package-selected-packages
    (quote
     (2048-game speed-type ox-gfm htmlize toc-org tide typescript-mode js2-mode emmet-mode web-mode company-arduino arduino-mode lsp-java dap-mode company-lsp lsp-ui lsp-mode highlight-indent-guides format-all smartparens dumb-jump flycheck company treemacs-projectile treemacs-magit treemacs projectile magit dimmer diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons discover-my-major undo-tree popup-kill-ring which-key counsel amx ivy avy ag auto-package-update use-package))))

@@ -54,6 +54,8 @@
   ("C-c b" . org-switch)
   :config
   (setq org-log-done 'time)
+  (setq org-export-backends (quote (ascii html icalendar latex md odt)))
+  (setq org-agenda-files (list "~/org/"))
   (setq org-todo-keywords
         '((sequence "TODO" "PROCESS" "VERIFY" "|" "DONE"))))
 ;; -OrgPac
