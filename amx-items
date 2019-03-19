@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ company-mode
+ flycheck-mode
+ eww
  org-gfm-export-to-markdown
  package-install
  ielm
  update-load-path
- rename-file-and-buffer
- re-search-forward
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -20,12 +20,12 @@
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
  (package-refresh-contents . 9)
- (flycheck-mode . 4)
+ (flycheck-mode . 6)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 40)
+ (eww . 43)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -166,4 +166,5 @@
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
  (update-load-path . 1)
+ (company-mode . 2)
 )

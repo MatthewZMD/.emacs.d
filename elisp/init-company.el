@@ -58,7 +58,8 @@
   (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
   (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
   (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
-  (setq company-require-match 'never))
+  (setq company-require-match 'never)
+  (setq company-global-modes '(not shell-mode)))
 ;; -ComPac
 
 (provide 'init-company)
