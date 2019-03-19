@@ -124,6 +124,8 @@
 
 (require 'init-undo-tree)
 
+(require 'init-shell)
+
 (require 'init-discover-my-major)
 
 ;; User Interface Enhancements

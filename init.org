@@ -34,6 +34,7 @@
   - [[Which Key][Which Key]]
   - [[Popup Kill Ring][Popup Kill Ring]]
   - [[Undo Tree][Undo Tree]]
+  - [[Shell Here][Shell Here]]
   - [[Discover My Major][Discover My Major]]
   - [[Configs][Configs]]
   - [[More Functions][More Functions]]
@@ -193,6 +194,9 @@
 ** Undo Tree
    [[https://www.emacswiki.org/emacs/UndoTree][Undo tree]], a feature that provides a visualization of the undos in a file.
    #+INCLUDE: "~/.emacs.d/elisp/init-undo-tree.el" src emacs-lisp :range-begin "UndoTreePac" :range-end "-UndoTreePac" :lines "47-51"
+** Shell Here
+   [[https://github.com/ieure/shell-here][Shell-here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
+   #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHere" :range-end "-ShellHere" :lines "47-49"
 ** Discover My Major
    [[https://github.com/jguenther/discover-my-major][Discover my major]], a feature that discovers key bindings and their meaning for the current Emacs major mode.
    #+INCLUDE: "~/.emacs.d/elisp/init-discover-my-major.el" src emacs-lisp :range-begin "DiscMyMajor" :range-end "-DiscMyMajor" :lines "46-48"
