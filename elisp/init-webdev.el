@@ -80,13 +80,12 @@
 ;; -TypeScriptPac
 
 ;; TidePac
-(def-package tide
-  :defer t
-  :ensure t
-  :bind (:map tide-mode-map
-              ("M-." . nil))
-  :commands (tide-setup)
-  :after (company flycheck))
+  (def-package tide
+    :defer t
+    :bind (:map tide-mode-map
+                ("M-." . nil))
+    :commands (tide-setup)
+    :after (company flycheck))
 ;; -TidePac
 
 (provide 'init-webdev)

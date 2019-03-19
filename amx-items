@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ ielm
+ org-gfm-export-to-markdown
  company-mode
  flycheck-mode
  eww
- org-gfm-export-to-markdown
  package-install
- ielm
- update-load-path
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 21)
+ (ielm . 23)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
@@ -160,11 +160,12 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 35)
+ (org-gfm-export-to-markdown . 36)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
  (update-load-path . 1)
  (company-mode . 2)
+ (lsp-describe-session . 1)
 )
