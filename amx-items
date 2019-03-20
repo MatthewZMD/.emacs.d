@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- ielm
  org-gfm-export-to-markdown
+ org-cycle
+ ielm
  company-mode
  flycheck-mode
  eww
  package-install
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 36)
+ (org-gfm-export-to-markdown . 37)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
@@ -168,4 +168,5 @@
  (update-load-path . 1)
  (company-mode . 2)
  (lsp-describe-session . 1)
+ (org-cycle . 1)
 )
