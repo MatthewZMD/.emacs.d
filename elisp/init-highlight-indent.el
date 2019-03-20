@@ -45,10 +45,14 @@
 
 ;; HighLightIndentPac
 (def-package highlight-indent-guides
+  :diminish
   :defer t
   :config
-  (add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
-  (setq highlight-indent-guides-method 'character))
+  (setq highlight-indent-guides-method 'character)
+  (setq highlight-indent-guides-responsive 'top)
+  (setq highlight-indent-guides-delay 0)
+  (setq highlight-indent-guides-auto-character-face-perc 20)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 ;; -HighLightIndentPac
 
 (provide 'init-highlight-indent)
