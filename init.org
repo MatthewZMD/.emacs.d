@@ -294,7 +294,7 @@
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]], a Project Interaction Library for Emacs.
 
-   *Prerequisite*: Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the =PATH=. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
+   *Prerequisite*: If using Windows OS, Install [[https://github.com/bmatzelle/gow][Gow]] before proceding and make sure it is in the =PATH=. Gow is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
    #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "49-61"
 ** Treemacs
    [[https://github.com/Alexander-Miller/treemacs][Treemacs]], a tree layout file explorer for Emacs.
@@ -396,11 +396,11 @@
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "56-62"
 * Web Development
-  *Prerequisite*: Ensure NodeJS is installed and put in path. Execute following commands
+  *Prerequisite*: Ensure NodeJS is installed and put in path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC text
-    npm install -g vscode-html-languageserver-bin
     npm i -g typescript-language-server
     npm i -g typescript
+    npm install -g vscode-html-languageserver-bin
   #+END_SRC
 ** Web Mode
    [[https://github.com/fxbois/web-mode][Web mode]], a major mode for editing web templates.
