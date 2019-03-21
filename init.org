@@ -69,8 +69,8 @@
   - [[Java][Java]]
   - [[C/C++][C/C++]]
   - [[Python][Python]]
-  - [[Emacs IPython Notebook][Emacs IPython Notebook]]
   - [[Arduino][Arduino]]
+  - [[Jupyter Notebook][Jupyter Notebook]]
 - [[Web Development][Web Development]]
   - [[Web Mode][Web Mode]]
   - [[Emmet][Emmet]]
@@ -389,11 +389,6 @@
 
     Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "122-133"
-** Emacs IPython Notebook
-   [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
-*** Usage
-    Execute =M-x ein:run= to launch a local Jupyter session. =M-x ein:login= to login to a local or remote session. Open =.ipynb= file and press =C-c C-o=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "47-49"
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
@@ -401,6 +396,11 @@
 *** Company Arduino
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "56-62"
+** Jupyter Notebook
+   [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
+*** Usage
+    Execute =M-x ein:run= to launch a local Jupyter session. =M-x ein:login= to login to a local or remote session. Open =.ipynb= file and press =C-c C-o=.
+    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "47-49"
 * Web Development
   *Prerequisite*: Ensure NodeJS is installed and put in path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC text
