@@ -179,10 +179,14 @@
 
 (require 'init-c)
 
+(require 'init-ein)
+
 (require 'init-arduino)
 
+;; Web Development
 (require 'init-webdev)
 
+;; Miscellaneous
 (require 'init-org)
 
 (require 'init-eww)

@@ -69,6 +69,7 @@
   - [[Java][Java]]
   - [[C/C++][C/C++]]
   - [[Python][Python]]
+  - [[Emacs IPython Notebook][Emacs IPython Notebook]]
   - [[Arduino][Arduino]]
 - [[Web Development][Web Development]]
   - [[Web Mode][Web Mode]]
@@ -388,6 +389,11 @@
 
     Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "122-133"
+** Emacs IPython Notebook
+   [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
+*** Usage
+    Execute =M-x ein:run= to launch a local Jupyter session. =M-x ein:login= to login to a local or remote session. Open =.ipynb= file and press =C-c C-o=.
+    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "47-49"
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.

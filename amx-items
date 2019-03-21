@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- package-reinstall
- package-refresh-contents
  org-gfm-export-to-markdown
- highlight-indent-guides-mode
+ package-install
  display-line-numbers-mode
  dumb-jump-go-prefer-external-other-window
  js2-mode
+ highlight-indent-guides-mode
+ line-number-mode
 )
 
 ;; ----- amx-data -----
@@ -15,11 +15,11 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 44)
+ (package-install . 45)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
- (package-refresh-contents . 10)
+ (package-refresh-contents . 9)
  (flycheck-mode . 6)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
@@ -46,7 +46,7 @@
  (web-mode . 7)
  (smartparens-mode . 3)
  (display-time-mode . 1)
- (package-reinstall . 7)
+ (package-reinstall . 6)
  (magit-version . 2)
  (speed-type-text . 3)
  (revert-buffer . 5)
@@ -102,7 +102,7 @@
  (ielm . 23)
  (c-mode . 1)
  (compile . 28)
- (zone-choose . 5)
+ (zone-choose . 8)
  (irony-install-server . 3)
  (flycheck-compile . 1)
  (org-display-inline-images . 2)
@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 41)
+ (org-gfm-export-to-markdown . 40)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
@@ -170,7 +170,7 @@
  (lsp-describe-session . 1)
  (org-cycle . 1)
  (column-number-mode . 6)
- (highlight-indent-guides-mode . 2)
+ (highlight-indent-guides-mode . 1)
  (js2-mode . 1)
  (dumb-jump-go-prefer-external-other-window . 1)
 )
