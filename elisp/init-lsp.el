@@ -114,8 +114,7 @@
 ;; LSPJavaPac
 (when *mvn*
   (def-package lsp-java
-    :after lsp-mode
-    :config (add-hook 'java-mode-hook 'lsp)))
+    :after lsp-mode))
 ;; -LSPJavaPac
 
 ;; LSPPythonPac

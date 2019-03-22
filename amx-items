@@ -2,12 +2,12 @@
 ;; ----- amx-history -----
 (
  org-gfm-export-to-markdown
- package-install
- display-line-numbers-mode
- dumb-jump-go-prefer-external-other-window
+ company-lsp
+ list-packages
  js2-mode
- highlight-indent-guides-mode
- line-number-mode
+ shell
+ eww
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 43)
+ (eww . 45)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,9 +39,9 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 42)
+ (shell . 44)
  (package-menu-mark-upgrades . 4)
- (list-packages . 9)
+ (list-packages . 10)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
@@ -155,13 +155,13 @@
  (sp-kill-sexp . 1)
  (byte-compile-file . 2)
  (list-load-path-shadows . 2)
- (company-lsp . 4)
+ (company-lsp . 11)
  (company-diag . 1)
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 44)
- (rename-file-and-buffer . 9)
+ (org-gfm-export-to-markdown . 47)
+ (rename-file-and-buffer . 11)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
@@ -171,6 +171,7 @@
  (org-cycle . 1)
  (column-number-mode . 6)
  (highlight-indent-guides-mode . 1)
- (js2-mode . 1)
+ (js2-mode . 2)
  (dumb-jump-go-prefer-external-other-window . 1)
+ (company-begin-backend . 2)
 )
