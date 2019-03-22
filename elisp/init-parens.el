@@ -96,11 +96,11 @@
 ;; -SmartParensPac
 
 ;; AwesomePairPac
-(require 'awesome-pair)
-
-(add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1)))
-
-(define-key awesome-pair-mode-map (kbd "C-c C-k") 'awesome-pair-kill)
+(use-package awesome-pair
+  :ensure nil
+  :config
+  (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1)))
+  :bind ("C-c C-k" . awesome-pair-kill))
 ;; -AwesomePairPac
 
 (provide 'init-parens)

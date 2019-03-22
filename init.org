@@ -81,7 +81,7 @@
   - [[Tetris][Tetris]]
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
-- [[Credits][Credits]]
+- [[Special Thanks][Special Thanks]]
 
 * Installation
   1. Install latest version of [[https://www.gnu.org/software/emacs/][GNU Emacs]].
@@ -399,7 +399,9 @@
 ** Jupyter Notebook
    [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
 *** Usage
-    Execute =M-x ein:run= to launch a local Jupyter session. =M-x ein:login= to login to a local or remote session. Open =.ipynb= file and press =C-c C-o=.
+    1. Execute =M-x ein:run= to launch a local Jupyter session.
+    2. Login with =M-x ein:login= to a local or remote session.
+    3. Open =.ipynb= file and press =C-c C-o=.
     #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "47-49"
 * Web Development
   *Prerequisite*: Ensure NodeJS is installed and put in path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
@@ -457,7 +459,7 @@
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]], an implementation of 2048 in Emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "2048Pac" :range-end "-2048Pac" :lines "64-66"
-* Credits
+* Special Thanks
   This Emacs configuration was influenced and inspired by the following configurations.
   - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
   - [[https://github.com/hlissner/doom-emacs][Henrik Lissner's Doom Emacs]]
