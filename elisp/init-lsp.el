@@ -94,10 +94,8 @@
 
 ;; LSPCompany
 (def-package company-lsp
-  :after (company lsp-mode)
-  :config
-  (setq company-lsp-cache-candidates 'auto)
-  :commands company-lsp)
+  :defer t
+  :config (push 'company-lsp company-backends))
 ;; -LSPCompany
 
 ;; DAPPac

@@ -1,12 +1,12 @@
 
 ;; ----- amx-history -----
 (
- org-gfm-export-to-markdown
  company-lsp
- list-packages
- js2-mode
- shell
- eww
+ package-reinstall
+ package-refresh-contents
+ zone-mode
+ org-todo-list
+ org-gfm-export-to-markdown
  eval-buffer
 )
 
@@ -15,17 +15,17 @@
  (eval-buffer . 46)
  (package-delete . 3)
  (dired . 2)
- (package-install . 45)
+ (package-install . 44)
  (org-mode . 2)
  (emacs-lisp-mode . 4)
  (ace-jump-mode . 2)
- (package-refresh-contents . 9)
+ (package-refresh-contents . 11)
  (flycheck-mode . 6)
  (flycheck-copy-errors-as-kill . 1)
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 45)
+ (eww . 43)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -39,14 +39,14 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 1)
- (shell . 44)
+ (shell . 42)
  (package-menu-mark-upgrades . 4)
- (list-packages . 10)
+ (list-packages . 9)
  (web-mode-test . 2)
  (web-mode . 7)
  (smartparens-mode . 3)
  (display-time-mode . 1)
- (package-reinstall . 6)
+ (package-reinstall . 8)
  (magit-version . 2)
  (speed-type-text . 3)
  (revert-buffer . 5)
@@ -102,7 +102,7 @@
  (ielm . 23)
  (c-mode . 1)
  (compile . 28)
- (zone-choose . 8)
+ (zone-choose . 5)
  (irony-install-server . 3)
  (flycheck-compile . 1)
  (org-display-inline-images . 2)
@@ -118,7 +118,7 @@
  (amx-mode . 1)
  (line-number-mode . 9)
  (display-line-numbers-mode . 6)
- (zone-mode . 2)
+ (zone-mode . 4)
  (life . 1)
  (mpc . 1)
  (snake . 1)
@@ -155,13 +155,13 @@
  (sp-kill-sexp . 1)
  (byte-compile-file . 2)
  (list-load-path-shadows . 2)
- (company-lsp . 11)
+ (company-lsp . 8)
  (company-diag . 1)
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 47)
- (rename-file-and-buffer . 11)
+ (org-gfm-export-to-markdown . 42)
+ (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
@@ -170,8 +170,10 @@
  (lsp-describe-session . 1)
  (org-cycle . 1)
  (column-number-mode . 6)
- (highlight-indent-guides-mode . 1)
- (js2-mode . 2)
+ (highlight-indent-guides-mode . 2)
+ (js2-mode . 1)
  (dumb-jump-go-prefer-external-other-window . 1)
- (company-begin-backend . 2)
+ (org-todo-list . 1)
+ (zone-leave-me-alone . 2)
+ (zone-when-idle . 1)
 )
