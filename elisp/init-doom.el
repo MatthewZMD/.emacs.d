@@ -55,16 +55,17 @@
 ;; -DoomThemes
 
 ;; DoomModeline
-(def-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
-  :config
-  ;; Don't compact font caches during GC. Windows Laggy Issue
-  (setq inhibit-compacting-font-caches t)
-  (setq doom-modeline-minor-modes t)
-  ;;(setq doom-modeline-github t) ;; requires ghub package
-  (setq doom-modeline-icon t)
-  (setq doom-modeline-major-mode-color-icon t)
-  (setq doom-modeline-height 15))
+(when (display-graphic-p)
+  (def-package doom-modeline
+    :hook (after-init . doom-modeline-mode)
+    :config
+    ;; Don't compact font caches during GC. Windows Laggy Issue
+    (setq inhibit-compacting-font-caches t)
+    (setq doom-modeline-minor-modes t)
+    ;;(setq doom-modeline-github t) ;; requires ghub package
+    (setq doom-modeline-icon t)
+    (setq doom-modeline-major-mode-color-icon t)
+    (setq doom-modeline-height 15)))
 ;; -DoomModeline
 
 (provide 'init-doom)

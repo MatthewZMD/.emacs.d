@@ -1,4 +1,5 @@
 .cache/
+.python-environments/
 /.last-package-update-day
 /.lsp-session-v1
 /.org-id-locations
@@ -16,7 +17,6 @@ autosaves/
 backups/
 elpa/
 irony/bin/irony-server.exe
-python-environments/
 server/
 speed-type/
 transient/history.el
