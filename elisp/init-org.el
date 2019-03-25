@@ -55,7 +55,8 @@
   :config
   (setq org-log-done 'time)
   (setq org-export-backends (quote (ascii html icalendar latex md odt)))
-  (setq org-agenda-files (list "~/org/"))
+  (when (file-directory-p "~/org/agenda")
+    (setq org-agenda-files (list "~/org/agenda")))
   (setq org-use-speed-commands t)
   (setq org-todo-keywords
         '((sequence "TODO" "PROCESS" "REVIEW" "|" "DONE"))))

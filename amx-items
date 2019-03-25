@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ ielm
  org-gfm-export-to-markdown
  company-lsp
  package-reinstall
  package-refresh-contents
  zone-mode
  org-todo-list
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -99,7 +99,7 @@
  (tetris . 3)
  (zone . 8)
  (doctor . 2)
- (ielm . 23)
+ (ielm . 24)
  (c-mode . 1)
  (compile . 28)
  (zone-choose . 5)
