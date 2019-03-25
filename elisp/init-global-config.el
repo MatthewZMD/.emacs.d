@@ -109,6 +109,30 @@
 (add-hook 'focus-out-hook #'garbage-collect)
 ;; -AutoGbgCollect
 
+;; BetterMiniBuffer
+;; disable recursive minibuffers
+(setq-default enable-recursive-minibuffers nil)
+
+;; keep the point out of the minibuffer
+(setq-default minibuffer-prompt-properties '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
+;; -BetterMiniBuffer
+
+;; CreateLockFile
+(setq-default create-lockfiles nil)
+;; -CreateLockFile
+
+;; HisLen
+(setq-default history-length 500)
+;; -HisLen
+
+;; BetterCompilation
+(setq-default compilation-always-kill t) ; kill compilation process before starting another
+
+(setq-default compilation-ask-about-save nil) ; save all buffers on `compile'
+
+(setq-default compilation-scroll-output t)
+;; -BetterCompilation
+
 ;; CustomSetFileLocation
 (setq custom-file (concat user-emacs-directory "elisp/init-custom.el"))
 (load custom-file 'noerror)

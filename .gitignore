@@ -16,6 +16,7 @@ auto-save-list/
 autosaves/
 backups/
 elpa/
+eshell/
 irony/bin/irony-server.exe
 server/
 speed-type/

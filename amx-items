@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- ielm
+ amx-update
  org-gfm-export-to-markdown
+ lsp-restart-workspace
+ eshell
+ eww
+ ielm
  company-lsp
- package-reinstall
- package-refresh-contents
- zone-mode
- org-todo-list
 )
 
 ;; ----- amx-data -----
@@ -25,7 +25,7 @@
  (toggle-frame-fullscreen . 5)
  (swiper . 4)
  (counsel-M-x . 5)
- (eww . 43)
+ (eww . 44)
  (find-name-dired . 1)
  (find-grep-dired . 1)
  (bookmark-delete . 1)
@@ -38,7 +38,7 @@
  (avy-goto-char-timer . 3)
  (avy-resume . 1)
  (popup-kill-ring . 5)
- (eshell . 1)
+ (eshell . 4)
  (shell . 42)
  (package-menu-mark-upgrades . 4)
  (list-packages . 9)
@@ -148,7 +148,7 @@
  (describe-variable . 1)
  (jedi:setup . 1)
  (company-jedi . 1)
- (lsp-restart-workspace . 2)
+ (lsp-restart-workspace . 4)
  (flymake-mode . 2)
  (jedi:reinstall-server . 1)
  (smartparens-strict-mode . 2)
@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 43)
+ (org-gfm-export-to-markdown . 45)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
@@ -176,4 +176,5 @@
  (org-todo-list . 1)
  (zone-leave-me-alone . 2)
  (zone-when-idle . 1)
+ (amx-update . 1)
 )
