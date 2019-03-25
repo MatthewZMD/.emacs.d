@@ -43,16 +43,21 @@
 
 ;; PreSym
 (global-prettify-symbols-mode 1)
-  (defun add-pretty-lambda ()
-    "make some word or string show as pretty Unicode symbols"
-    (setq prettify-symbols-alist
-          '(
-            ("lambda" . 955)
-            ("->" . 8594)
-            ("=>" . 8658)
-            ("map" . 8614)
-            )))
-  (add-hook 'prog-mode-hook 'add-pretty-lambda)
+(defun add-pretty-lambda ()
+  "Make some word or string show as pretty Unicode symbols. See https://unicodelookup.com for more."
+  (setq prettify-symbols-alist
+        '(
+          ("lambda" . 955)
+          ("delta" . 120517)
+          ("epsilon" . 120518)
+          ("->" . 8594)
+          ("<=" . 8804)
+          (">=" . 8805)
+          ("!=" . 8800)
+          ("map" . 8614)
+          )))
+(add-hook 'prog-mode-hook 'add-pretty-lambda)
+(add-hook 'org-mode-hook 'add-pretty-lambda)
 ;; -PreSym
 
 (provide 'init-symbol)

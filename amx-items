@@ -1,12 +1,12 @@
 
 ;; ----- amx-history -----
 (
+ org-gfm-export-to-markdown
  company-lsp
  package-reinstall
  package-refresh-contents
  zone-mode
  org-todo-list
- org-gfm-export-to-markdown
  eval-buffer
 )
 
@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 42)
+ (org-gfm-export-to-markdown . 43)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
