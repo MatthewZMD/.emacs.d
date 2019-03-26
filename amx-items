@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ company-diag
+ company-lsp
  amx-update
+ amx
  org-gfm-export-to-markdown
- lsp-restart-workspace
  eshell
  eww
- ielm
- company-lsp
 )
 
 ;; ----- amx-data -----
@@ -155,12 +155,12 @@
  (sp-kill-sexp . 1)
  (byte-compile-file . 2)
  (list-load-path-shadows . 2)
- (company-lsp . 8)
- (company-diag . 1)
+ (company-lsp . 10)
+ (company-diag . 6)
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 45)
+ (org-gfm-export-to-markdown . 46)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
@@ -176,5 +176,6 @@
  (org-todo-list . 1)
  (zone-leave-me-alone . 2)
  (zone-when-idle . 1)
- (amx-update . 1)
+ (amx-update . 2)
+ (amx . 1)
 )

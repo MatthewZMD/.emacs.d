@@ -95,7 +95,9 @@
 ;; LSPCompany
 (def-package company-lsp
   :defer t
-  :config (push 'company-lsp company-backends))
+  :config
+  (setq company-lsp-cache-candidates t)
+  (push 'company-lsp company-backends))
 ;; -LSPCompany
 
 ;; DAPPac
