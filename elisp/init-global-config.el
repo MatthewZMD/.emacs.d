@@ -57,12 +57,16 @@
 ;; -Bindings
 
 ;; UTF8Coding
+(if (eq system-type 'windows-nt)
+    (progn
+      (set-clipboard-coding-system 'utf-16-le)
+      (set-selection-coding-system 'utf-16-le))
+  (set-selection-coding-system 'utf-8))
 (prefer-coding-system 'utf-8-unix)
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8-unix)
 (set-terminal-coding-system 'utf-8-unix)
 (set-keyboard-coding-system 'utf-8-unix)
-(set-selection-coding-system 'utf-8-unix)
 (setq locale-coding-system 'utf-8-unix)
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (when (display-graphic-p)

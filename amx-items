@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- company-diag
- company-lsp
- amx-update
- amx
- org-gfm-export-to-markdown
+ xref-find-definitions
  eshell
- eww
+ dimmer-mode
+ dimmer-activate
+ org-gfm-export-to-markdown
+ company-lsp
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -38,7 +38,7 @@
  (avy-goto-char-timer . 3)
  (avy-resume . 1)
  (popup-kill-ring . 5)
- (eshell . 4)
+ (eshell . 5)
  (shell . 42)
  (package-menu-mark-upgrades . 4)
  (list-packages . 9)
@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 46)
+ (org-gfm-export-to-markdown . 47)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
@@ -174,8 +174,11 @@
  (js2-mode . 1)
  (dumb-jump-go-prefer-external-other-window . 1)
  (org-todo-list . 1)
- (zone-leave-me-alone . 2)
+ (zone-leave-me-alone . 3)
  (zone-when-idle . 1)
  (amx-update . 2)
  (amx . 1)
+ (dimmer-activate . 1)
+ (dimmer-mode . 3)
+ (xref-find-definitions . 1)
 )
