@@ -1,12 +1,12 @@
 
 ;; ----- amx-history -----
 (
+ org-gfm-export-to-markdown
+ iedit-mode
  xref-find-definitions
  eshell
  dimmer-mode
  dimmer-activate
- org-gfm-export-to-markdown
- company-lsp
  eval-buffer
 )
 
@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 47)
+ (org-gfm-export-to-markdown . 48)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
@@ -181,4 +181,7 @@
  (dimmer-activate . 1)
  (dimmer-mode . 3)
  (xref-find-definitions . 1)
+ (iedit-mode . 9)
+ (iedit-describe-mode . 1)
+ (iedit-describe-key . 1)
 )

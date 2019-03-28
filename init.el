@@ -172,6 +172,8 @@
 
 (require 'init-header)
 
+(require 'init-iedit)
+
 (require 'init-lsp)
 
 ;; Programming

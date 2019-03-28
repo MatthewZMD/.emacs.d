@@ -1,22 +1,21 @@
-;;; init-doom.el --- -*- lexical-binding: t -*-
+;;; init-iedit.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-doom.el
-;; Description: Initialize Doom Themes and Modeline
+;; Filename: init-iedit.el
+;; Description: Initialize Iedit
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 17:11:56 2019 (-0400)
-;; Version: 1.2.0
+;; Created: Thu Mar 28 13:25:24 2019 (-0400)
+;; Version: 1.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d doom-themes doom-modeline
-;; Compatibility:
+;; Keywords: M-EMACS .emacs.d iedit
+;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes doom-themes and doom-modeline
-;; This is NOT Doom, but doom-themes and doom-modeine
+;; This initializes iedit
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,33 +40,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-
 (require 'init-package)
+(require 'init-global-config)
 
-;; DoomThemes
-(def-package doom-themes
-  :config
-  ;; flashing mode-line on errors
-  (doom-themes-visual-bell-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config)
-  (load-theme 'doom-dracula t))
-;; -DoomThemes
+;; IEditPac
+(def-package iedit
+  :bind ("C-z ;" . iedit-mode)
+  :diminish)
+;; -IEditPac
 
-;; DoomModeline
-(when (display-graphic-p)
-  (def-package doom-modeline
-    :hook (after-init . doom-modeline-mode)
-    :config
-    ;; Don't compact font caches during GC. Windows Laggy Issue
-    (setq inhibit-compacting-font-caches t)
-    (setq doom-modeline-minor-modes t)
-    ;;(setq doom-modeline-github t) ;; requires ghub package
-    (setq doom-modeline-icon t)
-    (setq doom-modeline-major-mode-color-icon t)
-    (setq doom-modeline-height 15)))
-;; -DoomModeline
-
-(provide 'init-doom)
+(provide 'init-iedit)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-doom.el ends here
+;;; init-iedit.el ends here
