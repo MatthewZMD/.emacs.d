@@ -47,7 +47,7 @@
 (def-package highlight-indent-guides
   :diminish
   :defer t
-  :hook ((prog-mode web-mode) . highlight-indent-guides-mode)
+  :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
   :config
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-responsive 'top)
