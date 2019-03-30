@@ -45,13 +45,14 @@
 (require 'init-package)
 
 ;; DoomThemes
-(def-package doom-themes
-  :config
-  ;; flashing mode-line on errors
-  (doom-themes-visual-bell-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config)
-  (load-theme 'doom-dracula t))
+(when (display-graphic-p)
+  (def-package doom-themes
+    :config
+    ;; flashing mode-line on errors
+    (doom-themes-visual-bell-config)
+    ;; Corrects (and improves) org-mode's native fontification.
+    (doom-themes-org-config)
+    (load-theme 'doom-dracula t)))
 ;; -DoomThemes
 
 ;; DoomModeline

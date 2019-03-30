@@ -1,9 +1,9 @@
 
 ;; ----- amx-history -----
 (
+ org-gfm-export-to-markdown
  amx-update
  amx
- org-gfm-export-to-markdown
  highlight-indent-guides-mode
  xref-find-definitions
  eshell
@@ -160,7 +160,7 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 49)
+ (org-gfm-export-to-markdown . 50)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
