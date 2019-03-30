@@ -114,7 +114,11 @@
 ;; LSPJavaPac
 (when *mvn*
   (def-package lsp-java
-    :after lsp-mode))
+    :after lsp-mode
+    :config
+    (setq
+     lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
+     lsp-java-workspace-dir (expand-file-name "~/eclipse.jdt.ls/workspace/"))))
 ;; -LSPJavaPac
 
 ;; LSPPythonPac
