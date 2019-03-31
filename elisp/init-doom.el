@@ -43,9 +43,10 @@
 ;;; Code:
 
 (require 'init-package)
+(require 'init-const)
 
 ;; DoomThemes
-(when (display-graphic-p)
+(when *gui-emacs*
   (def-package doom-themes
     :config
     ;; flashing mode-line on errors
@@ -56,7 +57,7 @@
 ;; -DoomThemes
 
 ;; DoomModeline
-(when (display-graphic-p)
+(when *gui-emacs*
   (def-package doom-modeline
     :hook (after-init . doom-modeline-mode)
     :config

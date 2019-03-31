@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- grep-dired-dwim
- grep-dired
+ shell
  update-load-path
  org-gfm-export-to-markdown
  amx-update
  amx
  highlight-indent-guides-mode
+ eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 5)
- (shell . 42)
+ (shell . 43)
  (package-menu-mark-upgrades . 4)
  (list-packages . 9)
  (web-mode-test . 2)

@@ -42,6 +42,8 @@
 ;;; Code:
 
 ;; Consts
+(defconst *gui-emacs* (display-graphic-p))
+
 (defconst *rg* (executable-find "rg"))
 
 (defconst *tr* (executable-find "tr"))

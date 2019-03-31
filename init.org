@@ -94,7 +94,7 @@
        git submodule update
      #+END_SRC
   3. Ensure a stable connection to Melpa Packages, then open Emacs.
-  4. Wait for all the packages to install.
+  4. Enter =y= when prompted and wait for all packages to install.
   5. In your favourite browser, =Ctrl-F Prerequisite= through this webpage and follow the *Prerequisite* instructions.
   6. Restart Emacs.
 * Modification
@@ -125,7 +125,7 @@
    Load all elisp files in =elisp/= and =site-elisp/= to reduce startup time.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadLP" :range-end "-LoadLP"  :lines "81-97"
 ** Define Constants
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-57"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-59"
 * Package Management
 ** Melpa Packages
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "45-54"
@@ -146,7 +146,7 @@
 * Global Functionalities
 ** Owner Information
    *Prerequisite*: Change this to your information.
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "60-62"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "62-64"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "Bindings" :range-end "-Bindings"" :lines "45-57"
 ** Dired
@@ -259,10 +259,10 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIIvyPac" :range-end "-ATIIvyPac" :lines "58-65"
 ** Doom Theme
    [[https://github.com/hlissner/emacs-doom-themes][doom-themes]], an UI plugin and pack of theme. It is set to default to Dracula theme.
-   #+INCLUDE: "~/.emacs.d/elisp/init-doom.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "48-56"
+   #+INCLUDE: "~/.emacs.d/elisp/init-doom.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "49-57"
 ** Doom Modeline
    [[https://github.com/seagle0128/doom-modeline][Doom modeline]], a modeline from DOOM Emacs, but more powerful and faster.
-   #+INCLUDE: "~/.emacs.d/elisp/init-doom.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "59-70"
+   #+INCLUDE: "~/.emacs.d/elisp/init-doom.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "60-71"
 ** Dashboard
 *** Dashboard
     [[https://github.com/rakanalh/emacs-dashboard][Dashboard]], an extensible Emacs startup screen.
