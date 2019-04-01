@@ -94,7 +94,7 @@
        git submodule update
      #+END_SRC
   3. Ensure a stable connection to Melpa Packages, then open Emacs.
-  4. Enter =y= when prompted and wait for all packages to install.
+  4. Enter =y= when prompted with =Auto-update packages now?=, wait for all packages to install.
   5. In your favourite browser, =Ctrl-F Prerequisite= through this webpage and follow the *Prerequisite* instructions.
   6. Restart Emacs.
 * Modification
