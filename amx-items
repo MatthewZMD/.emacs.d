@@ -2,11 +2,11 @@
 ;; ----- amx-history -----
 (
  org-gfm-export-to-markdown
- iedit-mode
- xref-find-definitions
- eshell
- dimmer-mode
- dimmer-activate
+ shell
+ update-load-path
+ amx-update
+ amx
+ highlight-indent-guides-mode
  eval-buffer
 )
 
@@ -39,7 +39,7 @@
  (avy-resume . 1)
  (popup-kill-ring . 5)
  (eshell . 5)
- (shell . 42)
+ (shell . 43)
  (package-menu-mark-upgrades . 4)
  (list-packages . 9)
  (web-mode-test . 2)
@@ -160,28 +160,27 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 48)
+ (org-gfm-export-to-markdown . 52)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
- (update-load-path . 1)
+ (update-load-path . 2)
  (company-mode . 2)
  (lsp-describe-session . 1)
  (org-cycle . 1)
  (column-number-mode . 6)
- (highlight-indent-guides-mode . 2)
+ (highlight-indent-guides-mode . 3)
  (js2-mode . 1)
  (dumb-jump-go-prefer-external-other-window . 1)
  (org-todo-list . 1)
  (zone-leave-me-alone . 3)
  (zone-when-idle . 1)
- (amx-update . 2)
- (amx . 1)
+ (amx-update . 3)
+ (amx . 2)
  (dimmer-activate . 1)
  (dimmer-mode . 3)
  (xref-find-definitions . 1)
- (iedit-mode . 9)
- (iedit-describe-mode . 1)
- (iedit-describe-key . 1)
+ (grep-dired . 1)
+ (grep-dired-dwim . 1)
 )
