@@ -96,7 +96,7 @@
 (def-package company-lsp
   :defer t
   :config
-  (setq company-lsp-cache-candidates t)
+  (setq company-lsp-cache-candidates 'auto)
   (push 'company-lsp company-backends))
 ;; -LSPCompany
 

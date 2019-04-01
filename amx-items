@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ company-mode
+ company-lsp
+ rename-file-and-buffer
  org-gfm-export-to-markdown
  shell
- update-load-path
- amx-update
- amx
- highlight-indent-guides-mode
  eval-buffer
+ eww
 )
 
 ;; ----- amx-data -----
@@ -148,26 +148,26 @@
  (describe-variable . 1)
  (jedi:setup . 1)
  (company-jedi . 1)
- (lsp-restart-workspace . 4)
+ (lsp-restart-workspace . 5)
  (flymake-mode . 2)
  (jedi:reinstall-server . 1)
  (smartparens-strict-mode . 2)
  (sp-kill-sexp . 1)
  (byte-compile-file . 2)
  (list-load-path-shadows . 2)
- (company-lsp . 10)
+ (company-lsp . 12)
  (company-diag . 6)
- (lsp-shutdown-workspace . 2)
+ (lsp-shutdown-workspace . 4)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
  (org-gfm-export-to-markdown . 52)
- (rename-file-and-buffer . 9)
+ (rename-file-and-buffer . 10)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
  (update-load-path . 2)
- (company-mode . 2)
- (lsp-describe-session . 1)
+ (company-mode . 3)
+ (lsp-describe-session . 2)
  (org-cycle . 1)
  (column-number-mode . 6)
  (highlight-indent-guides-mode . 3)

@@ -105,8 +105,10 @@
 ;; Merge system clipboard with Emacs
 (setq-default select-enable-clipboard t)
 
-;; Prevent Extraneous Tabs
+;; Indentation
+(setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
+(setq-default c-basic-offset 2)
 ;; -EditExp
 
 ;; AutoGbgCollect
