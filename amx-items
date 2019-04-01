@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
+ grep-dired-dwim
+ grep-dired
+ update-load-path
  org-gfm-export-to-markdown
  amx-update
  amx
  highlight-indent-guides-mode
- xref-find-definitions
- eshell
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -160,12 +160,12 @@
  (lsp-shutdown-workspace . 2)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 50)
+ (org-gfm-export-to-markdown . 51)
  (rename-file-and-buffer . 9)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
- (update-load-path . 1)
+ (update-load-path . 2)
  (company-mode . 2)
  (lsp-describe-session . 1)
  (org-cycle . 1)
@@ -181,4 +181,6 @@
  (dimmer-activate . 1)
  (dimmer-mode . 3)
  (xref-find-definitions . 1)
+ (grep-dired . 1)
+ (grep-dired-dwim . 1)
 )

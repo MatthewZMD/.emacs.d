@@ -163,10 +163,13 @@
 *** File Configs
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "104-112"
 ** Search
-   [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep.
-
    *Prerequisite*: Please follow the [[https://github.com/BurntSushi/ripgrep#installation][installation]] to install ripgrep and verify =rg= is in the =PATH=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SrPac" :range-end "-SrPac" :lines "49-56"
+*** Color-RG
+    [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep that is used to search text.
+    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "49-54"
+*** Grep-Dired
+    [[https://github.com/manateelazycat/grep-dired][Grep-Dired]], a search and refactoring tool based on ripgrep that is used to search files.
+    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "GrepDiredPac" :range-end "-GrepDiredPac" :lines "57-63"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "47-55"

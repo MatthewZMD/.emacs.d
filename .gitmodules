@@ -1,12 +1,15 @@
 [submodule "site-elisp/color-rg"]
-	path = site-elisp/color-rg
-	url = https://github.com/manateelazycat/color-rg.git
+        path = site-elisp/color-rg
+        url = https://github.com/manateelazycat/color-rg.git
 [submodule "site-elisp/awesome-pair"]
-	path = site-elisp/awesome-pair
-	url = https://github.com/manateelazycat/awesome-pair.git
+        path = site-elisp/awesome-pair
+        url = https://github.com/manateelazycat/awesome-pair.git
 [submodule "site-elisp/lsp-python-ms"]
-	path = site-elisp/lsp-python-ms
-	url = https://github.com/andrew-christianson/lsp-python-ms.git
+        path = site-elisp/lsp-python-ms
+        url = https://github.com/andrew-christianson/lsp-python-ms.git
 [submodule "site-elisp/header2"]
-	path = site-elisp/header2
-	url = https://github.com/emacsmirror/header2.git
+        path = site-elisp/header2
+        url = https://github.com/emacsmirror/header2.git
+[submodule "site-elisp/grep-dired"]
+	path = site-elisp/grep-dired
+	url = https://github.com/manateelazycat/grep-dired.git

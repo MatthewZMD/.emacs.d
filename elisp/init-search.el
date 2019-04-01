@@ -45,15 +45,24 @@
 (require 'init-global-config)
 (require 'init-const)
 
-;; SrPac
+;; ColorRGPac
 (when *rg*
   (def-package color-rg
     :ensure nil
     :bind
-    (("C-z s s" . color-rg-search-symbol)
-     ("C-z s d" . color-rg-search-project)
-     ("C-z s f" . color-rg-search-input))))
-;; -SrPac
+    (("C-z s s" . color-rg-search-input))))
+;; -ColorRGPac
+
+;; GrepDiredPac
+(when *rg*
+  (def-package grep-dired
+    :ensure nil
+    :bind
+    (("C-z s f" . grep-dired-dwim)
+     ("C-z s d" . grep-dired))))
+;; -GrepDiredPac
+
+
 
 (provide 'init-search)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
