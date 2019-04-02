@@ -49,6 +49,7 @@
   - [[Diminish][Diminish]]
   - [[Dimmer][Dimmer]]
   - [[Smooth Scroll][Smooth Scroll]]
+  - [[Highlight Indent Guides][Highlight Indent Guides]]
   - [[Pretty Symbols][Pretty Symbols]]
   - [[UI Configs][UI Configs]]
 - [[General Programming][General Programming]]
@@ -61,7 +62,6 @@
   - [[Line Numbers][Line Numbers]]
   - [[Parenthesis Pairing][Parenthesis Pairing]]
   - [[Format All][Format All]]
-  - [[Highlight Indent Guides][Highlight Indent Guides]]
   - [[Header][Header]]
   - [[Iedit][Iedit]]
   - [[LSP][LSP]]
@@ -291,6 +291,9 @@
 ** Smooth Scroll
    Smoothens Scrolling.
    #+INCLUDE: "~/.emacs.d/elisp/init-scroll.el" src emacs-lisp :range-begin "SmoothScroll" :range-end "-SmoothScroll" :lines "45-58"
+** Highlight Indent Guides
+   [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
+   #+INCLUDE: "~/.emacs.d/elisp/init-highlight-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "48-58"
 ** Pretty Symbols
    Pretty the Symbols.
    #+INCLUDE: "~/.emacs.d/elisp/init-symbol.el" src emacs-lisp :range-begin "PreSym" :range-end "-PreSym" :lines "45-61"
@@ -346,9 +349,6 @@
 
    *Prerequisite*: Read [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][Supported Languages]] to see which additional tool you need to install for the specific language.
    #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "FormatAllPac" :range-end "-FormatAllPac" :lines "47-50"
-** Highlight Indent Guides
-   [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
-   #+INCLUDE: "~/.emacs.d/elisp/init-highlight-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "47-56"
 ** Header
    [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
    #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "45-53"
