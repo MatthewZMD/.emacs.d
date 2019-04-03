@@ -147,6 +147,8 @@
 
 (require 'init-scroll)
 
+(require 'init-highlight-indent)
+
 (require 'init-symbol)
 
 ;; General Programming
@@ -168,11 +170,11 @@
 
 (require 'init-format)
 
-(require 'init-highlight-indent)
-
-(require 'init-header)
+(require 'init-commenter)
 
 (require 'init-iedit)
+
+(require 'init-header)
 
 (require 'init-lsp)
 
