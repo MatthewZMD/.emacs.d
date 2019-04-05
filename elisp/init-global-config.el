@@ -77,10 +77,6 @@
 (setq ring-bell-function 'ignore)
 ;; -RingBell
 
-;; OffBlink
-(blink-cursor-mode -1)
-;; -OffBlink
-
 ;; EchoKey
 (setq echo-keystrokes 0.1)
 ;; -EchoKey
