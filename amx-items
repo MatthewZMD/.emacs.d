@@ -3,11 +3,11 @@
 (
  org-gfm-export-to-markdown
  company-mode
+ profiler-report
+ profiler-start
  kmacro-edit-macro
  shell
  company-lsp
- rename-file-and-buffer
- eval-buffer
 )
 
 ;; ----- amx-data -----
@@ -160,13 +160,13 @@
  (lsp-shutdown-workspace . 6)
  (global-flycheck-mode . 2)
  (re-search-forward . 1)
- (org-gfm-export-to-markdown . 56)
+ (org-gfm-export-to-markdown . 58)
  (rename-file-and-buffer . 10)
  (org-export-stack . 1)
  (toc-org-insert-toc . 2)
  (winner-undo . 1)
  (update-load-path . 2)
- (company-mode . 9)
+ (company-mode . 11)
  (lsp-describe-session . 2)
  (org-cycle . 1)
  (column-number-mode . 6)
@@ -184,4 +184,6 @@
  (grep-dired . 1)
  (grep-dired-dwim . 1)
  (kmacro-edit-macro . 1)
+ (profiler-start . 2)
+ (profiler-report . 2)
 )
