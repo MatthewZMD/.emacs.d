@@ -1,21 +1,21 @@
-;;; init-iedit.el --- -*- lexical-binding: t -*-
+;;; init-commenter.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-iedit.el
-;; Description: Initialize Iedit
+;; Filename: init-commenter.el
+;; Description: Initialize Evil-Nerd-Commenter
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 28 13:25:24 2019 (-0400)
+;; Created: Fri Apr  5 00:21:58 2019 (-0400)
 ;; Version: 1.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d iedit
+;; Keywords: M-EMACS .emacs.d evil-nerd-commenter
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes iedit
+;; This initializes evil-nerd-commenter
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,15 +40,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
 (require 'init-package)
-(require 'init-global-config)
 
-;; IEditPac
-(def-package iedit
-  :bind ("C-z ," . iedit-mode)
-  :diminish)
-;; -IEditPac
+;; EvilNerdCommenPac
+(def-package evil-nerd-commenter
+  :bind
+  (("M-;" . evilnc-comment-or-uncomment-lines)
+   ("C-z ; p" . evilnc-comment-or-uncomment-paragraphs)
+   ("C-z ; c" . evilnc-copy-and-comment-lines)))
+;; -EvilNerdCommenPac
 
-(provide 'init-iedit)
+(provide 'init-commenter)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-iedit.el ends here
+;;; init-commenter.el ends here
