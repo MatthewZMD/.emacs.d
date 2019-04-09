@@ -137,7 +137,7 @@
    Load all elisp files in =elisp/= and =site-elisp/= to reduce startup time.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadLP" :range-end "-LoadLP"  :lines "81-97"
 ** Define Constants
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-59"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-57"
 * Package Management
 ** Melpa Packages
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "45-54"
@@ -149,16 +149,16 @@
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
    #+END_QUOTE
    Add the macro generated list of package.el loadpaths to load-path.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "UsePackageWrapperMacro" :range-end "-UsePackageWrapperMacro"  :lines "72-97"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "UsePackageWrapperMacro" :range-end "-UsePackageWrapperMacro"  :lines "72-98"
    The =use-package= wrapper.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DefPackage" :range-end "-DefPackage" :lines "100-109"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DefPackage" :range-end "-DefPackage" :lines "101-110"
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "112-119"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "113-120"
 * Global Functionalities
 ** Owner Information
    *Prerequisite*: Change this to your information.
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "62-64"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "60-62"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "Bindings" :range-end "-Bindings"" :lines "45-57"
 ** Dired
@@ -226,33 +226,33 @@
 *** Show Keystrokes in Progress Instantly
 	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "81-82"
 *** Optimize Editing Experience
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "85-108"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "85-109"
 *** Automatic Garbage Collect
 	Garbage collect when Emacs is not in focus.
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "111-112"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "112-113"
 *** MiniBuffer
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "115-120"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "116-121"
 *** Don't Lock Files
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "123-124"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "124-125"
 *** Longer History Length
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "HisLen" :range-end "-HisLen" :lines "127-128"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "HisLen" :range-end "-HisLen" :lines "128-129"
 *** Compilation
 	Better compilation configurations.
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "131-136"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "132-137"
 *** Move Custom-Set-Variables to Different File
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "139-141"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "140-142"
 ** More Functions
    Other important, but longer functions.
 *** Resize Window Width / Height Functions
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "146-167"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "147-168"
 *** Edit This Configuration File Shortcut
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "170-176"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "171-177"
 *** Smarter Move Beginning of Line
 	Smarter navigation to the beginning of a line by [[https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/][Bozhidar Batsov]].
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "179-205"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "180-206"
 *** Update Org Mode Include Automatically
 	Update Org Mode INCLUDE Statements Automatically from [[http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html][Artur Malabarba]].
-	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "208-253"
+	#+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "209-254"
 * User Interface Enhancements
 ** Title Bar
    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "TitleBar" :range-end "-TitleBar" :lines "45-46"

@@ -58,9 +58,9 @@
 
 ;; UTF8Coding
 (if (eq system-type 'windows-nt)
-	(progn
-	  (set-clipboard-coding-system 'utf-16-le)
-	  (set-selection-coding-system 'utf-16-le))
+    (progn
+      (set-clipboard-coding-system 'utf-16-le)
+      (set-selection-coding-system 'utf-16-le))
   (set-selection-coding-system 'utf-8))
 (prefer-coding-system 'utf-8-unix)
 (set-language-environment "UTF-8")
@@ -102,9 +102,10 @@
 (setq-default select-enable-clipboard t)
 
 ;; Indentation
-(setq-default c-basic-offset 4
-			  tab-width 4
-			  indent-tabs-mode t)
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+(c-set-offset 'comment-intro 0)
 ;; -EditExp
 
 ;; AutoGbgCollect
@@ -147,8 +148,8 @@
 (defun window-resize-width (w)
   "Resizes the window width based on W."
   (interactive (list (if (> (count-windows) 1)
-						 (read-number "Set the current window width in [1~9]x10%: ")
-					   (error "You need more than 1 window to execute this function!"))))
+                         (read-number "Set the current window width in [1~9]x10%: ")
+                       (error "You need more than 1 window to execute this function!"))))
   (message "%s" w)
   (window-resize nil (- (truncate (* (/ w 10.0) (frame-width))) (window-total-width)) t))
 
@@ -156,8 +157,8 @@
 (defun window-resize-height (h)
   "Resizes the window height based on H."
   (interactive (list (if (> (count-windows) 1)
-						 (read-number "Set the current window height in [1~9]x10%: ")
-					   (error "You need more than 1 window to execute this function!"))))
+                         (read-number "Set the current window height in [1~9]x10%: ")
+                       (error "You need more than 1 window to execute this function!"))))
   (message "%s" h)
   (window-resize nil (- (truncate (* (/ h 10.0) (frame-height))) (window-total-height)) nil))
 
@@ -184,24 +185,24 @@ If point is already there, move to the beginning of the line.
 Effectively toggle between the first non-whitespace character and
 the beginning of the line.
 
-If ARG is not nil or 1, move forward ARG - 1 lines first.	 If
+If ARG is not nil or 1, move forward ARG - 1 lines first.    If
 point reaches the beginning or end of the buffer, stop there."
   (interactive "^p")
   (setq arg (or arg 1))
 
   ;; Move lines first
   (when (/= arg 1)
-	(let ((line-move-visual nil))
-	  (forward-line (1- arg))))
+    (let ((line-move-visual nil))
+      (forward-line (1- arg))))
 
   (let ((orig-point (point)))
-	(back-to-indentation)
-	(when (= orig-point (point))
-	  (move-beginning-of-line 1))))
+    (back-to-indentation)
+    (when (= orig-point (point))
+      (move-beginning-of-line 1))))
 
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
-				'smarter-move-beginning-of-line)
+                'smarter-move-beginning-of-line)
 ;; -MoveBeginningLine
 
 ;; OrgIncludeAuto
@@ -214,42 +215,42 @@ This function does nothing if not in org-mode, so you can safely
 add it to `before-save-hook'."
   (interactive)
   (when (derived-mode-p 'org-mode)
-	(save-excursion
-	  (goto-char (point-min))
-	  (while (search-forward-regexp
-			  "^\\s-*#\\+INCLUDE: *\"\\([^\"]+\\)\".*:range-\\(begin\\|end\\)"
-			  nil 'noerror)
-		(let* ((file (expand-file-name (match-string-no-properties 1)))
-			   lines begin end)
-		  (forward-line 0)
-		  (when (looking-at "^.*:range-begin *\"\\([^\"]+\\)\"")
-			(setq begin (match-string-no-properties 1)))
-		  (when (looking-at "^.*:range-end *\"\\([^\"]+\\)\"")
-			(setq end (match-string-no-properties 1)))
-		  (setq lines (decide-line-range file begin end))
-		  (when lines
-			(if (looking-at ".*:lines *\"\\([-0-9]+\\)\"")
-				(replace-match lines :fixedcase :literal nil 1)
-			  (goto-char (line-end-position))
-			  (insert " :lines \"" lines "\""))))))))
+    (save-excursion
+      (goto-char (point-min))
+      (while (search-forward-regexp
+              "^\\s-*#\\+INCLUDE: *\"\\([^\"]+\\)\".*:range-\\(begin\\|end\\)"
+              nil 'noerror)
+        (let* ((file (expand-file-name (match-string-no-properties 1)))
+               lines begin end)
+          (forward-line 0)
+          (when (looking-at "^.*:range-begin *\"\\([^\"]+\\)\"")
+            (setq begin (match-string-no-properties 1)))
+          (when (looking-at "^.*:range-end *\"\\([^\"]+\\)\"")
+            (setq end (match-string-no-properties 1)))
+          (setq lines (decide-line-range file begin end))
+          (when lines
+            (if (looking-at ".*:lines *\"\\([-0-9]+\\)\"")
+                (replace-match lines :fixedcase :literal nil 1)
+              (goto-char (line-end-position))
+              (insert " :lines \"" lines "\""))))))))
 
 (defun decide-line-range (file begin end)
   "Visit FILE and decide which lines to include.
 BEGIN and END are regexps which define the line range to use."
   (let (l r)
-	(save-match-data
-	  (with-temp-buffer
-		(insert-file file)
-		(goto-char (point-min))
-		(if (null begin)
-			(setq l "")
-		  (search-forward-regexp begin)
-		  (setq l (line-number-at-pos (match-beginning 0))))
-		(if (null end)
-			(setq r "")
-		  (search-forward-regexp end)
-		  (setq r (1+ (line-number-at-pos (match-end 0)))))
-		(format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
+    (save-match-data
+      (with-temp-buffer
+        (insert-file file)
+        (goto-char (point-min))
+        (if (null begin)
+            (setq l "")
+          (search-forward-regexp begin)
+          (setq l (line-number-at-pos (match-beginning 0))))
+        (if (null end)
+            (setq r "")
+          (search-forward-regexp end)
+          (setq r (1+ (line-number-at-pos (match-end 0)))))
+        (format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
 ;; -OrgIncludeAuto
 
 
