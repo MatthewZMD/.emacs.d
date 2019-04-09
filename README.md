@@ -1,9 +1,9 @@
-<a id="org2534e1c"></a>
+<a id="orga86a5e3"></a>
 
 # M-EMACS
 
 
-<a id="org732493d"></a>
+<a id="orga4c8b94"></a>
 
 # About
 
@@ -19,33 +19,33 @@ This configuration is designed and tested for **GNU Emacs 25.1 and above only**.
 ```
 
 
-<a id="orgd6383dc"></a>
+<a id="org0f268cb"></a>
 
 ## About README
 
 This README is originated from init.org that is generated using `M-x org-gfm-export-to-markdown`. Every block of code is generated through this function - it exports the section of code from the `elisp/` directory. You will not see their presence in init.org.
 
 
-<a id="org1aad6b8"></a>
+<a id="org5d24f8a"></a>
 
 ## Installation
 
 1.  Install latest version of [GNU Emacs](https://www.gnu.org/software/emacs/).
 2.  Clone this repo to `HOME` or `~/` path using [git](https://git-scm.com/) and update all the submodules.
 
-    ```text
-    git clone https://github.com/MatthewZMD/.emacs.d.git
-    cd .emacs.d
-    git submodule init
-    git submodule update
-    ```
+	```text
+	git clone https://github.com/MatthewZMD/.emacs.d.git
+	cd .emacs.d
+	git submodule init
+	git submodule update
+	```
 3.  Ensure a stable connection to Melpa Packages, then open Emacs.
 4.  Enter `y` when prompted with `Auto-update packages now?`, wait for all packages to install.
 5.  In your favorite browser, `Ctrl-F Prerequisite` through this webpage and follow the **Prerequisite** instructions.
 6.  Restart Emacs.
 
 
-<a id="org52f1abf"></a>
+<a id="org8929ba9"></a>
 
 ## Modification
 
@@ -61,14 +61,14 @@ You have the permission to use, modify, distribute however you want. However, wh
 6.  Call `M-x org-gfm-export-to-markdown` to update this README.
 
 
-<a id="org6297344"></a>
+<a id="org91f35ea"></a>
 
 ## Spotted a Bug? Suggestions?
 
 Please fill in Issues.
 
 
-<a id="orgb9c28f5"></a>
+<a id="org7ebd1e1"></a>
 
 ## Special Thanks
 
@@ -81,91 +81,91 @@ Everyone starts somewhere, and I started here.
 
 # Table of Contents     :TOC_2_ORG:
 
--   [M-EMACS](#org2534e1c)
--   [About](#org732493d)
-    -   [About README](#orgd6383dc)
-    -   [Installation](#org1aad6b8)
-    -   [Modification](#org52f1abf)
-    -   [Spotted a Bug? Suggestions?](#org6297344)
-    -   [Special Thanks](#orgb9c28f5)
--   [Startup](#orgb55cd2e)
-    -   [Lexical-binding](#orgaeabca9)
-    -   [Disable Unnecessary Interface](#org40a064a)
-    -   [Optimization](#orgc088254)
-    -   [Define Constants](#orgd179f52)
--   [Package Management](#org39d2db5)
-    -   [Melpa Packages](#org74d49b8)
-    -   [Configure Package Management](#org35a6647)
-    -   [Use-Package Wrapper](#org2658da0)
-    -   [Auto Package Update](#org4df27da)
--   [Global Functionalities](#orgb9d7832)
-    -   [Owner Information](#orgd27ceb8)
-    -   [Bindings](#org414440f)
-    -   [Dired](#org6b3a1f5)
-    -   [Search](#orgd0c34b8)
-    -   [Avy](#orgfed21e1)
-    -   [Ivy](#orgab815f0)
-    -   [Winner](#org0d90890)
-    -   [Which Key](#org7048a35)
-    -   [Popup Kill Ring](#org7f9b5f7)
-    -   [Undo Tree](#org73ddeb5)
-    -   [Shell Here](#org9eb461f)
-    -   [Discover My Major](#org3146d40)
-    -   [Configs](#org8a4c2e7)
-    -   [More Functions](#orgbcca73a)
--   [User Interface Enhancements](#org6b766cd)
-    -   [Title Bar](#org2967809)
-    -   [All The Icons](#orgdf945d6)
-    -   [Doom Theme](#orga64ead8)
-    -   [Doom Modeline](#org5837383)
-    -   [Dashboard](#orga186df8)
-    -   [Fonts](#orgefd2c1b)
-    -   [Zone](#orgaf67a5f)
-    -   [Diminish](#orgb40dc9c)
-    -   [Dimmer](#org6c2a603)
-    -   [Smooth Scroll](#orgbaaacf4)
-    -   [Highlight Indent Guides](#org9ad9d77)
-    -   [Pretty Symbols](#orgbb9b43f)
-    -   [UI Configs](#org73aaedf)
--   [General Programming](#orgd3cda80)
-    -   [Magit](#org57bb19b)
-    -   [Projectile](#orgfdf37a1)
-    -   [Treemacs](#org4f0be68)
-    -   [Company](#org17ec51c)
-    -   [Flycheck](#orge93859d)
-    -   [Dumb Jump](#org6f2af57)
-    -   [Line Numbers](#org96d7ef8)
-    -   [Parenthesis Pairing](#org5143b77)
-    -   [Format All](#orga31cf6f)
-    -   [Evil-Nerd-Commenter](#org7f171a7)
-    -   [Iedit](#orge001981)
-    -   [Header](#org2d0d976)
-    -   [LSP](#orgf74dcfd)
--   [Programming](#org10361c0)
-    -   [Emacs Lisp](#orgcb98385)
-    -   [Java](#org397ac42)
-    -   [C/C++](#org6eca2a8)
-    -   [Python](#org95e6e9d)
-    -   [Arduino](#org0fb347d)
-    -   [Jupyter Notebook](#org1f7beeb)
--   [Web Development](#org517662b)
-    -   [Web Mode](#orgd2dfae1)
-    -   [Emmet](#org8834005)
-    -   [JavaScript/TypeScript](#orgefda528)
--   [Miscellaneous](#org8a2fae3)
-    -   [Org](#org25180de)
-    -   [EWW](#org2f8cbb8)
-    -   [Tetris](#org0d6f336)
-    -   [Speed Type](#orgc0d235c)
-    -   [2048 Game](#org0877fe6)
+-   [M-EMACS](#orga86a5e3)
+-   [About](#orga4c8b94)
+	-   [About README](#org0f268cb)
+	-   [Installation](#org5d24f8a)
+	-   [Modification](#org8929ba9)
+	-   [Spotted a Bug? Suggestions?](#org91f35ea)
+	-   [Special Thanks](#org7ebd1e1)
+-   [Startup](#org9b5f501)
+	-   [Lexical-binding](#org6e1e2c5)
+	-   [Disable Unnecessary Interface](#org99b585b)
+	-   [Optimization](#orgc0f5341)
+	-   [Define Constants](#org0fc0cbf)
+-   [Package Management](#org38f8624)
+	-   [Melpa Packages](#org468135f)
+	-   [Configure Package Management](#org8c4d5c6)
+	-   [Use-Package Wrapper](#orgb3c22d4)
+	-   [Auto Package Update](#org0d522c3)
+-   [Global Functionalities](#org3b550ed)
+	-   [Owner Information](#org4852384)
+	-   [Bindings](#org0875a67)
+	-   [Dired](#orgcacacbd)
+	-   [Search](#org86279fb)
+	-   [Avy](#org3e3f579)
+	-   [Ivy](#org6f766ff)
+	-   [Winner](#org95e62f8)
+	-   [Which Key](#orgdd8dbf5)
+	-   [Popup Kill Ring](#org6a8ad6c)
+	-   [Undo Tree](#org19e6723)
+	-   [Shell Here](#org67227f5)
+	-   [Discover My Major](#org8cd5635)
+	-   [Configs](#orgf5e4f85)
+	-   [More Functions](#org8512d4b)
+-   [User Interface Enhancements](#org0872ec0)
+	-   [Title Bar](#orge535c0e)
+	-   [All The Icons](#org6fb7944)
+	-   [Doom Theme](#orgf3f3134)
+	-   [Doom Modeline](#org0a32f79)
+	-   [Dashboard](#org614100c)
+	-   [Fonts](#orgfd8e11d)
+	-   [Zone](#org38b721a)
+	-   [Diminish](#org61590cc)
+	-   [Dimmer](#org066e4ab)
+	-   [Smooth Scroll](#org95befed)
+	-   [Highlight Indent Guides](#orgffcc298)
+	-   [Pretty Symbols](#org2f410de)
+	-   [UI Configs](#org2fd5fd7)
+-   [General Programming](#orga160b98)
+	-   [Magit](#orgd8a8792)
+	-   [Projectile](#orge6905c5)
+	-   [Treemacs](#org28c6b4d)
+	-   [Company](#org72e5113)
+	-   [Flycheck](#orgc4698e0)
+	-   [Dumb Jump](#org496d45c)
+	-   [Line Numbers](#org979b2a5)
+	-   [Parenthesis Pairing](#org9a699c2)
+	-   [Format All](#orgf3895d4)
+	-   [Evil-Nerd-Commenter](#orgf00ae44)
+	-   [Iedit](#orgccc62e0)
+	-   [Header](#org6b32bca)
+	-   [LSP](#orgaa9b980)
+-   [Programming](#orgfe50010)
+	-   [Emacs Lisp](#org3b2d41a)
+	-   [Java](#orge27a8d5)
+	-   [C/C++](#org2e77594)
+	-   [Python](#org2c58d01)
+	-   [Arduino](#org75eb16b)
+	-   [Jupyter Notebook](#org27612c5)
+-   [Web Development](#orgeac611a)
+	-   [Web Mode](#org1310e97)
+	-   [Emmet](#org7d93676)
+	-   [JavaScript/TypeScript](#org7f228c9)
+-   [Miscellaneous](#org474b918)
+	-   [Org](#org5dfe6ad)
+	-   [EWW](#orgc1cd6eb)
+	-   [Tetris](#org6adc125)
+	-   [Speed Type](#org864a6f4)
+	-   [2048 Game](#org052fdec)
 
 
-<a id="orgb55cd2e"></a>
+<a id="org9b5f501"></a>
 
 # Startup
 
 
-<a id="orgaeabca9"></a>
+<a id="org6e1e2c5"></a>
 
 ## Lexical-binding
 
@@ -178,7 +178,7 @@ Use lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 ```
 
 
-<a id="org40a064a"></a>
+<a id="org99b585b"></a>
 
 ## Disable Unnecessary Interface
 
@@ -192,7 +192,7 @@ This need to be in the beginning of initialization to smooth the experience.
 ```
 
 
-<a id="orgc088254"></a>
+<a id="orgc0f5341"></a>
 
 ## Optimization
 
@@ -201,11 +201,11 @@ Avoid garbage collection during startup.
 ```emacs-lisp
 (eval-and-compile
   (defun revert-gc ()
-    (setq gc-cons-threshold 16777216
-          gc-cons-percentage 0.1))
+	(setq gc-cons-threshold 16777216
+		  gc-cons-percentage 0.1))
 
   (setq gc-cons-threshold 402653184
-        gc-cons-percentage 0.6)
+		gc-cons-percentage 0.6)
 
   (add-hook 'emacs-startup-hook 'revert-gc))
 ```
@@ -215,7 +215,7 @@ Unset file name handler alist.
 ```emacs-lisp
 (eval-and-compile
   (defun reset-file-name-handler-alist ()
-    (setq file-name-handler-alist orig-file-name-handler-alist))
+	(setq file-name-handler-alist orig-file-name-handler-alist))
 
   (defvar orig-file-name-handler-alist file-name-handler-alist)
   (setq file-name-handler-alist nil)
@@ -235,8 +235,8 @@ Load all elisp files in `elisp/` and `site-elisp/` to reduce startup time.
 (defun add-subdirs-to-load-path (&rest _)
   "Add subdirectories to `load-path'."
   (let ((default-directory
-          (expand-file-name "site-elisp" user-emacs-directory)))
-    (normal-top-level-add-subdirs-to-load-path)))
+		  (expand-file-name "site-elisp" user-emacs-directory)))
+	(normal-top-level-add-subdirs-to-load-path)))
 
 (advice-add #'package-initialize :after #'update-load-path)
 (advice-add #'package-initialize :after #'add-subdirs-to-load-path)
@@ -245,7 +245,7 @@ Load all elisp files in `elisp/` and `site-elisp/` to reduce startup time.
 ```
 
 
-<a id="orgd179f52"></a>
+<a id="org0fc0cbf"></a>
 
 ## Define Constants
 
@@ -258,38 +258,36 @@ Load all elisp files in `elisp/` and `site-elisp/` to reduce startup time.
 
 (defconst *mvn* (executable-find "mvn"))
 
-;(defconst *npm* (executable-find "npm"))
-
 (defconst *clangd* (or (executable-find "clangd")  ;; usually
-                       (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
+					   (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
 
 (defconst *gcc* (executable-find "gcc"))
 ```
 
 
-<a id="org39d2db5"></a>
+<a id="org38f8624"></a>
 
 # Package Management
 
 
-<a id="org74d49b8"></a>
+<a id="org468135f"></a>
 
 ## Melpa Packages
 
 ```emacs-lisp
 ;; Select the folder to store packages
 (setq package-user-dir "~/.emacs.d/elpa"
-      package-archives
-      '(;; Comment / Uncomment when necessary sites are used
-        ("gnu"   . "http://elpa.gnu.org/packages/")
-        ("melpa" . "https://melpa.org/packages/")
-        ("melpa stable" . "http://stable.melpa.org/packages/")
-        ;;("org"   . "http://orgmode.org/elpa/")
-        ))
+	  package-archives
+	  '(;; Comment / Uncomment when necessary sites are used
+		("gnu"   . "http://elpa.gnu.org/packages/")
+		("melpa" . "https://melpa.org/packages/")
+		("melpa stable" . "http://stable.melpa.org/packages/")
+		;;("org"   . "http://orgmode.org/elpa/")
+		))
 ```
 
 
-<a id="org35a6647"></a>
+<a id="org8c4d5c6"></a>
 
 ## Configure Package Management
 
@@ -309,7 +307,7 @@ Load all elisp files in `elisp/` and `site-elisp/` to reduce startup time.
 ```
 
 
-<a id="org2658da0"></a>
+<a id="orgb3c22d4"></a>
 
 ## Use-Package Wrapper
 
@@ -321,25 +319,26 @@ Add the macro generated list of package.el loadpaths to load-path.
 
 ```emacs-lisp
 (mapc #'(lambda (add) (add-to-list 'load-path add))
-      (eval-when-compile
-        ;; (require 'package)
-        (package-initialize)
-        ;; Install use-package if not installed yet.
-        (unless (package-installed-p 'use-package)
-          (package-refresh-contents)
-          (package-install 'use-package))
-        ;; (require 'use-package)
-        ;; (setq use-package-always-ensure t) ;; I will handle this myself
-        (let ((package-user-dir-real (file-truename package-user-dir)))
-          ;; The reverse is necessary, because outside we mapc
-          ;; add-to-list element-by-element, which reverses.
-          (nreverse (apply #'nconc
-                           ;; Only keep package.el provided loadpaths.
-                           (mapcar #'(lambda (path)
-                                       (if (string-prefix-p package-user-dir-real path)
-                                           (list path)
-                                         nil))
-                                   load-path))))))
+	  (eval-when-compile
+		;; (require 'package)
+		(package-initialize)
+		;; Install use-package if not installed yet.
+		(unless (package-installed-p 'use-package)
+		  (package-refresh-contents)
+		  (package-install 'use-package))
+		;; (require 'use-package)
+		;; (setq use-package-always-ensure t) ;; I will handle this myself
+		(let ((package-user-dir-real (file-truename package-user-dir)))
+		  ;; The reverse is necessary, because outside we mapc
+		  ;; add-to-list element-by-element, which reverses.
+		  (nreverse
+		   (apply #'nconc
+				  ;; Only keep package.el provided loadpaths.
+				  (mapcar #'(lambda (path)
+							  (if (string-prefix-p package-user-dir-real path)
+								  (list path)
+								nil))
+						  load-path))))))
 (eval-when-compile
   (require 'use-package)
   ;; Always ensure package is installed
@@ -355,14 +354,14 @@ The `use-package` wrapper.
   ;; If byte-compiling, ignore this package if it doesn't meet the condition.
   ;; This avoids false-positive load errors.
   (unless (and (bound-and-true-p byte-compile-current-file)
-               (or (and (plist-member plist :if)     (not (eval (plist-get plist :if))))
-                   (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
-                   (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
-    `(use-package ,name ,@plist)))
+			   (or (and (plist-member plist :if)     (not (eval (plist-get plist :if))))
+				   (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
+				   (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
+	`(use-package ,name ,@plist)))
 ```
 
 
-<a id="org4df27da"></a>
+<a id="org0d522c3"></a>
 
 ## Auto Package Update
 
@@ -379,12 +378,12 @@ The `use-package` wrapper.
 ```
 
 
-<a id="orgb9d7832"></a>
+<a id="org3b550ed"></a>
 
 # Global Functionalities
 
 
-<a id="orgd27ceb8"></a>
+<a id="org4852384"></a>
 
 ## Owner Information
 
@@ -396,7 +395,7 @@ The `use-package` wrapper.
 ```
 
 
-<a id="org414440f"></a>
+<a id="org0875a67"></a>
 
 ## Bindings
 
@@ -416,7 +415,7 @@ The `use-package` wrapper.
 ```
 
 
-<a id="org6b3a1f5"></a>
+<a id="orgcacacbd"></a>
 
 ## Dired
 
@@ -448,7 +447,7 @@ Dired, the directory editor.
   (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)))
   (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
   (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
-                                     (lambda () (interactive) (find-alternate-file ".."))))))
+										  (lambda () (interactive) (find-alternate-file ".."))))))
 ```
 
 
@@ -465,10 +464,10 @@ Set autosave and backup directory.
 
 ```emacs-lisp
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
-      auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
-      delete-old-versions -1
-      version-control t
-      vc-make-backup-files t)
+	  auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
+	  delete-old-versions -1
+	  version-control t
+	  vc-make-backup-files t)
 ```
 
 
@@ -480,16 +479,16 @@ Set autosave and backup directory.
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
-        (progn
-          (rename-file filename new-name 1)
-          (rename-buffer new-name)
-          (set-visited-file-name new-name)
-          (set-buffer-modified-p nil))))))
+		(filename (buffer-file-name)))
+	(if (not filename)
+		(message "Buffer '%s' is not visiting a file!" name)
+	  (if (get-buffer new-name)
+		  (message "A buffer named '%s' already exists!" new-name)
+		(progn
+		  (rename-file filename new-name 1)
+		  (rename-buffer new-name)
+		  (set-visited-file-name new-name)
+		  (set-buffer-modified-p nil))))))
 ```
 
 
@@ -507,7 +506,7 @@ Set autosave and backup directory.
 ```
 
 
-<a id="orgd0c34b8"></a>
+<a id="org86279fb"></a>
 
 ## Search
 
@@ -521,9 +520,9 @@ Set autosave and backup directory.
 ```emacs-lisp
 (when *rg*
   (def-package color-rg
-    :ensure nil
-    :bind
-    (("C-z s s" . color-rg-search-input))))
+	:ensure nil
+	:bind
+	(("C-z s s" . color-rg-search-input))))
 ```
 
 
@@ -534,14 +533,14 @@ Set autosave and backup directory.
 ```emacs-lisp
 (when *rg*
   (def-package grep-dired
-    :ensure nil
-    :bind
-    (("C-z s f" . grep-dired-dwim)
-     ("C-z s d" . grep-dired))))
+	:ensure nil
+	:bind
+	(("C-z s f" . grep-dired-dwim)
+	 ("C-z s d" . grep-dired))))
 ```
 
 
-<a id="orgfed21e1"></a>
+<a id="org3e3f579"></a>
 
 ## Avy
 
@@ -559,7 +558,7 @@ Set autosave and backup directory.
 ```
 
 
-<a id="orgab815f0"></a>
+<a id="org6f766ff"></a>
 
 ## Ivy
 
@@ -615,7 +614,7 @@ Set autosave and backup directory.
 ```
 
 
-<a id="org0d90890"></a>
+<a id="org95e62f8"></a>
 
 ## Winner
 
@@ -623,21 +622,21 @@ Winner mode restores old window layout.
 
 ```emacs-lisp
 (setq winner-boring-buffers
-      '("*Completions*"
-        "*Compile-Log*"
-        "*inferior-lisp*"
-        "*Fuzzy Completions*"
-        "*Apropos*"
-        "*Help*"
-        "*cvs*"
-        "*Buffer List*"
-        "*Ibuffer*"
-        "*esh command on file*"))
+	  '("*Completions*"
+		"*Compile-Log*"
+		"*inferior-lisp*"
+		"*Fuzzy Completions*"
+		"*Apropos*"
+		"*Help*"
+		"*cvs*"
+		"*Buffer List*"
+		"*Ibuffer*"
+		"*esh command on file*"))
 (winner-mode 1)
 ```
 
 
-<a id="org7048a35"></a>
+<a id="orgdd8dbf5"></a>
 
 ## Which Key
 
@@ -654,7 +653,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="org7f9b5f7"></a>
+<a id="org6a8ad6c"></a>
 
 ## Popup Kill Ring
 
@@ -666,7 +665,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="org73ddeb5"></a>
+<a id="org19e6723"></a>
 
 ## Undo Tree
 
@@ -680,7 +679,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="org9eb461f"></a>
+<a id="org67227f5"></a>
 
 ## Shell Here
 
@@ -692,7 +691,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="org3146d40"></a>
+<a id="org8cd5635"></a>
 
 ## Discover My Major
 
@@ -704,7 +703,7 @@ Winner mode restores old window layout.
 ```
 
 
-<a id="org8a4c2e7"></a>
+<a id="orgf5e4f85"></a>
 
 ## Configs
 
@@ -717,9 +716,9 @@ Use UTF-8 as much as possible with unix line endings.
 
 ```emacs-lisp
 (if (eq system-type 'windows-nt)
-    (progn
-      (set-clipboard-coding-system 'utf-16-le)
-      (set-selection-coding-system 'utf-16-le))
+	(progn
+	  (set-clipboard-coding-system 'utf-16-le)
+	  (set-selection-coding-system 'utf-16-le))
   (set-selection-coding-system 'utf-8))
 (prefer-coding-system 'utf-8-unix)
 (set-language-environment "UTF-8")
@@ -770,9 +769,10 @@ Use UTF-8 as much as possible with unix line endings.
 (setq-default select-enable-clipboard t)
 
 ;; Indentation
-(setq-default tab-width 2)
-(setq-default indent-tabs-mode nil)
-(setq-default c-basic-offset 2)
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+(c-set-offset 'comment-intro 0)
 ```
 
 
@@ -831,7 +831,7 @@ Better compilation configurations.
 ```
 
 
-<a id="orgbcca73a"></a>
+<a id="org8512d4b"></a>
 
 ## More Functions
 
@@ -845,8 +845,8 @@ Other important, but longer functions.
 (defun window-resize-width (w)
   "Resizes the window width based on W."
   (interactive (list (if (> (count-windows) 1)
-                         (read-number "Set the current window width in [1~9]x10%: ")
-                       (error "You need more than 1 window to execute this function!"))))
+						 (read-number "Set the current window width in [1~9]x10%: ")
+					   (error "You need more than 1 window to execute this function!"))))
   (message "%s" w)
   (window-resize nil (- (truncate (* (/ w 10.0) (frame-width))) (window-total-width)) t))
 
@@ -854,8 +854,8 @@ Other important, but longer functions.
 (defun window-resize-height (h)
   "Resizes the window height based on H."
   (interactive (list (if (> (count-windows) 1)
-                         (read-number "Set the current window height in [1~9]x10%: ")
-                       (error "You need more than 1 window to execute this function!"))))
+						 (read-number "Set the current window height in [1~9]x10%: ")
+					   (error "You need more than 1 window to execute this function!"))))
   (message "%s" h)
   (window-resize nil (- (truncate (* (/ h 10.0) (frame-height))) (window-total-height)) nil))
 
@@ -890,24 +890,24 @@ If point is already there, move to the beginning of the line.
 Effectively toggle between the first non-whitespace character and
 the beginning of the line.
 
-If ARG is not nil or 1, move forward ARG - 1 lines first.  If
+If ARG is not nil or 1, move forward ARG - 1 lines first.    If
 point reaches the beginning or end of the buffer, stop there."
   (interactive "^p")
   (setq arg (or arg 1))
 
   ;; Move lines first
   (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
+	(let ((line-move-visual nil))
+	  (forward-line (1- arg))))
 
   (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
+	(back-to-indentation)
+	(when (= orig-point (point))
+	  (move-beginning-of-line 1))))
 
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
-                'smarter-move-beginning-of-line)
+				'smarter-move-beginning-of-line)
 ```
 
 
@@ -925,51 +925,51 @@ This function does nothing if not in org-mode, so you can safely
 add it to `before-save-hook'."
   (interactive)
   (when (derived-mode-p 'org-mode)
-    (save-excursion
-      (goto-char (point-min))
-      (while (search-forward-regexp
-              "^\\s-*#\\+INCLUDE: *\"\\([^\"]+\\)\".*:range-\\(begin\\|end\\)"
-              nil 'noerror)
-        (let* ((file (expand-file-name (match-string-no-properties 1)))
-               lines begin end)
-          (forward-line 0)
-          (when (looking-at "^.*:range-begin *\"\\([^\"]+\\)\"")
-            (setq begin (match-string-no-properties 1)))
-          (when (looking-at "^.*:range-end *\"\\([^\"]+\\)\"")
-            (setq end (match-string-no-properties 1)))
-          (setq lines (decide-line-range file begin end))
-          (when lines
-            (if (looking-at ".*:lines *\"\\([-0-9]+\\)\"")
-                (replace-match lines :fixedcase :literal nil 1)
-              (goto-char (line-end-position))
-              (insert " :lines \"" lines "\""))))))))
+	(save-excursion
+	  (goto-char (point-min))
+	  (while (search-forward-regexp
+			  "^\\s-*#\\+INCLUDE: *\"\\([^\"]+\\)\".*:range-\\(begin\\|end\\)"
+			  nil 'noerror)
+		(let* ((file (expand-file-name (match-string-no-properties 1)))
+			   lines begin end)
+		  (forward-line 0)
+		  (when (looking-at "^.*:range-begin *\"\\([^\"]+\\)\"")
+			(setq begin (match-string-no-properties 1)))
+		  (when (looking-at "^.*:range-end *\"\\([^\"]+\\)\"")
+			(setq end (match-string-no-properties 1)))
+		  (setq lines (decide-line-range file begin end))
+		  (when lines
+			(if (looking-at ".*:lines *\"\\([-0-9]+\\)\"")
+				(replace-match lines :fixedcase :literal nil 1)
+			  (goto-char (line-end-position))
+			  (insert " :lines \"" lines "\""))))))))
 
 (defun decide-line-range (file begin end)
   "Visit FILE and decide which lines to include.
 BEGIN and END are regexps which define the line range to use."
   (let (l r)
-    (save-match-data
-      (with-temp-buffer
-        (insert-file file)
-        (goto-char (point-min))
-        (if (null begin)
-            (setq l "")
-          (search-forward-regexp begin)
-          (setq l (line-number-at-pos (match-beginning 0))))
-        (if (null end)
-            (setq r "")
-          (search-forward-regexp end)
-          (setq r (1+ (line-number-at-pos (match-end 0)))))
-        (format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
+	(save-match-data
+	  (with-temp-buffer
+		(insert-file file)
+		(goto-char (point-min))
+		(if (null begin)
+			(setq l "")
+		  (search-forward-regexp begin)
+		  (setq l (line-number-at-pos (match-beginning 0))))
+		(if (null end)
+			(setq r "")
+		  (search-forward-regexp end)
+		  (setq r (1+ (line-number-at-pos (match-end 0)))))
+		(format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
 ```
 
 
-<a id="org6b766cd"></a>
+<a id="org0872ec0"></a>
 
 # User Interface Enhancements
 
 
-<a id="org2967809"></a>
+<a id="orge535c0e"></a>
 
 ## Title Bar
 
@@ -978,7 +978,7 @@ BEGIN and END are regexps which define the line range to use."
 ```
 
 
-<a id="orgdf945d6"></a>
+<a id="org6fb7944"></a>
 
 ## All The Icons
 
@@ -1015,11 +1015,11 @@ BEGIN and END are regexps which define the line range to use."
   (all-the-icons-ivy-setup)
   (setq all-the-icons-ivy-buffer-commands '())
   (setq all-the-icons-ivy-file-commands
-        '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
+		'(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
 ```
 
 
-<a id="orga64ead8"></a>
+<a id="orgf3f3134"></a>
 
 ## Doom Theme
 
@@ -1028,16 +1028,16 @@ BEGIN and END are regexps which define the line range to use."
 ```emacs-lisp
 (when *gui-emacs*
   (def-package doom-themes
-    :config
-    ;; flashing mode-line on errors
-    (doom-themes-visual-bell-config)
-    ;; Corrects (and improves) org-mode's native fontification.
-    (doom-themes-org-config)
-    (load-theme 'doom-dracula t)))
+	:config
+	;; flashing mode-line on errors
+	(doom-themes-visual-bell-config)
+	;; Corrects (and improves) org-mode's native fontification.
+	(doom-themes-org-config)
+	(load-theme 'doom-dracula t)))
 ```
 
 
-<a id="org5837383"></a>
+<a id="org0a32f79"></a>
 
 ## Doom Modeline
 
@@ -1046,19 +1046,19 @@ BEGIN and END are regexps which define the line range to use."
 ```emacs-lisp
 (when *gui-emacs*
   (def-package doom-modeline
-    :hook (after-init . doom-modeline-mode)
-    :config
-    ;; Don't compact font caches during GC. Windows Laggy Issue
-    (setq inhibit-compacting-font-caches t)
-    (setq doom-modeline-minor-modes t)
-    ;;(setq doom-modeline-github t) ;; requires ghub package
-    (setq doom-modeline-icon t)
-    (setq doom-modeline-major-mode-color-icon t)
-    (setq doom-modeline-height 15)))
+	:hook (after-init . doom-modeline-mode)
+	:config
+	;; Don't compact font caches during GC. Windows Laggy Issue
+	(setq inhibit-compacting-font-caches t)
+	(setq doom-modeline-minor-modes t)
+	;;(setq doom-modeline-github t) ;; requires ghub package
+	(setq doom-modeline-icon t)
+	(setq doom-modeline-major-mode-color-icon t)
+	(setq doom-modeline-height 15)))
 ```
 
 
-<a id="orga186df8"></a>
+<a id="org614100c"></a>
 
 ## Dashboard
 
@@ -1078,39 +1078,39 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
   (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
 
   (defun open-dashboard ()
-    "Open the *dashboard* buffer and jump to the first widget."
-    (interactive)
-    (if (get-buffer dashboard-buffer-name)
-        (kill-buffer dashboard-buffer-name))
-    (dashboard-insert-startupify-lists)
-    (switch-to-buffer dashboard-buffer-name)
-    (goto-char (point-min))
-    (if (> (length (window-list-1))
-           ;; exclude `treemacs' window
-           (if (and (fboundp 'treemacs-current-visibility)
-                    (eq (treemacs-current-visibility) 'visible)) 2 1))
-        (setq dashboard-recover-layout-p t))
-    (delete-other-windows))
+	"Open the *dashboard* buffer and jump to the first widget."
+	(interactive)
+	(if (get-buffer dashboard-buffer-name)
+		(kill-buffer dashboard-buffer-name))
+	(dashboard-insert-startupify-lists)
+	(switch-to-buffer dashboard-buffer-name)
+	(goto-char (point-min))
+	(if (> (length (window-list-1))
+		   ;; exclude `treemacs' window
+		   (if (and (fboundp 'treemacs-current-visibility)
+					(eq (treemacs-current-visibility) 'visible)) 2 1))
+		(setq dashboard-recover-layout-p t))
+	(delete-other-windows))
   (global-set-key (kbd "C-z d") #'open-dashboard)
 
   ;; Additional Dashboard widgets.
   (defun dashboard-insert-widgets (list-size)
-    (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
-    (insert "Navigation: ")
-    ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
-    (widget-create 'url-link
-                   :tag (propertize "Github" 'face 'font-lock-keyword-face)
-                   :help-echo "Open the Emacs Configuration Github page"
-                   :mouse-face 'highlight
-                   "https://github.com/MatthewZMD/.emacs.d")
-    (insert " ")
-    (widget-create 'push-button
-                   :help-echo "Edit This Emacs' Configuration"
-                   :action (lambda (&rest _) (edit-configs))
-                   :mouse-face 'highlight
-                   :button-prefix ""
-                   :button-suffix ""
-                   (propertize "Configuration" 'face 'font-lock-keyword-face)))
+	(insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
+	(insert "Navigation: ")
+	;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
+	(widget-create 'url-link
+				   :tag (propertize "Github" 'face 'font-lock-keyword-face)
+				   :help-echo "Open the Emacs Configuration Github page"
+				   :mouse-face 'highlight
+				   "https://github.com/MatthewZMD/.emacs.d")
+	(insert " ")
+	(widget-create 'push-button
+				   :help-echo "Edit This Emacs' Configuration"
+				   :action (lambda (&rest _) (edit-configs))
+				   :mouse-face 'highlight
+				   :button-prefix ""
+				   :button-suffix ""
+				   (propertize "Configuration" 'face 'font-lock-keyword-face)))
 
   (add-to-list 'dashboard-item-generators  '(buttons . dashboard-insert-widgets))
   (add-to-list 'dashboard-items '(buttons)))
@@ -1128,7 +1128,7 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
 ```
 
 
-<a id="orgefd2c1b"></a>
+<a id="orgfd8e11d"></a>
 
 ## Fonts
 
@@ -1149,26 +1149,26 @@ Change Font Function.
   "Documentation."
   (interactive)
   (let* (available-fonts font-name font-size font-setting)
-    (dolist (font fonts (setq available-fonts (nreverse available-fonts)))
-      (when (member (car font) (font-family-list))
-        (push font available-fonts)))
+	(dolist (font fonts (setq available-fonts (nreverse available-fonts)))
+	  (when (member (car font) (font-family-list))
+		(push font available-fonts)))
 
-    (if (not available-fonts)
-        (message "No fonts from the chosen set are available")
-      (if (called-interactively-p 'interactive)
-          (let* ((chosen (assoc-string (completing-read "What font to use? " available-fonts nil t) available-fonts)))
-            (setq font-name (car chosen) font-size (read-number "Font size: " (cdr chosen))))
-        (setq font-name (caar available-fonts) font-size (cdar available-fonts)))
+	(if (not available-fonts)
+		(message "No fonts from the chosen set are available")
+	  (if (called-interactively-p 'interactive)
+		  (let* ((chosen (assoc-string (completing-read "What font to use? " available-fonts nil t) available-fonts)))
+			(setq font-name (car chosen) font-size (read-number "Font size: " (cdr chosen))))
+		(setq font-name (caar available-fonts) font-size (cdar available-fonts)))
 
-      (setq font-setting (format "%s-%d" font-name font-size))
-      (set-frame-font font-setting nil t)
-      (add-to-list 'default-frame-alist (cons 'font font-setting)))))
+	  (setq font-setting (format "%s-%d" font-name font-size))
+	  (set-frame-font font-setting nil t)
+	  (add-to-list 'default-frame-alist (cons 'font font-setting)))))
 
 (change-font)
 ```
 
 
-<a id="orgaf67a5f"></a>
+<a id="org38b721a"></a>
 
 ## Zone
 
@@ -1181,18 +1181,18 @@ Change Font Function.
   (zone-when-idle 600) ;; in seconds
 
   (defun zone-choose (pgm)
-    "Choose a PGM to run for `zone'."
-    (interactive
-     (list
-      (completing-read
-       "Program: "
-       (mapcar 'symbol-name zone-programs))))
-    (let ((zone-programs (list (intern pgm))))
-      (zone))))
+	"Choose a PGM to run for `zone'."
+	(interactive
+	 (list
+	  (completing-read
+	   "Program: "
+	   (mapcar 'symbol-name zone-programs))))
+	(let ((zone-programs (list (intern pgm))))
+	  (zone))))
 ```
 
 
-<a id="orgb40dc9c"></a>
+<a id="org61590cc"></a>
 
 ## Diminish
 
@@ -1203,7 +1203,7 @@ Change Font Function.
 ```
 
 
-<a id="org6c2a603"></a>
+<a id="org066e4ab"></a>
 
 ## Dimmer
 
@@ -1218,7 +1218,7 @@ Change Font Function.
 ```
 
 
-<a id="orgbaaacf4"></a>
+<a id="org95befed"></a>
 
 ## Smooth Scroll
 
@@ -1241,7 +1241,7 @@ Smoothens Scrolling.
 ```
 
 
-<a id="org9ad9d77"></a>
+<a id="orgffcc298"></a>
 
 ## Highlight Indent Guides
 
@@ -1250,18 +1250,17 @@ Smoothens Scrolling.
 ```emacs-lisp
 (when *gui-emacs*
   (def-package highlight-indent-guides
-    :diminish
-    :defer t
-    :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
-    :config
-    (setq highlight-indent-guides-method 'character)
-    (setq highlight-indent-guides-responsive 'top)
-    (setq highlight-indent-guides-delay 0)
-    (setq highlight-indent-guides-auto-character-face-perc 7)))
+	:diminish
+	:hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
+	:config
+	(setq highlight-indent-guides-method 'character)
+	(setq highlight-indent-guides-responsive 'top)
+	(setq highlight-indent-guides-delay 0)
+	(setq highlight-indent-guides-auto-character-face-perc 7)))
 ```
 
 
-<a id="orgbb9b43f"></a>
+<a id="org2f410de"></a>
 
 ## Pretty Symbols
 
@@ -1272,22 +1271,22 @@ Pretty the Symbols.
 (defun add-pretty-lambda ()
   "Make some word or string show as pretty Unicode symbols. See https://unicodelookup.com for more."
   (setq prettify-symbols-alist
-        '(
-          ("lambda" . 955)
-          ("delta" . 120517)
-          ("epsilon" . 120518)
-          ("->" . 8594)
-          ("<=" . 8804)
-          (">=" . 8805)
-          ("!=" . 8800)
-          ("map" . 8614)
-          )))
+		'(
+		  ("lambda" . 955)
+		  ("delta" . 120517)
+		  ("epsilon" . 120518)
+		  ("->" . 8594)
+		  ("<=" . 8804)
+		  (">=" . 8805)
+		  ("!=" . 8800)
+		  ("map" . 8614)
+		  )))
 (add-hook 'prog-mode-hook 'add-pretty-lambda)
 (add-hook 'org-mode-hook 'add-pretty-lambda)
 ```
 
 
-<a id="org73aaedf"></a>
+<a id="org2fd5fd7"></a>
 
 ## UI Configs
 
@@ -1314,12 +1313,12 @@ Pretty the Symbols.
 ```
 
 
-<a id="orgd3cda80"></a>
+<a id="orga160b98"></a>
 
 # General Programming
 
 
-<a id="org57bb19b"></a>
+<a id="orgd8a8792"></a>
 
 ## Magit
 
@@ -1331,7 +1330,7 @@ Pretty the Symbols.
 ```
 
 
-<a id="orgfdf37a1"></a>
+<a id="orge6905c5"></a>
 
 ## Projectile
 
@@ -1352,12 +1351,12 @@ Pretty the Symbols.
   (projectile-mode 1)
   (setq projectile-completion-system 'ivy)
   (when (and (eq system-type 'windows-nt) *tr*)
-    (setq projectile-indexing-method 'alien))
+	(setq projectile-indexing-method 'alien))
   (add-to-list 'projectile-globally-ignored-directories "node_modules"))
 ```
 
 
-<a id="org4f0be68"></a>
+<a id="org28c6b4d"></a>
 
 ## Treemacs
 
@@ -1370,56 +1369,56 @@ Pretty the Symbols.
 (def-package treemacs
   :init
   (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+	(define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :config
   (progn
-    (setq treemacs-collapse-dirs
-          (if (executable-find "python") 3 0)
-          treemacs-deferred-git-apply-delay   0.5
-          treemacs-display-in-side-window     t
-          treemacs-file-event-delay     5000
-          treemacs-file-follow-delay    0.2
-          treemacs-follow-after-init    t
-          treemacs-follow-recenter-distance   0.1
-          treemacs-git-command-pipe     ""
-          treemacs-goto-tag-strategy    'refetch-index
-          treemacs-indentation    2
-          treemacs-indentation-string   " "
-          treemacs-is-never-other-window      nil
-          treemacs-max-git-entries      5000
-          treemacs-no-png-images        nil
-          treemacs-no-delete-other-windows    t
-          treemacs-project-follow-cleanup     nil
-          treemacs-persist-file   (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-          treemacs-recenter-after-file-follow nil
-          treemacs-recenter-after-tag-follow  nil
-          treemacs-show-cursor    nil
-          treemacs-show-hidden-files    t
-          treemacs-silent-filewatch     nil
-          treemacs-silent-refresh       nil
-          treemacs-sorting        'alphabetic-desc
-          treemacs-space-between-root-nodes   t
-          treemacs-tag-follow-cleanup   t
-          treemacs-tag-follow-delay     1.5
-          treemacs-width    35)
-    ;; The default width and height of the icons is 22 pixels. If you are
-    ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;;(treemacs-resize-icons 44)
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t)
-    (pcase (cons (not (null (executable-find "git")))
-                 (not (null (executable-find "python3"))))
-      (`(t . t) (treemacs-git-mode 'deferred))
-      (`(t . _) (treemacs-git-mode 'simple))))
+	(setq treemacs-collapse-dirs
+		  (if (executable-find "python") 3 0)
+		  treemacs-deferred-git-apply-delay   0.5
+		  treemacs-display-in-side-window     t
+		  treemacs-file-event-delay     5000
+		  treemacs-file-follow-delay    0.2
+		  treemacs-follow-after-init    t
+		  treemacs-follow-recenter-distance   0.1
+		  treemacs-git-command-pipe     ""
+		  treemacs-goto-tag-strategy    'refetch-index
+		  treemacs-indentation    2
+		  treemacs-indentation-string   " "
+		  treemacs-is-never-other-window      nil
+		  treemacs-max-git-entries      5000
+		  treemacs-no-png-images        nil
+		  treemacs-no-delete-other-windows    t
+		  treemacs-project-follow-cleanup     nil
+		  treemacs-persist-file   (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+		  treemacs-recenter-after-file-follow nil
+		  treemacs-recenter-after-tag-follow  nil
+		  treemacs-show-cursor    nil
+		  treemacs-show-hidden-files    t
+		  treemacs-silent-filewatch     nil
+		  treemacs-silent-refresh       nil
+		  treemacs-sorting        'alphabetic-desc
+		  treemacs-space-between-root-nodes   t
+		  treemacs-tag-follow-cleanup   t
+		  treemacs-tag-follow-delay     1.5
+		  treemacs-width    35)
+	;; The default width and height of the icons is 22 pixels. If you are
+	;; using a Hi-DPI display, uncomment this to double the icon size.
+	;;(treemacs-resize-icons 44)
+	(treemacs-follow-mode t)
+	(treemacs-filewatch-mode t)
+	(treemacs-fringe-indicator-mode t)
+	(pcase (cons (not (null (executable-find "git")))
+				 (not (null (executable-find "python3"))))
+	  (`(t . t) (treemacs-git-mode 'deferred))
+	  (`(t . _) (treemacs-git-mode 'simple))))
   :bind
   ((:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+		 ("M-0"       . treemacs-select-window)
+		 ("C-x t 1"   . treemacs-delete-other-windows)
+		 ("C-x t t"   . treemacs)
+		 ("C-x t B"   . treemacs-bookmark)
+		 ("C-x t C-t" . treemacs-find-file)
+		 ("C-x t M-t" . treemacs-find-tag)))
   (:map treemacs-mode-map ("C-p" . treemacs-previous-line)))
 ```
 
@@ -1442,7 +1441,7 @@ Pretty the Symbols.
 ```
 
 
-<a id="org17ec51c"></a>
+<a id="org72e5113"></a>
 
 ## Company
 
@@ -1468,7 +1467,7 @@ Pretty the Symbols.
 ```
 
 
-<a id="orge93859d"></a>
+<a id="orgc4698e0"></a>
 
 ## Flycheck
 
@@ -1485,7 +1484,7 @@ Pretty the Symbols.
 ```
 
 
-<a id="org6f2af57"></a>
+<a id="org496d45c"></a>
 
 ## Dumb Jump
 
@@ -1494,15 +1493,15 @@ Pretty the Symbols.
 ```emacs-lisp
 (def-package dumb-jump
   :bind (("M-g o" . dumb-jump-go-other-window)
-   ("M-g j" . dumb-jump-go)
-   ("M-g i" . dumb-jump-go-prompt)
-   ("M-g x" . dumb-jump-go-prefer-external)
-   ("M-g z" . dumb-jump-go-prefer-external-other-window))
+		 ("M-g j" . dumb-jump-go)
+		 ("M-g i" . dumb-jump-go-prompt)
+		 ("M-g x" . dumb-jump-go-prefer-external)
+		 ("M-g z" . dumb-jump-go-prefer-external-other-window))
   :config (setq dumb-jump-selector 'ivy))
 ```
 
 
-<a id="org96d7ef8"></a>
+<a id="org979b2a5"></a>
 
 ## Line Numbers
 
@@ -1511,17 +1510,17 @@ Display line numbers, and column numbers in modeline.
 ```emacs-lisp
 ;; Hook line numbers to only when files are opened
 (if (version< emacs-version "26")
-    (progn (add-hook 'find-file-hook #'linum-mode)
-           (add-hook 'prog-mode-hook #'linum-mode))
+	(progn (add-hook 'find-file-hook #'linum-mode)
+		   (add-hook 'prog-mode-hook #'linum-mode))
   (progn (add-hook 'find-file-hook #'display-line-numbers-mode)
-         (add-hook 'prog-mode-hook #'display-line-numbers-mode)))
+		 (add-hook 'prog-mode-hook #'display-line-numbers-mode)))
 
 ;; Display column numbers in modeline
 (column-number-mode 1)
 ```
 
 
-<a id="org5143b77"></a>
+<a id="org9a699c2"></a>
 
 ## Parenthesis Pairing
 
@@ -1529,7 +1528,6 @@ Match and automatically pair parenthesis.
 
 ```emacs-lisp
 ;; Show matching parenthesis
-(setq show-paren-delay 0)
 (show-paren-mode 1)
 ```
 
@@ -1543,39 +1541,39 @@ Match and automatically pair parenthesis.
   :demand t
   :diminish smartparens-mode
   :bind (:map smartparens-mode-map
-              ("C-M-f" . sp-forward-sexp)
-              ("C-M-b" . sp-backward-sexp)
-              ("C-M-d" . sp-down-sexp)
-              ("C-M-a" . sp-backward-down-sexp)
-              ;; C-S-d is bound to dup line
-              ("C-S-b" . sp-beginning-of-sexp)
-              ("C-S-a" . sp-end-of-sexp)
-              ("C-M-e" . sp-up-sexp)
-              ("C-M-u" . sp-backward-up-sexp)
-              ("C-M-t" . sp-transpose-sexp)
-              ("C-M-n" . sp-forward-hybrid-sexp)
-              ("C-M-p" . sp-backward-hybrid-sexp)
-              ("C-M-k" . sp-kill-sexp)
-              ("C-M-w" . sp-copy-sexp)
-              ("M-<delete>" . sp-unwrap-sexp)
-              ;; I like using M-<backspace> to del backwards
-              ;; ("C-<backspace>" . sp-backward-unwrap-sexp)
-              ("C-<right>" . sp-forward-slurp-sexp)
-              ("C-<left>" . sp-forward-barf-sexp)
-              ("C-M-<left>" . sp-backward-slurp-sexp)
-              ("C-M-<right>" . sp-backward-barf-sexp)
-              ("M-D" . sp-splice-sexp)
-              ;; This is Ctrl-Alt-Del lol
-              ;; ("C-M-<delete>" . sp-splice-sexp-killing-forward)
-              ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
-              ("C-S-<backspace>" . sp-splice-sexp-killing-around)
-              ("C-]" . sp-select-next-thing-exchange)
-              ("C-<left_bracket>" . sp-select-previous-thing)
-              ("C-M-]" . sp-select-next-thing)
-              ("M-F" . sp-forward-symbol)
-              ("M-B" . sp-backward-symbol)
-              ("C-\"" . sp-change-inner)
-              ("M-i" . sp-change-enclosing))
+			  ("C-M-f" . sp-forward-sexp)
+			  ("C-M-b" . sp-backward-sexp)
+			  ("C-M-d" . sp-down-sexp)
+			  ("C-M-a" . sp-backward-down-sexp)
+			  ;; C-S-d is bound to dup line
+			  ("C-S-b" . sp-beginning-of-sexp)
+			  ("C-S-a" . sp-end-of-sexp)
+			  ("C-M-e" . sp-up-sexp)
+			  ("C-M-u" . sp-backward-up-sexp)
+			  ("C-M-t" . sp-transpose-sexp)
+			  ("C-M-n" . sp-forward-hybrid-sexp)
+			  ("C-M-p" . sp-backward-hybrid-sexp)
+			  ("C-M-k" . sp-kill-sexp)
+			  ("C-M-w" . sp-copy-sexp)
+			  ("M-<delete>" . sp-unwrap-sexp)
+			  ;; I like using M-<backspace> to del backwards
+			  ;; ("C-<backspace>" . sp-backward-unwrap-sexp)
+			  ("C-<right>" . sp-forward-slurp-sexp)
+			  ("C-<left>" . sp-forward-barf-sexp)
+			  ("C-M-<left>" . sp-backward-slurp-sexp)
+			  ("C-M-<right>" . sp-backward-barf-sexp)
+			  ("M-D" . sp-splice-sexp)
+			  ;; This is Ctrl-Alt-Del lol
+			  ;; ("C-M-<delete>" . sp-splice-sexp-killing-forward)
+			  ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
+			  ("C-S-<backspace>" . sp-splice-sexp-killing-around)
+			  ("C-]" . sp-select-next-thing-exchange)
+			  ("C-<left_bracket>" . sp-select-previous-thing)
+			  ("C-M-]" . sp-select-next-thing)
+			  ("M-F" . sp-forward-symbol)
+			  ("M-B" . sp-backward-symbol)
+			  ("C-\"" . sp-change-inner)
+			  ("M-i" . sp-change-enclosing))
   :config
   (smartparens-global-mode)
   ;; Stop pairing single quotes in elisp
@@ -1590,7 +1588,7 @@ Match and automatically pair parenthesis.
 [Awesome Pair](https://github.com/manateelazycat/awesome-pair), a feature that provides grammatical parenthesis completion. All I need is this smart kill.
 
 ```emacs-lisp
-(use-package awesome-pair
+(def-package awesome-pair
   :ensure nil
   :config
   (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1)))
@@ -1598,7 +1596,7 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="orga31cf6f"></a>
+<a id="orgf3895d4"></a>
 
 ## Format All
 
@@ -1613,7 +1611,7 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="org7f171a7"></a>
+<a id="orgf00ae44"></a>
 
 ## Evil-Nerd-Commenter
 
@@ -1628,7 +1626,7 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="orge001981"></a>
+<a id="orgccc62e0"></a>
 
 ## Iedit
 
@@ -1641,14 +1639,14 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="org2d0d976"></a>
+<a id="org6b32bca"></a>
 
 ## Header
 
 [Header2](https://www.emacswiki.org/emacs/header2.el), a support for creation and update of file headers.
 
 ```emacs-lisp
-(use-package header2
+(def-package header2
   :ensure nil
   :config
   (autoload 'auto-make-header "header2")
@@ -1659,7 +1657,7 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="orgf74dcfd"></a>
+<a id="orgaa9b980"></a>
 
 ## LSP
 
@@ -1693,28 +1691,28 @@ Match and automatically pair parenthesis.
   (lsp-ui-doc-background ((t (:background nil))))
   (lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
   :bind (:map lsp-ui-mode-map
-              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-              ([remap xref-find-references] . lsp-ui-peek-find-references)
-              ("C-c u" . lsp-ui-imenu))
+			  ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+			  ([remap xref-find-references] . lsp-ui-peek-find-references)
+			  ("C-c u" . lsp-ui-imenu))
   :init
   (setq lsp-ui-doc-enable t
-        lsp-ui-doc-header t
-        lsp-ui-doc-include-signature t
-        lsp-ui-doc-position 'top
-        lsp-ui-doc-use-webkit t
-        lsp-ui-doc-border (face-foreground 'default)
+		lsp-ui-doc-header t
+		lsp-ui-doc-include-signature t
+		lsp-ui-doc-position 'top
+		lsp-ui-doc-use-webkit t
+		lsp-ui-doc-border (face-foreground 'default)
 
-        lsp-ui-sideline-enable t
-        lsp-ui-sideline-ignore-duplicate t
-        lsp-ui-sideline-show-diagnostics nil
-        lsp-ui-sideline-show-symbol t
-        lsp-ui-sideline-show-hover t
-        lsp-ui-sideline-show-code-actions t)
+		lsp-ui-sideline-enable t
+		lsp-ui-sideline-ignore-duplicate t
+		lsp-ui-sideline-show-diagnostics nil
+		lsp-ui-sideline-show-symbol t
+		lsp-ui-sideline-show-hover t
+		lsp-ui-sideline-show-code-actions t)
   :config
   ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
   ;; https://github.com/emacs-lsp/lsp-ui/issues/243
   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
-    (setq mode-line-format nil)))
+	(setq mode-line-format nil)))
 ```
 
 
@@ -1745,12 +1743,12 @@ Match and automatically pair parenthesis.
 ```
 
 
-<a id="org10361c0"></a>
+<a id="orgfe50010"></a>
 
 # Programming
 
 
-<a id="orgcb98385"></a>
+<a id="org3b2d41a"></a>
 
 ## Emacs Lisp
 
@@ -1764,7 +1762,7 @@ Eval-buffer for ELisp Code.
 ```
 
 
-<a id="org397ac42"></a>
+<a id="orge27a8d5"></a>
 
 ## Java
 
@@ -1778,15 +1776,15 @@ Eval-buffer for ELisp Code.
 ```emacs-lisp
 (when *mvn*
   (def-package lsp-java
-    :after lsp-mode
-    :config
-    (setq
-     lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
-     lsp-java-workspace-dir (expand-file-name "~/eclipse.jdt.ls/workspace/"))))
+	:after lsp-mode
+	:config
+	(setq
+	 lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
+	 lsp-java-workspace-dir (expand-file-name "~/eclipse.jdt.ls/workspace/"))))
 ```
 
 
-<a id="org6eca2a8"></a>
+<a id="org2e77594"></a>
 
 ## C/C++
 
@@ -1817,7 +1815,7 @@ CC Mode, a mode for editing files containing C, C++, Objective-C, Java, CORBA ID
 Rest of the features will be provided by [LSP Mode](https://github.com/emacs-lsp/lsp-mode).
 
 
-<a id="org95e6e9d"></a>
+<a id="org2c58d01"></a>
 
 ## Python
 
@@ -1847,14 +1845,14 @@ Now, put `~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish
   :config
   ;; for dev build of language server
   (setq lsp-python-ms-dir
-        (expand-file-name "~/.emacs.d/python-language-server/output/bin/Release/"))
+		(expand-file-name "~/.emacs.d/python-language-server/output/bin/Release/"))
   ;; for executable of language server, if it's not symlinked on your PATH
   (setq lsp-python-ms-executable
-        "~/.emacs.d/python-language-server/output/bin/Release/win10-x64/publish/Microsoft.Python.LanguageServer"))
+		"~/.emacs.d/python-language-server/output/bin/Release/win10-x64/publish/Microsoft.Python.LanguageServer"))
 ```
 
 
-<a id="org0fb347d"></a>
+<a id="org75eb16b"></a>
 
 ## Arduino
 
@@ -1887,7 +1885,7 @@ Now, put `~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish
 ```
 
 
-<a id="org1f7beeb"></a>
+<a id="org27612c5"></a>
 
 ## Jupyter Notebook
 
@@ -1906,7 +1904,7 @@ Now, put `~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish
 ```
 
 
-<a id="org517662b"></a>
+<a id="orgeac611a"></a>
 
 # Web Development
 
@@ -1919,7 +1917,7 @@ npm install -g vscode-html-languageserver-bin
 ```
 
 
-<a id="orgd2dfae1"></a>
+<a id="org1310e97"></a>
 
 ## Web Mode
 
@@ -1933,7 +1931,7 @@ npm install -g vscode-html-languageserver-bin
 ```
 
 
-<a id="org8834005"></a>
+<a id="org7d93676"></a>
 
 ## Emmet
 
@@ -1947,7 +1945,7 @@ npm install -g vscode-html-languageserver-bin
 ```
 
 
-<a id="orgefda528"></a>
+<a id="org7f228c9"></a>
 
 ## JavaScript/TypeScript
 
@@ -1972,14 +1970,14 @@ npm install -g vscode-html-languageserver-bin
   :defer t
   :commands (typescript-mode)
   :bind (:map typescript-mode-map
-              ("M-." . tide-jump-to-definition))
+			  ("M-." . tide-jump-to-definition))
   :init
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
   (defun setup-tide-ts ()
-    "Setup tide for typescript."
-    (interactive)
-    (tide-setup)
-    (tide-hl-identifier-mode))
+	"Setup tide for typescript."
+	(interactive)
+	(tide-setup)
+	(tide-hl-identifier-mode))
   (add-hook 'typescript-mode-hook #'setup-tide-ts))
 ```
 
@@ -1994,18 +1992,18 @@ Tip: enter `M-.` to jump to definition.
 (def-package tide
   :defer t
   :bind (:map tide-mode-map
-              ("M-." . nil))
+			  ("M-." . nil))
   :commands (tide-setup)
   :after (company flycheck))
 ```
 
 
-<a id="org8a2fae3"></a>
+<a id="org474b918"></a>
 
 # Miscellaneous
 
 
-<a id="org25180de"></a>
+<a id="org5dfe6ad"></a>
 
 ## Org
 
@@ -2026,10 +2024,10 @@ Tip: enter `M-.` to jump to definition.
   (setq org-log-done 'time)
   (setq org-export-backends (quote (ascii html icalendar latex md odt)))
   (when (file-directory-p "~/org/agenda/")
-    (setq org-agenda-files (list "~/org/agenda/")))
+	(setq org-agenda-files (list "~/org/agenda/")))
   (setq org-use-speed-commands t)
   (setq org-todo-keywords
-        '((sequence "TODO" "PROCESS" "REVIEW" "|" "DONE"))))
+		'((sequence "TODO" "PROCESS" "REVIEW" "|" "DONE"))))
 ```
 
 
@@ -2048,7 +2046,7 @@ Tip: enter `M-.` to jump to definition.
 [HTMLize](https://github.com/hniksic/emacs-htmlize), a tool that converts buffer text and decorations to HTML.
 
 ```emacs-lisp
-(use-package htmlize :defer t)
+(def-package htmlize :defer t)
 ```
 
 
@@ -2061,7 +2059,7 @@ Tip: enter `M-.` to jump to definition.
 ```
 
 
-<a id="org2f8cbb8"></a>
+<a id="orgc1cd6eb"></a>
 
 ## EWW
 
@@ -2090,14 +2088,14 @@ In Eww, hit & to browse this url system browser
   "ORIG-FUN ARGS When prefix argument is used, a new eww buffer will be created,
   regardless of whether the current buffer is in `eww-mode'."
   (if current-prefix-arg
-      (with-temp-buffer
-        (apply orig-fun args))
-    (apply orig-fun args)))
+	  (with-temp-buffer
+		(apply orig-fun args))
+	(apply orig-fun args)))
 (advice-add 'eww :around #'force-new-eww-buffer)
 ```
 
 
-<a id="org0d6f336"></a>
+<a id="org6adc125"></a>
 
 ## Tetris
 
@@ -2116,7 +2114,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="orgc0d235c"></a>
+<a id="org864a6f4"></a>
 
 ## Speed Type
 
@@ -2128,7 +2126,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="org0877fe6"></a>
+<a id="org052fdec"></a>
 
 ## 2048 Game
 

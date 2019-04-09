@@ -50,10 +50,8 @@
 
 (defconst *mvn* (executable-find "mvn"))
 
-;(defconst *npm* (executable-find "npm"))
-
 (defconst *clangd* (or (executable-find "clangd")  ;; usually
-                       (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
+					   (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
 
 (defconst *gcc* (executable-find "gcc"))
 ;; -Consts

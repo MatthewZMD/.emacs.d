@@ -68,24 +68,24 @@
   :defer t
   :commands (typescript-mode)
   :bind (:map typescript-mode-map
-              ("M-." . tide-jump-to-definition))
+			  ("M-." . tide-jump-to-definition))
   :init
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
   (defun setup-tide-ts ()
-    "Setup tide for typescript."
-    (interactive)
-    (tide-setup)
-    (tide-hl-identifier-mode))
+	"Setup tide for typescript."
+	(interactive)
+	(tide-setup)
+	(tide-hl-identifier-mode))
   (add-hook 'typescript-mode-hook #'setup-tide-ts))
 ;; -TypeScriptPac
 
 ;; TidePac
-  (def-package tide
-    :defer t
-    :bind (:map tide-mode-map
-                ("M-." . nil))
-    :commands (tide-setup)
-    :after (company flycheck))
+(def-package tide
+  :defer t
+  :bind (:map tide-mode-map
+			  ("M-." . nil))
+  :commands (tide-setup)
+  :after (company flycheck))
 ;; -TidePac
 
 (provide 'init-webdev)

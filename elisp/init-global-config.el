@@ -102,9 +102,10 @@
 (setq-default select-enable-clipboard t)
 
 ;; Indentation
-(setq-default tab-width 2)
-(setq-default indent-tabs-mode nil)
-(setq-default c-basic-offset 2)
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+(c-set-offset 'comment-intro 0)
 ;; -EditExp
 
 ;; AutoGbgCollect
@@ -184,7 +185,7 @@ If point is already there, move to the beginning of the line.
 Effectively toggle between the first non-whitespace character and
 the beginning of the line.
 
-If ARG is not nil or 1, move forward ARG - 1 lines first.  If
+If ARG is not nil or 1, move forward ARG - 1 lines first.    If
 point reaches the beginning or end of the buffer, stop there."
   (interactive "^p")
   (setq arg (or arg 1))
