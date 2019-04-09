@@ -170,7 +170,11 @@
  (lsp-describe-session . 1)
  (org-cycle . 1)
  (column-number-mode . 6)
+<<<<<<< Updated upstream
  (highlight-indent-guides-mode . 5)
+=======
+ (highlight-indent-guides-mode . 4)
+>>>>>>> Stashed changes
  (js2-mode . 1)
  (dumb-jump-go-prefer-external-other-window . 1)
  (org-todo-list . 1)
