@@ -66,7 +66,7 @@
   (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)))
   (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
   (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
-                                     (lambda () (interactive) (find-alternate-file ".."))))))
+										  (lambda () (interactive) (find-alternate-file ".."))))))
 ;; -DiredPackage
 
 ;; AutosaveBackupDir
@@ -76,10 +76,10 @@
 
 ;; AutosaveBackupAlist
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
-      auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
-      delete-old-versions -1
-      version-control t
-      vc-make-backup-files t)
+	  auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
+	  delete-old-versions -1
+	  version-control t
+	  vc-make-backup-files t)
 ;; -AutosaveBackupAlist
 
 ;; RenameFileBuffer
@@ -88,16 +88,16 @@
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
-        (progn
-          (rename-file filename new-name 1)
-          (rename-buffer new-name)
-          (set-visited-file-name new-name)
-          (set-buffer-modified-p nil))))))
+		(filename (buffer-file-name)))
+	(if (not filename)
+		(message "Buffer '%s' is not visiting a file!" name)
+	  (if (get-buffer new-name)
+		  (message "A buffer named '%s' already exists!" new-name)
+		(progn
+		  (rename-file filename new-name 1)
+		  (rename-buffer new-name)
+		  (set-visited-file-name new-name)
+		  (set-buffer-modified-p nil))))))
 ;; -RenameFileBuffer
 
 ;; DiredConfigs
