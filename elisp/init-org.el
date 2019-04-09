@@ -56,10 +56,10 @@
   (setq org-log-done 'time)
   (setq org-export-backends (quote (ascii html icalendar latex md odt)))
   (when (file-directory-p "~/org/agenda/")
-    (setq org-agenda-files (list "~/org/agenda/")))
+	(setq org-agenda-files (list "~/org/agenda/")))
   (setq org-use-speed-commands t)
   (setq org-todo-keywords
-        '((sequence "TODO" "PROCESS" "REVIEW" "|" "DONE"))))
+		'((sequence "TODO" "PROCESS" "REVIEW" "|" "DONE"))))
 ;; -OrgPac
 
 ;; TocOrgPac
@@ -68,7 +68,7 @@
 ;; -TocOrgPac
 
 ;; HTMLIZEPac
-(use-package htmlize :defer t)
+(def-package htmlize :defer t)
 ;; -HTMLIZEPac
 
 ;; OXGFMPac

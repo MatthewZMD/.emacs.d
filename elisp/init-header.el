@@ -42,7 +42,7 @@
 ;;; Code:
 
 ;; Header2Pac
-(use-package header2
+(def-package header2
   :ensure nil
   :config
   (autoload 'auto-make-header "header2")
