@@ -45,8 +45,7 @@
 
 ;; FormatAllPac
 (def-package format-all
-  :bind ("C-z f" . format-all-buffer)
-  :config (add-hook 'prog-mode-hook 'format-all-mode))
+  :bind ("C-z f" . format-all-buffer))
 ;; -FormatAllPac
 
 (provide 'init-format)
