@@ -50,16 +50,17 @@
   :init (global-company-mode)
   :config
   (setq company-minimum-prefix-length 1)
-  (setq company-tooltip-align-annotations 't) ; align annotations to the right tooltip border
-  (setq company-idle-delay 0) ; decrease delay before autocompletion popup shows
-  (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+  (setq company-tooltip-align-annotations 't)
+  (setq company-idle-delay 0)
+  (setq company-begin-commands '(self-insert-command))
+  (setq company-require-match 'never)
+  (setq company-show-numbers t)
+  (setq company-global-modes '(not shell-mode))
   (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common)
   (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
   (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
   (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
-  (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
-  (setq company-require-match 'never)
-  (setq company-global-modes '(not shell-mode)))
+  (define-key company-active-map (kbd "<backtab>") 'company-select-previous))
 ;; -ComPac
 
 (provide 'init-company)
