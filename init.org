@@ -497,8 +497,13 @@
 *** Auto-Rename New EWW Buffers
 	#+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EwwRenameBuffer" :range-end "-EwwRenameBuffer" :lines "49-63"
 ** LeetCode
-   *Prerequisite*: Please update this file your LeetCode account and keep it safe (i.e do not put on Github)!
+   *Prerequisite*: Please update =elisp/init-acct.el= your LeetCode account and keep it safe (i.e do not put on Github)!
    #+INCLUDE: "~/.emacs.d/elisp/init-acct.el" src emacs-lisp :range-begin "LeetCodeUsr" :range-end "-LeetCodeUsr"" :lines "51-53"
+   To let Git forget that this file is modified, execute the following.
+   #+BEGIN_SRC text
+	 cd ~/.emacs.d
+	 git update-index --skip-worktree elisp/init-acct.el
+   #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "48-51"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
