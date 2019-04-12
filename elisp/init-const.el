@@ -41,6 +41,11 @@
 ;;
 ;;; Code:
 
+;; UserInfo
+(setq user-full-name "your-name")
+(setq user-mail-address "your-email")
+;; -UserInfo
+
 ;; Consts
 (defconst *gui-emacs* (display-graphic-p))
 

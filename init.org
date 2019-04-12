@@ -21,6 +21,10 @@
    4. Enter =y= when prompted with =Auto-update packages now?=, wait for all packages to install.
    5. In your favorite browser, =Ctrl-F Prerequisite= through this webpage and follow the *Prerequisite* instructions.
    6. Restart Emacs.
+*** Further Updates
+	I will be updating M-EMACS from time to time, it is best to =git pull= once a while to stay up to date.
+
+	Please also execute =git submodule update --recursive --remote= to sync with all the submodules.
 ** Modification
    You have the permission to use, modify, distribute however you want. However, what is /free/ stays /free/. After all, this is [[file:LICENSE][GPL]].
 
@@ -140,7 +144,7 @@
    Since all the configuration files are stored in =elisp/= folder, as well as the =site-elisp/= folder that contains non-Melpa packages, they need to be added to =load-path= on startup.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadLP" :range-end "-LoadLP"  :lines "94-96"
 ** Define Constants
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-59"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "50-64"
 * Package Management
 ** Melpa Packages
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "45-54"
@@ -176,7 +180,7 @@
 * Global Functionalities
 ** User Information
    *Prerequisite*: Please update this file your personal info.
-   #+INCLUDE: "~/.emacs.d/elisp/init-acct.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "46-48"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "45-47"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "Bindings" :range-end "-Bindings"" :lines "45-57"
 ** Dired
@@ -500,16 +504,9 @@
 *** Auto-Rename New EWW Buffers
 	#+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EwwRenameBuffer" :range-end "-EwwRenameBuffer" :lines "49-63"
 ** LeetCode
-   *Prerequisite*:
-   1. Ensure =cURL= is installed added to =PATH=.
-   2. Update =elisp/init-acct.el= your LeetCode account and keep it safe (i.e do not put on Github)!
-   #+INCLUDE: "~/.emacs.d/elisp/init-acct.el" src emacs-lisp :range-begin "LeetCodeUsr" :range-end "-LeetCodeUsr" :lines "51-53"
-   To let Git forget that this file is modified, execute the following.
-   #+BEGIN_SRC text
-	 cd ~/.emacs.d
-	 git update-index --skip-worktree elisp/init-acct.el
-   #+END_SRC
-   LeetCode package is dependant on [[https://github.com/tkf/emacs-request][Request]], [[https://github.com/tkf/emacs-request/blob/master/request-deferred.el][Request-Deferred]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
+   [[https://github.com/kaiwk/leetcode.el][LeetCode]], an Emacs LeetCode client. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]], [[https://github.com/tkf/emacs-request/blob/master/request-deferred.el][Request-Deferred]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
+
+   *Prerequisite*: Ensure =cURL= is installed added to =PATH=.
    #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "49-58"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.

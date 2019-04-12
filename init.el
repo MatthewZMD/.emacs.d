@@ -97,8 +97,6 @@
 
 ;; Constants
 
-(require 'init-acct)
-
 (require 'init-const)
 
 ;; Packages
