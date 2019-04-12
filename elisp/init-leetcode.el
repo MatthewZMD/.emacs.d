@@ -1,21 +1,21 @@
-;;; init-header.el --- -*- lexical-binding: t -*-
+;;; init-leetcode.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-header.el
-;; Description: Initialize Header2
+;; Filename: init-leetcode.el
+;; Description: Initialize LeetCode Client
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 10:32:02 2019 (-0400)
-;; Version: 1.2.0
+;; Created: Thu Apr 11 22:28:41 2019 (-0400)
+;; Version: 1.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d header2
+;; Keywords: M-EMACS .emacs.d leetcode
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;;
+;; This initializes a LeetCode client
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,17 +42,14 @@
 ;;; Code:
 (require 'init-package)
 
-;; Header2Pac
-(def-package header2
-  :ensure nil
-  :config
-  (autoload 'auto-make-header "header2")
-  (autoload 'auto-update-file-header "header2")
-  (add-hook 'write-file-hooks 'auto-update-file-header)
-  (add-hook 'emacs-lisp-mode-hook 'auto-make-header)
-  (add-hook 'c-mode-common-hook   'auto-make-header))
-;; -Header2Pac
+;; Please use init-acct.el to modify your LeetCode account info.
 
-(provide 'init-header)
+;; LeetCodePac
+(def-package leetcode
+  :ensure nil
+  :config (setq leetcode-prefer-language "python3"))
+;; -LeetCodePac
+
+(provide 'init-leetcode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-header.el ends here
+;;; init-leetcode.el ends here

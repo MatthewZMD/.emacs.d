@@ -55,11 +55,12 @@
   - [[Define Constants][Define Constants]]
 - [[Package Management][Package Management]]
   - [[Melpa Packages][Melpa Packages]]
+  - [[Non-Melpa Packages][Non-Melpa Packages]]
   - [[Configure Package Management][Configure Package Management]]
   - [[Use-Package Wrapper][Use-Package Wrapper]]
   - [[Auto Package Update][Auto Package Update]]
 - [[Global Functionalities][Global Functionalities]]
-  - [[Owner Information][Owner Information]]
+  - [[User Information][User Information]]
   - [[Bindings][Bindings]]
   - [[Dired][Dired]]
   - [[Search][Search]]
@@ -114,7 +115,8 @@
   - [[JavaScript/TypeScript][JavaScript/TypeScript]]
 - [[Miscellaneous][Miscellaneous]]
   - [[Org][Org]]
-  - [[EWW][EWW]]
+  - [[Emacs Web Wowser][Emacs Web Wowser]]
+  - [[LeetCode][LeetCode]]
   - [[Tetris][Tetris]]
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
@@ -141,6 +143,19 @@
 * Package Management
 ** Melpa Packages
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "45-54"
+** Non-Melpa Packages
+   These packages are contained in =site-elisp/=, they have been added to =load-path= in =(update-load-path)= function.
+*** Add Packages Manually from Git
+	#+BEGIN_SRC text
+	  cd site-elisp/
+	  git submodule add https://github.com/foo/bar.git
+	#+END_SRC
+	Execute =(update-load-path)= to update Emacs' load-path. Then verify =/.gitmodules= file that the newly added package exist.
+*** Update Manually Added Packages
+	#+BEGIN_SRC text
+	  git submodule init
+	  git submodule update
+	#+END_SRC
 ** Configure Package Management
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigurePackageManagement" :range-end "-ConfigurePackageManagement" :lines "57-69"
 ** Use-Package Wrapper
@@ -156,9 +171,9 @@
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "113-120"
 * Global Functionalities
-** Owner Information
-   *Prerequisite*: Change this to your information.
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "60-62"
+** User Information
+   *Prerequisite*: Please update this file your personal info.
+   #+INCLUDE: "~/.emacs.d/elisp/init-acct.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "46-48"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "Bindings" :range-end "-Bindings"" :lines "45-57"
 ** Dired
@@ -367,7 +382,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-iedit.el" src emacs-lisp :range-begin "IEditPac" :range-end "-IEditPac" :lines "47-50"
 ** Header
    [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
-   #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "45-53"
+   #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "46-54"
 ** LSP
    [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]].
 *** LSP Mode
@@ -461,7 +476,7 @@
 	#+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "TidePac" :range-end "-TidePac" :lines "83-89"
 * Miscellaneous
 ** Org
-   [[https://orgmode.org/][Org]] is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
+   [[https://orgmode.org/][Org]], a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
    *Prerequisite*: Modify =(setq org-agenda-files (list "~/org/agenda/"))= to your agenda folder.
    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgPac" :range-end "-OrgPac" :lines "47-63"
@@ -474,13 +489,17 @@
 *** OX-GFM
 	[[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
 	#+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "75-76"
-** EWW
+** Emacs Web Wowser
    EWW, the Emacs Web Wowser.
 *** Set EWW as Default Browser
 	In Eww, hit & to browse this url system browser
 	#+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EwwDefault" :range-end "-EwwDefault" :lines "45-46"
 *** Auto-Rename New EWW Buffers
 	#+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EwwRenameBuffer" :range-end "-EwwRenameBuffer" :lines "49-63"
+** LeetCode
+   *Prerequisite*: Please update this file your LeetCode account and keep it safe (i.e do not put on Github)!
+   #+INCLUDE: "~/.emacs.d/elisp/init-acct.el" src emacs-lisp :range-begin "LeetCodeUsr" :range-end "-LeetCodeUsr"" :lines "51-53"
+   #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "48-51"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "47-56"
