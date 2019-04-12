@@ -44,7 +44,7 @@
 
 ;; CheckVer
 (when (version< emacs-version "25.1")
-  (error "This requires Emacs 25.1 and above!"))
+  (error "M-EMACS requires Emacs 25.1 and above!"))
 ;; -CheckVer
 
 ;; DisableUnnecessaryInterface
@@ -57,11 +57,11 @@
 ;; AvoidStartupGarbageCollect
 (eval-and-compile
   (defun revert-gc ()
-    (setq gc-cons-threshold 16777216
-          gc-cons-percentage 0.1))
+	(setq gc-cons-threshold 16777216
+		  gc-cons-percentage 0.1))
 
   (setq gc-cons-threshold 402653184
-        gc-cons-percentage 0.6)
+		gc-cons-percentage 0.6)
 
   (add-hook 'emacs-startup-hook 'revert-gc))
 ;; -AvoidStartupGarbageCollect
@@ -69,7 +69,7 @@
 ;; UnsetFNHA
 (eval-and-compile
   (defun reset-file-name-handler-alist ()
-    (setq file-name-handler-alist orig-file-name-handler-alist))
+	(setq file-name-handler-alist orig-file-name-handler-alist))
 
   (defvar orig-file-name-handler-alist file-name-handler-alist)
   (setq file-name-handler-alist nil)
@@ -77,26 +77,27 @@
   (add-hook 'emacs-startup-hook 'reset-file-name-handler-alist))
 ;; -UnsetFNHA
 
+;; LoadPath
+(defun update-to-load-path (folder)
+  "Update FOLDER and its subdirectories to `load-path'."
+  (let ((base folder))
+  (add-to-list 'load-path base)
+  (dolist (f (directory-files base))
+	(let ((name (concat base "/" f)))
+	  (when (and (file-directory-p name)
+				 (not (equal f ".."))
+				 (not (equal f ".")))
+		(add-to-list 'load-path name))))))
+;; -LoadPath
+
 ;; LoadLP
-(defun update-load-path (&rest _)
-  "Update `load-path'."
-  (interactive)
-  (push (expand-file-name "site-elisp" user-emacs-directory) load-path)
-  (push (expand-file-name "elisp" user-emacs-directory) load-path))
-
-(defun add-subdirs-to-load-path (&rest _)
-  "Add subdirectories to `load-path'."
-  (let ((default-directory
-          (expand-file-name "site-elisp" user-emacs-directory)))
-    (normal-top-level-add-subdirs-to-load-path)))
-
-(advice-add #'package-initialize :after #'update-load-path)
-(advice-add #'package-initialize :after #'add-subdirs-to-load-path)
-
-(update-load-path)
+  (update-to-load-path "~/.emacs.d/elisp")
+  (update-to-load-path "~/.emacs.d/site-elisp")
 ;; -LoadLP
 
 ;; Constants
+
+(require 'init-acct)
 
 (require 'init-const)
 
@@ -194,6 +195,8 @@
 (require 'init-org)
 
 (require 'init-eww)
+
+(require 'init-leetcode)
 
 (require 'init-games)
 

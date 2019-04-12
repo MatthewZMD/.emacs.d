@@ -1,21 +1,22 @@
-;;; init-header.el --- -*- lexical-binding: t -*-
+;;; init-acct.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-header.el
-;; Description: Initialize Header2
+;; Filename: init-acct.el
+;; Description: Initialize Account Info
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 10:32:02 2019 (-0400)
-;; Version: 1.2.0
+;; Created: Thu Apr 11 22:28:41 2019 (-0400)
+;; Version: 1.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d header2
+;; Keywords: M-EMACS .emacs.d account leetcode
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;;
+;; This stores the user's account information
+;; Please update this page to your personal info and keep it safe (i.e do not put on Github)!
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,19 +41,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
-;; Header2Pac
-(def-package header2
-  :ensure nil
-  :config
-  (autoload 'auto-make-header "header2")
-  (autoload 'auto-update-file-header "header2")
-  (add-hook 'write-file-hooks 'auto-update-file-header)
-  (add-hook 'emacs-lisp-mode-hook 'auto-make-header)
-  (add-hook 'c-mode-common-hook   'auto-make-header))
-;; -Header2Pac
+;; UserInfo
+(setq user-full-name "your-name")
+(setq user-mail-address "your-email")
+;; -UserInfo
 
-(provide 'init-header)
+;; LeetCodeUsr
+(setq leetcode-account "your-account")
+(setq leetcode-password "your-password")
+;; -LeetCodeUsr
+
+(provide 'init-acct)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-header.el ends here
+;;; init-acct.el ends here
