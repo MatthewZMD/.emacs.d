@@ -14,10 +14,8 @@
    1. Install latest version of [[https://www.gnu.org/software/emacs/][GNU Emacs]].
    2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
 	  #+BEGIN_SRC text
-		git clone https://github.com/MatthewZMD/.emacs.d.git
+		git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
 		cd .emacs.d
-		git submodule init
-		git submodule update
 	  #+END_SRC
    3. Ensure a stable connection to Melpa Packages, then open Emacs.
    4. Enter =y= when prompted with =Auto-update packages now?=, wait for all packages to install.
@@ -52,6 +50,7 @@
   - [[Lexical-binding][Lexical-binding]]
   - [[Disable Unnecessary Interface][Disable Unnecessary Interface]]
   - [[Optimization][Optimization]]
+  - [[Load-Path][Load-Path]]
   - [[Define Constants][Define Constants]]
 - [[Package Management][Package Management]]
   - [[Melpa Packages][Melpa Packages]]
@@ -136,15 +135,20 @@
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AvoidStartupGarbageCollect" :range-end "AvoidStartupGarbageCollect"  :lines "58-67"
    Unset file name handler alist.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "70-78"
-   Load all elisp files in =elisp/= and =site-elisp/= to reduce startup time.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadLP" :range-end "-LoadLP"  :lines "81-97"
+** Load-Path
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "81-91"
+   Since all the configuration files are stored in =elisp/= folder, as well as the =site-elisp/= folder that contains non-Melpa packages, they need to be added to =load-path= on startup.
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "ElispLP" :range-end "-ElispLP"  :lines "94-96"
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-57"
 * Package Management
 ** Melpa Packages
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "45-54"
+   Load all Melpa packages in =elisp/= to =load-path= directly to reduce startup time.
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadLP" :range-end "-LoadLP"  :lines "81-97"
 ** Non-Melpa Packages
-   These packages are contained in =site-elisp/=, they have been added to =load-path= in =(update-load-path)= function.
+   These packages are contained in =site-elisp/=, they are added to 
+   
 *** Add Packages Manually from Git
 	#+BEGIN_SRC text
 	  cd site-elisp/

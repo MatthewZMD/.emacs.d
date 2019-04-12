@@ -44,7 +44,7 @@
 
 ;; CheckVer
 (when (version< emacs-version "25.1")
-  (error "This requires Emacs 25.1 and above!"))
+  (error "M-EMACS requires Emacs 25.1 and above!"))
 ;; -CheckVer
 
 ;; DisableUnnecessaryInterface
@@ -77,28 +77,27 @@
   (add-hook 'emacs-startup-hook 'reset-file-name-handler-alist))
 ;; -UnsetFNHA
 
-;; LoadLP
-(defun update-load-path (&rest _)
-  "Update `load-path'."
-  (interactive)
-  (push (expand-file-name "site-elisp" user-emacs-directory) load-path)
-  (push (expand-file-name "elisp" user-emacs-directory) load-path))
+;; LoadPath
+(defun update-to-load-path (folder)
+  "Update FOLDER and its subdirectories to `load-path'."
+  (let ((base folder))
+  (add-to-list 'load-path base)
+  (dolist (f (directory-files base))
+	(let ((name (concat base "/" f)))
+	  (when (and (file-directory-p name)
+				 (not (equal f ".."))
+				 (not (equal f ".")))
+		(add-to-list 'load-path name))))))
+;; -LoadPath
 
-(defun add-subdirs-to-load-path (&rest _)
-  "Add subdirectories to `load-path'."
-  (let ((default-directory
-		  (expand-file-name "site-elisp" user-emacs-directory)))
-	(normal-top-level-add-subdirs-to-load-path)))
-
-(advice-add #'package-initialize :after #'update-load-path)
-(advice-add #'package-initialize :after #'add-subdirs-to-load-path)
-
-(update-load-path)
-;; -LoadLP
+;; ElispLP
+  (update-to-load-path "~/.emacs.d/elisp")
+  (update-to-load-path "~/.emacs.d/site-elisp")
+;; -ElispLP
 
 ;; Constants
 
-(require 'init-leetcode)
+(require 'init-acct)
 
 (require 'init-const)
 

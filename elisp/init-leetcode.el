@@ -45,9 +45,7 @@
 ;; Please use init-acct.el to modify your LeetCode account info.
 
 ;; LeetCodePac
-(def-package leetcode
-  :ensure nil
-  :config (setq leetcode-prefer-language "python3"))
+(setq leetcode-prefer-language "python3")
 ;; -LeetCodePac
 
 (provide 'init-leetcode)
