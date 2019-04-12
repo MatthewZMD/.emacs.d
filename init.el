@@ -90,10 +90,10 @@
 		(add-to-list 'load-path name))))))
 ;; -LoadPath
 
-;; ElispLP
+;; LoadLP
   (update-to-load-path "~/.emacs.d/elisp")
   (update-to-load-path "~/.emacs.d/site-elisp")
-;; -ElispLP
+;; -LoadLP
 
 ;; Constants
 
@@ -194,9 +194,9 @@
 ;; Miscellaneous
 (require 'init-org)
 
-(require 'init-leetcode)
-
 (require 'init-eww)
+
+(require 'init-leetcode)
 
 (require 'init-games)
 

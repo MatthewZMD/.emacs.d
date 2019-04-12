@@ -54,6 +54,8 @@
 					   (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
 
 (defconst *gcc* (executable-find "gcc"))
+
+(defconst *curl* (executable-find "curl"))
 ;; -Consts
 
 (provide 'init-const)

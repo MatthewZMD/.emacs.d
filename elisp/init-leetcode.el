@@ -41,11 +41,20 @@
 ;;
 ;;; Code:
 (require 'init-package)
+(require 'init-const)
 
 ;; Please use init-acct.el to modify your LeetCode account info.
 
 ;; LeetCodePac
-(setq leetcode-prefer-language "python3")
+(when *curl*
+  (def-package leetcode
+	:ensure nil
+	:init
+	(def-package request)
+	(def-package request-deferred)
+	(def-package graphql)
+	:config
+	(setq leetcode-prefer-language "python3")))
 ;; -LeetCodePac
 
 (provide 'init-leetcode)
