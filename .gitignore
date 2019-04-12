@@ -4,8 +4,8 @@
 /.lsp-session-v1
 /.org-id-locations
 /README.html
-/amx-items
 /ac-comphist.dat
+/amx-items
 /bookmarks
 /emacs_backtrace
 /org-tut.org
@@ -17,6 +17,7 @@
 auto-save-list/
 autosaves/
 backups/
+elisp/init-acct.el
 elpa/
 eshell/
 irony/bin/irony-server.exe
@@ -25,3 +26,4 @@ speed-type/
 transient/history.el
 url/
 workspace/
+elisp
