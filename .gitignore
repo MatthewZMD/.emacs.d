@@ -17,7 +17,6 @@
 auto-save-list/
 autosaves/
 backups/
-elisp/init-acct.el
 elpa/
 eshell/
 irony/bin/irony-server.exe
@@ -27,3 +26,4 @@ transient/history.el
 url/
 workspace/
 elisp
+/request/curl-cookie-jar

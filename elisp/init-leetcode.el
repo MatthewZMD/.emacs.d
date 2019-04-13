@@ -54,6 +54,8 @@
 	(def-package request-deferred)
 	(def-package graphql)
 	:config
+	;; (setq request-message-level 'debug)
+	;; (setq request-log-level 'debug)
 	(setq leetcode-prefer-language "python3")))
 ;; -LeetCodePac
 
