@@ -182,9 +182,9 @@
 
 (require 'init-c)
 
-(require 'init-ein)
+;; (require 'init-arduino)
 
-(require 'init-arduino)
+;; (require 'init-ein)
 
 ;; Web Development
 (require 'init-webdev)

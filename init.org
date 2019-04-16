@@ -146,6 +146,7 @@
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "50-64"
 * Package Management
+  Some packages are turned off because I don't use them very often. Please verify them in =init.el=.
 ** Melpa Packages
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "45-54"
    Load all Melpa packages in =elisp/= to =load-path= directly to reduce startup time.
