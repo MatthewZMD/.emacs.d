@@ -397,13 +397,13 @@
 	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "52-60"
 *** LSP UI
 	[[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
-	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "63-89"
+	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "63-90"
 *** Company LSP
 	[[https://github.com/tigersoldier/company-lsp][Company SLP]], a Company completion backend for lsp-mode.
-	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "92-97"
+	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "93-98"
 *** DAP
 	[[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
-	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "100-106"
+	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "101-107"
 * Programming
 ** Emacs Lisp
 *** Shortcut for Evaluating Elisp
@@ -414,7 +414,7 @@
 	[[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]].
 
 	*Prerequisite*: [[https://maven.apache.org/download.cgi][Install]] Maven and add to =PATH=.
-	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "111-118"
+	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "112-119"
 ** C/C++
    *Prerequisite*:
    - Windows OS: [[http://www.mingw.org/wiki/Install_MinGW][Install]] MinGW for Compilation and [[https://cmake.org/download/][CMake]] >= 2.8.3 first.
@@ -442,7 +442,7 @@
 	Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
 
 	Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
-	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "121-132"
+	#+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "122-133"
 ** Arduino
 *** Arduino Mode
 	[[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
