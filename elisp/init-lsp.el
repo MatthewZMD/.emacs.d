@@ -68,28 +68,25 @@
   (lsp-ui-doc-background ((t (:background nil))))
   (lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
   :bind (:map lsp-ui-mode-map
-              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-              ([remap xref-find-references] . lsp-ui-peek-find-references)
-              ("C-c u" . lsp-ui-imenu))
+			  ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+			  ([remap xref-find-references] . lsp-ui-peek-find-references)
+			  ("C-c u" . lsp-ui-imenu))
   :init
   (setq lsp-ui-doc-enable t
-        lsp-ui-doc-header t
-        lsp-ui-doc-include-signature t
-        lsp-ui-doc-position 'top
-        lsp-ui-doc-use-webkit t
-        lsp-ui-doc-border (face-foreground 'default)
+		lsp-ui-doc-header t
+		lsp-ui-doc-include-signature t
+		lsp-ui-doc-position 'at-point
+		lsp-ui-doc-use-webkit t
+		lsp-ui-doc-border (face-foreground 'default)
 
-        lsp-ui-sideline-enable t
-        lsp-ui-sideline-ignore-duplicate t
-        lsp-ui-sideline-show-diagnostics nil
-        lsp-ui-sideline-show-symbol t
-        lsp-ui-sideline-show-hover t
-        lsp-ui-sideline-show-code-actions t)
+		lsp-ui-sideline-enable nil
+		lsp-ui-sideline-ignore-duplicate t
+		lsp-ui-sideline-show-code-actions nil)
   :config
   ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
   ;; https://github.com/emacs-lsp/lsp-ui/issues/243
   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
-    (setq mode-line-format nil)))
+	(setq mode-line-format nil)))
 ;; -LSPUI
 
 ;; LSPCompany
@@ -114,25 +111,24 @@
 ;; LSPJavaPac
 (when *mvn*
   (def-package lsp-java
-    :after lsp-mode
-    :config
-    (setq
-     lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
-     lsp-java-workspace-dir (expand-file-name "~/eclipse.jdt.ls/workspace/"))))
+	:after lsp-mode
+	:config
+	(setq
+	 lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
+	 lsp-java-workspace-dir (expand-file-name "~/eclipse.jdt.ls/workspace/"))))
 ;; -LSPJavaPac
 
 ;; LSPPythonPac
 (def-package lsp-python-ms
   :after lsp-mode
-  :ensure nil
   :hook (python-mode . lsp)
   :config
   ;; for dev build of language server
   (setq lsp-python-ms-dir
-        (expand-file-name "~/.emacs.d/python-language-server/output/bin/Release/"))
+		(expand-file-name "~/.emacs.d/python-language-server/output/bin/Release/"))
   ;; for executable of language server, if it's not symlinked on your PATH
   (setq lsp-python-ms-executable
-        "~/.emacs.d/python-language-server/output/bin/Release/win10-x64/publish/Microsoft.Python.LanguageServer"))
+		"~/.emacs.d/python-language-server/output/bin/Release/win10-x64/publish/Microsoft.Python.LanguageServer"))
 ;; -LSPPythonPac
 
 (provide 'init-lsp)
