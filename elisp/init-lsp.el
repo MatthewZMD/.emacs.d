@@ -121,7 +121,6 @@
 ;; LSPPythonPac
 (def-package lsp-python-ms
   :after lsp-mode
-  :ensure nil
   :hook (python-mode . lsp)
   :config
   ;; for dev build of language server
