@@ -333,7 +333,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-highlight-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "48-57"
 ** Pretty Symbols
    Pretty the Symbols.
-   #+INCLUDE: "~/.emacs.d/elisp/init-symbol.el" src emacs-lisp :range-begin "PreSym" :range-end "-PreSym" :lines "45-61"
+   #+INCLUDE: "~/.emacs.d/elisp/init-symbol.el" src emacs-lisp :range-begin "PreSym" :range-end "-PreSym" :lines "45-59"
 ** UI Configs
 *** Maximize Frame
     #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "MaxFrame" :range-end "-MaxFrame" :lines "49-50"
@@ -361,7 +361,7 @@
 *** Treemacs Projectile
     #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeProj" :range-end "-TreeProj" :lines "110-113"
 ** Company
-   [[http://company-mode.github.io/][Company]], short for *Comp*lete *any*thing, a text completion framework for Emacs.
+   [[http://company-mode.github.io/][Company]], a text completion framework for Emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "ComPac" :range-end "-ComPac" :lines "47-64"
 ** Flycheck
    [[https://www.flycheck.org/en/latest/][Flycheck]], a syntax checking extension.
@@ -490,7 +490,7 @@
     [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]], a feature that offers TypeScript support for Emacs.
     #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "TypeScriptPac" :range-end "-TypeScriptPac" :lines "67-80"
 *** Tide
-    [[https://github.com/ananthakumaran/tide][Tide]], a *T*ypeScript *I*nteractive *D*evelopment *E*nvironment for *E*macs. This is an alternative when LSP is not working.
+    [[https://github.com/ananthakumaran/tide][Tide]], a TypeScript Interactive Development Environment for Emacs. This is an alternative when LSP is not working.
 
     Tip: enter =M-.= to jump to definition.
     #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "TidePac" :range-end "-TidePac" :lines "83-89"
