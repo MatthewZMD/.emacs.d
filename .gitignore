@@ -25,5 +25,4 @@ speed-type/
 transient/history.el
 url/
 workspace/
-elisp
 /request/curl-cookie-jar
