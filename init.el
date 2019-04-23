@@ -127,6 +127,8 @@
 
 (require 'init-discover-my-major)
 
+(require 'init-ace-window)
+
 ;; User Interface Enhancements
 (require 'init-ui-config)
 

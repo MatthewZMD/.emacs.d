@@ -75,6 +75,7 @@
   - [[Undo Tree][Undo Tree]]
   - [[Shell Here][Shell Here]]
   - [[Discover My Major][Discover My Major]]
+  - [[Ace Window][Ace Window]]
   - [[Configs][Configs]]
   - [[More Functions][More Functions]]
 - [[User Interface Enhancements][User Interface Enhancements]]
@@ -239,6 +240,9 @@
 ** Discover My Major
    [[https://github.com/jguenther/discover-my-major][Discover my major]], a feature that discovers key bindings and their meaning for the current Emacs major mode.
    #+INCLUDE: "~/.emacs.d/elisp/init-discover-my-major.el" src emacs-lisp :range-begin "DiscMyMajor" :range-end "-DiscMyMajor" :lines "46-48"
+** Ace Window
+   [[https://github.com/abo-abo/ace-window][Ace Window]], a package for selecting windows to switch to.
+   #+INCLUDE: "~/.emacs.d/elisp/init-ace-window.el" src emacs-lisp :range-begin "AceWindowPac" :range-end "-AceWindowPac"  :lines "46-48"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
@@ -439,6 +443,14 @@
 	  dotnet build -c Release
 	  dotnet publish -c Release -r win10-x64
 	#+END_SRC
+
+
+
+
+
+
+
+
 	Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
 
 	Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
