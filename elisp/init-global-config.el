@@ -102,7 +102,7 @@
 (setq-default select-enable-clipboard t)
 
 ;; Indentation
-(setq-default indent-tabs-mode t)
+(setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 (c-set-offset 'comment-intro 0)

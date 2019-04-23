@@ -57,11 +57,11 @@
 ;; AvoidStartupGarbageCollect
 (eval-and-compile
   (defun revert-gc ()
-	(setq gc-cons-threshold 16777216
-		  gc-cons-percentage 0.1))
+    (setq gc-cons-threshold 16777216
+          gc-cons-percentage 0.1))
 
   (setq gc-cons-threshold 402653184
-		gc-cons-percentage 0.6)
+        gc-cons-percentage 0.6)
 
   (add-hook 'emacs-startup-hook 'revert-gc))
 ;; -AvoidStartupGarbageCollect
@@ -69,7 +69,7 @@
 ;; UnsetFNHA
 (eval-and-compile
   (defun reset-file-name-handler-alist ()
-	(setq file-name-handler-alist orig-file-name-handler-alist))
+    (setq file-name-handler-alist orig-file-name-handler-alist))
 
   (defvar orig-file-name-handler-alist file-name-handler-alist)
   (setq file-name-handler-alist nil)
@@ -81,18 +81,18 @@
 (defun update-to-load-path (folder)
   "Update FOLDER and its subdirectories to `load-path'."
   (let ((base folder))
-  (add-to-list 'load-path base)
-  (dolist (f (directory-files base))
-	(let ((name (concat base "/" f)))
-	  (when (and (file-directory-p name)
-				 (not (equal f ".."))
-				 (not (equal f ".")))
-		(add-to-list 'load-path name))))))
+    (add-to-list 'load-path base)
+    (dolist (f (directory-files base))
+      (let ((name (concat base "/" f)))
+        (when (and (file-directory-p name)
+                   (not (equal f ".."))
+                   (not (equal f ".")))
+          (add-to-list 'load-path name))))))
 ;; -LoadPath
 
 ;; LoadLP
-  (update-to-load-path "~/.emacs.d/elisp")
-  (update-to-load-path "~/.emacs.d/site-elisp")
+(update-to-load-path "~/.emacs.d/elisp")
+(update-to-load-path "~/.emacs.d/site-elisp")
 ;; -LoadLP
 
 ;; Constants
