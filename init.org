@@ -1,6 +1,7 @@
 #+OPTIONS: toc:nil
 #+EXPORT_FILE_NAME: README
 * M-EMACS
+  [[https://github.com/MatthewZMD/.emacs.d/blob/master/LICENSE][https://img.shields.io/github/license/matthewzmd/.emacs.d.svg?style=flat-square]]
 * About
   M-EMACS is a custom GNU Emacs setup and configurations that aims not only to enhance the default Emacs experience, and hopefully be a sample that everyone can easily navigate and reference through a highly detailed README that contains 99% of the *entire* configuration code.
 
