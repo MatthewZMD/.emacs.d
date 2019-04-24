@@ -59,7 +59,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (auto-save 2048-game speed-type graphql request-deferred ox-gfm htmlize toc-org tide typescript-mode js2-mode emmet-mode web-mode lsp-python-ms lsp-java dap-mode company-lsp lsp-ui lsp-mode iedit evil-nerd-commenter format-all smartparens dumb-jump flycheck company treemacs-projectile treemacs-magit treemacs projectile magit highlight-indent-guides dimmer diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons ace-window discover-my-major shell-here undo-tree popup-kill-ring which-key counsel amx ivy avy auto-package-update use-package))))
+    (2048-game speed-type graphql request-deferred ox-gfm htmlize toc-org tide typescript-mode emmet-mode web-mode lsp-python-ms lsp-java dap-mode company-lsp lsp-ui lsp-mode iedit evil-nerd-commenter format-all smartparens dumb-jump flycheck yasnippet-snippets yasnippet company treemacs-projectile treemacs-magit treemacs projectile magit highlight-indent-guides dimmer diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons ace-window discover-my-major shell-here undo-tree popup-kill-ring which-key counsel amx ivy avy auto-package-update use-package))))
 
 (provide 'init-custom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -1,21 +1,21 @@
-;;; init-leetcode.el --- -*- lexical-binding: t -*-
+;;; init-yasnippet.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-leetcode.el
-;; Description: Initialize LeetCode Client
+;; Filename: init-yasnippet.el
+;; Description: Initialize YASnippet
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Apr 11 22:28:41 2019 (-0400)
+;; Created: Tue Apr 23 23:08:17 2019 (-0400)
 ;; Version: 1.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d leetcode
+;; Keywords: M-EMACS .emacs.d yasnippet
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes a LeetCode client
+;; This initializes YASnippet
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,24 +41,20 @@
 ;;
 ;;; Code:
 (require 'init-package)
-(require 'init-const)
 
-;; Please use init-acct.el to modify your LeetCode account info.
+;; YASnippetPac
+(def-package yasnippet
+  :diminish
+  :hook (prog-mode . yas-minor-mode)
+  :config
+  (yas-reload-all))
+;; -YASnippetPac
 
-;; LeetCodePac
-(when *curl*
-  (def-package leetcode
-    :ensure nil
-    :init
-    (def-package request)
-    (def-package request-deferred)
-    (def-package graphql)
-    :config
-    ;; (setq request-message-level 'debug)
-    ;; (setq request-log-level 'debug)
-    (setq leetcode-prefer-language "python3")))
-;; -LeetCodePac
+;; Snippets
+(def-package yasnippet-snippets
+  :after yasnippet)
+;; -Snippets
 
-(provide 'init-leetcode)
+(provide 'init-yasnippet)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-leetcode.el ends here
+;;; init-yasnippet.el ends here

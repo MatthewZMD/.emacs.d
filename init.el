@@ -161,6 +161,8 @@
 
 (require 'init-company)
 
+(require 'init-yasnippet)
+
 (require 'init-flycheck)
 
 (require 'init-dumb-jump)
