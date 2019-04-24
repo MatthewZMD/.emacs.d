@@ -44,8 +44,10 @@
 
 ;; YASnippetPac
 (def-package yasnippet
-  :diminish
+  :diminish yas-minor-mode
   :hook (prog-mode . yas-minor-mode)
+  :bind
+  (("C-c C-n" . yas-expand-from-trigger-key))
   :config
   (yas-reload-all))
 ;; -YASnippetPac
