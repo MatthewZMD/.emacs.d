@@ -51,7 +51,7 @@
   (setq ivy-use-virtual-buffers t)
   (setq ivy-height 10)
   (setq ivy-on-del-error-function nil)
-  (setq ivy-magic-slash-non-match-action nil)
+  (setq ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
   (setq ivy-count-format "【%d/%d】")
   (setq ivy-wrap t))
 ;; -IvyPackage
