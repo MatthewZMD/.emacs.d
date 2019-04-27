@@ -48,7 +48,7 @@
   :hook (prog-mode . flycheck-mode)
   :config
   (setq flycheck-emacs-lisp-load-path 'inherit)
-  (flycheck-add-mode 'typescript-tslint 'js2-mode)
+  (flycheck-add-mode 'javascript-eslint 'js-mode)
   (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
 ;; -FlyCheckPac
 

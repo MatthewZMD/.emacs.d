@@ -1,21 +1,21 @@
-;;; init-leetcode.el --- -*- lexical-binding: t -*-
+;;; init-ace-window.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-leetcode.el
-;; Description: Initialize LeetCode Client
+;; Filename: init-ace-window.el
+;; Description: Initialize Ace-Window
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Apr 11 22:28:41 2019 (-0400)
+;; Created: Tue Apr 23 10:00:42 2019 (-0400)
 ;; Version: 1.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d leetcode
+;; Keywords: M-EMACS .emacs.d ace-window
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes a LeetCode client
+;; This initializes ace-window
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,24 +41,12 @@
 ;;
 ;;; Code:
 (require 'init-package)
-(require 'init-const)
 
-;; Please use init-acct.el to modify your LeetCode account info.
+;; AceWindowPac
+(def-package ace-window
+  :bind ("C-x C-o" . ace-window))
+;; -AceWindowPac
 
-;; LeetCodePac
-(when *curl*
-  (def-package leetcode
-    :ensure nil
-    :init
-    (def-package request)
-    (def-package request-deferred)
-    (def-package graphql)
-    :config
-    ;; (setq request-message-level 'debug)
-    ;; (setq request-log-level 'debug)
-    (setq leetcode-prefer-language "python3")))
-;; -LeetCodePac
-
-(provide 'init-leetcode)
+(provide 'init-ace-window)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-leetcode.el ends here
+;;; init-ace-window.el ends here

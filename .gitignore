@@ -15,7 +15,6 @@
 /recentf
 /tramp
 auto-save-list/
-autosaves/
 backups/
 elpa/
 eshell/
@@ -25,5 +24,4 @@ speed-type/
 transient/history.el
 url/
 workspace/
-elisp
 /request/curl-cookie-jar

@@ -53,8 +53,6 @@
           ("->" . 8594)
           ("<=" . 8804)
           (">=" . 8805)
-          ("!=" . 8800)
-          ("map" . 8614)
           )))
 (add-hook 'prog-mode-hook 'add-pretty-lambda)
 (add-hook 'org-mode-hook 'add-pretty-lambda)
