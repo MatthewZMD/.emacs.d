@@ -15,7 +15,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes dired
+;; This initializes dired and auto-save
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -69,14 +69,6 @@
                                           (lambda () (interactive) (find-alternate-file ".."))))))
 ;; -DiredPackage
 
-;; BackUpFiles
-(make-directory "~/.emacs.d/autosaves" t)
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
-      delete-old-versions -1
-      version-control t
-      vc-make-backup-files t)
-;; -BackUpFiles
-
 ;; AutoSaveFile
 (def-package auto-save
   :ensure nil
@@ -84,9 +76,17 @@
   (setq auto-save-default nil)
   :config
   (setq auto-save-silent t)
-  (setq auto-save-idle 5)
+  (setq auto-save-idle 3) ;; in seconds
   (auto-save-enable))
 ;; -AutoSaveFile
+
+;; BackUpFiles
+(make-directory "~/.emacs.d/autosaves" t)
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
+      delete-old-versions -1
+      version-control t
+      vc-make-backup-files t)
+;; -BackUpFiles
 
 ;; RenameFileBuffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file

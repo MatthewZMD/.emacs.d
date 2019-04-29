@@ -49,10 +49,17 @@
 (when *curl*
   (def-package leetcode
     :ensure nil
+    :defer t
     :init
-    (def-package request)
-    (def-package request-deferred)
-    (def-package graphql)
+    (def-package request
+      :defer t
+      :after leetcode)
+    (def-package request-deferred
+      :defer t
+      :after leetcode)
+    (def-package graphql
+      :defer t
+      :after leetcode)
     :config
     ;; (setq request-message-level 'debug)
     ;; (setq request-log-level 'debug)

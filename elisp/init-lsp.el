@@ -54,9 +54,14 @@
   :commands lsp
   :init
   (setq lsp-auto-guess-root nil)
-  (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
+  (setq lsp-prefer-flymake nil) ; Use flycheck instead of flymake
   (setq lsp-message-project-root-warning t)
-  :hook (prog-mode . lsp))
+  :hook ((java-mode . lsp)
+         (python-mode . lsp)
+         (js-mode . lsp)
+         (typescript-mode . lsp)
+         (html-mode . lsp)
+         (cc-mode . lsp)))
 ;; -LSPPac
 
 ;; LSPUI
@@ -78,7 +83,6 @@
         lsp-ui-doc-position 'top
         lsp-ui-doc-use-webkit t
         lsp-ui-doc-border (face-foreground 'default)
-
         lsp-ui-sideline-enable nil
         lsp-ui-sideline-ignore-duplicate t
         lsp-ui-sideline-show-code-actions nil)
@@ -105,6 +109,7 @@
   (dap-ui-mode t))
 ;; -DAPPac
 
+
 ;; Language Specific Modes:
 
 ;; LSPJavaPac
@@ -120,7 +125,6 @@
 ;; LSPPythonPac
 (def-package lsp-python-ms
   :after lsp-mode
-  :hook (python-mode . lsp)
   :config
   ;; for dev build of language server
   (setq lsp-python-ms-dir
