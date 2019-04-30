@@ -49,6 +49,7 @@
   :ensure nil
   :defer t
   :bind ("<f5>" . compile)
+  :hook (c-mode c++-mode)
   :config
   (unless *clangd* (message "Please install clangd and put it in PATH"))
   (unless *gcc* (message "Please install GCC and put it in PATH")))

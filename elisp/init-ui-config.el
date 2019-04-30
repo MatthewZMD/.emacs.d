@@ -51,7 +51,8 @@
 
 ;; StartupScreen
 (setq inhibit-startup-screen t)
-(setq initial-scratch-message ";; Present Day, Present Time...")
+(setq initial-major-mode 'text-mode)
+(setq initial-scratch-message "Present Day, Present Time...")
 ;; -StartupScreen
 
 ;; YorN

@@ -189,12 +189,11 @@
 *** Dired
     Dired, the directory editor.
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "47-70"
-*** Automatically Save File and Backup
+*** Auto Save File and Backup
+    [[https://github.com/manateelazycat/auto-save][Auto-save]], automatically save files without temporary files.
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "AutoSaveFile" :range-end "-AutoSaveFile" :lines "73-81"
     Create directory where Emacs stores backups files.
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "BackUpFiles" :range-end "-BackUpFiles" :lines "73-78"
-**** Auto-Save
-     [[https://github.com/manateelazycat/auto-save][Auto-save]], automatically save files without temporary files.
-     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "AutoSaveFile" :range-end "-AutoSaveFile" :lines "81-89"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "BackUpFiles" :range-end "-BackUpFiles" :lines "84-89"
 *** Rename Both File and Buffer
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "92-107"
 *** File Configs
@@ -338,9 +337,9 @@
 *** Maximize Frame
     #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "MaxFrame" :range-end "-MaxFrame" :lines "49-50"
 *** Disable Splash Screen
-    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "StartupScreen" :range-end "-StartupScreen" :lines "53-55"
+    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "StartupScreen" :range-end "-StartupScreen" :lines "53-56"
 *** Simplify Yes/No Prompts
-    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "YorN" :range-end "-YorN" :lines "58-59"
+    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "YorN" :range-end "-YorN" :lines "59-60"
 * General Programming
 ** Magit
    [[https://magit.vc/][Magit]], an interface to the version control system Git.
@@ -405,16 +404,16 @@
 ** LSP
    [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]].
 *** LSP Mode
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "52-60"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "52-65"
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "63-90"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "68-94"
 *** Company LSP
     [[https://github.com/tigersoldier/company-lsp][Company SLP]], a Company completion backend for lsp-mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "93-97"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "97-101"
 *** DAP
     [[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "100-106"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "104-110"
 * Programming
 ** Emacs Lisp
 *** Shortcut for Evaluating Elisp
@@ -425,7 +424,7 @@
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]].
 
     *Prerequisite*: [[https://maven.apache.org/download.cgi][Install]] Maven and add to =PATH=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "111-118"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "116-123"
 ** C/C++
    *Prerequisite*:
    - Windows OS: [[http://www.mingw.org/wiki/Install_MinGW][Install]] MinGW for Compilation and [[https://cmake.org/download/][CMake]] >= 2.8.3 first.
@@ -436,7 +435,7 @@
    Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
 *** CC Mode
     CC Mode, a mode for editing files containing C, C++, Objective-C, Java, CORBA IDL (and the variants CORBA PSDL and CIDL), Pike and AWK code.
-    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CCPac" :range-end "-CCPac" :lines "48-55"
+    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CCPac" :range-end "-CCPac" :lines "48-56"
     Rest of the features will be provided by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]].
 ** Python
 *** Microsoft's Python Language Server
@@ -461,7 +460,7 @@
     Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
 
     Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "121-131"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "126-135"
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
@@ -524,7 +523,7 @@
    [[https://github.com/kaiwk/leetcode.el][LeetCode]], an Emacs LeetCode client. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]], [[https://github.com/tkf/emacs-request/blob/master/request-deferred.el][Request-Deferred]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
 
    *Prerequisite*: Ensure =cURL= is installed added to =PATH=. If you are using Windows, it is suggested to use =curl= provided by Git, therefore add =<path to Git>\mingw64\bin= to =PATH=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "49-60"
+   #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "49-66"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "47-56"
