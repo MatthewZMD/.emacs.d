@@ -65,7 +65,7 @@
 - [[Global Functionalities][Global Functionalities]]
   - [[User Information][User Information]]
   - [[Bindings][Bindings]]
-  - [[Directory and Files Management][Directory and Files Management]]
+  - [[Directory and File Management][Directory and File Management]]
   - [[Search][Search]]
   - [[Avy][Avy]]
   - [[Ivy][Ivy]]
@@ -185,7 +185,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "45-47"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "Bindings" :range-end "-Bindings"" :lines "45-57"
-** Directory and Files Management
+** Directory and File Management
 *** Dired
     Dired, the directory editor.
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "47-70"
