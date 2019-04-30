@@ -527,7 +527,7 @@
    [[https://github.com/kaiwk/leetcode.el][LeetCode]], an Emacs LeetCode client. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]], [[https://github.com/tkf/emacs-request/blob/master/request-deferred.el][Request-Deferred]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
 
    *Prerequisite*: Ensure =cURL= is installed added to =PATH=. If you are using Windows, it is suggested to use =curl= provided by Git, therefore add =<path to Git>\mingw64\bin= to =PATH=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "49-67"
+   #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "49-66"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "47-56"

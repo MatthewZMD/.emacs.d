@@ -49,7 +49,6 @@
 (when *curl*
   (def-package leetcode
     :ensure nil
-    :defer t
     :init
     (def-package request
       :defer t
