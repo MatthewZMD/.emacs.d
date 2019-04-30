@@ -144,8 +144,6 @@
 
 (require 'init-diminish)
 
-(require 'init-dimmer)
-
 (require 'init-scroll)
 
 (require 'init-highlight-indent)

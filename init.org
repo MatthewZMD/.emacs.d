@@ -87,7 +87,6 @@
   - [[Fonts][Fonts]]
   - [[Zone][Zone]]
   - [[Diminish][Diminish]]
-  - [[Dimmer][Dimmer]]
   - [[Smooth Scroll][Smooth Scroll]]
   - [[Highlight Indent Guides][Highlight Indent Guides]]
   - [[Pretty Symbols][Pretty Symbols]]
@@ -326,9 +325,6 @@
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
    #+INCLUDE: "~/.emacs.d/elisp/init-diminish.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "46-47"
-** Dimmer
-   [[https://github.com/gonewest818/dimmer.el][Dimmer]], a feature that visually highlights the selected buffer.
-   #+INCLUDE: "~/.emacs.d/elisp/init-dimmer.el" src emacs-lisp :range-begin "DimmPac" :range-end "-DimmPac" :lines "47-52"
 ** Smooth Scroll
    Smoothens Scrolling.
    #+INCLUDE: "~/.emacs.d/elisp/init-scroll.el" src emacs-lisp :range-begin "SmoothScroll" :range-end "-SmoothScroll" :lines "45-58"
