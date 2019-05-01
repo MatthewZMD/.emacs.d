@@ -106,8 +106,8 @@
   :after lsp-mode
   :defer t
   :config
-  (dap-mode t)
-  (dap-ui-mode t))
+  (dap-mode 1)
+  (dap-ui-mode 1))
 ;; -DAPPac
 
 
