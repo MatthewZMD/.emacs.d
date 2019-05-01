@@ -111,6 +111,7 @@
   - [[C/C++][C/C++]]
   - [[Python][Python]]
   - [[Arduino][Arduino]]
+  - [[Jupyter Notebook][Jupyter Notebook]]
 - [[Web Development][Web Development]]
   - [[Web Mode][Web Mode]]
   - [[Emmet][Emmet]]
@@ -466,6 +467,14 @@
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     - Currently Off
     #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "56-62"
+** Jupyter Notebook
+   [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
+   - Currently Off
+*** Usage
+    1. Execute =M-x ein:run= to launch a local Jupyter session.
+    2. Login with =M-x ein:login= to a local or remote session.
+    3. Open =.ipynb= file and press =C-c C-o=.
+    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "47-49"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and add to path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC text
