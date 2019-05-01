@@ -88,7 +88,6 @@
   - [[Zone][Zone]]
   - [[Diminish][Diminish]]
   - [[Smooth Scroll][Smooth Scroll]]
-  - [[Highlight Indent Guides][Highlight Indent Guides]]
   - [[Pretty Symbols][Pretty Symbols]]
   - [[UI Configs][UI Configs]]
 - [[General Programming][General Programming]]
@@ -105,9 +104,9 @@
   - [[Evil-Nerd-Commenter][Evil-Nerd-Commenter]]
   - [[Iedit][Iedit]]
   - [[Header][Header]]
-  - [[LSP][LSP]]
+  - [[Indentation][Indentation]]
 - [[Programming][Programming]]
-  - [[Emacs Lisp][Emacs Lisp]]
+  - [[Language Server Protocol][Language Server Protocol]]
   - [[Java][Java]]
   - [[C/C++][C/C++]]
   - [[Python][Python]]
@@ -184,7 +183,7 @@
    *Prerequisite*: Please update this file your personal info.
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "45-47"
 ** Bindings
-   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "Bindings" :range-end "-Bindings"" :lines "45-57"
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "45-62"
 ** Directory and File Management
 *** Dired
     Dired, the directory editor.
@@ -247,41 +246,41 @@
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
     Use UTF-8 as much as possible with unix line endings.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "60-74"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "65-79"
 *** Turn Off Cursor Alarms
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "77-78"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "82-83"
 *** Show Keystrokes in Progress Instantly
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "81-82"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "86-87"
 *** Optimize Editing Experience
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "85-109"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "90-108"
 *** Automatic Garbage Collect
     Garbage collect when Emacs is not in focus.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "112-113"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "111-112"
 *** Don't Lock Files
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "116-117"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "115-116"
 *** Longer History Length
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "HisLen" :range-end "-HisLen" :lines "120-121"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "HisLen" :range-end "-HisLen" :lines "119-120"
 *** Compilation
     Better compilation configurations.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "124-129"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "123-128"
 *** Move Custom-Set-Variables to Different File
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "132-134"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "131-133"
 ** More Functions
    Other important, but longer functions.
 *** Resize Window Width / Height Functions
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "139-160"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "138-159"
 *** Edit This Configuration File Shortcut
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "163-169"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "162-168"
 *** Smarter Move Beginning of Line
     Smarter navigation to the beginning of a line by [[https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/][Bozhidar Batsov]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "172-198"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "171-197"
 *** Update Org Mode Include Automatically
     Update Org Mode INCLUDE Statements Automatically from [[http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html][Artur Malabarba]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "201-246"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "200-245"
 *** MiniBuffer
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "250-259"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "249-258"
 *** Duplicate Line
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DuplicateLine" :range-end "-DuplicateLine" :lines "262-274"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DuplicateLine" :range-end "-DuplicateLine" :lines "261-273"
 * User Interface Enhancements
 ** Title Bar
    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "TitleBar" :range-end "-TitleBar" :lines "45-46"
@@ -327,9 +326,6 @@
 ** Smooth Scroll
    Smoothens Scrolling.
    #+INCLUDE: "~/.emacs.d/elisp/init-scroll.el" src emacs-lisp :range-begin "SmoothScroll" :range-end "-SmoothScroll" :lines "45-58"
-** Highlight Indent Guides
-   [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
-   #+INCLUDE: "~/.emacs.d/elisp/init-highlight-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "48-57"
 ** Pretty Symbols
    Pretty the Symbols.
    #+INCLUDE: "~/.emacs.d/elisp/init-symbol.el" src emacs-lisp :range-begin "PreSym" :range-end "-PreSym" :lines "45-59"
@@ -401,44 +397,41 @@
 ** Header
    [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
    #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "46-54"
-** LSP
+** Indentation
+   [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
+   #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "47-56"
+   Indentation Config
+   #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "59-64"
+* Programming
+** Language Server Protocol
    [[https://github.com/emacs-lsp/lsp-mode][LSP]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]].
 *** LSP Mode
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "52-65"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "52-66"
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "68-94"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "69-95"
 *** Company LSP
     [[https://github.com/tigersoldier/company-lsp][Company SLP]], a Company completion backend for lsp-mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "97-101"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "98-102"
 *** DAP
     [[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "104-110"
-* Programming
-** Emacs Lisp
-*** Shortcut for Evaluating Elisp
-    Eval-buffer for ELisp Code.
-    #+INCLUDE: "~/.emacs.d/elisp/init-emacs-lisp.el" src emacs-lisp :range-begin "ELispEval" :range-end "-ELispEval" :lines "45-46"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "105-111"
 ** Java
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]].
 
     *Prerequisite*: [[https://maven.apache.org/download.cgi][Install]] Maven and add to =PATH=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "116-123"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "117-124"
 ** C/C++
    *Prerequisite*:
-   - Windows OS: [[http://www.mingw.org/wiki/Install_MinGW][Install]] MinGW for Compilation and [[https://cmake.org/download/][CMake]] >= 2.8.3 first.
-   - ALl OS: [[https://clang.llvm.org/extra/clangd/Installation.html][Install]] Clangd and add to =PATH=.
+   - Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
+     - Windows OS: [[http://www.mingw.org/wiki/Install_MinGW][Install]] MinGW for Compilation and [[https://cmake.org/download/][CMake]] >= 2.8.3 first.
+   - Rest of the features will be provided by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]].
+     - ALl OS: [[https://clang.llvm.org/extra/clangd/Installation.html][Install]] Clangd and add to =PATH=.
 
-   Note: If Displaying =No LSP server for c-mode=, execute =M-x ielm= and verify clangd is installed using =(executable-find "clangd")= or =(executable-find lsp-clients-clangd-executable)=.
-
-   Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
-*** CC Mode
-    CC Mode, a mode for editing files containing C, C++, Objective-C, Java, CORBA IDL (and the variants CORBA PSDL and CIDL), Pike and AWK code.
-    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CCPac" :range-end "-CCPac" :lines "48-56"
-    Rest of the features will be provided by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]].
+   Note: If Displaying =No LSP server for c-mode=, execute =M-x ielm= and verify clangd is installed using =(describe-variable *clangd*)= or =(executable-find lsp-clients-clangd-executable)=.
 ** Python
-*** Microsoft's Python Language Server
+*** LSP Python MS
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
 
     *Prerequisite*:
@@ -449,27 +442,22 @@
       dotnet build -c Release
       dotnet publish -c Release -r win10-x64
     #+END_SRC
-
-
-
-
-
-
-
-
     Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
 
     Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "126-135"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "127-136"
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
+**** Currently Off
     #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "ArduinoPac" :range-end "-ArduinoPac" :lines "47-53"
 *** Company Arduino
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
+**** Currently Off
     #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "56-62"
 ** Jupyter Notebook
    [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
+**** Currently Off
 *** Usage
     1. Execute =M-x ein:run= to launch a local Jupyter session.
     2. Login with =M-x ein:login= to a local or remote session.

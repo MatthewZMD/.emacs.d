@@ -146,7 +146,7 @@
 
 (require 'init-scroll)
 
-(require 'init-highlight-indent)
+(require 'init-indent)
 
 (require 'init-symbol)
 
@@ -180,10 +180,6 @@
 (require 'init-lsp)
 
 ;; Programming
-(require 'init-emacs-lisp)
-
-(require 'init-c)
-
 ;; (require 'init-arduino)
 
 ;; (require 'init-ein)

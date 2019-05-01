@@ -61,7 +61,8 @@
          (js-mode . lsp)
          (typescript-mode . lsp)
          (html-mode . lsp)
-         (cc-mode . lsp)))
+         (c-mode . lsp)
+         (c++-mode . lsp)))
 ;; -LSPPac
 
 ;; LSPUI

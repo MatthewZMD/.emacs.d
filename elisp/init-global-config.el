@@ -41,20 +41,25 @@
 ;;
 ;;; Code:
 
-;; Bindings
+;; DefBindings
 ;; Unbind C-z to use as prefix
 (global-set-key (kbd "C-z") nil)
 ;; Use iBuffer instead of Buffer List
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") #'ibuffer)
 ;; Truncate lines
-(global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
+(global-set-key (kbd "C-x C-!") #'toggle-truncate-lines)
 ;; Adjust font size like web browsers
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd"C--") 'text-scale-decrease)
+(global-set-key (kbd "C-+") #'text-scale-increase)
+(global-set-key (kbd"C--") #'text-scale-decrease)
 ;; Move up/down paragraph
-(global-set-key (kbd "M-n") 'forward-paragraph)
-(global-set-key (kbd "M-p") 'backward-paragraph)
-;; -Bindings
+(global-set-key (kbd "M-n") #'forward-paragraph)
+(global-set-key (kbd "M-p") #'backward-paragraph)
+
+;; Some local bindings
+(define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
+(define-key c-mode-map (kbd "<f5>") #'compile)
+(define-key c++-mode-map (kbd "<f5>") #'compile)
+;; -DefBindings
 
 ;; UTF8Coding
 (if (eq system-type 'windows-nt)
@@ -100,12 +105,6 @@
 
 ;; Merge system clipboard with Emacs
 (setq-default select-enable-clipboard t)
-
-;; Indentation
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
-(c-set-offset 'comment-intro 0)
 ;; -EditExp
 
 ;; AutoGbgCollect
