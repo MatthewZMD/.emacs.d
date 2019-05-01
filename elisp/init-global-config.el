@@ -57,8 +57,8 @@
 
 ;; Some local bindings
 (define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
-(define-key c-mode-map (kbd "<f5>") #'compile)
-(define-key c++-mode-map (kbd "<f5>") #'compile)
+(add-hook 'c++-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile)))
+(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile)))
 ;; -DefBindings
 
 ;; UTF8Coding
@@ -192,8 +192,7 @@ point reaches the beginning or end of the buffer, stop there."
       (move-beginning-of-line 1))))
 
 ;; remap C-a to `smarter-move-beginning-of-line'
-(global-set-key [remap move-beginning-of-line]
-                'smarter-move-beginning-of-line)
+(global-set-key [remap move-beginning-of-line] 'smarter-move-beginning-of-line)
 ;; -MoveBeginningLine
 
 ;; OrgIncludeAuto
@@ -243,7 +242,6 @@ BEGIN and END are regexps which define the line range to use."
           (setq r (1+ (line-number-at-pos (match-end 0)))))
         (format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
 ;; -OrgIncludeAuto
-
 
 ;; BetterMiniBuffer
 (defun abort-minibuffer-using-mouse ()
