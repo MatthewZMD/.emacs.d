@@ -220,7 +220,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "CounselPac" :range-end "-CounselPac" :lines "66-70"
 *** Swiper
     [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
-    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "SwiperPac" :range-end "-SwiperPac" :lines "73-75"
+    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "SwiperPac" :range-end "-SwiperPac" :lines "73-76"
 ** Winner
    Winner mode restores old window layout.
    #+INCLUDE: "~/.emacs.d/elisp/init-winner.el" src emacs-lisp :range-begin "WinnerPac" :range-end "-WinnerPac" :lines "48-60"
@@ -285,16 +285,16 @@
 ** Title Bar
    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "TitleBar" :range-end "-TitleBar" :lines "45-46"
 ** All The Icons
-   [[https://github.com/domtronn/all-the-icons.el][All The Icons]], a utility package to collect various Icon Fonts.
+   [[https://github.com/domtronn/all-the-icons.el][All The Icons]], a utility package to collect various Icon Fonts. Enable only in GUI Emacs.
 
    *Prerequisite*: Install all fonts from =fonts/all-the-icons-fonts=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIPac" :range-end "-ATIPac" :lines "46-47"
+   #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIPac" :range-end "-ATIPac" :lines "47-49"
 *** All The Icons Dired
     [[https://github.com/jtbm37/all-the-icons-dired][All The Icons Dired]], an icon set for Dired.
-    #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIDiredPac" :range-end "-ATIDiredPac" :lines "50-55"
+    #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIDiredPac" :range-end "-ATIDiredPac" :lines "52-58"
 *** All The Icons Ivy
     [[https://github.com/asok/all-the-icons-ivy][All The Icons Ivy]], an icon set for Ivy.
-    #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIIvyPac" :range-end "-ATIIvyPac" :lines "58-65"
+    #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIIvyPac" :range-end "-ATIIvyPac" :lines "61-69"
 ** Doom Theme
    [[https://github.com/hlissner/emacs-doom-themes][doom-themes]], an UI plugin and pack of theme. It is set to default to Dracula theme.
    #+INCLUDE: "~/.emacs.d/elisp/init-doom.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "49-57"
