@@ -88,12 +88,9 @@
                    (not (equal f ".."))
                    (not (equal f ".")))
           (add-to-list 'load-path name))))))
-;; -LoadPath
 
-;; LoadLP
 (update-to-load-path "~/.emacs.d/elisp")
-(update-to-load-path "~/.emacs.d/site-elisp")
-;; -LoadLP
+;; -LoadPath
 
 ;; Constants
 
@@ -146,8 +143,6 @@
 
 (require 'init-scroll)
 
-(require 'init-indent)
-
 (require 'init-symbol)
 
 ;; General Programming
@@ -168,6 +163,8 @@
 (require 'init-linenum)
 
 (require 'init-parens)
+
+(require 'init-indent)
 
 (require 'init-format)
 

@@ -117,7 +117,8 @@
 (when *mvn*
   (def-package lsp-java
     :after lsp-mode
-    ;; :mode ("\\.java\\ '")
+    :init
+    (def-package request :defer t)
     :config
     (setq
      lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
@@ -127,7 +128,6 @@
 ;; LSPPythonPac
 (def-package lsp-python-ms
   :after lsp-mode
-  ;; :mode ("\\.py\\'")
   :config
   ;; for dev build of language server
   (setq lsp-python-ms-dir

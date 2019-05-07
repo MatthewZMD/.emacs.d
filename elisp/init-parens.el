@@ -100,7 +100,7 @@
 
 ;; AwesomePairPac
 (def-package awesome-pair
-  :ensure nil
+  :load-path "~/.emacs.d/site-elisp/awesome-pair"
   :bind ("C-c C-k" . awesome-pair-kill)
   :config
   (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1))))

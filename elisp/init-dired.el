@@ -71,7 +71,7 @@
 
 ;; AutoSaveFile
 (def-package auto-save
-  :ensure nil
+  :load-path "~/.emacs.d/site-elisp/auto-save"
   :init
   (setq auto-save-default nil)
   :config
