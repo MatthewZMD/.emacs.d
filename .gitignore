@@ -25,3 +25,7 @@ transient/history.el
 url/
 workspace/
 /request/curl-cookie-jar
+/.emacs.desktop
+/.emacs.desktop.lock
+/desktop-histories/.emacs.desktop
+/history

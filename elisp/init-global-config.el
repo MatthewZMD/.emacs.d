@@ -82,6 +82,12 @@
 (setq ring-bell-function 'ignore)
 ;; -RingBell
 
+;; SaveEmacsSession
+(desktop-save-mode 1)
+(savehist-mode 1)
+(add-to-list 'savehist-additional-variables 'kill-ring) ;; for example
+;; -SaveEmacsSession
+
 ;; EchoKey
 (setq echo-keystrokes 0.1)
 ;; -EchoKey
