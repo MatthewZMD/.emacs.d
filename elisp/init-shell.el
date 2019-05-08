@@ -51,7 +51,7 @@
 ;; TermKeysPac
 (unless *gui-emacs*
   (def-package term-keys
-    :load-path "~/.emacs.d/site-elisp/term-keys"
+    :ensure nil
     :config (term-keys-mode t)))
 ;; -TermKeysPac
 
