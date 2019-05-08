@@ -51,6 +51,6 @@
    ("C-z ; c" . evilnc-copy-and-comment-lines)))
 ;; -EvilNerdCommenPac
 
-(provide 'init-commenter)
+(provide 'init-comment)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-comment.el ends here
