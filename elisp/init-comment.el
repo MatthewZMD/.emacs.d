@@ -1,8 +1,8 @@
-;;; init-commenter.el --- -*- lexical-binding: t -*-
+;;; init-comment.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-commenter.el
+;; Filename: init-comment.el
 ;; Description: Initialize Evil-Nerd-Commenter
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Apr  5 00:21:58 2019 (-0400)
@@ -53,4 +53,4 @@
 
 (provide 'init-commenter)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-commenter.el ends here
+;;; init-comment.el ends here

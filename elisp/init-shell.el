@@ -15,7 +15,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes shell-here
+;; This initializes shell-here and term-keys
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,11 +42,19 @@
 ;;; Code:
 
 (require 'init-package)
+(require 'init-const)
 
 ;; ShellHere
 (def-package shell-here
   :bind ("C-!" . shell-here))
 ;; -ShellHere
+
+;; TermKeysPac
+(unless *gui-emacs*
+  (def-package term-keys
+    :load-path "~/.emacs.d/site-elisp/term-keys"
+    :config (term-keys-mode t)))
+;; -TermKeysPac
 
 (provide 'init-shell)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -112,6 +112,8 @@
 
 (require 'init-ivy)
 
+(require 'init-shell)
+
 (require 'init-winner)
 
 (require 'init-which-key)
@@ -119,8 +121,6 @@
 (require 'init-popup-kill-ring)
 
 (require 'init-undo-tree)
-
-(require 'init-shell)
 
 (require 'init-discover-my-major)
 
@@ -168,7 +168,7 @@
 
 (require 'init-format)
 
-(require 'init-commenter)
+(require 'init-comment)
 
 (require 'init-iedit)
 

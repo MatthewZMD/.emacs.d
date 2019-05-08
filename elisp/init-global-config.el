@@ -82,12 +82,6 @@
 (setq ring-bell-function 'ignore)
 ;; -RingBell
 
-;; SaveEmacsSession
-(desktop-save-mode 1)
-(savehist-mode 1)
-(add-to-list 'savehist-additional-variables 'kill-ring) ;; for example
-;; -SaveEmacsSession
-
 ;; EchoKey
 (setq echo-keystrokes 0.1)
 ;; -EchoKey
@@ -139,6 +133,14 @@
 ;; -CustomSetFileLocation
 
 ;; Functions
+
+;; SaveEmacsSession
+(defun save-current-session ()
+  "Toggle `desktop-save-mode` and `savehist-mode`."
+  (interactive)
+  (desktop-save-mode 1)
+  (savehist-mode 1))
+;; -SaveEmacsSession
 
 ;; ResizeWidthHeight
 ;; Resizes the window width based on the input

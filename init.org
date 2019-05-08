@@ -6,12 +6,12 @@
 
   As a young EMACSer, I have experienced the struggle to find a detailed configuration that is loosely coupled and highly readable. This mostly due to the nature of source codes, sometimes comments are harder to notice or simply not enough. Therefore I decided to construct this README and present any human-readable explanation in a much more human-friendly way. Anyone, particularly Emacs beginners who have no idea where to start with their personal config, is more than welcome to read through this document and copy/paste any part to use it on their own.
 
-  This configuration is designed and tested for *GNU Emacs 25.1 and above only*. However, it is suggested to use the latest GNU Emacs version available (currently emacs27).
+  This configuration is designed and tested for *GNU Emacs 25.1 and above only*. However, it is suggested to use the latest version available (currently emacs27).
   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "46-48"
 ** About README
    This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
 ** Installation
-   1. Install latest version of [[https://www.gnu.org/software/emacs/][GNU Emacs]].
+   1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
    2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
       #+BEGIN_SRC text
         git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
@@ -69,11 +69,11 @@
   - [[Search][Search]]
   - [[Avy][Avy]]
   - [[Ivy][Ivy]]
+  - [[Shell][Shell]]
   - [[Winner][Winner]]
   - [[Which Key][Which Key]]
   - [[Popup Kill Ring][Popup Kill Ring]]
   - [[Undo Tree][Undo Tree]]
-  - [[Shell Here][Shell Here]]
   - [[Discover My Major][Discover My Major]]
   - [[Ace Window][Ace Window]]
   - [[Configs][Configs]]
@@ -220,6 +220,13 @@
 *** Swiper
     [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
     #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "SwiperPac" :range-end "-SwiperPac" :lines "73-76"
+** Shell
+*** Shell Hhere
+    [[https://github.com/ieure/shell-here][Shell-here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHere" :range-end "-ShellHere" :lines "48-50"
+*** Term Keys
+    [[https://github.com/CyberShadow/term-keys][Term-keys]], a lossless keyboard input for Emacs in terminal emulators.
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "53-57"
 ** Winner
    Winner mode restores old window layout.
    #+INCLUDE: "~/.emacs.d/elisp/init-winner.el" src emacs-lisp :range-begin "WinnerPac" :range-end "-WinnerPac" :lines "48-60"
@@ -232,9 +239,6 @@
 ** Undo Tree
    [[https://www.emacswiki.org/emacs/UndoTree][Undo tree]], a feature that provides a visualization of the undos in a file.
    #+INCLUDE: "~/.emacs.d/elisp/init-undo-tree.el" src emacs-lisp :range-begin "UndoTreePac" :range-end "-UndoTreePac" :lines "47-51"
-** Shell Here
-   [[https://github.com/ieure/shell-here][Shell-here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHere" :range-end "-ShellHere" :lines "47-49"
 ** Discover My Major
    [[https://github.com/jguenther/discover-my-major][Discover my major]], a feature that discovers key bindings and their meaning for the current Emacs major mode.
    #+INCLUDE: "~/.emacs.d/elisp/init-discover-my-major.el" src emacs-lisp :range-begin "DiscMyMajor" :range-end "-DiscMyMajor" :lines "46-48"
@@ -248,40 +252,40 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "65-79"
 *** Turn Off Cursor Alarms
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "82-83"
-*** Save Emacs Sessions
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SaveEmacsSession" :range-end "-SaveEmacsSession" :lines "86-89"
 *** Show Keystrokes in Progress Instantly
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "92-93"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "86-87"
 *** Optimize Editing Experience
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "96-114"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "90-108"
 *** Automatic Garbage Collect
     Garbage collect when Emacs is not in focus.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "117-118"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "111-112"
 *** Don't Lock Files
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "121-122"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "115-116"
 *** Longer History Length
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "HisLen" :range-end "-HisLen" :lines "125-126"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "HisLen" :range-end "-HisLen" :lines "119-120"
 *** Compilation
     Better compilation configurations.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "129-134"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "123-128"
 *** Move Custom-Set-Variables to Different File
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "137-139"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "131-133"
 ** More Functions
    Other important, but longer functions.
+*** Save Current Session
+     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SaveEmacsSession" :range-end "-SaveEmacsSession" :lines "138-143"
 *** Resize Window Width / Height Functions
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "144-165"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "146-167"
 *** Edit This Configuration File Shortcut
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "168-174"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "170-176"
 *** Smarter Move Beginning of Line
     Smarter navigation to the beginning of a line by [[https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/][Bozhidar Batsov]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "177-202"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "179-204"
 *** Update Org Mode Include Automatically
     Update Org Mode INCLUDE Statements Automatically from [[http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html][Artur Malabarba]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "205-250"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "207-252"
 *** MiniBuffer
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "253-262"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "255-264"
 *** Duplicate Line
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DuplicateLine" :range-end "-DuplicateLine" :lines "265-277"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DuplicateLine" :range-end "-DuplicateLine" :lines "267-279"
 * User Interface Enhancements
 ** Title Bar
    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "TitleBar" :range-end "-TitleBar" :lines "45-46"
@@ -398,7 +402,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "FormatAllPac" :range-end "-FormatAllPac" :lines "47-49"
 ** Evil-Nerd-Commenter
    [[https://github.com/redguardtoo/evil-nerd-commenter][Evil Nerd Commenter]], a tool that helps you comment code efficiently.
-   #+INCLUDE: "~/.emacs.d/elisp/init-commenter.el" src emacs-lisp :range-begin "EvilNerdCommenPac" :range-end "-EvilNerdCommenPac" :lines "47-52"
+   #+INCLUDE: "~/.emacs.d/elisp/init-comment.el" src emacs-lisp :range-begin "EvilNerdCommenPac" :range-end "-EvilNerdCommenPac" :lines "47-52"
 ** Iedit
    [[https://github.com/victorhge/iedit][Iedit]], a minor mode that allows editing multiple regions simultaneousy in a buffer or a region.
    #+INCLUDE: "~/.emacs.d/elisp/init-iedit.el" src emacs-lisp :range-begin "IEditPac" :range-end "-IEditPac" :lines "47-50"
