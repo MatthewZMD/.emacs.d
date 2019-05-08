@@ -6,12 +6,12 @@
 
   As a young EMACSer, I have experienced the struggle to find a detailed configuration that is loosely coupled and highly readable. This mostly due to the nature of source codes, sometimes comments are harder to notice or simply not enough. Therefore I decided to construct this README and present any human-readable explanation in a much more human-friendly way. Anyone, particularly Emacs beginners who have no idea where to start with their personal config, is more than welcome to read through this document and copy/paste any part to use it on their own.
 
-  This configuration is designed and tested for *GNU Emacs 25.1 and above only*. However, it is suggested to use the latest version available (currently emacs27).
+  This configuration is designed and tested for *GNU Emacs 25.1 and above only*. However, it is suggested to use the latest GNU Emacs version available (currently emacs27).
   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "46-48"
 ** About README
    This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
 ** Installation
-   1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
+   1. Install latest version of [[https://www.gnu.org/software/emacs/][GNU Emacs]].
    2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
       #+BEGIN_SRC text
         git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
