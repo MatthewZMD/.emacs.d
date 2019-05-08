@@ -41,31 +41,27 @@
 ;;
 ;;; Code:
 (require 'init-package)
-(require 'init-const)
 
 ;; ATIPac
-(when *gui-emacs*
-  (def-package all-the-icons))
+(def-package all-the-icons)
 ;; -ATIPac
 
 ;; ATIDiredPac
-(when *gui-emacs*
-  (def-package all-the-icons-dired
-    :after all-the-icons
-    :diminish
-    :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-    :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))))
+(def-package all-the-icons-dired
+  :after all-the-icons
+  :diminish
+  :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
+  :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default))))))
 ;; -ATIDiredPac
 
 ;; ATIIvyPac
-(when *gui-emacs*
-  (def-package all-the-icons-ivy
-    :after all-the-icons
-    :config
-    (all-the-icons-ivy-setup)
-    (setq all-the-icons-ivy-buffer-commands '())
-    (setq all-the-icons-ivy-file-commands
-          '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir))))
+(def-package all-the-icons-ivy
+  :after all-the-icons
+  :config
+  (all-the-icons-ivy-setup)
+  (setq all-the-icons-ivy-buffer-commands '())
+  (setq all-the-icons-ivy-file-commands
+        '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir)))
 ;; -ATIIvyPac
 
 (provide 'init-all-the-icons)

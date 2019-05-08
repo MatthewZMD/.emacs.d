@@ -88,9 +88,12 @@
                    (not (equal f ".."))
                    (not (equal f ".")))
           (add-to-list 'load-path name))))))
-
-(update-to-load-path "~/.emacs.d/elisp")
 ;; -LoadPath
+
+;; LoadLP
+(update-to-load-path "~/.emacs.d/elisp")
+(update-to-load-path "~/.emacs.d/site-elisp")
+;; -LoadLP
 
 ;; Constants
 
@@ -141,7 +144,11 @@
 
 (require 'init-diminish)
 
+(require 'init-dimmer)
+
 (require 'init-scroll)
+
+(require 'init-highlight-indent)
 
 (require 'init-symbol)
 
@@ -164,8 +171,6 @@
 
 (require 'init-parens)
 
-(require 'init-indent)
-
 (require 'init-format)
 
 (require 'init-commenter)
@@ -177,6 +182,10 @@
 (require 'init-lsp)
 
 ;; Programming
+(require 'init-emacs-lisp)
+
+(require 'init-c)
+
 ;; (require 'init-arduino)
 
 ;; (require 'init-ein)

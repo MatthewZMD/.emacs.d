@@ -1,21 +1,21 @@
-;;; init-search.el --- -*- lexical-binding: t -*-
+;;; init-c.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-search.el
-;; Description: Initialize Color-RG
+;; Filename: init-c.el
+;; Description: Initialize CCMode
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 11:01:43 2019 (-0400)
+;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d color-rg rg
+;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes Color-RG
+;; This initialize cc-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,28 +42,18 @@
 ;;; Code:
 
 (require 'init-package)
-(require 'init-global-config)
 (require 'init-const)
 
-;; ColorRGPac
-(when *rg*
-  (def-package color-rg
-    :ensure nil
-    :bind
-    (("C-z s s" . color-rg-search-input))))
-;; -ColorRGPac
+;; CCPac
+(def-package cc-mode
+  :ensure nil
+  :defer t
+  :bind ("<f5>" . compile)
+  :config
+  (unless *clangd* (message "Please install clangd and put it in PATH"))
+  (unless *gcc* (message "Please install GCC and put it in PATH")))
+;; -CCPac
 
-;; GrepDiredPac
-(when *rg*
-  (def-package grep-dired
-    :ensure nil
-    :bind
-    (("C-z s f" . grep-dired-dwim)
-     ("C-z s d" . grep-dired))))
-;; -GrepDiredPac
-
-
-
-(provide 'init-search)
+(provide 'init-c)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ag.el ends here
+;;; init-c.el ends here

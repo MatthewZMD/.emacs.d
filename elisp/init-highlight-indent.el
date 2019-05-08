@@ -1,21 +1,21 @@
-;;; init-search.el --- -*- lexical-binding: t -*-
+;;; init-highlight-indent.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-search.el
-;; Description: Initialize Color-RG
+;; Filename: init-highlight-indent.el
+;; Description: Initialize Highlight-Indent-Guides
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 11:01:43 2019 (-0400)
+;; Created: Fri Mar 15 10:29:56 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d color-rg rg
+;; Keywords: M-EMACS .emacs.d highlight-indent-guides
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes Color-RG
+;; This initializes highlight-indent-guides
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,28 +42,20 @@
 ;;; Code:
 
 (require 'init-package)
-(require 'init-global-config)
 (require 'init-const)
 
-;; ColorRGPac
-(when *rg*
-  (def-package color-rg
-    :ensure nil
-    :bind
-    (("C-z s s" . color-rg-search-input))))
-;; -ColorRGPac
+;; HighLightIndentPac
+(when *gui-emacs*
+  (def-package highlight-indent-guides
+	:diminish
+	:hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
+	:config
+	(setq highlight-indent-guides-method 'character)
+	(setq highlight-indent-guides-responsive 'top)
+	(setq highlight-indent-guides-delay 0)
+	(setq highlight-indent-guides-auto-character-face-perc 7)))
+;; -HighLightIndentPac
 
-;; GrepDiredPac
-(when *rg*
-  (def-package grep-dired
-    :ensure nil
-    :bind
-    (("C-z s f" . grep-dired-dwim)
-     ("C-z s d" . grep-dired))))
-;; -GrepDiredPac
-
-
-
-(provide 'init-search)
+(provide 'init-highlight-indent)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ag.el ends here
+;;; init-highlight-indent.el ends here

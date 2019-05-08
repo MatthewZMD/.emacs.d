@@ -54,15 +54,9 @@
   :commands lsp
   :init
   (setq lsp-auto-guess-root nil)
-  (setq lsp-prefer-flymake nil) ; Use flycheck instead of flymake
+  (setq lsp-prefer-flymake nil)      ; Use lsp-ui and flycheck
   (setq lsp-message-project-root-warning t)
-  :hook ((java-mode . lsp)
-         (python-mode . lsp)
-         (js-mode . lsp)
-         (typescript-mode . lsp)
-         (html-mode . lsp)
-         (c-mode . lsp)
-         (c++-mode . lsp)))
+  :hook (prog-mode . lsp))
 ;; -LSPPac
 
 ;; LSPUI
@@ -84,6 +78,7 @@
         lsp-ui-doc-position 'top
         lsp-ui-doc-use-webkit t
         lsp-ui-doc-border (face-foreground 'default)
+
         lsp-ui-sideline-enable nil
         lsp-ui-sideline-ignore-duplicate t
         lsp-ui-sideline-show-code-actions nil)
@@ -110,15 +105,12 @@
   (dap-ui-mode t))
 ;; -DAPPac
 
-
 ;; Language Specific Modes:
 
 ;; LSPJavaPac
 (when *mvn*
   (def-package lsp-java
     :after lsp-mode
-    :init
-    (def-package request :defer t)
     :config
     (setq
      lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
@@ -128,6 +120,7 @@
 ;; LSPPythonPac
 (def-package lsp-python-ms
   :after lsp-mode
+  :hook (python-mode . lsp)
   :config
   ;; for dev build of language server
   (setq lsp-python-ms-dir

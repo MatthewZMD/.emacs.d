@@ -44,7 +44,7 @@
 
 ;; Header2Pac
 (def-package header2
-  :load-path "~/.emacs.d/site-elisp/header2"
+  :ensure nil
   :config
   (autoload 'auto-make-header "header2")
   (autoload 'auto-update-file-header "header2")

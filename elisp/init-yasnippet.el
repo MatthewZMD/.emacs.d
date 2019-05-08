@@ -52,11 +52,10 @@
   (yas-reload-all))
 ;; -YASnippetPac
 
-;; SnippetsPac
+;; Snippets
 (def-package yasnippet-snippets
-  :defer t
   :after yasnippet)
-;; -SnippetsPac
+;; -Snippets
 
 (provide 'init-yasnippet)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

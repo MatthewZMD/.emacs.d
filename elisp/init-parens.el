@@ -50,61 +50,56 @@
 
 ;; SmartParensPac
 (def-package smartparens
-  :hook (prog-mode . smartparens-mode)
+  :demand t
   :diminish smartparens-mode
   :bind (:map smartparens-mode-map
-              ("C-M-f" . sp-forward-sexp)
-              ("C-M-b" . sp-backward-sexp)
-              ("C-M-d" . sp-down-sexp)
-              ("C-M-a" . sp-backward-down-sexp)
-              ;; C-S-d is bound to dup line
-              ("C-S-b" . sp-beginning-of-sexp)
-              ("C-S-a" . sp-end-of-sexp)
-              ("C-M-e" . sp-up-sexp)
-              ("C-M-u" . sp-backward-up-sexp)
-              ("C-M-t" . sp-transpose-sexp)
-              ("C-M-n" . sp-forward-hybrid-sexp)
-              ("C-M-p" . sp-backward-hybrid-sexp)
-              ("C-M-k" . sp-kill-sexp)
-              ("C-M-w" . sp-copy-sexp)
-              ("M-<delete>" . sp-unwrap-sexp)
-              ;; I like using M-<backspace> to del backwards
-              ;; ("C-<backspace>" . sp-backward-unwrap-sexp)
-              ("C-<right>" . sp-forward-slurp-sexp)
-              ("C-<left>" . sp-forward-barf-sexp)
-              ("C-M-<left>" . sp-backward-slurp-sexp)
-              ("C-M-<right>" . sp-backward-barf-sexp)
-              ("M-D" . sp-splice-sexp)
-              ;; This is Ctrl-Alt-Del lol
-              ;; ("C-M-<delete>" . sp-splice-sexp-killing-forward)
-              ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
-              ("C-S-<backspace>" . sp-splice-sexp-killing-around)
-              ("C-]" . sp-select-next-thing-exchange)
-              ("C-<left_bracket>" . sp-select-previous-thing)
-              ("C-M-]" . sp-select-next-thing)
-              ("M-F" . sp-forward-symbol)
-              ("M-B" . sp-backward-symbol)
-              ("C-\"" . sp-change-inner)
-              ("M-i" . sp-change-enclosing))
+			  ("C-M-f" . sp-forward-sexp)
+			  ("C-M-b" . sp-backward-sexp)
+			  ("C-M-d" . sp-down-sexp)
+			  ("C-M-a" . sp-backward-down-sexp)
+			  ;; C-S-d is bound to dup line
+			  ("C-S-b" . sp-beginning-of-sexp)
+			  ("C-S-a" . sp-end-of-sexp)
+			  ("C-M-e" . sp-up-sexp)
+			  ("C-M-u" . sp-backward-up-sexp)
+			  ("C-M-t" . sp-transpose-sexp)
+			  ("C-M-n" . sp-forward-hybrid-sexp)
+			  ("C-M-p" . sp-backward-hybrid-sexp)
+			  ("C-M-k" . sp-kill-sexp)
+			  ("C-M-w" . sp-copy-sexp)
+			  ("M-<delete>" . sp-unwrap-sexp)
+			  ;; I like using M-<backspace> to del backwards
+			  ;; ("C-<backspace>" . sp-backward-unwrap-sexp)
+			  ("C-<right>" . sp-forward-slurp-sexp)
+			  ("C-<left>" . sp-forward-barf-sexp)
+			  ("C-M-<left>" . sp-backward-slurp-sexp)
+			  ("C-M-<right>" . sp-backward-barf-sexp)
+			  ("M-D" . sp-splice-sexp)
+			  ;; This is Ctrl-Alt-Del lol
+			  ;; ("C-M-<delete>" . sp-splice-sexp-killing-forward)
+			  ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
+			  ("C-S-<backspace>" . sp-splice-sexp-killing-around)
+			  ("C-]" . sp-select-next-thing-exchange)
+			  ("C-<left_bracket>" . sp-select-previous-thing)
+			  ("C-M-]" . sp-select-next-thing)
+			  ("M-F" . sp-forward-symbol)
+			  ("M-B" . sp-backward-symbol)
+			  ("C-\"" . sp-change-inner)
+			  ("M-i" . sp-change-enclosing))
   :config
+  (smartparens-global-mode)
   ;; Stop pairing single quotes in elisp
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'org-mode "[" nil :actions nil)
-  (setq sp-escape-quotes-after-insert nil)
-  ;; Smartparens is broken in `cc-mode' as of Emacs 27. See
-  ;; <https://github.com/Fuco1/smartparens/issues/963>.
-  (unless (version< emacs-version "27")
-    (dolist (fun '(c-electric-paren c-electric-brace))
-      (add-to-list 'sp--special-self-insert-commands fun))))
+  (setq sp-escape-quotes-after-insert nil))
 ;; -SmartParensPac
 
 ;; AwesomePairPac
 (def-package awesome-pair
-  :load-path "~/.emacs.d/site-elisp/awesome-pair"
-  :bind ("C-c C-k" . awesome-pair-kill)
+  :ensure nil
   :config
-  (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1))))
-
+  (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1)))
+  :bind ("C-c C-k" . awesome-pair-kill))
 ;; -AwesomePairPac
 
 (provide 'init-parens)
