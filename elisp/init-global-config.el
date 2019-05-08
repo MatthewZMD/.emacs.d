@@ -41,20 +41,25 @@
 ;;
 ;;; Code:
 
-;; Bindings
+;; DefBindings
 ;; Unbind C-z to use as prefix
 (global-set-key (kbd "C-z") nil)
 ;; Use iBuffer instead of Buffer List
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") #'ibuffer)
 ;; Truncate lines
-(global-set-key (kbd "C-x C-!") 'toggle-truncate-lines)
+(global-set-key (kbd "C-x C-!") #'toggle-truncate-lines)
 ;; Adjust font size like web browsers
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd"C--") 'text-scale-decrease)
+(global-set-key (kbd "C-+") #'text-scale-increase)
+(global-set-key (kbd"C--") #'text-scale-decrease)
 ;; Move up/down paragraph
-(global-set-key (kbd "M-n") 'forward-paragraph)
-(global-set-key (kbd "M-p") 'backward-paragraph)
-;; -Bindings
+(global-set-key (kbd "M-n") #'forward-paragraph)
+(global-set-key (kbd "M-p") #'backward-paragraph)
+
+;; Some local bindings
+(define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
+(add-hook 'c++-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile)))
+(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile)))
+;; -DefBindings
 
 ;; UTF8Coding
 (if (eq system-type 'windows-nt)
@@ -76,6 +81,12 @@
 ;; RingBell
 (setq ring-bell-function 'ignore)
 ;; -RingBell
+
+;; SaveEmacsSession
+(desktop-save-mode 1)
+(savehist-mode 1)
+(add-to-list 'savehist-additional-variables 'kill-ring) ;; for example
+;; -SaveEmacsSession
 
 ;; EchoKey
 (setq echo-keystrokes 0.1)
@@ -100,12 +111,6 @@
 
 ;; Merge system clipboard with Emacs
 (setq-default select-enable-clipboard t)
-
-;; Indentation
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
-(c-set-offset 'comment-intro 0)
 ;; -EditExp
 
 ;; AutoGbgCollect
@@ -193,8 +198,7 @@ point reaches the beginning or end of the buffer, stop there."
       (move-beginning-of-line 1))))
 
 ;; remap C-a to `smarter-move-beginning-of-line'
-(global-set-key [remap move-beginning-of-line]
-                'smarter-move-beginning-of-line)
+(global-set-key [remap move-beginning-of-line] 'smarter-move-beginning-of-line)
 ;; -MoveBeginningLine
 
 ;; OrgIncludeAuto
@@ -244,7 +248,6 @@ BEGIN and END are regexps which define the line range to use."
           (setq r (1+ (line-number-at-pos (match-end 0)))))
         (format "%s-%s" (+ l 1) (- r 1)))))) ;; Exclude wrapper
 ;; -OrgIncludeAuto
-
 
 ;; BetterMiniBuffer
 (defun abort-minibuffer-using-mouse ()

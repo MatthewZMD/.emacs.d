@@ -45,7 +45,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(all-the-icons-dired-dir-face ((t (\` (:foreground (\, (face-background (quote default))))))))
+ '(all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
  '(css-selector ((t (:inherit default :foreground "#66CCFF"))))
  '(cursor ((t (:background "BlanchedAlmond"))))
  '(dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 120))))
@@ -58,8 +58,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (2048-game speed-type graphql request-deferred ox-gfm htmlize toc-org tide typescript-mode emmet-mode web-mode lsp-python-ms lsp-java dap-mode company-lsp lsp-ui lsp-mode iedit evil-nerd-commenter format-all smartparens dumb-jump flycheck yasnippet-snippets yasnippet company treemacs-projectile treemacs-magit treemacs projectile magit highlight-indent-guides dimmer diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons ace-window discover-my-major shell-here undo-tree popup-kill-ring which-key counsel amx ivy avy auto-package-update use-package))))
+   '(js2-mode 2048-game speed-type graphql request-deferred ox-gfm htmlize toc-org tide typescript-mode emmet-mode web-mode lsp-python-ms lsp-java dap-mode company-lsp lsp-ui lsp-mode iedit evil-nerd-commenter format-all smartparens dumb-jump flycheck yasnippet-snippets yasnippet company treemacs-projectile treemacs-magit treemacs projectile magit highlight-indent-guides diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons ace-window discover-my-major shell-here undo-tree popup-kill-ring which-key counsel amx ivy avy auto-package-update use-package)))
 
 (provide 'init-custom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

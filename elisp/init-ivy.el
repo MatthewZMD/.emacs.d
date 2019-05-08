@@ -71,7 +71,8 @@
 
 ;; SwiperPac
 (def-package swiper
-  :bind ("C-s" . swiper))
+  :bind (("C-M-s" . swiper-isearch)
+         ("C-s" . swiper)))
 ;; -SwiperPac
 
 (provide 'init-ivy)

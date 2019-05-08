@@ -50,22 +50,11 @@
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Close the world. Open the nExt.")
   (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
-
-  (defun open-dashboard ()
-    "Open the *dashboard* buffer and jump to the first widget."
-    (interactive)
-    (if (get-buffer dashboard-buffer-name)
-        (kill-buffer dashboard-buffer-name))
-    (dashboard-insert-startupify-lists)
-    (switch-to-buffer dashboard-buffer-name)
-    (goto-char (point-min))
-    (if (> (length (window-list-1))
-           ;; exclude `treemacs' window
-           (if (and (fboundp 'treemacs-current-visibility)
-                    (eq (treemacs-current-visibility) 'visible)) 2 1))
-        (setq dashboard-recover-layout-p t))
-    (delete-other-windows))
-  (global-set-key (kbd "C-z d") #'open-dashboard)
+  (setq dashboard-items '((recents  . 7)
+                          (bookmarks . 5)
+                          ;; (projects . 5)
+                          (agenda . 5)
+                          ))
 
   ;; Additional Dashboard widgets.
   (defun dashboard-insert-widgets (list-size)
@@ -89,6 +78,25 @@
   (add-to-list 'dashboard-item-generators  '(buttons . dashboard-insert-widgets))
   (add-to-list 'dashboard-items '(buttons)))
 ;; -DashboardPac
+
+;; OpenDashboardFun
+(defun open-dashboard ()
+    "Open the *dashboard* buffer and jump to the first widget."
+    (interactive)
+    (if (get-buffer dashboard-buffer-name)
+        (kill-buffer dashboard-buffer-name))
+    (dashboard-insert-startupify-lists)
+    (switch-to-buffer dashboard-buffer-name)
+    (goto-char (point-min))
+    (if (> (length (window-list-1))
+           ;; exclude `treemacs' window
+           (if (and (fboundp 'treemacs-current-visibility)
+                    (eq (treemacs-current-visibility) 'visible)) 2 1))
+        (setq dashboard-recover-layout-p t))
+    (delete-other-windows))
+
+(global-set-key (kbd "C-z d") #'open-dashboard)
+;; -OpenDashboardFun
 
 ;; PBLPac
 (def-package page-break-lines
