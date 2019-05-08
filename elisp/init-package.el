@@ -44,13 +44,13 @@
 ;; MelpaPackages
 ;; Select the folder to store packages
 (setq package-user-dir "~/.emacs.d/elpa"
-	  package-archives
-	  '(;; Comment / Uncomment when necessary sites are used
-		("gnu"   . "http://elpa.gnu.org/packages/")
-		("melpa" . "https://melpa.org/packages/")
-		("melpa stable" . "http://stable.melpa.org/packages/")
-		;;("org"   . "http://orgmode.org/elpa/")
-		))
+      package-archives
+      '(;; Comment / Uncomment when necessary sites are used
+        ("gnu"   . "http://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")
+        ("melpa stable" . "http://stable.melpa.org/packages/")
+        ;;("org"   . "http://orgmode.org/elpa/")
+        ))
 ;; -MelpaPackages
 
 ;; ConfigurePackageManagement
@@ -70,26 +70,26 @@
 
 ;; UsePackageWrapperMacro
 (mapc #'(lambda (add) (add-to-list 'load-path add))
-	  (eval-when-compile
-		;; (require 'package)
-		(package-initialize)
-		;; Install use-package if not installed yet.
-		(unless (package-installed-p 'use-package)
-		  (package-refresh-contents)
-		  (package-install 'use-package))
-		;; (require 'use-package)
-		;; (setq use-package-always-ensure t) ;; I will handle this myself
-		(let ((package-user-dir-real (file-truename package-user-dir)))
-		  ;; The reverse is necessary, because outside we mapc
-		  ;; add-to-list element-by-element, which reverses.
-		  (nreverse
-		   (apply #'nconc
-				  ;; Only keep package.el provided loadpaths.
-				  (mapcar #'(lambda (path)
-							  (if (string-prefix-p package-user-dir-real path)
-								  (list path)
-								nil))
-						  load-path))))))
+      (eval-when-compile
+        ;; (require 'package)
+        (package-initialize)
+        ;; Install use-package if not installed yet.
+        (unless (package-installed-p 'use-package)
+          (package-refresh-contents)
+          (package-install 'use-package))
+        ;; (require 'use-package)
+        ;; (setq use-package-always-ensure t) ;; I will handle this myself
+        (let ((package-user-dir-real (file-truename package-user-dir)))
+          ;; The reverse is necessary, because outside we mapc
+          ;; add-to-list element-by-element, which reverses.
+          (nreverse
+           (apply #'nconc
+                  ;; Only keep package.el provided loadpaths.
+                  (mapcar #'(lambda (path)
+                              (if (string-prefix-p package-user-dir-real path)
+                                  (list path)
+                                nil))
+                          load-path))))))
 (eval-when-compile
   (require 'use-package)
   ;; Always ensure package is installed
@@ -103,10 +103,10 @@
   ;; If byte-compiling, ignore this package if it doesn't meet the condition.
   ;; This avoids false-positive load errors.
   (unless (and (bound-and-true-p byte-compile-current-file)
-			   (or (and (plist-member plist :if)     (not (eval (plist-get plist :if))))
-				   (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
-				   (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
-	`(use-package ,name ,@plist)))
+               (or (and (plist-member plist :if)     (not (eval (plist-get plist :if))))
+                   (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
+                   (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
+    `(use-package ,name ,@plist)))
 ;; -DefPackage
 
 ;; AutoPackageUpdate

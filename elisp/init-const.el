@@ -42,8 +42,8 @@
 ;;; Code:
 
 ;; UserInfo
-(setq user-full-name "your-name")
-(setq user-mail-address "your-email")
+(setq user-full-name "Mingde (Matthew) Zeng")
+(setq user-mail-address "matthewzmd@gmail.com")
 ;; -UserInfo
 
 ;; Consts
@@ -56,7 +56,7 @@
 (defconst *mvn* (executable-find "mvn"))
 
 (defconst *clangd* (or (executable-find "clangd")  ;; usually
-					   (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
+                       (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
 
 (defconst *gcc* (executable-find "gcc"))
 

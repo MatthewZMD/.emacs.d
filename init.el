@@ -109,6 +109,8 @@
 
 (require 'init-dired)
 
+(require 'init-shell)
+
 (require 'init-search)
 
 (require 'init-avy)
@@ -122,8 +124,6 @@
 (require 'init-popup-kill-ring)
 
 (require 'init-undo-tree)
-
-(require 'init-shell)
 
 (require 'init-discover-my-major)
 
