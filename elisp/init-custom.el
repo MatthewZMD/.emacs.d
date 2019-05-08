@@ -39,33 +39,26 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-const)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(all-the-icons-dired-dir-face ((t (\` (:foreground (\, (face-background (quote default))))))))
+ '(all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
  '(css-selector ((t (:inherit default :foreground "#66CCFF"))))
  '(cursor ((t (:background "BlanchedAlmond"))))
  '(dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 120))))
  '(font-lock-comment-face ((t (:foreground "#828282"))))
- '(highlight ((t (:background "color-89"))))
  '(lsp-ui-doc-background ((t (:background nil))))
- '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
- '(magit-diff-added-highlight ((t (:background "color-236" :foreground "#22aa22"))))
- '(magit-diff-context-highlight ((t (:background "color-236" :foreground "grey50"))))
- '(magit-diff-removed-highlight ((t (:background "color-236" :foreground "#aa2222"))))
- '(magit-section-highlight ((t (:background "color-236")))))
+ '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic))))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (js2-mode 2048-game speed-type graphql request-deferred ox-gfm htmlize toc-org tide typescript-mode emmet-mode web-mode lsp-python-ms lsp-java dap-mode company-lsp lsp-ui lsp-mode iedit evil-nerd-commenter format-all smartparens dumb-jump flycheck yasnippet-snippets yasnippet company treemacs-projectile treemacs-magit treemacs projectile magit highlight-indent-guides diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons ace-window discover-my-major shell-here undo-tree popup-kill-ring which-key counsel amx ivy avy auto-package-update use-package))))
+   '(js2-mode 2048-game speed-type graphql request-deferred ox-gfm htmlize toc-org tide typescript-mode emmet-mode web-mode lsp-python-ms lsp-java dap-mode company-lsp lsp-ui lsp-mode iedit evil-nerd-commenter format-all smartparens dumb-jump flycheck yasnippet-snippets yasnippet company treemacs-projectile treemacs-magit treemacs projectile magit highlight-indent-guides diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons ace-window discover-my-major shell-here undo-tree popup-kill-ring which-key counsel amx ivy avy auto-package-update use-package)))
 
 (provide 'init-custom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
