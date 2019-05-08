@@ -48,7 +48,7 @@
 ;; ColorRGPac
 (when *rg*
   (def-package color-rg
-    :ensure nil
+    :load-path "~/.emacs.d/site-elisp/color-rg"
     :bind
     (("C-z s s" . color-rg-search-input))))
 ;; -ColorRGPac
@@ -56,7 +56,7 @@
 ;; GrepDiredPac
 (when *rg*
   (def-package grep-dired
-    :ensure nil
+    :load-path "~/.emacs.d/site-elisp/grep-dired"
     :bind
     (("C-z s f" . grep-dired-dwim)
      ("C-z s d" . grep-dired))))

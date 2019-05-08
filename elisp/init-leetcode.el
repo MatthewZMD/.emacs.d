@@ -48,11 +48,11 @@
 ;; LeetCodePac
 (when *curl*
   (def-package leetcode
-    :ensure nil
+    :load-path "~/.emacs.d/site-elisp/leetcode.el"
+    :commands (leetcode)
     :init
-    (def-package request)
-    (def-package request-deferred)
-    (def-package graphql)
+    (def-package request-deferred :defer t)
+    (def-package graphql :defer t)
     :config
     ;; (setq request-message-level 'debug)
     ;; (setq request-log-level 'debug)

@@ -15,7 +15,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes shell-here and term-keys
+;; This initializes shell-here
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,13 +47,6 @@
 (def-package shell-here
   :bind ("C-!" . shell-here))
 ;; -ShellHere
-
-;; TermKeysPac
-(unless *gui-emacs*
-  (def-package term-keys
-    :ensure nil
-    :config (term-keys-mode t)))
-;; -TermKeysPac
 
 (provide 'init-shell)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
