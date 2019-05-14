@@ -59,7 +59,7 @@
     (setq org-agenda-files (list "~/org/agenda/")))
   (setq org-use-speed-commands t)
   (setq org-todo-keywords
-        '((sequence "TODO" "PROGRESS" "REVIEW" "|" "DONE"))))
+        '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE"))))
 ;; -OrgPac
 
 ;; TocOrgPac
