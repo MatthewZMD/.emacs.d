@@ -47,8 +47,7 @@
 (def-package zone
   :ensure nil
   :config
-  (zone-when-idle 600) ;; in seconds
-
+  ;; (zone-when-idle 600) ; in seconds
   (defun zone-choose (pgm)
     "Choose a PGM to run for `zone'."
     (interactive

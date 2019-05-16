@@ -85,7 +85,6 @@
   - [[Doom Modeline][Doom Modeline]]
   - [[Dashboard][Dashboard]]
   - [[Fonts][Fonts]]
-  - [[Zone][Zone]]
   - [[Diminish][Diminish]]
   - [[Smooth Scroll][Smooth Scroll]]
   - [[Pretty Symbols][Pretty Symbols]]
@@ -123,6 +122,7 @@
   - [[Tetris][Tetris]]
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
+  - [[Zone][Zone]]
 
 * Startup
 ** Lexical-binding
@@ -324,9 +324,6 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-fonts.el" src emacs-lisp :range-begin "FontsList" :range-end "-FontsList" :lines "45-48"
    Change Font Function.
    #+INCLUDE: "~/.emacs.d/elisp/init-fonts.el" src emacs-lisp :range-begin "FontFun" :range-end "-FontFun" :lines "51-71"
-** Zone
-   [[https://www.emacswiki.org/emacs/ZoneMode][Zone mode]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer, which is used as my Emacs screensaver.
-   #+INCLUDE: "~/.emacs.d/elisp/init-zone.el" src emacs-lisp :range-begin "ZonePac" :range-end "-ZonePac" :lines "47-61"
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
    #+INCLUDE: "~/.emacs.d/elisp/init-diminish.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "46-47"
@@ -531,3 +528,6 @@
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]], an implementation of 2048 in Emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "2048Pac" :range-end "-2048Pac" :lines "64-66"
+** Zone
+   [[https://www.emacswiki.org/emacs/ZoneMode][Zone]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer.
+   #+INCLUDE: "~/.emacs.d/elisp/init-zone.el" src emacs-lisp :range-begin "ZonePac" :range-end "-ZonePac" :lines "47-60"

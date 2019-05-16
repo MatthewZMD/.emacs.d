@@ -137,8 +137,6 @@
 
 (require 'init-fonts)
 
-(require 'init-zone)
-
 (require 'init-diminish)
 
 (require 'init-scroll)
@@ -192,6 +190,8 @@
 (require 'init-leetcode)
 
 (require 'init-games)
+
+(require 'init-zone)
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
