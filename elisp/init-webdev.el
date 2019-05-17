@@ -47,7 +47,7 @@
 (def-package web-mode
   :mode
   ("\\.phtml\\'" "\\.tpl\\.php\\'" "\\.[agj]sp\\'" "\\.as[cp]x\\'"
-   "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'" "\\.tsx\\'"))
+   "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'"))
 ;; -WebModePac
 
 ;; EmmetPac
@@ -65,28 +65,9 @@
 
 ;; TypeScriptPac
 (def-package typescript-mode
-  :defer t
-  :commands (typescript-mode)
-  :bind (:map typescript-mode-map
-              ("M-." . tide-jump-to-definition))
-  :init
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-  (defun setup-tide-ts ()
-    "Setup tide for typescript."
-    (interactive)
-    (tide-setup)
-    (tide-hl-identifier-mode))
-  (add-hook 'typescript-mode-hook #'setup-tide-ts))
+  :mode "\\.ts\\'"
+  :commands (typescript-mode))
 ;; -TypeScriptPac
-
-;; TidePac
-(def-package tide
-  :defer t
-  :bind (:map tide-mode-map
-              ("M-." . nil))
-  :commands (tide-setup)
-  :after (company flycheck))
-;; -TidePac
 
 (provide 'init-webdev)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -58,7 +58,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(js2-mode 2048-game speed-type graphql request-deferred ox-gfm htmlize toc-org tide typescript-mode emmet-mode web-mode lsp-python-ms lsp-java dap-mode company-lsp lsp-ui lsp-mode iedit evil-nerd-commenter format-all smartparens dumb-jump flycheck yasnippet-snippets yasnippet company treemacs-projectile treemacs-magit treemacs projectile magit highlight-indent-guides diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons ace-window discover-my-major shell-here undo-tree popup-kill-ring which-key counsel amx ivy avy auto-package-update use-package)))
+   '(js2-mode 2048-game speed-type graphql request-deferred ox-gfm htmlize toc-org typescript-mode emmet-mode web-mode lsp-python-ms lsp-java dap-mode company-lsp lsp-ui lsp-mode iedit evil-nerd-commenter format-all smartparens dumb-jump flycheck yasnippet-snippets yasnippet company treemacs-projectile treemacs-magit treemacs projectile magit highlight-indent-guides diminish dashboard doom-modeline doom-themes all-the-icons-ivy all-the-icons-dired all-the-icons ace-window discover-my-major shell-here undo-tree popup-kill-ring which-key counsel amx ivy avy auto-package-update use-package)))
 
 (provide 'init-custom)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

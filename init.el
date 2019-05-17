@@ -172,12 +172,13 @@
 
 (require 'init-header)
 
-(require 'init-lsp)
+;; (require 'init-ein)
 
 ;; Programming
-;; (require 'init-arduino)
 
-;; (require 'init-ein)
+(require 'init-lsp)
+
+;; (require 'init-arduino)
 
 ;; Web Development
 (require 'init-webdev)

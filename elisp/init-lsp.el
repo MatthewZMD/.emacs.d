@@ -55,7 +55,6 @@
   :init
   (setq lsp-auto-guess-root nil)
   (setq lsp-prefer-flymake nil) ; Use flycheck instead of flymake
-  (setq lsp-message-project-root-warning t)
   :hook ((java-mode . lsp)
          (python-mode . lsp)
          (js-mode . lsp)
