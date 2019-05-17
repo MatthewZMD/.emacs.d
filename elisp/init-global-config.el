@@ -134,14 +134,6 @@
 
 ;; Functions
 
-;; SaveEmacsSession
-(defun save-current-session ()
-  "Toggle `desktop-save-mode` and `savehist-mode`."
-  (interactive)
-  (desktop-save-mode 1)
-  (savehist-mode 1))
-;; -SaveEmacsSession
-
 ;; ResizeWidthHeight
 ;; Resizes the window width based on the input
 (defun window-resize-width (w)
