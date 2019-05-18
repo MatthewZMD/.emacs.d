@@ -16,6 +16,3 @@
 [submodule "site-elisp/auto-save"]
     path = site-elisp/auto-save
     url = https://github.com/manateelazycat/auto-save.git
-[submodule "site-elisp/term-keys"]
-    path = site-elisp/term-keys
-    url = https://github.com/CyberShadow/term-keys.git
