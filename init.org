@@ -81,7 +81,7 @@
 - [[User Interface Enhancements][User Interface Enhancements]]
   - [[Title Bar][Title Bar]]
   - [[All The Icons][All The Icons]]
-  - [[Doom Theme][Doom Theme]]
+  - [[Doom Themes][Doom Themes]]
   - [[Doom Modeline][Doom Modeline]]
   - [[Dashboard][Dashboard]]
   - [[Fonts][Fonts]]
@@ -298,7 +298,7 @@
 *** All The Icons Ivy
     [[https://github.com/asok/all-the-icons-ivy][All The Icons Ivy]], an icon set for Ivy.
     #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIIvyPac" :range-end "-ATIIvyPac" :lines "61-69"
-** Doom Theme
+** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][doom-themes]], an UI plugin and pack of theme. It is set to default to Dracula theme.
    #+INCLUDE: "~/.emacs.d/elisp/init-doom.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "49-57"
 ** Doom Modeline
@@ -422,7 +422,7 @@
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "68-94"
 *** Company LSP
-    [[https://github.com/tigersoldier/company-lsp][Company SLP]], a Company completion backend for lsp-mode.
+    [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "97-101"
 *** DAP
     [[https://github.com/emacs-lsp/dap-mode][DAP]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
