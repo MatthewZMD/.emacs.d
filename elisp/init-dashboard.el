@@ -63,12 +63,12 @@
     ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
     (widget-create 'url-link
                    :tag (propertize "Github" 'face 'font-lock-keyword-face)
-                   :help-echo "Open the Emacs Configuration Github page"
+                   :help-echo "Open M-EMACS Github"
                    :mouse-face 'highlight
                    "https://github.com/MatthewZMD/.emacs.d")
     (insert " ")
     (widget-create 'push-button
-                   :help-echo "Edit This Emacs' Configuration"
+                   :help-echo "Edit M-EMACS configuration"
                    :action (lambda (&rest _) (edit-configs))
                    :mouse-face 'highlight
                    :button-prefix ""
