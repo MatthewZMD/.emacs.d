@@ -131,7 +131,7 @@
 
 (require 'init-all-the-icons)
 
-(require 'init-doom)
+(require 'init-theme)
 
 (require 'init-dashboard)
 

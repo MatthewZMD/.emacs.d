@@ -57,7 +57,7 @@
   (setq lsp-prefer-flymake nil) ; Use flycheck instead of flymake
   :hook ((java-mode . lsp)
          (python-mode . lsp)
-         (js-mode . lsp)
+         (js2-mode . lsp)
          (typescript-mode . lsp)
          (html-mode . lsp)
          (c-mode . lsp)
@@ -105,8 +105,8 @@
   :after lsp-mode
   :defer t
   :config
-  (dap-mode t)
-  (dap-ui-mode t))
+  (dap-mode 1)
+  (dap-ui-mode 1))
 ;; -DAPPac
 
 
