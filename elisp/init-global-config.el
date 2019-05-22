@@ -270,6 +270,21 @@ BEGIN and END are regexps which define the line range to use."
 (global-set-key (kbd "C-z l") #'duplicate-line)
 ;; -duplicateline
 
+;; DisplayLineOverlay
+(defun display-line-overlay+ (pos str &optional face)
+  "Display line at POS as STR with FACE.
+
+FACE defaults to inheriting from default and highlight."
+  (let ((ol (save-excursion
+              (goto-char pos)
+              (make-overlay (line-beginning-position)
+                            (line-end-position)))))
+    (overlay-put ol 'display str)
+    (overlay-put ol 'face
+                 (or face '(:background null :inherit highlight)))
+    ol))
+;; -DisplayLineOverlay
+
 (provide 'init-global-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-global-config.el ends here

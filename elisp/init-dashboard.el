@@ -60,7 +60,7 @@
 
   ;; Additional Dashboard widgets.
   (defun dashboard-insert-widgets (list-size)
-    (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
+    ;; (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
     (insert "Navigation: ")
     ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
     (widget-create 'url-link
