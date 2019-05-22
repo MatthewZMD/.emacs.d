@@ -46,6 +46,8 @@
 ;; DashboardPac
 (def-package dashboard
   :diminish (dashboard-mode page-break-lines-mode)
+  :custom-face
+  (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 120))))
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Close the world. Open the nExt.")

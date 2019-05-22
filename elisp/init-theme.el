@@ -1,8 +1,8 @@
-;;; init-doom.el --- -*- lexical-binding: t -*-
+;;; init-theme.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-doom.el
+;; Filename: init-theme.el
 ;; Description: Initialize Doom Themes and Modeline
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:11:56 2019 (-0400)
@@ -48,6 +48,8 @@
 ;; DoomThemes
 (when *gui-emacs*
   (def-package doom-themes
+    :custom-face
+    (cursor ((t (:background "BlanchedAlmond"))))
     :config
     ;; flashing mode-line on errors
     (doom-themes-visual-bell-config)
@@ -70,6 +72,6 @@
     (setq doom-modeline-height 15)))
 ;; -DoomModeline
 
-(provide 'init-doom)
+(provide 'init-theme)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-doom.el ends here
+;;; init-theme.el ends here

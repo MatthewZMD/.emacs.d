@@ -128,7 +128,7 @@
 ;; -BetterCompilation
 
 ;; CustomSetFileLocation
-(setq custom-file (concat user-emacs-directory "elisp/init-custom.el"))
+(setq custom-file (concat user-emacs-directory "custom-set-variables.el"))
 (load custom-file 'noerror)
 ;; -CustomSetFileLocation
 
