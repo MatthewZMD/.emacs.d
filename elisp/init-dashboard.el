@@ -46,6 +46,8 @@
 ;; DashboardPac
 (def-package dashboard
   :diminish (dashboard-mode page-break-lines-mode)
+  :custom-face
+  (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 115))))
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Close the world. Open the nExt.")
@@ -58,17 +60,17 @@
 
   ;; Additional Dashboard widgets.
   (defun dashboard-insert-widgets (list-size)
-    (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
+    ;; (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
     (insert "Navigation: ")
     ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
     (widget-create 'url-link
                    :tag (propertize "Github" 'face 'font-lock-keyword-face)
-                   :help-echo "Open the Emacs Configuration Github page"
+                   :help-echo "Open M-EMACS Github"
                    :mouse-face 'highlight
                    "https://github.com/MatthewZMD/.emacs.d")
     (insert " ")
     (widget-create 'push-button
-                   :help-echo "Edit This Emacs' Configuration"
+                   :help-echo "Edit M-EMACS configuration"
                    :action (lambda (&rest _) (edit-configs))
                    :mouse-face 'highlight
                    :button-prefix ""

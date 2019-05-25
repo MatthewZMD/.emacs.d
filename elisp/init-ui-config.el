@@ -49,15 +49,15 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; -MaxFrame
 
+;; YorN
+(fset 'yes-or-no-p 'y-or-n-p)
+;; -YorN
+
 ;; StartupScreen
 (setq inhibit-startup-screen t)
 (setq initial-major-mode 'text-mode)
 (setq initial-scratch-message "Present Day, Present Time...")
 ;; -StartupScreen
-
-;; YorN
-(fset 'yes-or-no-p 'y-or-n-p)
-;; -YorN
 
 (provide 'init-ui-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -53,8 +53,9 @@
   (def-package all-the-icons-dired
     :after all-the-icons
     :diminish
-    :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-    :custom-face (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))))
+    :custom-face
+    (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
+    :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)))
 ;; -ATIDiredPac
 
 ;; ATIIvyPac

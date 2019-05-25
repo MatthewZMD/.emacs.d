@@ -28,3 +28,4 @@ workspace/
 /.emacs.desktop
 /.emacs.desktop.lock
 /history
+/custom-set-variables.el
