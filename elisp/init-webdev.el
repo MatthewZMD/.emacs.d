@@ -53,13 +53,6 @@
    "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'"))
 ;; -WebModePac
 
-;; EmmetPac
-(def-package emmet-mode
-  :hook web-mode
-  :config
-  (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
-;; -EmmetPac
-
 ;; Js2Pac
 (def-package js2-mode
   :mode "\\.js\\'"
@@ -71,6 +64,18 @@
   :mode "\\.ts\\'"
   :commands (typescript-mode))
 ;; -TypeScriptPac
+
+;; EmmetPac
+(def-package emmet-mode
+  :hook web-mode
+  :config
+  (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
+;; -EmmetPac
+
+;; JsonPac
+(def-package json-mode
+  :mode "\\.json\\'")
+;; -JsonPac
 
 (provide 'init-webdev)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
