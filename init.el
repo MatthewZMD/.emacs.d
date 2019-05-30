@@ -55,27 +55,30 @@
 ;; -DisableUnnecessaryInterface
 
 ;; AvoidStartupGarbageCollect
-(eval-and-compile
-  (defun revert-gc ()
-    (setq gc-cons-threshold 16777216
-          gc-cons-percentage 0.1))
-
-  (setq gc-cons-threshold 402653184
-        gc-cons-percentage 0.6)
-
-  (add-hook 'emacs-startup-hook 'revert-gc))
+(setq gc-cons-threshold-original gc-cons-threshold)
+(setq gc-cons-threshold (* 1024 1024 100))
 ;; -AvoidStartupGarbageCollect
 
 ;; UnsetFNHA
-(eval-and-compile
-  (defun reset-file-name-handler-alist ()
-    (setq file-name-handler-alist orig-file-name-handler-alist))
-
-  (defvar orig-file-name-handler-alist file-name-handler-alist)
-  (setq file-name-handler-alist nil)
-
-  (add-hook 'emacs-startup-hook 'reset-file-name-handler-alist))
+(setq file-name-handler-alist-original file-name-handler-alist)
+(setq file-name-handler-alist nil)
 ;; -UnsetFNHA
+
+;; AutoGbgCollect
+(run-with-idle-timer 2 t (lambda () (garbage-collect)))
+;; -AutoGbgCollect
+
+;; ResetGC
+(run-with-idle-timer
+ 5 nil
+ (lambda ()
+   (setq gc-cons-threshold gc-cons-threshold-original)
+   (setq file-name-handler-alist file-name-handler-alist-original)
+   (makunbound 'gc-cons-threshold-original)
+   (makunbound 'file-name-handler-alist-original)
+   (message "gc-cons-threshold and file-name-handler-alist restored")))
+;; -ResetGC
+
 
 ;; LoadPath
 (defun update-to-load-path (folder)

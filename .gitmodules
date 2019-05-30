@@ -13,6 +13,3 @@
 [submodule "site-elisp/leetcode.el"]
     path = site-elisp/leetcode.el
     url = https://github.com/kaiwk/leetcode.el.git
-[submodule "site-elisp/auto-save"]
-    path = site-elisp/auto-save
-    url = https://github.com/manateelazycat/auto-save.git

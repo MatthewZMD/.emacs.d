@@ -69,24 +69,15 @@
                                           (lambda () (interactive) (find-alternate-file ".."))))))
 ;; -DiredPackage
 
-;; AutoSaveFile
-(def-package auto-save
-  :load-path "~/.emacs.d/site-elisp/auto-save"
-  :init
-  (setq auto-save-default nil)
-  :config
-  (setq auto-save-silent t)
-  (setq auto-save-idle 3) ;; in seconds
-  (auto-save-enable))
-;; -AutoSaveFile
-
-;; BackUpFiles
+;; AutosaveBackupDir
 (make-directory "~/.emacs.d/autosaves" t)
+(make-directory "~/.emacs.d/backups" t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
+      auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
       delete-old-versions -1
       version-control t
       vc-make-backup-files t)
-;; -BackUpFiles
+;; -AutosaveBackupDir
 
 ;; RenameFileBuffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file

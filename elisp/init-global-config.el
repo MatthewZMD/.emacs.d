@@ -42,8 +42,9 @@
 ;;; Code:
 
 ;; DefBindings
-;; Unbind C-z to use as prefix
+;; Unbind C-z to use as prefix and unbind C-x C-z too
 (global-set-key (kbd "C-z") nil)
+(global-set-key (kbd "C-x C-z") nil)
 ;; Use iBuffer instead of Buffer List
 (global-set-key (kbd "C-x C-b") #'ibuffer)
 ;; Truncate lines
@@ -106,10 +107,6 @@
 ;; Merge system clipboard with Emacs
 (setq-default select-enable-clipboard t)
 ;; -EditExp
-
-;; AutoGbgCollect
-(add-hook 'focus-out-hook #'garbage-collect)
-;; -AutoGbgCollect
 
 ;; CreateLockFile
 (setq-default create-lockfiles nil)
