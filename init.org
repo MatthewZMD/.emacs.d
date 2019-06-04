@@ -135,19 +135,19 @@
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "1-2"
 ** Disable Unnecessary Interface
    This need to be in the beginning of initialization to smooth the experience.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "51-55"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "51-57"
 ** Optimization
    Avoid garbage collection during startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AvoidStartupGarbageCollect" :range-end "AvoidStartupGarbageCollect"  :lines "58-60"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AvoidStartupGarbageCollect" :range-end "AvoidStartupGarbageCollect"  :lines "60-62"
    Unset file name handler alist.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "63-65"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "65-67"
    Garbage collect when Emacs is idle.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "68-69"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "70-71"
    Reset GC Threshold after some deferred time from [[https://emacs.stackexchange.com/a/34367][blujay]].
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "ResetGC" :range-end "-ResetGC" :lines "72-80"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "ResetGC" :range-end "-ResetGC" :lines "74-82"
 ** Load-Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "84-96"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "86-98"
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "50-64"
 * Package Management
