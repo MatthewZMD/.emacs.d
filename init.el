@@ -192,6 +192,8 @@ decrease this. If you experience stuttering, increase this.")
 
 (require 'init-eww)
 
+(require 'init-latex)
+
 (require 'init-leetcode)
 
 (require 'init-pyim)
