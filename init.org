@@ -201,7 +201,7 @@
 *** File Configs
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "101-109"
 ** Search
-   *Prerequisite*: Please [[https://github.com/BurntSushi/ripgrep#installation][install]] ripgrep and add =rg= to the =PATH=.
+   *Prerequisite*: Please install [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and add =rg= to the =PATH=.
 *** Color-RG
     [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep that is used to search text.
     #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "49-54"
@@ -436,14 +436,14 @@
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]]. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]].
 
-    *Prerequisite*: [[https://maven.apache.org/download.cgi][Install]] Maven and add to =PATH=.
+    *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]] and add to =PATH=.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "116-125"
 ** C/C++
    *Prerequisite*:
    - Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
-     - Windows OS: [[http://www.mingw.org/wiki/Install_MinGW][Install]] MinGW for Compilation and [[https://cmake.org/download/][CMake]] >= 2.8.3 first.
+     - Windows OS: Install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] for Compilation and [[https://cmake.org/download/][CMake]] >= 2.8.3 first.
    - Rest of the features will be provided by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]].
-     - All OS: [[https://clang.llvm.org/extra/clangd/Installation.html][Install]] Clangd and add to =PATH=.
+     - All OS: Install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and add to =PATH=.
 
    Note: If Displaying =No LSP server for c-mode=, execute =M-x ielm= and verify clangd is installed using =(describe-variable *clangd*)= or =(executable-find lsp-clients-clangd-executable)=.
 ** Python
@@ -451,7 +451,7 @@
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
 
     *Prerequisite*:
-    [[https://dotnet.microsoft.com/download][Install]] .NET Core SDK, then execute the following commands from your =HOME= or =~= path:
+    Install [[https://dotnet.microsoft.com/download][.NET Core SDK]], then execute the following commands from your =HOME= or =~= path:
     #+BEGIN_SRC text
       git clone https://github.com/Microsoft/python-language-server.git
       cd python-language-server/src/LanguageServer/Impl
