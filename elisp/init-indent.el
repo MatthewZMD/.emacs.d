@@ -44,7 +44,7 @@
 (require 'init-const)
 
 ;; HighLightIndentPac
-(when *gui-emacs*
+(when sys/gui
   (def-package highlight-indent-guides
     :diminish
     :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)

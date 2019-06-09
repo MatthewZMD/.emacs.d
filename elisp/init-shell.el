@@ -50,7 +50,7 @@
 ;; -ShellHere
 
 ;; TermKeysPac
-(unless *gui-emacs*
+(unless sys/gui
   (def-package term-keys
     :config (term-keys-mode t)))
 ;; -TermKeysPac

@@ -46,7 +46,7 @@
 (require 'init-const)
 
 ;; DoomThemes
-(when *gui-emacs*
+(when sys/gui
   (def-package doom-themes
     :custom-face
     (cursor ((t (:background "BlanchedAlmond"))))
@@ -59,7 +59,7 @@
 ;; -DoomThemes
 
 ;; DoomModeline
-(when *gui-emacs*
+(when sys/gui
   (def-package doom-modeline
     :hook (after-init . doom-modeline-mode)
     :config
