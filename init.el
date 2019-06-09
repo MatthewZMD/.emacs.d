@@ -109,6 +109,8 @@
 ;; Global Functionalities
 (require 'init-global-config)
 
+(require 'init-func)
+
 (require 'init-dired)
 
 (require 'init-search)
