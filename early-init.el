@@ -15,8 +15,8 @@
 ;;
 ;;; Commentary:
 ;;
-;; Emacs27 introduces early-init.el, which is run before init.el,
-;; packages and ui initializations.
+;; Emacs HEAD (27+) introduces early-init.el, which is run before init.el,
+;; before package and UI initialization happens.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,12 +43,22 @@
 ;;; Code:
 
 ;; DeferGC
-(setq gc-cons-threshold 80000000)
+(setq gc-cons-threshold 80000000
+      gc-cons-percentage 0.6)
 ;; -DeferGC
 
-;; PackageEnableStartupNil
+;; UnsetPES
 (setq package-enable-at-startup nil)
-;; -PackageEnableStartupNil
+;; -UnsetPES
+
+;; UnsetFNHA
+(setq file-name-handler-alist-original file-name-handler-alist)
+(setq file-name-handler-alist nil)
+;; -UnsetFNHA
+
+;; UnsetSRF
+(setq site-run-file nil)
+;; -UnsetSRF
 
 ;; DisableUnnecessaryInterface
 (unless (and (display-graphic-p) (eq system-type 'darwin))

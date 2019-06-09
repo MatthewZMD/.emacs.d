@@ -47,35 +47,20 @@
   (error "M-EMACS requires Emacs 25.1 and above!"))
 ;; -CheckVer
 
-;; DisableUnnecessaryInterface
-(if (display-graphic-p)
-    (progn
-      (scroll-bar-mode -1)
-      (tool-bar-mode   -1)
-      (tooltip-mode    -1)))
-(menu-bar-mode   -1)
-;; -DisableUnnecessaryInterface
-
-;; UnsetFNHA
-(setq file-name-handler-alist-original file-name-handler-alist)
-(setq file-name-handler-alist nil)
-;; -UnsetFNHA
-
 ;; AutoGbgCollect
 (run-with-idle-timer 2 t (lambda () (garbage-collect)))
 ;; -AutoGbgCollect
 
 ;; ResetGC
 (run-with-idle-timer
- 5 nil
+ 1 nil
  (lambda ()
-   (setq gc-cons-threshold gc-cons-threshold-original)
+   (setq gc-cons-threshold 16777216
+         gc-cons-percentage 0.1)
    (setq file-name-handler-alist file-name-handler-alist-original)
-   (makunbound 'gc-cons-threshold-original)
    (makunbound 'file-name-handler-alist-original)
    (message "gc-cons-threshold and file-name-handler-alist restored")))
 ;; -ResetGC
-
 
 ;; LoadPath
 (defun update-to-load-path (folder)

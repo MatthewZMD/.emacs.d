@@ -35,8 +35,8 @@
    4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in init.org.
    5. Enter =C-x C-s= to save and update =:lines=. (if you don't see the updated effect, run =M-x update-includes= manually)
    6. Call =M-x org-gfm-export-to-markdown= to update this README.
-** Spotted a Bug? Suggestions?
-   Please fill in Issues.
+** Contribution
+   If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
 ** Special Thanks
    Everyone starts somewhere, and I started here.
   - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
@@ -48,11 +48,11 @@
   - [[About README][About README]]
   - [[Installation][Installation]]
   - [[Modification][Modification]]
-  - [[Spotted a Bug? Suggestions?][Spotted a Bug? Suggestions?]]
+  - [[Contribution][Contribution]]
   - [[Special Thanks][Special Thanks]]
 - [[Startup][Startup]]
   - [[Lexical-binding][Lexical-binding]]
-  - [[Early-Init][Early-Init]]
+  - [[Early Init][Early Init]]
   - [[Optimization][Optimization]]
   - [[Load-Path][Load-Path]]
   - [[Define Constants][Define Constants]]
@@ -133,28 +133,34 @@
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "1-2"
-** Early-Init
-   Emacs27 introduces =early-init.el=, which is run before init.el, packages and ui initializations.
+** Early Init
+   Emacs HEAD (27+) introduces early-init.el, which is run before init.el, before package and UI initialization happens.
 *** Defer Garbage Collection
-    Defer garbage collection further back in the startup process.
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DeferGC" :range-end "-DeferGC"  :lines "46-47"
+    Defer garbage collection further back in the startup process, according to [[https://github.com/hlissner/doom-emacs/wiki/FAQ#how-is-dooms-startup-so-fast][hlissner]].
+    #+BEGIN_QUOTE
+    The GC eats up quite a bit of time, easily doubling startup time. The trick is to turn up the memory threshold as early as possible.
+    #+END_QUOTE
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DeferGC" :range-end "-DeferGC"  :lines "46-48"
 *** Disable =package-enable-at-startup=
     Package initialize occurs automatically, before =user-init-file= is loaded, but after =early-init-file=.
     We handle package initialization, so we must prevent Emacs from doing it early!
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "PackageEnableStartupNil" :range-end "-PackageEnableStartupNil"  :lines "50-51"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetPES" :range-end "-UnsetPES"  :lines "51-52"
+*** Unset File-Name-Handler-Alist
+    Every file opened and loaded by Emacs will run through this list to check for a proper handler for the file, but during startup, it won’t need any of them.
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "55-57"
+*** Unset Site-Run-File
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetSRF" :range-end "-UnsetSRF" :lines "60-61"
 *** Disable Unnecessary Interface
     It will be faster to disable them here before they've been initialized.
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "54-58"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "64-68"
 ** Optimization
-   Unset file name handler alist.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "60-62"
    Garbage collect when Emacs is idle.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "65-66"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "51-52"
    Reset GC Threshold after some deferred time from [[https://emacs.stackexchange.com/a/34367][blujay]].
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "ResetGC" :range-end "-ResetGC" :lines "69-77"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "ResetGC" :range-end "-ResetGC" :lines "55-63"
 ** Load-Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "81-93"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "66-78"
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "50-94"
 * Package Management
@@ -177,19 +183,19 @@
       git submodule update
     #+END_SRC
 ** Configure Package Management
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigurePackageManagement" :range-end "-ConfigurePackageManagement" :lines "58-70"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigurePackageManagement" :range-end "-ConfigurePackageManagement" :lines "58-65"
 ** Use-Package Wrapper
    My Emacs configuration is almost entirely dependant on a faster implementation of [[https://github.com/jwiegley/use-package][use-package]] based on [[https://github.com/hlissner/doom-emacs/blob/master/core/core-packages.el#L323][Doom Emacs]].
    #+BEGIN_QUOTE
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
    #+END_QUOTE
    Add the macro generated list of package.el loadpaths to load-path.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "UsePackageWrapperMacro" :range-end "-UsePackageWrapperMacro"  :lines "73-99"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "UsePackageWrapperMacro" :range-end "-UsePackageWrapperMacro"  :lines "68-94"
    The =use-package= wrapper.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DefPackage" :range-end "-DefPackage" :lines "102-111"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DefPackage" :range-end "-DefPackage" :lines "97-106"
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "114-121"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "109-116"
 * Global Functionalities
 ** User Information
    *Prerequisite*: Please update this file your personal info.
