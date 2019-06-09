@@ -52,7 +52,7 @@
   - [[Special Thanks][Special Thanks]]
 - [[Startup][Startup]]
   - [[Lexical-binding][Lexical-binding]]
-  - [[Disable Unnecessary Interface][Disable Unnecessary Interface]]
+  - [[Early-Init][Early-Init]]
   - [[Optimization][Optimization]]
   - [[Load-Path][Load-Path]]
   - [[Define Constants][Define Constants]]
@@ -77,7 +77,7 @@
   - [[Discover My Major][Discover My Major]]
   - [[Ace Window][Ace Window]]
   - [[Configs][Configs]]
-  - [[More Functions][More Functions]]
+  - [[Functions][Functions]]
 - [[User Interface Enhancements][User Interface Enhancements]]
   - [[All The Icons][All The Icons]]
   - [[Doom Themes][Doom Themes]]
@@ -133,23 +133,30 @@
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
    #+END_QUOTE
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "1-2"
-** Disable Unnecessary Interface
-   This need to be in the beginning of initialization to smooth the experience.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "51-57"
+** Early-Init
+   Emacs27 introduces =early-init.el=, which is run before init.el, packages and ui initializations.
+*** Defer Garbage Collection
+    Defer garbage collection further back in the startup process.
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DeferGC" :range-end "-DeferGC"  :lines "46-47"
+*** Disable =package-enable-at-startup=
+    Package initialize occurs automatically, before =user-init-file= is loaded, but after =early-init-file=.
+    We handle package initialization, so we must prevent Emacs from doing it early!
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "PackageEnableStartupNil" :range-end "-PackageEnableStartupNil"  :lines "50-51"
+*** Disable Unnecessary Interface
+    It will be faster to disable them here before they've been initialized.
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "54-58"
 ** Optimization
-   Avoid garbage collection during startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AvoidStartupGarbageCollect" :range-end "AvoidStartupGarbageCollect"  :lines "60-62"
    Unset file name handler alist.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "65-67"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "60-62"
    Garbage collect when Emacs is idle.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "70-71"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "65-66"
    Reset GC Threshold after some deferred time from [[https://emacs.stackexchange.com/a/34367][blujay]].
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "ResetGC" :range-end "-ResetGC" :lines "74-82"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "ResetGC" :range-end "-ResetGC" :lines "69-77"
 ** Load-Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "86-98"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "81-93"
 ** Define Constants
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "50-64"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "50-94"
 * Package Management
   Some packages are turned off because I don't use them very often. Please verify them in =init.el=.
 ** Melpa Packages
@@ -270,24 +277,24 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "120-125"
 *** Move Custom-Set-Variables to Different File
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "128-130"
-** More Functions
+** Functions
    Other important, but longer functions.
 *** Resize Window Width / Height Functions
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "135-156"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "45-66"
 *** Edit This Configuration File Shortcut
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "159-165"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "69-75"
 *** Smarter Move Beginning of Line
     Smarter navigation to the beginning of a line by [[https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/][Bozhidar Batsov]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "168-193"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "MoveBeginningLine" :range-end "-MoveBeginningLine" :lines "78-103"
 *** Update Org Mode Include Automatically
     Update Org Mode INCLUDE Statements Automatically from [[http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html][Artur Malabarba]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "196-241"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "106-151"
 *** MiniBuffer
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "244-253"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "154-163"
 *** Duplicate Line
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DuplicateLine" :range-end "-DuplicateLine" :lines "256-268"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DuplicateLine" :range-end "-DuplicateLine" :lines "166-178"
 *** Display Line Overlay
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "271-283"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "181-193"
 * User Interface Enhancements
 ** All The Icons
    [[https://github.com/domtronn/all-the-icons.el][All The Icons]], a utility package to collect various Icon Fonts. Enable only in GUI Emacs.
@@ -417,7 +424,6 @@
     2. Login with =M-x ein:login= to a local or remote session.
     3. Open =.ipynb= file and press =C-c C-o=.
     #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "47-49"
-
 * Programming
 ** Language Server Protocol
 *** LSP Mode
@@ -451,16 +457,16 @@
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
 
     *Prerequisite*:
-    Install [[https://dotnet.microsoft.com/download][.NET Core SDK]], then execute the following commands from your =HOME= or =~= path:
+    Install [[https://dotnet.microsoft.com/download][.NET Core SDK]], then execute the following commands from =~/.emacs.d=:
     #+BEGIN_SRC text
       git clone https://github.com/Microsoft/python-language-server.git
       cd python-language-server/src/LanguageServer/Impl
       dotnet build -c Release
       dotnet publish -c Release -r win10-x64
     #+END_SRC
-    Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
+    Note: Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
 
-    Now, put =~/.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
+    Now, put =~\.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "128-137"
 ** Arduino
 *** Arduino Mode

@@ -56,11 +56,6 @@
 (menu-bar-mode   -1)
 ;; -DisableUnnecessaryInterface
 
-;; AvoidStartupGarbageCollect
-(setq gc-cons-threshold-original gc-cons-threshold)
-(setq gc-cons-threshold (* 1024 1024 100))
-;; -AvoidStartupGarbageCollect
-
 ;; UnsetFNHA
 (setq file-name-handler-alist-original file-name-handler-alist)
 (setq file-name-handler-alist nil)
