@@ -53,7 +53,8 @@
 - [[Startup][Startup]]
   - [[Lexical-binding][Lexical-binding]]
   - [[Early Init][Early Init]]
-  - [[Optimization][Optimization]]
+  - [[Restore Default After Startup][Restore Default After Startup]]
+  - [[Garbage Collect Configuration][Garbage Collect Configuration]]
   - [[Load-Path][Load-Path]]
   - [[Define Constants][Define Constants]]
 - [[Package Management][Package Management]]
@@ -145,22 +146,26 @@
     Package initialize occurs automatically, before =user-init-file= is loaded, but after =early-init-file=.
     We handle package initialization, so we must prevent Emacs from doing it early!
     #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetPES" :range-end "-UnsetPES"  :lines "51-52"
-*** Unset File-Name-Handler-Alist
+*** Unset =file-name-handler-alist=
     Every file opened and loaded by Emacs will run through this list to check for a proper handler for the file, but during startup, it won’t need any of them.
     #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "55-57"
-*** Unset Site-Run-File
+*** Disable =site-run-file=
     #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetSRF" :range-end "-UnsetSRF" :lines "60-61"
 *** Disable Unnecessary Interface
     It will be faster to disable them here before they've been initialized.
     #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "64-68"
-** Optimization
-   Garbage collect when Emacs is idle.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGbgCollect" :range-end "-AutoGbgCollect" :lines "51-52"
-   Reset GC Threshold after some deferred time from [[https://emacs.stackexchange.com/a/34367][blujay]].
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "ResetGC" :range-end "-ResetGC" :lines "55-63"
+** Restore Default After Startup
+    A large gc-cons-threshold will cause freezing and stuttering during long-term interactive use.
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "RestoreGC" :range-end "-RestoreGC" :lines "57-63"
+** Garbage Collect Configuration
+*** Garbage Collect When Emacs is Out of Focus
+    Note: Since Emacs27.1, =focus-out-hook= is obsolete.
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "66-74"
+*** Avoid Garbage Collect When Using Minibuffer
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "75-84"
 ** Load-Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "66-78"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "87-99"
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "50-94"
 * Package Management
@@ -169,7 +174,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "45-55"
    Load all Melpa packages in =elisp/= to =load-path= directly to reduce startup time.
 ** Non-Melpa Packages
-   These packages are contained in =site-elisp/=, they are added to
+   Add packages contained in =site-elisp/= to =load-path= too.
 
 *** Add Packages Manually from Git
     #+BEGIN_SRC text
@@ -272,17 +277,17 @@
 *** Show Keystrokes in Progress Instantly
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "87-88"
 *** Optimize Editing Experience
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "91-109"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "91-106"
 
+*** History
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "109-132"
 *** Don't Lock Files
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "112-113"
-*** Longer History Length
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "HisLen" :range-end "-HisLen" :lines "116-117"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "135-136"
 *** Compilation
     Better compilation configurations.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "120-125"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "139-144"
 *** Move Custom-Set-Variables to Different File
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "128-130"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "147-149"
 ** Functions
    Other important, but longer functions.
 *** Resize Window Width / Height Functions
@@ -407,7 +412,7 @@
    [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "47-56"
    Indentation Config
-   #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "59-65"
+   #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "59-62"
 ** Format All
    [[https://github.com/lassik/emacs-format-all-the-code][Format all]], a feature that lets you auto-format source code.
 

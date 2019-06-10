@@ -95,9 +95,6 @@
 ;; Make sentences end with a single space
 (setq-default sentence-end-double-space nil)
 
-;; When buffer is closed, saves the cursor location
-(save-place-mode 1)
-
 ;; Disable Shift mark
 (setq shift-select-mode nil)
 
@@ -108,13 +105,35 @@
 (setq-default select-enable-clipboard t)
 ;; -EditExp
 
+;; History
+(use-package recentf
+  :ensure nil
+  :hook (after-init . recentf-mode)
+  :init
+  (setq recentf-max-saved-items 200)
+  (setq recentf-exclude '((expand-file-name package-user-dir)
+                          ".cache"
+                          ".cask"
+                          ".elfeed"
+                          "bookmarks"
+                          "cache"
+                          "ido.*"
+                          "persp-confs"
+                          "recentf"
+                          "undo-tree-hist"
+                          "url"
+                          "COMMIT_EDITMSG\\'")))
+
+;; When buffer is closed, saves the cursor location
+(save-place-mode 1)
+
+;; Set history-length longer
+(setq-default history-length 500)
+;; -History
+
 ;; CreateLockFile
 (setq-default create-lockfiles nil)
 ;; -CreateLockFile
-
-;; HisLen
-(setq-default history-length 500)
-;; -HisLen
 
 ;; BetterCompilation
 (setq-default compilation-always-kill t) ; kill compilation process before starting another

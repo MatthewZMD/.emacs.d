@@ -47,20 +47,41 @@
   (error "M-EMACS requires Emacs 25.1 and above!"))
 ;; -CheckVer
 
-;; AutoGbgCollect
-(run-with-idle-timer 2 t (lambda () (garbage-collect)))
-;; -AutoGbgCollect
+;; BetterGCThreshold
+(defvar better-gc-cons-threshold 16777216 ; 16mb
+  "The default value to use for `gc-cons-threshold'. If you experience freezing,
+decrease this. If you experience stuttering, increase this.")
+;; -BetterGCThreshold
 
-;; ResetGC
-(run-with-idle-timer
- 1 nil
- (lambda ()
-   (setq gc-cons-threshold 16777216
-         gc-cons-percentage 0.1)
-   (setq file-name-handler-alist file-name-handler-alist-original)
-   (makunbound 'file-name-handler-alist-original)
-   (message "gc-cons-threshold and file-name-handler-alist restored")))
-;; -ResetGC
+;; RestoreGC
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq-default gc-cons-threshold better-gc-cons-threshold ;; 16mb
+                          gc-cons-percentage 0.1)
+            (setq file-name-handler-alist file-name-handler-alist-original)
+            (makunbound 'file-name-handler-alist-original)))
+;; -RestoreGC
+
+;; AutoGC
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (if (boundp 'after-focus-change-function)
+                (add-function :after after-focus-change-function
+                              (lambda ()
+                                (unless (frame-focus-state)
+                                  (garbage-collect))))
+              (add-hook 'focus-out-hook 'garbage-collect))
+            ;; -AutoGC MinibufferGC
+            (defun gc-minibuffer-setup-hook ()
+              (setq gc-cons-threshold better-gc-cons-threshold))
+
+            (defun gc-minibuffer-exit-hook ()
+              (garbage-collect)
+              (setq gc-cons-threshold 800000))
+
+            (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
+            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
+;; -MinibufferGC
 
 ;; LoadPath
 (defun update-to-load-path (folder)
@@ -164,6 +185,8 @@
 ;; Programming
 
 (require 'init-lsp)
+
+(require 'init-c)
 
 ;; (require 'init-arduino)
 
