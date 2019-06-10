@@ -45,11 +45,11 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-(require 'init-const)
+(eval-when-compile
+  (require 'init-const))
 
 ;; LSPPac
-(def-package lsp-mode
+(use-package lsp-mode
   :defer t
   :commands lsp
   :init
@@ -65,7 +65,7 @@
 ;; -LSPPac
 
 ;; LSPUI
-(def-package lsp-ui
+(use-package lsp-ui
   :after lsp-mode
   :diminish
   :commands lsp-ui-mode
@@ -94,14 +94,14 @@
 ;; -LSPUI
 
 ;; LSPCompany
-(def-package company-lsp
+(use-package company-lsp
   :defer t
   :config
   (setq company-lsp-cache-candidates 'auto))
 ;; -LSPCompany
 
 ;; DAPPac
-(def-package dap-mode
+(use-package dap-mode
   :after lsp-mode
   :defer t
   :config
@@ -114,10 +114,10 @@
 
 ;; LSPJavaPac
 (when *mvn*
-  (def-package lsp-java
+  (use-package lsp-java
     :after lsp-mode
     :init
-    (def-package request :defer t)
+    (use-package request :defer t)
     :config
     (setq
      lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
@@ -125,7 +125,7 @@
 ;; -LSPJavaPac
 
 ;; LSPPythonPac
-(def-package lsp-python-ms
+(use-package lsp-python-ms
   :after lsp-mode
   :config
   ;; for dev build of language server

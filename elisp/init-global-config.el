@@ -79,14 +79,6 @@
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 ;; -UTF8Coding
 
-;; RingBell
-(setq ring-bell-function 'ignore)
-;; -RingBell
-
-;; EchoKey
-(setq echo-keystrokes 0.1)
-;; -EchoKey
-
 ;; EditExp
 ;; Remove useless whitespace before saving a file
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -130,6 +122,14 @@
 ;; Set history-length longer
 (setq-default history-length 500)
 ;; -History
+
+;; RingBell
+(setq ring-bell-function 'ignore)
+;; -RingBell
+
+;; EchoKey
+(setq echo-keystrokes 0.1)
+;; -EchoKey
 
 ;; CreateLockFile
 (setq-default create-lockfiles nil)

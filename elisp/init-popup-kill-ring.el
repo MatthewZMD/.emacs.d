@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; PopKillRing
-(def-package popup-kill-ring
+(use-package popup-kill-ring
   :bind ("M-y" . popup-kill-ring))
 ;; -PopKillRing
 

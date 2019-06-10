@@ -40,10 +40,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
 ;; FlyCheckPac
-(def-package flycheck
+(use-package flycheck
   :defer t
   :hook (prog-mode . flycheck-mode)
   :config

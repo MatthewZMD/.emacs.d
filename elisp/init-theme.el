@@ -42,12 +42,12 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-(require 'init-const)
+(eval-when-compile
+  (require 'init-package))
 
 ;; DoomThemes
 (when sys/gui
-  (def-package doom-themes
+  (use-package doom-themes
     :custom-face
     (cursor ((t (:background "BlanchedAlmond"))))
     :config
@@ -60,7 +60,7 @@
 
 ;; DoomModeline
 (when sys/gui
-  (def-package doom-modeline
+  (use-package doom-modeline
     :hook (after-init . doom-modeline-mode)
     :config
     ;; Don't compact font caches during GC. Windows Laggy Issue

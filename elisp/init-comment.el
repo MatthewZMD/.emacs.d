@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; EvilNerdCommenPac
-(def-package evil-nerd-commenter
+(use-package evil-nerd-commenter
   :bind
   (("M-;" . evilnc-comment-or-uncomment-lines)
    ("C-z ; p" . evilnc-comment-or-uncomment-paragraphs)

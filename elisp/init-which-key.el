@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; WhichKeyPac
-(def-package which-key
+(use-package which-key
   :diminish
   :init
   (setq which-key-separator " ")

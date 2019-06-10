@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; EINPac
-(def-package ein
+(use-package ein
   :defer t)
 ;; -EINPac
 

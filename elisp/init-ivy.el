@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; IvyPackage
-(def-package ivy
+(use-package ivy
   :diminish ivy-mode
   :init (ivy-mode 1)
   :config
@@ -57,20 +55,20 @@
 ;; -IvyPackage
 
 ;; AmxPac
-(def-package amx
+(use-package amx
   :after (:any ivy ido)
   :config (amx-mode))
 ;; -AmxPac
 
 ;; CounselPac
-(def-package counsel
+(use-package counsel
   :after ivy
   :diminish counsel-mode
   :init (counsel-mode 1))
 ;; -CounselPac
 
 ;; SwiperPac
-(def-package swiper
+(use-package swiper
   :bind (("C-M-s" . swiper-isearch)
          ("C-s" . swiper)))
 ;; -SwiperPac

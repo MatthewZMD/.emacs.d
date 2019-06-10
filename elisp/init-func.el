@@ -103,9 +103,7 @@ point reaches the beginning or end of the buffer, stop there."
 ;; -MoveBeginningLine
 
 ;; OrgIncludeAuto
-(add-hook 'before-save-hook #'update-includes)
-
-(defun update-includes (&rest ignore)
+(defun save-and-update-includes (&rest ignore)
   "Update the line numbers of #+INCLUDE:s in current buffer.
 Only looks at INCLUDEs that have either :range-begin or :range-end.
 This function does nothing if not in org-mode, so you can safely
@@ -131,13 +129,15 @@ add it to `before-save-hook'."
               (goto-char (line-end-position))
               (insert " :lines \"" lines "\""))))))))
 
+(add-hook 'before-save-hook #'save-and-update-includes)
+
 (defun decide-line-range (file begin end)
   "Visit FILE and decide which lines to include.
 BEGIN and END are regexps which define the line range to use."
   (let (l r)
     (save-match-data
       (with-temp-buffer
-        (insert-file file)
+        (insert-file-contents file)
         (goto-char (point-min))
         (if (null begin)
             (setq l "")
@@ -175,7 +175,16 @@ BEGIN and END are regexps which define the line range to use."
   (yank))
 
 (global-set-key (kbd "C-z l") #'duplicate-line)
-;; -duplicateline
+;; -DuplicateLine
+
+;; SaveAllBuffers
+(defun save-all-buffers ()
+  "Instead of `save-buffer', save all opened buffers by calling `save-some-buffers' with ARG t."
+  (interactive)
+  (save-some-buffers t))
+
+(global-set-key [remap save-buffer] #'save-all-buffers)
+;; -SaveAllBuffers
 
 ;; DisplayLineOverlay
 (defun display-line-overlay+ (pos str &optional face)

@@ -41,8 +41,6 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; TetrisConfig
 (defvar tetris-mode-map
   (make-sparse-keymap 'tetris-mode-map))
@@ -56,12 +54,12 @@
 ;; -TetrisConfig
 
 ;; SpeedTypePac
-(def-package speed-type
+(use-package speed-type
   :defer t)
 ;; -SpeedTypePac
 
 ;; 2048Pac
-(def-package 2048-game
+(use-package 2048-game
   :defer t)
 ;; -2048Pac
 

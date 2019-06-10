@@ -40,10 +40,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
 ;; DiscMyMajor
-(def-package discover-my-major
+(use-package discover-my-major
   :bind (("C-h C-m" . discover-my-major)))
 ;; -DiscMyMajor
 

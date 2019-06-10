@@ -41,13 +41,13 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-(require 'init-global-config)
-(require 'init-const)
+(eval-when-compile
+  (require 'init-global-config)
+  (require 'init-const))
 
 ;; ColorRGPac
 (when *rg*
-  (def-package color-rg
+  (use-package color-rg
     :load-path "~/.emacs.d/site-elisp/color-rg"
     :bind
     (("C-z s s" . color-rg-search-input))))
@@ -55,7 +55,7 @@
 
 ;; GrepDiredPac
 (when *rg*
-  (def-package grep-dired
+  (use-package grep-dired
     :load-path "~/.emacs.d/site-elisp/grep-dired"
     :bind
     (("C-z s f" . grep-dired-dwim)

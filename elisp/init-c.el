@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; CCMode
-(def-package cc-mode
+(use-package cc-mode
   :ensure nil
   :bind (:map c-mode-base-map
               ("<f5>" . compile))
@@ -56,7 +54,7 @@
 ;; -CCMode
 
 ;; CPPFontLockPac
-(def-package modern-cpp-font-lock
+(use-package modern-cpp-font-lock
     :diminish
     :init (modern-c++-font-lock-global-mode t))
 ;; -CPPFontLockPac

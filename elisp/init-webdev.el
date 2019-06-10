@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; WebModePac
-(def-package web-mode
+(use-package web-mode
   :custom-face
   (css-selector ((t (:inherit default :foreground "#66CCFF"))))
   (font-lock-comment-face ((t (:foreground "#828282"))))
@@ -54,26 +52,26 @@
 ;; -WebModePac
 
 ;; Js2Pac
-(def-package js2-mode
+(use-package js2-mode
   :mode "\\.js\\'"
   :interpreter "node")
 ;; -Js2Pac
 
 ;; TypeScriptPac
-(def-package typescript-mode
+(use-package typescript-mode
   :mode "\\.ts\\'"
   :commands (typescript-mode))
 ;; -TypeScriptPac
 
 ;; EmmetPac
-(def-package emmet-mode
+(use-package emmet-mode
   :hook web-mode
   :config
   (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
 ;; -EmmetPac
 
 ;; JsonPac
-(def-package json-mode
+(use-package json-mode
   :mode "\\.json\\'")
 ;; -JsonPac
 

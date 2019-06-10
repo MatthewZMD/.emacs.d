@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; DashboardPac
-(def-package dashboard
+(use-package dashboard
   :diminish (dashboard-mode page-break-lines-mode)
   :custom-face
   (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 115))))
@@ -101,7 +99,7 @@
 ;; -OpenDashboardFun
 
 ;; PBLPac
-(def-package page-break-lines
+(use-package page-break-lines
   :diminish
   :init (global-page-break-lines-mode))
 ;; -PBLPac

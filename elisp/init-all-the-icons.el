@@ -40,17 +40,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
-(require 'init-const)
+
+(eval-when-compile
+  (require 'init-const))
 
 ;; ATIPac
 (when sys/gui
-  (def-package all-the-icons))
+  (use-package all-the-icons))
 ;; -ATIPac
 
 ;; ATIDiredPac
 (when sys/gui
-  (def-package all-the-icons-dired
+  (use-package all-the-icons-dired
     :after all-the-icons
     :diminish
     :custom-face
@@ -60,7 +61,7 @@
 
 ;; ATIIvyPac
 (when sys/gui
-  (def-package all-the-icons-ivy
+  (use-package all-the-icons-ivy
     :after all-the-icons
     :config
     (all-the-icons-ivy-setup)

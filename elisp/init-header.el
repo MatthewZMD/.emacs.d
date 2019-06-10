@@ -40,10 +40,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
 ;; Header2Pac
-(def-package header2
+(use-package header2
   :load-path "~/.emacs.d/site-elisp/header2"
   :config
   (autoload 'auto-make-header "header2")

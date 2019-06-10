@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; AvyPac
-(def-package avy
+(use-package avy
   :defer t
   :bind
   (("C-;" . avy-goto-char-timer)

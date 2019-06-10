@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; FormatAllPac
-(def-package format-all
+(use-package format-all
   :bind ("C-z f" . format-all-buffer))
 ;; -FormatAllPac
 

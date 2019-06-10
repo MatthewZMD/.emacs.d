@@ -40,11 +40,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
-(require 'init-global-config)
+(eval-when-compile
+  (require 'init-global-config))
 
 ;; IEditPac
-(def-package iedit
+(use-package iedit
   :bind ("C-z ," . iedit-mode)
   :diminish)
 ;; -IEditPac

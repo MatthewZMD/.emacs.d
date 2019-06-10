@@ -145,8 +145,6 @@ decrease this. If you experience stuttering, increase this.")
 
 (require 'init-fonts)
 
-(require 'init-diminish)
-
 (require 'init-scroll)
 
 (require 'init-symbol)

@@ -41,12 +41,11 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
-(require 'init-const)
+(eval-when-compile
+  (require 'init-const))
 
 ;; ProjPac
-(def-package projectile
+(use-package projectile
   :bind
   ("C-c p" . projectile-command-map)
   ("C-z i" . projectile-switch-project)
