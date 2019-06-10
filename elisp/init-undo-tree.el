@@ -6,7 +6,7 @@
 ;; Description: Initialize Undo Tree
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 15:28:48 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d undo-tree
 ;; Compatibility:
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes undo-tree
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

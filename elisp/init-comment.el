@@ -6,7 +6,7 @@
 ;; Description: Initialize Evil-Nerd-Commenter
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Apr  5 00:21:58 2019 (-0400)
-;; Version: 1.0.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d evil-nerd-commenter
 ;; Compatibility: emacs-version >= 25.1
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes evil-nerd-commenter
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

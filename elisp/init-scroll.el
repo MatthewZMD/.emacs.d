@@ -6,7 +6,7 @@
 ;; Description: Initialize Smooth Scroll
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 08:30:08 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d smooth-scroll
 ;; Compatibility: emacs-version >= 25.1
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes smooth scroll
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

@@ -6,7 +6,7 @@
 ;; Description: Initialize Web, Emmet, JS2, TypeScript, Tide
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:03:43 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d web-mode emmet js2-mode typescript-mode tide
 ;; Compatibility:
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes web-mode emmet js2-mode typescript-mode tide
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

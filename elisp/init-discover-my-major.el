@@ -6,7 +6,7 @@
 ;; Description: Initialize Discover-My-Major
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 15:38:29 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d discover-my-major
 ;; Compatibility: emacs-version >= 25.1
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes discover-my-major
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

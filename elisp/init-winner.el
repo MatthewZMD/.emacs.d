@@ -6,7 +6,7 @@
 ;; Description: Initialize Winner Mode
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:39:31 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -17,11 +17,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes winner mode
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

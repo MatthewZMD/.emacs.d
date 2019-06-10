@@ -6,7 +6,7 @@
 ;; Description: Initialize All-The-Icons
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:06:08 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d all-the-icons
 ;; Compatibility: emacs-version >= 25.1
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes all-the-icons, all-the-icons-dired, all-the-icons-ivy
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

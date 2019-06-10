@@ -6,7 +6,7 @@
 ;; Description: Initialize CCMode
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 25.1
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initialize cc-mode
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,7 +36,7 @@
 ;;
 ;;; Code:
 
-;; CCMode
+;; CCModeConf
 (use-package cc-mode
   :ensure nil
   :bind (:map c-mode-base-map
@@ -51,7 +46,7 @@
                            (setq-default c-basic-offset 4)
                            (c-set-offset 'comment-intro 0)
                            (c-set-offset 'innamespace 0))))
-;; -CCMode
+;; -CCModeConf
 
 ;; CPPFontLockPac
 (use-package modern-cpp-font-lock

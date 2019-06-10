@@ -6,7 +6,7 @@
 ;; Description: Initialize Games
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:16:53 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d tetris speed-type 2048
 ;; Compatibility:
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes tetris, speed-type, 2048
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

@@ -6,7 +6,7 @@
 ;; Description: Initialize Company
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; Package-Requires: ()
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company
@@ -17,11 +17,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes company
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

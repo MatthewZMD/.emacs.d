@@ -6,7 +6,7 @@
 ;; Description: Initialize Which-key
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 15:06:27 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d which-key
 ;; Compatibility: emacs-version >= 25.1
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes which-key
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
