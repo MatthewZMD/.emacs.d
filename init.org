@@ -458,6 +458,11 @@
      - All OS: Install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and add to =PATH=.
 
    Note: If Displaying =No LSP server for c-mode=, execute =M-x ielm= and verify clangd is installed using =(describe-variable *clangd*)= or =(executable-find lsp-clients-clangd-executable)=.
+*** CC Mode
+    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CCMode" :range-end "-CCMode" :lines "7-56"
+*** Modern C++ Font Lock
+    [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
+    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "59-62"
 ** Python
 *** LSP Python MS
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].

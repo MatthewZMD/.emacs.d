@@ -1,21 +1,21 @@
-;;; init-indent.el --- -*- lexical-binding: t -*-
+;;; init-c.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-indent.el
-;; Description: Initialize Indentation
+;; Filename: init-c.el
+;; Description: Initialize CCMode
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 10:29:56 2019 (-0400)
+;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d highlight-indent-guides indentation
+;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes highlight-indent-guides
+;; This initialize cc-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,27 +40,27 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
 (require 'init-package)
-(require 'init-const)
 
-;; HighLightIndentPac
-(when sys/gui
-  (def-package highlight-indent-guides
+;; CCMode
+(def-package cc-mode
+  :ensure nil
+  :bind (:map c-mode-base-map
+              ("<f5>" . compile))
+  :hook (c-mode-common . (lambda ()
+                           (c-set-style "bsd")
+                           (setq-default c-basic-offset 4)
+                           (c-set-offset 'comment-intro 0)
+                           (c-set-offset 'innamespace 0))))
+;; -CCMode
+
+;; CPPFontLockPac
+(def-package modern-cpp-font-lock
     :diminish
-    :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
-    :config
-    (setq highlight-indent-guides-method 'character)
-    (setq highlight-indent-guides-responsive 'top)
-    (setq highlight-indent-guides-delay 0)
-    (setq highlight-indent-guides-auto-character-face-perc 7)))
-;; -HighLightIndentPac
+    :init (modern-c++-font-lock-global-mode t))
+;; -CPPFontLockPac
 
-;; IndentConfig
-(setq-default indent-tabs-mode nil)
-(setq-default indent-line-function 'insert-tab)
-(setq-default tab-width 4)
-;; -IndentConfig
-
-(provide 'init-indent)
+(provide 'init-c)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-indent.el ends here
+;;; init-c.el ends here
