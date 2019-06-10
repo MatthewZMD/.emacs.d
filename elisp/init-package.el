@@ -16,6 +16,7 @@
 ;;; Commentary:
 ;;
 ;; This file initializes packages from melpa using use-package macro
+;; as well as auto-package-update, diminish, gnu-elpa-keyring-update
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -87,6 +88,10 @@
 ;; DimPac
 (use-package diminish)
 ;; -DimPac
+
+;; GNUElpaKeyPac
+(use-package gnu-elpa-keyring-update)
+;; -GNUElpaKeyPac
 
 (provide 'init-package)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
