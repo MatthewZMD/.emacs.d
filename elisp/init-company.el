@@ -41,10 +41,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
 ;; ComPac
-(def-package company
+(use-package company
   :diminish company-mode
   :defer t
   :init (global-company-mode)

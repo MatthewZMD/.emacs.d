@@ -1,21 +1,21 @@
-;;; init-diminish.el --- -*- lexical-binding: t -*-
+;;; init-c.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-diminish.el
-;; Description: Initialize Diminish
+;; Filename: init-c.el
+;; Description: Initialize CCMode
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 08:19:14 2019 (-0400)
+;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d diminish
+;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes diminish
+;; This initialize cc-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,12 +40,25 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
-;; DimPac
-(def-package diminish)
-;; -DimPac
+;; CCMode
+(use-package cc-mode
+  :ensure nil
+  :bind (:map c-mode-base-map
+              ("<f5>" . compile))
+  :hook (c-mode-common . (lambda ()
+                           (c-set-style "bsd")
+                           (setq-default c-basic-offset 4)
+                           (c-set-offset 'comment-intro 0)
+                           (c-set-offset 'innamespace 0))))
+;; -CCMode
 
-(provide 'init-diminish)
+;; CPPFontLockPac
+(use-package modern-cpp-font-lock
+    :diminish
+    :init (modern-c++-font-lock-global-mode t))
+;; -CPPFontLockPac
+
+(provide 'init-c)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-diminish.el ends here
+;;; init-c.el ends here

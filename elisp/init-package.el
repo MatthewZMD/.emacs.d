@@ -8,14 +8,14 @@
 ;; Created: Thu Mar 14 10:53:00 2019 (-0400)
 ;; Version: 1.2.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d packages use-package def-package
+;; Keywords: M-EMACS .emacs.d packages use-package
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This file initializes packages from melpa as well as creating def-package macro
+;; This file initializes packages from melpa using use-package macro
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,75 +43,44 @@
 
 ;; MelpaPackages
 ;; Select the folder to store packages
+;; Comment / Uncomment to use desired sites
 (setq package-user-dir "~/.emacs.d/elpa"
       package-archives
-      '(;; Comment / Uncomment when necessary sites are used
-        ("gnu"   . "http://elpa.gnu.org/packages/")
+      '(("gnu"   . "http://elpa.gnu.org/packages/")
         ("melpa" . "https://melpa.org/packages/")
         ("melpa stable" . "http://stable.melpa.org/packages/")
-        ("cselpa" . "https://elpa.thecybershadow.net/packages/")
-        ;;("org"   . "http://orgmode.org/elpa/")
-        ))
+        ("cselpa" . "https://elpa.thecybershadow.net/packages/")))
 ;; -MelpaPackages
 
-;; ConfigurePackageManagement
-;; Disable package initialize after us.  We either initialize it
-;; anyway in case of interpreted .emacs, or we don't want slow
-;; initizlization in case of byte-compiled .emacs.elc.
-(setq package-enable-at-startup nil)
-
-;; Ask package.el to not add (package-initialize) to .emacs.d
-(setq package--init-file-ensured t)
+;; ConfigurePackageManager
+(unless (bound-and-true-p package--initialized) ; To avoid warnings in 27
+  (setq package-enable-at-startup nil)          ; To prevent initializing twice
+  (package-initialize))
 
 ;; set use-package-verbose to t for interpreted .emacs,
 ;; and to nil for byte-compiled .emacs.elc.
 (eval-and-compile
   (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
-;; -ConfigurePackageManagement
+;; -ConfigurePackageManager
 
-;; UsePackageWrapperMacro
-(mapc #'(lambda (add) (add-to-list 'load-path add))
-      (eval-when-compile
-        ;; (require 'package)
-        (package-initialize)
-        ;; Install use-package if not installed yet.
-        (unless (package-installed-p 'use-package)
-          (package-refresh-contents)
-          (package-install 'use-package))
-        ;; (require 'use-package)
-        ;; (setq use-package-always-ensure t) ;; I will handle this myself
-        (let ((package-user-dir-real (file-truename package-user-dir)))
-          ;; The reverse is necessary, because outside we mapc
-          ;; add-to-list element-by-element, which reverses.
-          (nreverse
-           (apply #'nconc
-                  ;; Only keep package.el provided loadpaths.
-                  (mapcar #'(lambda (path)
-                              (if (string-prefix-p package-user-dir-real path)
-                                  (list path)
-                                nil))
-                          load-path))))))
+;; ConfigureUsePackage
+;; Install use-package if not installed yet.
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-and-compile
+  (setq use-package-always-ensure t)
+  (setq use-package-expand-minimally t)
+  (setq use-package-enable-imenu-support t))
+
 (eval-when-compile
   (require 'use-package)
-  ;; Always ensure package is installed
-  (setq use-package-always-ensure t))
-(require 'bind-key)
-;; -UsePackageWrapperMacro
-
-;; DefPackage
-(defmacro def-package (name &rest plist)
-  "A thin wrapper around `use-package'."
-  ;; If byte-compiling, ignore this package if it doesn't meet the condition.
-  ;; This avoids false-positive load errors.
-  (unless (and (bound-and-true-p byte-compile-current-file)
-               (or (and (plist-member plist :if)     (not (eval (plist-get plist :if))))
-                   (and (plist-member plist :when)   (not (eval (plist-get plist :when))))
-                   (and (plist-member plist :unless) (eval (plist-get plist :unless)))))
-    `(use-package ,name ,@plist)))
-;; -DefPackage
+  (require 'bind-key))
+;; -ConfigureUsePackage
 
 ;; AutoPackageUpdate
-(def-package auto-package-update
+(use-package auto-package-update
   :config
   (setq auto-package-update-interval 7) ;; in days
   (setq auto-package-update-prompt-before-update t)
@@ -119,6 +88,10 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 ;; -AutoPackageUpdate
+
+;; DimPac
+(use-package diminish)
+;; -DimPac
 
 (provide 'init-package)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

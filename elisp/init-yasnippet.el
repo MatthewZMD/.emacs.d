@@ -40,10 +40,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
 ;; YASnippetPac
-(def-package yasnippet
+(use-package yasnippet
   :diminish yas-minor-mode
   :hook (prog-mode . yas-minor-mode)
   :bind
@@ -53,7 +52,7 @@
 ;; -YASnippetPac
 
 ;; SnippetsPac
-(def-package yasnippet-snippets
+(use-package yasnippet-snippets
   :defer t
   :after yasnippet)
 ;; -SnippetsPac

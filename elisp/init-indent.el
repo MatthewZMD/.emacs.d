@@ -40,12 +40,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
-(require 'init-const)
+
+(eval-when-compile
+  (require 'init-const))
 
 ;; HighLightIndentPac
-(when *gui-emacs*
-  (def-package highlight-indent-guides
+(when sys/gui
+  (use-package highlight-indent-guides
     :diminish
     :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
     :config
@@ -57,11 +58,8 @@
 
 ;; IndentConfig
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq-default c-basic-offset 4)
 (setq-default indent-line-function 'insert-tab)
-(c-set-offset 'comment-intro 0)
-(c-set-offset 'innamespace 0)
+(setq-default tab-width 4)
 ;; -IndentConfig
 
 (provide 'init-indent)

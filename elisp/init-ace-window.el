@@ -40,10 +40,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
 ;; AceWindowPac
-(def-package ace-window
+(use-package ace-window
   :bind ("C-x C-o" . ace-window))
 ;; -AceWindowPac
 

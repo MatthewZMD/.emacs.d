@@ -41,11 +41,11 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-(require 'init-global-config)
+(eval-when-compile
+  (require 'init-global-config))
 
 ;; SmartParensPac
-(def-package smartparens
+(use-package smartparens
   :hook (prog-mode . smartparens-mode)
   :diminish smartparens-mode
   :bind (:map smartparens-mode-map
@@ -95,7 +95,7 @@
 ;; -SmartParensPac
 
 ;; AwesomePairPac
-(def-package awesome-pair
+(use-package awesome-pair
   :load-path "~/.emacs.d/site-elisp/awesome-pair"
   :bind ("C-c C-k" . awesome-pair-kill)
   :config

@@ -1,21 +1,22 @@
-;;; init-games.el --- -*- lexical-binding: t -*-
+;;; early-init.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-games.el
-;; Description: Initialize Games
+;; Filename: early-init.el
+;; Description: Early initialization
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 11:16:53 2019 (-0400)
-;; Version: 1.2.0
+;; Created: Sun Jun  9 17:58:05 2019 (-0400)
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d tetris speed-type 2048
-;; Compatibility:
+;; Keywords: M-EMACS .emacs.d init early-init
+;; Compatibility: emacs-version >= 27
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes tetris, speed-type, 2048
+;; Emacs HEAD (27+) introduces early-init.el, which is run before init.el,
+;; before package and UI initialization happens.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,28 +42,30 @@
 ;;
 ;;; Code:
 
-;; TetrisConfig
-(defvar tetris-mode-map
-  (make-sparse-keymap 'tetris-mode-map))
-(define-key tetris-mode-map (kbd "C-p") 'tetris-rotate-prev)
-(define-key tetris-mode-map (kbd "C-n") 'tetris-move-down)
-(define-key tetris-mode-map (kbd "C-b") 'tetris-move-left)
-(define-key tetris-mode-map (kbd "C-f") 'tetris-move-right)
-(define-key tetris-mode-map (kbd "C-SPC") 'tetris-move-bottom)
-(defadvice tetris-end-game (around zap-scores activate)
-  (save-window-excursion ad-do-it))
-;; -TetrisConfig
+;; DeferGC
+(setq gc-cons-threshold 80000000
+      gc-cons-percentage 0.6)
+;; -DeferGC
 
-;; SpeedTypePac
-(use-package speed-type
-  :defer t)
-;; -SpeedTypePac
+;; UnsetPES
+(setq package-enable-at-startup nil)
+;; -UnsetPES
 
-;; 2048Pac
-(use-package 2048-game
-  :defer t)
-;; -2048Pac
+;; UnsetFNHA
+(setq file-name-handler-alist-original file-name-handler-alist)
+(setq file-name-handler-alist nil)
+;; -UnsetFNHA
 
-(provide 'init-games)
+;; UnsetSRF
+(setq site-run-file nil)
+;; -UnsetSRF
+
+;; DisableUnnecessaryInterface
+(unless (and (display-graphic-p) (eq system-type 'darwin))
+  (push '(menu-bar-lines . 0) default-frame-alist))
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+;; -DisableUnnecessaryInterface
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-games.el ends here
+;;; early-init.el ends here

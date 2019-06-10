@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; DiredPackage
-(def-package dired
+(use-package dired
   :ensure nil
   :config
   ;; Always delete and copy recursively

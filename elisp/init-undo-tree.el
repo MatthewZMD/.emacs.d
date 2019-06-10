@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; UndoTreePac
-(def-package undo-tree
+(use-package undo-tree
   :defer t
   :diminish undo-tree-mode
   :init (global-undo-tree-mode))

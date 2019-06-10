@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; ZonePac
-(def-package zone
+(use-package zone
   :ensure nil
   :config
   ;; (zone-when-idle 600) ; in seconds

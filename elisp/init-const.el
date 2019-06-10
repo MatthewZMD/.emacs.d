@@ -47,20 +47,50 @@
 ;; -UserInfo
 
 ;; Consts
-(defconst *gui-emacs* (display-graphic-p))
+(defconst sys/gui
+  (display-graphic-p)
+  "Are we running on a GUI Emacs?")
 
-(defconst *rg* (executable-find "rg"))
+(defconst sys/win32p
+  (eq system-type 'windows-nt)
+  "Are we running on a WinTel system?")
 
-(defconst *tr* (executable-find "tr"))
+(defconst sys/linuxp
+  (eq system-type 'gnu/linux)
+  "Are we running on a GNU/Linux system?")
 
-(defconst *mvn* (executable-find "mvn"))
+(defconst sys/macp
+  (eq system-type 'darwin)
+  "Are we running on a Mac system?")
 
-(defconst *clangd* (or (executable-find "clangd")  ;; usually
-                       (executable-find "/usr/local/opt/llvm/bin/clangd")))  ;; macOS
+(defconst *rg*
+  (executable-find "rg")
+  "Do we have ripgrep?")
 
-(defconst *gcc* (executable-find "gcc"))
+(defconst *tr*
+  (executable-find "tr")
+  "Do we have tr?")
 
-(defconst *curl* (executable-find "curl"))
+(defconst *mvn*
+  (executable-find "mvn")
+  "Do we have Maven?")
+
+(defconst *clangd*
+  (or (executable-find "clangd")  ;; usually
+      (executable-find "/usr/local/opt/llvm/bin/clangd"))  ;; macOS
+  "Do we have clangd?")
+
+(defconst *gcc*
+  (executable-find "gcc")
+  "Do we have gcc?")
+
+(defconst *curl*
+  (executable-find "curl")
+  "Do we have curl?")
+
+(defconst sys/rootp
+  (string-equal "root" (getenv "USER"))
+  "Are you a ROOT user?")
 ;; -Consts
 
 (provide 'init-const)

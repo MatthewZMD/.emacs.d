@@ -42,12 +42,12 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-(require 'init-const)
+(eval-when-compile
+  (require 'init-package))
 
 ;; DoomThemes
-(when *gui-emacs*
-  (def-package doom-themes
+(when sys/gui
+  (use-package doom-themes
     :custom-face
     (cursor ((t (:background "BlanchedAlmond"))))
     :config
@@ -55,12 +55,12 @@
     (doom-themes-visual-bell-config)
     ;; Corrects (and improves) org-mode's native fontification.
     (doom-themes-org-config)
-    (load-theme 'doom-dracula t)))
+    (load-theme 'doom-Iosvkem t)))
 ;; -DoomThemes
 
 ;; DoomModeline
-(when *gui-emacs*
-  (def-package doom-modeline
+(when sys/gui
+  (use-package doom-modeline
     :hook (after-init . doom-modeline-mode)
     :config
     ;; Don't compact font caches during GC. Windows Laggy Issue

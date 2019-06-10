@@ -41,10 +41,8 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-
 ;; OrgPac
-(def-package org
+(use-package org
   :ensure nil
   :defer t
   :bind
@@ -63,16 +61,16 @@
 ;; -OrgPac
 
 ;; TocOrgPac
-(def-package toc-org
+(use-package toc-org
   :hook (org-mode . toc-org-mode))
 ;; -TocOrgPac
 
 ;; HTMLIZEPac
-(def-package htmlize :defer t)
+(use-package htmlize :defer t)
 ;; -HTMLIZEPac
 
 ;; OXGFMPac
-(def-package ox-gfm :defer t)
+(use-package ox-gfm :defer t)
 ;; -OXGFMPac
 
 (provide 'init-org)

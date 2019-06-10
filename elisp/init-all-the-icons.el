@@ -40,17 +40,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
-(require 'init-const)
+
+(eval-when-compile
+  (require 'init-const))
 
 ;; ATIPac
-(when *gui-emacs*
-  (def-package all-the-icons))
+(when sys/gui
+  (use-package all-the-icons))
 ;; -ATIPac
 
 ;; ATIDiredPac
-(when *gui-emacs*
-  (def-package all-the-icons-dired
+(when sys/gui
+  (use-package all-the-icons-dired
     :after all-the-icons
     :diminish
     :custom-face
@@ -59,8 +60,8 @@
 ;; -ATIDiredPac
 
 ;; ATIIvyPac
-(when *gui-emacs*
-  (def-package all-the-icons-ivy
+(when sys/gui
+  (use-package all-the-icons-ivy
     :after all-the-icons
     :config
     (all-the-icons-ivy-setup)

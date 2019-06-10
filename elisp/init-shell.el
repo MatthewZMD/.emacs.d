@@ -41,17 +41,17 @@
 ;;
 ;;; Code:
 
-(require 'init-package)
-(require 'init-const)
+(eval-when-compile
+  (require 'init-const))
 
 ;; ShellHere
-(def-package shell-here
+(use-package shell-here
   :bind ("C-!" . shell-here))
 ;; -ShellHere
 
 ;; TermKeysPac
-(unless *gui-emacs*
-  (def-package term-keys
+(unless sys/gui
+  (use-package term-keys
     :config (term-keys-mode t)))
 ;; -TermKeysPac
 

@@ -40,19 +40,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
-(require 'init-const)
+
+(eval-when-compile
+  (require 'init-const))
 
 ;; Please use init-acct.el to modify your LeetCode account info.
 
 ;; LeetCodePac
 (when *curl*
-  (def-package leetcode
+  (use-package leetcode
     :load-path "~/.emacs.d/site-elisp/leetcode.el"
     :commands (leetcode)
     :init
-    (def-package request-deferred :defer t)
-    (def-package graphql :defer t)
+    (use-package request-deferred :defer t)
+    (use-package graphql :defer t)
     :config
     ;; (setq request-message-level 'debug)
     ;; (setq request-log-level 'debug)

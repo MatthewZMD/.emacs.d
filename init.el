@@ -47,40 +47,41 @@
   (error "M-EMACS requires Emacs 25.1 and above!"))
 ;; -CheckVer
 
-;; DisableUnnecessaryInterface
-(if (display-graphic-p)
-    (progn
-      (scroll-bar-mode -1)
-      (tool-bar-mode   -1)
-      (tooltip-mode    -1)))
-(menu-bar-mode   -1)
-;; -DisableUnnecessaryInterface
+;; BetterGCThreshold
+(defvar better-gc-cons-threshold 16777216 ; 16mb
+  "The default value to use for `gc-cons-threshold'. If you experience freezing,
+decrease this. If you experience stuttering, increase this.")
+;; -BetterGCThreshold
 
-;; AvoidStartupGarbageCollect
-(setq gc-cons-threshold-original gc-cons-threshold)
-(setq gc-cons-threshold (* 1024 1024 100))
-;; -AvoidStartupGarbageCollect
+;; RestoreGC
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq-default gc-cons-threshold better-gc-cons-threshold ;; 16mb
+                          gc-cons-percentage 0.1)
+            (setq file-name-handler-alist file-name-handler-alist-original)
+            (makunbound 'file-name-handler-alist-original)))
+;; -RestoreGC
 
-;; UnsetFNHA
-(setq file-name-handler-alist-original file-name-handler-alist)
-(setq file-name-handler-alist nil)
-;; -UnsetFNHA
+;; AutoGC
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (if (boundp 'after-focus-change-function)
+                (add-function :after after-focus-change-function
+                              (lambda ()
+                                (unless (frame-focus-state)
+                                  (garbage-collect))))
+              (add-hook 'focus-out-hook 'garbage-collect))
+            ;; -AutoGC MinibufferGC
+            (defun gc-minibuffer-setup-hook ()
+              (setq gc-cons-threshold better-gc-cons-threshold))
 
-;; AutoGbgCollect
-(run-with-idle-timer 2 t (lambda () (garbage-collect)))
-;; -AutoGbgCollect
+            (defun gc-minibuffer-exit-hook ()
+              (garbage-collect)
+              (setq gc-cons-threshold 800000))
 
-;; ResetGC
-(run-with-idle-timer
- 5 nil
- (lambda ()
-   (setq gc-cons-threshold gc-cons-threshold-original)
-   (setq file-name-handler-alist file-name-handler-alist-original)
-   (makunbound 'gc-cons-threshold-original)
-   (makunbound 'file-name-handler-alist-original)
-   (message "gc-cons-threshold and file-name-handler-alist restored")))
-;; -ResetGC
-
+            (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
+            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
+;; -MinibufferGC
 
 ;; LoadPath
 (defun update-to-load-path (folder)
@@ -108,6 +109,8 @@
 
 ;; Global Functionalities
 (require 'init-global-config)
+
+(require 'init-func)
 
 (require 'init-dired)
 
@@ -141,8 +144,6 @@
 (require 'init-dashboard)
 
 (require 'init-fonts)
-
-(require 'init-diminish)
 
 (require 'init-scroll)
 
@@ -182,6 +183,8 @@
 ;; Programming
 
 (require 'init-lsp)
+
+(require 'init-c)
 
 ;; (require 'init-arduino)
 
