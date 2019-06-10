@@ -8,7 +8,7 @@
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d lsp lsp-java lsp-python
+;; Keywords: M-EMACS .emacs.d lsp lsp-java
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -16,10 +16,7 @@
 ;;; Commentary:
 ;;
 ;; This initializes LSP mode , DAP mode, and its language-specific modes
-;;
-;; All of the current language-specfic modes:
-;; LSP-Java
-;; LSP-Python-MS
+;; All of the current language-specfic modes: LSP-Java
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -118,18 +115,6 @@
      lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
      lsp-java-workspace-dir (expand-file-name "~/eclipse.jdt.ls/workspace/"))))
 ;; -LSPJavaPac
-
-;; LSPPythonPac
-(use-package lsp-python-ms
-  :after lsp-mode
-  :config
-  ;; for dev build of language server
-  (setq lsp-python-ms-dir
-        (expand-file-name "~/.emacs.d/python-language-server/output/bin/Release/"))
-  ;; for executable of language server, if it's not symlinked on your PATH
-  (setq lsp-python-ms-executable
-        "~/.emacs.d/python-language-server/output/bin/Release/win10-x64/publish/Microsoft.Python.LanguageServer"))
-;; -LSPPythonPac
 
 (provide 'init-lsp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

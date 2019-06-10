@@ -181,6 +181,8 @@ decrease this. If you experience stuttering, increase this.")
 
 (require 'init-c)
 
+(require 'init-python)
+
 ;; (require 'init-arduino)
 
 ;; Web Development
