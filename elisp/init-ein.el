@@ -38,6 +38,7 @@
 
 ;; EINPac
 (use-package ein
+  :disabled
   :defer t)
 ;; -EINPac
 

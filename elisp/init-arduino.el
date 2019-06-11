@@ -38,6 +38,7 @@
 
 ;; ArduinoPac
 (use-package arduino-mode
+  :disabled
   :defer t
   :config
   (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
@@ -47,6 +48,7 @@
 
 ;; CompanyArduinoPac
 (use-package company-arduino
+  :disabled
   :defer t
   :config
   (add-hook 'irony-mode-hook 'company-arduino-turn-on)

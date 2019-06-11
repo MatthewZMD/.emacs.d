@@ -94,6 +94,7 @@
 
 ;; DAPPac
 (use-package dap-mode
+  :disabled
   :after lsp-mode
   :defer t
   :config

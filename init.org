@@ -105,7 +105,6 @@
   - [[Evil-Nerd-Commenter][Evil-Nerd-Commenter]]
   - [[Iedit][Iedit]]
   - [[Header][Header]]
-  - [[Jupyter Notebook][Jupyter Notebook]]
 - [[Programming][Programming]]
   - [[Language Server Protocol][Language Server Protocol]]
   - [[Debug Adapter Protocol][Debug Adapter Protocol]]
@@ -170,7 +169,7 @@
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-89"
 * Package Management
-  Some packages are turned off because I don't use them very often. Please verify them in =init.el=.
+  Some packages are disabled with the =:disabled= tag, because I don't use them very often. They might not work.
 ** Melpa Packages
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "41-49"
    Load all Melpa packages in =elisp/= to =load-path= directly to reduce startup time.
@@ -432,14 +431,6 @@
 ** Header
    [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
    #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "40-48"
-** Jupyter Notebook
-   [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
-   - Currently Off
-*** Usage
-    1. Execute =M-x ein:run= to launch a local Jupyter session.
-    2. Login with =M-x ein:login= to a local or remote session.
-    3. Open =.ipynb= file and press =C-c C-o=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "40-42"
 * Programming
 ** Language Server Protocol
 *** LSP Mode
@@ -451,15 +442,15 @@
 *** Company LSP
     [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "89-93"
-** TODO Debug Adapter Protocol
+** Debug Adapter Protocol
    [[https://github.com/emacs-lsp/dap-mode][DAP Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
-   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "96-102"
+   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "96-103"
 ** Java
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]]. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]].
 
     *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]] and add to =PATH=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "108-117"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "109-118"
 ** C/C++
    *Prerequisite*:
    - Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
@@ -494,20 +485,17 @@
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
-    - Currently Off
-    #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "ArduinoPac" :range-end "-ArduinoPac" :lines "40-46"
+    #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "ArduinoPac" :range-end "-ArduinoPac" :lines "40-47"
 *** Company Arduino
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
-    - Currently Off
-    #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "49-55"
-** TODO Jupyter Notebook
+    #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "50-57"
+** Jupyter Notebook
    [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
-   - Currently Off
 *** Usage
     1. Execute =M-x ein:run= to launch a local Jupyter session.
     2. Login with =M-x ein:login= to a local or remote session.
     3. Open =.ipynb= file and press =C-c C-o=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "40-42"
+    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "40-43"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and add to path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC text
