@@ -442,22 +442,22 @@
 ** Language Server Protocol
 *** LSP Mode
     [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]]. M-EMACS tries to use lsp-mode whenever possible.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "44-57"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "44-58"
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "60-86"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "61-87"
 *** Company LSP
     [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "89-93"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "90-94"
 ** Debug Adapter Protocol
    [[https://github.com/emacs-lsp/dap-mode][DAP Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
-   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "96-103"
+   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "97-104"
 ** Java
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]]. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]].
 
     *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]] and add to =PATH=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "109-118"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "110-119"
 ** C/C++
    *Prerequisite*:
    - Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.

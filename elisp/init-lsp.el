@@ -47,6 +47,7 @@
   :init
   (setq lsp-auto-guess-root nil)
   (setq lsp-prefer-flymake nil) ; Use flycheck instead of flymake
+  :bind ("C-z C-f" . lsp-format-buffer)
   :hook ((java-mode . lsp)
          (python-mode . lsp)
          (js2-mode . lsp)
