@@ -7,7 +7,7 @@
   As a young EMACSer, I have experienced the struggle to find a detailed configuration that is loosely coupled and highly readable. This mostly due to the nature of source codes, sometimes comments are harder to notice or simply not enough. Therefore I decided to construct this README and present any human-readable explanation in a much more human-friendly way. Anyone, particularly Emacs beginners who have no idea where to start with their personal config, is more than welcome to read through this document and copy/paste any part to use it on their own.
 
   This configuration is designed and tested for *GNU Emacs 25.1 and above only*. However, it is suggested to use *emacs27*, the latest version currently available.
-  #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "41-43"
+  #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "40-42"
 ** About README
    This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
 ** Installation
@@ -156,16 +156,16 @@
     #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "64-68"
 ** Restore Default After Startup
     A large gc-cons-threshold will cause freezing and stuttering during long-term interactive use.
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "RestoreGC" :range-end "-RestoreGC" :lines "52-58"
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "RestoreGC" :range-end "-RestoreGC" :lines "51-57"
 ** Garbage Collect Configuration
 *** Garbage Collect When Emacs is Out of Focus
     Note: Since Emacs27.1, =focus-out-hook= is obsolete.
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "61-69"
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "60-68"
 *** Avoid Garbage Collect When Using Minibuffer
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "70-79"
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "69-78"
 ** Load-Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "82-94"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "81-93"
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "45-89"
 * Package Management

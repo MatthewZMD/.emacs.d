@@ -16,7 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This is the init.el file for M-EMACS
-;; Loads the README org file which contains the *REAL* meat
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
