@@ -105,6 +105,7 @@
   - [[Evil-Nerd-Commenter][Evil-Nerd-Commenter]]
   - [[Iedit][Iedit]]
   - [[Header][Header]]
+  - [[Jupyter Notebook][Jupyter Notebook]]
 - [[Programming][Programming]]
   - [[Language Server Protocol][Language Server Protocol]]
   - [[Debug Adapter Protocol][Debug Adapter Protocol]]
@@ -112,7 +113,6 @@
   - [[C/C++][C/C++]]
   - [[Python][Python]]
   - [[Arduino][Arduino]]
-  - [[Jupyter Notebook][Jupyter Notebook]]
 - [[Web Development][Web Development]]
   - [[Web Mode][Web Mode]]
   - [[JavaScript/TypeScript][JavaScript/TypeScript]]
@@ -431,6 +431,13 @@
 ** Header
    [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
    #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "40-48"
+** Jupyter Notebook
+   [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
+*** Usage
+    1. Execute =M-x ein:run= to launch a local Jupyter session.
+    2. Login with =M-x ein:login= to a local or remote session.
+    3. Open =.ipynb= file and press =C-c C-o=.
+    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "40-43"
 * Programming
 ** Language Server Protocol
 *** LSP Mode
@@ -489,13 +496,6 @@
 *** Company Arduino
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "50-57"
-** Jupyter Notebook
-   [[https://github.com/millejoh/emacs-ipython-notebook][Emacs IPython Notebook]], a [[https://jupyter.org/][Jupyter]] (formerly IPython) client in Emacs.
-*** Usage
-    1. Execute =M-x ein:run= to launch a local Jupyter session.
-    2. Login with =M-x ein:login= to a local or remote session.
-    3. Open =.ipynb= file and press =C-c C-o=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "40-43"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and add to path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC text

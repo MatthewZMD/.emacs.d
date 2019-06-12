@@ -173,7 +173,7 @@ decrease this. If you experience stuttering, increase this.")
 
 (require 'init-header)
 
-;; (require 'init-ein)
+(require 'init-ein)
 
 ;; Programming
 
@@ -183,7 +183,7 @@ decrease this. If you experience stuttering, increase this.")
 
 (require 'init-python)
 
-;; (require 'init-arduino)
+(require 'init-arduino)
 
 ;; Web Development
 (require 'init-webdev)
