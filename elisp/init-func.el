@@ -177,8 +177,8 @@ BEGIN and END are regexps which define the line range to use."
   "Instead of `save-buffer', save all opened buffers by calling `save-some-buffers' with ARG t."
   (interactive)
   (save-some-buffers t))
-
-(global-set-key [remap save-buffer] #'save-all-buffers)
+(global-set-key (kbd "C-x C-s") nil)
+(global-set-key (kbd "C-x C-s") #'save-all-buffers)
 ;; -SaveAllBuffers
 
 ;; DisplayLineOverlay
