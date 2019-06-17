@@ -54,7 +54,8 @@
          (typescript-mode . lsp)
          (html-mode . lsp)
          (c-mode . lsp)
-         (c++-mode . lsp)))
+         (c++-mode . lsp)
+         (objc-mode . lsp)))
 ;; -LSPPac
 
 ;; LSPUI

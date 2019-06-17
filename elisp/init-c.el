@@ -3,7 +3,7 @@
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
 ;; Filename: init-c.el
-;; Description: Initialize CCMode
+;; Description: Initialize cc-mode ccls modern-cpp-font-lock
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 2.0.0
@@ -15,7 +15,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initialize cc-mode
+;; This initialize cc-mode ccls modern-cpp-font-lock
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -36,6 +36,9 @@
 ;;
 ;;; Code:
 
+(eval-when-compile
+  (require 'init-const))
+
 ;; CCModeConf
 (use-package cc-mode
   :ensure nil
@@ -47,6 +50,15 @@
                            (c-set-offset 'comment-intro 0)
                            (c-set-offset 'innamespace 0))))
 ;; -CCModeConf
+
+;; CCLSPac
+(unless *clangd*
+  (use-package ccls
+    :hook ((c-mode c++-mode objc-mode) .
+           (lambda () (require 'ccls) (lsp)))
+    :config
+    (setq ccls-executable "~/tools/ccls/Release/ccls")))
+;; -CCLSPac
 
 ;; CPPFontLockPac
 (use-package modern-cpp-font-lock
