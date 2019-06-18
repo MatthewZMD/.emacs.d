@@ -45,7 +45,7 @@
   :bind (:map c-mode-base-map
               ("<f5>" . compile))
   :hook (c-mode-common . (lambda ()
-                           (c-set-style "bsd")
+                           (c-set-style "java")
                            (setq-default c-basic-offset 4)
                            (c-set-offset 'comment-intro 0)
                            (c-set-offset 'innamespace 0))))
