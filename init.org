@@ -326,10 +326,10 @@
     [[https://github.com/asok/all-the-icons-ivy][All The Icons Ivy]], an icon set for Ivy.
     #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIIvyPac" :range-end "-ATIIvyPac" :lines "58-66"
 ** Doom Themes
-   [[https://github.com/hlissner/emacs-doom-themes][doom-themes]], an UI plugin and pack of theme. It is currently default to doom-Iosvkem.
+   [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.
    #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "44-54"
 ** Doom Modeline
-   [[https://github.com/seagle0128/doom-modeline][Doom modeline]], a modeline from DOOM Emacs, but more powerful and faster.
+   [[https://github.com/seagle0128/doom-modeline][Doom Modeline]], a modeline from DOOM Emacs, but more powerful and faster.
    #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "57-68"
 ** Dashboard
 *** Dashboard
