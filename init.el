@@ -6,7 +6,7 @@
 ;; Description: Initialize M-EMACS
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
-;; Version: 1.2.0
+;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
 ;; Compatibility: emacs-version >= 25.1
@@ -193,6 +193,8 @@ decrease this. If you experience stuttering, increase this.")
 (require 'init-eww)
 
 (require 'init-leetcode)
+
+(require 'init-pyim)
 
 (require 'init-games)
 

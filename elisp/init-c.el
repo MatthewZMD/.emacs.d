@@ -37,7 +37,6 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'init-package)
   (require 'init-const))
 
 ;; CCModeConf
