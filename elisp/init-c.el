@@ -37,6 +37,7 @@
 ;;; Code:
 
 (eval-when-compile
+  (require 'init-package)
   (require 'init-const))
 
 ;; CCModeConf
@@ -62,8 +63,8 @@
 
 ;; CPPFontLockPac
 (use-package modern-cpp-font-lock
-    :diminish
-    :init (modern-c++-font-lock-global-mode t))
+  :diminish
+  :init (modern-c++-font-lock-global-mode t))
 ;; -CPPFontLockPac
 
 (provide 'init-c)
