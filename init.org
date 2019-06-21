@@ -498,6 +498,7 @@
     #+BEGIN_SRC text
     ln -sf $(git rev-parse --show-toplevel)/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer
     #+END_SRC
+    Don't forget to change the flag in the path for =lsp-python-ms-executable= too.
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "54-63"
 ** Arduino
 *** Arduino Mode

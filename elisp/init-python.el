@@ -59,7 +59,7 @@
         (expand-file-name "~/.emacs.d/python-language-server/output/bin/Release/"))
   ;; for executable of language server, if it's not symlinked on your PATH
   (setq lsp-python-ms-executable
-        "~/.emacs.d/python-language-server/output/bin/Release/win10-x64/publish/Microsoft.Python.LanguageServer"))
+        "~/.emacs.d/python-language-server/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer"))
 ;; -LSPPythonPac
 
 (provide 'init-python)
