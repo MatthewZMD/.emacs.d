@@ -160,7 +160,7 @@
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "RestoreGC" :range-end "-RestoreGC" :lines "51-57"
 ** Garbage Collect Configuration
 *** Garbage Collect When Emacs is Out of Focus
-    Note: Since Emacs27.1, =focus-out-hook= is obsolete.
+    *Note:* Since Emacs27.1, =focus-out-hook= is obsolete.
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "60-68"
 *** Avoid Garbage Collect When Using Minibuffer
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "69-78"
@@ -469,7 +469,7 @@
      - Install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] for Compilation.
      - It is a pain to build CCLS on Windows, install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and add to =PATH= instead.
 
-   Note: Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
+   *Note:* Compile using =<f5>= or =compile=. The command =gcc -o <file>.exe <fileA>.c <fileB>.c ...= is to compile C code into =<file>.exe=.
 *** CC Mode
     #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CCModeConf" :range-end "-CCModeConf" :lines "43-52"
 *** CCLS
@@ -490,11 +490,14 @@
       git clone --depth=1 https://github.com/Microsoft/python-language-server.git
       cd python-language-server/src/LanguageServer/Impl
       dotnet build -c Release
-      dotnet publish -c Release -r win10-x64
+      dotnet publish -c Release -r linux-x64
     #+END_SRC
-    Note: Change the value after =-r= flag (=win10-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
+    *Note*: Change the value after =-r= flag (=linux-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
 
-    Now, put =~\.emacs.d\python-language-server\output\bin\Release\win10-x64\publish= in your =PATH=.
+    Now, put =~\.emacs.d\python-language-server\output\bin\Release\linux-x64\publish= in your =PATH=:
+    #+BEGIN_SRC text
+    ln -sf $(git rev-parse --show-toplevel)/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer
+    #+END_SRC
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "54-63"
 ** Arduino
 *** Arduino Mode
