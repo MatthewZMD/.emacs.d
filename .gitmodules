@@ -13,3 +13,6 @@
 [submodule "site-elisp/leetcode.el"]
     path = site-elisp/leetcode.el
     url = https://github.com/kaiwk/leetcode.el.git
+[submodule "site-elisp/delete-block"]
+    path = site-elisp/delete-block
+    url = https://github.com/MatthewZMD/delete-block

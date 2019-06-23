@@ -1,21 +1,21 @@
-;;; init-search.el --- -*- lexical-binding: t -*-
+;;; init-delete.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-search.el
-;; Description: Initialize Color-RG
+;; Filename: init-delete.el
+;; Description: Initialize delete-block
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 11:01:43 2019 (-0400)
+;; Created: Sun Jun 23 09:17:04 2019 (-0400)
 ;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d color-rg rg
+;; Keywords: M-EMACS .emacs.d delete-block
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes Color-RG
+;; This initializes delete-block
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -36,28 +36,14 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-global-config)
-  (require 'init-const))
+;; DeleteBlockPac
+(use-package delete-block
+  :load-path "~/.emacs.d/site-elisp/delete-block"
+  :bind
+  (("M-d" . delete-block-forward)
+   ("C-<backspace>" . delete-block-backward)))
+;; -DeleteBlockPac
 
-;; ColorRGPac
-(when *rg*
-  (use-package color-rg
-    :load-path "~/.emacs.d/site-elisp/color-rg"
-    :bind ("C-z s s" . color-rg-search-input)))
-;; -ColorRGPac
-
-;; GrepDiredPac
-(when *rg*
-  (use-package grep-dired
-    :load-path "~/.emacs.d/site-elisp/grep-dired"
-    :bind
-    (("C-z s f" . grep-dired-dwim)
-     ("C-z s d" . grep-dired))))
-;; -GrepDiredPac
-
-
-
-(provide 'init-search)
+(provide 'init-delete)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ag.el ends here
+;;; init-delete.el ends here

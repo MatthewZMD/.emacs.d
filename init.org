@@ -68,13 +68,14 @@
 - [[Global Functionalities][Global Functionalities]]
   - [[User Information][User Information]]
   - [[Bindings][Bindings]]
-  - [[Directory and File Management][Directory and File Management]]
+  - [[File Management][File Management]]
   - [[Search][Search]]
   - [[Avy][Avy]]
   - [[Ivy][Ivy]]
   - [[Shell][Shell]]
   - [[Winner][Winner]]
   - [[Which Key][Which Key]]
+  - [[Delete Block][Delete Block]]
   - [[Popup Kill Ring][Popup Kill Ring]]
   - [[Undo Tree][Undo Tree]]
   - [[Discover My Major][Discover My Major]]
@@ -214,7 +215,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "40-42"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "40-58"
-** Directory and File Management
+** File Management
 *** Dired
     Dired, the directory editor.
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "40-63"
@@ -229,10 +230,10 @@
    *Prerequisite*: Please install [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and add =rg= to the =PATH=.
 *** Color-RG
     [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep that is used to search text.
-    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "44-49"
+    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "44-48"
 *** Grep-Dired
     [[https://github.com/manateelazycat/grep-dired][Grep-Dired]], a search and refactoring tool based on ripgrep that is used to search files.
-    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "GrepDiredPac" :range-end "-GrepDiredPac" :lines "52-58"
+    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "GrepDiredPac" :range-end "-GrepDiredPac" :lines "51-57"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "40-48"
@@ -260,10 +261,13 @@
    Winner mode restores old window layout.
    #+INCLUDE: "~/.emacs.d/elisp/init-winner.el" src emacs-lisp :range-begin "WinnerPac" :range-end "-WinnerPac" :lines "40-55"
 ** Which Key
-   [[https://github.com/justbur/emacs-which-key][Which key]], a feature that displays the key bindings following the incomplete command.
+   [[https://github.com/justbur/emacs-which-key][Which Key]], a feature that displays the key bindings following the incomplete command.
    #+INCLUDE: "~/.emacs.d/elisp/init-which-key.el" src emacs-lisp :range-begin "WhichKeyPac" :range-end "-WhichKeyPac" :lines "40-47"
+** Delete Block
+   [[https://github.com/manateelazycat/delete-block][Delete Block]], a feature that deletes block efficiently.
+   #+INCLUDE: "~/.emacs.d/elisp/init-delete.el" src emacs-lisp :range-begin "DeleteBlockPac" :range-end "-DeleteBlockPac" :lines "40-45"
 ** Popup Kill Ring
-   [[https://github.com/waymondo/popup-kill-ring][Popup kill ring]], a feature that provides the ability to browse Emacs kill ring in autocomplete style popup menu.
+   [[https://github.com/waymondo/popup-kill-ring][Popup Kill Ring]], a feature that provides the ability to browse Emacs kill ring in autocomplete style popup menu.
    #+INCLUDE: "~/.emacs.d/elisp/init-popup-kill-ring.el" src emacs-lisp :range-begin "PopKillRing" :range-end "-PopKillRing" :lines "40-42"
 ** Undo Tree
    [[https://www.emacswiki.org/emacs/UndoTree][Undo tree]], a feature that provides a visualization of the undos in a file.
