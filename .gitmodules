@@ -15,4 +15,4 @@
     url = https://github.com/kaiwk/leetcode.el.git
 [submodule "site-elisp/delete-block"]
     path = site-elisp/delete-block
-    url = https://github.com/MatthewZMD/delete-block
+    url = https://github.com/manateelazycat/delete-block.git
