@@ -54,6 +54,7 @@
 ;; CCLSPac
 (unless *clangd*
   (use-package ccls
+    :defer t
     :hook ((c-mode c++-mode objc-mode) .
            (lambda () (require 'ccls) (lsp)))
     :config

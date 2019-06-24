@@ -68,6 +68,7 @@
 (eval-and-compile
   (setq use-package-always-ensure t)
   (setq use-package-expand-minimally t)
+  (setq use-package-compute-statistics t)
   (setq use-package-enable-imenu-support t))
 
 (eval-when-compile

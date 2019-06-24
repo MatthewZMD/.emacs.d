@@ -63,7 +63,7 @@
 
 ;; PyimBaseDictPac
 (use-package pyim-basedict
-    :ensure nil
+    :after pyim
     :config (pyim-basedict-enable))
 ;; -PyimBaseDictPac
 
