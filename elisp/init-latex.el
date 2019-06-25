@@ -40,9 +40,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(require 'init-package)
 
-(def-package pdf-tools
+(use-package pdf-tools
   :ensure t
   :config
   (pdf-loader-install)
