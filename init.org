@@ -75,7 +75,6 @@
   - [[Shell][Shell]]
   - [[Winner][Winner]]
   - [[Which Key][Which Key]]
-  - [[Delete Block][Delete Block]]
   - [[Popup Kill Ring][Popup Kill Ring]]
   - [[Undo Tree][Undo Tree]]
   - [[Discover My Major][Discover My Major]]
@@ -263,9 +262,6 @@
 ** Which Key
    [[https://github.com/justbur/emacs-which-key][Which Key]], a feature that displays the key bindings following the incomplete command.
    #+INCLUDE: "~/.emacs.d/elisp/init-which-key.el" src emacs-lisp :range-begin "WhichKeyPac" :range-end "-WhichKeyPac" :lines "40-47"
-** Delete Block
-   [[https://github.com/manateelazycat/delete-block][Delete Block]], a feature that deletes block efficiently.
-   #+INCLUDE: "~/.emacs.d/elisp/init-delete.el" src emacs-lisp :range-begin "DeleteBlockPac" :range-end "-DeleteBlockPac" :lines "40-45"
 ** Popup Kill Ring
    [[https://github.com/waymondo/popup-kill-ring][Popup Kill Ring]], a feature that provides the ability to browse Emacs kill ring in autocomplete style popup menu.
    #+INCLUDE: "~/.emacs.d/elisp/init-popup-kill-ring.el" src emacs-lisp :range-begin "PopKillRing" :range-end "-PopKillRing" :lines "40-42"
@@ -408,15 +404,18 @@
    Display line numbers, and column numbers in modeline.
    #+INCLUDE: "~/.emacs.d/elisp/init-linenum.el" src emacs-lisp :range-begin "DisLineNum" :range-end "-DisLineNum" :lines "40-49"
 ** Parenthesis
-*** Matching Parenthesis
-    Match and automatically pair parenthesis, and show parenthesis even when it went offscreen from [[https://with-emacs.com/posts/editing/show-matching-lines-when-parentheses-go-off-screen/][Clemens Radermacher]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "MatchParens" :range-end "-MatchParens" :lines "101-140"
 *** Smartparens
     [[https://github.com/Fuco1/smartparens][Smartparens]], a minor mode for dealing with pairs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "SmartParensPac" :range-end "-SmartParensPac" :lines "43-90"
+    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "SmartParensPac" :range-end "-SmartParensPac" :lines "43-70"
 *** Awesome Pair
-    [[https://github.com/manateelazycat/awesome-pair][Awesome Pair]], a feature that provides grammatical parenthesis completion. All I need is this smart kill.
-    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "AwesomePairPac" :range-end "-AwesomePairPac" :lines "93-98"
+    [[https://github.com/manateelazycat/awesome-pair][Awesome Pair]], a feature that provides grammatical parenthesis completion.
+    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "AwesomePairPac" :range-end "-AwesomePairPac" :lines "73-83"
+*** Delete Block
+    [[https://github.com/manateelazycat/delete-block][Delete Block]], a feature that deletes block efficiently.
+    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "DeleteBlockPac" :range-end "-DeleteBlockPac" :lines "86-91"
+*** Match Parenthesis
+    Match and automatically pair parenthesis, and show parenthesis even when it went offscreen from [[https://with-emacs.com/posts/editing/show-matching-lines-when-parentheses-go-off-screen/][Clemens Radermacher]].
+    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "MatchParens" :range-end "-MatchParens" :lines "94-133"
 ** Indentation
    [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "43-52"

@@ -8,14 +8,14 @@
 ;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d parenthesis smartparens awesome-pair
-;; Compatibility:
+;; Keywords: M-EMACS .emacs.d parenthesis smartparens awesome-pair delete-block
+;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes parenthesis, smartparens, awesome-pair
+;; This initializes parenthesis smartparens awesome-pair delete-block
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,36 +46,16 @@
   :bind (:map smartparens-mode-map
               ("C-M-f" . sp-forward-sexp)
               ("C-M-b" . sp-backward-sexp)
-              ("C-M-d" . sp-down-sexp)
               ("C-M-a" . sp-backward-down-sexp)
-              ;; C-S-d is bound to dup line
-              ("C-S-b" . sp-beginning-of-sexp)
-              ("C-S-a" . sp-end-of-sexp)
               ("C-M-e" . sp-up-sexp)
               ("C-M-u" . sp-backward-up-sexp)
-              ("C-M-t" . sp-transpose-sexp)
-              ("C-M-n" . sp-forward-hybrid-sexp)
-              ("C-M-p" . sp-backward-hybrid-sexp)
               ("C-M-k" . sp-kill-sexp)
               ("C-M-w" . sp-copy-sexp)
-              ("M-<delete>" . sp-unwrap-sexp)
-              ;; I like using M-<backspace> to del backwards
-              ;; ("C-<backspace>" . sp-backward-unwrap-sexp)
-              ("C-<right>" . sp-forward-slurp-sexp)
-              ("C-<left>" . sp-forward-barf-sexp)
-              ("C-M-<left>" . sp-backward-slurp-sexp)
-              ("C-M-<right>" . sp-backward-barf-sexp)
               ("M-D" . sp-splice-sexp)
-              ;; This is Ctrl-Alt-Del lol
-              ;; ("C-M-<delete>" . sp-splice-sexp-killing-forward)
               ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
               ("C-S-<backspace>" . sp-splice-sexp-killing-around)
               ("C-]" . sp-select-next-thing-exchange)
-              ("C-<left_bracket>" . sp-select-previous-thing)
               ("C-M-]" . sp-select-next-thing)
-              ("M-F" . sp-forward-symbol)
-              ("M-B" . sp-backward-symbol)
-              ("C-\"" . sp-change-inner)
               ("M-i" . sp-change-enclosing))
   :config
   ;; Stop pairing single quotes in elisp
@@ -92,10 +72,23 @@
 ;; AwesomePairPac
 (use-package awesome-pair
   :load-path "~/.emacs.d/site-elisp/awesome-pair"
-  :bind ("C-c C-k" . awesome-pair-kill)
+  :bind
+  (("C-c C-k" . awesome-pair-kill)
+   ("SPC" . awesome-pair-space)
+   ("=" . awesome-pair-equal)
+   ("M-F" . awesome-pair-jump-right)
+   ("M-B" . awesome-pair-jump-left))
   :config
   (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1))))
 ;; -AwesomePairPac
+
+;; DeleteBlockPac
+(use-package delete-block
+  :load-path "~/.emacs.d/site-elisp/delete-block"
+  :bind
+  (("M-d" . delete-block-forward)
+   ("C-<backspace>" . delete-block-backward)))
+;; -DeleteBlockPac
 
 ;; MatchParens
 ;; Show matching parenthesis
