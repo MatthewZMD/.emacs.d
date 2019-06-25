@@ -120,8 +120,6 @@ decrease this. If you experience stuttering, increase this.")
 
 (require 'init-which-key)
 
-(require 'init-delete)
-
 (require 'init-popup-kill-ring)
 
 (require 'init-undo-tree)
