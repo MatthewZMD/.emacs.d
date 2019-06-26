@@ -52,7 +52,7 @@
          (python-mode . lsp)
          (js2-mode . lsp)
          (typescript-mode . lsp)
-         (html-mode . lsp)
+         (web-mode . lsp)
          (c-mode . lsp)
          (c++-mode . lsp)
          (objc-mode . lsp)))

@@ -516,7 +516,7 @@
   #+BEGIN_SRC text
     npm i -g typescript
     npm i -g typescript-language-server
-    npm install -g vscode-html-languageserver-bin
+    npm i -g vscode-html-languageserver-bin
   #+END_SRC
 ** Web Mode
    [[https://github.com/fxbois/web-mode][Web mode]], a major mode for editing web templates.
