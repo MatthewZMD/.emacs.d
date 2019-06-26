@@ -121,6 +121,7 @@
 - [[Miscellaneous][Miscellaneous]]
   - [[Org][Org]]
   - [[Emacs Web Wowser][Emacs Web Wowser]]
+  - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
   - [[Pinyin][Pinyin]]
   - [[Tetris][Tetris]]
@@ -555,6 +556,9 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EwwDefault" :range-end "-EwwDefault" :lines "40-41"
 *** Auto-Rename New EWW Buffers
     #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EwwRenameBuffer" :range-end "-EwwRenameBuffer" :lines "44-58"
+** PDF Tools
+   [[https://github.com/politza/pdf-tools][PDF Tools]], an Emacs support library for PDF files. It works best on non-Windows OS.
+   #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "43-50"
 ** LeetCode
    [[https://github.com/kaiwk/leetcode.el][LeetCode]], an Emacs LeetCode client. Note that this package is dependant on [[https://github.com/tkf/emacs-request/blob/master/request-deferred.el][Request-Deferred]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
 

@@ -1,8 +1,8 @@
-;;; init-latex.el --- -*- lexical-binding: t -*-
+;;; init-pdf.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-latex.el
+;; Filename: init-pdf.el
 ;; Description: Initialize pdf-tools
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
@@ -16,11 +16,6 @@
 ;;; Commentary:
 ;;
 ;; This initializes pdf-tools
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Change Log:
-;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,13 +36,19 @@
 ;;
 ;;; Code:
 
-(use-package pdf-tools
-  :ensure t
-  :config
-  (pdf-loader-install)
-  (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
-  (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view"))))
+(eval-when-compile
+  (require 'init-const))
 
-(provide 'init-latex)
+;; PDFToolsPac
+(unless sys/win32p
+  (use-package pdf-tools
+    :ensure t
+    :config
+    (pdf-loader-install)
+    (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
+    (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))))
+;; -PDFToolsPac
+
+(provide 'init-pdf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-latex.el ends here
+;;; init-pdf.el ends here
