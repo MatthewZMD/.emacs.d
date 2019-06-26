@@ -40,7 +40,7 @@
   (require 'init-const))
 
 ;; PDFToolsPac
-(unless sys/win32p
+(unless *sys/win32*
   (use-package pdf-tools
     :ensure t
     :config

@@ -40,7 +40,7 @@
   (require 'init-const))
 
 ;; HighLightIndentPac
-(when sys/gui
+(when *sys/gui*
   (use-package highlight-indent-guides
     :diminish
     :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)

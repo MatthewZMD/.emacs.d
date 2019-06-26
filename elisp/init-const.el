@@ -42,21 +42,25 @@
 ;; -UserInfo
 
 ;; Consts
-(defconst sys/gui
+(defconst *sys/gui*
   (display-graphic-p)
   "Are we running on a GUI Emacs?")
 
-(defconst sys/win32p
+(defconst *sys/win32*
   (eq system-type 'windows-nt)
   "Are we running on a WinTel system?")
 
-(defconst sys/linuxp
+(defconst *sys/linux*
   (eq system-type 'gnu/linux)
   "Are we running on a GNU/Linux system?")
 
-(defconst sys/macp
+(defconst *sys/mac*
   (eq system-type 'darwin)
   "Are we running on a Mac system?")
+
+(defconst *sys/root*
+  (string-equal "root" (getenv "USER"))
+  "Are you a ROOT user?")
 
 (defconst *rg*
   (executable-find "rg")
@@ -82,10 +86,6 @@
 (defconst *curl*
   (executable-find "curl")
   "Do we have curl?")
-
-(defconst sys/rootp
-  (string-equal "root" (getenv "USER"))
-  "Are you a ROOT user?")
 ;; -Consts
 
 (provide 'init-const)

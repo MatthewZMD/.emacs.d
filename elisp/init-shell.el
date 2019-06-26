@@ -45,7 +45,7 @@
 ;; -ShellHere
 
 ;; TermKeysPac
-(unless sys/gui
+(unless *sys/gui*
   (use-package term-keys
     :config (term-keys-mode t)))
 ;; -TermKeysPac

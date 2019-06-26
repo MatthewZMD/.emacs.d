@@ -40,12 +40,12 @@
   (require 'init-const))
 
 ;; ATIPac
-(when sys/gui
+(when *sys/gui*
   (use-package all-the-icons))
 ;; -ATIPac
 
 ;; ATIDiredPac
-(when sys/gui
+(when *sys/gui*
   (use-package all-the-icons-dired
     :after all-the-icons
     :diminish
@@ -55,7 +55,7 @@
 ;; -ATIDiredPac
 
 ;; ATIIvyPac
-(when sys/gui
+(when *sys/gui*
   (use-package all-the-icons-ivy
     :after all-the-icons
     :config
