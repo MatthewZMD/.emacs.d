@@ -102,7 +102,7 @@
   - [[Parenthesis][Parenthesis]]
   - [[Indentation][Indentation]]
   - [[Format All][Format All]]
-  - [[Evil-Nerd-Commenter][Evil-Nerd-Commenter]]
+  - [[Evil Nerd Commenter][Evil Nerd Commenter]]
   - [[Iedit][Iedit]]
   - [[Header][Header]]
   - [[Jupyter Notebook][Jupyter Notebook]]
@@ -117,6 +117,7 @@
   - [[Web Mode][Web Mode]]
   - [[JavaScript/TypeScript][JavaScript/TypeScript]]
   - [[Emmet][Emmet]]
+  - [[Instant Rename Tag][Instant Rename Tag]]
   - [[JSON][JSON]]
 - [[Miscellaneous][Miscellaneous]]
   - [[Org][Org]]
@@ -427,7 +428,7 @@
 
    *Prerequisite*: Read [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][Supported Languages]] to see which additional tool you need to install for the specific language.
    #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "FormatAllPac" :range-end "-FormatAllPac" :lines "40-42"
-** Evil-Nerd-Commenter
+** Evil Nerd Commenter
    [[https://github.com/redguardtoo/evil-nerd-commenter][Evil Nerd Commenter]], a tool that helps you comment code efficiently.
    #+INCLUDE: "~/.emacs.d/elisp/init-comment.el" src emacs-lisp :range-begin "EvilNerdCommenPac" :range-end "-EvilNerdCommenPac" :lines "40-45"
 ** Iedit
@@ -523,7 +524,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "WebModePac" :range-end "-WebModePac" :lines "40-47"
 ** JavaScript/TypeScript
 *** JavaScript2 Mode
-    [[https://github.com/mooz/js2-mode][Js2 mode]], a feature that offers improved JavsScript editing mode.
+    [[https://github.com/mooz/js2-mode][JS2 mode]], a feature that offers improved JavsScript editing mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "Js2Pac" :range-end "-Js2Pac" :lines "50-53"
 *** TypeScript Mode
     [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]], a feature that offers TypeScript support for Emacs.
@@ -531,9 +532,12 @@
 ** Emmet
    [[https://github.com/smihica/emmet-mode][Emmet]], a feature that allows writing HTML using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
    #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "EmmetPac" :range-end "-EmmetPac" :lines "62-66"
+** Instant Rename Tag
+   [[https://github.com/manateelazycat/instant-rename-tag][Instant Rename Tag]], a plugin that provides ability to rename html tag pairs instantly.
+   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "InstantRenameTagPac" :range-end "-InstantRenameTagPac" :lines "69-72"
 ** JSON
    [[https://github.com/joshwnj/json-mode][JSON Mode]],major mode for editing JSON files.
-   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "JsonPac" :range-end "-JsonPac" :lines "69-71"
+   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "JsonPac" :range-end "-JsonPac" :lines "75-77"
 * Miscellaneous
 ** Org
    [[https://orgmode.org/][Org]], a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.

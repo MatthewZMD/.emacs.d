@@ -8,14 +8,14 @@
 ;; Created: Fri Mar 15 11:03:43 2019 (-0400)
 ;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d web-mode emmet js2-mode typescript-mode tide
+;; Keywords: M-EMACS .emacs.d web-mode js2-mode typescript-mode emmet instant-rename-tag json-mode
 ;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes web-mode emmet js2-mode typescript-mode tide
+;; This initializes web-mode js2-mode typescript-mode emmet instant-rename-tag instant-rename-tag
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -64,6 +64,12 @@
   :config
   (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
 ;; -EmmetPac
+
+;; InstantRenameTagPac
+(use-package instant-rename-tag
+  :load-path "~/.emacs.d/site-elisp/instant-rename-tag"
+  :bind ("C-z <" . instant-rename-tag))
+;; -InstantRenameTagPac
 
 ;; JsonPac
 (use-package json-mode
