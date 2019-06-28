@@ -43,12 +43,7 @@
 (use-package cc-mode
   :ensure nil
   :bind (:map c-mode-base-map
-              ("<f5>" . compile))
-  :hook (c-mode-common . (lambda ()
-                           (c-set-style "whitesmith")
-                           (setq-default c-basic-offset 4)
-                           (c-set-offset 'comment-intro 0)
-                           (c-set-offset 'innamespace 0))))
+              ("<f5>" . compile)))
 ;; -CCModeConf
 
 ;; CCLSPac

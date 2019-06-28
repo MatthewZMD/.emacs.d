@@ -55,6 +55,9 @@
 (setq-default indent-tabs-mode nil)
 (setq-default indent-line-function 'insert-tab)
 (setq-default tab-width 4)
+(setq-default c-basic-offset 4)
+(c-set-offset 'comment-intro 0)
+(c-set-offset 'innamespace 0)
 ;; -IndentConfig
 
 (provide 'init-indent)
