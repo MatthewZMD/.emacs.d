@@ -47,7 +47,7 @@
 ;; -CCModeConf
 
 ;; CCLSPac
-(unless *clangd*
+(unless *sys/win32*
   (use-package ccls
     :defer t
     :hook ((c-mode c++-mode objc-mode) .

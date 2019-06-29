@@ -12,6 +12,12 @@
    This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
 ** Installation
    1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
+      If you are using Ubuntu, =emacs-snapshot= is a great way to get latest version of Emacs.
+      #+BEGIN_SRC text
+      sudo add-apt-repository -y ppa:ubuntu-elisp
+      sudo apt-get update
+      sudo apt-get install emacs-snapshot
+      #+END_SRC
    2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
       #+BEGIN_SRC text
         git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
@@ -485,7 +491,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "60-63"
 ** Python
 *** Python Configurations
-   #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "45-51"
+   #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "46-52"
 *** LSP Python MS
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
 
@@ -504,7 +510,7 @@
     ln -sf $(git rev-parse --show-toplevel)/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer
     #+END_SRC
     Don't forget to change the flag in the path for =lsp-python-ms-executable= too.
-    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "54-63"
+    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "55-130"
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
