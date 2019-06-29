@@ -190,6 +190,8 @@ decrease this. If you experience stuttering, increase this.")
 ;; Miscellaneous
 (require 'init-org)
 
+(require 'init-eaf)
+
 (require 'init-eww)
 
 (require 'init-pdf)
