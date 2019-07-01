@@ -1,21 +1,21 @@
-;;; init-linenum.el --- -*- lexical-binding: t -*-
+;;; init-eaf.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-linenum.el
-;; Description: Initialize Line Numbers
+;; Filename: init-eaf.el
+;; Description: Initialize Emacs Application Framework
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 10:14:51 2019 (-0400)
-;; Version: 2.0.0
+;; Created: Tue Jun  4 00:26:09 2019 (-0400)
+;; Version: 1.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d linenumbers
+;; Keywords: M-EMACS .emacs.d pdf-tools
 ;; Compatibility: emacs-version >= 25.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes line numbers
+;; This initializes Emacs Application Framework
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -36,18 +36,15 @@
 ;;
 ;;; Code:
 
-;; DisLineNum
-;; Hook line numbers to only when files are opened
-(if (version< emacs-version "26")
-    (progn (add-hook 'find-file-hook #'linum-mode)
-           (add-hook 'prog-mode-hook #'linum-mode))
-  (progn (add-hook 'find-file-hook #'display-line-numbers-mode)
-         (add-hook 'prog-mode-hook #'display-line-numbers-mode)))
+(eval-when-compile
+  (require 'init-const))
 
-;; Display column numbers in modeline
-(column-number-mode 1)
-;; -DisLineNum
+;; PDFToolsPac
+(when *sys/linux*
+  (use-package eaf
+    :load-path "~/.emacs.d/site-elisp/emacs-application-framework"))
+;; -PDFToolsPac
 
-(provide 'init-linenum)
+(provide 'init-eaf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-linenum.el ends here
+;;; init-eaf.el ends here

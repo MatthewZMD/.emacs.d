@@ -30,5 +30,5 @@ workspace/
 /.emacs.desktop.lock
 /history
 /custom-set-variables.el
-/python-language-server/
+/mspyls/
 /pyim/

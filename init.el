@@ -158,8 +158,6 @@ decrease this. If you experience stuttering, increase this.")
 
 (require 'init-dumb-jump)
 
-(require 'init-linenum)
-
 (require 'init-parens)
 
 (require 'init-indent)
@@ -189,6 +187,8 @@ decrease this. If you experience stuttering, increase this.")
 
 ;; Miscellaneous
 (require 'init-org)
+
+(require 'init-eaf)
 
 (require 'init-eww)
 

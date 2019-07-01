@@ -54,6 +54,14 @@
 (setq initial-scratch-message "Present Day, Present Time...")
 ;; -StartupScreen
 
+;; DisLineNum
+;; Hook line numbers to only when files are opened
+(add-hook 'find-file-hook #'display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+;; Display column numbers in modeline
+(column-number-mode 1)
+;; -DisLineNum
+
 (provide 'init-ui-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-ui-config.el ends here
