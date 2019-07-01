@@ -39,11 +39,11 @@
 (eval-when-compile
   (require 'init-const))
 
-;; PDFToolsPac
+;; EAFPac
 (when *sys/linux*
   (use-package eaf
     :load-path "~/.emacs.d/site-elisp/emacs-application-framework"))
-;; -PDFToolsPac
+;; -EAFPac
 
 (provide 'init-eaf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

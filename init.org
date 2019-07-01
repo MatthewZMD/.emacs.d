@@ -126,6 +126,7 @@
   - [[JSON][JSON]]
 - [[Miscellaneous][Miscellaneous]]
   - [[Org][Org]]
+  - [[Emacs Application Framework][Emacs Application Framework]]
   - [[Emacs Web Wowser][Emacs Web Wowser]]
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
@@ -542,6 +543,14 @@
 *** OX-GFM
     [[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "68-69"
+** Emacs Application Framework
+   [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a development framework that integrates any PyQt program into Emacs.
+
+   *Prerequisite*: Please install python3 and pip3. Then execute below command:
+   #+BEGIN_SRC text
+   sudo pip install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib
+   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-46"
 ** Emacs Web Wowser
    EWW, the Emacs Web Wowser.
 *** Set EWW as Default Browser
