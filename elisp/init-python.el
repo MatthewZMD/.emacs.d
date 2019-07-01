@@ -55,12 +55,7 @@
 (use-package lsp-python-ms
   :after lsp-mode
   :config
-  ;; for dev build of language server
-  (setq lsp-python-ms-dir
-        (expand-file-name "~/.emacs.d/python-language-server/output/bin/Release/"))
-  ;; for executable of language server, if it's not symlinked on your PATH
-  (setq lsp-python-ms-executable
-        "~/.emacs.d/python-language-server/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer"))
+  (setq lsp-python-executable-cmd "python3"))
 ;; -LSPPythonPac
 
 (provide 'init-python)
