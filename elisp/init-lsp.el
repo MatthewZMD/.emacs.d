@@ -115,8 +115,8 @@
     (use-package request :defer t)
     :config
     (setq
-     lsp-java-server-install-dir (expand-file-name "~/eclipse.jdt.ls/server/")
-     lsp-java-workspace-dir (expand-file-name "~/eclipse.jdt.ls/workspace/"))))
+     lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/")
+     lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/"))))
 ;; -LSPJavaPac
 
 (provide 'init-lsp)

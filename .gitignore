@@ -19,7 +19,7 @@ autosaves/
 backups/
 elpa/
 eshell/
-irony/bin/irony-server.exe
+/eclipse.jdt.ls/
 server/
 speed-type/
 transient/history.el
