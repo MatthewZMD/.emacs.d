@@ -6,12 +6,18 @@
 
   As a young EMACSer, I have experienced the struggle to find a detailed configuration that is loosely coupled and highly readable. This mostly due to the nature of source codes, sometimes comments are harder to notice or simply not enough. Therefore I decided to construct this README and present any human-readable explanation in a much more human-friendly way. Anyone, particularly Emacs beginners who have no idea where to start with their personal config, is more than welcome to read through this document and copy/paste any part to use it on their own.
 
-  This configuration is designed and tested for *GNU Emacs 25.1 and above only*. However, it is suggested to use *emacs27*, the latest version currently available.
+  This configuration is designed and tested for *GNU Emacs 26.1 and above only*. However, it is suggested to use *emacs27*, the latest version currently available.
   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "40-42"
 ** About README
    This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
 ** Installation
    1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
+      If you are using Ubuntu, =emacs-snapshot= is a great way to get latest version of Emacs.
+      #+BEGIN_SRC text
+      sudo add-apt-repository -y ppa:ubuntu-elisp
+      sudo apt-get update
+      sudo apt-get install emacs-snapshot
+      #+END_SRC
    2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
       #+BEGIN_SRC text
         git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
@@ -51,11 +57,11 @@
   - [[Contribution][Contribution]]
   - [[Special Thanks][Special Thanks]]
 - [[Startup][Startup]]
-  - [[Lexical-binding][Lexical-binding]]
+  - [[Lexical Binding][Lexical Binding]]
   - [[Early Init][Early Init]]
   - [[Restore Default After Startup][Restore Default After Startup]]
-  - [[Garbage Collect Configuration][Garbage Collect Configuration]]
-  - [[Load-Path][Load-Path]]
+  - [[Garbage Collection][Garbage Collection]]
+  - [[Load Path][Load Path]]
   - [[Define Constants][Define Constants]]
 - [[Package Management][Package Management]]
   - [[Melpa Packages][Melpa Packages]]
@@ -98,7 +104,6 @@
   - [[YASnippet][YASnippet]]
   - [[Flycheck][Flycheck]]
   - [[Dumb Jump][Dumb Jump]]
-  - [[Line Numbers][Line Numbers]]
   - [[Parenthesis][Parenthesis]]
   - [[Indentation][Indentation]]
   - [[Format All][Format All]]
@@ -121,6 +126,7 @@
   - [[JSON][JSON]]
 - [[Miscellaneous][Miscellaneous]]
   - [[Org][Org]]
+  - [[Emacs Application Framework][Emacs Application Framework]]
   - [[Emacs Web Wowser][Emacs Web Wowser]]
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
@@ -131,7 +137,7 @@
   - [[Zone][Zone]]
 
 * Startup
-** Lexical-binding
+** Lexical Binding
    Use lexical-binding. [[https://nullprogram.com/blog/2016/12/22/][Why?]]
    #+BEGIN_QUOTE
    Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
@@ -144,29 +150,29 @@
     #+BEGIN_QUOTE
     The GC eats up quite a bit of time, easily doubling startup time. The trick is to turn up the memory threshold as early as possible.
     #+END_QUOTE
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DeferGC" :range-end "-DeferGC"  :lines "46-48"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DeferGC" :range-end "-DeferGC"  :lines "41-43"
 *** Disable =package-enable-at-startup=
     Package initialize occurs automatically, before =user-init-file= is loaded, but after =early-init-file=.
     We handle package initialization, so we must prevent Emacs from doing it early!
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetPES" :range-end "-UnsetPES"  :lines "51-52"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetPES" :range-end "-UnsetPES"  :lines "46-47"
 *** Unset =file-name-handler-alist=
     Every file opened and loaded by Emacs will run through this list to check for a proper handler for the file, but during startup, it won’t need any of them.
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "55-57"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "50-52"
 *** Disable =site-run-file=
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetSRF" :range-end "-UnsetSRF" :lines "60-61"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetSRF" :range-end "-UnsetSRF" :lines "55-56"
 *** Disable Unnecessary Interface
     It will be faster to disable them here before they've been initialized.
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "64-68"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "59-63"
 ** Restore Default After Startup
     A large gc-cons-threshold will cause freezing and stuttering during long-term interactive use.
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "RestoreGC" :range-end "-RestoreGC" :lines "51-57"
-** Garbage Collect Configuration
+** Garbage Collection
 *** Garbage Collect When Emacs is Out of Focus
     *Note:* Since Emacs27.1, =focus-out-hook= is obsolete.
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "60-68"
 *** Avoid Garbage Collect When Using Minibuffer
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "69-78"
-** Load-Path
+** Load Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "81-93"
 ** Define Constants
@@ -367,6 +373,9 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "YorN" :range-end "-YorN" :lines "48-49"
 *** Disable Splash Screen
     #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "StartupScreen" :range-end "-StartupScreen" :lines "52-55"
+*** Line Numbers
+    Display line numbers, and column numbers in modeline.
+    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "DisLineNum" :range-end "-DisLineNum" :lines "58-63"
 * General Programming
 ** Magit
    [[https://magit.vc/][Magit]], an interface to the version control system Git.
@@ -402,9 +411,6 @@
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]], an Emacs "jump to definition" package.
    #+INCLUDE: "~/.emacs.d/elisp/init-dumb-jump.el" src emacs-lisp :range-begin "DumbJump" :range-end "-DumbJump" :lines "40-47"
-** Line Numbers
-   Display line numbers, and column numbers in modeline.
-   #+INCLUDE: "~/.emacs.d/elisp/init-linenum.el" src emacs-lisp :range-begin "DisLineNum" :range-end "-DisLineNum" :lines "40-49"
 ** Parenthesis
 *** Smartparens
     [[https://github.com/Fuco1/smartparens][Smartparens]], a minor mode for dealing with pairs.
@@ -421,7 +427,7 @@
 ** Indentation
    [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "43-52"
-   Indentation Config
+   Indentation Configuration
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "55-61"
 ** Format All
    [[https://github.com/lassik/emacs-format-all-the-code][Format all]], a feature that lets you auto-format source code.
@@ -484,27 +490,11 @@
     [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
     #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "60-63"
 ** Python
-*** Python Configurations
-   #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "45-51"
+*** Python Configuration
+   #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "46-52"
 *** LSP Python MS
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
-
-    *Prerequisite*:
-    Install [[https://dotnet.microsoft.com/download][.NET Core SDK]], then execute the following commands from =~/.emacs.d=:
-    #+BEGIN_SRC text
-      git clone --depth=1 https://github.com/Microsoft/python-language-server.git
-      cd python-language-server/src/LanguageServer/Impl
-      dotnet build -c Release
-      dotnet publish -c Release -r linux-x64
-    #+END_SRC
-    *Note*: Change the value after =-r= flag (=linux-x64=) depending on your architecture and OS. See Microsoft's [[https://docs.microsoft.com/en-us/dotnet/core/rid-catalog][Runtime ID Catalog]] for the correct value for your OS.
-
-    Now, put =~\.emacs.d\python-language-server\output\bin\Release\linux-x64\publish= in your =PATH=:
-    #+BEGIN_SRC text
-    ln -sf $(git rev-parse --show-toplevel)/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer
-    #+END_SRC
-    Don't forget to change the flag in the path for =lsp-python-ms-executable= too.
-    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "54-63"
+    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "55-59"
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.
@@ -553,6 +543,14 @@
 *** OX-GFM
     [[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "68-69"
+** Emacs Application Framework
+   [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a development framework that integrates any PyQt program into Emacs.
+
+   *Prerequisite*: Please install python3 and pip3. Then execute below command:
+   #+BEGIN_SRC text
+   sudo pip install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib
+   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-46"
 ** Emacs Web Wowser
    EWW, the Emacs Web Wowser.
 *** Set EWW as Default Browser
