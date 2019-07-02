@@ -43,14 +43,9 @@
   :bind
   (("C-c C-n" . yas-expand-from-trigger-key))
   :config
+  (use-package yasnippet-snippets)
   (yas-reload-all))
 ;; -YASnippetPac
-
-;; SnippetsPac
-(use-package yasnippet-snippets
-  :defer t
-  :after yasnippet)
-;; -SnippetsPac
 
 (provide 'init-yasnippet)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
