@@ -144,7 +144,7 @@
    #+END_QUOTE
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :lines "1-2"
 ** Early Init
-   Emacs HEAD (27+) introduces early-init.el, which is run before init.el, before package and UI initialization happens.
+   Emacs27 introduces =early-init.el=, which is run before =init.el=, before package and UI initialization happens.
 *** Defer Garbage Collection
     Defer garbage collection further back in the startup process, according to [[https://github.com/hlissner/doom-emacs/wiki/FAQ#how-is-dooms-startup-so-fast][hlissner]].
     #+BEGIN_QUOTE
