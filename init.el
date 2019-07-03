@@ -9,7 +9,7 @@
 ;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
-;; Compatibility: emacs-version >= 25.1
+;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,8 +37,8 @@
 ;;; Code:
 
 ;; CheckVer
-(when (version< emacs-version "25.1")
-  (error "M-EMACS requires Emacs 25.1 and above!"))
+(when (version< emacs-version "26.1")
+  (error "M-EMACS requires Emacs 26.1 and above!"))
 ;; -CheckVer
 
 ;; BetterGCThreshold
