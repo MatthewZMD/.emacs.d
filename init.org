@@ -258,11 +258,11 @@
     [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
     #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "SwiperPac" :range-end "-SwiperPac" :lines "66-69"
 ** Shell
-*** Shell Hhere
-    [[https://github.com/ieure/shell-here][Shell-here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
+*** Shell Here
+    [[https://github.com/ieure/shell-here][Shell Here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHere" :range-end "-ShellHere" :lines "43-45"
 *** Term Keys
-    [[https://github.com/CyberShadow/term-keys][Term-keys]], a lossless keyboard input for Emacs in terminal emulators.
+    [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "48-51"
 ** Winner
    Winner mode restores old window layout.
