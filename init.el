@@ -176,6 +176,8 @@ decrease this. If you experience stuttering, increase this.")
 
 (require 'init-lsp)
 
+(require 'init-java)
+
 (require 'init-c)
 
 (require 'init-python)

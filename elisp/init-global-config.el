@@ -54,8 +54,6 @@
 
 ;; Some local bindings
 (define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
-(add-hook 'c++-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile)))
-(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile)))
 ;; -DefBindings
 
 ;; UTF8Coding

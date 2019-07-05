@@ -17,8 +17,11 @@
     path = site-elisp/delete-block
     url = https://github.com/manateelazycat/delete-block.git
 [submodule "site-elisp/instant-rename-tag"]
-	path = site-elisp/instant-rename-tag
-	url = https://github.com/manateelazycat/instant-rename-tag.git
+    path = site-elisp/instant-rename-tag
+    url = https://github.com/manateelazycat/instant-rename-tag.git
 [submodule "site-elisp/emacs-application-framework"]
-	path = site-elisp/emacs-application-framework
-	url = git@github.com:manateelazycat/emacs-application-framework.git
+    path = site-elisp/emacs-application-framework
+    url = https://github.com/manateelazycat/emacs-application-framework.git
+[submodule "site-elisp/java-one-click-run"]
+    path = site-elisp/java-one-click-run
+    url = https://github.com/MatthewZMD/java-one-click-run.git

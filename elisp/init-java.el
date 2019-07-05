@@ -1,21 +1,25 @@
-;;; init-c.el --- -*- lexical-binding: t -*-
+;;; init-java.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-c.el
-;; Description: Initialize cc-mode ccls modern-cpp-font-lock
+;; Filename: init-java.el
+;; Description: Initialize lsp-java java-one-click-run
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 10:58:29 2019 (-0400)
+;; Maintainer: Mingde (Matthew) Zeng
+;; Created: Thu Jul  4 21:26:24 2019 (-0400)
 ;; Version: 2.0.0
+;; Package-Requires: shell-mode
+;; Last-Updated: Thu Jul  4 21:58:58 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d
+;; Keywords: M-EMACS .emacs.d lsp-java java-one-click-run
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initialize cc-mode ccls modern-cpp-font-lock
+;; This initializes lsp-java and java-one-click-run
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -39,30 +43,24 @@
 (eval-when-compile
   (require 'init-const))
 
-;; CCModeConf
-(use-package cc-mode
-  :ensure nil
-  :config
-  (add-hook 'c++-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile)))
-  (add-hook 'c-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile))))
-;; -CCModeConf
-
-;; CCLSPac
-(unless *sys/win32*
-  (use-package ccls
-    :defer t
-    :hook ((c-mode c++-mode objc-mode) .
-           (lambda () (require 'ccls) (lsp)))
+;; LSPJavaPac
+(when *mvn*
+  (use-package lsp-java
+    :after lsp-mode
+    :init
+    (use-package request :defer t)
     :config
-    (setq ccls-executable "~/tools/ccls/Release/ccls")))
-;; -CCLSPac
+    (setq
+     lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/")
+     lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/"))))
+;; -LSPJavaPac
 
-;; CPPFontLockPac
-(use-package modern-cpp-font-lock
-  :diminish
-  :init (modern-c++-font-lock-global-mode t))
-;; -CPPFontLockPac
+;; JavaOneClickRunPac
+(use-package java-one-click-run
+  :load-path "~/.emacs.d/site-elisp/java-one-click-run/"
+  :bind ("<f5>" . javac-compile-and-run))
+;; -JavaOneClickRunPac
 
-(provide 'init-c)
+(provide 'init-java)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-c.el ends here
+;;; init-java.el ends here
