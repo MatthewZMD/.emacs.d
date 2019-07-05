@@ -37,9 +37,10 @@
 ;;; Code:
 
 ;; DefBindings
-;; Unbind C-z to use as prefix and unbind C-x C-z too
+;; Unbind unneeded keys
 (global-set-key (kbd "C-z") nil)
 (global-set-key (kbd "C-x C-z") nil)
+(global-set-key (kbd "M-/") nil)
 ;; Use iBuffer instead of Buffer List
 (global-set-key (kbd "C-x C-b") #'ibuffer)
 ;; Truncate lines
