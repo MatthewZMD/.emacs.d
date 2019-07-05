@@ -8,15 +8,14 @@
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d lsp lsp-java
+;; Keywords: M-EMACS .emacs.d lsp
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes LSP mode , DAP mode, and its language-specific modes
-;; All of the current language-specfic modes: LSP-Java
+;; This initializes lsp-mode and dap-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -36,9 +35,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-
-(eval-when-compile
-  (require 'init-const))
 
 ;; LSPPac
 (use-package lsp-mode
@@ -103,21 +99,6 @@
   (dap-mode 1)
   (dap-ui-mode 1))
 ;; -DAPPac
-
-
-;; Language Specific Modes:
-
-;; LSPJavaPac
-(when *mvn*
-  (use-package lsp-java
-    :after lsp-mode
-    :init
-    (use-package request :defer t)
-    :config
-    (setq
-     lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/")
-     lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/"))))
-;; -LSPJavaPac
 
 (provide 'init-lsp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
