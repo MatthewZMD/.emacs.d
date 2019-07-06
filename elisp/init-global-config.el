@@ -89,6 +89,9 @@
 
 ;; Merge system clipboard with Emacs
 (setq-default select-enable-clipboard t)
+
+;; Map Alt key to Meta
+(setq x-alt-keysym 'meta)
 ;; -EditExp
 
 ;; History
