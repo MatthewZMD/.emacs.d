@@ -548,7 +548,11 @@
 
    *Prerequisite*: Please install python3 and pip3. Then execute below command:
    #+BEGIN_SRC text
-   sudo pip install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib
+   sudo pip3 install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib PyQtWebEngine
+   #+END_SRC
+   Note: If you are using Debian/Ubuntu, it is possible that QtWebEngine is [[https://marc.info/?l=kde-core-devel&m=142954900813235&w=2][not working]]. Install this instead:
+   #+BEGIN_SRC text
+   sudo apt-get install python3-pyqt5.qtwebengine
    #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-46"
 ** Emacs Web Wowser
