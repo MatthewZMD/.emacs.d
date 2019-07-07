@@ -1,23 +1,23 @@
-;;; init-yasnippet.el --- -*- lexical-binding: t -*-
+;;; init-quickrun.el --- -*- lexical-binding: t -*-
 ;;
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
-;; Filename: init-yasnippet.el
-;; Description: Initialize YASnippet
+;; Filename: init-quickrun.el
+;; Description: Initialize quickrun
 ;; Author: Mingde (Matthew) Zeng
-;; Created: Tue Apr 23 23:08:17 2019 (-0400)
+;; Created: Sun Jul  7 16:32:16 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:46:26 2019 (-0400)
+;; Last-Updated: Sun Jul  7 16:44:33 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d yasnippet
+;; Keywords: M-EMACS .emacs.d init
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes YASnippet
+;; This initializes quickrun
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -38,17 +38,13 @@
 ;;
 ;;; Code:
 
-;; YASnippetPac
-(use-package yasnippet
-  :diminish yas-minor-mode
-  :hook (prog-mode . yas-minor-mode)
+;; QuickrunPac
+(use-package quickrun
   :bind
-  (("C-c C-n" . yas-expand-from-trigger-key))
-  :config
-  (use-package yasnippet-snippets)
-  (yas-reload-all))
-;; -YASnippetPac
+  (("<f5>" . quickrun)
+   ("C-<f5>" . quickrun-shell)))
+;; -QuickrunPac
 
-(provide 'init-yasnippet)
+(provide 'init-quickrun)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-yasnippet.el ends here
+;;; init-quickrun.el ends here

@@ -5,13 +5,13 @@
 ;; Filename: init-python.el
 ;; Description: Initialize Python
 ;; Author: Mingde (Matthew) Zeng
-;; Maintainer:
 ;; Created: Mon Jun 10 18:58:02 2019 (-0400)
 ;; Version: 2.0.0
-;; Version: 2.0.0
+;; Last-Updated: Sun Jul  7 16:51:35 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: lsp-python-ms
-;; Compatibility:
+;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

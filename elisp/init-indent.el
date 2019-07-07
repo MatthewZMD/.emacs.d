@@ -7,6 +7,8 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:29:56 2019 (-0400)
 ;; Version: 2.0.0
+;; Last-Updated: Sun Jul  7 16:45:43 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d highlight-indent-guides indentation
 ;; Compatibility: emacs-version >= 26.1

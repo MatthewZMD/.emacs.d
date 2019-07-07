@@ -7,6 +7,8 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
+;; Last-Updated: Sun Jul  7 16:47:44 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 26.1
@@ -51,9 +53,6 @@
 ;; Move up/down paragraph
 (global-set-key (kbd "M-n") #'forward-paragraph)
 (global-set-key (kbd "M-p") #'backward-paragraph)
-
-;; Some local bindings
-(define-key emacs-lisp-mode-map (kbd "<f5>") #'eval-buffer)
 ;; -DefBindings
 
 ;; UTF8Coding

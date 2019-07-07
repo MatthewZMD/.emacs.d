@@ -7,6 +7,8 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
 ;; Version: 1.0.0
+;; Last-Updated: Sun Jul  7 16:47:57 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
 ;; Compatibility: emacs-version >= 26.1

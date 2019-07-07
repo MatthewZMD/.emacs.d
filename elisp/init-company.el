@@ -7,7 +7,8 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Package-Requires: ()
+;; Last-Updated: Sun Jul  7 16:45:34 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company
 ;; Compatibility: emacs-version >= 26.1

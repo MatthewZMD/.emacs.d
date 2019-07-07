@@ -7,6 +7,8 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
+;; Last-Updated: Sun Jul  7 16:52:13 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
 ;; Compatibility: emacs-version >= 26.1
@@ -161,6 +163,8 @@ decrease this. If you experience stuttering, increase this.")
 (require 'init-parens)
 
 (require 'init-indent)
+
+(require 'init-quickrun)
 
 (require 'init-format)
 

@@ -7,6 +7,8 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Apr 11 22:28:41 2019 (-0400)
 ;; Version: 2.0.0
+;; Last-Updated: Sun Jul  7 16:43:22 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d leetcode
 ;; Compatibility: emacs-version >= 26.1
@@ -38,8 +40,6 @@
 
 (eval-when-compile
   (require 'init-const))
-
-;; Please use init-acct.el to modify your LeetCode account info.
 
 ;; LeetCodePac
 (when *curl*
