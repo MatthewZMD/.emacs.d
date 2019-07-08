@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:43:49 2019 (-0400)
+;; Last-Updated: Mon Jul  8 09:26:09 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired
@@ -56,12 +56,14 @@
   ;; Move files to trash when deleting
   (setq delete-by-moving-to-trash t)
 
-  ;; Reuse same dired buffer, so doesn't create new buffer each time
+  ;; Reuse same dired buffer, to prevent numerous buffers while navigating in dired
   (put 'dired-find-alternate-file 'disabled nil)
-  (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)))
-  (add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "RET") #'dired-find-alternate-file)))
-  (add-hook 'dired-mode-hook (lambda () (define-key dired-mode-map (kbd "^")
-                                          (lambda () (interactive) (find-alternate-file ".."))))))
+  (add-hook 'dired-mode-hook
+        (lambda ()
+          (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)
+          (local-set-key (kbd "RET") #'dired-find-alternate-file)
+          (local-set-key (kbd "^")
+                         (lambda () (interactive) (find-alternate-file ".."))))))
 ;; -DiredPackage
 
 ;; AutosaveBackupDir
@@ -80,16 +82,16 @@
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
-        (filename (buffer-file-name)))
+    (filename (buffer-file-name)))
     (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
+    (message "Buffer '%s' is not visiting a file!" name)
       (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
-        (progn
-          (rename-file filename new-name 1)
-          (rename-buffer new-name)
-          (set-visited-file-name new-name)
-          (set-buffer-modified-p nil))))))
+      (message "A buffer named '%s' already exists!" new-name)
+    (progn
+      (rename-file filename new-name 1)
+      (rename-buffer new-name)
+      (set-visited-file-name new-name)
+      (set-buffer-modified-p nil))))))
 ;; -RenameFileBuffer
 
 ;; DiredConfigs
