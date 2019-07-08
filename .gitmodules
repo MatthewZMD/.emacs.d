@@ -22,6 +22,3 @@
 [submodule "site-elisp/emacs-application-framework"]
     path = site-elisp/emacs-application-framework
     url = https://github.com/manateelazycat/emacs-application-framework.git
-[submodule "site-elisp/java-one-click-run"]
-    path = site-elisp/java-one-click-run
-    url = https://github.com/MatthewZMD/java-one-click-run.git
