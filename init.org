@@ -259,7 +259,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "CounselPac" :range-end "-CounselPac" :lines "61-65"
 *** Swiper
     [[https://github.com/abo-abo/swiper][Swiper]], an Ivy-enhanced alternative to isearch.
-    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "SwiperPac" :range-end "-SwiperPac" :lines "68-71"
+    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "SwiperPac" :range-end "-SwiperPac" :lines "68-73"
 ** Shell
 *** Shell Here
     [[https://github.com/ieure/shell-here][Shell Here]], a tool that opens a shell buffer in (or relative to) =default-directory=.

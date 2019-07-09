@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:34:32 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jul  9 00:42:16 2019 (-0400)
+;; Last-Updated: Tue Jul  9 00:46:41 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ivy amx counsel swiper
@@ -67,7 +67,9 @@
 ;; SwiperPac
 (use-package swiper
   :bind (("C-M-s" . swiper-isearch-thing-at-point)
-         ("C-s" . swiper-isearch)))
+         ("C-s" . swiper-isearch))
+  :config
+  (bind-key "C-r" 'ivy-previous-line-or-history ivy-minibuffer-map))
 ;; -SwiperPac
 
 (provide 'init-ivy)
