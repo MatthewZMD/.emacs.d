@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:29:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:45:43 2019 (-0400)
+;; Last-Updated: Wed Jul 10 10:45:11 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d highlight-indent-guides indentation
@@ -58,8 +58,10 @@
 (setq-default indent-line-function 'insert-tab)
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
+(setq-default js-switch-indent-offset 4)
 (c-set-offset 'comment-intro 0)
 (c-set-offset 'innamespace 0)
+(c-set-offset 'case-label '+)
 ;; -IndentConfig
 
 (provide 'init-indent)
