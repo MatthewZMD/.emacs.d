@@ -238,17 +238,17 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "98-106"
 ** Search
    *Prerequisite*: Please install [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and add =rg= to the =PATH=.
-*** Color-RG
-    [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep that is used to search text.
+*** Color RipGrep
+    [[https://github.com/manateelazycat/color-rg][ColorRG]], a search and refactoring tool based on ripgrep that is used to search text.
     #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "46-50"
-*** Grep-Dired
-    [[https://github.com/manateelazycat/grep-dired][Grep-Dired]], a search and refactoring tool based on ripgrep that is used to search files.
+*** Grep Dired
+    [[https://github.com/manateelazycat/grep-dired][Grep Dired]], a search and refactoring tool based on ripgrep that is used to search files.
     #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "GrepDiredPac" :range-end "-GrepDiredPac" :lines "53-59"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "42-50"
 ** Ivy
-*** Main Ivy
+*** Ivy
     [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs.
     #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "IvyPackage" :range-end "-IvyPackage" :lines "42-52"
 *** Amx
@@ -528,7 +528,7 @@
    [[https://github.com/manateelazycat/instant-rename-tag][Instant Rename Tag]], a plugin that provides ability to rename html tag pairs instantly.
    #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "InstantRenameTagPac" :range-end "-InstantRenameTagPac" :lines "71-74"
 ** JSON
-   [[https://github.com/joshwnj/json-mode][JSON Mode]],major mode for editing JSON files.
+   [[https://github.com/joshwnj/json-mode][JSON Mode]], a major mode for editing JSON files.
    #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "JsonPac" :range-end "-JsonPac" :lines "77-79"
 * Miscellaneous
 ** Org
@@ -542,7 +542,7 @@
 *** HTMLize
     [[https://github.com/hniksic/emacs-htmlize][HTMLize]], a tool that converts buffer text and decorations to HTML.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "HTMLIZEPac" :range-end "-HTMLIZEPac" :lines "66-67"
-*** OX-GFM
+*** GFM Exporter
     [[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "70-71"
 ** Emacs Application Framework
