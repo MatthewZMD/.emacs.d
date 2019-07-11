@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:06:08 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:46:24 2019 (-0400)
+;; Last-Updated: Thu Jul 11 17:44:23 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d all-the-icons
@@ -55,17 +55,6 @@
     (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
     :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)))
 ;; -ATIDiredPac
-
-;; ATIIvyPac
-(when *sys/gui*
-  (use-package all-the-icons-ivy
-    :after all-the-icons
-    :config
-    (all-the-icons-ivy-setup)
-    (setq all-the-icons-ivy-buffer-commands '())
-    (setq all-the-icons-ivy-file-commands
-          '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir))))
-;; -ATIIvyPac
 
 (provide 'init-all-the-icons)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

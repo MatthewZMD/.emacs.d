@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Jul  4 21:26:24 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:46:10 2019 (-0400)
+;; Last-Updated: Thu Jul 11 18:06:43 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp-java java-one-click-run
@@ -45,9 +45,8 @@
 (when *mvn*
   (use-package lsp-java
     :after lsp-mode
-    :init
-    (use-package request :defer t)
     :config
+    (use-package request :defer t)
     (setq
      lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/")
      lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/"))))

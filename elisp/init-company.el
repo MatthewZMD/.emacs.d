@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:45:34 2019 (-0400)
+;; Last-Updated: Thu Jul 11 17:58:28 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company
@@ -41,8 +41,7 @@
 ;; ComPac
 (use-package company
   :diminish company-mode
-  :defer t
-  :init (global-company-mode)
+  :hook (prog-mode . global-company-mode)
   :config
   (setq company-minimum-prefix-length 1)
   (setq company-tooltip-align-annotations 't)

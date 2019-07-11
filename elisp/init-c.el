@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:34 2019 (-0400)
+;; Last-Updated: Thu Jul 11 18:07:32 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -40,14 +40,6 @@
 
 (eval-when-compile
   (require 'init-const))
-
-;; CCModeConf
-(use-package cc-mode
-  :ensure nil
-  :config
-  (add-hook 'c++-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile)))
-  (add-hook 'c-mode-hook (lambda () (local-set-key (kbd "<f5>") #'compile))))
-;; -CCModeConf
 
 ;; CCLSPac
 (unless *sys/win32*

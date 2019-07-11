@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:34:32 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jul  9 00:46:41 2019 (-0400)
+;; Last-Updated: Thu Jul 11 17:54:02 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ivy amx counsel swiper
@@ -38,39 +38,25 @@
 ;;
 ;;; Code:
 
-;; IvyPackage
+;; IvyPac
 (use-package ivy
-  :diminish ivy-mode
-  :init (ivy-mode 1)
+  :bind (("C-M-s" . swiper-isearch-thing-at-point)
+         ("C-s" . swiper-isearch)
+         ("M-x" . counsel-M-x))
+  :diminish
   :config
+  (use-package amx :defer t)
+  (use-package counsel :defer t)
+  (use-package swiper :defer t)
+  (ivy-mode 1)
+  (bind-key "C-r" 'ivy-previous-line-or-history ivy-minibuffer-map)
   (setq ivy-use-virtual-buffers t)
   (setq ivy-height 10)
   (setq ivy-on-del-error-function nil)
   (setq ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
   (setq ivy-count-format "【%d/%d】")
   (setq ivy-wrap t))
-;; -IvyPackage
-
-;; AmxPac
-(use-package amx
-  :after (:any ivy ido)
-  :config (amx-mode))
-;; -AmxPac
-
-;; CounselPac
-(use-package counsel
-  :after ivy
-  :diminish counsel-mode
-  :init (counsel-mode 1))
-;; -CounselPac
-
-;; SwiperPac
-(use-package swiper
-  :bind (("C-M-s" . swiper-isearch-thing-at-point)
-         ("C-s" . swiper-isearch))
-  :config
-  (bind-key "C-r" 'ivy-previous-line-or-history ivy-minibuffer-map))
-;; -SwiperPac
+;; -IvyPac
 
 (provide 'init-ivy)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
