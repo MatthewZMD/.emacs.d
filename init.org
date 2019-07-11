@@ -9,7 +9,7 @@
   This configuration is designed and tested for *GNU Emacs 26.1 and above only*. However, it is suggested to use *emacs27*, the latest version currently available.
   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "42-44"
 ** Screenshot
-   [[file:screenshot/Sample.png]]
+   [[file:images/Sample.png]]
 ** About README
    This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
 ** Installation
