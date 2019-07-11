@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:48:01 2019 (-0400)
+;; Last-Updated: Thu Jul 11 14:55:25 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -94,12 +94,25 @@
 
 ;; DAPPac
 (use-package dap-mode
-  :disabled
-  :after lsp-mode
-  :defer t
-  :config
-  (dap-mode 1)
-  (dap-ui-mode 1))
+  :diminish
+  :bind (:map lsp-mode-map
+              (("<f12>" . dap-debug)
+               ("<f8>" . dap-continue)
+               ("<f9>" . dap-next)
+               ("<f11>" . dap-step-in)
+               ("C-<f11>" . dap-step-out)
+               ("<f6>" . dap-breakpoint-toggle)
+               ("<f7>" . dap-breakpoint-delete)))
+  :hook ((after-init . dap-mode)
+         (dap-mode . dap-ui-mode)
+         (python-mode . (lambda () (require 'dap-python)))
+         (ruby-mode . (lambda () (require 'dap-ruby)))
+         (go-mode . (lambda () (require 'dap-go)))
+         (java-mode . (lambda () (require 'dap-java)))
+         ((c-mode c++-mode objc-mode swift) . (lambda () (require 'dap-lldb)))
+         (php-mode . (lambda () (require 'dap-php)))
+         (elixir-mode . (lambda () (require 'dap-elixir)))
+         ((js-mode js2-mode typescript-mode) . (lambda () (require 'dap-chrome)))))
 ;; -DAPPac
 
 (provide 'init-lsp)

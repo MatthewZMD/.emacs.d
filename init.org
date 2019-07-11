@@ -470,7 +470,9 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "89-93"
 ** Debug Adapter Protocol
    [[https://github.com/emacs-lsp/dap-mode][DAP Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
-   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "96-103"
+
+   *Prerequisite*: See [[https://github.com/emacs-lsp/dap-mode#configuration][Configuration]] to configure DAP appropriately.
+   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "96-116"
 ** Java
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]]. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]].
