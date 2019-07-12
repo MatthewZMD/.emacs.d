@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Tue Apr 23 23:08:17 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:46:26 2019 (-0400)
+;; Last-Updated: Thu Jul 11 23:24:22 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d yasnippet
@@ -43,7 +43,7 @@
   :diminish yas-minor-mode
   :hook (prog-mode . yas-minor-mode)
   :bind
-  (("C-c C-n" . yas-expand-from-trigger-key))
+  (:map yas-minor-mode-map ("C-c C-n" . yas-expand-from-trigger-key))
   :config
   (use-package yasnippet-snippets)
   (yas-reload-all))

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:50:10 2019 (-0400)
+;; Last-Updated: Thu Jul 11 23:18:13 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d parenthesis smartparens awesome-pair delete-block
@@ -75,11 +75,12 @@
 (use-package awesome-pair
   :load-path "~/.emacs.d/site-elisp/awesome-pair"
   :bind
-  (("C-c C-k" . awesome-pair-kill)
-   ("SPC" . awesome-pair-space)
-   ("=" . awesome-pair-equal)
-   ("M-F" . awesome-pair-jump-right)
-   ("M-B" . awesome-pair-jump-left))
+  (:map prog-mode-map
+        (("C-c C-k" . awesome-pair-kill)
+         ("SPC" . awesome-pair-space)
+         ("=" . awesome-pair-equal)
+         ("M-F" . awesome-pair-jump-right)
+         ("M-B" . awesome-pair-jump-left)))
   :config
   (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1))))
 ;; -AwesomePairPac
