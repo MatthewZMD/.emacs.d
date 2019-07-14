@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:52:13 2019 (-0400)
+;; Last-Updated: Sun Jul 14 17:22:06 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -44,7 +44,7 @@
 ;; -CheckVer
 
 ;; BetterGCThreshold
-(defvar better-gc-cons-threshold 16777216 ; 16mb
+(defvar better-gc-cons-threshold 32000000 ; 32mb
   "The default value to use for `gc-cons-threshold'. If you experience freezing,
 decrease this. If you experience stuttering, increase this.")
 ;; -BetterGCThreshold
@@ -52,8 +52,7 @@ decrease this. If you experience stuttering, increase this.")
 ;; RestoreGC
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (setq-default gc-cons-threshold better-gc-cons-threshold ;; 16mb
-                          gc-cons-percentage 0.1)
+            (setq gc-cons-threshold better-gc-cons-threshold)
             (setq file-name-handler-alist file-name-handler-alist-original)
             (makunbound 'file-name-handler-alist-original)))
 ;; -RestoreGC
@@ -66,17 +65,17 @@ decrease this. If you experience stuttering, increase this.")
                               (lambda ()
                                 (unless (frame-focus-state)
                                   (garbage-collect))))
-              (add-hook 'focus-out-hook 'garbage-collect))
+              (add-hook 'after-focus-change-function 'garbage-collect))
             ;; -AutoGC MinibufferGC
             (defun gc-minibuffer-setup-hook ()
-              (setq gc-cons-threshold better-gc-cons-threshold))
+              (setq gc-cons-threshold (* better-gc-cons-threshold 2))
 
             (defun gc-minibuffer-exit-hook ()
               (garbage-collect)
-              (setq gc-cons-threshold 800000))
+              (setq gc-cons-threshold better-gc-cons-threshold))
 
             (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
-            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
+            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook))))
 ;; -MinibufferGC
 
 ;; LoadPath

@@ -7,6 +7,8 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:58:05 2019 (-0400)
 ;; Version: 2.0.0
+;; Last-Updated: Sun Jul 14 17:23:29 2019 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init early-init
 ;; Compatibility: emacs-version >= 27
@@ -38,8 +40,7 @@
 ;;; Code:
 
 ;; DeferGC
-(setq gc-cons-threshold 80000000
-      gc-cons-percentage 0.6)
+(setq gc-cons-threshold 100000000)
 ;; -DeferGC
 
 ;; UnsetPES
