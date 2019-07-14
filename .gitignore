@@ -35,3 +35,4 @@ speed-type/
 transient/history.el
 url/
 workspace/
+/forge-database.sqlite
