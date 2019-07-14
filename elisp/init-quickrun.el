@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Sun Jul  7 16:32:16 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:44:33 2019 (-0400)
+;; Last-Updated: Sun Jul 14 17:46:47 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -42,7 +42,7 @@
 (use-package quickrun
   :bind
   (("<f5>" . quickrun)
-   ("C-<f5>" . quickrun-shell)))
+   ("M-<f5>" . quickrun-shell)))
 ;; -QuickrunPac
 
 (provide 'init-quickrun)
