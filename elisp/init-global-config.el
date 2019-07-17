@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:44 2019 (-0400)
+;; Last-Updated: Wed Jul 17 00:36:53 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -143,6 +143,11 @@
 (setq custom-file (concat user-emacs-directory "custom-set-variables.el"))
 (load custom-file 'noerror)
 ;; -CustomSetFileLocation
+
+;; SoLong
+(when (fboundp 'global-so-long-mode)
+  (global-so-long-mode))
+;; -SoLong
 
 (provide 'init-global-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

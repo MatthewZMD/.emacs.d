@@ -298,8 +298,10 @@
     Better compilation configurations.
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "135-140"
 *** Move Custom-Set-Variables to Different File
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "143-145"
->>>>>>> b316ff498a22b94809fafa125916bf121feb460e
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "143-145"5
+*** So-Long
+    So-Long mitigates slowness due to extremely long lines. Currently available in Emacs master branch *only*!
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "148-150"
 ** Functions
    Other important, but longer functions.
 *** Resize Window Width / Height Functions
