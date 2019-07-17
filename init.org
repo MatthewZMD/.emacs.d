@@ -492,10 +492,10 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "55-58"
 ** Python
 *** Python Configuration
-   #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "46-52"
+   #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "46-53"
 *** LSP Python MS
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "55-59"
+    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "56-60"
 ** Arduino
 *** Arduino Mode
     [[https://github.com/bookest/arduino-mode][Arduino mode]], a major mode for editing Arduino sketches.

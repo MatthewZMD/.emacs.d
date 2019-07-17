@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:11:21 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 23:24:56 2019 (-0400)
+;; Last-Updated: Mon Jul 15 11:07:06 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -41,7 +41,7 @@
 ;; DumbJump
 (use-package dumb-jump
   :bind
-  (:map dumb-jump-mode-map
+  (:map prog-mode-map
         (("M-g o" . dumb-jump-go-other-window)
          ("M-g j" . dumb-jump-go)
          ("M-g i" . dumb-jump-go-prompt)

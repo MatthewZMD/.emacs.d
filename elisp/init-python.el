@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Mon Jun 10 18:58:02 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 18:09:15 2019 (-0400)
+;; Last-Updated: Fri Jul 12 09:40:56 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: lsp-python-ms
@@ -47,6 +47,7 @@
   :after flycheck
   :mode "\\.py\\'"
   :config
+  (setq python-indent-offset 4)
   (setq flycheck-python-pycompile-executable "python3")
   (setq python-shell-interpreter "python3"))
 ;; -PythonConfig
