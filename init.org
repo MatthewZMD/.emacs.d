@@ -105,7 +105,6 @@
   - [[Git][Git]]
   - [[Projectile][Projectile]]
   - [[Treemacs][Treemacs]]
-  - [[Company][Company]]
   - [[YASnippet][YASnippet]]
   - [[Flycheck][Flycheck]]
   - [[Dumb Jump][Dumb Jump]]
@@ -117,9 +116,10 @@
   - [[Iedit][Iedit]]
   - [[Header][Header]]
   - [[Jupyter Notebook][Jupyter Notebook]]
-- [[Programming][Programming]]
   - [[Language Server Protocol][Language Server Protocol]]
   - [[Debug Adapter Protocol][Debug Adapter Protocol]]
+  - [[Company][Company]]
+- [[Programming][Programming]]
   - [[Java][Java]]
   - [[C/C++/Objective C][C/C++/Objective C]]
   - [[Python][Python]]
@@ -326,7 +326,7 @@
 ** All The Icons
    [[https://github.com/domtronn/all-the-icons.el][All The Icons]], a utility package to collect various Icon Fonts. Enable only in GUI Emacs.
 
-   *Prerequisite*: Install all fonts from =fonts/all-the-icons-fonts=.
+   *Prerequisite*: Install fonts from =fonts/all-the-icons-fonts=.
    #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIPac" :range-end "-ATIPac" :lines "45-47"
 *** All The Icons Dired
     [[https://github.com/jtbm37/all-the-icons-dired][All The Icons Dired]], an icon set for Dired.
@@ -386,7 +386,7 @@
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]], a Project Interaction Library for Emacs.
 
-   *Prerequisite*: If using Windows OS, install [[https://github.com/bmatzelle/gow/releases][Gow]] and add to =PATH=.
+   *Prerequisite*: Windows OS: Install [[https://github.com/bmatzelle/gow/releases][Gow]] and add to =PATH=.
 
    [[https://github.com/bmatzelle/gow][Gow]] is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
    #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "45-57"
@@ -398,9 +398,6 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeMagit" :range-end "-TreeMagit" :lines "97-100"
 *** Treemacs Projectile
     #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeProj" :range-end "-TreeProj" :lines "103-106"
-** Company
-   [[http://company-mode.github.io/][Company]], a text completion framework for Emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "ComPac" :range-end "-ComPac" :lines "42-54"
 ** YASnippet
 *** YASnippet
     [[https://github.com/joaotavora/yasnippet][YASnippet]], a programming template system for Emacs. It loads [[https://github.com/AndreaCrotti/yasnippet-snippets][YASnippet Snippets]], a collection of yasnippet snippets for many languages.
@@ -453,7 +450,6 @@
     2. Login with =M-x ein:login= to a local or remote session.
     3. Open =.ipynb= file and press =C-c C-o=.
     #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "42-45"
-* Programming
 ** Language Server Protocol
 *** LSP Mode
     [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]]. M-EMACS tries to use lsp-mode whenever possible.
@@ -461,14 +457,24 @@
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "60-86"
-*** Company LSP
-    [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPCompany" :range-end "-LSPCompany" :lines "89-93"
 ** Debug Adapter Protocol
    [[https://github.com/emacs-lsp/dap-mode][DAP Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
 
    *Prerequisite*: See [[https://github.com/emacs-lsp/dap-mode#configuration][Configuration]] to configure DAP appropriately.
-   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "96-116"
+   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "89-109"
+** Company
+*** Company Mode
+    [[http://company-mode.github.io/][Company]], a text completion framework for Emacs.
+    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "ComPac" :range-end "-ComPac" :lines "42-63"
+*** Company LSP
+    [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
+    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyLSPPac" :range-end "-CompanyLSPPac" :lines "66-70"
+*** Company TabNine
+    [[https://github.com/TommyX12/company-tabnine][Company TabNine]], A company-mode backend for [[https://tabnine.com/][TabNine]], the all-language autocompleter.
+
+    *Prerequisite*: Execute =M-x company-tabnine-install-binary= to install the TabNine binary for your system.
+    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyTabNinePac" :range-end "-CompanyTabNinePac" :lines "73-84"
+* Programming
 ** Java
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]]. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]].

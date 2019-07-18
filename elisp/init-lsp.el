@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 23:18:13 2019 (-0400)
+;; Last-Updated: Thu Jul 18 11:16:15 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -84,13 +84,6 @@
   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
     (setq mode-line-format nil)))
 ;; -LSPUI
-
-;; LSPCompany
-(use-package company-lsp
-  :defer t
-  :config
-  (setq company-lsp-cache-candidates 'auto))
-;; -LSPCompany
 
 ;; DAPPac
 (use-package dap-mode
