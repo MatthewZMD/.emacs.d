@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 18 11:29:55 2019 (-0400)
+;; Last-Updated: Thu Jul 18 19:35:19 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -53,18 +53,12 @@
   (setq company-idle-delay 0)
   ;; Number the candidates (use M-1, M-2 etc to select completions).
   (setq company-show-numbers t)
-  ;; Use the tab-and-go frontend.
-  ;; Allows TAB to select and complete at the same time.
-  (company-tng-configure-default)
-  (setq company-frontends
-    '(company-tng-frontend
-      company-pseudo-tooltip-frontend
-      company-echo-metadata-frontend)))
+  (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common))
 ;; -ComPac
 
 ;; CompanyLSPPac
 (use-package company-lsp
-  :defer t
+  :after lsp company
   :config
   (setq company-lsp-cache-candidates 'auto))
 ;; -CompanyLSPPac
