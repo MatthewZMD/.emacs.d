@@ -253,7 +253,7 @@
 ** Ivy
 *** Ivy, Amx, Counsel, Swiper
     [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs. It depends on [[https://github.com/DarwinAwardWinner/amx][Amx]], [[https://github.com/abo-abo/swiper][Counsel]], and [[https://github.com/abo-abo/swiper][Swiper]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "42-60"
+    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "42-59"
 ** Shell
 *** Shell Here
     [[https://github.com/ieure/shell-here][Shell Here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
@@ -377,12 +377,12 @@
 ** Git
 *** Magit
     [[https://magit.vc/][Magit]], an interface to the version control system Git.
-    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "MagitPac" :range-end "-MagitPac" :lines "42-44"
+    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "MagitPac" :range-end "-MagitPac" :lines "45-47"
 *** Forge
     [[https://github.com/magit/forge][Forge]], a tool to work with Git forges, such as Github and Gitlab in Magit.
 
-    *Prerequisite*: Read [[https://magit.vc/manual/forge/Getting-Started.html#Getting-Started][Getting-Started]] to start using Forge.
-    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "ForgePac" :range-end "-ForgePac" :lines "47-48"
+    *Prerequisite*: Make sure you have GCC and then read [[https://magit.vc/manual/forge/Getting-Started.html#Getting-Started][Getting-Started]] to start using Forge.
+    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "ForgePac" :range-end "-ForgePac" :lines "50-52"
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]], a Project Interaction Library for Emacs.
 

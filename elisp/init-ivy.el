@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:34:32 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 23:31:06 2019 (-0400)
+;; Last-Updated: Fri Jul 19 14:46:56 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ivy amx counsel swiper
@@ -45,10 +45,9 @@
   :diminish
   :init
   (ivy-mode 1)
-  (counsel-mode 1)
   :config
   (use-package amx :defer t)
-  (use-package counsel :diminish :defer t)
+  (use-package counsel :diminish :config (counsel-mode 1))
   (use-package swiper :defer t)
   (bind-key "C-r" 'ivy-previous-line-or-history ivy-minibuffer-map)
   (setq ivy-use-virtual-buffers t)
