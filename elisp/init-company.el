@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 18 23:05:58 2019 (-0400)
+;; Last-Updated: Fri Jul 19 01:18:58 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -58,7 +58,7 @@
 
 ;; CompanyLSPPac
 (use-package company-lsp
-  :after lsp company
+  :defer t
   :config
   (setq company-lsp-cache-candidates 'auto))
 ;; -CompanyLSPPac
@@ -67,7 +67,7 @@
 (use-package company-tabnine
   :after company company-lsp
   :config
-  ;; Utilize company-tabnine with lsp-mode
+  ;; Integrate company-tabnine with lsp-mode
   (defun company//sort-by-tabnine (candidates)
     (if (or (functionp company-backend)
             (not (and (listp company-backend) (memq 'company-tabnine company-backend))))
@@ -84,8 +84,8 @@
             (puthash candidate t candidates-table)))
         (setq candidates-lsp (nreverse candidates-lsp))
         (setq candidates-tabnine (nreverse candidates-tabnine))
-        (nconc (seq-take candidates-lsp 4)
-               (seq-take candidates-tabnine 5)))))
+        (nconc (seq-take candidates-tabnine 3)
+               (seq-take candidates-lsp 6)))))
   (add-to-list 'company-transformers 'company//sort-by-tabnine t)
   (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate)))
 ;; -CompanyTabNinePac
