@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:53:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 17:26:57 2019 (-0400)
+;; Last-Updated: Fri Jul 19 15:25:51 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d packages use-package
@@ -46,8 +46,10 @@
       package-archives
       '(("gnu"   . "http://elpa.gnu.org/packages/")
         ("melpa" . "https://melpa.org/packages/")
-        ("melpa stable" . "http://stable.melpa.org/packages/")
-        ("cselpa" . "https://elpa.thecybershadow.net/packages/")))
+        ("cselpa" . "https://elpa.thecybershadow.net/packages/")
+        ;; ("melpa-cn" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+        ;; ("gnu-cn"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")
+        ))
 ;; -MelpaPackages
 
 ;; ConfigurePackageManager
