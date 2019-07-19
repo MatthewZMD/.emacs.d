@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 18 19:35:19 2019 (-0400)
+;; Last-Updated: Thu Jul 18 23:05:58 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -68,13 +68,26 @@
   :after company company-lsp
   :config
   ;; Utilize company-tabnine with lsp-mode
-  (with-eval-after-load 'lsp-mode
-    (require 'company-lsp)
-  (setq company-backends
-        (use-package-list-insert #'company-lsp company-backends
-                                 'company-tabnine t)))
-  (with-eval-after-load 'company
-    (push #'company-tabnine company-backends)))
+  (defun company//sort-by-tabnine (candidates)
+    (if (or (functionp company-backend)
+            (not (and (listp company-backend) (memq 'company-tabnine company-backend))))
+        candidates
+      (let ((candidates-table (make-hash-table :test #'equal))
+            candidates-lsp
+            candidates-tabnine)
+        (dolist (candidate candidates)
+          (if (eq (get-text-property 0 'company-backend candidate)
+                  'company-tabnine)
+              (unless (gethash candidate candidates-table)
+                (push candidate candidates-tabnine))
+            (push candidate candidates-lsp)
+            (puthash candidate t candidates-table)))
+        (setq candidates-lsp (nreverse candidates-lsp))
+        (setq candidates-tabnine (nreverse candidates-tabnine))
+        (nconc (seq-take candidates-lsp 4)
+               (seq-take candidates-tabnine 5)))))
+  (add-to-list 'company-transformers 'company//sort-by-tabnine t)
+  (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate)))
 ;; -CompanyTabNinePac
 
 (provide 'init-company)
