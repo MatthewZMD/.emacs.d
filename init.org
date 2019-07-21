@@ -182,11 +182,11 @@
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "82-94"
 ** Define Constants
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "47-95"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "47-99"
 * Package Management
   Some packages are disabled with the =:disabled= tag, because I don't use them very often. They might not work.
 ** Melpa Packages
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "43-51"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "43-53"
    Load all Melpa packages in =elisp/= to =load-path= directly to reduce startup time.
 ** Non-Melpa Packages
    Add packages contained in =site-elisp/= to =load-path= too.
@@ -203,31 +203,31 @@
       git submodule update
     #+END_SRC
 ** Configure Package Manager
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigurePackageManager" :range-end "-ConfigurePackageManager" :lines "54-62"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigurePackageManager" :range-end "-ConfigurePackageManager" :lines "56-64"
 ** Use-Package
    My Emacs configuration is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
    #+BEGIN_QUOTE
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage"  :lines "65-79"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage"  :lines "67-81"
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "82-89"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "84-91"
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "92-93"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "94-95"
 ** GNU Elpa Keyring Update
    [[http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html][GNU Elpa Keyring Update]], Update Emacs's GPG keyring for GNU ELPA.
    #+BEGIN_QUOTE
    The GPG key used to sign the GNU ELPA archives is nearing retirement: it expires this September. Which means that if you don't get the new key before, you won't be able to check the signature of new packages after that date.
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "GNUElpaKeyPac" :range-end "-GNUElpaKeyPac" :lines "96-97"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "GNUElpaKeyPac" :range-end "-GNUElpaKeyPac" :lines "98-99"
 * Global Functionalities
 ** User Information
    *Prerequisite*: Please update this file your personal info.
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "42-44"
 ** Bindings
-   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "42-56"
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "45-59"
 ** File Management
 *** Dired
     Dired, the directory editor.
@@ -283,25 +283,25 @@
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
     Use UTF-8 as much as possible with unix line endings.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "59-73"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "62-76"
 *** Optimize Editing Experience
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "76-94"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "79-97"
 *** History
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "97-120"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "100-123"
 *** Turn Off Cursor Alarms
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "123-124"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "126-127"
 *** Show Keystrokes in Progress Instantly
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "127-128"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "130-131"
 *** Don't Lock Files
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "131-132"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "134-135"
 *** Compilation
     Better compilation configurations.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "135-140"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "138-143"
 *** Move Custom-Set-Variables to Different File
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "143-145"5
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "146-148"5
 *** So-Long
     So Long mitigates slowness due to extremely long lines. Currently available in Emacs master branch *only*!
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "148-150"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "151-153"
 ** Functions
    Other important, but longer functions.
 *** Resize Window Width / Height Functions
@@ -319,7 +319,7 @@
 *** Duplicate Line
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DuplicateLine" :range-end "-DuplicateLine" :lines "163-175"
 *** Save All Buffers
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "97-120"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "100-123"
 *** Display Line Overlay
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "187-199"
 * User Interface Enhancements
@@ -327,10 +327,10 @@
    [[https://github.com/domtronn/all-the-icons.el][All The Icons]], a utility package to collect various Icon Fonts. Enable only in GUI Emacs.
 
    *Prerequisite*: Install fonts from =fonts/all-the-icons-fonts=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIPac" :range-end "-ATIPac" :lines "45-47"
+   #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIPac" :range-end "-ATIPac" :lines "45-46"
 *** All The Icons Dired
     [[https://github.com/jtbm37/all-the-icons-dired][All The Icons Dired]], an icon set for Dired.
-    #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIDiredPac" :range-end "-ATIDiredPac" :lines "50-57"
+    #+INCLUDE: "~/.emacs.d/elisp/init-all-the-icons.el" src emacs-lisp :range-begin "ATIDiredPac" :range-end "-ATIDiredPac" :lines "49-56"
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.
    #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "46-56"
@@ -377,12 +377,12 @@
 ** Git
 *** Magit
     [[https://magit.vc/][Magit]], an interface to the version control system Git.
-    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "MagitPac" :range-end "-MagitPac" :lines "45-47"
+    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "MagitPac" :range-end "-MagitPac" :lines "45-48"
 *** Forge
     [[https://github.com/magit/forge][Forge]], a tool to work with Git forges, such as Github and Gitlab in Magit.
 
     *Prerequisite*: Make sure you have GCC and then read [[https://magit.vc/manual/forge/Getting-Started.html#Getting-Started][Getting-Started]] to start using Forge.
-    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "ForgePac" :range-end "-ForgePac" :lines "50-52"
+    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "ForgePac" :range-end "-ForgePac" :lines "51-54"
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]], a Project Interaction Library for Emacs.
 
@@ -473,7 +473,7 @@
     [[https://github.com/TommyX12/company-tabnine][Company TabNine]], A company-mode backend for [[https://tabnine.com/][TabNine]], the all-language autocompleter.
 
     *Prerequisite*: Execute =M-x company-tabnine-install-binary= to install the TabNine binary for your system.
-    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyTabNinePac" :range-end "-CompanyTabNinePac" :lines "67-91"
+    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyTabNinePac" :range-end "-CompanyTabNinePac" :lines "67-103"
 * Programming
 ** Java
 *** LSP Java

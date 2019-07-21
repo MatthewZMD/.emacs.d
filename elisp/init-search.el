@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:29 2019 (-0400)
+;; Last-Updated: Sun Jul 21 13:47:21 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -43,19 +43,19 @@
   (require 'init-const))
 
 ;; ColorRGPac
-(when *rg*
-  (use-package color-rg
-    :load-path "~/.emacs.d/site-elisp/color-rg"
-    :bind ("C-z s s" . color-rg-search-input)))
+(use-package color-rg
+  :load-path "~/.emacs.d/site-elisp/color-rg"
+  :if *rg*
+  :bind ("C-z s s" . color-rg-search-input))
 ;; -ColorRGPac
 
 ;; GrepDiredPac
-(when *rg*
-  (use-package grep-dired
-    :load-path "~/.emacs.d/site-elisp/grep-dired"
-    :bind
-    (("C-z s f" . grep-dired-dwim)
-     ("C-z s d" . grep-dired))))
+(use-package grep-dired
+  :load-path "~/.emacs.d/site-elisp/grep-dired"
+  :if *rg*
+  :bind
+  (("C-z s f" . grep-dired-dwim)
+   ("C-z s d" . grep-dired)))
 ;; -GrepDiredPac
 
 

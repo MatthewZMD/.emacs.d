@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 18:07:32 2019 (-0400)
+;; Last-Updated: Sun Jul 21 13:56:47 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -42,13 +42,13 @@
   (require 'init-const))
 
 ;; CCLSPac
-(unless *sys/win32*
-  (use-package ccls
-    :defer t
-    :hook ((c-mode c++-mode objc-mode) .
-           (lambda () (require 'ccls) (lsp)))
-    :config
-    (setq ccls-executable "~/tools/ccls/Release/ccls")))
+(use-package ccls
+  :defer t
+  :if (not *sys/win32*)
+  :hook ((c-mode c++-mode objc-mode) .
+         (lambda () (require 'ccls) (lsp)))
+  :config
+  (setq ccls-executable "~/tools/ccls/Release/ccls"))
 ;; -CCLSPac
 
 ;; CPPFontLockPac

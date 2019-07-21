@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 09:10:23 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:53 2019 (-0400)
+;; Last-Updated: Sun Jul 21 13:49:18 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d projectile
@@ -51,7 +51,7 @@
   :config
   (projectile-mode 1)
   (setq projectile-completion-system 'ivy)
-  (when (and (eq system-type 'windows-nt) *tr*)
+  (when (and *sys/win32* *tr*)
     (setq projectile-indexing-method 'alien))
   (add-to-list 'projectile-globally-ignored-directories "node_modules"))
 ;; -ProjPac

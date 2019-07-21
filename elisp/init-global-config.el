@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 17 00:36:53 2019 (-0400)
+;; Last-Updated: Sun Jul 21 13:48:00 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -37,6 +37,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
+(eval-when-compile
+  (require 'init-const))
 
 ;; DefBindings
 ;; Unbind unneeded keys
@@ -68,7 +71,7 @@
 (set-keyboard-coding-system 'utf-8-unix)
 (setq locale-coding-system 'utf-8-unix)
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
-(when (display-graphic-p)
+(when *sys/gui*
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 ;; -UTF8Coding
 

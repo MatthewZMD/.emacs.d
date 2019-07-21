@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:06:08 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 17:44:23 2019 (-0400)
+;; Last-Updated: Sun Jul 21 13:58:27 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d all-the-icons
@@ -42,18 +42,17 @@
   (require 'init-const))
 
 ;; ATIPac
-(when *sys/gui*
-  (use-package all-the-icons))
+(use-package all-the-icons :if *sys/gui*)
 ;; -ATIPac
 
 ;; ATIDiredPac
-(when *sys/gui*
-  (use-package all-the-icons-dired
-    :after all-the-icons
-    :diminish
-    :custom-face
-    (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
-    :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)))
+(use-package all-the-icons-dired
+  :after all-the-icons
+  :if *sys/gui*
+  :diminish
+  :custom-face
+  (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
+  :config (add-hook 'dired-mode-hook #'all-the-icons-dired-mode))
 ;; -ATIDiredPac
 
 (provide 'init-all-the-icons)

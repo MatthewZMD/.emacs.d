@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Apr 11 22:28:41 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:43:22 2019 (-0400)
+;; Last-Updated: Sun Jul 21 13:43:43 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d leetcode
@@ -42,17 +42,17 @@
   (require 'init-const))
 
 ;; LeetCodePac
-(when *curl*
-  (use-package leetcode
-    :load-path "~/.emacs.d/site-elisp/leetcode.el"
-    :commands (leetcode)
-    :init
-    (use-package request-deferred :defer t)
-    (use-package graphql :defer t)
-    :config
-    ;; (setq request-message-level 'debug)
-    ;; (setq request-log-level 'debug)
-    (setq leetcode-prefer-language "python3")))
+(use-package leetcode
+  :load-path "~/.emacs.d/site-elisp/leetcode.el"
+  :if *curl*
+  :commands (leetcode)
+  :init
+  (use-package request-deferred :defer t)
+  (use-package graphql :defer t)
+  :config
+  ;; (setq request-message-level 'debug)
+  ;; (setq request-log-level 'debug)
+  (setq leetcode-prefer-language "python3"))
 ;; -LeetCodePac
 
 (provide 'init-leetcode)

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 22:54:25 2019 (-0400)
+;; Last-Updated: Sun Jul 21 13:44:07 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
@@ -42,19 +42,19 @@
   (require 'init-const))
 
 ;; EAFPac
-(when (and *sys/linux* *python3*)
-  (use-package eaf
-    :load-path "~/.emacs.d/site-elisp/emacs-application-framework"
-    :config
-    (setq eaf-find-alternate-file-in-dired t)
-    ;; I already bind "RET", "<mouse-2>", "^" to `dired-find-alternate-file' in `init-dired.el'.
-    ;; Comment this line out of you don't want to use EAF.
-    (global-set-key [remap dired-find-alternate-file] #'eaf-file-open-in-dired)
+(use-package eaf
+  :load-path "~/.emacs.d/site-elisp/emacs-application-framework"
+  :if (and *sys/linux* *sys/gui* *python3*)
+  :config
+  (setq eaf-find-alternate-file-in-dired t)
+  ;; I already bind "RET", "<mouse-2>", "^" to `dired-find-alternate-file' in `init-dired.el'.
+  ;; Comment this line out of you don't want to use EAF.
+  (global-set-key [remap dired-find-alternate-file] #'eaf-file-open-in-dired)
 
-    (defun eaf-open-google ()
-      "Open Google using EAF."
-      (interactive)
-      (eaf-open-browser "https://www.google.com"))))
+  (defun eaf-open-google ()
+    "Open Google using EAF."
+    (interactive)
+    (eaf-open-browser "https://www.google.com")))
 ;; -EAFPac
 
 (provide 'init-eaf)

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Jul 19 01:18:58 2019 (-0400)
+;; Last-Updated: Sun Jul 21 13:38:53 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -67,6 +67,8 @@
 (use-package company-tabnine
   :after company company-lsp
   :config
+  (setq company-tabnine-max-num-results 3)
+
   ;; Integrate company-tabnine with lsp-mode
   (defun company//sort-by-tabnine (candidates)
     (if (or (functionp company-backend)
@@ -87,7 +89,17 @@
         (nconc (seq-take candidates-tabnine 3)
                (seq-take candidates-lsp 6)))))
   (add-to-list 'company-transformers 'company//sort-by-tabnine t)
-  (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate)))
+  (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))
+
+  ;; The free version of TabNine is good enough,
+  ;; and below code is recommended that TabNine not always
+  ;; prompt me to purchase a paid version in a large project.
+  (defadvice company-echo-show (around disable-tabnine-upgrade-message activate)
+    (let ((company-message-func (ad-get-arg 0)))
+      (when (and company-message-func
+                 (stringp (funcall company-message-func)))
+        (unless (string-match "The free version of TabNine only indexes up to" (funcall company-message-func))
+          ad-do-it)))))
 ;; -CompanyTabNinePac
 
 (provide 'init-company)
