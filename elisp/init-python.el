@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Mon Jun 10 18:58:02 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Jul 12 09:40:56 2019 (-0400)
+;; Last-Updated: Mon Jul 22 13:28:52 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: lsp-python-ms
@@ -43,7 +43,8 @@
   (require 'init-const))
 
 ;; PythonConfig
-(use-package python
+(use-package python-mode
+  :ensure nil
   :after flycheck
   :mode "\\.py\\'"
   :config
@@ -55,6 +56,7 @@
 ;; LSPPythonPac
 (use-package lsp-python-ms
   :after lsp-mode python
+  :if (or *python3* *python*)
   :config
   (setq lsp-python-executable-cmd "python3"))
 ;; -LSPPythonPac
