@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:21:46 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:21 2019 (-0400)
+;; Last-Updated: Mon Jul 22 14:53:09 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dashboard
@@ -40,19 +40,18 @@
 
 ;; DashboardPac
 (use-package dashboard
+  :demand
   :diminish (dashboard-mode page-break-lines-mode)
+  :bind ("C-z d" . open-dashboard)
   :custom-face
-  (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 115))))
+  (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 123))))
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Close the world. Open the nExt.")
   (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
   (setq dashboard-items '((recents  . 7)
                           (bookmarks . 5)
-                          ;; (projects . 5)
-                          (agenda . 5)
-                          ))
-
+                          (agenda . 5)))
   ;; Additional Dashboard widgets.
   (defun dashboard-insert-widgets (list-size)
     ;; (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
@@ -71,13 +70,10 @@
                    :button-prefix ""
                    :button-suffix ""
                    (propertize "Configuration" 'face 'font-lock-keyword-face)))
-
   (add-to-list 'dashboard-item-generators  '(buttons . dashboard-insert-widgets))
-  (add-to-list 'dashboard-items '(buttons)))
-;; -DashboardPac
-
-;; OpenDashboardFun
-(defun open-dashboard ()
+  (add-to-list 'dashboard-items '(buttons))
+  ;; Open Dashboard function
+  (defun open-dashboard ()
     "Open the *dashboard* buffer and jump to the first widget."
     (interactive)
     (if (get-buffer dashboard-buffer-name)
@@ -90,10 +86,8 @@
            (if (and (fboundp 'treemacs-current-visibility)
                     (eq (treemacs-current-visibility) 'visible)) 2 1))
         (setq dashboard-recover-layout-p t))
-    (delete-other-windows))
-
-(global-set-key (kbd "C-z d") #'open-dashboard)
-;; -OpenDashboardFun
+    (delete-other-windows)))
+;; -DashboardPac
 
 ;; PBLPac
 (use-package page-break-lines
