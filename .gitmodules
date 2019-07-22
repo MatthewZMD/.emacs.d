@@ -22,3 +22,6 @@
 [submodule "site-elisp/emacs-application-framework"]
     path = site-elisp/emacs-application-framework
     url = https://github.com/MatthewZMD/emacs-application-framework.git
+[submodule "site-elisp/snails"]
+	path = site-elisp/snails
+	url = https://github.com/manateelazycat/snails.git

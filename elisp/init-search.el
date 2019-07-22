@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 21 13:47:21 2019 (-0400)
+;; Last-Updated: Mon Jul 22 16:00:25 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -49,15 +49,31 @@
   :bind ("C-z s s" . color-rg-search-input))
 ;; -ColorRGPac
 
-;; GrepDiredPac
-(use-package grep-dired
-  :load-path "~/.emacs.d/site-elisp/grep-dired"
-  :if *rg*
-  :bind
-  (("C-z s f" . grep-dired-dwim)
-   ("C-z s d" . grep-dired)))
-;; -GrepDiredPac
+;; IvyPac
+(use-package ivy
+  :bind (("C-s" . swiper-isearch)
+         ("M-s" . swiper-isearch-thing-at-point))
+  :diminish
+  :init
+  (ivy-mode 1)
+  :config
+  (use-package amx :defer t)
+  (use-package counsel :diminish :config (counsel-mode 1))
+  (use-package swiper :defer t)
+  (bind-key "C-r" 'ivy-previous-line-or-history ivy-minibuffer-map)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-height 10)
+  (setq ivy-on-del-error-function nil)
+  (setq ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
+  (setq ivy-count-format "【%d/%d】")
+  (setq ivy-wrap t))
+;; -IvyPac
 
+;; SnailsPac
+(use-package snails
+  :load-path "~/.emacs.d/site-elisp/snails/"
+  :bind ("C-M-s" . snails))
+;; -SnailsPac
 
 
 (provide 'init-search)

@@ -80,9 +80,10 @@
   - [[User Information][User Information]]
   - [[Bindings][Bindings]]
   - [[File Management][File Management]]
-  - [[Search][Search]]
+  - [[Color RipGrep][Color RipGrep]]
+  - [[Ivy, Amx, Counsel, Swiper][Ivy, Amx, Counsel, Swiper]]
+  - [[Snails][Snails]]
   - [[Avy][Avy]]
-  - [[Ivy][Ivy]]
   - [[Shell][Shell]]
   - [[Winner][Winner]]
   - [[Which Key][Which Key]]
@@ -239,21 +240,19 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "80-95"
 *** File Configs
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "98-106"
-** Search
+** Color RipGrep
    *Prerequisite*: Please install [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and add =rg= to the =PATH=.
-*** Color RipGrep
-    [[https://github.com/manateelazycat/color-rg][ColorRG]], a search and refactoring tool based on ripgrep that is used to search text.
-    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "46-50"
-*** Grep Dired
-    [[https://github.com/manateelazycat/grep-dired][Grep Dired]], a search and refactoring tool based on ripgrep that is used to search files.
-    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "GrepDiredPac" :range-end "-GrepDiredPac" :lines "53-59"
+   [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep that is used to search text.
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "46-50"
+** Ivy, Amx, Counsel, Swiper
+   [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs. It utilizes [[https://github.com/DarwinAwardWinner/amx][Amx]], [[https://github.com/abo-abo/swiper][Counsel]] and [[https://github.com/abo-abo/swiper][Swiper]].
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "53-70"
+** Snails
+   [[https://github.com/manateelazycat/snails][Snails]], a fuzzy search framework.
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "73-76"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "42-50"
-** Ivy
-*** Ivy, Amx, Counsel, Swiper
-    [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs. It depends on [[https://github.com/DarwinAwardWinner/amx][Amx]], [[https://github.com/abo-abo/swiper][Counsel]], and [[https://github.com/abo-abo/swiper][Swiper]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-ivy.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "42-59"
 ** Shell
 *** Shell Here
     [[https://github.com/ieure/shell-here][Shell Here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
