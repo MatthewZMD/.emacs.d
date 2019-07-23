@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jul 23 00:23:01 2019 (-0400)
+;; Last-Updated: Tue Jul 23 08:58:49 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -42,13 +42,6 @@
   (require 'init-global-config)
   (require 'init-const))
 
-;; ColorRGPac
-(use-package color-rg
-  :load-path "~/.emacs.d/site-elisp/color-rg"
-  :if *rg*
-  :bind ("C-z s s" . color-rg-search-input))
-;; -ColorRGPac
-
 ;; IvyPac
 (use-package ivy
   :bind (("C-s" . swiper-isearch)
@@ -69,11 +62,22 @@
   (setq ivy-wrap t))
 ;; -IvyPac
 
+;; ColorRGPac
+(use-package color-rg
+  :load-path "~/.emacs.d/site-elisp/color-rg"
+  :if *rg*
+  :bind ("C-z s s" . color-rg-search-input))
+;; -ColorRGPac
+
 ;; SnailsPac
 (use-package snails
   :load-path "~/.emacs.d/site-elisp/snails/"
+  :if *sys/gui*
   :init (use-package exec-path-from-shell :defer t)
-  :bind ("C-M-s" . snails))
+  :bind ("C-z s f" . snails)
+  :custom-face
+  (snails-content-buffer-face ((t (:background "#111" :height 110))))
+  (snails-input-buffer-face ((t (:background "#222" :foreground "gold" :height 110)))))
 ;; -SnailsPac
 
 

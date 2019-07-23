@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jul  8 09:26:09 2019 (-0400)
+;; Last-Updated: Tue Jul 23 08:55:56 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired
@@ -71,9 +71,12 @@
 (make-directory "~/.emacs.d/backups" t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
       auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
-      delete-old-versions -1
-      version-control t
-      vc-make-backup-files t)
+      backup-by-copying t    ; Don't delink hardlinks
+      version-control t      ; Use version numbers on backups
+      delete-old-versions t  ; Automatically delete excess backups
+      kept-new-versions 20   ; how many of the newest versions to keep
+      kept-old-versions 5    ; and how many of the old
+      )
 ;; -AutosaveBackupDir
 
 ;; RenameFileBuffer

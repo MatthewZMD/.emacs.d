@@ -235,11 +235,11 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "42-67"
 *** Auto Save File and Backup
     Set autosave and backup directory.
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "AutosaveBackupDir" :range-end "-AutosaveBackupDir" :lines "70-77"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "AutosaveBackupDir" :range-end "-AutosaveBackupDir" :lines "70-80"
 *** Rename Both File and Buffer
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "80-95"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "83-98"
 *** File Configs
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "98-106"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "101-109"
 ** Ivy, Amx, Counsel, Swiper
    [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs. It utilizes [[https://github.com/DarwinAwardWinner/amx][Amx]], [[https://github.com/abo-abo/swiper][Counsel]] and [[https://github.com/abo-abo/swiper][Swiper]].
    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "53-70"
@@ -250,7 +250,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "46-50"
 ** Snails
    [[https://github.com/manateelazycat/snails][Snails]], a fuzzy search framework. It utilizes [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]].
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "73-77"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "73-80"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "42-50"
