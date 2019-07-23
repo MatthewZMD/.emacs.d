@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:46:41 2019 (-0400)
+;; Last-Updated: Tue Jul 23 08:27:04 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui
@@ -41,10 +41,6 @@
 ;; TitleBar
 (setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
 ;; -TitleBar
-
-;; MaxFrame
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-;; -MaxFrame
 
 ;; YorN
 (fset 'yes-or-no-p 'y-or-n-p)
