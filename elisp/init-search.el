@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jul 23 08:58:49 2019 (-0400)
+;; Last-Updated: Tue Jul 23 13:53:53 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -73,7 +73,10 @@
 (use-package snails
   :load-path "~/.emacs.d/site-elisp/snails/"
   :if *sys/gui*
-  :init (use-package exec-path-from-shell :defer t)
+  :init
+  (use-package exec-path-from-shell
+    :if (featurep 'cocoa)
+    :defer t)
   :bind ("C-z s f" . snails)
   :custom-face
   (snails-content-buffer-face ((t (:background "#111" :height 110))))
