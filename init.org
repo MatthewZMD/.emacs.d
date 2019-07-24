@@ -369,6 +369,9 @@
 *** Line Numbers
     Display line numbers, and column numbers in modeline.
     #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "DisLineNum" :range-end "-DisLineNum" :lines "56-61"
+*** Modeline Time and Battery
+    Display time and battery information in modeline.
+    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "DisTimeBat" :range-end "-DisTimeBat" :lines "64-66"
 * General Programming
 ** Git
 *** Magit

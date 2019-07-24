@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jul 23 08:27:04 2019 (-0400)
+;; Last-Updated: Wed Jul 24 00:32:22 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui
@@ -59,6 +59,11 @@
 ;; Display column numbers in modeline
 (column-number-mode 1)
 ;; -DisLineNum
+
+;; DisTimeBat
+(display-time-mode 1)
+(display-battery-mode 1)
+;; -DisTimeBat
 
 (provide 'init-ui-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
