@@ -3,11 +3,11 @@
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
 ;; Filename: init-search.el
-;; Description: Initialize Color-RG
+;; Description: Initialize Ivy Swiper Counsel Color-RG Snails
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jul 23 16:52:46 2019 (-0400)
+;; Last-Updated: Wed Jul 24 10:49:28 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -17,7 +17,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes Color-RG
+;; This initializes Ivy Swiper Counsel Color-RG Snails
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -61,6 +61,16 @@
   (setq ivy-count-format "【%d/%d】")
   (setq ivy-wrap t))
 ;; -IvyPac
+
+;; IvyPosframePac
+(use-package ivy-posframe
+  :after ivy
+  :custom-face
+  (ivy-posframe ((t (:background "#303640"))))
+  :config
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-window-bottom-left)))
+  (ivy-posframe-mode 1))
+;; -IvyPosframePac
 
 ;; ColorRGPac
 (use-package color-rg
