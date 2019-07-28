@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 08:40:27 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 21 13:48:36 2019 (-0400)
+;; Last-Updated: Sun Jul 28 16:59:24 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d magit forge
@@ -46,12 +46,6 @@
   :if *git*
   :bind ("C-x g" . magit-status))
 ;; -MagitPac
-
-;; ForgePac
-(use-package forge
-  :if *gcc*
-  :after magit)
-;; -ForgePac
 
 (provide 'init-magit)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
