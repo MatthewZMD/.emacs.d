@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 18 11:16:15 2019 (-0400)
+;; Last-Updated: Fri Jul 26 14:48:40 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -48,6 +48,7 @@
   :bind ("C-z C-f" . lsp-format-buffer)
   :hook ((java-mode . lsp)
          (python-mode . lsp)
+         (js-mode . lsp)
          (js2-mode . lsp)
          (typescript-mode . lsp)
          (web-mode . lsp)
