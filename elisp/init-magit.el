@@ -3,21 +3,21 @@
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
 ;; Filename: init-magit.el
-;; Description: Initialize Magit and Forge
+;; Description: Initialize Magit
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 08:40:27 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 28 16:59:24 2019 (-0400)
+;; Last-Updated: Wed Jul 31 10:53:42 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d magit forge
+;; Keywords: M-EMACS .emacs.d magit
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes magit and forge
+;; This initializes magit
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 01:27:44 2019 (-0400)
+;; Last-Updated: Wed Jul 31 16:16:41 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
@@ -68,7 +68,6 @@
   (use-package erc-hl-nicks :defer t)
   (use-package erc-image :defer t)
   (add-to-list 'erc-modules 'notifications)
-  (add-to-list 'erc-modules 'spelling)
   (erc-track-mode t)
   (erc-services-mode 1)
   :preface
@@ -77,7 +76,15 @@
     (interactive)
     (if (get-buffer "irc.freenode.net:6697")
         (erc-track-switch-buffer 1)
-      (erc-tls :server "irc.freenode.net" :port 6697)))
+      (if (file-exists-p "~/.authinfo")
+          (let ((auth-list (read-lines "~/.authinfo"))
+                (nick-regexp "^machine irc.freenode.net login \\(\\w+\\)"))
+            (dolist (auth auth-list)
+              (when (string-match nick-regexp auth)
+                (erc-tls :server "irc.freenode.net" :port 6697
+                         :nick (match-string 1 auth)))))
+        (call-interactively #'erc-tls))))
+
   (defun erc-count-users ()
     "Displays the number of users and ops connected on the current channel."
     (interactive)
@@ -98,6 +105,7 @@
                 (message "%d users (%s ops) are online on %s" users ops channel))
             (user-error "The current buffer is not a channel")))
       (user-error "You must first be connected on IRC")))
+
   (defun erc-get-ops ()
     "Displays the names of ops users on the current channel."
     (interactive)
@@ -115,6 +123,7 @@
                   (message "There are no ops users online on %s" channel)))
             (user-error "The current buffer is not a channel")))
       (user-error "You must first be connected on IRC")))
+
   (defun erc-notify (nickname message)
     "Displays a notification message for ERC."
     (let* ((channel (buffer-name))
