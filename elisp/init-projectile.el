@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 09:10:23 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 21 13:49:18 2019 (-0400)
+;; Last-Updated: Tue Jul 30 22:48:47 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d projectile
@@ -45,7 +45,6 @@
 (use-package projectile
   :bind
   ("C-c p" . projectile-command-map)
-  ("C-z i" . projectile-switch-project)
   ("C-z o" . projectile-find-file)
   ("C-z p" . projectile-add-known-project)
   :config

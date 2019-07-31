@@ -133,6 +133,7 @@
 - [[Miscellaneous][Miscellaneous]]
   - [[Org][Org]]
   - [[Emacs Application Framework][Emacs Application Framework]]
+  - [[Emacs Relay Chat][Emacs Relay Chat]]
   - [[Emacs Web Wowser][Emacs Web Wowser]]
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
@@ -306,7 +307,7 @@
     So Long mitigates slowness due to extremely long lines. Currently available in Emacs master branch *only*!
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "151-153"
 ** Functions
-   Other important, but longer functions.
+   Important functions.
 *** Resize Window Width / Height Functions
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "42-63"
 *** Edit This Configuration File Shortcut
@@ -381,7 +382,7 @@
    *Prerequisite*: Windows OS: Install [[https://github.com/bmatzelle/gow/releases][Gow]] and add to =PATH=.
 
    [[https://github.com/bmatzelle/gow][Gow]] is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
-   #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "45-57"
+   #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "45-56"
 ** Treemacs
    [[https://github.com/Alexander-Miller/treemacs][Treemacs]], a tree layout file explorer for Emacs.
 *** Treemacs
@@ -556,6 +557,14 @@
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "45-58"
+** Emacs Relay Chat
+   [[https://www.emacswiki.org/emacs/ERC][ERC]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
+
+   *Prerequisite*: Put IRC credentials to =~/.authinfo= or =~/.authinfo.gpg= or =~/.netrc= like this:
+   #+BEGIN_SRC text
+     machine irc.freenode.net login <nickname> password <password>
+   #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "46-132"
 ** Emacs Web Wowser
    EWW, the Emacs Web Wowser.
 *** Set EWW as Default Browser
