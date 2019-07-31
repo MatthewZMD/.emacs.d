@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 16:16:41 2019 (-0400)
+;; Last-Updated: Wed Jul 31 16:35:38 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
@@ -81,6 +81,7 @@
                 (nick-regexp "^machine irc.freenode.net login \\(\\w+\\)"))
             (dolist (auth auth-list)
               (when (string-match nick-regexp auth)
+                (setq erc-prompt-for-nickserv-password 'nil)
                 (erc-tls :server "irc.freenode.net" :port 6697
                          :nick (match-string 1 auth)))))
         (call-interactively #'erc-tls))))
