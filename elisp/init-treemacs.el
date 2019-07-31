@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 09:56:12 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 23:22:33 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:31:16 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d treemacs
@@ -43,46 +43,46 @@
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :custom
+  (treemacs-collapse-dirs 3)
+  (treemacs-deferred-git-apply-delay 0.5)
+  (treemacs-display-in-side-window t)
+  (treemacs-file-event-delay 5000)
+  (treemacs-file-follow-delay 0.2)
+  (treemacs-follow-after-init t)
+  (treemacs-follow-recenter-distance 0.1)
+  (treemacs-git-command-pipe "")
+  (treemacs-goto-tag-strategy 'refetch-index)
+  (treemacs-indentation 2)
+  (treemacs-indentation-string " ")
+  (treemacs-is-never-other-window nil)
+  (treemacs-max-git-entries 5000)
+  (treemacs-no-png-images nil)
+  (treemacs-no-delete-other-windows t)
+  (treemacs-project-follow-cleanup nil)
+  (treemacs-persist-file (expand-file-name ".cache/treemacs-persist" user-emacs-directory))
+  (treemacs-recenter-after-file-follow nil)
+  (treemacs-recenter-after-tag-follow nil)
+  (treemacs-show-cursor nil)
+  (treemacs-show-hidden-files t)
+  (treemacs-silent-filewatch nil)
+  (treemacs-silent-refresh nil)
+  (treemacs-sorting 'alphabetic-desc)
+  (treemacs-space-between-root-nodes t)
+  (treemacs-tag-follow-cleanup t)
+  (treemacs-tag-follow-delay 1.5)
+  (treemacs-width 35)
   :config
-  (progn
-    (setq treemacs-collapse-dirs 3
-          treemacs-deferred-git-apply-delay 0.5
-          treemacs-display-in-side-window t
-          treemacs-file-event-delay 5000
-          treemacs-file-follow-delay 0.2
-          treemacs-follow-after-init t
-          treemacs-follow-recenter-distance 0.1
-          treemacs-git-command-pipe ""
-          treemacs-goto-tag-strategy 'refetch-index
-          treemacs-indentation 2
-          treemacs-indentation-string " "
-          treemacs-is-never-other-window nil
-          treemacs-max-git-entries 5000
-          treemacs-no-png-images nil
-          treemacs-no-delete-other-windows t
-          treemacs-project-follow-cleanup nil
-          treemacs-persist-file (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-          treemacs-recenter-after-file-follow nil
-          treemacs-recenter-after-tag-follow  nil
-          treemacs-show-cursor nil
-          treemacs-show-hidden-files t
-          treemacs-silent-filewatch nil
-          treemacs-silent-refresh nil
-          treemacs-sorting 'alphabetic-desc
-          treemacs-space-between-root-nodes t
-          treemacs-tag-follow-cleanup t
-          treemacs-tag-follow-delay 1.5
-          treemacs-width 35)
-    ;; The default width and height of the icons is 22 pixels. If you are
-    ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;;(treemacs-resize-icons 44)
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t)
-    (pcase (cons (not (null (executable-find "git")))
-                 (not (null (executable-find "python3"))))
-      (`(t . t) (treemacs-git-mode 'deferred))
-      (`(t . _) (treemacs-git-mode 'simple))))
+  ;; The default width and height of the icons is 22 pixels. If you are
+  ;; using a Hi-DPI display, uncomment this to double the icon size.
+  ;;(treemacs-resize-icons 44)
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  (treemacs-fringe-indicator-mode t)
+  (pcase (cons (not (null (executable-find "git")))
+               (not (null (executable-find "python3"))))
+    (`(t . t) (treemacs-git-mode 'deferred))
+    (`(t . _) (treemacs-git-mode 'simple)))
   :bind
   (("M-0"       . treemacs-select-window)
    ("C-x t 1"   . treemacs-delete-other-windows)

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:21:46 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jul 22 14:53:09 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:25:24 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dashboard
@@ -43,15 +43,16 @@
   :demand
   :diminish (dashboard-mode page-break-lines-mode)
   :bind ("C-z d" . open-dashboard)
+  :custom
+  (dashboard-banner-logo-title "Close the world. Open the nExt.")
+  (dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
+  (dashboard-items '((recents  . 7)
+                     (bookmarks . 5)
+                     (agenda . 5)))
   :custom-face
   (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 123))))
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-banner-logo-title "Close the world. Open the nExt.")
-  (setq dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
-  (setq dashboard-items '((recents  . 7)
-                          (bookmarks . 5)
-                          (agenda . 5)))
   ;; Additional Dashboard widgets.
   (defun dashboard-insert-widgets (list-size)
     ;; (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 15:06:27 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:48:52 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:36:13 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d which-key
@@ -41,9 +41,9 @@
 ;; WhichKeyPac
 (use-package which-key
   :diminish
-  :init
-  (setq which-key-separator " ")
-  (setq which-key-prefix-prefix "+")
+  :custom
+  (which-key-separator " ")
+  (which-key-prefix-prefix "+")
   :config
   (which-key-mode))
 ;; -WhichKeyPac

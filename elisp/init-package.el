@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:53:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Jul 19 15:25:51 2019 (-0400)
+;; Last-Updated: Wed Jul 31 00:51:50 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d packages use-package
@@ -82,11 +82,12 @@
 
 ;; AutoPackageUpdate
 (use-package auto-package-update
+  :custom
+  (auto-package-update-interval 7) ;; in days
+  (auto-package-update-prompt-before-update t)
+  (auto-package-update-delete-old-versions t)
+  (auto-package-update-hide-results t)
   :config
-  (setq auto-package-update-interval 7) ;; in days
-  (setq auto-package-update-prompt-before-update t)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 ;; -AutoPackageUpdate
 

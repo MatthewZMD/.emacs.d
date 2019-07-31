@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:13:42 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:43:45 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:14:55 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d eww
@@ -38,26 +38,18 @@
 ;;
 ;;; Code:
 
-;; EwwDefault
-(setq browse-url-browser-function 'eww-browse-url)
-;; -EwwDefault
-
-;; EwwRenameBuffer
-(defun xah-rename-eww-hook ()
-  "Rename eww browser's buffer so sites open in new page."
-  (rename-buffer "eww" t))
-(add-hook 'eww-mode-hook #'xah-rename-eww-hook)
-
-;; C-u M-x eww will force a new eww buffer
-(defun force-new-eww-buffer (orig-fun &rest args)
-  "ORIG-FUN ARGS When prefix argument is used, a new eww buffer will be created,
-  regardless of whether the current buffer is in `eww-mode'."
-  (if current-prefix-arg
-      (with-temp-buffer
-        (apply orig-fun args))
-    (apply orig-fun args)))
-(advice-add 'eww :around #'force-new-eww-buffer)
-;; -EwwRenameBuffer
+;; EWWPac
+(use-package eww
+  :ensure nil
+  :commands (eww)
+  :config
+  ;; Hit & to browse this url system browser
+  (setq browse-url-browser-function 'eww-browse-url)
+  (defun rename-eww-hook ()
+    "Rename EWW's buffer so sites open in new page."
+    (rename-buffer "eww" t))
+  (add-hook 'eww-mode-hook #'rename-eww-hook))
+;; -EWWPac
 
 (provide 'init-eww)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

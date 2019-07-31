@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:29:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 21 13:45:01 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:19:27 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d highlight-indent-guides indentation
@@ -46,11 +46,11 @@
   :if *sys/gui*
   :diminish
   :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
-  :config
-  (setq highlight-indent-guides-method 'character)
-  (setq highlight-indent-guides-responsive 'top)
-  (setq highlight-indent-guides-delay 0)
-  (setq highlight-indent-guides-auto-character-face-perc 7))
+  :custom
+  (highlight-indent-guides-method 'character)
+  (highlight-indent-guides-responsive 'top)
+  (highlight-indent-guides-delay 0)
+  (highlight-indent-guides-auto-character-face-perc 7))
 ;; -HighLightIndentPac
 
 ;; IndentConfig

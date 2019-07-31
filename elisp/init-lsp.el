@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Jul 26 14:48:40 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:34:46 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -42,9 +42,9 @@
 (use-package lsp-mode
   :defer t
   :commands lsp
-  :init
-  (setq lsp-auto-guess-root nil)
-  (setq lsp-prefer-flymake nil) ; Use flycheck instead of flymake
+  :custom
+  (lsp-auto-guess-root nil)
+  (lsp-prefer-flymake nil) ; Use flycheck instead of flymake
   :bind ("C-z C-f" . lsp-format-buffer)
   :hook ((java-mode . lsp)
          (python-mode . lsp)
@@ -69,16 +69,16 @@
               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
               ([remap xref-find-references] . lsp-ui-peek-find-references)
               ("C-c u" . lsp-ui-imenu))
-  :init
-  (setq lsp-ui-doc-enable t
-        lsp-ui-doc-header t
-        lsp-ui-doc-include-signature t
-        lsp-ui-doc-position 'top
-        lsp-ui-doc-use-webkit t
-        lsp-ui-doc-border (face-foreground 'default)
-        lsp-ui-sideline-enable nil
-        lsp-ui-sideline-ignore-duplicate t
-        lsp-ui-sideline-show-code-actions nil)
+  :custom
+  (lsp-ui-doc-enable t)
+  (lsp-ui-doc-header t)
+  (lsp-ui-doc-include-signature t)
+  (lsp-ui-doc-position 'top)
+  (lsp-ui-doc-use-webkit t)
+  (lsp-ui-doc-border (face-foreground 'default))
+  (lsp-ui-sideline-enable nil)
+  (lsp-ui-sideline-ignore-duplicate t)
+  (lsp-ui-sideline-show-code-actions nil)
   :config
   ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
   ;; https://github.com/emacs-lsp/lsp-ui/issues/243

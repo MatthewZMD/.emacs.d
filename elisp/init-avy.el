@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:12:49 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:18 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:24:13 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d avy
@@ -44,9 +44,9 @@
   :bind
   (("C-;" . avy-goto-char-timer)
    ("C-:" . avy-goto-line))
-  :config
-  (setq avy-timeout-seconds 0.3)
-  (setq avy-style 'pre))
+  :custom
+  (avy-timeout-seconds 0.3)
+  (avy-style 'pre))
 ;; -AvyPac
 
 (provide 'init-avy)

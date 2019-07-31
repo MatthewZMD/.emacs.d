@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Jun 20 00:36:05 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:28 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:26:21 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -40,12 +40,13 @@
 
 ;; PyimPac
 (use-package pyim
+  :custom
+  (default-input-method "pyim")
+  (pyim-default-scheme 'quanpin)
+  (pyim-page-tooltip 'popup)
+  (pyim-page-length 9)
   :config
-  (setq default-input-method "pyim")
-  (setq pyim-default-scheme 'quanpin)
   (pyim-isearch-mode 1)
-  (setq pyim-page-tooltip 'popup)
-  (setq pyim-page-length 9)
   ;; 设置 pyim 探针设置，这是 pyim 高级功能设置，可以实现 *无痛* 中英文切换速度 :-)
   ;; 我自己使用的中英文动态切换规则是：
   ;; 1. 光标只有在注释里面时，才可以输入中文。

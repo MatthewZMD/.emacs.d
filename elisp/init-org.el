@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:48:48 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:37:07 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -47,14 +47,15 @@
   ("C-c a" . org-agenda)
   ("C-c c" . org-capture)
   ("C-c b" . org-switch)
+  :custom
+  (org-log-done 'time)
+  (org-export-backends (quote (ascii html icalendar latex md odt)))
+  (org-use-speed-commands t)
+  (org-todo-keywords
+   '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE")))
   :config
-  (setq org-log-done 'time)
-  (setq org-export-backends (quote (ascii html icalendar latex md odt)))
   (when (file-directory-p "~/org/agenda/")
-    (setq org-agenda-files (list "~/org/agenda/")))
-  (setq org-use-speed-commands t)
-  (setq org-todo-keywords
-        '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE"))))
+    (setq org-agenda-files (list "~/org/agenda/"))))
 ;; -OrgPac
 
 ;; TocOrgPac

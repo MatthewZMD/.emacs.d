@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jul 23 08:55:56 2019 (-0400)
+;; Last-Updated: Wed Jul 31 00:59:06 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired
@@ -41,29 +41,26 @@
 ;; DiredPackage
 (use-package dired
   :ensure nil
-  :config
+  :custom
   ;; Always delete and copy recursively
-  (setq dired-recursive-deletes 'always)
-  (setq dired-recursive-copies 'always)
-
+  (dired-recursive-deletes 'always)
+  (dired-recursive-copies 'always)
   ;; Auto refresh Dired, but be quiet about it
-  (setq global-auto-revert-non-file-buffers t)
-  (setq auto-revert-verbose nil)
-
+  (global-auto-revert-non-file-buffers t)
+  (auto-revert-verbose nil)
   ;; Quickly copy/move file in Dired
-  (setq dired-dwim-target t)
-
+  (dired-dwim-target t)
   ;; Move files to trash when deleting
-  (setq delete-by-moving-to-trash t)
-
+  (delete-by-moving-to-trash t)
+  :config
   ;; Reuse same dired buffer, to prevent numerous buffers while navigating in dired
   (put 'dired-find-alternate-file 'disabled nil)
-  (add-hook 'dired-mode-hook
-        (lambda ()
-          (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)
-          (local-set-key (kbd "RET") #'dired-find-alternate-file)
-          (local-set-key (kbd "^")
-                         (lambda () (interactive) (find-alternate-file ".."))))))
+  :hook
+  (dired-mode . (lambda ()
+                  (local-set-key (kbd "<mouse-2>") #'dired-find-alternate-file)
+                  (local-set-key (kbd "RET") #'dired-find-alternate-file)
+                  (local-set-key (kbd "^")
+                                 (lambda () (interactive) (find-alternate-file ".."))))))
 ;; -DiredPackage
 
 ;; AutosaveBackupDir

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Jul 26 09:00:38 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:28:52 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -49,17 +49,18 @@
   :diminish
   :init
   (ivy-mode 1)
+  :custom
+  (ivy-use-virtual-buffers t)
+  (ivy-height 10)
+  (ivy-on-del-error-function nil)
+  (ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
+  (ivy-count-format "【%d/%d】")
+  (ivy-wrap t)
   :config
   (use-package amx :defer t)
   (use-package counsel :diminish :config (counsel-mode 1))
   (use-package swiper :defer t)
-  (bind-key "C-r" 'ivy-previous-line-or-history ivy-minibuffer-map)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-height 10)
-  (setq ivy-on-del-error-function nil)
-  (setq ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
-  (setq ivy-count-format "【%d/%d】")
-  (setq ivy-wrap t))
+  (bind-key "C-r" 'ivy-previous-line-or-history ivy-minibuffer-map))
 ;; -IvyPac
 
 ;; IvyPosframePac
@@ -69,8 +70,9 @@
   :diminish
   :custom-face
   (ivy-posframe ((t (:background "#303640"))))
+  :custom
+  (ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
   :config
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
   (ivy-posframe-mode 1))
 ;; -IvyPosframePac
 

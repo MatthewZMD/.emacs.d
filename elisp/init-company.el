@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 21 13:38:53 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:19:05 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -42,33 +42,33 @@
 (use-package company
   :diminish company-mode
   :hook (prog-mode . global-company-mode)
-  :config
-  (setq company-minimum-prefix-length 1)
-  (setq company-tooltip-align-annotations 't)
-  (setq company-begin-commands '(self-insert-command))
-  (setq company-require-match 'never)
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-tooltip-align-annotations 't)
+  (company-begin-commands '(self-insert-command))
+  (company-require-match 'never)
   ;; Don't use company in the following modes
-  (setq company-global-modes '(not shell-mode))
+  (company-global-modes '(not shell-mode))
   ;; Trigger completion immediately.
-  (setq company-idle-delay 0)
+  (company-idle-delay 0)
   ;; Number the candidates (use M-1, M-2 etc to select completions).
-  (setq company-show-numbers t)
+  (company-show-numbers t)
+  :config
   (define-key company-mode-map [remap indent-for-tab-command] #'company-indent-or-complete-common))
 ;; -ComPac
 
 ;; CompanyLSPPac
 (use-package company-lsp
   :defer t
-  :config
-  (setq company-lsp-cache-candidates 'auto))
+  :custom (company-lsp-cache-candidates 'auto))
 ;; -CompanyLSPPac
 
 ;; CompanyTabNinePac
 (use-package company-tabnine
   :after company company-lsp
+  :custom
+  (company-tabnine-max-num-results 3)
   :config
-  (setq company-tabnine-max-num-results 3)
-
   ;; Integrate company-tabnine with lsp-mode
   (defun company//sort-by-tabnine (candidates)
     (if (or (functionp company-backend)

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:11:21 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jul 15 11:07:06 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:33:35 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -47,7 +47,7 @@
          ("M-g i" . dumb-jump-go-prompt)
          ("M-g x" . dumb-jump-go-prefer-external)
          ("M-g z" . dumb-jump-go-prefer-external-other-window)))
-  :config (setq dumb-jump-selector 'ivy))
+  :custom (dumb-jump-selector 'ivy))
 ;; -DumbJump
 
 (provide 'init-dumb-jump)

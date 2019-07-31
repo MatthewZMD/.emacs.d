@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:39:31 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:51:06 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:23:34 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d winner
@@ -41,18 +41,19 @@
 ;; WinnerPac
 (use-package winner
   :ensure nil
+  :custom
+  (winner-boring-buffers
+   '("*Completions*"
+     "*Compile-Log*"
+     "*inferior-lisp*"
+     "*Fuzzy Completions*"
+     "*Apropos*"
+     "*Help*"
+     "*cvs*"
+     "*Buffer List*"
+     "*Ibuffer*"
+     "*esh command on file*"))
   :config
-  (setq winner-boring-buffers
-        '("*Completions*"
-          "*Compile-Log*"
-          "*inferior-lisp*"
-          "*Fuzzy Completions*"
-          "*Apropos*"
-          "*Help*"
-          "*cvs*"
-          "*Buffer List*"
-          "*Ibuffer*"
-          "*esh command on file*"))
   (winner-mode 1))
 ;; -WinnerPac
 

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 21 13:48:00 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:32:09 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -100,20 +100,20 @@
 (use-package recentf
   :ensure nil
   :hook (after-init . recentf-mode)
-  :init
-  (setq recentf-max-saved-items 200)
-  (setq recentf-exclude '((expand-file-name package-user-dir)
-                          ".cache"
-                          ".cask"
-                          ".elfeed"
-                          "bookmarks"
-                          "cache"
-                          "ido.*"
-                          "persp-confs"
-                          "recentf"
-                          "undo-tree-hist"
-                          "url"
-                          "COMMIT_EDITMSG\\'")))
+  :custom
+  (recentf-max-saved-items 200)
+  (recentf-exclude '((expand-file-name package-user-dir)
+                     ".cache"
+                     ".cask"
+                     ".elfeed"
+                     "bookmarks"
+                     "cache"
+                     "ido.*"
+                     "persp-confs"
+                     "recentf"
+                     "undo-tree-hist"
+                     "url"
+                     "COMMIT_EDITMSG\\'")))
 
 ;; When buffer is closed, saves the cursor location
 (save-place-mode 1)

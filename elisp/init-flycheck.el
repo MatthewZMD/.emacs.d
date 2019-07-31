@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:08:22 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:46:17 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:21:10 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d flycheck
@@ -42,8 +42,9 @@
 (use-package flycheck
   :defer t
   :hook (prog-mode . flycheck-mode)
+  :custom
+  (flycheck-emacs-lisp-load-path 'inherit)
   :config
-  (setq flycheck-emacs-lisp-load-path 'inherit)
   (flycheck-add-mode 'javascript-eslint 'js-mode)
   (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
 ;; -FlyCheckPac

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Mon Jun 10 18:58:02 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jul 22 13:28:52 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:36:00 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: lsp-python-ms
@@ -47,18 +47,18 @@
   :ensure nil
   :after flycheck
   :mode "\\.py\\'"
-  :config
-  (setq python-indent-offset 4)
-  (setq flycheck-python-pycompile-executable "python3")
-  (setq python-shell-interpreter "python3"))
+  :custom
+  (python-indent-offset 4)
+  (flycheck-python-pycompile-executable "python3")
+  (python-shell-interpreter "python3"))
 ;; -PythonConfig
 
 ;; LSPPythonPac
 (use-package lsp-python-ms
   :after lsp-mode python
   :if (or *python3* *python*)
-  :config
-  (setq lsp-python-executable-cmd "python3"))
+  :custom
+  (lsp-python-executable-cmd "python3"))
 ;; -LSPPythonPac
 
 (provide 'init-python)

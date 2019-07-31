@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 00:46:46 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:27:44 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
@@ -45,9 +45,6 @@
 ;; ERCPac
 (use-package erc
   :ensure nil
-  :init
-  (use-package erc-hl-nicks :after erc)
-  (use-package erc-image :after erc)
   :custom-face
   (erc-notice-face ((t (:foreground "#ababab"))))
   :custom
@@ -68,6 +65,8 @@
   (erc-server-reconnect-attempts 5)
   (erc-server-reconnect-timeout 3)
   :config
+  (use-package erc-hl-nicks :defer t)
+  (use-package erc-image :defer t)
   (add-to-list 'erc-modules 'notifications)
   (add-to-list 'erc-modules 'spelling)
   (erc-track-mode t)

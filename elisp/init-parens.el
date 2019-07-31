@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 23:18:13 2019 (-0400)
+;; Last-Updated: Wed Jul 31 01:17:16 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d parenthesis smartparens awesome-pair delete-block
@@ -59,11 +59,12 @@
               ("C-]" . sp-select-next-thing-exchange)
               ("C-M-]" . sp-select-next-thing)
               ("M-i" . sp-change-enclosing))
+  :custom
+  (sp-escape-quotes-after-insert nil)
   :config
   ;; Stop pairing single quotes in elisp
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'org-mode "[" nil :actions nil)
-  (setq sp-escape-quotes-after-insert nil)
   ;; Smartparens is broken in `cc-mode' as of Emacs 27. See
   ;; <https://github.com/Fuco1/smartparens/issues/963>.
   (unless (version< emacs-version "27")
