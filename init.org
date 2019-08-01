@@ -328,11 +328,14 @@
 *** Compilation
     Better compilation configurations.
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "138-143"
+*** Suppress ad-handle-definition warnings
+    These warnings are generated when functions are redefined with =defadvice=, they are not helpful.
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "IgnoreAdHandleMessage" :range-end "-IgnoreAdHandleMessage" :lines "146-147"
 *** Move Custom-Set-Variables to Different File
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "146-148"5
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "150-152"5
 *** So-Long
     So Long mitigates slowness due to extremely long lines. Currently available in Emacs master branch *only*!
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "151-153"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "155-157"
 ** Functions
    Important functions.
 *** Resize Window Width / Height Functions

@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 01:32:09 2019 (-0400)
+;; Last-Updated: Thu Aug  1 11:11:45 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -141,6 +141,10 @@
 
 (setq-default compilation-scroll-output t)
 ;; -BetterCompilation
+
+;; IgnoreAdHandleMessage
+(setq ad-redefinition-action 'accept)
+;; -IgnoreAdHandleMessage
 
 ;; CustomSetFileLocation
 (setq custom-file (concat user-emacs-directory "custom-set-variables.el"))
