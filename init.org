@@ -599,7 +599,7 @@
    #+BEGIN_SRC text
      machine irc.freenode.net login <nickname> password <password>
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "46-143"
+   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "46-145"
 ** Emacs Web Wowser
    EWW, the Emacs Web Wowser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "42-52"

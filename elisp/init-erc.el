@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  1 15:34:53 2019 (-0400)
+;; Last-Updated: Thu Aug  1 16:07:27 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
@@ -48,7 +48,7 @@
   :custom-face
   (erc-notice-face ((t (:foreground "#ababab"))))
   :custom
-  (erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#linux" "#python")))
+  (erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#linux")))
   (erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
                              "324" "329" "332" "333" "353" "477"))
   (erc-server-coding-system '(utf-8 . utf-8))
@@ -78,14 +78,16 @@
         (erc-track-switch-buffer 1)
       (if (file-exists-p "~/.authinfo")
           (let ((auth-list (read-lines "~/.authinfo"))
-                (nick-regexp "^machine irc.freenode.net login \\(\\w+\\)"))
-            (dolist (auth auth-list)
-              (setq auth-list (cdr auth-list))
+                (nick-regexp "^machine irc.freenode.net login \\(\\w+\\)")
+                (auth))
+            (while (> (length auth-list) 0)
+              (setq auth (car auth-list))
               (cond ((string-match nick-regexp auth)
                      (setq erc-prompt-for-nickserv-password 'nil)
                      (erc-tls :server "irc.freenode.net" :port 6697
                               :nick (match-string 1 auth)))
-                    ((= (length auth-list) 1) (call-interactively #'erc-tls)))))
+                    ((= (length auth-list) 1) (call-interactively #'erc-tls)))
+              (setq auth-list (cdr auth-list))))
         (call-interactively #'erc-tls))))
 
   (defun erc-count-users ()
