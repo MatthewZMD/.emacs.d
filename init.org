@@ -1,60 +1,10 @@
 #+OPTIONS: toc:nil
 #+EXPORT_FILE_NAME: README
 * M-EMACS
-* About
-  M-EMACS is a custom GNU Emacs setup and configurations that aims not only to enhance the default Emacs experience, and hopefully be a sample that everyone can easily navigate and reference through a highly detailed README that contains 99% of the *entire* configuration code.
-
-  As a young EMACSer, I have experienced the struggle to find a detailed configuration that is loosely coupled and highly readable. This mostly due to the nature of source codes, sometimes comments are harder to notice or simply not enough. Therefore I decided to construct this README and present any human-readable explanation in a much more human-friendly way. Anyone, particularly Emacs beginners who have no idea where to start with their personal config, is more than welcome to read through this document and copy/paste any part to use it on their own.
-
-  This configuration is designed and tested for *GNU Emacs 26.1 and above only*. However, it is suggested to use *emacs27*, the latest version currently available.
-  #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "42-44"
-** Screenshot
-   [[file:images/Sample.png]]
-** About README
-   This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
-** Installation
-   1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
-      If you are using Ubuntu, =emacs-snapshot= is a great way to get latest version of Emacs.
-      #+BEGIN_SRC text
-      sudo add-apt-repository -y ppa:ubuntu-elisp
-      sudo apt-get update
-      sudo apt-get install emacs-snapshot
-      #+END_SRC
-   2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
-      #+BEGIN_SRC text
-        git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
-        cd .emacs.d
-      #+END_SRC
-   3. Ensure a stable connection to Melpa Packages, then open Emacs.
-   4. Enter =y= when prompted with =Auto-update packages now?=, wait for all packages to install.
-   5. In your favorite browser, =Ctrl-F Prerequisite= through this webpage and follow the *Prerequisite* instructions.
-   6. Restart Emacs.
-*** Further Updates
-    I will be updating M-EMACS from time to time, it is best to =git pull= once a while to stay up to date.
-
-    Please also execute =git submodule update --recursive --remote= to sync with all the submodules.
-** Modification
-   You have the permission to use, modify, distribute in any way you want.
-
-   However, what is /free/ stays /free/. After all, this is [[file:LICENSE][GPL]].
-
-   *Remember* you must manually sync this README with all the new changes you made by:
-   1. Please do *NOT* edit README.md file, edit init.org instead!
-   2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
-   3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
-   4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in init.org.
-   5. Enter =C-x C-s= to save and update =:lines=. (if you don't see the updated effect, run =M-x update-includes= manually)
-   6. Call =M-x org-gfm-export-to-markdown= to update this README.
-** Contribution
-   If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
-** Special Thanks
-   Everyone starts somewhere, and I started here.
-  - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
-  - [[https://github.com/hlissner/doom-emacs][Henrik Lissner's Doom Emacs]]
-  - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]
 * Table of Contents                                               :TOC_2_ORG:
 - [[M-EMACS][M-EMACS]]
-- [[About][About]]
+- [[About EMACS][About EMACS]]
+- [[About M-EMACS][About M-EMACS]]
   - [[Screenshot][Screenshot]]
   - [[About README][About README]]
   - [[Installation][Installation]]
@@ -143,6 +93,82 @@
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
   - [[Zone][Zone]]
+
+* About EMACS
+  Emacs changes how you /think/ about programming.
+
+  Emacs is *totally introspectable*. You can always find out 'what code runs when I press this button?'.
+
+  Emacs is an *incremental programming environment*. There's no edit-compile-run cycle. There isn't even an edit-run cycle. You can execute snippets of code and gradually turn them into a finished project. There's no distinction between your editor and your interpreter.
+
+  Emacs is a *mutable environment*. You can set variables, tweak functions with advice, or redefine entire functions. Nothing is off-limits.
+
+  Emacs provides *functionality without applications*. Rather than separate applications, functionality is all integrated into your Emacs instance. Amazingly, this works. Ever wanted to use the same snippet tool for writing C++ classes as well as emails?
+
+  Emacs is full of *incredible software concepts that haven't hit the mainstream yet*. For example:
+  - Many platforms have a single item clipboard. Emacs has an *infinite clipboard*.
+  - If you undo a change, and then continue editing, you can't redo the original change. Emacs allows *undoing to any historical state*, even allowing tree-based exploration of history.
+  - Emacs supports a *reverse variable search*: you can find variables with a given value.
+  - You can perform *structural editing* of code, allowing you to make changes without breaking syntax. This works for lisps (paredit) and non-lisps (smartparens).
+  - Many applications use a modal GUI: for example, you can't do other edits during a find-and-replace operation. Emacs provides *recursive editing* that allow you to suspend what you're currently doing, perform other edits, then continue the original task.
+  Emacs has a *documentation culture*. Emacs includes a usage manual, a lisp programming manual, pervasive docstrings and even an interactive tutorial.
+
+  Emacs has a *broad ecosystem*. If you want to edit code in a niche language, there's probably an Emacs package for it.
+
+  Emacs doesn't have a monopoly on good ideas, and there are other great tools out there. Nonetheless, we believe the [[https://i.stack.imgur.com/7Cu9Z.jpg][Emacs learning curve]] pays off.
+
+  /This beautifully written *About EMACS* section credits to [[https://github.com/remacs/remacs][Remacs]]./
+* About M-EMACS
+  M-EMACS is a custom GNU Emacs setup and configurations that aims not only to enhance the default Emacs experience, and hopefully be a sample that everyone can easily navigate and reference through a highly detailed README that contains 99% of the *entire* configuration code.
+
+  As a young EMACSer, I have experienced the struggle to find a detailed configuration that is loosely coupled and highly readable. This mostly due to the nature of source codes, sometimes comments are harder to notice or simply not enough. Therefore I decided to construct this README and present any human-readable explanation in a much more human-friendly way. Anyone, particularly Emacs beginners who have no idea where to start with their personal config, is more than welcome to read through this document and copy/paste any part to use it on their own.
+
+  This configuration is designed and tested for *GNU Emacs 26.1 and above only*. However, it is suggested to use *emacs27*, the latest version currently available.
+  #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "42-44"
+** Screenshot
+   [[file:images/Sample.png]]
+** About README
+   This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
+** Installation
+   1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
+      If you are using Ubuntu, =emacs-snapshot= is a great way to get latest version of Emacs.
+      #+BEGIN_SRC text
+      sudo add-apt-repository -y ppa:ubuntu-elisp
+      sudo apt-get update
+      sudo apt-get install emacs-snapshot
+      #+END_SRC
+   2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
+      #+BEGIN_SRC text
+        git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
+        cd .emacs.d
+      #+END_SRC
+   3. Ensure a stable connection to Melpa Packages, then open Emacs.
+   4. Enter =y= when prompted with =Auto-update packages now?=, wait for all packages to install.
+   5. In your favorite browser, =Ctrl-F Prerequisite= through this webpage and follow the *Prerequisite* instructions.
+   6. Restart Emacs.
+*** Further Updates
+    I will be updating M-EMACS from time to time, it is best to =git pull= once a while to stay up to date.
+
+    Please also execute =git submodule update --recursive --remote= to sync with all the submodules.
+** Modification
+   You have the permission to use, modify, distribute in any way you want.
+
+   However, what is /free/ stays /free/. After all, this is [[file:LICENSE][GPL]].
+
+   *Remember* you must manually sync this README with all the new changes you made by:
+   1. Please do *NOT* edit README.md file, edit init.org instead!
+   2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
+   3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
+   4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in init.org.
+   5. Enter =C-x C-s= to save and update =:lines=. (if you don't see the updated effect, run =M-x update-includes= manually)
+   6. Call =M-x org-gfm-export-to-markdown= to update this README.
+** Contribution
+   If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
+** Special Thanks
+   Everyone starts somewhere, and I started here.
+  - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
+  - [[https://github.com/hlissner/doom-emacs][Henrik Lissner's Doom Emacs]]
+  - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]
 
 * Startup
 ** Lexical Binding
