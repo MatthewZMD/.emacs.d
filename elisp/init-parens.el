@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 01:17:16 2019 (-0400)
+;; Last-Updated: Wed Jul 31 22:44:24 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d parenthesis smartparens awesome-pair delete-block
@@ -45,20 +45,18 @@
 (use-package smartparens
   :hook (prog-mode . smartparens-mode)
   :diminish smartparens-mode
-  :bind (:map smartparens-mode-map
-              ("C-M-f" . sp-forward-sexp)
-              ("C-M-b" . sp-backward-sexp)
-              ("C-M-a" . sp-backward-down-sexp)
-              ("C-M-e" . sp-up-sexp)
-              ("C-M-u" . sp-backward-up-sexp)
-              ("C-M-k" . sp-kill-sexp)
-              ("C-M-w" . sp-copy-sexp)
-              ("M-D" . sp-splice-sexp)
-              ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
-              ("C-S-<backspace>" . sp-splice-sexp-killing-around)
-              ("C-]" . sp-select-next-thing-exchange)
-              ("C-M-]" . sp-select-next-thing)
-              ("M-i" . sp-change-enclosing))
+  :bind
+  (:map smartparens-mode-map
+        ("C-M-f" . sp-forward-sexp)
+        ("C-M-b" . sp-backward-sexp)
+        ("C-M-a" . sp-backward-down-sexp)
+        ("C-M-e" . sp-up-sexp)
+        ("C-M-w" . sp-copy-sexp)
+        ("C-M-k" . sp-change-enclosing)
+        ("M-k" . sp-kill-sexp)
+        ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
+        ("C-S-<backspace>" . sp-splice-sexp-killing-around)
+        ("C-]" . sp-select-next-thing-exchange))
   :custom
   (sp-escape-quotes-after-insert nil)
   :config

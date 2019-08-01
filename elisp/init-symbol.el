@@ -3,21 +3,21 @@
 ;; Copyright (C) 2019 Mingde Zeng
 ;;
 ;; Filename: init-symbol.el
-;; Description: Initialize Pretty Symbols
+;; Description: Initialize emojify and prettify-symbols-mode
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 08:33:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 23:36:52 2019 (-0400)
+;; Last-Updated: Wed Jul 31 22:49:12 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d
+;; Keywords: M-EMACS .emacs.d prettify-symbols emojify
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes pretty symbols
+;; This initializes emojify and prettify-symbols-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,6 +37,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
+(eval-when-compile
+  (require 'init-const))
+
+;; EmojifyPac
+(use-package emojify
+  :if *sys/gui*
+  :hook (after-init . global-emojify-mode)
+  :bind ("M-i" . emojify-insert-emoji))
+;; -EmojifyPac
 
 ;; PreSym
 (global-prettify-symbols-mode 1)
