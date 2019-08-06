@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 01:28:52 2019 (-0400)
+;; Last-Updated: Tue Aug  6 14:36:45 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -44,8 +44,7 @@
 
 ;; IvyPac
 (use-package ivy
-  :bind (("C-s" . swiper-isearch)
-         ("M-s" . swiper-isearch-thing-at-point))
+  :bind ("C-s" . swiper-isearch)
   :diminish
   :init
   (ivy-mode 1)
@@ -80,22 +79,36 @@
 (use-package color-rg
   :load-path "~/.emacs.d/site-elisp/color-rg"
   :if *rg*
-  :bind ("C-z s s" . color-rg-search-input))
+  :bind ("C-M-s" . color-rg-search-input))
 ;; -ColorRGPac
 
 ;; SnailsPac
 (use-package snails
   :load-path "~/.emacs.d/site-elisp/snails/"
   :if *sys/gui*
-  :init
-  (use-package exec-path-from-shell
-    :if (featurep 'cocoa)
-    :defer t)
-  :bind ("C-z s f" . snails)
   :custom-face
   (snails-content-buffer-face ((t (:background "#111" :height 110))))
   (snails-input-buffer-face ((t (:background "#222" :foreground "gold" :height 110))))
-  (snails-header-line-face ((t (:inherit font-lock-function-name-face :underline t :height 1.1)))))
+  (snails-header-line-face ((t (:inherit font-lock-function-name-face :underline t :height 1.1))))
+  :config
+  (use-package exec-path-from-shell
+    :if (featurep 'cocoa) :defer t)
+
+  ;; Functions for specific backends
+  (defun snails-current-project ()
+    (interactive)
+    (snails '(snails-backend-rg snails-backend-fd)))
+  (defun snails-active-recent-buffers ()
+    (interactive)
+    (snails '(snails-backend-buffer snails-backend-recentf)))
+  (defun snails-everywhere ()
+    (interactive)
+    (snails '(snails-backend-everything snails-backend-mdfind)))
+  :bind
+  (("M-s s" . snails)
+   ("M-s f" . snails-current-project)
+   ("M-s b" . snails-active-recent-buffers)
+   ("M-s e" . snails-everywhere)))
 ;; -SnailsPac
 
 

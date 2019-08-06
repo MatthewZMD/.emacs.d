@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 01:34:46 2019 (-0400)
+;; Last-Updated: Tue Aug  6 14:54:00 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -45,7 +45,7 @@
   :custom
   (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil) ; Use flycheck instead of flymake
-  :bind ("C-z C-f" . lsp-format-buffer)
+  :bind (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
   :hook ((java-mode . lsp)
          (python-mode . lsp)
          (js-mode . lsp)
@@ -90,7 +90,7 @@
 (use-package dap-mode
   :diminish
   :bind
-  (:map lsp-mode-map
+  (:map dap-mode-map
         (("<f12>" . dap-debug)
          ("<f8>" . dap-continue)
          ("<f9>" . dap-next)
