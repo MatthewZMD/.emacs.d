@@ -1,13 +1,12 @@
 ;;; init-shell.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-shell.el
 ;; Description: Initialize Shell
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 21 13:53:20 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:07:55 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here

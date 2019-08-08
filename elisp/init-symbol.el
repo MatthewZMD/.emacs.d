@@ -1,13 +1,12 @@
 ;;; init-symbol.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-symbol.el
 ;; Description: Initialize emojify and prettify-symbols-mode
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 08:33:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 22:49:12 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:08:01 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d prettify-symbols emojify

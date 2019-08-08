@@ -1,13 +1,12 @@
 ;;; init-ui-config.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-ui-config.el
 ;; Description: Initialize UI Configuration
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 24 00:32:22 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:08:10 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui

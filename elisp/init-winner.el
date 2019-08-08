@@ -1,13 +1,12 @@
 ;;; init-winner.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-winner.el
 ;; Description: Initialize Winner Mode
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:39:31 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 01:23:34 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:08:26 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d winner

@@ -1,13 +1,12 @@
 ;;; init-const.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-const.el
 ;; Description: Initialize Constants
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Mar 18 14:20:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 10:50:40 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:04:54 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d constants

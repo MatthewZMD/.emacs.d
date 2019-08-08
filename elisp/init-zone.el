@@ -1,13 +1,12 @@
 ;;; init-zone.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-zone.el
 ;; Description: Initialize Zone
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:38:34 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jul 11 18:30:49 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:08:32 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d zone

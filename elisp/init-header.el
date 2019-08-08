@@ -1,13 +1,12 @@
 ;;; init-header.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-header.el
 ;; Description: Initialize Header2
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:32:02 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:15 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:06:04 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d header2
@@ -41,6 +40,8 @@
 ;; Header2Pac
 (use-package header2
   :load-path "~/.emacs.d/site-elisp/header2"
+  :custom
+  (header-copyright-notice (concat "Copyright (C) 2019 " (user-full-name) "\n"))
   :config
   (autoload 'auto-make-header "header2")
   (autoload 'auto-update-file-header "header2")

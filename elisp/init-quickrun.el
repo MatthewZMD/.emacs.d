@@ -1,13 +1,12 @@
 ;;; init-quickrun.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-quickrun.el
 ;; Description: Initialize quickrun
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jul  7 16:32:16 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul 14 17:46:47 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:07:44 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init

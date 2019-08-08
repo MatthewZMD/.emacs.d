@@ -1,13 +1,12 @@
 ;;; init-popup-kill-ring.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-popup-kill-ring.el
 ;; Description: Initialize Popup-Kill-Ring
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 15:15:40 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jul  7 16:47:33 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:07:32 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d popup-kill-ring

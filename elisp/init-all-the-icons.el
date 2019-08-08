@@ -1,13 +1,12 @@
 ;;; init-all-the-icons.el --- -*- lexical-binding: t -*-
 ;;
-;; Copyright (C) 2019 Mingde Zeng
-;;
 ;; Filename: init-all-the-icons.el
 ;; Description: Initialize All-The-Icons
 ;; Author: Mingde (Matthew) Zeng
+;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:06:08 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jul 31 11:03:41 2019 (-0400)
+;; Last-Updated: Thu Aug  8 16:03:18 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d all-the-icons
