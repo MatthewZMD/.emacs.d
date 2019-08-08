@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Aug  6 14:36:45 2019 (-0400)
+;; Last-Updated: Thu Aug  8 10:48:06 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -97,7 +97,7 @@
   ;; Functions for specific backends
   (defun snails-current-project ()
     (interactive)
-    (snails '(snails-backend-rg snails-backend-fd)))
+    (snails '(snails-backend-projectile snails-backend-rg snails-backend-fd)))
   (defun snails-active-recent-buffers ()
     (interactive)
     (snails '(snails-backend-buffer snails-backend-recentf)))
@@ -106,7 +106,7 @@
     (snails '(snails-backend-everything snails-backend-mdfind)))
   :bind
   (("M-s s" . snails)
-   ("M-s f" . snails-current-project)
+   ("M-s g" . snails-current-project)
    ("M-s b" . snails-active-recent-buffers)
    ("M-s e" . snails-everywhere)))
 ;; -SnailsPac
