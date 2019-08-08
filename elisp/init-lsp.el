@@ -7,7 +7,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Aug  6 14:54:00 2019 (-0400)
+;; Last-Updated: Thu Aug  8 10:08:47 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -94,8 +94,8 @@
         (("<f12>" . dap-debug)
          ("<f8>" . dap-continue)
          ("<f9>" . dap-next)
-         ("<f11>" . dap-step-in)
-         ("C-<f11>" . dap-step-out)
+         ("<f12>" . dap-step-in)
+         ("C-<f12>" . dap-step-out)
          ("<f7>" . dap-breakpoint-toggle)))
   :hook ((after-init . dap-mode)
          (dap-mode . dap-ui-mode)
