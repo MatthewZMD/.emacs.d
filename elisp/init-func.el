@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Aug  9 15:30:24 2019 (-0400)
+;; Last-Updated: Fri Aug  9 15:34:37 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -206,10 +206,13 @@ FACE defaults to inheriting from default and highlight."
 
 ;; WhereAmI
 (defun where-am-i ()
-    "An interactive replacement of the function `buffer-file-name'."
+    "An interactive function that displays `buffer-file-name' when visiting a file.
+Otherwise the function displays `buffer-name'."
     (interactive)
     (let ((dir-file (buffer-file-name)))
-      (if dir-file (message dir-file) (message "You are not visiting a file!"))))
+      (if dir-file
+          (message dir-file)
+        (message (buffer-name)))))
 ;; -WhereAmI
 
 (provide 'init-func)
