@@ -358,6 +358,9 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "186-198"
 *** Read Lines From File
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "201-205"
+*** Where Am I
+    If you are working in a file, print the working file path.
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "208-213"
 * User Interface Enhancements
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.

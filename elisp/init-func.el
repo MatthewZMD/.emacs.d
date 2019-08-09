@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:05:54 2019 (-0400)
+;; Last-Updated: Fri Aug  9 15:20:15 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -203,6 +203,14 @@ FACE defaults to inheriting from default and highlight."
   (with-temp-buffer (insert-file-contents filePath)
                     (split-string (buffer-string) "\n" t)))
 ;; -ReadLines
+
+;; WhereAmI
+(defun where-am-i ()
+    "An interactive replacement of the function `buffer-file-name'."
+    (interactive)
+    (let ((dir-file (buffer-file-name)))
+      (if dir-file (message dir-file) (message "You are not viewing a file!"))))
+;; -WhereAmI
 
 (provide 'init-func)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
