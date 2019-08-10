@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:00:27 2019 (-0400)
+;; Last-Updated: Fri Aug  9 21:52:44 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -195,6 +195,8 @@ decrease this. If you experience stuttering, increase this.")
 (require 'init-erc)
 
 (require 'init-eww)
+
+(require 'init-tramp)
 
 (require 'init-pdf)
 

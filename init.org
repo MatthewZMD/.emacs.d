@@ -86,6 +86,7 @@
   - [[Emacs Application Framework][Emacs Application Framework]]
   - [[Emacs Relay Chat][Emacs Relay Chat]]
   - [[Emacs Web Wowser][Emacs Web Wowser]]
+  - [[Tramp][Tramp]]
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
   - [[Pinyin][Pinyin]]
@@ -606,6 +607,14 @@
 ** Emacs Web Wowser
    EWW, the Emacs Web Wowser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "41-51"
+** Tramp
+   [[https://www.emacswiki.org/emacs/TrampMode][Tramp]], short for Transparent Remote Access, Multiple Protocols is a package for editing remote files using a remote shell connection (rlogin, telnet, ssh).
+*** Google Cloud Platform
+    Connect to Google Cloud Platform using the following:
+    #+BEGIN_SRC text
+      /gssh:some-instance:/path/to/file
+    #+END_SRC
+   #+INCLUDE: "~/.emacs.d/elisp/init-tramp.el" src emacs-lisp :range-begin "TrampPac" :range-end "-TrampPac" :lines "41-56"
 ** PDF Tools
    [[https://github.com/politza/pdf-tools][PDF Tools]], an Emacs support library for PDF files. It works best on non-Windows OS.
    #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "44-51"
