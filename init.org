@@ -14,7 +14,6 @@
 - [[Startup][Startup]]
   - [[Lexical Binding][Lexical Binding]]
   - [[Early Init][Early Init]]
-  - [[Restore Default After Startup][Restore Default After Startup]]
   - [[Garbage Collection][Garbage Collection]]
   - [[Load Path][Load Path]]
   - [[Define Constants][Define Constants]]
@@ -185,31 +184,25 @@
     #+BEGIN_QUOTE
     The GC eats up quite a bit of time, easily doubling startup time. The trick is to turn up the memory threshold as early as possible.
     #+END_QUOTE
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DeferGC" :range-end "-DeferGC"  :lines "42-43"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DeferGC" :range-end "-DeferGC"  :lines "42-44"
 *** Disable =package-enable-at-startup=
     Package initialize occurs automatically, before =user-init-file= is loaded, but after =early-init-file=.
     We handle package initialization, so we must prevent Emacs from doing it early!
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetPES" :range-end "-UnsetPES"  :lines "46-47"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetPES" :range-end "-UnsetPES"  :lines "47-48"
 *** Unset =file-name-handler-alist=
     Every file opened and loaded by Emacs will run through this list to check for a proper handler for the file, but during startup, it won’t need any of them.
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "50-52"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetFNHA" :range-end "-UnsetFNHA" :lines "51-53"
 *** Disable =site-run-file=
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetSRF" :range-end "-UnsetSRF" :lines "55-56"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "UnsetSRF" :range-end "-UnsetSRF" :lines "56-57"
 *** Disable Unnecessary Interface
     It will be faster to disable them here before they've been initialized.
-    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "59-63"
-** Restore Default After Startup
-    A large gc-cons-threshold may cause freezing and stuttering during long-term interactive use.
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "RestoreGC" :range-end "-RestoreGC" :lines "52-57"
+    #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "60-64"
 ** Garbage Collection
-*** Garbage Collect When Emacs is Out of Focus
-    *Note:* Since Emacs27.1, =focus-out-hook= is obsolete.
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "60-68"
-*** Avoid Garbage Collect When Using Minibuffer
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "69-78"
+   Garbage collect only when Emacs idled for a while.
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "46-58"
 ** Load Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "81-93"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "61-73"
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "46-102"
 * Package Management

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:58:05 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 15:59:37 2019 (-0400)
+;; Last-Updated: Mon Aug 12 20:50:38 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init early-init
@@ -39,7 +39,8 @@
 ;;; Code:
 
 ;; DeferGC
-(setq gc-cons-threshold 100000000)
+;; Set Garbage Collection threshold to 1GB.
+(setq gc-cons-threshold #x40000000)
 ;; -DeferGC
 
 ;; UnsetPES
