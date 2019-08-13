@@ -88,7 +88,7 @@
   - [[Tramp][Tramp]]
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
-  - [[Pinyin][Pinyin]]
+  - [[Pyim][Pyim]]
   - [[Tetris][Tetris]]
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
@@ -156,12 +156,12 @@
    However, what is /free/ stays /free/. After all, this is [[file:LICENSE][GPL]].
 
    *Remember* you must manually sync this README with all the new changes you made by:
-   1. Please do *NOT* edit README.md file, edit init.org instead!
+   1. Please do *NOT* edit this =README.md= file, edit =init.org= instead!
    2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
    3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
-   4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in init.org.
+   4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in =init.org=.
    5. Enter =C-x C-s= to save and update =:lines=. (if you don't see the updated effect, run =M-x update-includes= manually)
-   6. Call =M-x org-gfm-export-to-markdown= to update this README.
+   6. Call =M-x org-gfm-export-to-markdown= to update =README.md= automatically.
 ** Contribution
    If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
 ** Special Thanks
@@ -616,12 +616,11 @@
 
    *Prerequisite*: Ensure =cURL= is installed added to =PATH=. If you are using Windows, it is suggested to use =curl= provided by Git, therefore add =<path to Git>\mingw64\bin= to =PATH=.
    #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "44-55"
-** Pinyin
-*** Pyim
-    [[https://github.com/tumashu/pyim][Pyim]], an Emacs Chinese Pinyin Input.
-    #+INCLUDE: "~/.emacs.d/elisp/init-pyim.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "41-64"
-*** Pyim Basedict
-    [[https://github.com/tumashu/pyim-basedict][Pyim Basedict]], the default Chinese-Pyim dictionary.
+** Pyim
+   [[https://github.com/tumashu/pyim][Pyim]], an Emacs Chinese Pinyin Input.
+   #+INCLUDE: "~/.emacs.d/elisp/init-pyim.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "41-64"
+*** Pyim BaseDict
+    [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
     #+INCLUDE: "~/.emacs.d/elisp/init-pyim.el" src emacs-lisp :range-begin "PyimBaseDictPac" :range-end "-PyimBaseDictPac" :lines "67-70"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
