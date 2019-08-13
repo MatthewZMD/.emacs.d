@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Aug 12 20:50:00 2019 (-0400)
+;; Last-Updated: Tue Aug 13 13:40:54 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -42,20 +42,38 @@
   (error "M-EMACS requires Emacs 26.1 and above!"))
 ;; -CheckVer
 
-;; AutoGC
-(setq garbage-collection-messages t)
-(defmacro k-time (&rest body)
-  "Measure and return the time it takes evaluating BODY."
-  `(let ((time (current-time)))
-     ,@body
-     (float-time (time-since time))))
+;; BetterGC
+(defvar better-gc-cons-threshold 67108864 ; 64mb
+  "The default value to use for `gc-cons-threshold'.
+If you experience freezing, decrease this. If you experience stuttering, increase this.")
 
-(defvar k-gc-timer
-  (run-with-idle-timer 10 t
-                       (lambda ()
-                         (message "Garbage collector has run for %.06fsec."
-                                  (k-time (garbage-collect))))))
-;; -AutoGC
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold better-gc-cons-threshold)
+            (setq file-name-handler-alist file-name-handler-alist-original)
+            (makunbound 'file-name-handler-alist-original)))
+;; -BetterGC
+
+;; AutoGC
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (if (boundp 'after-focus-change-function)
+                (add-function :after after-focus-change-function
+                              (lambda ()
+                                (unless (frame-focus-state)
+                                  (garbage-collect))))
+              (add-hook 'after-focus-change-function 'garbage-collect))
+            ;; -AutoGC MinibufferGC
+            (defun gc-minibuffer-setup-hook ()
+              (setq gc-cons-threshold (* better-gc-cons-threshold 2))
+
+            (defun gc-minibuffer-exit-hook ()
+              (garbage-collect)
+              (setq gc-cons-threshold better-gc-cons-threshold))
+
+            (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
+            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook))))
+;; -MinibufferGC
 
 ;; LoadPath
 (defun update-to-load-path (folder)
