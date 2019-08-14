@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Jun 20 00:36:05 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:37 2019 (-0400)
+;; Last-Updated: Mon Aug 12 22:33:53 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -65,8 +65,8 @@
 
 ;; PyimBaseDictPac
 (use-package pyim-basedict
-    :after pyim
-    :config (pyim-basedict-enable))
+  :after pyim
+  :config (pyim-basedict-enable))
 ;; -PyimBaseDictPac
 
 (provide 'init-pyim)
