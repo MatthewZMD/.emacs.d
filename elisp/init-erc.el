@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:05:42 2019 (-0400)
+;; Last-Updated: Wed Aug 14 10:11:59 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
@@ -47,9 +47,10 @@
   :custom-face
   (erc-notice-face ((t (:foreground "#ababab"))))
   :custom
-  (erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#linux")))
-  (erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
-                             "324" "329" "332" "333" "353" "477"))
+  (erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
+  (erc-track-exclude-types '("NICK" "PART" "MODE" "324" "329" "332" "333" "353" "477"))
+  ; (erc-hide-list '("JOIN" "PART" "QUIT"))
+  ; (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
   (erc-server-coding-system '(utf-8 . utf-8))
   (erc-interpret-mirc-color t)
   (erc-kill-buffer-on-part t)
@@ -58,8 +59,6 @@
   (erc-autojoin-timing 'ident)
   (erc-fill-function 'erc-fill-static)
   (erc-fill-static-center 15)
-  (erc-hide-list '("JOIN" "PART" "QUIT"))
-  (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
   (erc-lurker-threshold-time 43200)
   (erc-server-reconnect-attempts 5)
   (erc-server-reconnect-timeout 3)
