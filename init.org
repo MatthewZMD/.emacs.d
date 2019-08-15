@@ -617,7 +617,7 @@
    #+BEGIN_SRC text
      machine irc.freenode.net login <nickname> password <password>
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "45-144"
+   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "45-143"
 ** Emacs Web Wowser
    EWW, the Emacs Web Wowser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "41-51"
@@ -628,7 +628,7 @@
     #+BEGIN_SRC text
       /gssh:some-instance:/path/to/file
     #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-tramp.el" src emacs-lisp :range-begin "TrampPac" :range-end "-TrampPac" :lines "41-56"
+   #+INCLUDE: "~/.emacs.d/elisp/init-tramp.el" src emacs-lisp :range-begin "TrampPac" :range-end "-TrampPac" :lines "41-57"
 ** PDF Tools
    [[https://github.com/politza/pdf-tools][PDF Tools]], an Emacs support library for PDF files. It works best on non-Windows OS.
    #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "44-51"
