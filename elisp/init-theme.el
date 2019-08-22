@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:11:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:08:04 2019 (-0400)
+;; Last-Updated: Thu Aug 22 13:52:46 2019 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d doom-themes doom-modeline
@@ -43,7 +43,6 @@
 
 ;; DoomThemes
 (use-package doom-themes
-  :if *sys/gui*
   :custom-face
   (cursor ((t (:background "BlanchedAlmond"))))
   :config
