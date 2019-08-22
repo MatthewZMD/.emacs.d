@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Aug  9 21:48:32 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Aug  9 22:07:55 2019 (-0400)
+;; Last-Updated: Thu Aug 15 16:42:17 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d tramp
@@ -40,6 +40,7 @@
 ;; TrampPac
 (use-package tramp
   :ensure nil
+  :defer 1
   :config
   ;; TRAMP gcloud ssh
   (add-to-list 'tramp-methods
