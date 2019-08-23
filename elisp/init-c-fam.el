@@ -1,22 +1,22 @@
-;;; init-c.el --- -*- lexical-binding: t -*-
+;;; init-c-fam.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-c.el
-;; Description: Initialize cc-mode ccls modern-cpp-font-lock
+;; Filename: init-c-fam.el
+;; Description: Initialize C family languages
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:03:49 2019 (-0400)
+;; Last-Updated: Thu Aug 22 23:10:08 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d
+;; Keywords: M-EMACS .emacs.d c c++ go ccls
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initialize cc-mode ccls modern-cpp-font-lock
+;; This initialize ccls modern-cpp-font-lock go-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -56,6 +56,11 @@
   :init (modern-c++-font-lock-global-mode t))
 ;; -CPPFontLockPac
 
-(provide 'init-c)
+;; GoPac
+(use-package go-mode
+  :mode "\\.go\\'")
+;; -GoPac
+
+(provide 'init-c-fam)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-c.el ends here
+;;; init-c-fam.el ends here

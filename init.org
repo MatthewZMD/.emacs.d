@@ -72,6 +72,7 @@
 - [[Programming][Programming]]
   - [[Java][Java]]
   - [[C/C++/Objective C][C/C++/Objective C]]
+  - [[Go][Go]]
   - [[Python][Python]]
   - [[Arduino][Arduino]]
 - [[Web Development][Web Development]]
@@ -538,10 +539,13 @@
      - It is a pain to build CCLS on Windows, install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and add to =PATH= instead.
 *** CCLS
     [[https://github.com/MaskRay/emacs-ccls][Emacs-CCLS]], a client for [[https://github.com/MaskRay/ccls][CCLS]], a C/C++/Objective-C language server supporting multi-million line C++ code-bases, powered by libclang.
-    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CCLSPac" :range-end "-CCLSPac" :lines "44-51"
+    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CCLSPac" :range-end "-CCLSPac" :lines "44-51"
 *** Modern C++ Font Lock
     [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
-    #+INCLUDE: "~/.emacs.d/elisp/init-c.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "54-57"
+    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "54-57"
+** Go
+   [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode for editing Go code.
+   #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "60-62"
 ** Python
 *** Python Configuration
    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "45-53"

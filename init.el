@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Aug 13 13:40:54 2019 (-0400)
+;; Last-Updated: Thu Aug 22 23:08:16 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -176,7 +176,7 @@ If you experience freezing, decrease this. If you experience stuttering, increas
 
 (require 'init-java)
 
-(require 'init-c)
+(require 'init-c-fam)
 
 (require 'init-python)
 
