@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:11:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug 22 13:52:46 2019 (+0000)
+;; Last-Updated: Fri Aug 23 10:49:38 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d doom-themes doom-modeline
@@ -55,7 +55,6 @@
 
 ;; DoomModeline
 (use-package doom-modeline
-  :if *sys/gui*
   :hook (after-init . doom-modeline-mode)
   :custom
   ;; Don't compact font caches during GC. Windows Laggy Issue

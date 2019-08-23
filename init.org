@@ -383,7 +383,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "45-54"
 ** Doom Modeline
    [[https://github.com/seagle0128/doom-modeline][Doom Modeline]], a modeline from DOOM Emacs, but more powerful and faster.
-   #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "57-67"
+   #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "57-66"
 ** Dashboard
 *** Dashboard
     [[https://github.com/rakanalh/emacs-dashboard][Dashboard]], an extensible Emacs startup screen.
@@ -538,7 +538,7 @@
      - Install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] for Compilation.
      - It is a pain to build CCLS on Windows, install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and add to =PATH= instead.
 *** CCLS
-    [[https://github.com/MaskRay/emacs-ccls][Emacs-CCLS]], a client for [[https://github.com/MaskRay/ccls][CCLS]], a C/C++/Objective-C language server supporting multi-million line C++ code-bases, powered by libclang.
+    [[https://github.com/MaskRay/emacs-ccls][Emacs CCLS]], a client for [[https://github.com/MaskRay/ccls][CCLS]], a C/C++/Objective-C language server supporting multi-million line C++ code-bases, powered by libclang.
     #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CCLSPac" :range-end "-CCLSPac" :lines "44-51"
 *** Modern C++ Font Lock
     [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
