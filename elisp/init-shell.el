@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:55 2019 (-0400)
+;; Last-Updated: Sat Aug 24 19:14:18 2019 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here
@@ -42,7 +42,7 @@
 
 ;; ShellHere
 (use-package shell-here
-  :bind ("C-!" . shell-here))
+  :bind ("M-#" . shell-here))
 ;; -ShellHere
 
 ;; TermKeysPac

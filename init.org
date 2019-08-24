@@ -72,7 +72,7 @@
 - [[Programming][Programming]]
   - [[Java][Java]]
   - [[C/C++/Objective C][C/C++/Objective C]]
-  - [[Go][Go]]
+  - [[Golang][Golang]]
   - [[Python][Python]]
   - [[Arduino][Arduino]]
 - [[Web Development][Web Development]]
@@ -309,7 +309,7 @@
     [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "49-52"
 ** Winner
-   Winner mode restores old window layout.
+   Winner, a mode to restore previous window layouts.
    #+INCLUDE: "~/.emacs.d/elisp/init-winner.el" src emacs-lisp :range-begin "WinnerPac" :range-end "-WinnerPac" :lines "41-57"
 ** Which Key
    [[https://github.com/justbur/emacs-which-key][Which Key]], a feature that displays the key bindings following the incomplete command.
@@ -500,15 +500,15 @@
 ** Language Server Protocol
 *** LSP Mode
     [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]]. M-EMACS tries to use lsp-mode whenever possible.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "41-52"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "41-51"
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "55-81"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "54-80"
 ** Debug Adapter Protocol
    [[https://github.com/emacs-lsp/dap-mode][DAP Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
 
    *Prerequisite*: See [[https://github.com/emacs-lsp/dap-mode#configuration][Configuration]] to configure DAP appropriately.
-   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "84-104"
+   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "83-103"
 ** Company
 *** Company Mode
     [[http://company-mode.github.io/][Company]], a text completion framework for Emacs.
@@ -543,8 +543,13 @@
 *** Modern C++ Font Lock
     [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
     #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "54-57"
-** Go
-   [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode for editing Go code.
+** Golang
+   [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode for editing Golang code.
+
+   *Prerequisite*: [[https://github.com/golang/go/wiki/gopls][gopls]] is suggested for Golang's LSP support.
+   #+BEGIN_SRC text
+     go get golang.org/x/tools/gopls@latest
+   #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "60-62"
 ** Python
 *** Python Configuration
