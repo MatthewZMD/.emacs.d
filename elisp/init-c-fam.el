@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug 22 23:10:08 2019 (-0400)
+;; Last-Updated: Sat Aug 24 22:29:32 2019 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d c c++ go ccls
@@ -58,7 +58,8 @@
 
 ;; GoPac
 (use-package go-mode
-  :mode "\\.go\\'")
+  :mode "\\.go\\'"
+  :hook (before-save . gofmt-before-save))
 ;; -GoPac
 
 (provide 'init-c-fam)

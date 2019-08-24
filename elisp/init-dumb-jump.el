@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:11:21 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:05:26 2019 (-0400)
+;; Last-Updated: Sat Aug 24 22:07:00 2019 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -41,11 +41,9 @@
 (use-package dumb-jump
   :bind
   (:map prog-mode-map
-        (("M-g o" . dumb-jump-go-other-window)
-         ("M-g j" . dumb-jump-go)
-         ("M-g i" . dumb-jump-go-prompt)
-         ("M-g x" . dumb-jump-go-prefer-external)
-         ("M-g z" . dumb-jump-go-prefer-external-other-window)))
+        (("C-c C-o" . dumb-jump-go-other-window)
+         ("C-c C-j" . dumb-jump-go)
+         ("C-c C-i" . dumb-jump-go-prompt)))
   :custom (dumb-jump-selector 'ivy))
 ;; -DumbJump
 
