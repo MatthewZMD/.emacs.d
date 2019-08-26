@@ -271,7 +271,7 @@
    *Prerequisite*: Please update this file your personal info.
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "41-43"
 ** Bindings
-   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "44-60"
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "44-58"
 ** File Management
 *** Dired
     Dired, the directory editor.
@@ -330,28 +330,28 @@
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
     Use UTF-8 as much as possible with unix line endings.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "63-77"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "61-75"
 *** Optimize Editing Experience
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "80-98"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "78-96"
 *** History
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "101-124"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "99-122"
 *** Turn Off Cursor Alarms
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "127-128"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "RingBell" :range-end "-RingBell" :lines "125-126"
 *** Show Keystrokes in Progress Instantly
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "131-132"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EchoKey" :range-end "-EchoKey" :lines "129-130"
 *** Don't Lock Files
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "135-136"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CreateLockFile" :range-end "-CreateLockFile" :lines "133-134"
 *** Compilation
     Better compilation configurations.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "139-144"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "BetterCompilation" :range-end "-BetterCompilation" :lines "137-142"
 *** Suppress ad-handle-definition warnings
     These warnings are generated when functions are redefined with =defadvice=, they are not helpful.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "IgnoreAdHandleMessage" :range-end "-IgnoreAdHandleMessage" :lines "147-148"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "IgnoreAdHandleMessage" :range-end "-IgnoreAdHandleMessage" :lines "145-146"
 *** Move Custom-Set-Variables to Different File
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "151-153"5
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "149-151"5
 *** So-Long
     So Long mitigates slowness due to extremely long lines. Currently available in Emacs master branch *only*!
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "156-158"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "154-156"
 ** Functions
    Important functions.
 *** Resize Window Width / Height Functions
@@ -366,17 +366,15 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "102-147"
 *** MiniBuffer
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "150-159"
-*** Duplicate Line
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DuplicateLine" :range-end "-DuplicateLine" :lines "162-174"
 *** Save All Buffers
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "101-124"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "99-122"
 *** Display Line Overlay
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "186-198"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "171-183"
 *** Read Lines From File
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "201-205"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "186-190"
 *** Where Am I
     Displays the file path when visiting a file, otherwise displays the buffer name.
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "208-216"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "193-201"
 * User Interface Enhancements
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.
@@ -519,8 +517,10 @@
 *** Company TabNine
     [[https://github.com/TommyX12/company-tabnine][Company TabNine]], A company-mode backend for [[https://tabnine.com/][TabNine]], the all-language autocompleter.
 
+    This is enabled by default, if ever you find it not good enough for a particular completion, simply use =M-q= to immediately switch to default backends.
+
     *Prerequisite*: Execute =M-x company-tabnine-install-binary= to install the TabNine binary for your system.
-    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyTabNinePac" :range-end "-CompanyTabNinePac" :lines "66-102"
+    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyTabNinePac" :range-end "-CompanyTabNinePac" :lines "66-109"
 * Programming
 ** Java
 *** LSP Java

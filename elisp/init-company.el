@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:04:50 2019 (-0400)
+;; Last-Updated: Mon Aug 26 19:12:11 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -64,10 +64,15 @@
 
 ;; CompanyTabNinePac
 (use-package company-tabnine
-  :after company company-lsp
+  :after company
+  :commands (company-tabnine company-tabnine-install-binary)
   :custom
   (company-tabnine-max-num-results 3)
+  :bind ("M-q" . company-other-backend)
   :config
+  ;; Enable TabNine on default
+  (add-to-list 'company-backends #'company-tabnine)
+
   ;; Integrate company-tabnine with lsp-mode
   (defun company//sort-by-tabnine (candidates)
     (if (or (functionp company-backend)
@@ -87,8 +92,10 @@
         (setq candidates-tabnine (nreverse candidates-tabnine))
         (nconc (seq-take candidates-tabnine 3)
                (seq-take candidates-lsp 6)))))
-  (add-to-list 'company-transformers 'company//sort-by-tabnine t)
-  (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))
+  (add-hook 'lsp-after-open-hook
+            (lambda ()
+              (add-to-list 'company-transformers 'company//sort-by-tabnine t)
+              (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))))
 
   ;; The free version of TabNine is good enough,
   ;; and below code is recommended that TabNine not always

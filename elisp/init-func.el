@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Aug  9 15:34:37 2019 (-0400)
+;; Last-Updated: Mon Aug 26 18:36:05 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -39,7 +39,7 @@
 
 ;; ResizeWidthHeight
 ;; Resizes the window width based on the input
-(defun window-resize-width (w)
+(defun resize-window-width (w)
   "Resizes the window width based on W."
   (interactive (list (if (> (count-windows) 1)
                          (read-number "Set the current window width in [1~9]x10%: ")
@@ -48,7 +48,7 @@
   (window-resize nil (- (truncate (* (/ w 10.0) (frame-width))) (window-total-width)) t))
 
 ;; Resizes the window height based on the input
-(defun window-resize-height (h)
+(defun resize-window-height (h)
   "Resizes the window height based on H."
   (interactive (list (if (> (count-windows) 1)
                          (read-number "Set the current window height in [1~9]x10%: ")
@@ -57,8 +57,8 @@
   (window-resize nil (- (truncate (* (/ h 10.0) (frame-height))) (window-total-height)) nil))
 
 ;; Setup shorcuts for window resize width and height
-(global-set-key (kbd "C-x C-|") #'window-resize-width)
-(global-set-key (kbd "C-x C-_") #'window-resize-height)
+(global-set-key (kbd "C-z w") #'resize-window-width)
+(global-set-key (kbd "C-z h") #'resize-window-height)
 ;; -ResizeWidthheight
 
 ;; EditConfig
@@ -157,21 +157,6 @@ BEGIN and END are regexps which define the line range to use."
 ;; keep the point out of the minibuffer
 (setq-default minibuffer-prompt-properties '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 ;; -BetterMiniBuffer
-
-;; DuplicateLine
-(defun duplicate-line ()
-  "Duplicate the current line."
-  (interactive)
-  (move-beginning-of-line 1)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (open-line 1)
-  (forward-line 1)
-  (yank))
-
-(global-set-key (kbd "C-z l") #'duplicate-line)
-;; -DuplicateLine
 
 ;; SaveAllBuffers
 (defun save-all-buffers ()
