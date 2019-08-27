@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Aug 26 18:33:08 2019 (-0400)
+;; Last-Updated: Tue Aug 27 13:22:42 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -48,7 +48,7 @@
 ;; Use iBuffer instead of Buffer List
 (global-set-key (kbd "C-x C-b") #'ibuffer)
 ;; Truncate lines
-(global-set-key (kbd "C-z C-l") #'toggle-truncate-lines)
+(global-set-key (kbd "C-x C-l") #'toggle-truncate-lines)
 ;; Adjust font size like web browsers
 (global-set-key (kbd "C-+") #'text-scale-increase)
 (global-set-key (kbd"C--") #'text-scale-decrease)
