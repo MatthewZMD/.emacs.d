@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Aug 26 19:12:11 2019 (-0400)
+;; Last-Updated: Wed Aug 28 01:25:37 2019 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -68,7 +68,9 @@
   :commands (company-tabnine company-tabnine-install-binary)
   :custom
   (company-tabnine-max-num-results 3)
-  :bind ("M-q" . company-other-backend)
+  :bind
+  (("M-q" . company-other-backend)
+   ("C-z t" . company-tabnine))
   :config
   ;; Enable TabNine on default
   (add-to-list 'company-backends #'company-tabnine)
