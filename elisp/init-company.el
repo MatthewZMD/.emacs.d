@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Aug 28 01:25:37 2019 (+0000)
+;; Last-Updated: Mon Sep  2 01:37:42 2019 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -64,8 +64,7 @@
 
 ;; CompanyTabNinePac
 (use-package company-tabnine
-  :after company
-  :commands (company-tabnine company-tabnine-install-binary)
+  :demand
   :custom
   (company-tabnine-max-num-results 3)
   :bind
@@ -97,17 +96,7 @@
   (add-hook 'lsp-after-open-hook
             (lambda ()
               (add-to-list 'company-transformers 'company//sort-by-tabnine t)
-              (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))))
-
-  ;; The free version of TabNine is good enough,
-  ;; and below code is recommended that TabNine not always
-  ;; prompt me to purchase a paid version in a large project.
-  (defadvice company-echo-show (around disable-tabnine-upgrade-message activate)
-    (let ((company-message-func (ad-get-arg 0)))
-      (when (and company-message-func
-                 (stringp (funcall company-message-func)))
-        (unless (string-match "The free version of TabNine only indexes up to" (funcall company-message-func))
-          ad-do-it)))))
+              (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate)))))
 ;; -CompanyTabNinePac
 
 (provide 'init-company)
