@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Sep  3 21:28:26 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Sep  3 21:38:32 2019 (-0400)
+;; Last-Updated: Wed Sep  4 02:11:43 2019 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ess
@@ -43,5 +43,6 @@
   (load "ess-autoloads"))
 ;; -ESSPac
 
+(provide 'init-ess)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-ess.el ends here
