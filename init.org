@@ -75,6 +75,7 @@
   - [[Golang][Golang]]
   - [[Python][Python]]
   - [[Arduino][Arduino]]
+  - [[Emacs Speaks Statistics][Emacs Speaks Statistics]]
 - [[Web Development][Web Development]]
   - [[Web Mode][Web Mode]]
   - [[JavaScript/TypeScript][JavaScript/TypeScript]]
@@ -565,6 +566,11 @@
 *** Company Arduino
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "51-58"
+** Emacs Speaks Statistics
+   [[https://ess.r-project.org/][Emacs Speaks Statistics]], short for ESS, it's designed to support editing of scripts and interaction with various statistical analysis programs such as R, S-Plus, SAS, Stata and OpenBUGS/JAGS.
+
+   *Prerequisite*: Install [[https://cran.r-project.org/mirrors.html][R]] to start using ESS with R.
+   #+INCLUDE: "~/.emacs.d/elisp/init-ess.el" src emacs-lisp :range-begin "ESSPac" :range-end "-ESSPac" :lines "41-44"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and add to path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC text
