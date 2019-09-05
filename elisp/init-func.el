@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Aug 26 18:36:05 2019 (-0400)
+;; Last-Updated: Thu Sep  5 12:25:27 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -95,7 +95,7 @@ point reaches the beginning or end of the buffer, stop there."
       (move-beginning-of-line 1))))
 
 ;; remap C-a to `smarter-move-beginning-of-line'
-(global-set-key [remap move-beginning-of-line] 'smarter-move-beginning-of-line)
+(global-set-key (kbd "C-a") 'smarter-move-beginning-of-line)
 ;; -MoveBeginningLine
 
 ;; OrgIncludeAuto

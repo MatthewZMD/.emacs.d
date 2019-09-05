@@ -351,7 +351,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "IgnoreAdHandleMessage" :range-end "-IgnoreAdHandleMessage" :lines "145-146"
 *** Move Custom-Set-Variables to Different File
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "CustomSetFileLocation" :range-end "-CustomSetFileLocation" :lines "149-151"5
-*** So-Long
+*** So Long
     So Long mitigates slowness due to extremely long lines. Currently available in Emacs master branch *only*!
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "154-156"
 *** EOF Newline
