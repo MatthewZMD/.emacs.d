@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Apr 23 23:08:17 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:08:29 2019 (-0400)
+;; Last-Updated: Wed Sep  4 17:46:51 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d yasnippet
@@ -40,7 +40,7 @@
 ;; YASnippetPac
 (use-package yasnippet
   :diminish yas-minor-mode
-  :hook (prog-mode . yas-minor-mode)
+  :hook ((prog-mode LaTeX-mode) . yas-minor-mode)
   :bind
   (:map yas-minor-mode-map ("C-c C-n" . yas-expand-from-trigger-key))
   :config

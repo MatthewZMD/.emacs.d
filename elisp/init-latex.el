@@ -1,22 +1,22 @@
-;;; init-org.el --- -*- lexical-binding: t -*-
+;;; init-latex.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-org.el
-;; Description: Initialize Org, Toc-org, HTMLize, OX-GFM
+;; Filename: init-latex.el
+;; Description: Initialize AUCTex
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 11:09:30 2019 (-0400)
+;; Created: Wed Sep  4 16:35:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Sep  4 19:01:06 2019 (-0400)
+;; Last-Updated: Thu Sep  5 00:11:06 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
+;; Keywords: M-EMACS .emacs.d auctex
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes org toc-org htmlize ox-gfm
+;; This initializes AUCTex
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,41 +37,35 @@
 ;;
 ;;; Code:
 
-;; OrgPac
-(use-package org
-  :ensure nil
-  :defer t
-  :bind
-  ("C-c l" . org-store-link)
-  ("C-c a" . org-agenda)
-  ("C-c c" . org-capture)
-  ("C-c b" . org-switch)
+;; AUCTeXPac
+(use-package tex-site
+  :after latex-mode
+  :ensure auctex
   :custom
-  (org-log-done 'time)
-  (org-export-backends (quote (ascii html icalendar latex md odt)))
-  (org-use-speed-commands t)
-  (org-confirm-babel-evaluate 'nil)
-  (org-todo-keywords
-   '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE")))
-  (org-agenda-window-setup 'other-window)
+  (TeX-auto-save t)
+  (TeX-parse-self t)
+  (TeX-master nil)
+  ;; to use pdfview with auctex
+  (TeX-view-program-selection '((output-pdf "pdf-tools"))
+                              TeX-source-correlate-start-server t)
+  (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
+  (TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   :config
-  (when (file-directory-p "~/org/agenda/")
-    (setq org-agenda-files (list "~/org/agenda/"))))
-;; -OrgPac
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (turn-on-reftex)
+              (setq reftex-plug-into-AUCTeX t)
+              (reftex-isearch-minor-mode)
+              (setq TeX-PDF-mode t)
+              (setq TeX-source-correlate-method 'synctex)
+              (setq TeX-source-correlate-start-server t))))
+;; -AUCTeXPac
 
-;; TocOrgPac
-(use-package toc-org
-  :hook (org-mode . toc-org-mode))
-;; -TocOrgPac
+;; OrgLatexPac
+(use-package org-edit-latex
+  :after org)
+;; -OrgLatexPac
 
-;; HTMLIZEPac
-(use-package htmlize :defer t)
-;; -HTMLIZEPac
-
-;; OXGFMPac
-(use-package ox-gfm :defer t)
-;; -OXGFMPac
-
-(provide 'init-org)
+(provide 'init-latex)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-org.el ends here
+;;; init-latex.el ends here

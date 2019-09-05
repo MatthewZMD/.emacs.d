@@ -30,16 +30,16 @@
   - [[Bindings][Bindings]]
   - [[File Management][File Management]]
   - [[Ivy][Ivy]]
-  - [[Color RipGrep][Color RipGrep]]
+  - [[Color RG][Color RG]]
   - [[Snails][Snails]]
   - [[Avy][Avy]]
-  - [[Shell][Shell]]
   - [[Winner][Winner]]
   - [[Which Key][Which Key]]
   - [[Popup Kill Ring][Popup Kill Ring]]
   - [[Undo Tree][Undo Tree]]
   - [[Discover My Major][Discover My Major]]
   - [[Ace Window][Ace Window]]
+  - [[Shells][Shells]]
   - [[Configs][Configs]]
   - [[Functions][Functions]]
 - [[User Interface Enhancements][User Interface Enhancements]]
@@ -64,10 +64,10 @@
   - [[Format All][Format All]]
   - [[Evil Nerd Commenter][Evil Nerd Commenter]]
   - [[Iedit][Iedit]]
-  - [[Header][Header]]
+  - [[Headers][Headers]]
   - [[Jupyter Notebook][Jupyter Notebook]]
-  - [[Language Server Protocol][Language Server Protocol]]
-  - [[Debug Adapter Protocol][Debug Adapter Protocol]]
+  - [[LSP][LSP]]
+  - [[DAP][DAP]]
   - [[Company][Company]]
 - [[Programming][Programming]]
   - [[Java][Java]]
@@ -75,7 +75,8 @@
   - [[Golang][Golang]]
   - [[Python][Python]]
   - [[Arduino][Arduino]]
-  - [[Emacs Speaks Statistics][Emacs Speaks Statistics]]
+  - [[ESS][ESS]]
+  - [[LaTeX][LaTeX]]
 - [[Web Development][Web Development]]
   - [[Web Mode][Web Mode]]
   - [[JavaScript/TypeScript][JavaScript/TypeScript]]
@@ -84,9 +85,9 @@
   - [[JSON][JSON]]
 - [[Miscellaneous][Miscellaneous]]
   - [[Org][Org]]
-  - [[Emacs Application Framework][Emacs Application Framework]]
-  - [[Emacs Relay Chat][Emacs Relay Chat]]
-  - [[Emacs Web Wowser][Emacs Web Wowser]]
+  - [[EAF][EAF]]
+  - [[ERC][ERC]]
+  - [[EWW][EWW]]
   - [[Tramp][Tramp]]
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
@@ -291,8 +292,8 @@
 *** Ivy Posframe
     [[https://github.com/tumashu/ivy-posframe][Ivy Posframe]], an Ivy extension that uses posframe to show its candidate menu.
     #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "IvyPosframePac" :range-end "-IvyPosframePac" :lines "65-75"
-** Color RipGrep
-   [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on ripgrep that is used to search text.
+** Color RG
+   [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on /ripgrep/ that is used to search text.
 
    *Prerequisite*: Please install [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and add =rg= to the =PATH=.
    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "78-82"
@@ -302,13 +303,6 @@
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "41-51"
-** Shell
-*** Shell Here
-    [[https://github.com/ieure/shell-here][Shell Here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHere" :range-end "-ShellHere" :lines "44-46"
-*** Term Keys
-    [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "49-52"
 ** Winner
    Winner, a mode to restore previous window layouts.
    #+INCLUDE: "~/.emacs.d/elisp/init-winner.el" src emacs-lisp :range-begin "WinnerPac" :range-end "-WinnerPac" :lines "41-57"
@@ -327,6 +321,13 @@
 ** Ace Window
    [[https://github.com/abo-abo/ace-window][Ace Window]], a package for selecting windows to switch to.
    #+INCLUDE: "~/.emacs.d/elisp/init-ace-window.el" src emacs-lisp :range-begin "AceWindowPac" :range-end "-AceWindowPac"  :lines "41-43"
+** Shells
+*** Shell Here
+    [[https://github.com/ieure/shell-here][Shell Here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHere" :range-end "-ShellHere" :lines "44-46"
+*** Term Keys
+    [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "49-52"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
@@ -486,7 +487,7 @@
 ** Iedit
    [[https://github.com/victorhge/iedit][Iedit]], a minor mode that allows editing multiple regions simultaneousy in a buffer or a region.
    #+INCLUDE: "~/.emacs.d/elisp/init-iedit.el" src emacs-lisp :range-begin "IEditPac" :range-end "-IEditPac" :lines "43-46"
-** Header
+** Headers
    [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
    #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "41-51"
 ** Jupyter Notebook
@@ -496,16 +497,16 @@
     2. Login with =M-x ein:login= to a local or remote session.
     3. Open =.ipynb= file and press =C-c C-o=.
     #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "41-44"
-** Language Server Protocol
+** LSP
 *** LSP Mode
-    [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]]. M-EMACS tries to use lsp-mode whenever possible.
+    [[https://github.com/emacs-lsp/lsp-mode][Language Server Protocol Mode]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]]. M-EMACS tries to use lsp-mode whenever possible.
 
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "44-54"
 *** LSP UI
-    [[https://github.com/emacs-lsp/lsp-ui][LSP UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
+    [[https://github.com/emacs-lsp/lsp-ui][Language Server Protocol UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
     #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "57-85"
-** Debug Adapter Protocol
-   [[https://github.com/emacs-lsp/dap-mode][DAP Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
+** DAP
+   [[https://github.com/emacs-lsp/dap-mode][Debug Adapter Protocol Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
 
    *Prerequisite*: See [[https://github.com/emacs-lsp/dap-mode#configuration][Configuration]] to configure DAP appropriately.
    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "88-108"
@@ -566,11 +567,18 @@
 *** Company Arduino
     [[https://github.com/yuutayamada/company-arduino][Company Arduino]], a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-arduino.el" src emacs-lisp :range-begin "CompanyArduinoPac" :range-end "-CompanyArduinoPac" :lines "51-58"
-** Emacs Speaks Statistics
+** ESS
    [[https://ess.r-project.org/][Emacs Speaks Statistics]], short for ESS, it's designed to support editing of scripts and interaction with various statistical analysis programs such as R, S-Plus, SAS, Stata and OpenBUGS/JAGS.
 
    *Prerequisite*: Install [[https://cran.r-project.org/mirrors.html][R]] to start using ESS with R.
    #+INCLUDE: "~/.emacs.d/elisp/init-ess.el" src emacs-lisp :range-begin "ESSPac" :range-end "-ESSPac" :lines "41-46"
+** LaTeX
+*** AUCTeX
+    [[https://www.gnu.org/software/auctex/][AUCTeX]], an extensible package for writing and formatting TEX files. It supports many different TEX macro packages, including AMS-TEX, LATEX, Texinfo, ConTEXt, and docTEX (dtx files).
+    #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "AUCTeXPac" :range-end "-AUCTeXPac" :lines "41-62"
+*** Org Edit LaTeX
+    [[https://github.com/et2010/org-edit-latex][Org Edit LaTeX]], an extension to edit LaTeX fragment/environment in an edit buffer, even to complete and preview LaTeX in the edit buffer.
+    #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexPac" :range-end "-OrgLatexPac" :lines "65-67"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and add to path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC text
@@ -601,17 +609,17 @@
    [[https://orgmode.org/][Org]], a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
    *Prerequisite*: Modify =(setq org-agenda-files (list "~/org/agenda/"))= to your agenda folder.
-   #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgPac" :range-end "-OrgPac" :lines "41-58"
+   #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgPac" :range-end "-OrgPac" :lines "41-60"
 *** TOC Org
     [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
-    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "TocOrgPac" :range-end "-TocOrgPac" :lines "61-63"
+    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "TocOrgPac" :range-end "-TocOrgPac" :lines "63-65"
 *** HTMLize
     [[https://github.com/hniksic/emacs-htmlize][HTMLize]], a tool that converts buffer text and decorations to HTML.
-    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "HTMLIZEPac" :range-end "-HTMLIZEPac" :lines "66-67"
+    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "HTMLIZEPac" :range-end "-HTMLIZEPac" :lines "68-69"
 *** GFM Exporter
     [[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "70-71"
-** Emacs Application Framework
+    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "72-73"
+** EAF
    [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a development framework that integrates any PyQt program into Emacs.
 
    *Note*: I am using my own [[https://github.com/MatthewZMD/emacs-application-framework][fork]], which has more functions and capabilities that are yet to be merged into upstream. If you want to use this config, clone my fork instead. Otherwise it won't work.
@@ -625,16 +633,16 @@
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "44-58"
-** Emacs Relay Chat
-   [[https://www.emacswiki.org/emacs/ERC][ERC]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
+** ERC
+   [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
    *Prerequisite*: Put IRC credentials like the following in the file =~/.authinfo=:
    #+BEGIN_SRC text
      machine irc.freenode.net login <nickname> password <password>
    #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "45-143"
-** Emacs Web Wowser
-   EWW, the Emacs Web Wowser.
+** EWW
+   Emacs Web Wowser, the HTML-based Emacs Web Browser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "41-51"
 ** Tramp
    [[https://www.emacswiki.org/emacs/TrampMode][Tramp]], short for Transparent Remote Access, Multiple Protocols is a package for editing remote files using a remote shell connection (rlogin, telnet, ssh).
