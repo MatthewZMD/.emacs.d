@@ -354,6 +354,9 @@
 *** So-Long
     So Long mitigates slowness due to extremely long lines. Currently available in Emacs master branch *only*!
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SoLong" :range-end "-SoLong" :lines "154-156"
+*** EOF Newline
+    Add a newline automatically at the end of the file upon save.
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "FinalNewline" :range-end "-FinalNewline" :lines "159-160"
 ** Functions
    Important functions.
 *** Resize Window Width / Height Functions

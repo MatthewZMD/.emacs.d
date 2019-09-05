@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Aug 27 13:22:42 2019 (-0400)
+;; Last-Updated: Thu Sep  5 12:06:52 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -154,6 +154,10 @@
 (when (fboundp 'global-so-long-mode)
   (global-so-long-mode))
 ;; -SoLong
+
+;; FinalNewline
+(setq require-final-newline t)
+;; -FinalNewline
 
 (provide 'init-global-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
