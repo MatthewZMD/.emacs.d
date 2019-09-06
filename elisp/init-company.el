@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Sep  2 01:37:42 2019 (+0000)
+;; Last-Updated: Fri Sep  6 13:20:25 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -40,7 +40,7 @@
 ;; ComPac
 (use-package company
   :diminish company-mode
-  :hook (prog-mode . global-company-mode)
+  :hook ((prog-mode LaTeX-mode latex-mode) . global-company-mode)
   :custom
   (company-minimum-prefix-length 1)
   (company-tooltip-align-annotations 't)

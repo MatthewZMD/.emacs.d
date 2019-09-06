@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Wed Sep  4 16:35:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Sep  5 23:55:21 2019 (-0400)
+;; Last-Updated: Fri Sep  6 13:34:31 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d auctex
@@ -76,18 +76,19 @@
   (defun org-export-as-pdf-and-open ()
     (interactive)
     (save-buffer)
-    (let ((pdf-name (get-file-name-from-path (org-latex-export-to-pdf))))
-      (message pdf-name)
+    (let* ((pdf-path (org-latex-export-to-pdf))
+           (pdf-name (get-file-name-from-path pdf-path)))
       (if (try-completion pdf-name (mapcar #'buffer-name (buffer-list)))
           (progn
             (kill-matching-buffers (concat "^" pdf-name) t t)
             (org-open-file pdf-name))
-        (org-open-file pdf-name))))
-  (add-hook
-   'org-mode-hook
-   (lambda()
-     (define-key org-mode-map
-       (kbd "C-c C-p") 'org-export-as-pdf-and-open))))
+        (org-open-file pdf-name))
+      (delete-file (concat (substring pdf-path 0 (string-match "[^\.]*\/?$" pdf-path)) "tex"))))
+
+  (add-hook 'org-mode-hook
+            (lambda()
+              (define-key org-mode-map
+                (kbd "C-c C-p") 'org-export-as-pdf-and-open))))
 ;; -OrgExportPDFOpen
 
 (provide 'init-latex)

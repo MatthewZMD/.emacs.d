@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
-# name: latex
-# key: latex
+# name: lheader
+# key: lheader
 # --
 #+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
+#+LATEX_HEADER: \usepackage{amsthm}
 #+LATEX_HEADER: \setlength\parindent{0pt}
