@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: blt
+# key: blt
+# --
+- *$1*\\\\
+$0
