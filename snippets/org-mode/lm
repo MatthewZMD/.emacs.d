@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: latex-math
+# name: lm
 # key: lm
 # --
 $\\$0$

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Wed Sep  4 16:35:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Sep  5 22:45:42 2019 (-0400)
+;; Last-Updated: Thu Sep  5 23:55:21 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d auctex
@@ -37,6 +37,11 @@
 ;;
 ;;; Code:
 
+(eval-when-compile
+  (require 'init-const)
+  (require 'init-global-config)
+  (require 'init-func))
+
 ;; AUCTeXPac
 (use-package tex
   :ensure auctex
@@ -65,6 +70,25 @@
 (use-package org-edit-latex
   :after org)
 ;; -OrgLatexPac
+
+;; OrgExportPDFOpen
+(when *pdflatex*
+  (defun org-export-as-pdf-and-open ()
+    (interactive)
+    (save-buffer)
+    (let ((pdf-name (get-file-name-from-path (org-latex-export-to-pdf))))
+      (message pdf-name)
+      (if (try-completion pdf-name (mapcar #'buffer-name (buffer-list)))
+          (progn
+            (kill-matching-buffers (concat "^" pdf-name) t t)
+            (org-open-file pdf-name))
+        (org-open-file pdf-name))))
+  (add-hook
+   'org-mode-hook
+   (lambda()
+     (define-key org-mode-map
+       (kbd "C-c C-p") 'org-export-as-pdf-and-open))))
+;; -OrgExportPDFOpen
 
 (provide 'init-latex)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

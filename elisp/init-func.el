@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Sep  5 12:25:27 2019 (-0400)
+;; Last-Updated: Thu Sep  5 23:42:40 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -36,6 +36,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
+(eval-when-compile
+  (require 'init-global-config))
 
 ;; ResizeWidthHeight
 ;; Resizes the window width based on the input
@@ -199,6 +202,13 @@ Otherwise the function displays `buffer-name'."
           (message dir-file)
         (message (buffer-name)))))
 ;; -WhereAmI
+
+;; GetFileNameFromPath
+(defun get-file-name-from-path (path)
+  "Extracts the file name from the given PATH."
+  (interactive)
+  (substring path (string-match "[^\/]*\/?$" path)))
+;; -GetFileNameFromPath
 
 (provide 'init-func)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

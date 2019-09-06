@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Mar 18 14:20:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:04:54 2019 (-0400)
+;; Last-Updated: Thu Sep  5 23:23:56 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d constants
@@ -99,6 +99,10 @@
 (defconst *curl*
   (executable-find "curl")
   "Do we have curl?")
+
+(defconst *pdflatex*
+  (executable-find "pdflatex")
+  "Do we have pdflatex?")
 ;; -Consts
 
 (provide 'init-const)
