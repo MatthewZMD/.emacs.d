@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: latexformat
+# key: latexformat
+# --
+#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
+#+LATEX_HEADER: \setlength\parindent{0pt}

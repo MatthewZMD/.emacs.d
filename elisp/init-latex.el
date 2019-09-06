@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Wed Sep  4 16:35:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Sep  5 00:11:06 2019 (-0400)
+;; Last-Updated: Thu Sep  5 22:45:42 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d auctex
@@ -38,9 +38,9 @@
 ;;; Code:
 
 ;; AUCTeXPac
-(use-package tex-site
-  :after latex-mode
+(use-package tex
   :ensure auctex
+  :defer t
   :custom
   (TeX-auto-save t)
   (TeX-parse-self t)
