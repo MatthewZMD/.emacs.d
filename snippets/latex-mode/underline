@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: underline
+# key: underline
+# --
+\underline{$0}

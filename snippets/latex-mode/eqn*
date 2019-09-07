@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: eqn*
+# key: eqn*
+# --
+\begin{equation*}
+  $0
+\end{equation*}

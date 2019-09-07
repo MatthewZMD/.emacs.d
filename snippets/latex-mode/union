@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: union
+# key: union
+# --
+\cup_{$1}^{$2}$0

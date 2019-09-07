@@ -3,6 +3,6 @@
 # key: multieqn
 # --
 \begin{align*}
-  ${1:function} & = ${2:assignment-1} \\
-  & = ${0:assignment-2} \\
+  ${1:function} & = ${2:assignment-1} \\\\
+  & = ${0:assignment-2} \\\\
 \end{align*}
