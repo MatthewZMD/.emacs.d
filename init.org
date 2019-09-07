@@ -228,7 +228,7 @@
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= on startup.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "79-91"
 ** Define Constants
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "46-106"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "46-102"
 * Package Management
   Some packages are disabled with the =:disabled= tag, because I don't use them very often. They might not work.
 ** Melpa Packages
@@ -665,10 +665,8 @@
    *Note*: You need [[https://linux.die.net/man/1/convert][convert]] provided from imagemagick to /Pick a Link and Jump/ with F.
    #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "44-51"
 ** LeetCode
-   [[https://github.com/kaiwk/leetcode.el][LeetCode]], an Emacs LeetCode client. Note that this package is dependant on [[https://github.com/tkf/emacs-request/blob/master/request-deferred.el][Request-Deferred]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
-
-   *Prerequisite*: Ensure =cURL= is installed added to =PATH=. If you are using Windows, it is suggested to use =curl= provided by Git, therefore add =<path to Git>\mingw64\bin= to =PATH=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "44-55"
+   [[https://github.com/kaiwk/leetcode.el][LeetCode]], an Emacs LeetCode client. Note that this package is dependant on [[https://github.com/skeeto/emacs-aio][aio]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
+   #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "44-53"
 ** Pyim
    [[https://github.com/tumashu/pyim][Pyim]], an Emacs Chinese Pinyin Input.
    #+INCLUDE: "~/.emacs.d/elisp/init-pyim.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "41-64"

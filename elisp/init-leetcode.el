@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Apr 11 22:28:41 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:06:57 2019 (-0400)
+;; Last-Updated: Sat Sep  7 00:52:17 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d leetcode
@@ -43,14 +43,12 @@
 ;; LeetCodePac
 (use-package leetcode
   :load-path "~/.emacs.d/site-elisp/leetcode.el"
-  :if *curl*
   :commands (leetcode)
   :init
-  (use-package request-deferred :defer t)
   (use-package graphql :defer t)
+  (use-package aio :defer t)
   :custom
-  ;; (request-message-level 'debug)
-  ;; (request-log-level 'debug)
+  (url-debug t)
   (leetcode-prefer-language "python3"))
 ;; -LeetCodePac
 

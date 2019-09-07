@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Mar 18 14:20:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Sep  5 23:23:56 2019 (-0400)
+;; Last-Updated: Sat Sep  7 00:50:31 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d constants
@@ -95,10 +95,6 @@
 (defconst *git*
   (executable-find "git")
   "Do we have git?")
-
-(defconst *curl*
-  (executable-find "curl")
-  "Do we have curl?")
 
 (defconst *pdflatex*
   (executable-find "pdflatex")
