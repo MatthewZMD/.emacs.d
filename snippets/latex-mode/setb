@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: setb
+# key: setb
+# --
+\\{$0\\}
