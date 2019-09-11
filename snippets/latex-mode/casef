@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: casef
+# key: casef
+# --
+${1:f} = \begin{cases}
+  ${2:a} & \text{if } ${3:acond} \\
+  ${4:b} & \text{if } ${5:bcond}
+\end{cases} $0
