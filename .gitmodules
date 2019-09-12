@@ -28,3 +28,6 @@
 [submodule "site-elisp/multi-term"]
 	path = site-elisp/multi-term
 	url = https://github.com/manateelazycat/multi-term.git
+[submodule "site-elisp/aweshell"]
+	path = site-elisp/aweshell
+	url = https://github.com/manateelazycat/aweshell.git

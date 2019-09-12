@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Sep 11 15:46:00 2019 (-0400)
+;; Last-Updated: Thu Sep 12 16:56:00 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here
@@ -16,7 +16,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes shell-here and term-keys
+;; This initializes shell-here, term-keys, multi-term, aweshell
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,10 +40,16 @@
 (eval-when-compile
   (require 'init-const))
 
-;; ShellHere
+;; AweshellPac
+(use-package aweshell
+  :load-path "~/.emacs.d/site-elisp/aweshell"
+  :commands (aweshell-new aweshell-dedicated-open))
+;; -AweshellPac
+
+;; ShellHerePac
 (use-package shell-here
   :bind ("M-#" . shell-here))
-;; -ShellHere
+;; -ShellHerePac
 
 ;; MultiTermPac
 (use-package multi-term

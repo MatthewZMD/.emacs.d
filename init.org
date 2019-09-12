@@ -322,15 +322,18 @@
    [[https://github.com/abo-abo/ace-window][Ace Window]], a package for selecting windows to switch to.
    #+INCLUDE: "~/.emacs.d/elisp/init-ace-window.el" src emacs-lisp :range-begin "AceWindowPac" :range-end "-AceWindowPac"  :lines "41-43"
 ** Shells
+*** Aweshell
+    [[https://github.com/manateelazycat/aweshell][Aweshell]], shell extension base on eshell with better features.
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "AweshellPac" :range-end "-AweshellPac" :lines "44-47"
 *** Shell Here
     [[https://github.com/ieure/shell-here][Shell Here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHere" :range-end "-ShellHere" :lines "44-46"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHerePac" :range-end "-ShellHerePac" :lines "50-52"
 *** MultiTerm
     [[https://www.emacswiki.org/emacs/MultiTerm][MultiTerm]], a mode based on term.el, for managing multiple terminal buffers in Emacs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "MultiTermPac" :range-end "-MultiTermPac" :lines "49-54"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "MultiTermPac" :range-end "-MultiTermPac" :lines "55-60"
 *** Term Keys
     [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "57-60"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "63-66"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
