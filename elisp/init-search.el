@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:52 2019 (-0400)
+;; Last-Updated: Fri Sep 13 00:39:27 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -64,7 +64,6 @@
 ;; IvyPosframePac
 (use-package ivy-posframe
   :if *sys/gui*
-  :after ivy
   :diminish
   :custom-face
   (ivy-posframe ((t (:background "#303640"))))

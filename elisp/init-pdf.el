@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
 ;; Version: 1.0.0
-;; Last-Updated: Thu Sep 12 11:31:33 2019 (-0400)
+;; Last-Updated: Fri Sep 13 00:40:53 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
@@ -41,8 +41,11 @@
   (require 'init-const))
 
 ;; PDFToolsPac
-(use-package pdf-tools
+(use-package pdf-tools-install
+  :ensure pdf-tools
   :if (and *sys/gui* (not *sys/win32*))
+  :mode "\\.pdf\\'"
+  :commands (pdf-loader-install)
   :custom
   (TeX-view-program-selection '((output-pdf "pdf-tools")))
   (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))

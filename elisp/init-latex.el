@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Wed Sep  4 16:35:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Sep 10 14:10:20 2019 (-0400)
+;; Last-Updated: Fri Sep 13 00:12:58 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d auctex
@@ -70,6 +70,7 @@
 
 ;; OrgLatexPac
 (use-package org-edit-latex
+  :defer t
   :after org)
 ;; -OrgLatexPac
 
