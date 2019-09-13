@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Sep 12 16:56:00 2019 (-0400)
+;; Last-Updated: Thu Sep 12 21:53:21 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here
@@ -43,18 +43,22 @@
 ;; AweshellPac
 (use-package aweshell
   :load-path "~/.emacs.d/site-elisp/aweshell"
-  :commands (aweshell-new aweshell-dedicated-open))
+  :commands (aweshell-new aweshell-dedicated-open)
+  :bind
+  (("M-#" . aweshell-dedicated-open)
+   ("C-d" . aweshell-dedicated-close)))
 ;; -AweshellPac
 
 ;; ShellHerePac
 (use-package shell-here
-  :bind ("M-#" . shell-here))
+  :bind ("M-~" . shell-here))
 ;; -ShellHerePac
 
 ;; MultiTermPac
 (use-package multi-term
   :load-path "~/.emacs.d/site-elisp/multi-term"
   :commands (multi-term)
+  :bind ("M-$" . multi-term)
   :custom
   (multi-term-program (executable-find "bash")))
 ;; -MultiTermPac

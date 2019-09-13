@@ -324,16 +324,16 @@
 ** Shells
 *** Aweshell
     [[https://github.com/manateelazycat/aweshell][Aweshell]], shell extension base on eshell with better features.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "AweshellPac" :range-end "-AweshellPac" :lines "44-47"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "AweshellPac" :range-end "-AweshellPac" :lines "44-50"
 *** Shell Here
     [[https://github.com/ieure/shell-here][Shell Here]], a tool that opens a shell buffer in (or relative to) =default-directory=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHerePac" :range-end "-ShellHerePac" :lines "50-52"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHerePac" :range-end "-ShellHerePac" :lines "53-55"
 *** MultiTerm
     [[https://www.emacswiki.org/emacs/MultiTerm][MultiTerm]], a mode based on term.el, for managing multiple terminal buffers in Emacs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "MultiTermPac" :range-end "-MultiTermPac" :lines "55-60"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "MultiTermPac" :range-end "-MultiTermPac" :lines "58-64"
 *** Term Keys
     [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "63-66"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "67-70"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
