@@ -63,6 +63,7 @@
   - [[Quickrun][Quickrun]]
   - [[Format All][Format All]]
   - [[Evil Nerd Commenter][Evil Nerd Commenter]]
+  - [[How Do You][How Do You]]
   - [[Iedit][Iedit]]
   - [[Headers][Headers]]
   - [[Jupyter Notebook][Jupyter Notebook]]
@@ -494,6 +495,9 @@
 ** Evil Nerd Commenter
    [[https://github.com/redguardtoo/evil-nerd-commenter][Evil Nerd Commenter]], a tool that helps you comment code efficiently.
    #+INCLUDE: "~/.emacs.d/elisp/init-comment.el" src emacs-lisp :range-begin "EvilNerdCommenPac" :range-end "-EvilNerdCommenPac" :lines "41-44"
+** How Do You
+   [[https://github.com/thanhvg/emacs-howdoyou][How Do You]], a package to search and read stackoverflow and its sisters’ sites and show the results in =org-mode=.
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "HowDoYouPac" :range-end "-HowDoYouPac" :lines "113-116"
 ** Iedit
    [[https://github.com/victorhge/iedit][Iedit]], a minor mode that allows editing multiple regions simultaneousy in a buffer or a region.
    #+INCLUDE: "~/.emacs.d/elisp/init-iedit.el" src emacs-lisp :range-begin "IEditPac" :range-end "-IEditPac" :lines "43-46"

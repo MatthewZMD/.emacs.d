@@ -1,12 +1,12 @@
 ;;; init-search.el --- -*- lexical-binding: t -*-
 ;;
 ;; Filename: init-search.el
-;; Description: Initialize Ivy Swiper Counsel Color-RG Snails
+;; Description: Initialize Packages for Searching
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 13 00:39:27 2019 (-0400)
+;; Last-Updated: Fri Sep 13 00:59:26 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -16,7 +16,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes Ivy Swiper Counsel Color-RG Snails
+;; This initializes ivy swiper counsel color-rg snails howdoyou
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -109,6 +109,11 @@
    ("M-s e" . snails-everywhere)))
 ;; -SnailsPac
 
+;; HowDoYouPac
+(use-package howdoyou
+  :defer t
+  :commands (howdoyou-query))
+;; -HowDoYouPac
 
 (provide 'init-search)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
