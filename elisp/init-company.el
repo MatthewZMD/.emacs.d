@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep  6 13:20:25 2019 (-0400)
+;; Last-Updated: Fri Sep 13 15:31:42 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -49,7 +49,7 @@
   ;; Don't use company in the following modes
   (company-global-modes '(not shell-mode))
   ;; Trigger completion immediately.
-  (company-idle-delay 0)
+  (company-idle-delay 0.3)
   ;; Number the candidates (use M-1, M-2 etc to select completions).
   (company-show-numbers t)
   :config

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Sep 10 14:08:52 2019 (-0400)
+;; Last-Updated: Fri Sep 13 15:35:01 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui
@@ -52,9 +52,11 @@
 ;; -StartupScreen
 
 ;; DisLineNum
-;; Hook line numbers to only when files are opened
-(add-hook 'find-file-hook #'display-line-numbers-mode)
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+;; Hook line numbers to only when files are opened, also use linum-mode for emacs-version< 26
+(if (version< emacs-version "26")
+    (global-linum-mode)
+  (add-hook 'find-file-hook #'display-line-numbers-mode)
+  (add-hook 'prog-mode-hook #'display-line-numbers-mode))
 ;; Display column numbers in modeline
 (column-number-mode 1)
 ;; -DisLineNum

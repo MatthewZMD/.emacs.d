@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Wed Sep  4 16:35:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 13 00:12:58 2019 (-0400)
+;; Last-Updated: Fri Sep 13 15:36:49 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d auctex
@@ -55,9 +55,9 @@
                               TeX-source-correlate-start-server t)
   (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
   (TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-  :hook
-  (LaTeX-mode . display-line-numbers-mode)
   :config
+  (if (version< emacs-version "26")
+      (add-hook LaTeX-mode-hook #'display-line-numbers-mode))
   (add-hook 'LaTeX-mode-hook
             (lambda ()
               (turn-on-reftex)
