@@ -31,3 +31,6 @@
 [submodule "site-elisp/aweshell"]
 	path = site-elisp/aweshell
 	url = https://github.com/manateelazycat/aweshell.git
+[submodule "site-elisp/epaint"]
+	path = site-elisp/epaint
+	url = https://github.com/chuntaro/epaint

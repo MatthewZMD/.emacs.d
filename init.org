@@ -93,6 +93,7 @@
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
   - [[Pyim][Pyim]]
+  - [[EPaint][EPaint]]
   - [[Tetris][Tetris]]
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
@@ -683,6 +684,9 @@
 *** Pyim BaseDict
     [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
     #+INCLUDE: "~/.emacs.d/elisp/init-pyim.el" src emacs-lisp :range-begin "PyimBaseDictPac" :range-end "-PyimBaseDictPac" :lines "67-70"
+** EPaint
+   [[https://github.com/chuntaro/epaint][EPaint]], a simple paint tool for emacs.
+   #+INCLUDE: "~/.emacs.d/elisp/init-epaint.el" src emacs-lisp :range-begin "EPaintPac" :range-end "-EPaintPac" :lines "44-54"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "41-50"
