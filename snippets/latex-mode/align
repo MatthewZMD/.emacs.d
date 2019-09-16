@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: multieqn
-# key: multieqn
+# name: align
+# key: align
 # --
-\begin{align*}
+\\begin{align*}
   ${1:function} & = ${2:assignment1} \\\\
   & = ${0:assignment2} \\\\
-\end{align*}
+\\end{align*}
