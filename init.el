@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Sep 16 15:58:53 2019 (-0400)
+;; Last-Updated: Tue Sep 17 01:13:28 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -38,8 +38,13 @@
 ;;; Code:
 
 ;; CheckVer
-(when (version< emacs-version "26.1")
-  (warn "M-EMACS requires Emacs 26.1 and above!"))
+(cond ((version< emacs-version "26.1")
+       (warn "M-EMACS requires Emacs 26.1 and above!"))
+      ((version< emacs-version "27")
+       (make-directory "~/.emacs.d/early-init-do-not-edit/" t)
+       (copy-file "~/.emacs.d/early-init.el" "~/.emacs.d/early-init-do-not-edit/early-init.el" t t t t)
+       (add-to-list 'load-path "~/.emacs.d/early-init-do-not-edit/")
+       (require 'early-init)))
 ;; -CheckVer
 
 ;; BetterGC
@@ -88,6 +93,7 @@ If you experience freezing, decrease this. If you experience stuttering, increas
           (add-to-list 'load-path name))))))
 
 (update-to-load-path "~/.emacs.d/elisp")
+
 ;; -LoadPath
 
 ;; Constants

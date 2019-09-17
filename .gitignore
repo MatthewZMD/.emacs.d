@@ -38,3 +38,4 @@ workspace/
 /recentf~
 emojis/
 /network-security.data
+/early-init-do-not-edit/early-init.el
