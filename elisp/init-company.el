@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 20 02:23:27 2019 (-0400)
+;; Last-Updated: Fri Sep 20 02:52:07 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -64,12 +64,11 @@ If failed try to complete the common part with `company-complete-common'"
     (interactive)
     (if yas-minor-mode
         (let ((old-point (point))
-              (old-tick (buffer-chars-modified-tick))
-              (tab-always-indent t))
+              (old-tick (buffer-chars-modified-tick)))
           (yas-expand)
           (when (and (eq old-point (point))
                      (eq old-tick (buffer-chars-modified-tick)))
-            (yas-next-field)
+            (ignore-errors (yas-next-field))
             (when (and (eq old-point (point))
                        (eq old-tick (buffer-chars-modified-tick)))
               (company-complete-common))))
