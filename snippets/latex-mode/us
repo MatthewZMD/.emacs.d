@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: lm
-# key: lm
+# name: us
+# key: us
 # --
-$$1$ $0
+$1^{$2}

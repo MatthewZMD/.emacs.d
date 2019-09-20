@@ -2,4 +2,4 @@
 # name: bold
 # key: bold
 # --
-\textbf{$0}
+\textbf{$1} $0

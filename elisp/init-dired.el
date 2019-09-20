@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:05:10 2019 (-0400)
+;; Last-Updated: Fri Sep 20 11:06:24 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired
@@ -40,6 +40,9 @@
 ;; DiredPackage
 (use-package dired
   :ensure nil
+  :bind
+  (("C-x C-j" . dired-jump)
+   ("C-x j" . dired-jump-other-window))
   :custom
   ;; Always delete and copy recursively
   (dired-recursive-deletes 'always)

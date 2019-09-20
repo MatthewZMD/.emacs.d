@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: casef
-# key: casef
-# --
-${1:f} = \begin{cases}
-  ${2:c1} & \text{if } ${3:c1cond} \\\\
-  ${4:c2} & \text{if } ${5:c2cond}
-\end{cases} $0

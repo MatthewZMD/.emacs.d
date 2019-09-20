@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: lm
-# key: lm
+# name: ls
+# key: ls
 # --
-$$1$ $0
+$1_{$2}

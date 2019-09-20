@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 20 02:52:07 2019 (-0400)
+;; Last-Updated: Fri Sep 20 10:36:32 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -40,7 +40,7 @@
 ;; ComPac
 (use-package company
   :diminish company-mode
-  :hook ((prog-mode LaTeX-mode latex-mode) . global-company-mode)
+  :hook ((prog-mode LaTeX-mode latex-mode R-mode) . company-mode)
   :bind
   (:map company-active-map
         ([tab] . smarter-yas-expand-next-field-complete)
@@ -57,6 +57,7 @@
   ;; Number the candidates (use M-1, M-2 etc to select completions).
   (company-show-numbers t)
   :config
+  (global-company-mode 1)
   (defun smarter-yas-expand-next-field-complete ()
     "Try to `yas-expand' and `yas-next-field' at current cursor position.
 

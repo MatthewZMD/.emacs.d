@@ -2,4 +2,4 @@
 # name: oline
 # key: oline
 # --
-\\overline{$1}$0
+\\overline{$1}

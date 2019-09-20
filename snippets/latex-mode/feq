@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: lm
-# key: lm
+# name: feq
+# key: feq
 # --
-$$1$ $0
+\\$1eq

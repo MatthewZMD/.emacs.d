@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: floor
+# key: floor
+# --
+\\lfloor{$1}\\rfloor
