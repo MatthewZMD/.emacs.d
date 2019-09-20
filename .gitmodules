@@ -23,14 +23,11 @@
     path = site-elisp/emacs-application-framework
     url = https://github.com/MatthewZMD/emacs-application-framework.git
 [submodule "site-elisp/snails"]
-	path = site-elisp/snails
-	url = https://github.com/manateelazycat/snails.git
+    path = site-elisp/snails
+    url = https://github.com/manateelazycat/snails.git
 [submodule "site-elisp/multi-term"]
-	path = site-elisp/multi-term
-	url = https://github.com/manateelazycat/multi-term.git
-[submodule "site-elisp/aweshell"]
-	path = site-elisp/aweshell
-	url = https://github.com/manateelazycat/aweshell.git
+    path = site-elisp/multi-term
+    url = https://github.com/manateelazycat/multi-term.git
 [submodule "site-elisp/epaint"]
-	path = site-elisp/epaint
-	url = https://github.com/chuntaro/epaint
+    path = site-elisp/epaint
+    url = https://github.com/chuntaro/epaint
