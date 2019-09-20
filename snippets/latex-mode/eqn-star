@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: eqn-star
-# key: eqn*
-# --
-\begin{equation*}
-  $0
-\end{equation*}

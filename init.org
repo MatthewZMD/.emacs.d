@@ -439,7 +439,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "DisLineNum" :range-end "-DisLineNum" :lines "58-65"
 *** Modeline Time and Battery
     Display time and battery information in modeline.
-    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "DisTimeBat" :range-end "-DisTimeBat" :lines "68-71"
+    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "DisTimeBat" :range-end "-DisTimeBat" :lines "68-70"
 * General Programming
 ** Magit
    [[https://magit.vc/][Magit]], an interface to the version control system Git.
@@ -530,17 +530,19 @@
 ** Company
 *** Company Mode
     [[http://company-mode.github.io/][Company]], a text completion framework for Emacs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "ComPac" :range-end "-ComPac" :lines "41-57"
+
+    The function =smarter-yas-expand-next-field-complete= is to smartly resolve TAB conflicts in company and yasnippet packages.
+    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "ComPac" :range-end "-ComPac" :lines "41-77"
 *** Company LSP
     [[https://github.com/tigersoldier/company-lsp][Company LSP]], a Company completion backend for lsp-mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyLSPPac" :range-end "-CompanyLSPPac" :lines "60-63"
+    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyLSPPac" :range-end "-CompanyLSPPac" :lines "80-83"
 *** Company TabNine
     [[https://github.com/TommyX12/company-tabnine][Company TabNine]], A company-mode backend for [[https://tabnine.com/][TabNine]], the all-language autocompleter.
 
     This is enabled by default, if ever you find it not good enough for a particular completion, simply use =M-q= to immediately switch to default backends.
 
     *Prerequisite*: Execute =M-x company-tabnine-install-binary= to install the TabNine binary for your system.
-    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyTabNinePac" :range-end "-CompanyTabNinePac" :lines "66-100"
+    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyTabNinePac" :range-end "-CompanyTabNinePac" :lines "86-120"
 * Programming
 ** Java
 *** LSP Java
