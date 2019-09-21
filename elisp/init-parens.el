@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:27 2019 (-0400)
+;; Last-Updated: Fri Sep 20 17:01:54 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d parenthesis smartparens awesome-pair delete-block
@@ -88,7 +88,8 @@
   :load-path "~/.emacs.d/site-elisp/delete-block"
   :bind
   (("M-d" . delete-block-forward)
-   ("C-<backspace>" . delete-block-backward)))
+   ("C-<backspace>" . delete-block-backward)
+   ("M-<backspace>" . delete-block-backward)))
 ;; -DeleteBlockPac
 
 ;; MatchParens

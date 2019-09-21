@@ -1,12 +1,12 @@
 ;;; init-ui-config.el --- -*- lexical-binding: t -*-
 ;;
 ;; Filename: init-ui-config.el
-;; Description: Initialize UI Configuration
+;; Description: Initialize UI Configurations
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 20 11:32:01 2019 (-0400)
+;; Last-Updated: Sat Sep 21 16:09:36 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui
@@ -16,7 +16,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes UI configurations
+;; This initializes prettify-symbols-mode and other UI configurations
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -39,6 +39,23 @@
 
 (eval-when-compile
   (require 'init-const))
+
+;; PreSym
+(global-prettify-symbols-mode 1)
+(defun add-pretty-lambda ()
+  "Make some word or string show as pretty Unicode symbols. See https://unicodelookup.com for more."
+  (setq prettify-symbols-alist
+        '(
+          ("lambda" . 955)
+          ("delta" . 120517)
+          ("epsilon" . 120518)
+          ("->" . 8594)
+          ("<=" . 8804)
+          (">=" . 8805)
+          )))
+(add-hook 'prog-mode-hook 'add-pretty-lambda)
+(add-hook 'org-mode-hook 'add-pretty-lambda)
+;; -PreSym
 
 ;; TitleBar
 (setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
