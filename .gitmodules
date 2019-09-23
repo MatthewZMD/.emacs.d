@@ -30,7 +30,7 @@
     url = https://github.com/manateelazycat/multi-term.git
 [submodule "site-elisp/epaint"]
     path = site-elisp/epaint
-    url = https://github.com/chuntaro/epaint
+    url = https://github.com/chuntaro/epaint.git
 [submodule "site-elisp/aweshell"]
-	path = site-elisp/aweshell
-	url = git@github.com:MatthewZMD/aweshell.git
+    path = site-elisp/aweshell
+    url = https://github.com/MatthewZMD/aweshell.git
