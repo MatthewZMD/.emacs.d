@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 13 15:32:44 2019 (-0400)
+;; Last-Updated: Sat Sep 21 22:31:47 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -46,7 +46,13 @@
   :bind ("C-s" . swiper-isearch)
   :diminish
   :init
+  (use-package amx :defer t)
+  (use-package counsel :diminish :config (counsel-mode 1))
+  (use-package swiper :defer t)
   (ivy-mode 1)
+  :bind
+  (:map ivy-minibuffer-map
+        ("C-r" . ivy-previous-line-or-history))
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-height 10)
@@ -54,11 +60,7 @@
   (ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
   (ivy-count-format "【%d/%d】")
   (ivy-wrap t)
-  :config
-  (use-package amx :defer t)
-  (use-package counsel :diminish :config (counsel-mode 1))
-  (use-package swiper :defer t)
-  (bind-key "C-r" 'ivy-previous-line-or-history ivy-minibuffer-map))
+  (ivy-use-selectable-prompt t))
 ;; -IvyPac
 
 ;; IvyPosframePac

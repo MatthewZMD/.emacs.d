@@ -2,4 +2,4 @@
 # name: italics
 # key: italics
 # --
-\textit{$1} $0
+\textit{$1}
