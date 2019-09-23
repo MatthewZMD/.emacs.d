@@ -32,8 +32,5 @@
     path = site-elisp/epaint
     url = https://github.com/chuntaro/epaint.git
 [submodule "site-elisp/aweshell"]
-    path = site-elisp/aweshell
-    url = https://github.com/MatthewZMD/aweshell.git
-[submodule "site-elisp/--force"]
-	path = site-elisp/--force
+	path = site-elisp/aweshell
 	url = https://github.com/MatthewZMD/aweshell.git
