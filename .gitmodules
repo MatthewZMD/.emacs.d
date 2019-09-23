@@ -34,3 +34,6 @@
 [submodule "site-elisp/aweshell"]
     path = site-elisp/aweshell
     url = https://github.com/MatthewZMD/aweshell.git
+[submodule "site-elisp/--force"]
+	path = site-elisp/--force
+	url = https://github.com/MatthewZMD/aweshell.git
