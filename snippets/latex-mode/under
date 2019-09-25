@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: under
+# key: under
+# --
+\underset{${1:under}}{${2:normal}}

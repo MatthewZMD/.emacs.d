@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: product
-# key: product
-# --
-\\Pi_{$1}^{$2}

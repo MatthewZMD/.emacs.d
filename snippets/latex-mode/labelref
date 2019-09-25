@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: labelref
+# key: labelref
+# --
+\\eqref{${1:label}}

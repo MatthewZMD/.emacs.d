@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Apr 23 23:08:17 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 20 01:23:56 2019 (-0400)
+;; Last-Updated: Tue Sep 24 15:04:31 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d yasnippet
@@ -43,9 +43,21 @@
   :hook ((prog-mode LaTeX-mode org-mode) . yas-minor-mode)
   :bind
   (:map yas-minor-mode-map ("C-c C-n" . yas-expand-from-trigger-key))
+  (:map yas-keymap
+        (("TAB" . smarter-yas-expand-next-field)
+         ([(tab)] . smarter-yas-expand-next-field)))
   :config
   (use-package yasnippet-snippets)
-  (yas-reload-all))
+  (yas-reload-all)
+  (defun smarter-yas-expand-next-field ()
+    "Try to `yas-expand' then `yas-next-field' at current cursor position."
+    (interactive)
+    (let ((old-point (point))
+          (old-tick (buffer-chars-modified-tick)))
+      (yas-expand)
+      (when (and (eq old-point (point))
+                 (eq old-tick (buffer-chars-modified-tick)))
+        (ignore-errors (yas-next-field))))))
 ;; -YASnippetPac
 
 (provide 'init-yasnippet)

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
 ;; Version: 1.0.0
-;; Last-Updated: Fri Sep 13 00:40:53 2019 (-0400)
+;; Last-Updated: Wed Sep 25 00:05:22 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
@@ -49,6 +49,8 @@
   :custom
   (TeX-view-program-selection '((output-pdf "pdf-tools")))
   (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
+  :init
+  (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
   :config
   (pdf-loader-install))
 ;; -PDFToolsPac

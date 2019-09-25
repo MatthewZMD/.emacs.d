@@ -458,7 +458,7 @@
 ** YASnippet
 *** YASnippet
     [[https://github.com/joaotavora/yasnippet][YASnippet]], a programming template system for Emacs. It loads [[https://github.com/AndreaCrotti/yasnippet-snippets][YASnippet Snippets]], a collection of yasnippet snippets for many languages.
-    #+INCLUDE: "~/.emacs.d/elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "-YASnippetPac" :lines "41-49"
+    #+INCLUDE: "~/.emacs.d/elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "-YASnippetPac" :lines "41-61"
 ** Flycheck
    [[https://www.flycheck.org/en/latest/][Flycheck]], a syntax checking extension.
    #+INCLUDE: "~/.emacs.d/elisp/init-flycheck.el" src emacs-lisp :range-begin "FlyCheckPac" :range-end "-FlyCheckPac" :lines "41-49"
@@ -674,7 +674,7 @@
    [[https://github.com/politza/pdf-tools][PDF Tools]], an Emacs support library for PDF files. It works best on non-Windows OS.
 
    *Note*: You need [[https://linux.die.net/man/1/convert][convert]] provided from imagemagick to /Pick a Link and Jump/ with F.
-   #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "44-54"
+   #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "44-56"
 ** LeetCode
    [[https://github.com/kaiwk/leetcode.el][LeetCode]], an Emacs LeetCode client. Note that this package is dependant on [[https://github.com/skeeto/emacs-aio][aio]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
    #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "44-53"

@@ -2,4 +2,4 @@
 # name: ubk
 # key: ubk
 # --
-\\underbrace{$1}_{$2}
+\\overbrace{$1}^{$2}
