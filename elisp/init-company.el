@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 20 10:36:32 2019 (-0400)
+;; Last-Updated: Wed Sep 25 20:12:29 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -40,7 +40,7 @@
 ;; ComPac
 (use-package company
   :diminish company-mode
-  :hook ((prog-mode LaTeX-mode latex-mode R-mode) . company-mode)
+  :hook ((prog-mode LaTeX-mode latex-mode ess-r-mode) . company-mode)
   :bind
   (:map company-active-map
         ([tab] . smarter-yas-expand-next-field-complete)
