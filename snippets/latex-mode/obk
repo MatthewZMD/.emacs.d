@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: ubk
-# key: ubk
+# name: obk
+# key: obk
 # --
 \\overbrace{$1}^{$2}
