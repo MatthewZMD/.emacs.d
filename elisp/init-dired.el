@@ -1,22 +1,22 @@
 ;;; init-dired.el --- -*- lexical-binding: t -*-
 ;;
 ;; Filename: init-dired.el
-;; Description: Initialize Dired
+;; Description: Initialize Dired and Related Configurations
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 20 11:06:24 2019 (-0400)
+;; Last-Updated: Tue Oct  1 15:38:25 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d dired
+;; Keywords: M-EMACS .emacs.d dired auto-save
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes dired and auto-save
+;; This initializes dired, auto-save, disk-usage
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -64,6 +64,11 @@
                   (local-set-key (kbd "^")
                                  (lambda () (interactive) (find-alternate-file ".."))))))
 ;; -DiredPackage
+
+;; DiskUsage
+(use-package disk-usage
+  :commands (disk-usage))
+;; -DiskUsage
 
 ;; AutosaveBackupDir
 (make-directory "~/.emacs.d/autosaves" t)

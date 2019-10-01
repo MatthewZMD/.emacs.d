@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: align
-# key: align
-# --
-\\begin{align*}
-  ${1:function} & = ${2:assignment1} \\\\
-  & = ${0:assignment2} \\\\
-\\end{align*}

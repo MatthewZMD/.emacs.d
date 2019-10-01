@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 13 13:41:13 2019 (-0400)
+;; Last-Updated: Tue Oct  1 14:31:54 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -55,9 +55,18 @@
    '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE")))
   (org-agenda-window-setup 'other-window)
   :config
-  (require'org-tempo)
+  (require 'org-tempo)
   (when (file-directory-p "~/org/agenda/")
-    (setq org-agenda-files (list "~/org/agenda/"))))
+    (setq org-agenda-files (list "~/org/agenda/")))
+
+  (defun org-export-turn-on-syntax-highlight()
+    "Setup variables to turn on syntax highlighting when calling `org-latex-export-to-pdf'"
+    (interactive)
+    (setq org-latex-listings 'minted
+          org-latex-packages-alist '(("" "minted"))
+          org-latex-pdf-process
+          '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))))
 ;; -OrgPac
 
 ;; TocOrgPac

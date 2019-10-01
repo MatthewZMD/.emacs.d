@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Sep 21 16:14:12 2019 (-0400)
+;; Last-Updated: Tue Oct  1 15:41:23 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -110,8 +110,6 @@ If you experience freezing, decrease this. If you experience stuttering, increas
 
 (require 'init-func)
 
-(require 'init-dired)
-
 (require 'init-search)
 
 (require 'init-avy)
@@ -129,6 +127,8 @@ If you experience freezing, decrease this. If you experience stuttering, increas
 (require 'init-ace-window)
 
 (require 'init-shell)
+
+(require 'init-dired)
 
 ;; User Interface Enhancements
 (require 'init-ui-config)
