@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:00:55 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:03:40 2019 (-0400)
+;; Last-Updated: Tue Oct  1 23:31:57 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -41,9 +41,9 @@
 (use-package arduino-mode
   :disabled
   :defer t
+  :mode
+  ("\\.ino\\'" "\\.pde\\'")
   :config
-  (add-to-list 'auto-mode-alist '("\\.ino\\'" . arduino-mode))
-  (add-to-list 'auto-mode-alist '("\\.pde\\'" . arduino-mode))
   (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
 ;; -ArduinoPac
 

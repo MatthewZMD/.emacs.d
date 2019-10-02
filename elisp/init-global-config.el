@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Sep 16 21:25:15 2019 (-0400)
+;; Last-Updated: Tue Oct  1 23:46:08 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -121,43 +121,44 @@
 (setq-default history-length 500)
 ;; -History
 
-;; RingBell
+;; SmallConfigs
+;; Turn Off Cursor Alarms
 (setq ring-bell-function 'ignore)
-;; -RingBell
 
-;; EchoKey
+;; Show Keystrokes in Progress Instantly
 (setq echo-keystrokes 0.1)
-;; -EchoKey
 
-;; CreateLockFile
+;; Don't Lock Files
 (setq-default create-lockfiles nil)
-;; -CreateLockFile
 
-;; BetterCompilation
+;; Better Compilation
 (setq-default compilation-always-kill t) ; kill compilation process before starting another
 
 (setq-default compilation-ask-about-save nil) ; save all buffers on `compile'
 
 (setq-default compilation-scroll-output t)
-;; -BetterCompilation
 
-;; IgnoreAdHandleMessage
+;; ad-handle-definition warnings are generated when functions are redefined with `defadvice',
+;; they are not helpful.
 (setq ad-redefinition-action 'accept)
-;; -IgnoreAdHandleMessage
 
-;; CustomSetFileLocation
+;; Move Custom-Set-Variables to Different File
 (setq custom-file (concat user-emacs-directory "custom-set-variables.el"))
 (load custom-file 'noerror)
-;; -CustomSetFileLocation
 
-;; SoLong
+;; So Long mitigates slowness due to extremely long lines.
+;; Currently available in Emacs master branch *only*!
 (when (fboundp 'global-so-long-mode)
   (global-so-long-mode))
-;; -SoLong
 
-;; FinalNewline
+;; Add a newline automatically at the end of the file upon save.
 (setq require-final-newline t)
-;; -FinalNewline
+
+;; Default .args, .in, .out files to text-mode
+(add-to-list 'auto-mode-alist '("\\.in\\'" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.out\\'" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.args\\'" . text-mode))
+;; -SmallConfigs
 
 (provide 'init-global-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

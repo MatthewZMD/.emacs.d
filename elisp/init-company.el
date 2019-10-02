@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Sep 25 20:12:29 2019 (-0400)
+;; Last-Updated: Tue Oct  1 22:55:04 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -86,7 +86,7 @@ If failed try to complete the common part with `company-complete-common'"
 (use-package company-tabnine
   :demand
   :custom
-  (company-tabnine-max-num-results 3)
+  (company-tabnine-max-num-results 5)
   :bind
   (("M-q" . company-other-backend)
    ("C-z t" . company-tabnine))
@@ -115,6 +115,7 @@ If failed try to complete the common part with `company-complete-common'"
                (seq-take candidates-lsp 6)))))
   (add-hook 'lsp-after-open-hook
             (lambda ()
+              (setq company-tabnine-max-num-results 3)
               (add-to-list 'company-transformers 'company//sort-by-tabnine t)
               (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate)))))
 ;; -CompanyTabNinePac
