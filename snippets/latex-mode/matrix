@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: matrix
+# key: matrix
+# --
+\\begin{bmatrix}
+   $1 & $2 \\\\
+   $3 & $0 \\\\
+\\end{bmatrix}

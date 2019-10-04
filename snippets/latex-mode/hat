@@ -2,4 +2,4 @@
 # name: hat
 # key: hat
 # --
-\\hat{$1}
+\\widehat{$1}

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  1 22:55:04 2019 (-0400)
+;; Last-Updated: Thu Oct  3 14:33:06 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -86,7 +86,7 @@ If failed try to complete the common part with `company-complete-common'"
 (use-package company-tabnine
   :demand
   :custom
-  (company-tabnine-max-num-results 5)
+  (company-tabnine-max-num-results 9)
   :bind
   (("M-q" . company-other-backend)
    ("C-z t" . company-tabnine))
