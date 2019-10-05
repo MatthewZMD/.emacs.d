@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:29:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  1 23:26:40 2019 (-0400)
+;; Last-Updated: Sat Oct  5 01:37:06 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d highlight-indent-guides indentation
@@ -62,7 +62,11 @@
 (c-set-offset 'innamespace 0)
 (c-set-offset 'case-label '+)
 (c-set-offset (quote cpp-macro) 0 nil)
-(add-hook 'text-mode-hook (lambda () (electric-indent-mode -1)))
+(add-hook 'after-change-major-mode-hook
+          (lambda () (if (equal electric-indent-mode 't)
+                    (when (equal major-mode 'text-mode)
+                      (electric-indent-mode -1))
+                  (electric-indent-mode 1))))
 ;; -IndentConfig
 
 (provide 'init-indent)

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Sep  5 23:42:40 2019 (-0400)
+;; Last-Updated: Fri Oct  4 18:14:14 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -160,15 +160,6 @@ BEGIN and END are regexps which define the line range to use."
 ;; keep the point out of the minibuffer
 (setq-default minibuffer-prompt-properties '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
 ;; -BetterMiniBuffer
-
-;; SaveAllBuffers
-(defun save-all-buffers ()
-  "Instead of `save-buffer', save all opened buffers by calling `save-some-buffers' with ARG t."
-  (interactive)
-  (save-some-buffers t))
-(global-set-key (kbd "C-x C-s") nil)
-(global-set-key (kbd "C-x C-s") #'save-all-buffers)
-;; -SaveAllBuffers
 
 ;; DisplayLineOverlay
 (defun display-line-overlay+ (pos str &optional face)

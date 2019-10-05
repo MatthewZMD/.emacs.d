@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Aug 24 22:29:32 2019 (+0000)
+;; Last-Updated: Sat Oct  5 01:24:54 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d c c++ go ccls
@@ -47,12 +47,25 @@
   :hook ((c-mode c++-mode objc-mode) .
          (lambda () (require 'ccls) (lsp)))
   :custom
-  (ccls-executable "~/tools/ccls/Release/ccls"))
+  (ccls-executable "~/tools/ccls/Release/ccls")
+  :config
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-tramp-connection ccls-executable)
+    :major-modes '(c-mode c++-mode objc-mode)
+    :server-id 'ccls-remote
+    :multi-root nil
+    :remote? t
+    :notification-handlers
+    (lsp-ht ("$ccls/publishSkippedRanges" #'ccls--publish-skipped-ranges)
+            ("$ccls/publishSemanticHighlight" #'ccls--publish-semantic-highlight))
+    :initialization-options (lambda () ccls-initialization-options)
+    :library-folders-fn nil)))
 ;; -CCLSPac
 
 ;; CPPFontLockPac
 (use-package modern-cpp-font-lock
-  :diminish
+  :diminish t
   :init (modern-c++-font-lock-global-mode t))
 ;; -CPPFontLockPac
 

@@ -39,7 +39,7 @@
   - [[Discover My Major][Discover My Major]]
   - [[Ace Window][Ace Window]]
   - [[Shells][Shells]]
-  - [[Directory Management][Directory Management]]
+  - [[Files Directories][Files Directories]]
   - [[Configs][Configs]]
   - [[Functions][Functions]]
 - [[User Interface Enhancements][User Interface Enhancements]]
@@ -326,20 +326,22 @@
 *** Term Keys
     [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "70-73"
-** Directory Management
+** Files Directories
 *** Dired
     Dired, the directory editor.
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredPackage" :range-end "-DiredPackage" :lines "41-66"
 *** Disk Usage
     [[https://gitlab.com/ambrevar/emacs-disk-usage][Disk Usage]], a file system analyzer that offers a tabulated view of file listings sorted by size.
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiskUsage" :range-end "-DiskUsage" :lines "69-71"
-*** Auto Save File and Backup
-    Set autosave and backup directory.
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "AutosaveBackupDir" :range-end "-AutosaveBackupDir" :lines "74-84"
+*** Super Save
+    [[https://github.com/bbatsov/super-save][Super Save]], enables save when switching between buffers, an Emacs frame losing focus, etc.
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "SuperSave" :range-end "-SuperSave" :lines "74-82"
+*** Save All Buffers
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "SaveAllBuffers" :range-end "-SaveAllBuffers" :lines "85-91"
 *** Rename File and Buffer Together
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "87-102"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "95-110"
 *** File Configurations
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "105-113"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "113-121"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
@@ -350,7 +352,7 @@
 *** History
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "99-122"
 *** Small Configs
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SmallConfigs" :range-end "-SmallConfigs" :lines "125-160"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SmallConfigs" :range-end "-SmallConfigs" :lines "125-161"
 ** Functions
    Important functions.
 *** Resize Window Width / Height Functions
@@ -365,16 +367,14 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "105-150"
 *** MiniBuffer Functions
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "153-162"
-*** Save All Buffers
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "99-122"
 *** Display Line Overlay
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "174-186"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "165-177"
 *** Read Lines From File
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "189-193"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "180-184"
 *** Where Am I
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "196-204"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "187-195"
 *** Get File Name From Path
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "GetFileNameFromPath" :range-end "-GetFileNameFromPath" :lines "207-211"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "GetFileNameFromPath" :range-end "-GetFileNameFromPath" :lines "198-202"
 * User Interface Enhancements
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.
@@ -467,7 +467,7 @@
    [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "44-53"
    Indentation Configuration
-   #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "56-66"
+   #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "56-70"
 ** Quickrun
    [[https://github.com/syohex/emacs-quickrun][Quickrun]], compile and run source code quickly.
    #+INCLUDE: "~/.emacs.d/elisp/init-quickrun.el" src emacs-lisp :range-begin "QuickrunPac" :range-end "-QuickrunPac" :lines "41-45"
@@ -542,10 +542,10 @@
      - It is a pain to build CCLS on Windows, install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and add to =PATH= instead.
 *** CCLS
     [[https://github.com/MaskRay/emacs-ccls][Emacs CCLS]], a client for [[https://github.com/MaskRay/ccls][CCLS]], a C/C++/Objective-C language server supporting multi-million line C++ code-bases, powered by libclang.
-    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CCLSPac" :range-end "-CCLSPac" :lines "44-51"
+    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CCLSPac" :range-end "-CCLSPac" :lines "44-64"
 *** Modern C++ Font Lock
     [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
-    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "54-57"
+    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "67-70"
 ** Golang
    [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode for editing Golang code.
 
@@ -553,7 +553,7 @@
    #+BEGIN_SRC text
      go get golang.org/x/tools/gopls@latest
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "60-63"
+   #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "73-76"
 ** Python
 *** Python Configuration
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "45-53"

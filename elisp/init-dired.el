@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  1 15:38:25 2019 (-0400)
+;; Last-Updated: Sat Oct  5 02:49:10 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired auto-save
@@ -16,7 +16,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes dired, auto-save, disk-usage
+;; This initializes dired, super-save, disk-usage
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -70,18 +70,26 @@
   :commands (disk-usage))
 ;; -DiskUsage
 
-;; AutosaveBackupDir
-(make-directory "~/.emacs.d/autosaves" t)
-(make-directory "~/.emacs.d/backups" t)
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))
-      auto-save-file-name-transforms  '((".*" "~/.emacs.d/autosaves/\\1" t))
-      backup-by-copying t    ; Don't delink hardlinks
-      version-control t      ; Use version numbers on backups
-      delete-old-versions t  ; Automatically delete excess backups
-      kept-new-versions 20   ; how many of the newest versions to keep
-      kept-old-versions 5    ; and how many of the old
-      )
-;; -AutosaveBackupDir
+;; SuperSave
+(use-package super-save
+  :diminish
+  :custom
+  (super-save-auto-save-when-idle t)
+  (auto-save-default nil)
+  (make-backup-files nil)
+  :config
+  (super-save-mode 1))
+;; -SuperSave
+
+;; SaveAllBuffers
+(defun save-all-buffers ()
+  "Instead of `save-buffer', save all opened buffers by calling `save-some-buffers' with ARG t."
+  (interactive)
+  (save-some-buffers t))
+(global-set-key (kbd "C-x C-s") nil)
+(global-set-key (kbd "C-x C-s") #'save-all-buffers)
+;; -SaveAllBuffers
+
 
 ;; RenameFileBuffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
