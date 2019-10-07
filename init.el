@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  1 15:41:23 2019 (-0400)
+;; Last-Updated: Mon Oct  7 10:52:02 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -70,14 +70,14 @@ If you experience freezing, decrease this. If you experience stuttering, increas
               (add-hook 'after-focus-change-function 'garbage-collect))
             ;; -AutoGC MinibufferGC
             (defun gc-minibuffer-setup-hook ()
-              (setq gc-cons-threshold (* better-gc-cons-threshold 2))
+              (setq gc-cons-threshold (* better-gc-cons-threshold 2)))
 
-              (defun gc-minibuffer-exit-hook ()
-                (garbage-collect)
-                (setq gc-cons-threshold better-gc-cons-threshold))
+            (defun gc-minibuffer-exit-hook ()
+              (garbage-collect)
+              (setq gc-cons-threshold better-gc-cons-threshold))
 
-              (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
-              (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook))))
+            (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
+            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
 ;; -MinibufferGC
 
 ;; LoadPath
