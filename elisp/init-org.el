@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  1 14:31:54 2019 (-0400)
+;; Last-Updated: Wed Oct  9 19:17:31 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -46,6 +46,7 @@
   ("C-c a" . org-agenda)
   ("C-c c" . org-capture)
   ("C-c b" . org-switch)
+  (:map org-mode-map ("C-c C-p" . org-export-as-pdf-and-open))
   :custom
   (org-log-done 'time)
   (org-export-backends (quote (ascii html icalendar latex md odt)))
@@ -66,7 +67,20 @@
           org-latex-packages-alist '(("" "minted"))
           org-latex-pdf-process
           '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))))
+            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
+
+  (defun org-export-as-pdf-and-open ()
+    "Run `org-latex-export-to-pdf', delete the tex file and open pdf in a new buffer."
+    (interactive)
+    (save-buffer)
+    (let* ((pdf-path (org-latex-export-to-pdf))
+           (pdf-name (get-file-name-from-path pdf-path)))
+      (if (try-completion pdf-name (mapcar #'buffer-name (buffer-list)))
+          (progn
+            (kill-matching-buffers (concat "^" pdf-name) t t)
+            (find-file-other-window pdf-name))
+        (find-file-other-window pdf-name))
+      (delete-file (concat (substring pdf-path 0 (string-match "[^\.]*\/?$" pdf-path)) "tex")))))
 ;; -OrgPac
 
 ;; TocOrgPac

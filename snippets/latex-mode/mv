@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mv
+# key: mv
+# --
+\\mathbf{$1}
