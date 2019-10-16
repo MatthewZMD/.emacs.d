@@ -1,12 +1,12 @@
-;;; init-iedit.el --- -*- lexical-binding: t -*-
+;;; init-edit.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-iedit.el
-;; Description: Initialize Iedit
+;; Filename: init-edit.el
+;; Description: Initialize Editing Configuration
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 28 13:25:24 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:06:48 2019 (-0400)
+;; Last-Updated: Wed Oct 16 16:27:25 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d iedit
@@ -16,7 +16,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes iedit
+;; This initializes iedit, awesome-pair, delete-block
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,6 +45,30 @@
   :diminish)
 ;; -IEditPac
 
-(provide 'init-iedit)
+;; AwesomePairPac
+(use-package awesome-pair
+  :load-path "~/.emacs.d/site-elisp/awesome-pair"
+  :bind
+  (:map prog-mode-map
+        (("C-c C-k" . awesome-pair-kill)
+         ("SPC" . awesome-pair-space)
+         ("=" . awesome-pair-equal)
+         ("M-F" . awesome-pair-jump-right)
+         ("M-B" . awesome-pair-jump-left)))
+  :config
+  (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1))))
+;; -AwesomePairPac
+
+;; DeleteBlockPac
+(use-package delete-block
+  :load-path "~/.emacs.d/site-elisp/delete-block"
+  :bind
+  (("M-d" . delete-block-forward)
+   ("C-<backspace>" . delete-block-backward)
+   ("M-<backspace>" . delete-block-backward)
+   ("M-DEL" . delete-block-backward)))
+;; -DeleteBlockPac
+
+(provide 'init-edit)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-iedit.el ends here
+;;; init-edit.el ends here

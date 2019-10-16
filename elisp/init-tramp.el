@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Aug  9 21:48:32 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct  9 00:10:39 2019 (-0400)
+;; Last-Updated: Wed Oct 16 16:05:51 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d tramp

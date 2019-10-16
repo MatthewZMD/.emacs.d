@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Sep 21 22:31:47 2019 (-0400)
+;; Last-Updated: Wed Oct 16 16:25:39 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -16,7 +16,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes ivy swiper counsel color-rg snails howdoyou
+;; This initializes ivy swiper counsel color-rg snails
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -111,12 +111,6 @@
    ("M-s b" . snails-active-recent-buffers)
    ("M-s e" . snails-everywhere)))
 ;; -SnailsPac
-
-;; HowDoYouPac
-(use-package howdoyou
-  :defer t
-  :commands (howdoyou-query))
-;; -HowDoYouPac
 
 (provide 'init-search)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
