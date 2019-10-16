@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Apr  5 00:21:58 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Sep  2 01:09:33 2019 (+0000)
+;; Last-Updated: Wed Oct 16 16:44:25 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d evil-nerd-commenter
@@ -40,7 +40,8 @@
 ;; EvilNerdCommenPac
 (use-package evil-nerd-commenter
   :bind
-  ("M-;" . evilnc-comment-or-uncomment-lines))
+  (("C-c M-;" . c-toggle-comment-style)
+   ("M-;" . evilnc-comment-or-uncomment-lines)))
 ;; -EvilNerdCommenPac
 
 (provide 'init-comment)

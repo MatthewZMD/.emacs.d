@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 28 13:25:24 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct 16 16:27:25 2019 (-0400)
+;; Last-Updated: Wed Oct 16 16:51:01 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d iedit
@@ -50,7 +50,7 @@
   :load-path "~/.emacs.d/site-elisp/awesome-pair"
   :bind
   (:map prog-mode-map
-        (("C-c C-k" . awesome-pair-kill)
+        (("M-D" . awesome-pair-kill)
          ("SPC" . awesome-pair-space)
          ("=" . awesome-pair-equal)
          ("M-F" . awesome-pair-jump-right)
