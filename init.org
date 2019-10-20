@@ -28,8 +28,8 @@
 - [[Global Functionalities][Global Functionalities]]
   - [[User Information][User Information]]
   - [[Bindings][Bindings]]
-  - [[Ivy][Ivy]]
-  - [[Color RG][Color RG]]
+  - [[Ivy, Amx, Counsel, Swiper][Ivy, Amx, Counsel, Swiper]]
+  - [[Color Ripgrep][Color Ripgrep]]
   - [[Snails][Snails]]
   - [[Avy][Avy]]
   - [[Winner][Winner]]
@@ -276,21 +276,17 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "41-43"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "44-58"
-** Ivy
-*** Ivy, Amx, Counsel, Swiper
-    [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs. It utilizes [[https://github.com/DarwinAwardWinner/amx][Amx]], [[https://github.com/abo-abo/swiper][Counsel]] and [[https://github.com/abo-abo/swiper][Swiper]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "45-67"
-*** Ivy Posframe
-    [[https://github.com/tumashu/ivy-posframe][Ivy Posframe]], an Ivy extension that uses posframe to show its candidate menu.
-    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "IvyPosframePac" :range-end "-IvyPosframePac" :lines "70-80"
-** Color RG
-   [[https://github.com/manateelazycat/color-rg][Color-RG]], a search and refactoring tool based on /ripgrep/ that is used to search text.
+** Ivy, Amx, Counsel, Swiper
+   [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs. It utilizes [[https://github.com/DarwinAwardWinner/amx][Amx]], [[https://github.com/abo-abo/swiper][Counsel]] and [[https://github.com/abo-abo/swiper][Swiper]].
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "45-67"
+** Color Ripgrep
+   [[https://github.com/manateelazycat/color-rg][Color rg]], a search and refactoring tool based on /ripgrep/ that is used to search text.
 
-   *Prerequisite*: Please install [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and add =rg= to the =PATH=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "83-87"
+   *Prerequisite*: Please install [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and ensure =rg= is in the =PATH=.
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "70-74"
 ** Snails
    [[https://github.com/manateelazycat/snails][Snails]], a fuzzy search framework. It utilizes [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] if you are using Mac.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "90-116"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "77-103"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "41-51"
@@ -427,7 +423,7 @@
 ** Projectile
    [[https://github.com/bbatsov/projectile][Projectile]], a Project Interaction Library for Emacs.
 
-   *Prerequisite*: Windows OS: Install [[https://github.com/bmatzelle/gow/releases][Gow]] and add to =PATH=.
+   *Prerequisite*: Windows OS: Install [[https://github.com/bmatzelle/gow/releases][Gow]] and ensure it's in =PATH=.
 
    [[https://github.com/bmatzelle/gow][Gow]] is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
    #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "44-56"
@@ -529,7 +525,7 @@
 *** LSP Java
     [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]]. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]].
 
-    *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]] and add to =PATH=.
+    *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]] and ensure it's in =PATH=.
     #+INCLUDE: "~/.emacs.d/elisp/init-java.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "44-52"
 ** C/C++/Objective C
    *Prerequisite*: Since all completion features are provided by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]], it needs to setup.
@@ -539,7 +535,7 @@
      - Set =ccls-executable= to the directory where your ccls is built.
    - Windows OS:
      - Install [[http://www.mingw.org/wiki/Install_MinGW][MinGW]] for Compilation.
-     - It is a pain to build CCLS on Windows, install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and add to =PATH= instead.
+     - It is a pain to build CCLS on Windows, install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and ensure it's in =PATH= instead.
 *** CCLS
     [[https://github.com/MaskRay/emacs-ccls][Emacs CCLS]], a client for [[https://github.com/MaskRay/ccls][CCLS]], a C/C++/Objective-C language server supporting multi-million line C++ code-bases, powered by libclang.
     #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CCLSPac" :range-end "-CCLSPac" :lines "44-64"
@@ -581,7 +577,7 @@
     [[https://github.com/et2010/org-edit-latex][Org Edit LaTeX]], an extension to edit LaTeX fragment/environment in an edit buffer, even to complete and preview LaTeX in the edit buffer.
     #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexPac" :range-end "-OrgLatexPac" :lines "72-75"
 * Web Development
-  *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and add to path. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
+  *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and ensure it's in =PATH=. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC text
     npm i -g typescript
     npm i -g typescript-language-server

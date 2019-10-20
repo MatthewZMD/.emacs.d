@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct 16 17:55:30 2019 (-0400)
+;; Last-Updated: Sat Oct 19 00:36:23 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -65,19 +65,6 @@
   (ivy-count-format "【%d/%d】")
   (ivy-wrap t))
 ;; -IvyPac
-
-;; IvyPosframePac
-(unless (version< emacs-version "26")
-  (use-package ivy-posframe
-    :if *sys/gui*
-    :diminish
-    :custom-face
-    (ivy-posframe ((t (:background "#303640"))))
-    :custom
-    (ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-    :config
-    (ivy-posframe-mode 1)))
-;; -IvyPosframePac
 
 ;; ColorRGPac
 (use-package color-rg
