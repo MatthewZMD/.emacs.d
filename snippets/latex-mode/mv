@@ -2,4 +2,4 @@
 # name: mv
 # key: mv
 # --
-\\mathbf{$1}
+\\begin{bmatrix} $1 \\\\ $0 \\\\ \\end{bmatrix}

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Oct 19 00:36:23 2019 (-0400)
+;; Last-Updated: Tue Oct 22 16:26:08 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -56,14 +56,21 @@
    ("C-z C-b" . counsel-ibuffer)
    (:map ivy-minibuffer-map
          ("C-r" . ivy-previous-line-or-history)
-         ("M-RET" . ivy-immediate-done)))
+         ("M-RET" . ivy-immediate-done))
+   (:map counsel-find-file-map
+         ("M-~" . counsel-goto-local-home)))
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-height 10)
   (ivy-on-del-error-function nil)
   (ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
   (ivy-count-format "【%d/%d】")
-  (ivy-wrap t))
+  (ivy-wrap t)
+  :config
+  (defun counsel-goto-local-home ()
+      "Go to the $HOME of the local machine."
+      (interactive)
+    (ivy--cd "~/")))
 ;; -IvyPac
 
 ;; ColorRGPac
