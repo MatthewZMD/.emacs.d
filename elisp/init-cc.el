@@ -1,12 +1,12 @@
-;;; init-c-fam.el --- -*- lexical-binding: t -*-
+;;; init-cc.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-c-fam.el
+;; Filename: init-cc.el
 ;; Description: Initialize C family languages
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Oct  5 01:24:54 2019 (-0400)
+;; Last-Updated: Wed Oct 23 00:58:25 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d c c++ go ccls
@@ -48,11 +48,12 @@
          (lambda () (require 'ccls) (lsp)))
   :custom
   (ccls-executable "~/tools/ccls/Release/ccls")
+  (ccls-sem-highlight-method 'font-lock)
   :config
   (lsp-register-client
    (make-lsp-client
-    :new-connection (lsp-tramp-connection ccls-executable)
-    :major-modes '(c-mode c++-mode objc-mode)
+    :new-connection (lsp-tramp-connection (cons ccls-executable ccls-args))
+    :major-modes '(c-mode c++-mode cuda-mode objc-mode)
     :server-id 'ccls-remote
     :multi-root nil
     :remote? t
@@ -75,6 +76,6 @@
   :hook (before-save . gofmt-before-save))
 ;; -GoPac
 
-(provide 'init-c-fam)
+(provide 'init-cc)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-c-fam.el ends here
+;;; init-cc.el ends here

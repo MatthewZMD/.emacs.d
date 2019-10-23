@@ -538,10 +538,10 @@
      - It is a pain to build CCLS on Windows, install [[https://clang.llvm.org/extra/clangd/Installation.html][Clangd]] and ensure it's in =PATH= instead.
 *** CCLS
     [[https://github.com/MaskRay/emacs-ccls][Emacs CCLS]], a client for [[https://github.com/MaskRay/ccls][CCLS]], a C/C++/Objective-C language server supporting multi-million line C++ code-bases, powered by libclang.
-    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CCLSPac" :range-end "-CCLSPac" :lines "44-64"
+    #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "CCLSPac" :range-end "-CCLSPac" :lines "44-64"
 *** Modern C++ Font Lock
     [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
-    #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "67-70"
+    #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "67-70"
 ** Golang
    [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode for editing Golang code.
 
@@ -549,7 +549,7 @@
    #+BEGIN_SRC text
      go get golang.org/x/tools/gopls@latest
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-c-fam.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "73-76"
+   #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "73-76"
 ** Python
 *** Python Configuration
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "45-53"
