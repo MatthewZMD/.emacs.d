@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  1 23:46:08 2019 (-0400)
+;; Last-Updated: Wed Oct 23 01:29:39 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -100,6 +100,7 @@
   :ensure nil
   :hook (after-init . recentf-mode)
   :custom
+  (recentf-auto-cleanup "05:00am")
   (recentf-max-saved-items 200)
   (recentf-exclude '((expand-file-name package-user-dir)
                      ".cache"

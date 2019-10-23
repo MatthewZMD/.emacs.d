@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:32:02 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:06:04 2019 (-0400)
+;; Last-Updated: Wed Oct 23 01:23:44 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d header2
@@ -46,8 +46,7 @@
   (autoload 'auto-make-header "header2")
   (autoload 'auto-update-file-header "header2")
   (add-hook 'write-file-hooks 'auto-update-file-header)
-  (add-hook 'emacs-lisp-mode-hook 'auto-make-header)
-  (add-hook 'c-mode-common-hook   'auto-make-header))
+  (add-hook 'emacs-lisp-mode-hook 'auto-make-header))
 ;; -Header2Pac
 
 (provide 'init-header)
