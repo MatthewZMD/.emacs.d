@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Oct 24 10:57:43 2019 (-0400)
+;; Last-Updated: Sun Oct 27 18:35:15 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -61,8 +61,8 @@
   (when (file-directory-p "~/org/agenda/")
     (setq org-agenda-files (list "~/org/agenda/")))
 
-  (defun turn-on-org-export-syntax-highlight ()
-    "Setup variables to turn on syntax highlighting when calling `org-latex-export-to-pdf'"
+  (defun org-export-turn-on-syntax-highlight ()
+    "Setup variables to turn on syntax highlighting when calling `org-latex-export-to-pdf'."
     (interactive)
     (setq org-latex-listings 'minted
           org-latex-packages-alist '(("" "minted"))
