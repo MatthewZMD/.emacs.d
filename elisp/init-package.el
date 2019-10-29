@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:53:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct 29 04:15:17 2019 (-0400)
+;; Last-Updated: Tue Oct 29 04:35:35 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d packages use-package
@@ -52,8 +52,7 @@
 ;; -MelpaPackages
 
 ;; ConfigurePackageManager
-(if (bound-and-true-p package--initialized)
-    (update-to-load-path "~/.emacs.d/elpa") ; workaround for emacs26 adding /elpa to `load-path'
+(unless (bound-and-true-p package--initialized)
   (setq package-enable-at-startup nil)          ; To prevent initializing twice
   (package-initialize))
 

@@ -250,25 +250,25 @@
       git submodule update
     #+END_SRC
 ** Configure Package Manager
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigurePackageManager" :range-end "-ConfigurePackageManager" :lines "55-64"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigurePackageManager" :range-end "-ConfigurePackageManager" :lines "55-63"
 ** Use Package
    My Emacs configuration is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
    #+BEGIN_QUOTE
    The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage"  :lines "67-81"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage"  :lines "66-80"
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "84-92"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "83-91"
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "95-96"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "94-95"
 ** GNU Elpa Keyring Update
    [[http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html][GNU Elpa Keyring Update]], Update Emacs's GPG keyring for GNU ELPA.
    #+BEGIN_QUOTE
    The GPG key used to sign the GNU ELPA archives is nearing retirement: it expires this September. Which means that if you don't get the new key before, you won't be able to check the signature of new packages after that date.
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "GNUElpaKeyPac" :range-end "-GNUElpaKeyPac" :lines "99-100"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "GNUElpaKeyPac" :range-end "-GNUElpaKeyPac" :lines "98-99"
 * Global Functionalities
 ** User Information
    *Prerequisite*: Please update this file your personal info.
