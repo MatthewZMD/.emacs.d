@@ -259,16 +259,16 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage"  :lines "66-80"
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "83-91"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "83-92"
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "94-95"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "95-96"
 ** GNU Elpa Keyring Update
    [[http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html][GNU Elpa Keyring Update]], Update Emacs's GPG keyring for GNU ELPA.
    #+BEGIN_QUOTE
    The GPG key used to sign the GNU ELPA archives is nearing retirement: it expires this September. Which means that if you don't get the new key before, you won't be able to check the signature of new packages after that date.
    #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "GNUElpaKeyPac" :range-end "-GNUElpaKeyPac" :lines "98-99"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "GNUElpaKeyPac" :range-end "-GNUElpaKeyPac" :lines "99-100"
 * Global Functionalities
 ** User Information
    *Prerequisite*: Please update this file your personal info.
@@ -604,7 +604,7 @@
 ** Org
    [[https://orgmode.org/][Org]], a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
-   *Prerequisite*: Modify =(setq org-agenda-files (list "~/org/agenda/"))= to your agenda folder.
+   *Prerequisite*: Configure =(org-agenda-files (list "~/org/agenda/"))= to your agenda folder to use org-agenda.
    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgPac" :range-end "-OrgPac" :lines "41-85"
 *** TOC Org
     [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
@@ -615,6 +615,13 @@
 *** GFM Exporter
     [[https://github.com/larstvei/ox-gfm][OX-GFM]], a Github Flavored Markdown exporter for Org Mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OXGFMPac" :range-end "-OXGFMPac" :lines "97-98"
+*** PlantUML and Graphviz
+    [[https://github.com/skuro/plantuml-mode][PlantUML Mode]], a major mode for editing PlantUML sources.
+
+    *Prerequisite*:
+    1. Install [[http://plantuml.com/download][plantuml]] and configure =(org-plantuml-jar-path (expand-file-name "path/to/plantuml.jar"))=.
+    2. Install [[https://graphviz.gitlab.io/download/][Graphviz]] on your system to support graph visualization. Execute =sudo apt install graphviz= in Ubuntu.
+    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "PlantUMLPac" :range-end "-PlantUMLPac" :lines "101-110"
 ** EAF
    [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a development framework that integrates any PyQt program into Emacs.
 

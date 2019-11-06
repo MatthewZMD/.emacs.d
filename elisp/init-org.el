@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Oct 27 18:35:15 2019 (-0400)
+;; Last-Updated: Wed Nov  6 03:43:22 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -67,7 +67,7 @@
     (setq org-latex-listings 'minted
           org-latex-packages-alist '(("" "minted"))
           org-latex-pdf-process
-          '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          '("pdflatex -shelnl-escape -interaction nonstopmode -output-directory %o %f"
             "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
 
   (defun org-export-as-pdf-and-open ()
@@ -96,6 +96,18 @@
 ;; OXGFMPac
 (use-package ox-gfm :defer t)
 ;; -OXGFMPac
+
+;; PlantUMLPac
+(use-package plantuml-mode
+  :defer t
+  :custom
+  (org-plantuml-jar-path (expand-file-name "~/tools/plantuml-jar-gplv2-1.2019.12/plantuml.jar"))
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(;; other Babel languages
+     (plantuml . t))))
+;; -PlantUMLPac
 
 (provide 'init-org)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

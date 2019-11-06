@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: uml
+# key: uml
+# --
+#+begin_src plantuml :file ./img/${1:name}.png
+  @startuml
+  $0
+  @enduml
+#+end_src
+#+ATTR_LATEX: :width ${2:size}cm
+#+RESULTS:
+[[file:./img/$1.png]]
