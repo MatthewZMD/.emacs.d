@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct 23 13:33:48 2019 (-0400)
+;; Last-Updated: Sun Nov 10 14:31:56 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -58,7 +58,7 @@
          ("C-r" . ivy-previous-line-or-history)
          ("M-RET" . ivy-immediate-done))
    (:map counsel-find-file-map
-         ("M-~" . counsel-goto-local-home)))
+         ("C-~" . counsel-goto-local-home)))
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-height 10)

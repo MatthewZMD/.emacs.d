@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: title
-# key: title
+# name: ttl
+# key: ttl
 # --
 #+TITLE: ${1:Title}
