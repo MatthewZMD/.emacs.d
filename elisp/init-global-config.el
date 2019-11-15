@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct 23 01:29:39 2019 (-0400)
+;; Last-Updated: Thu Nov 14 20:45:26 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -76,8 +76,26 @@
 
 ;; EditExp
 ;; Remove useless whitespace before saving a file
-(add-hook 'before-save-hook 'whitespace-cleanup)
-(add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
+(defun delete-trailing-whitespace-except-current-line ()
+  "Sometimes `delete-trailing-whitespace' becomes very annoying.
+It deletes trailing whitespace current line. Therefore I use this alternative."
+  (interactive)
+  (let ((begin (line-beginning-position))
+        (end (line-end-position)))
+    (save-excursion
+      (when (< (point-min) begin)
+        (save-restriction
+          (narrow-to-region (point-min) (1- begin))
+          (whitespace-cleanup)
+          (delete-trailing-whitespace)
+          (widen)))
+      (when (> (point-max) end)
+        (save-restriction
+          (narrow-to-region (+ end 2) (point-max))
+          (whitespace-cleanup)
+          (delete-trailing-whitespace)
+          (widen))))))
+(add-hook 'before-save-hook #'delete-trailing-whitespace-except-current-line)
 
 ;; Make sentences end with a single space
 (setq-default sentence-end-double-space nil)
