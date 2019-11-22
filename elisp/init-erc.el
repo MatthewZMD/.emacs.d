@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Aug 14 10:11:59 2019 (-0400)
+;; Last-Updated: Thu Nov 21 23:07:29 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
@@ -49,8 +49,8 @@
   :custom
   (erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
   (erc-track-exclude-types '("NICK" "PART" "MODE" "324" "329" "332" "333" "353" "477"))
-  ; (erc-hide-list '("JOIN" "PART" "QUIT"))
-  ; (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
   (erc-server-coding-system '(utf-8 . utf-8))
   (erc-interpret-mirc-color t)
   (erc-kill-buffer-on-part t)
