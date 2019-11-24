@@ -178,7 +178,7 @@
    2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
    3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
    4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in =init.org=.
-   5. Enter =C-x C-s= to save and update =:lines=. (if you don't see the updated effect, run =M-x update-includes= manually)
+   5. Enter =C-x C-s= to save and update =:lines=. (if you don't see the updated effect, run =M-x save-and-update-includes= manually)
    6. Call =M-x org-gfm-export-to-markdown= to update =README.md= automatically.
 ** Contribution
    If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
