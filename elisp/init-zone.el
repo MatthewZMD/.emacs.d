@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:38:34 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 13 00:41:28 2019 (-0400)
+;; Last-Updated: Sun Nov 24 14:53:04 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d zone
@@ -42,7 +42,7 @@
   :ensure nil
   :defer 5
   :config
-  ;; (zone-when-idle 600) ; in seconds
+  (zone-when-idle 600) ; in seconds
   (defun zone-choose (pgm)
     "Choose a PGM to run for `zone'."
     (interactive
