@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Sep 21 22:31:47 2019 (-0400)
+;; Last-Updated: Sun Nov 24 14:50:57 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -43,11 +43,14 @@
 
 ;; IvyPac
 (use-package ivy
-  :bind ("C-s" . swiper-isearch)
+  :bind ("M-s M-s" . swiper-isearch)
   :diminish
   :init
   (use-package amx :defer t)
-  (use-package counsel :diminish :config (counsel-mode 1))
+  (use-package counsel
+    :diminish
+    :bind ("M-s M-k" . counsel-git-grep)
+    :config (counsel-mode 1))
   (use-package swiper :defer t)
   (ivy-mode 1)
   :bind
