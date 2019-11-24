@@ -369,6 +369,8 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "187-195"
 *** Get File Name From Path
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "GetFileNameFromPath" :range-end "-GetFileNameFromPath" :lines "198-202"
+*** Edit This With Sudo
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "EditThisWithSudo" :range-end "-EditThisWithSudo" :lines "205-215"
 * User Interface Enhancements
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.
