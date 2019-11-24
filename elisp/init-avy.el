@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:12:49 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Sep 10 13:36:01 2019 (-0400)
+;; Last-Updated: Sun Nov 24 14:49:31 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d avy
@@ -40,9 +40,9 @@
 ;; AvyPac
 (use-package avy
   :defer t
-  :bind
-  (("M-/" . avy-goto-char-timer)
-   ("M-?" . avy-goto-line))
+  ;;:bind
+  ;;(("M-/" . avy-goto-char-timer)
+  ;;("M-?" . avy-goto-line))
   :custom
   (avy-timeout-seconds 0.3)
   (avy-style 'pre)
