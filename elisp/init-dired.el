@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Oct  5 02:49:10 2019 (-0400)
+;; Last-Updated: Tue Nov 26 02:04:03 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired auto-save
@@ -89,7 +89,6 @@
 (global-set-key (kbd "C-x C-s") nil)
 (global-set-key (kbd "C-x C-s") #'save-all-buffers)
 ;; -SaveAllBuffers
-
 
 ;; RenameFileBuffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file

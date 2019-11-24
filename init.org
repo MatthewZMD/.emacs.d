@@ -177,7 +177,7 @@
    2. If you add a new mode, create a new =<file-name>.el= file in =elisp/= directory.
    3. Put =(require '<file-name>)= in [[file:init.el][init.el]] accordingly.
    4. Add =#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"= in the appropriate section in =init.org=.
-   5. Enter =C-x C-s= to save and update =:lines=. (if you don't see the updated effect, run =M-x update-includes= manually)
+   5. Enter =C-x C-s= to save and update =:lines=. (if you don't see the updated effect, run =M-x save-and-update-includes= manually)
    6. Call =M-x org-gfm-export-to-markdown= to update =README.md= automatically.
 ** Contribution
    If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
@@ -333,9 +333,9 @@
 *** Save All Buffers
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "SaveAllBuffers" :range-end "-SaveAllBuffers" :lines "85-91"
 *** Rename File and Buffer Together
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "95-110"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "RenameFileBuffer" :range-end "-RenameFileBuffer" :lines "94-109"
 *** File Configurations
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "113-121"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiredConfigs" :range-end "-DiredConfigs" :lines "112-120"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
@@ -637,7 +637,7 @@
    #+BEGIN_SRC text
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "44-58"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "44-62"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
