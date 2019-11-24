@@ -2,4 +2,4 @@
 # name: ve
 # key: ve
 # --
-\vec{$1}
+\\mathbf{$1}

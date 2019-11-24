@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Sep 21 22:31:47 2019 (-0400)
+;; Last-Updated: Sun Nov 10 14:31:56 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -16,7 +16,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes ivy swiper counsel color-rg snails howdoyou
+;; This initializes ivy swiper counsel color-rg snails
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,6 @@
 
 ;; IvyPac
 (use-package ivy
-  :bind ("C-s" . swiper-isearch)
   :diminish
   :init
   (use-package amx :defer t)
@@ -51,8 +50,15 @@
   (use-package swiper :defer t)
   (ivy-mode 1)
   :bind
-  (:map ivy-minibuffer-map
-        ("C-r" . ivy-previous-line-or-history))
+  (("C-s" . swiper-isearch)
+   ("C-z s" . counsel-rg)
+   ("C-z b" . counsel-buffer-or-recentf)
+   ("C-z C-b" . counsel-ibuffer)
+   (:map ivy-minibuffer-map
+         ("C-r" . ivy-previous-line-or-history)
+         ("M-RET" . ivy-immediate-done))
+   (:map counsel-find-file-map
+         ("C-~" . counsel-goto-local-home)))
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-height 10)
@@ -60,21 +66,12 @@
   (ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
   (ivy-count-format "【%d/%d】")
   (ivy-wrap t)
-  (ivy-use-selectable-prompt t))
+  :config
+  (defun counsel-goto-local-home ()
+      "Go to the $HOME of the local machine."
+      (interactive)
+    (ivy--cd "~/")))
 ;; -IvyPac
-
-;; IvyPosframePac
-(unless (version< emacs-version "26")
-  (use-package ivy-posframe
-    :if *sys/gui*
-    :diminish
-    :custom-face
-    (ivy-posframe ((t (:background "#303640"))))
-    :custom
-    (ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-    :config
-    (ivy-posframe-mode 1)))
-;; -IvyPosframePac
 
 ;; ColorRGPac
 (use-package color-rg
@@ -111,12 +108,6 @@
    ("M-s b" . snails-active-recent-buffers)
    ("M-s e" . snails-everywhere)))
 ;; -SnailsPac
-
-;; HowDoYouPac
-(use-package howdoyou
-  :defer t
-  :commands (howdoyou-query))
-;; -HowDoYouPac
 
 (provide 'init-search)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

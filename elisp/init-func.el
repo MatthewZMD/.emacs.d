@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Oct  4 18:14:14 2019 (-0400)
+;; Last-Updated: Sat Nov 23 22:30:47 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -200,6 +200,19 @@ Otherwise the function displays `buffer-name'."
   (interactive)
   (substring path (string-match "[^\/]*\/?$" path)))
 ;; -GetFileNameFromPath
+
+;; EditThisWithSudo
+(defun edit-this-with-sudo ()
+  "Either open the file currently opened or selected in dired with `sudo' privilege."
+  (interactive)
+  (let ((buffer-file (buffer-file-name)))
+    (if buffer-file
+        (progn
+          (kill-buffer (buffer-name))
+          (find-file (concat "/sudo:root@" (system-name) ":" buffer-file)))
+      (dolist (file (dired-get-marked-files))
+        (find-file (concat "/sudo:root@" (system-name) ":" file))))))
+;; -EditThisWithSudo
 
 (provide 'init-func)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

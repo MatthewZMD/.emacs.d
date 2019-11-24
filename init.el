@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Oct  7 10:52:02 2019 (-0400)
+;; Last-Updated: Tue Oct 29 04:10:05 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -84,16 +84,17 @@ If you experience freezing, decrease this. If you experience stuttering, increas
 (defun update-to-load-path (folder)
   "Update FOLDER and its subdirectories to `load-path'."
   (let ((base folder))
-    (add-to-list 'load-path base)
+    (unless (member base load-path)
+      (add-to-list 'load-path base))
     (dolist (f (directory-files base))
       (let ((name (concat base "/" f)))
         (when (and (file-directory-p name)
                    (not (equal f ".."))
                    (not (equal f ".")))
-          (add-to-list 'load-path name))))))
+          (unless (member base load-path)
+            (add-to-list 'load-path name)))))))
 
 (update-to-load-path "~/.emacs.d/elisp")
-
 ;; -LoadPath
 
 ;; Constants
@@ -166,7 +167,7 @@ If you experience freezing, decrease this. If you experience stuttering, increas
 
 (require 'init-comment)
 
-(require 'init-iedit)
+(require 'init-edit)
 
 (require 'init-header)
 
@@ -180,7 +181,7 @@ If you experience freezing, decrease this. If you experience stuttering, increas
 
 (require 'init-java)
 
-(require 'init-c-fam)
+(require 'init-cc)
 
 (require 'init-python)
 

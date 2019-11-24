@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:53:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:23 2019 (-0400)
+;; Last-Updated: Tue Nov  5 00:15:10 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d packages use-package
@@ -52,7 +52,7 @@
 ;; -MelpaPackages
 
 ;; ConfigurePackageManager
-(unless (bound-and-true-p package--initialized) ; To avoid warnings in 27
+(unless (bound-and-true-p package--initialized)
   (setq package-enable-at-startup nil)          ; To prevent initializing twice
   (package-initialize))
 
@@ -81,6 +81,7 @@
 
 ;; AutoPackageUpdate
 (use-package auto-package-update
+  :if (not (daemonp))
   :custom
   (auto-package-update-interval 7) ;; in days
   (auto-package-update-prompt-before-update t)
