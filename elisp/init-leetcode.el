@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Apr 11 22:28:41 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Sep  7 00:52:17 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Mon Nov 25 20:16:44 2019 (-0500)
+;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d leetcode
 ;; Compatibility: emacs-version >= 26.1
@@ -49,8 +49,8 @@
   (use-package aio :defer t)
   :custom
   (url-debug t)
-  (leetcode-prefer-language "python3"))
-;; -LeetCodePac
+  (leetcode-prefer-language "cpp"))
+;; -Leetcodepac
 
 (provide 'init-leetcode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
