@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Nov 29 00:58:40 2019 (-0500)
+;; Last-Updated: Sat Nov 30 19:07:45 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
@@ -50,7 +50,11 @@
   ;; I already bind "RET", "<mouse-2>", "^" to `dired-find-alternate-file' in `init-dired.el'.
   ;; Comment this line out of you don't want to use EAF to open available files in dired.
   ;; (global-set-key [remap dired-find-alternate-file] #'eaf-file-open-in-dired)
-
+  (eaf-bind-key scroll_up "RET" eaf-pdfviewer-keybinding)
+  (eaf-bind-key scroll_down_page "DEL" eaf-pdfviewer-keybinding)
+  (eaf-bind-key scroll_up "C-n" eaf-pdfviewer-keybinding)
+  (eaf-bind-key scroll_down "C-p" eaf-pdfviewer-keybinding)
+  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (defun eaf-open-google ()
     "Open Google using EAF."
     (interactive)
