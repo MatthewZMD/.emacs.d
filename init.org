@@ -87,6 +87,7 @@
   - [[EAF][EAF]]
   - [[ERC][ERC]]
   - [[EWW][EWW]]
+  - [[Mu4e][Mu4e]]
   - [[Tramp][Tramp]]
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
@@ -649,6 +650,13 @@
 ** EWW
    Emacs Web Wowser, the HTML-based Emacs Web Browser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "41-51"
+** Mu4e
+   [[https://www.djcbsoftware.nl/code/mu/mu4e.html][Mu4e]], a package that provides an emacs-based e-mail client which uses [[https://www.djcbsoftware.nl/code/mu/][mu]] as its backend. This mu4e configuration is tailored for Gmail.
+
+   *Prerequisite*:
+   1. Install [[https://www.djcbsoftware.nl/code/mu/][mu]] on your machine.
+   2. Configure [[https://wiki.archlinux.org/index.php/Isync][mbsync]] or [[https://www.offlineimap.org/][offlineimap]], I suggest walk through this [[https://www.reddit.com/r/emacs/comments/bfsck6/mu4e_for_dummies/][tutorial]].
+   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-107"
 ** Tramp
    [[https://www.emacswiki.org/emacs/TrampMode][Tramp]], short for Transparent Remote Access, Multiple Protocols is a package for editing remote files using a remote shell connection (rlogin, telnet, ssh).
 *** Google Cloud Platform

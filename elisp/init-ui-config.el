@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Nov 23 22:18:07 2019 (-0500)
+;; Last-Updated: Mon Dec  2 16:01:31 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui
@@ -58,7 +58,7 @@
 ;; -PreSym
 
 ;; TitleBar
-(setq-default frame-title-format '("M-EMACS - " user-login-name "@" (system-name) " - %b"))
+(setq-default frame-title-format '("M-EMACS - " user-login-name "@" system-name " - %b"))
 ;; -TitleBar
 
 ;; YorN
