@@ -73,6 +73,10 @@
               (org-mu4e-compose-org-mode)
               (use-hard-newlines -1)
               (flyspell-mode)))
+  (add-hook 'mu4e-view-mode-hook
+            (lambda() ;; try to emulate some of the eww key-bindings
+              (local-set-key (kbd "<tab>") 'shr-next-link)
+              (local-set-key (kbd "<backtab>") 'shr-previous-link)))
   :bind
   ("C-z m" . mu4e)
   :custom
@@ -99,7 +103,7 @@
   (mu4e-maildir-shortcuts
    '(("/matthewzmd-gmail/INBOX" . ?i)
      ("/matthewzmd-gmail/All Mail" . ?a)
-     ("/matthewzmd-gmail/Deleted Items" . ?d)
+     ("/matthewzmd-gmail/Trash" . ?d)
      ("/matthewzmd-gmail/Drafts" . ?D)
      ("/matthewzmd-gmail/Important" . ?i)
      ("/matthewzmd-gmail/Sent Mail" . ?s)
