@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Nov 21 23:07:29 2019 (-0500)
+;; Last-Updated: Tue Dec  3 00:53:57 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
@@ -137,7 +137,7 @@
            (msg (s-trim (s-collapse-whitespace message))))
       (alert (concat nick ": " msg) :title title)))
   :bind
-  ("C-z i" . erc-start-or-switch)
+  ("M-z i" . erc-start-or-switch)
   :hook
   (ercn-notify . erc-notify))
 ;; -ERCPac
