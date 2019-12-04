@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Dec  4 01:08:54 2019 (-0500)
-;;           By: User Account1
+;; Last-Updated: Wed Dec  4 01:57:57 2019 (-0500)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
 ;; Compatibility: emacs-version >= 26.1
@@ -68,6 +68,9 @@
   (erc-prompt-for-password nil)
   (erc-prompt-for-nickserv-password nil)
   :config
+  ;; Prerequisite: Configure this to your IRC nickname
+  (defvar erc-nick ""
+    "The nickname used to login into ERC")
   (add-to-list 'erc-modules 'notifications)
   (erc-track-mode t)
   (erc-services-mode 1)
@@ -76,7 +79,7 @@
     (interactive)
     (if (get-buffer "irc.freenode.net:6697")
         (erc-track-switch-buffer 1)
-      (erc-tls :server "irc.freenode.net" :port 6697)))
+      (erc-tls :server "irc.freenode.net" :port 6697 :nick erc-nick)))
 
   (defun erc-count-users ()
     "Displays the number of users and ops connected on the current channel."
