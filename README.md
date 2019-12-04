@@ -618,8 +618,8 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 **Prerequisite**: Please update this file your personal info.
 
 ```emacs-lisp
-(setq user-full-name "Mingde (Matthew) Zeng")
-(setq user-mail-address "matthewzmd@gmail.com")
+(setq user-full-name "Bilaal Hussain")
+(setq user-mail-address "bilaal.hussain1999@gmail.com")
 ```
 
 
