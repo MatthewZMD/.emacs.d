@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec  3 00:53:57 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Wed Dec  4 01:08:54 2019 (-0500)
+;;           By: User Account1
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
 ;; Compatibility: emacs-version >= 26.1
@@ -44,6 +44,9 @@
 ;; ERCPac
 (use-package erc
   :ensure nil
+  :init
+  (use-package erc-hl-nicks :defer t)
+  (use-package erc-image :defer t)
   :custom-face
   (erc-notice-face ((t (:foreground "#ababab"))))
   :custom
@@ -62,31 +65,18 @@
   (erc-lurker-threshold-time 43200)
   (erc-server-reconnect-attempts 5)
   (erc-server-reconnect-timeout 3)
+  (erc-prompt-for-password nil)
+  (erc-prompt-for-nickserv-password nil)
   :config
-  (use-package erc-hl-nicks :defer t)
-  (use-package erc-image :defer t)
   (add-to-list 'erc-modules 'notifications)
   (erc-track-mode t)
   (erc-services-mode 1)
-  :preface
   (defun erc-start-or-switch ()
     "Start ERC or switch to ERC buffer if it has started already."
     (interactive)
     (if (get-buffer "irc.freenode.net:6697")
         (erc-track-switch-buffer 1)
-      (if (file-exists-p "~/.authinfo")
-          (let ((auth-list (read-lines "~/.authinfo"))
-                (nick-regexp "^machine irc.freenode.net login \\(\\w+\\)")
-                (auth))
-            (while (> (length auth-list) 0)
-              (setq auth (car auth-list))
-              (cond ((string-match nick-regexp auth)
-                     (setq erc-prompt-for-nickserv-password 'nil)
-                     (erc-tls :server "irc.freenode.net" :port 6697
-                              :nick (match-string 1 auth)))
-                    ((= (length auth-list) 1) (call-interactively #'erc-tls)))
-              (setq auth-list (cdr auth-list))))
-        (call-interactively #'erc-tls))))
+      (erc-tls :server "irc.freenode.net" :port 6697)))
 
   (defun erc-count-users ()
     "Displays the number of users and ops connected on the current channel."
