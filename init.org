@@ -87,7 +87,7 @@
   - [[EAF][EAF]]
   - [[ERC][ERC]]
   - [[EWW][EWW]]
-  - [[Mu4e][Mu4e]]
+  - [[MU4E][MU4E]]
   - [[Tramp][Tramp]]
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
@@ -135,13 +135,13 @@
 ** Installation
    1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
       - (Optional) On Ubuntu, =emacs-snapshot= is a great way to get latest version of Emacs.
-        #+BEGIN_SRC text
+        #+BEGIN_SRC bash
           sudo add-apt-repository -y ppa:ubuntu-elisp
           sudo apt-get update
           sudo apt-get install emacs-snapshot
         #+END_SRC
       - (Optional) Build latest Emacs from source.
-        #+BEGIN_SRC text
+        #+BEGIN_SRC bash
           # Install essential build tools
           sudo apt-get install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev git autoconf
           # Clone source
@@ -156,7 +156,7 @@
           sudo make install
         #+END_SRC
    2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
-      #+BEGIN_SRC text
+      #+BEGIN_SRC bash
         git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
         cd .emacs.d
       #+END_SRC
@@ -240,13 +240,13 @@
 ** Non-Melpa Packages
    Add packages contained in =site-elisp/= to =load-path= too.
 *** Add Packages Manually from Git
-    #+BEGIN_SRC text
+    #+BEGIN_SRC bash
       cd site-elisp/
       git submodule add https://github.com/foo/bar.git
     #+END_SRC
     Verify =/.gitmodules= file that the newly added package exist.
 *** Update Manually Added Packages
-    #+BEGIN_SRC text
+    #+BEGIN_SRC bash
       git submodule init
       git submodule update
     #+END_SRC
@@ -458,7 +458,7 @@
    [[https://github.com/DarthFennec/highlight-indent-guides][Highlight Indent Guides]], a feature that highlights indentation levels.
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "HighLightIndentPac" :range-end "-HighLightIndentPac" :lines "44-53"
    Indentation Configuration
-   #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "56-72"
+   #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "56-71"
 ** Quickrun
    [[https://github.com/syohex/emacs-quickrun][Quickrun]], compile and run source code quickly.
    #+INCLUDE: "~/.emacs.d/elisp/init-quickrun.el" src emacs-lisp :range-begin "QuickrunPac" :range-end "-QuickrunPac" :lines "41-45"
@@ -548,7 +548,7 @@
    [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode for editing Golang code.
 
    *Prerequisite*: [[https://github.com/golang/go/wiki/gopls][gopls]] is suggested for Golang's LSP support.
-   #+BEGIN_SRC text
+   #+BEGIN_SRC bash
      go get golang.org/x/tools/gopls@latest
    #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "74-77"
@@ -580,7 +580,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexPac" :range-end "-OrgLatexPac" :lines "72-75"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and ensure it's in =PATH=. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
-  #+BEGIN_SRC text
+  #+BEGIN_SRC bash
     npm i -g typescript
     npm i -g typescript-language-server
   #+END_SRC
@@ -631,32 +631,39 @@
    *Note*: I am using my own [[https://github.com/MatthewZMD/emacs-application-framework][fork]], which has more functions and capabilities that are yet to be merged into upstream. If you want to use this config, clone my fork instead. Otherwise it won't work.
 
    *Prerequisite*: Please install =python3= and =pip3=. Then execute below command:
-   #+BEGIN_SRC text
+   #+BEGIN_SRC bash
    sudo pip3 install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib PyQtWebEngine
    #+END_SRC
    Note that If you are using Debian/Ubuntu, it is possible that =QtWebEngine= is [[https://marc.info/?l=kde-core-devel&m=142954900813235&w=2][not working]]. Install the following:
-   #+BEGIN_SRC text
+   #+BEGIN_SRC bash
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "44-62"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
-   *Prerequisite*: Put IRC credentials like the following in the file =~/.authinfo=:
+   *Prerequisite*: Put IRC credentials in the file =~/.authinfo=:
    #+BEGIN_SRC text
-     machine irc.freenode.net login <nickname> password <password>
+     machine irc.freenode.net login <nickname> password <password> port 6697
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "45-143"
+   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "45-133"
 ** EWW
    Emacs Web Wowser, the HTML-based Emacs Web Browser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "41-51"
-** Mu4e
+** MU4E
    [[https://www.djcbsoftware.nl/code/mu/mu4e.html][Mu4e]], a package that provides an emacs-based e-mail client which uses [[https://www.djcbsoftware.nl/code/mu/][mu]] as its backend. This mu4e configuration is tailored for Gmail.
 
    *Prerequisite*:
-   1. Install [[https://www.djcbsoftware.nl/code/mu/][mu]] on your machine.
-   2. Configure [[https://wiki.archlinux.org/index.php/Isync][mbsync]] or [[https://www.offlineimap.org/][offlineimap]], I suggest walk through this [[https://www.reddit.com/r/emacs/comments/bfsck6/mu4e_for_dummies/][tutorial]].
-   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-132"
+   1. [[https://wiki.archlinux.org/index.php/Isync][Configure]] IMAP using [[https://wiki.archlinux.org/index.php/Isync][mbsync]], put your =.mbsyncrc= config file in =~/.emacs.d/mu4e/=. A [[https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f][sample]] is provided.
+   2. Install [[https://www.djcbsoftware.nl/code/mu/][mu]].
+   3. Execute the follwing commands
+      #+BEGIN_SRC bash
+        mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -Dmn gmail
+        mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a
+        mu index --maildir=~/Maildir/
+      #+END_SRC
+      - If you are getting =Invalid Credentials= error and you are sure the password is correct, check [[https://appuals.com/fix-your-imap-server-wants-to-alert-you-invalid-credentials/][this]] link.
+   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-130"
 ** Tramp
    [[https://www.emacswiki.org/emacs/TrampMode][Tramp]], short for Transparent Remote Access, Multiple Protocols is a package for editing remote files using a remote shell connection (rlogin, telnet, ssh).
 *** Google Cloud Platform

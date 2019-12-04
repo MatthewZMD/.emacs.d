@@ -97,24 +97,23 @@
   (setq mu4e-contexts
         (list
          (make-mu4e-context
-          :name "gmail" ;;for matthewzmd-gmail
-          :enter-func (lambda () (mu4e-message "Entering context work"))
-          :leave-func (lambda () (mu4e-message "Leaving context work"))
-          :match-func (lambda (msg)
-		                (when msg
-		                  (mu4e-message-contact-field-matches
-		                   msg '(:from :to :cc :bcc) "matthewzmd@gmail.com")))
-          :vars '((user-mail-address . "matthewzmd@gmail.com")
-	              (user-full-name . "User Account1")
-                  (mu4e-refile-folder "/matthewzmd-gmail/Archive")
-	              (mu4e-sent-folder . "/matthewzmd-gmail/[matthewzmd].Sent Mail")
-	              (mu4e-drafts-folder . "/matthewzmd-gmail/[matthewzmd].Drafts")
-	              (mu4e-trash-folder . "/matthewzmd-gmail/[matthewzmd].Trash")
+          :name "gmail"
+          :enter-func (lambda () (mu4e-message "Entering context gmail"))
+          :leave-func (lambda () (mu4e-message "Leaving context gmail"))
+          :match-func
+          (lambda (msg)
+		    (when msg
+		      (mu4e-message-contact-field-matches
+		       msg '(:from :to :cc :bcc) user-mail-address))) ; Set to your email address
+          :vars '((mu4e-refile-folder "/gmail/Archive")
+	              (mu4e-sent-folder . "/gmail/[email].Sent Mail")
+	              (mu4e-drafts-folder . "/gmail/[email].Drafts")
+	              (mu4e-trash-folder . "/gmail/[email].Trash")
 	              (mu4e-compose-signature . user-full-name)
 	              (mu4e-compose-format-flowed . t)
-	              (smtpmail-queue-dir . "~/Maildir/matthewzmd-gmail/queue/cur")
+	              (smtpmail-queue-dir . "~/Maildir/gmail/queue/cur")
 	              (message-send-mail-function . smtpmail-send-it)
-	              (smtpmail-smtp-user . "matthewzmd")
+	              (smtpmail-smtp-user . "matthewzmd") ; Set to your username
 	              (smtpmail-starttls-credentials . (("smtp.gmail.com" 587 nil nil)))
 	              (smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))
 	              (smtpmail-default-smtp-server . "smtp.gmail.com")
@@ -122,12 +121,12 @@
 	              (smtpmail-smtp-service . 587)
 	              (smtpmail-debug-info . t)
 	              (smtpmail-debug-verbose . t)
-	              (mu4e-maildir-shortcuts . ( ("/matthewzmd-gmail/INBOX"            . ?i)
-					                          ("/matthewzmd-gmail/[matthewzmd].Sent Mail" . ?s)
-					                          ("/matthewzmd-gmail/[matthewzmd].Trash"       . ?t)
-					                          ("/matthewzmd-gmail/[matthewzmd].All Mail"  . ?a)
-					                          ("/matthewzmd-gmail/[matthewzmd].Starred"   . ?r)
-					                          ("/matthewzmd-gmail/[matthewzmd].Drafts"    . ?d))))))))
+	              (mu4e-maildir-shortcuts . ( ("/gmail/INBOX"            . ?i)
+					                          ("/gmail/[email].Sent Mail" . ?s)
+					                          ("/gmail/[email].Trash"       . ?t)
+					                          ("/gmail/[email].All Mail"  . ?a)
+					                          ("/gmail/[email].Starred"   . ?r)
+					                          ("/gmail/[email].Drafts"    . ?d))))))))
 ;; -Mu4ePac
 
 (provide 'init-mu4e)
