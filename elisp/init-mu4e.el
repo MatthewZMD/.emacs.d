@@ -51,6 +51,24 @@
     (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
     (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display))
   (use-package mu4e-overview :defer t)
+  :bind ("M-z m" . mu4e)
+  :custom
+  (mu4e-maildir (expand-file-name "~/Maildir"))
+  (mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a")
+  (mu4e-view-prefer-html t)
+  (mu4e-update-interval 180)
+  (mu4e-headers-auto-update t)
+  (mu4e-compose-signature-auto-include nil)
+  (mu4e-compose-format-flowed t)
+  (mu4e-view-show-images t)
+  (mu4e-sent-messages-behavior 'delete)
+  (mu4e-change-filenames-when-moving t) ; work better for mbsync
+  (mu4e-attachment-dir "~/Downloads")
+  (message-kill-buffer-on-exit t)
+  (mu4e-compose-dont-reply-to-self t)
+  (mu4e-view-show-addresses t)
+  (mu4e-confirm-quit nil)
+  (mu4e-use-fancy-chars t)
   :config
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
@@ -70,44 +88,46 @@
             (defun my-do-compose-stuff ()
               "My settings for message composition."
               (visual-line-mode)
-              (org-mu4e-compose-org-mode)
               (use-hard-newlines -1)
               (flyspell-mode)))
   (add-hook 'mu4e-view-mode-hook
             (lambda() ;; try to emulate some of the eww key-bindings
               (local-set-key (kbd "<tab>") 'shr-next-link)
               (local-set-key (kbd "<backtab>") 'shr-previous-link)))
-  :bind
-  ("M-z m" . mu4e)
-  :custom
-  (mu4e-maildir (expand-file-name "~/Maildir"))
-  (mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a")
-  (mu4e-view-prefer-html t)
-  (mu4e-update-interval 180)
-  (mu4e-headers-auto-update t)
-  (mu4e-compose-signature-auto-include nil)
-  (mu4e-compose-format-flowed t)
-  (mu4e-view-show-images t)
-  (mu4e-sent-messages-behavior 'delete)
-  (mu4e-change-filenames-when-moving t) ; work better for mbsync
-  (mu4e-attachment-dir "~/Downloads")
-  (message-kill-buffer-on-exit t)
-  (mu4e-compose-dont-reply-to-self t)
-  (mu4e-view-show-addresses t)
-  (mu4e-confirm-quit nil)
-  (mu4e-use-fancy-chars t)
-  (mu4e-drafts-folder "/matthewzmd-gmail/Drafts")
-  (mu4e-refile-folder "/matthewzmd-gmail/Archive")
-  (mu4e-sent-folder "/matthewzmd-gmail/Sent Mail")
-  (mu4e-trash-folder "/matthewzmd-gmail/Trash")
-  (mu4e-maildir-shortcuts
-   '(("/matthewzmd-gmail/INBOX" . ?i)
-     ("/matthewzmd-gmail/All Mail" . ?a)
-     ("/matthewzmd-gmail/Trash" . ?d)
-     ("/matthewzmd-gmail/Drafts" . ?D)
-     ("/matthewzmd-gmail/Important" . ?i)
-     ("/matthewzmd-gmail/Sent Mail" . ?s)
-     ("/matthewzmd-gmail/Starred" . ?S))))
+  (setq mu4e-contexts
+        (list
+         (make-mu4e-context
+          :name "gmail" ;;for matthewzmd-gmail
+          :enter-func (lambda () (mu4e-message "Entering context work"))
+          :leave-func (lambda () (mu4e-message "Leaving context work"))
+          :match-func (lambda (msg)
+		                (when msg
+		                  (mu4e-message-contact-field-matches
+		                   msg '(:from :to :cc :bcc) "matthewzmd@gmail.com")))
+          :vars '((user-mail-address . "matthewzmd@gmail.com")
+	              (user-full-name . "User Account1")
+                  (mu4e-refile-folder "/matthewzmd-gmail/Archive")
+	              (mu4e-sent-folder . "/matthewzmd-gmail/[matthewzmd].Sent Mail")
+	              (mu4e-drafts-folder . "/matthewzmd-gmail/[matthewzmd].Drafts")
+	              (mu4e-trash-folder . "/matthewzmd-gmail/[matthewzmd].Trash")
+	              (mu4e-compose-signature . user-full-name)
+	              (mu4e-compose-format-flowed . t)
+	              (smtpmail-queue-dir . "~/Maildir/matthewzmd-gmail/queue/cur")
+	              (message-send-mail-function . smtpmail-send-it)
+	              (smtpmail-smtp-user . "matthewzmd")
+	              (smtpmail-starttls-credentials . (("smtp.gmail.com" 587 nil nil)))
+	              (smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))
+	              (smtpmail-default-smtp-server . "smtp.gmail.com")
+	              (smtpmail-smtp-server . "smtp.gmail.com")
+	              (smtpmail-smtp-service . 587)
+	              (smtpmail-debug-info . t)
+	              (smtpmail-debug-verbose . t)
+	              (mu4e-maildir-shortcuts . ( ("/matthewzmd-gmail/INBOX"            . ?i)
+					                          ("/matthewzmd-gmail/[matthewzmd].Sent Mail" . ?s)
+					                          ("/matthewzmd-gmail/[matthewzmd].Trash"       . ?t)
+					                          ("/matthewzmd-gmail/[matthewzmd].All Mail"  . ?a)
+					                          ("/matthewzmd-gmail/[matthewzmd].Starred"   . ?r)
+					                          ("/matthewzmd-gmail/[matthewzmd].Drafts"    . ?d))))))))
 ;; -Mu4ePac
 
 (provide 'init-mu4e)
