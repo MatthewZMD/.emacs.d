@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Dec  2 16:01:31 2019 (-0500)
+;; Last-Updated: Sun Dec  8 15:17:49 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui
@@ -68,7 +68,7 @@
 ;; StartupScreen
 (setq inhibit-startup-screen t)
 (setq initial-major-mode 'text-mode)
-(setq initial-scratch-message "Present Day, Present Time...")
+(setq initial-scratch-message "Present Day, Present Time...\n")
 ;; -StartupScreen
 
 ;; DisLineNum
