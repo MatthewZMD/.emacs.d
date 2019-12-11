@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Dec  9 01:55:19 2019 (-0500)
+;; Last-Updated: Sat Dec 14 01:50:39 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
@@ -56,6 +56,12 @@
   (eaf-bind-key scroll_down_page "DEL" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_up_page "C-v" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_down_page "M-v" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_down_page "u" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_up_page "d" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_to_end "M->" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_to_home "M-<" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (defun eaf-open-google ()
     "Open Google using EAF."
