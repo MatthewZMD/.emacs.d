@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:21:46 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:04:57 2019 (-0400)
+;; Last-Updated: Tue Dec 10 20:36:28 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dashboard
@@ -46,7 +46,7 @@
   (dashboard-banner-logo-title "Close the world. Open the nExt.")
   (dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
   (dashboard-items '((recents  . 7)
-                     (bookmarks . 5)
+                     (bookmarks . 7)
                      (agenda . 5)))
   :custom-face
   (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 123))))
