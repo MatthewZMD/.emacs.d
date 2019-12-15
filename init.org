@@ -367,11 +367,11 @@
 *** Read Lines From File
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "180-184"
 *** Where Am I
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "187-195"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "187-191"
 *** Get File Name From Path
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "GetFileNameFromPath" :range-end "-GetFileNameFromPath" :lines "198-202"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "GetFileNameFromPath" :range-end "-GetFileNameFromPath" :lines "194-198"
 *** Edit This With Sudo
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "EditThisWithSudo" :range-end "-EditThisWithSudo" :lines "205-215"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "EditThisWithSudo" :range-end "-EditThisWithSudo" :lines "201-211"
 * User Interface Enhancements
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.

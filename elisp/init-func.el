@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Nov 23 22:30:47 2019 (-0500)
+;; Last-Updated: Sat Dec 14 20:55:35 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -102,10 +102,10 @@ point reaches the beginning or end of the buffer, stop there."
 ;; -MoveBeginningLine
 
 ;; OrgIncludeAuto
-(defun save-and-update-includes (&rest ignore)
+(defun save-and-update-includes ()
   "Update the line numbers of #+INCLUDE:s in current buffer.
 Only looks at INCLUDEs that have either :range-begin or :range-end.
-This function does nothing if not in org-mode, so you can safely
+This function does nothing if not in `org-mode', so you can safely
 add it to `before-save-hook'."
   (interactive)
   (when (derived-mode-p 'org-mode)
@@ -185,13 +185,9 @@ FACE defaults to inheriting from default and highlight."
 
 ;; WhereAmI
 (defun where-am-i ()
-    "An interactive function that displays `buffer-file-name' when visiting a file.
-Otherwise the function displays `buffer-name'."
-    (interactive)
-    (let ((dir-file (buffer-file-name)))
-      (if dir-file
-          (message dir-file)
-        (message (buffer-name)))))
+  "An interactive function showing function `buffer-file-name' or `buffer-name'."
+  (interactive)
+  (message (kill-new (if (buffer-file-name) (buffer-file-name) (buffer-name)))))
 ;; -WhereAmI
 
 ;; GetFileNameFromPath
