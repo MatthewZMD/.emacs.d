@@ -628,8 +628,6 @@
 ** EAF
    [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a development framework that integrates any PyQt program into Emacs.
 
-   *Note*: I am using my own [[https://github.com/MatthewZMD/emacs-application-framework][fork]], which has more functions and capabilities that are yet to be merged into upstream. If you want to use this config, clone my fork instead. Otherwise it won't work.
-
    *Prerequisite*: Please install =python3= and =pip3=. Then execute below command:
    #+BEGIN_SRC bash
    sudo pip3 install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib PyQtWebEngine
