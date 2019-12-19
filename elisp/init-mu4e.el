@@ -70,6 +70,7 @@
   (mu4e-confirm-quit nil)
   (mu4e-use-fancy-chars t)
   :config
+  (run-with-timer 0 60 (lambda () (mu4e-update-mail-and-index t)))
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
   (add-hook 'mu4e-view-mode-hook #'visual-line-mode)
