@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct 16 16:27:05 2019 (-0400)
+;; Last-Updated: Mon Dec 23 12:22:27 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d parenthesis smartparens awesome-pair delete-block
@@ -63,7 +63,7 @@
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'org-mode "[" nil :actions nil)
   ;; Smartparens is broken in `cc-mode' as of Emacs 27. See
-  ;; <https://github.com/Fuco1/smartparens/issues/963>.
+  ;; https://github.com/Fuco1/smartparens/issues/963
   (unless (version< emacs-version "27")
     (dolist (fun '(c-electric-paren c-electric-brace))
       (add-to-list 'sp--special-self-insert-commands fun))))
