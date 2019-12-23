@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:21:46 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Dec 23 17:21:57 2019 (-0500)
+;; Last-Updated: Mon Dec 23 18:19:44 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dashboard
@@ -52,11 +52,15 @@
   (dashboard-set-heading-icons t)
   (dashboard-set-navigator t)
   (dashboard-navigator-buttons
-   `(((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust -0.05)
-       "M-EMACS" "Browse M-EMACS Homepage"
-       (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
-      (,(all-the-icons-fileicon "elisp" :height 1.0 :v-adjust -0.1)
-       "Configuration" "" (lambda (&rest _) (edit-configs))))))
+   (if (featurep 'all-the-icons)
+       `(((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust -0.05)
+           "M-EMACS" "Browse M-EMACS Homepage"
+           (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
+          (,(all-the-icons-fileicon "elisp" :height 1.0 :v-adjust -0.1)
+           "Configuration" "" (lambda (&rest _) (edit-configs)))))
+     `((("" "M-EMACS" "Browse M-EMACS Homepage"
+         (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
+        ("" "Configuration" "" (lambda (&rest _) (edit-configs)))))))
   :custom-face
   (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 123))))
   :config
