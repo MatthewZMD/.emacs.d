@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Dec  2 15:49:07 2019 (-0500)
+;; Last-Updated: Mon Dec 23 18:05:22 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -40,7 +40,9 @@
 ;; CheckVer
 (cond ((version< emacs-version "26.1")
        (warn "M-EMACS requires Emacs 26.1 and above!"))
-      ((version< emacs-version "27")
+      ((and (version< emacs-version "27")
+            (or (not (file-exists-p "~/.emacs.d/early-init-do-not-edit/early-init.el"))
+                (file-newer-than-file-p "~/.emacs.d/early-init.el" "~/.emacs.d/early-init-do-not-edit/early-init.el")))
        (make-directory "~/.emacs.d/early-init-do-not-edit/" t)
        (copy-file "~/.emacs.d/early-init.el" "~/.emacs.d/early-init-do-not-edit/early-init.el" t t t t)
        (add-to-list 'load-path "~/.emacs.d/early-init-do-not-edit/")
