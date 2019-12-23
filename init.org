@@ -131,7 +131,7 @@
 ** Screenshot
    [[file:images/Sample.png]]
 ** About README
-   This README is originated from init.org that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports the section of code from the =elisp/= directory. You will not see their presence in init.org.
+   This README is originated from =init.org= that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports sections of code from the =elisp/= directory. You will not see their presence in =init.org=.
 ** Installation
    1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
       - (Optional) On Ubuntu, =emacs-snapshot= is a great way to get latest version of Emacs.
@@ -157,12 +157,13 @@
         #+END_SRC
    2. Clone this repo to =HOME= or =~/= path using [[https://git-scm.com/][git]] and update all the submodules.
       #+BEGIN_SRC bash
+        cd ~
         git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
         cd .emacs.d
       #+END_SRC
    3. Ensure a stable connection to Melpa Packages, then open Emacs.
    4. Enter =y= when prompted with =Auto-update packages now?=, wait for all packages to install.
-   5. In your favorite browser, =Ctrl-F Prerequisite= through this webpage and follow the *Prerequisite* instructions.
+   5. In your favorite browser, =Ctrl-f Prerequisite= through this README and follow the *Prerequisite* instructions.
    6. Restart Emacs.
 *** Further Updates
     I will be updating M-EMACS from time to time, it is best to =git pull= once a while to stay up to date.
@@ -384,10 +385,10 @@
     [[https://github.com/rakanalh/emacs-dashboard][Dashboard]], an extensible Emacs startup screen.
 
     Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme.
-    #+INCLUDE: "~/.emacs.d/elisp/init-dashboard.el" src emacs-lisp :range-begin "DashboardPac" :range-end "-DashboardPac" :lines "41-76"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dashboard.el" src emacs-lisp :range-begin "DashboardPac" :range-end "-DashboardPac" :lines "41-80"
 *** Page Break Lines
     [[https://github.com/purcell/page-break-lines][Page-break-lines]], a feature that displays ugly form feed characters as tidy horizontal rules.
-    #+INCLUDE: "~/.emacs.d/elisp/init-dashboard.el" src emacs-lisp :range-begin "PBLPac" :range-end "-PBLPac" :lines "79-82"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dashboard.el" src emacs-lisp :range-begin "PBLPac" :range-end "-PBLPac" :lines "83-86"
 ** Fonts and Icons
    *Prerequisite*: Install all the available fonts and icons from =fonts/=.
 *** Fonts
@@ -432,11 +433,11 @@
 ** Treemacs
    [[https://github.com/Alexander-Miller/treemacs][Treemacs]], a tree layout file explorer for Emacs.
 *** Treemacs
-    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreemacsPac" :range-end "-TreemacsPac" :lines "41-93"
+    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreemacsPac" :range-end "-TreemacsPac" :lines "41-89"
 *** Treemacs Magit
-    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeMagit" :range-end "-TreeMagit" :lines "96-99"
+    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeMagit" :range-end "-TreeMagit" :lines "92-95"
 *** Treemacs Projectile
-    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeProj" :range-end "-TreeProj" :lines "102-105"
+    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeProj" :range-end "-TreeProj" :lines "98-101"
 ** YASnippet
 *** YASnippet
     [[https://github.com/joaotavora/yasnippet][YASnippet]], a programming template system for Emacs. It loads [[https://github.com/AndreaCrotti/yasnippet-snippets][YASnippet Snippets]], a collection of yasnippet snippets for many languages.
@@ -476,10 +477,10 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "IEditPac" :range-end "-IEditPac" :lines "43-46"
 *** Awesome Pair
     [[https://github.com/manateelazycat/awesome-pair][Awesome Pair]], a feature that provides grammatical parenthesis completion.
-    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "AwesomePairPac" :range-end "-AwesomePairPac" :lines "49-60"
+    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "AwesomePairPac" :range-end "-AwesomePairPac" :lines "49-59"
 *** Delete Block
     [[https://github.com/manateelazycat/delete-block][Delete Block]], a feature that deletes block efficiently.
-    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "DeleteBlockPac" :range-end "-DeleteBlockPac" :lines "63-70"
+    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "DeleteBlockPac" :range-end "-DeleteBlockPac" :lines "62-69"
 ** Headers
    [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
    #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "41-50"
@@ -596,13 +597,13 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "TypeScriptPac" :range-end "-TypeScriptPac" :lines "57-60"
 ** Emmet
    [[https://github.com/smihica/emmet-mode][Emmet]], a feature that allows writing HTML using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
-   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "EmmetPac" :range-end "-EmmetPac" :lines "63-67"
+   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "EmmetPac" :range-end "-EmmetPac" :lines "63-66"
 ** Instant Rename Tag
    [[https://github.com/manateelazycat/instant-rename-tag][Instant Rename Tag]], a plugin that provides ability to rename html tag pairs instantly.
-   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "InstantRenameTagPac" :range-end "-InstantRenameTagPac" :lines "70-73"
+   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "InstantRenameTagPac" :range-end "-InstantRenameTagPac" :lines "69-72"
 ** JSON
    [[https://github.com/joshwnj/json-mode][JSON Mode]], a major mode for editing JSON files.
-   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "JsonPac" :range-end "-JsonPac" :lines "76-78"
+   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "JsonPac" :range-end "-JsonPac" :lines "75-77"
 * Miscellaneous
 ** Org
    [[https://orgmode.org/][Org]], a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
@@ -647,7 +648,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "45-136"
 ** EWW
    Emacs Web Wowser, the HTML-based Emacs Web Browser.
-   #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "44-55"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "44-54"
 ** MU4E
    [[https://www.djcbsoftware.nl/code/mu/mu4e.html][Mu4e]], a package that provides an emacs-based e-mail client which uses [[https://www.djcbsoftware.nl/code/mu/][mu]] as its backend. This mu4e configuration is tailored for Gmail.
 
@@ -661,7 +662,7 @@
         mu index --maildir=~/Maildir/
       #+END_SRC
       - If you are getting =Invalid Credentials= error and you are sure the password is correct, check [[https://appuals.com/fix-your-imap-server-wants-to-alert-you-invalid-credentials/][this]] link.
-   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-130"
+   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-126"
 ** Tramp
    [[https://www.emacswiki.org/emacs/TrampMode][Tramp]], short for Transparent Remote Access, Multiple Protocols is a package for editing remote files using a remote shell connection (rlogin, telnet, ssh).
 *** Google Cloud Platform

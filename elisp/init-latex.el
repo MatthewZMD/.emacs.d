@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Wed Sep  4 16:35:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct  9 19:20:23 2019 (-0400)
+;; Last-Updated: Tue Dec 24 12:00:08 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d auctex
@@ -55,17 +55,17 @@
                               TeX-source-correlate-start-server t)
   (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
   (TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+  :hook
+  (LaTeX-mode . (lambda ()
+                  (turn-on-reftex)
+                  (setq reftex-plug-into-AUCTeX t)
+                  (reftex-isearch-minor-mode)
+                  (setq TeX-PDF-mode t)
+                  (setq TeX-source-correlate-method 'synctex)
+                  (setq TeX-source-correlate-start-server t)))
   :config
-  (if (version< emacs-version "26")
-      (add-hook LaTeX-mode-hook #'display-line-numbers-mode))
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (turn-on-reftex)
-              (setq reftex-plug-into-AUCTeX t)
-              (reftex-isearch-minor-mode)
-              (setq TeX-PDF-mode t)
-              (setq TeX-source-correlate-method 'synctex)
-              (setq TeX-source-correlate-start-server t))))
+  (when (version< emacs-version "26")
+    (add-hook LaTeX-mode-hook #'display-line-numbers-mode)))
 ;; -AUCTeXPac
 
 ;; OrgLatexPac
