@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 14:05:21 2019 (-0500)
+;; Last-Updated: Tue Dec 24 14:22:38 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -161,19 +161,6 @@ FACE defaults to inheriting from default and highlight."
   (interactive)
   (message (kill-new (if (buffer-file-name) (buffer-file-name) (buffer-name)))))
 ;; -WhereAmI
-
-;; EditThisWithSudo
-(defun edit-this-with-sudo ()
-  "Either open the file currently opened or selected in dired with `sudo' privilege."
-  (interactive)
-  (let ((buffer-file (buffer-file-name)))
-    (if buffer-file
-        (progn
-          (kill-buffer (buffer-name))
-          (find-file (concat "/sudo:root@" (system-name) ":" buffer-file)))
-      (dolist (file (dired-get-marked-files))
-        (find-file (concat "/sudo:root@" (system-name) ":" file))))))
-;; -EditThisWithSudo
 
 (provide 'init-func)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
