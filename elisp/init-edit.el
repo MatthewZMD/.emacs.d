@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 28 13:25:24 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct 16 16:51:01 2019 (-0400)
+;; Last-Updated: Tue Dec 24 11:50:24 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d iedit
@@ -55,8 +55,7 @@
          ("=" . awesome-pair-equal)
          ("M-F" . awesome-pair-jump-right)
          ("M-B" . awesome-pair-jump-left)))
-  :config
-  (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1))))
+  :hook (prog-mode . awesome-pair-mode))
 ;; -AwesomePairPac
 
 ;; DeleteBlockPac

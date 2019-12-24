@@ -48,8 +48,9 @@
     :config
     (when (executable-find "notify-send")
       (mu4e-alert-set-default-style 'libnotify))
-    (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-    (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display))
+    :hook
+    ((after-init . mu4e-alert-enable-notifications)
+     (after-init . mu4e-alert-enable-mode-line-display)))
   (use-package mu4e-overview :defer t)
   :bind ("M-z m" . mu4e)
   :custom
@@ -69,31 +70,26 @@
   (mu4e-view-show-addresses t)
   (mu4e-confirm-quit nil)
   (mu4e-use-fancy-chars t)
+  :hook
+  ((mu4e-view-mode . visual-line-mode)
+   (mu4e-compose-mode . (lambda ()
+                          (visual-line-mode)
+                          (use-hard-newlines -1)
+                          (flyspell-mode)))
+   (mu4e-view-mode . (lambda() ;; try to emulate some of the eww key-bindings
+                       (local-set-key (kbd "<tab>") 'shr-next-link)
+                       (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+   (mu4e-headers-mode . (lambda ()
+	                      (interactive)
+	                      (setq mu4e-headers-fields
+	                            `((:human-date . 25) ;; alternatively, use :date
+		                          (:flags . 6)
+		                          (:from . 22)
+		                          (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
+		                          (:size . 7))))))
   :config
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
-  (add-hook 'mu4e-view-mode-hook #'visual-line-mode)
-  ;; from https://www.reddit.com/r/emacs/comments/bfsck6/mu4e_for_dummies/elgoumx
-  (add-hook 'mu4e-headers-mode-hook
-            (defun my/mu4e-change-headers ()
-	          (interactive)
-	          (setq mu4e-headers-fields
-	                `((:human-date . 25) ;; alternatively, use :date
-		              (:flags . 6)
-		              (:from . 22)
-		              (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
-		              (:size . 7)))))
-  ;; spell check
-  (add-hook 'mu4e-compose-mode-hook
-            (defun my-do-compose-stuff ()
-              "My settings for message composition."
-              (visual-line-mode)
-              (use-hard-newlines -1)
-              (flyspell-mode)))
-  (add-hook 'mu4e-view-mode-hook
-            (lambda() ;; try to emulate some of the eww key-bindings
-              (local-set-key (kbd "<tab>") 'shr-next-link)
-              (local-set-key (kbd "<backtab>") 'shr-previous-link)))
   (setq mu4e-contexts
         (list
          (make-mu4e-context

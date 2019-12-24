@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:00:55 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  1 23:31:57 2019 (-0400)
+;; Last-Updated: Tue Dec 24 11:59:07 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -51,10 +51,10 @@
 (use-package company-arduino
   :disabled
   :defer t
-  :config
-  (add-hook 'irony-mode-hook 'company-arduino-turn-on)
-  ;; Activate irony-mode on arduino-mode
-  (add-hook 'arduino-mode-hook 'irony-mode))
+  :hook
+  ((irony-mode . company-arduino-turn-on)
+   ;; Activate irony-mode on arduino-mode
+   (arduino-mode . irony-mode)))
 ;; -CompanyArduinoPac
 
 (provide 'init-arduino)

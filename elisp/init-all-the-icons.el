@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:06:08 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:03:18 2019 (-0400)
+;; Last-Updated: Tue Dec 24 11:47:45 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d all-the-icons
@@ -51,8 +51,8 @@
   :diminish
   :custom-face
   (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
+  :hook (dired-mode . all-the-icons-dired-mode)
   :config
-  (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
   ;; Workaround for all-the-icons bug until PR merged https://github.com/domtronn/all-the-icons.el/pull/150
   (when (require 'all-the-icons nil 'noerror)
     (setq all-the-icons-mode-icon-alist
