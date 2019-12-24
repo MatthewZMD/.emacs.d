@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Nov 26 02:04:03 2019 (-0500)
+;; Last-Updated: Tue Dec 24 13:26:20 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired auto-save
@@ -89,24 +89,6 @@
 (global-set-key (kbd "C-x C-s") nil)
 (global-set-key (kbd "C-x C-s") #'save-all-buffers)
 ;; -SaveAllBuffers
-
-;; RenameFileBuffer
-;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
-(defun rename-file-and-buffer (new-name)
-  "Renames both current buffer and file it's visiting to NEW-NAME."
-  (interactive "sNew name: ")
-  (let ((name (buffer-name))
-    (filename (buffer-file-name)))
-    (if (not filename)
-    (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-      (message "A buffer named '%s' already exists!" new-name)
-    (progn
-      (rename-file filename new-name 1)
-      (rename-buffer new-name)
-      (set-visited-file-name new-name)
-      (set-buffer-modified-p nil))))))
-;; -RenameFileBuffer
 
 ;; DiredConfigs
 ;; Load the newest version of a file
