@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Nov 22 21:26:47 2019 (-0500)
+;; Last-Updated: Tue Dec 24 14:05:45 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -75,7 +75,7 @@
     (interactive)
     (save-buffer)
     (let* ((pdf-path (org-latex-export-to-pdf))
-           (pdf-name (get-file-name-from-path pdf-path)))
+           (pdf-name (file-name-nondirectory pdf-path)))
       (if (try-completion pdf-name (mapcar #'buffer-name (buffer-list)))
           (progn
             (kill-matching-buffers (concat "^" pdf-name) t t)

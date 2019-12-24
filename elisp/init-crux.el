@@ -1,22 +1,22 @@
-;;; init-arduino.el --- -*- lexical-binding: t -*-
+;;; init-crux.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-arduino.el
-;; Description: Initialize Arduino Mode
+;; Filename: init-crux.el
+;; Description: Initialize Crux
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 11:00:55 2019 (-0400)
+;; Created: Tue Dec 24 13:15:38 2019 (-0500)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 11:59:07 2019 (-0500)
+;; Last-Updated: Tue Dec 24 13:53:34 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d
+;; Keywords: M-EMACS .emacs.d crux
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes arduino-mode and company-arduino
+;; This initializes Crux
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,26 +37,21 @@
 ;;
 ;;; Code:
 
-;; ArduinoPac
-(use-package arduino-mode
-  :disabled
-  :defer t
-  :mode
-  ("\\.ino\\'" "\\.pde\\'")
+;; CruxPac
+(use-package crux
+  :bind
+  (([remap move-beginning-of-line] . crux-move-beginning-of-line)
+   ("C-x 4 t" . crux-transpose-windows)
+   ("C-x K" . crux-kill-other-buffers)
+   ("C-k" . crux-smart-kill-line)
+   ("RET" . crux-smart-open-line))
   :config
-  (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
-;; -ArduinoPac
+  (crux-with-region-or-buffer indent-region)
+  (crux-with-region-or-buffer untabify)
+  (crux-with-region-or-point-to-eol kill-ring-save)
+  (defalias 'rename-file-and-buffer #'crux-rename-file-and-buffer))
+;; -CruxPac
 
-;; CompanyArduinoPac
-(use-package company-arduino
-  :disabled
-  :defer t
-  :hook
-  ((irony-mode . company-arduino-turn-on)
-   ;; Activate irony-mode on arduino-mode
-   (arduino-mode . irony-mode)))
-;; -CompanyArduinoPac
-
-(provide 'init-arduino)
+(provide 'init-crux)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-arduino.el ends here
+;;; init-crux.el ends here

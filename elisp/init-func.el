@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Dec 20 12:01:35 2019 (-0500)
+;; Last-Updated: Tue Dec 24 14:05:21 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -72,34 +72,6 @@
 
 (global-set-key (kbd "C-z e") #'edit-configs)
 ;; -EditConfig
-
-;; MoveBeginningLine
-(defun smarter-move-beginning-of-line (arg)
-  "Move point back to indentation of beginning of line.
-
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
-
-If ARG is not nil or 1, move forward ARG - 1 lines first.    If
-point reaches the beginning or end of the buffer, stop there."
-  (interactive "^p")
-  (setq arg (or arg 1))
-
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
-
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
-
-;; remap `move-beginning-of-line' to `smarter-move-beginning-of-line'
-(global-set-key [remap move-beginning-of-line] 'smarter-move-beginning-of-line)
-;; -MoveBeginningLine
 
 ;; OrgIncludeAuto
 (defun save-and-update-includes ()
@@ -189,13 +161,6 @@ FACE defaults to inheriting from default and highlight."
   (interactive)
   (message (kill-new (if (buffer-file-name) (buffer-file-name) (buffer-name)))))
 ;; -WhereAmI
-
-;; GetFileNameFromPath
-(defun get-file-name-from-path (path)
-  "Extracts the file name from the given PATH."
-  (interactive)
-  (substring path (string-match "[^\/]*\/?$" path)))
-;; -GetFileNameFromPath
 
 ;; EditThisWithSudo
 (defun edit-this-with-sudo ()
