@@ -47,7 +47,7 @@
 
 ;; AwesomePairPac
 (use-package awesome-pair
-  :load-path "~/.emacs.d/site-elisp/awesome-pair"
+  :load-path (lambda () (expand-file-name "site-elisp/awesome-pair" user-emacs-directory))
   :bind
   (:map prog-mode-map
         (("M-D" . awesome-pair-kill)
@@ -60,7 +60,7 @@
 
 ;; DeleteBlockPac
 (use-package delete-block
-  :load-path "~/.emacs.d/site-elisp/delete-block"
+  :load-path (lambda () (expand-file-name "site-elisp/delete-block" user-emacs-directory))
   :bind
   (("M-d" . delete-block-forward)
    ("C-<backspace>" . delete-block-backward)

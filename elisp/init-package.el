@@ -41,7 +41,7 @@
 ;; MelpaPackages
 ;; Select the folder to store packages
 ;; Comment / Uncomment to use desired sites
-(setq package-user-dir "~/.emacs.d/elpa"
+(setq package-user-dir (expand-file-name "elpa" user-emacs-directory)
       package-archives
       '(("gnu"   . "http://elpa.gnu.org/packages/")
         ("melpa" . "https://melpa.org/packages/")

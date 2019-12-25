@@ -42,7 +42,7 @@
 
 ;; EAFPac
 (use-package eaf
-  :load-path "~/.emacs.d/site-elisp/emacs-application-framework"
+  :load-path (lambda () (expand-file-name "site-elisp/emacs-application-framework" user-emacs-directory))
   :if *eaf-env*
   :custom
   (eaf-find-alternate-file-in-dired t)
