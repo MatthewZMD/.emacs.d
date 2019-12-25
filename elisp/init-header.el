@@ -39,7 +39,7 @@
 
 ;; Header2Pac
 (use-package header2
-  :load-path "~/.emacs.d/site-elisp/header2"
+  :load-path (lambda () (expand-file-name "site-elisp/header2" user-emacs-directory))
   :custom
   (header-copyright-notice (concat "Copyright (C) 2019 " (user-full-name) "\n"))
   :hook (emacs-lisp-mode . auto-make-header)

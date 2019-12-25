@@ -75,14 +75,14 @@
 
 ;; ColorRGPac
 (use-package color-rg
-  :load-path "~/.emacs.d/site-elisp/color-rg"
+  :load-path (lambda () (expand-file-name "site-elisp/color-rg" user-emacs-directory))
   :if *rg*
   :bind ("C-M-s" . color-rg-search-input))
 ;; -ColorRGPac
 
 ;; SnailsPac
 (use-package snails
-  :load-path "~/.emacs.d/site-elisp/snails/"
+  :load-path (lambda () (expand-file-name "site-elisp/snails/" user-emacs-directory))
   :if *sys/gui*
   :custom-face
   (snails-content-buffer-face ((t (:background "#111" :height 110))))

@@ -42,7 +42,7 @@
 
 ;; LeetCodePac
 (use-package leetcode
-  :load-path "~/.emacs.d/site-elisp/leetcode.el"
+  :load-path (lambda () (expand-file-name "site-elisp/leetcode.el" user-emacs-directory))
   :commands (leetcode)
   :init
   (use-package graphql :defer t)
