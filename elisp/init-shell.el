@@ -42,7 +42,7 @@
 
 ;; AweshellPac
 (use-package aweshell
-  :load-path "~/.emacs.d/site-elisp/aweshell"
+  :load-path (lambda () (expand-file-name "site-elisp/aweshell" user-emacs-directory))
   :commands (aweshell-new aweshell-dedicated-open)
   :bind
   (("M-#" . aweshell-dedicated-open)
@@ -59,7 +59,7 @@
 
 ;; MultiTermPac
 (use-package multi-term
-  :load-path "~/.emacs.d/site-elisp/multi-term"
+  :load-path (lambda () (expand-file-name "site-elisp/multi-term" user-emacs-directory))
   :commands (multi-term)
   :bind
   (("M-$" . multi-term)

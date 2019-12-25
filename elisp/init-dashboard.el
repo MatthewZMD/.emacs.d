@@ -44,7 +44,7 @@
   :bind ("C-z d" . open-dashboard)
   :custom
   (dashboard-banner-logo-title "Close the world. Open the nExt.")
-  (dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
+  (dashboard-startup-banner (expand-file-name "images/KEC_Dark_BK_Small.png" user-emacs-directory))
   (dashboard-items '((recents  . 7)
                      (bookmarks . 7)
                      (agenda . 5)))

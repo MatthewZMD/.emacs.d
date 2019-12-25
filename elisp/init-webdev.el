@@ -67,7 +67,7 @@
 
 ;; InstantRenameTagPac
 (use-package instant-rename-tag
-  :load-path "~/.emacs.d/site-elisp/instant-rename-tag"
+  :load-path (lambda () (expand-file-name "site-elisp/instant-rename-tag" user-emacs-directory))
   :bind ("C-z <" . instant-rename-tag))
 ;; -InstantRenameTagPac
 

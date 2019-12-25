@@ -43,7 +43,7 @@
 ;; EPaintPac
 (use-package epaint
   :if *sys/gui*
-  :load-path "~/.emacs.d/site-elisp/epaint"
+  :load-path (lambda () (expand-file-name "site-elisp/epaint" user-emacs-directory))
   :commands (epaint)
   :init
   (with-eval-after-load (quote epaint-context)
