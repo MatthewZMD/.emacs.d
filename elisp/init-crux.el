@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Dec 24 13:15:38 2019 (-0500)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 13:53:34 2019 (-0500)
+;; Last-Updated: Wed Dec 25 00:51:35 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d crux
@@ -43,8 +43,7 @@
   (([remap move-beginning-of-line] . crux-move-beginning-of-line)
    ("C-x 4 t" . crux-transpose-windows)
    ("C-x K" . crux-kill-other-buffers)
-   ("C-k" . crux-smart-kill-line)
-   ("RET" . crux-smart-open-line))
+   ("C-k" . crux-smart-kill-line))
   :config
   (crux-with-region-or-buffer indent-region)
   (crux-with-region-or-buffer untabify)

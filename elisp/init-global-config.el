@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 14:25:19 2019 (-0500)
+;; Last-Updated: Wed Dec 25 03:02:50 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -64,17 +64,14 @@
 ;; -DefBindings
 
 ;; UTF8Coding
-(if (eq system-type 'windows-nt)
-    (progn
-      (set-clipboard-coding-system 'utf-16-le)
-      (set-selection-coding-system 'utf-16-le))
-  (set-selection-coding-system 'utf-8))
-(prefer-coding-system 'utf-8-unix)
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
-(setq locale-coding-system 'utf-8-unix)
+(unless *sys/win32*
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+  (set-language-environment "UTF-8")
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8))
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (when *sys/gui*
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
@@ -84,7 +81,7 @@
 ;; Remove useless whitespace before saving a file
 (defun delete-trailing-whitespace-except-current-line ()
   "Sometimes `delete-trailing-whitespace' becomes very annoying.
-It deletes trailing whitespace current line. Therefore I use this alternative."
+It deletes trailing whitespace current line.  Therefore I use this alternative."
   (interactive)
   (let ((begin (line-beginning-position))
         (end (line-end-position)))
@@ -101,17 +98,8 @@ It deletes trailing whitespace current line. Therefore I use this alternative."
           (widen))))))
 (add-hook 'before-save-hook #'delete-trailing-whitespace-except-current-line)
 
-;; Make sentences end with a single space
-(setq-default sentence-end-double-space nil)
-
-;; Disable Shift mark
-(setq shift-select-mode nil)
-
 ;; Replace selection on insert
 (delete-selection-mode 1)
-
-;; Merge system clipboard with Emacs
-(setq-default select-enable-clipboard t)
 
 ;; Map Alt key to Meta
 (setq x-alt-keysym 'meta)
