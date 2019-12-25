@@ -203,7 +203,7 @@
     Ensure =emacs-version>=26=, manually require =early-init= configurations if =emacs-version<27=.
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "41-50"
 *** Defer Garbage Collection
-    Defer garbage collection further back in the startup process, according to [[https://github.com/hlissner/doom-emacs/wiki/FAQ#how-is-dooms-startup-so-fast][hlissner]].
+    Defer garbage collection further back in the startup process, according to [[https://github.com/hlissner/doom-emacs/blob/develop/docs/faq.org#how-does-doom-start-up-so-quickly][hlissner]].
     #+BEGIN_QUOTE
     The GC eats up quite a bit of time, easily doubling startup time. The trick is to turn up the memory threshold as early as possible.
     #+END_QUOTE
