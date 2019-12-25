@@ -201,7 +201,7 @@
    Emacs27 introduces =early-init.el=, which is run before =init.el=, before package and UI initialization happens.
 *** Compatibility With 26
     Ensure =emacs-version>=26=, manually require =early-init= configurations if =emacs-version<27=.
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "41-50"
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "CheckVer" :range-end "-CheckVer" :lines "41-53"
 *** Defer Garbage Collection
     Defer garbage collection further back in the startup process, according to [[https://github.com/hlissner/doom-emacs/blob/develop/docs/faq.org#how-does-doom-start-up-so-quickly][hlissner]].
     #+BEGIN_QUOTE
@@ -223,15 +223,15 @@
 ** Garbage Collection
 *** Set =gc-cons-threshold= Smaller for Interactive Use
      A large =gc-cons-threshold= may cause freezing and stuttering during long-term interactive use.
-     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "BetterGC" :range-end "-BetterGC" :lines "53-62"
+     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "BetterGC" :range-end "-BetterGC" :lines "56-65"
 *** Garbage Collect When Emacs is Out of Focus
     *Note:* Since Emacs27.1, =focus-out-hook= is obsolete.
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "65-73"
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "68-76"
 *** Avoid Garbage Collect When Using Minibuffer
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "74-83"
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "77-86"
 ** Load Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= now.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "86-100"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "89-103"
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "46-108"
 * Package Management
