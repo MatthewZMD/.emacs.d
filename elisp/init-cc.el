@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:58:29 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Nov 23 22:41:01 2019 (-0500)
+;; Last-Updated: Thu Dec 26 02:07:34 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d c c++ go ccls
@@ -49,6 +49,7 @@
   :custom
   (ccls-executable (executable-find "ccls")) ; Add ccls to path if you haven't done so
   (ccls-sem-highlight-method 'font-lock)
+  (ccls-enable-skipped-ranges nil)
   :config
   (lsp-register-client
    (make-lsp-client
