@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:53:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Nov  5 00:15:10 2019 (-0500)
+;; Last-Updated: Thu Dec 26 03:37:58 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d packages use-package
@@ -94,10 +94,6 @@
 ;; DimPac
 (use-package diminish)
 ;; -DimPac
-
-;; GNUElpaKeyPac
-(use-package gnu-elpa-keyring-update)
-;; -GNUElpaKeyPac
 
 (provide 'init-package)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

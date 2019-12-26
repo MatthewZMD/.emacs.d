@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:16:53 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:05:57 2019 (-0400)
+;; Last-Updated: Thu Dec 26 02:55:21 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d tetris speed-type 2048
@@ -38,25 +38,29 @@
 ;;; Code:
 
 ;; TetrisConfig
-(defvar tetris-mode-map
-  (make-sparse-keymap 'tetris-mode-map))
-(define-key tetris-mode-map (kbd "C-p") 'tetris-rotate-prev)
-(define-key tetris-mode-map (kbd "C-n") 'tetris-move-down)
-(define-key tetris-mode-map (kbd "C-b") 'tetris-move-left)
-(define-key tetris-mode-map (kbd "C-f") 'tetris-move-right)
-(define-key tetris-mode-map (kbd "C-SPC") 'tetris-move-bottom)
-(defadvice tetris-end-game (around zap-scores activate)
-  (save-window-excursion ad-do-it))
+(use-package tetris
+  :ensure nil
+  :commands (tetris)
+  :bind
+  (:map tetris-mode-map
+        ("C-p" . tetris-rotate-prev)
+        ("C-n" . tetris-rotate-down)
+        ("C-b" . tetris-move-left)
+        ("C-f" . tetris-move-right)
+        ("C-SPC" . tetris-move-bottom))
+  :config
+  (defadvice tetris-end-game (around zap-scores activate)
+    (save-window-excursion ad-do-it)))
 ;; -TetrisConfig
 
 ;; SpeedTypePac
 (use-package speed-type
-  :defer t)
+  :commands (speed-type-text))
 ;; -SpeedTypePac
 
 ;; 2048Pac
 (use-package 2048-game
-  :defer t)
+  :commands (2048-game))
 ;; -2048Pac
 
 (provide 'init-games)

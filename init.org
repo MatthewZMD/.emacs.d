@@ -24,7 +24,6 @@
   - [[Use Package][Use Package]]
   - [[Auto Package Update][Auto Package Update]]
   - [[Diminish][Diminish]]
-  - [[GNU Elpa Keyring Update][GNU Elpa Keyring Update]]
 - [[Global Functionalities][Global Functionalities]]
   - [[User Information][User Information]]
   - [[Bindings][Bindings]]
@@ -266,12 +265,6 @@
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "95-96"
-** GNU Elpa Keyring Update
-   [[http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html][GNU Elpa Keyring Update]], Update Emacs's GPG keyring for GNU ELPA.
-   #+BEGIN_QUOTE
-   The GPG key used to sign the GNU ELPA archives is nearing retirement: it expires this September. Which means that if you don't get the new key before, you won't be able to check the signature of new packages after that date.
-   #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "GNUElpaKeyPac" :range-end "-GNUElpaKeyPac" :lines "99-100"
 * Global Functionalities
 ** User Information
    *Prerequisite*: Please update this file your personal info.
@@ -679,13 +672,13 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-epaint.el" src emacs-lisp :range-begin "EPaintPac" :range-end "-EPaintPac" :lines "44-54"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
-   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "41-50"
+   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "41-54"
 ** Speed Type
    [[https://github.com/hagleitn/speed-type][Speed type]], a game to practice touch/speed typing in Emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "SpeedTypePac" :range-end "-SpeedTypePac" :lines "53-55"
+   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "SpeedTypePac" :range-end "-SpeedTypePac" :lines "57-59"
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]], an implementation of 2048 in Emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "2048Pac" :range-end "-2048Pac" :lines "58-60"
+   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "2048Pac" :range-end "-2048Pac" :lines "62-64"
 ** Zone
    [[https://www.emacswiki.org/emacs/ZoneMode][Zone]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer.
    #+INCLUDE: "~/.emacs.d/elisp/init-zone.el" src emacs-lisp :range-begin "ZonePac" :range-end "-ZonePac" :lines "41-55"
