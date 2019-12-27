@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 14:22:38 2019 (-0500)
+;; Last-Updated: Thu Dec 26 21:14:28 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -62,6 +62,20 @@
 ;; Setup shorcuts for window resize width and height
 (global-set-key (kbd "C-z w") #'resize-window-width)
 (global-set-key (kbd "C-z h") #'resize-window-height)
+
+(defun resize-window (width delta)
+  "Resize the current window's size.  If WIDTH is non-nil, resize width by some DELTA."
+  (if (> (count-windows) 1)
+      (window-resize nil delta width)
+    (error "You need more than 1 window to execute this function!")))
+
+;; Setup shorcuts for window resize width and height
+(global-set-key (kbd "M-W +") (lambda () (interactive) (resize-window t 5)))
+(global-set-key (kbd "M-W =") (lambda () (interactive) (resize-window t 5)))
+(global-set-key (kbd "M-W -") (lambda () (interactive) (resize-window t -5)))
+(global-set-key (kbd "M-H +") (lambda () (interactive) (resize-window nil 5)))
+(global-set-key (kbd "M-H =") (lambda () (interactive) (resize-window nil 5)))
+(global-set-key (kbd "M-H -") (lambda () (interactive) (resize-window nil -5)))
 ;; -ResizeWidthheight
 
 ;; EditConfig
