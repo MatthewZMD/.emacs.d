@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 11:58:02 2019 (-0500)
+;; Last-Updated: Fri Dec 27 22:11:06 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -99,6 +99,7 @@ If failed try to complete the common part with `company-complete-common'"
                       (setq company-tabnine-max-num-results 3)
                       (add-to-list 'company-transformers 'company//sort-by-tabnine t)
                       (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))))
+  (kill-emacs . company-tabnine-kill-process)
   :config
   ;; Enable TabNine on default
   (add-to-list 'company-backends #'company-tabnine)
