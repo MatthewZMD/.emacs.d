@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:21:46 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Dec 23 18:19:44 2019 (-0500)
+;; Last-Updated: Sat Dec 28 22:56:41 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dashboard
@@ -57,10 +57,13 @@
            "M-EMACS" "Browse M-EMACS Homepage"
            (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
           (,(all-the-icons-fileicon "elisp" :height 1.0 :v-adjust -0.1)
-           "Configuration" "" (lambda (&rest _) (edit-configs)))))
+           "Configuration" "" (lambda (&rest _) (edit-configs)))
+          (,(all-the-icons-faicon "cogs" :height 1.0 :v-adjust -0.1)
+           "Update" "" (lambda (&rest _) (auto-package-update-now)))))
      `((("" "M-EMACS" "Browse M-EMACS Homepage"
          (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
-        ("" "Configuration" "" (lambda (&rest _) (edit-configs)))))))
+        ("" "Configuration" "" (lambda (&rest _) (edit-configs)))
+        ("" "Update" "" (lambda (&rest _) (auto-package-update-now)))))))
   :custom-face
   (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 123))))
   :config
