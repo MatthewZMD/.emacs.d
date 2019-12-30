@@ -221,17 +221,15 @@
     #+INCLUDE: "~/.emacs.d/early-init.el" src emacs-lisp :range-begin "DisableUnnecessaryInterface" :range-end "-DisableUnnecessaryInterface" :lines "59-64"
 ** Garbage Collection
 *** Set =gc-cons-threshold= Smaller for Interactive Use
-     A large =gc-cons-threshold= may cause freezing and stuttering during long-term interactive use.
+    A large =gc-cons-threshold= may cause freezing and stuttering during long-term interactive use.
 
-     If you experience freezing, decrease this amount, if you increase stuttering, increase this amount.
-     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "BetterGC" :range-end "-BetterGC" :lines "56-66"
-*** Garbage Collect When Emacs is Out of Focus
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "69-77"
-*** Avoid Garbage Collect When Using Minibuffer
-    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "MinibufferGC" :range-end "-MinibufferGC" :lines "78-87"
+    If you experience freezing, decrease this amount, if you increase stuttering, increase this amount.
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "BetterGC" :range-end "-BetterGC" :lines "56-66"
+    Garbage Collect when Emacs is out of focus and avoid garbage collection when using minibuffer.
+    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "69-86"
 ** Load Path
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= now.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "90-104"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "89-103"
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "46-108"
 * Package Management
