@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# -*- coding: utf-8 -*-
+# name: map
+# key: map
+# --
+(map $1 $2)

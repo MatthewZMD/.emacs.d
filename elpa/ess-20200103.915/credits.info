@@ -1,0 +1,81 @@
+This is credits.info, produced by makeinfo version 6.5 from
+credits.texi.
+
+The ESS environment is built on the open-source projects of many
+contributors, dating back to 1989 where Doug Bates and Ed Kademan wrote
+S-mode to edit S and Splus files in GNU Emacs.  Frank Ritter and Mike
+Meyer added features, creating version 2.  Meyer and David Smith made
+further contributions, creating version 3.  For version 4, David Smith
+provided significant enhancements to allow for powerful process
+interaction.
+
+   John Sall wrote GNU Emacs macros for SAS source code around 1990.
+Tom Cook added functions to submit jobs, review listing and log files,
+and produce basic views of a dataset, thus creating a SAS-mode which was
+distributed in 1994.
+
+   In 1994, A.J. Rossini extended S-mode to support XEmacs.  Together
+with extensions written by Martin Maechler, this became version 4.7 and
+supported S, Splus, and R. In 1995, Rossini extended SAS-mode to work
+with XEmacs.
+
+   In 1997, Rossini merged S-mode and SAS-mode into a single Emacs
+package for statistical programming; the product of this marriage was
+called ESS version 5.  Richard M. Heiberger designed the inferior mode
+for interactive SAS and SAS-mode was further integrated into ESS. Thomas
+Lumley's Stata mode, written around 1996, was also folded into ESS. More
+changes were made to support additional statistical languages,
+particularly XLispStat.
+
+   ESS initially worked only with Unix statistics packages that used
+standard-input and standard-output for both the command-line interface
+and batch processing.  ESS could not communicate with statistical
+packages that did not use this protocol.  This changed in 1998 when
+Brian Ripley demonstrated use of the Windows Dynamic Data Exchange (DDE)
+protocol with ESS. Heiberger then used DDE to provide interactive
+interfaces for Windows versions of Splus.  In 1999, Rodney A. Sparapani
+and Heiberger implemented SAS batch for ESS relying on files, rather
+than standard-input/standard-output, for Unix, Windows and Mac.  In
+2001, Sparapani added BUGS batch file processing to ESS for Unix and
+Windows.
+
+   * The multiple process code, and the idea for
+     'ess-eval-line-and-next-line' are by Rod Ball.
+
+   * Thanks to Doug Bates for many useful suggestions.
+
+   * Thanks to Martin Maechler for reporting and fixing bugs, providing
+     many useful comments and suggestions, and for maintaining the ESS
+     mailing lists.
+
+   * Thanks to Frank Ritter for updates, particularly the menu code, and
+     invaluable comments on the manual.
+
+   * Thanks to Ken'ichi Shibayama for his excellent indenting code, and
+     many comments and suggestions.
+
+   * Thanks to Aki Vehtari for adding interactive BUGS support.
+
+   * Thanks to Brendan Halpin for bug-fixes and updates to Stata-mode.
+
+   * Last, but definitely not least, thanks to the many ESS users and
+     contributors to the ESS mailing lists.
+
+   _ESS_ is being developed and currently maintained by
+
+   * A.J. Rossini (mailto:blindglobe@gmail.com)
+   * Richard M. Heiberger (mailto:rmh@temple.edu)
+   * Kurt Hornik (mailto:Kurt.Hornik@R-project.org)
+   * Martin Maechler (mailto:maechler@stat.math.ethz.ch)
+   * Rodney A. Sparapani (mailto:rsparapa@mcw.edu)
+   * Stephen Eglen (mailto:stephen@gnu.org)
+   * Sebastian P. Luque (mailto:spluque@gmail.com)
+   * Henning Redestig (mailto:henning.red@googlemail.com)
+   * Vitalie Spinu (mailto:spinuvit@gmail.com)
+   * Lionel Henry (mailto:lionel.hry@gmail.com)
+   * J. Alexander Branham (mailto:alex.branham@gmail.com)
+
+
+Tag Table:
+
+End Tag Table

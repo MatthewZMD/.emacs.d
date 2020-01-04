@@ -1,0 +1,143 @@
+\documentclass[a4paper]{article}
+
+\usepackage{minted}
+\usepackage{listings}
+\usepackage{fancyvrb}
+
+\begin{document}
+
+This is a test document for fontification support of verbatim
+\emph{macros} provided by \LaTeX{} and other packages within AUC\TeX.
+As it is not part of \verb|ert|-tests, it does not have an
+\verb|out|-counterpart.  Parsing should be enabled when loading this
+file, namely \verb|(setq TeX-parse-self t)| in \verb|.emacs|.
+
+\section{The problem}
+
+The \verb|verb| macro provided by vanilla \LaTeX{} does not receive
+any special fontification within AUC\TeX.  It is fontified with
+\verb|font-latex-sedate-face|.  Other \verb|verb| macros provided by
+packages like \verb|listings|, \verb|minted| or \verb|fancyvrb| are
+fontified with \verb|font-lock-keyword-face| as they are added to
+\verb|textual| keyword class within \verb|font-latex.el|.
+
+Next issue is that \verb|verb| macros from modern packages take an
+optional argument or even a mandatory argument before the
+\verb|verbatim| content.  This issue was not addressed in
+\verb|font-latex.el|.
+
+\section{The solution}
+
+\subsection{Vanilla \LaTeX}
+
+The issue with fontification of \verb|verb| macro is solved in
+\verb|font-latex.el| by adding \verb|("verb" "*")| to
+\verb|`font-latex-built-in-keyword-classes'|.  This construct
+fontifies only the macro itself---the argument is left out for
+syntactic fontification.
+
+\subsection{Optional argument}
+
+This issue can be fixed in \verb|font-latex.el| by extending the
+regexp for \verb|verb| macros with delimiters/braces in
+\verb|`font-latex-set-syntactic-keywords'| with:
+\begin{quote}
+  \verb|"\\(?:\\[[^][]*\\(?:\\[[^][]*\\][^][]*\\)*\\]\\)?"|
+\end{quote}
+The same line is used for matching optional arguments in verbatim
+environments.
+
+\section{The result}
+
+\subsection{Vanilla \LaTeX}
+
+Some text \verb|verb input|, % comment
+$a+b$ and \verb*"verb input" % comment
+
+\subsection{listings package}
+
+Some text \lstinline|verb input with delims|, % comment
+$a+b$ \lstinline[showspaces,basicstyle=\ttfamily]/verb input with delims/, % comment
+%
+\lstinline[%
+basicstyle=\sffamily]!multiline in opt. arg!, % comment
+%
+\lstinline[%
+basicstyle=\sffamily
+]-multiline in opt. arg- % comment
+
+Some text \lstinline{verb input with braces}, % comment
+$a+b$ \lstinline[showspaces]{verb input with braces}, % comment
+%
+\lstinline[%
+basicstyle=\sffamily]{multiline in opt. arg}, % comment
+%
+\lstinline[
+basicstyle=\sffamily
+]{multiline in opt. arg} % comment
+
+\subsection{minted package}
+
+Some text \mint{text}|verb input| % comment
+$a+b$ \mint[showspaces]{text}/verb input/ % comment
+Some text \mint[
+showspaces
+]{text}!verb input! % comment
+Some text \mint[showspaces]{%
+  text%
+}+verb input+ % comment
+
+\newmint{text}{showspaces} %
+\text|verb input| and \text[showspaces=false]|verb input| % comment
+
+\newmint[mytext]{text}{showspaces} %
+\mytext|verb input| and \mytext[%
+showspaces=false
+]|verb input| % comment
+
+Some text \mintinline{text}|verb input| % comment
+$a+b$ \mintinline[showspaces]{text}|verb input| % comment
+Some text \mintinline[
+showspaces
+]{text}|verb input| % comment
+Some text \mintinline[showspaces]{%
+  text%
+}|verb input| % comment
+
+\newmintinline{text}{showspaces} %
+\textinline|verb input with delims| and \textinline[%
+showspaces=false
+]|verb input with delims| % comment
+
+\textinline{verb input with braces} and \textinline[%
+showspaces=false
+]{verb input with braces} % comment
+
+\newmintinline[mytextinline]{text}{showspaces} %
+\mytextinline|verb input with delims| and \mytextinline[%
+showspaces=false
+]|verb input with delims|
+
+\mytextinline{verb input with braces} and \mytextinline[%
+showspaces=false
+]{verb input with braces}
+
+\subsection{fancyvrb package}
+
+Some text \Verb|verb input| and % comment
+\Verb[showspaces]|verb input| and \Verb[
+showspaces
+]|verb input|
+
+Some text \Verb!verb input! and % comment
+\Verb[showspaces]"verb input" and \Verb[
+showspaces
+]#verb input#
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:

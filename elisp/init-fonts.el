@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:32:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:05:49 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Sat Jan  4 10:07:10 2020 (-0500)
+;;           By: Dagnachew Argaw
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d fonts
 ;; Compatibility: emacs-version >= 26.1
@@ -42,7 +42,7 @@
 
 ;; FontsList
 ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
-(defvar font-list '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
+(defvar font-list '(("Iosevka" . 17) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
   "List of fonts and sizes.  The first one available will be used.")
 ;; -FontsList
 

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: defrecord
+# key: defr
+# --
+(defrecord
+  ^{"$1"}$>
+  $2$>
+  [$3]$>
+  $0)$>

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# contributor: Li Zhu <http://www.zhuli.name>
+# name: double complex
+# --
+double complex $0

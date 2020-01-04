@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# contributor: Li Zhu <http://www.zhuli.name>
+# name: if then end if
+# --
+if ( ${1:condition} ) then
+   $0
+end if

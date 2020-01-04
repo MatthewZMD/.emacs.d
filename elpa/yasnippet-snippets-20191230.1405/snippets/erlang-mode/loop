@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: loop(...) -> receive _ -> loop(...) end.
+# --
+${1:loop}($2) ->
+    receive
+	${3:_} ->
+	    $1($2)
+    end.
+$0

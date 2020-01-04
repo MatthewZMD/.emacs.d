@@ -1,0 +1,22 @@
+
+;; ----- amx-history -----
+(
+ customize-group
+ doom-modeline-mode
+ split-window-right
+ describe-package
+ describe-theme
+ menu-bar-mode
+ company-tabnine-install-binary
+)
+
+;; ----- amx-data -----
+(
+ (company-tabnine-install-binary . 3)
+ (menu-bar-mode . 2)
+ (customize-group . 3)
+ (describe-theme . 1)
+ (describe-package . 1)
+ (split-window-right . 1)
+ (doom-modeline-mode . 2)
+)

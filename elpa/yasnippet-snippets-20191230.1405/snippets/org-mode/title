@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: title
+# key: <ti
+# --
+#+title: $0

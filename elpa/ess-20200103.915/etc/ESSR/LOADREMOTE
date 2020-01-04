@@ -1,0 +1,24 @@
+## -*- mode: R -*-
+## loading code which is first sent to R on remote sessions
+local({
+    ver <- '%s' ## <- passed from elisp
+    root <- '~/.config/ESSR'
+    if(!file.exists(root))
+        dir.create(root, recursive = TRUE)
+    ## cannot use sprintf here
+    essr_file <- file.path(root, paste('ESSRv', ver, '.rds', sep = ''))
+    tryCatch({
+        if(!file.exists(essr_file)) {
+            url <- paste('https://github.com/emacs-ess/ESS/raw/ESSRv', ver, '/etc/ESSR.rds', sep = '')
+            utils::download.file(url, essr_file)
+        }
+        ESSR <- readRDS(essr_file)
+        ESSR[[".ess.Rversion"]] <- ESSR[[".ess.getRversion"]]()
+        attach(ESSR)
+        print(TRUE)
+    },
+    error = function(e) {
+      print(e)
+      print(FALSE)
+    })
+})

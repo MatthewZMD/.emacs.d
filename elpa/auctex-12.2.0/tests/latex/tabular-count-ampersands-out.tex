@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{tabularx,tabulary,longtable,dcolumn,siunitx}
+\begin{document}
+
+Standard LaTeX tabular:
+\begin{tabular}[t]{llll}
+  1 & 2 & 3 & LaTeX-insert-item \\
+    &&&
+\end{tabular}
+
+LaTeX tabular with *-operator:
+\begin{tabular}[t]{*{3}{l}r}
+  1 & 2 & 3 & LaTeX-insert-item \\
+    &&&
+\end{tabular}
+
+\begin{tabular}{*{3}{l}>{\tiny\hfill}l<{\hfill}}
+  1 & 2 & 3 & LaTeX-insert-item \\
+    &&&
+\end{tabular}
+
+\begin{tabular}[t]{*{3}{lc}r}
+  1 & 2 & 3 & 4 & 5 & 6 & LaTeX-insert-item \\
+    &&&&&&
+\end{tabular}
+
+\begin{tabular}[t]{*{3}{lc*{2}{l}} r}
+  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & LaTeX-insert-item \\
+    &&&&&&&&&&&&
+\end{tabular}
+
+Standard LaTeX tabular*:
+\begin{tabular*}{1.0\linewidth}[t]{@{}lllr@{}}
+  1 & 2 & 3 & LaTeX-insert-item \\
+    &&&
+\end{tabular*}
+
+\begin{tabular*}{1.0\linewidth}[t]{@{}*{3}{|l}|r|}
+  1 & 2 & 3 & LaTeX-insert-item \\
+    &&&
+\end{tabular*}
+
+tabularx:
+\begin{tabularx}{1.0\linewidth}{llX}
+  1 & 2 & LaTeX-insert-item \\
+    &&
+\end{tabularx}
+
+\begin{tabularx}{1.0\linewidth}[t]{@{}>{\tiny\hfill}l<{\hfill}lX@{}}
+  1 & 2 & LaTeX-insert-item \\
+    &&
+\end{tabularx}
+
+\begin{tabularx}{1.0\linewidth}[t]{*{3}{|>{\tiny\hfill}X<{\hfill}}l}
+  1 & 2 & 3 & LaTeX-insert-item \\
+    &&&
+\end{tabularx}
+
+longtable:
+\begin{longtable}[l]{llr}
+  \caption{Some caption}\\
+  1 & 2 & LaTeX-insert-item \\
+    &&
+\end{longtable}
+
+\begin{longtable}[c]{*{3}{l}r}
+  \caption{Some caption}\\
+  1 & 2 & 3 & LaTeX-insert-item \\
+    &&&
+\end{longtable}
+
+\begin{longtable}[r]{*{3}{lc*{2}{l}} r}
+  \caption{Some caption}\\
+  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & LaTeX-insert-item \\
+    &&&&&&&&&&&&
+\end{longtable}
+
+dcolumn:
+\begin{tabular}{D{,}{,}{2}D{,}{,}{2}D{,}{,}{2}}
+  1 & 2 & LaTeX-insert-item \\
+    &&
+\end{tabular}
+
+\begin{tabular}{*{3}{D{,}{,}{2}}}
+  1 & 2 & LaTeX-insert-item \\
+    &&
+\end{tabular}
+
+siunitx:
+\begin{tabular}{%
+  s
+  S[table-number-alignment = center]
+  s[table-number-alignment = left]
+  S[table-number-alignment = right]
+  }
+  1 & 2 & 3 & LaTeX-insert-item \\
+    &&&
+\end{tabular}
+
+\end{document}

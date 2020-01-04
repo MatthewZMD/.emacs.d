@@ -1,0 +1,1933 @@
+This is allnews.info, produced by makeinfo version 6.5 from
+allnews.texi.
+
+Changes and New Features in 19.04 (unreleased):
+
+   * ESS[R]: There is a new menu entry for reloading the R process.  It
+     is otherwise bound to 'C-c C-e C-r'.  Reloading now reuses the same
+     process name and start arguments that were used to start the
+     process.
+
+   * iESS: Process runners now return the inferior buffer.  Note that
+     callers of inferior runners should not assume that the current
+     buffer has been set to the inferior buffer.  Instead, use
+     'with-current-buffer' with the return value of the inferior.
+
+   * iESS[SAS]: The SAS keymap was only set in iESS buffers called
+     '*SAS*'.  This is now fixed.
+
+   * ESS[R]: Fixed longstanding indentation issues involving '::' and
+     ':::' operators.
+
+   * Implement a more reliable check for the process busy state.
+     Background actions such as completion and directory synchronization
+     should not block the process and should not cause printing of the
+     extraneous output to the interpreter.
+
+   * Activate 'goto-address-mode' for url and email highlighting in
+     inferior buffers.
+
+   * 'smart-underscore' and 'ess-smart-S-assign-key' have been removed.
+     Users who liked the previous behavior (i.e.  underscore inserting
+     "<-") should bind 'ess-insert-assign' to the underscore in their
+     Emacs initialization file.  For example, '(define-key
+     ess-r-mode-map "_" #'ess-insert-assign)' and '(define-key
+     inferior-ess-r-mode-map "_" #'ess-insert-assign)' will activate it
+     in all ESS R buffers.
+
+   * ESS major modes are now defined using 'define-derived-mode'.  This
+     makes ESS major modes respect modern conventions such as having
+     <language>-mode-hook and <language>-mode-map.  Users are encouraged
+     to place customizations under the appropriate mode.
+
+   * New option ess-auto-width controls setting the width option on
+     window changes.  Users can change it to 'frame, 'window, or an
+     integer.  See the documentation for details.
+     'ess-auto-width-visible' controls visibility.
+
+   * ESS now respects 'display-buffer-alist'.  Users can now use
+     'display-buffer-alist' to manage how and where windows appear.  See
+     *Note (ess)Controlling buffer display:: for more information and
+     examples.
+
+   * 'ess-roxy-mode' can now be enabled in non-R buffers.  This is
+     primarily intended to support roxygen documentation for cpp
+     buffers.  Preview functionality is not supported outside R buffers.
+
+   * ESS[R]: DESCRIPTION files now open in 'conf-colon-mode'.
+
+   * 'ess-style' now has effects when set as a file or directory local
+     variable.
+
+   * 'ess-default-style' is now obsolete, use 'ess-style' instead.
+
+   * Options for 'ess-gen-proc-buffer-name-function' have been renamed.
+     ess-gen-proc-buffer-name:projectile-or-simple was renamed to
+     ess-gen-proc-buffer-name:project-or-simple and
+     ess-gen-proc-buffer-name:projectile-or-directory was renamed to
+     ess-gen-proc-buffer-name:project-or-directory.  As the name
+     suggests, these now rely on project.el (included with Emacs) rather
+     than projectile.el, which is a third-party package.
+
+   * ESS[R]: devtools commands ask about saving modified buffers before
+     running.  Users can disable the questioning with
+     'ess-save-silently'.
+
+   * ESS[R] help pages now provide links to other help topics.  This is
+     similar with what you would see with, for example
+     'options(help_type = ``html'')' but works with the plain-text
+     version as well.  This only works with 'options(useFancyQuotes =
+     TRUE)' (the default).
+
+   * 'ess-rdired' buffers now derive from tabulated-list-mode.  They
+     should look better and be a bit faster overall.  The size column
+     now displays object sizes in bytes.
+
+   * 'ess-rdired' buffers now auto-update.  The frequency is governed by
+     the new option 'ess-rdired-auto-update-interval'.
+
+   * ESS[R]: 'electric-layout-mode' is now supported.  This
+     automatically inserts a newline after an opening curly brace in R
+     buffers.  To enable it, customize 'ess-r-mode-hook'.
+
+   * ESS[R]: imenu now supports assignment with the equals sign.
+
+   * ESS[Rd]: Rd no longer writes abbrevs to user's abbrev file.
+
+   * ESS removed support for many unused languages.  This includes old
+     versions of S+, ARC, OMG, VST, and XLS.
+
+   The following have been made obsolete or removed, see their
+documentation for more detail:
+
+   * Libraries for literate data analysis are obsolete and not loaded by
+     default.  This includes 'ess-noweb', 'ess-swv', and related
+     functionality like 'Rnw-mode'.  Users are encouraged to switch to
+     one of several other packages that deal with these modes.  For
+     example, polymode <https://github.com/polymode/poly-R/>,
+     <https://polymode.github.io/>, or markdown-mode with edit-indirect
+     <https://jblevins.org/projects/markdown-mode>.
+
+   * Support for 'auto-complete' is obsolete.  The 'auto-complete'
+     package is unmaintained and so ESS support is now obsolete.  Users
+     are encouraged to switch to 'company-mode' instead.
+
+   * User options for controlling display of buffers.  This includes
+     'ess-show-buffer-action', 'inferior-ess-same-window',
+     'inferior-ess-own-frame', and 'inferior-ess-frame-alist'.  See
+     above about ESS respecting 'display-buffer-alist'.
+
+   * Variables 'ess-tab-always-indent' and 'ess-tab-complete-in-script'.
+     Use the Emacs-wide setting of 'tab-always-indent' instead.
+
+   * 'inferior-ess-*-start-file' variables.  All modes except Stata did
+     not respect customization of this variable.  In order to load a
+     file on startup, you should put a function on
+     'ess-*-post-run-hook'.
+
+   Bug Fixes in 18.10.3:
+   * More 'Makefile' fixes, notably installing '*.el's.
+
+   Bug Fixes in 18.10.2:
+   * ESS[R] Fix namespace evaluation in non-installed packages.
+     Evaluation is directed into GlobalEnv as originally intended.
+   * 'Makefile' fixes, notably for 'make install' and including full
+     docs in the tarballs.
+
+   Bug Fixes in 18.10-1:
+   * New functions 'ess-eval-line-visibly-and-step' ('C-c C-n' and
+     'ess-eval-region-or-line-visibly-and-step' ('C-RET') which behave
+     as the old versions of 'ess-eval-line-and-step' and
+     'ess-eval-region-or-line-and-step'.
+
+   Changes and New Features in 18.10:
+
+   * This is the last release to support Emacs older than 25.1.  Going
+     forward, only GNU Emacs 25.1 and newer will be supported.  Soon
+     after this release, support for older Emacs versions will be
+     dropped from the git master branch.  Note that MELPA uses the git
+     master branch to produce ESS snapshots, so if you are using Emacs <
+     25.1 from MELPA and are unable to upgrade, you should switch to
+     MELPA-stable.
+
+   * ESS now displays the language dialect in the mode-line.  So, for
+     example, R buffers will now show ESS[R] rather than ESS[S].
+
+   * The ESS manual has been updated and revised.
+
+   * The ESS initialization process has been further streamlined.  If
+     you update the autoloads (which installation from 'package-install'
+     does), you should not need to '(require 'ess-site)' at all, as
+     autoloads should automatically load ESS when it is needed (e.g.
+     the first time an R buffer is opened).  In order to defer loading
+     your ESS config, you may want to do something like
+     '(with-require-after-load "ess" <ess-config-here>)' in your Emacs
+     init file.  Users of the popular 'use-package' Emacs package can
+     now do '(use-package ess :defer t)' to take advantage of this
+     behavior.  *Note (ess)Activating and Loading ESS:: for more
+     information on this feature.
+
+   * ESS now respects Emacs conventions for keybindings.  This means
+     that The 'C-c [letter]' bindings have been removed.  This affects
+     'C-c h', which was bound to 'ess-eval-line-and-step-invisibly' in
+     'sas-mode-local-map'; 'C-c f', which was bound to
+     'ess-insert-function-outline' in 'ess-add-MM-keys'; and 'C-c h',
+     which was bound to 'ess-handy-commands' in 'Rd-mode-map',
+     'ess-noweb-minor-mode-map', and 'ess-help-mode-map'
+
+   * Functions 'ess-eval-line-and-step' and
+     'ess-eval-region-or-line-and-step' now behave consistently with
+     other evaluation function inside a package.
+
+   * ESS[R]: 'ess-r-package-use-dir' now works with any mode.  This sets
+     the working directory to the root of the current package including
+     for example C or C++ files within '/src').
+
+   * ESS[R]: Long + + prompts in the inferior no longer offset output.
+
+   * ESS[R]: New option 'strip' for 'inferior-ess-replace-long+'.  This
+     strips the entire + + sequence.
+
+   * ESS modes now inherit from 'prog-mode'.  In the next release, ESS
+     modes will use 'define-derived-mode' so that each mode will have
+     (for example) its own hooks and keymaps.
+
+   * ESS[R]: Supports flymake in R buffers for Emacs 26 and newer.
+     Users need to install the 'lintr' package to use it.  Customizable
+     options include 'ess-use-flymake', 'ess-r-flymake-linters', and
+     'ess-r-flymake-lintr-cache'.
+
+   * ESS[R]: Gained support for xref in Emacs 25+.  *Note (emacs)Xref::
+
+   * ESS[R]: The startup screen is cleaner.  It also displays the
+     startup directory with an explicit 'setwd()'.
+
+   * ESS[R]: Changing the working directory is now always reflected in
+     the process buffer.
+
+   * ESS[R]: 'Makevars' files open with 'makefile-mode'.
+
+   * New variable 'ess-write-to-dribble'.  This allows users to disable
+     the dribble ('*ESS*') buffer if they wish.
+
+   * All of the '*-program-name' variables have been renamed to
+     '*-program'.  Users who previously customized e.g.
+     'inferior-ess-R-program-name' will need to update their
+     customization to 'inferior-ess-R-program'.  These variables are
+     treated as risky variables.
+
+   * 'ess-smart-S-assign' was renamed to 'ess-insert-assign'.  It
+     provides similar functionality but for any keybinding, not just
+     '_'.  For instance if you bind it to ';', repeated invocations
+     cycle through between assignment and inserting ';'.
+
+   * 'C-c C-=' is now bound to 'ess-cycle-assign' by default.  See the
+     documentation for details.  New user customization option
+     'ess-assign-list' controls which assignment operators are cycled.
+
+   * ESS[R] In remote sessions, the ESSR package is now fetched from
+     GitHub.
+
+   * Commands that send the region to the inferior process now deal with
+     rectangular regions.  See the documentation of 'ess-eval-region'
+     for details.  This only works on Emacs 25.1 and newer.
+
+   * ESS[R]: Improvements to interacting with iESS in non-R files.
+     Interaction with inferior process in non-R files within packages
+     (for instance C or C++ files) has been improved.  This is a work in
+     progress.
+
+   * ESS[R]: Changing the working directory is now always reflected in
+     the process buffer.
+
+   * ESS[JAGS]: *.jog and *.jmd files no longer automatically open in
+     JAGS mode.
+
+   Many improvements to fontification:
+
+   * Improved customization for faces.  ESS now provides custom faces
+     for (nearly) all faces used and places face customization options
+     into their own group.  Users can customize these options using 'M-x
+     customize-group RET ess-faces'.
+
+   * Many new keywords were added to 'ess-R-keywords' and
+     'ess-R-modifiers'.  See the documentation for details.
+
+   * ESS[R]: 'in' is now only fontified when inside a 'for' construct.
+     This avoids spurious fontification, especially in the output buffer
+     where 'in' is a common English word.
+
+   * ESS: Font-lock keywords are now generated lazily.  That means you
+     can now add or remove keywords from variables like 'ess-R-keywords'
+     in your Emacs configuration file after loading ESS (i.e.  in the
+     ':config' section for 'use-package' users).
+
+   * ESS[R]: Fontification of roxygen '@param' keywords now supports
+     comma-separated parameters.
+
+   * ESS[R]: Certain keywords are only fontified if followed by a
+     parenthesis.  Function-like keywords such as 'if ()' or 'stop()'
+     are no longer fontified as keyword if not followed by an opening
+     parenthesis.  The same holds for search path modifiers like
+     'library()' or 'require()'.
+
+   * ESS[R]: Fixed fontification toggling.  Especially certain syntactic
+     elements such as '%op%' operators and backquoted function
+     definitions.
+
+   * ESS[R]: 'ess-font-lock-toggle-keyword' can be called interactively.
+     This command asks with completion for a font-lock group to toggle.
+     This functionality is equivalent to the font-lock menu.
+
+   Notable bug fixes:
+
+   * 'prettify-symbols-mode' no longer breaks indentation.  This is
+     accomplished by having the pretty symbols occupy the same number of
+     characters as their non-pretty cousins.  You may customize the new
+     variable 'ess-r-prettify-symbols' to control this behavior.
+
+   * ESS: Inferior process buffers are now always displayed on startup.
+     Additionally, they don't hang Emacs on failures.
+
+   Obsolete libraries, functions, and variables:
+
+   * The 'ess-r-args.el' library has been obsoleted and will be removed
+     in the next release.  Use 'eldoc-mode' instead, which is on by
+     default.
+
+   * Functions and options dealing with the smart assign key are
+     obsolete.  The following functions have been made obsolete and will
+     be removed in the next release of ESS: 'ess-smart-S-assign',
+     'ess-toggle-S-assign', 'ess-toggle-S-assign-key',
+     'ess-disable-smart-S-assign'.
+
+     The variable 'ess-smart-S-assign-key' is now deprecated and will be
+     removed in the next release.  If you would like to continue using
+     '_' for inserting assign in future releases, please bind
+     'ess-insert-assign' in 'ess-mode-map' the normal way.
+
+   * ESS[S]: Variable 'ess-s-versions-list' is obsolete and ignored.
+     Use 'ess-s-versions' instead.  You may pass arguments by starting
+     the inferior process with the universal argument.
+
+   Changes and New Features in 17.11:
+
+   * The ESS initialization process has been streamlined.  You can now
+     load the R and Stata modes independently from the rest of ESS. Just
+     put '(require 'ess-r-mode)' or '(require 'ess-stata-mode)' in your
+     init file.  This is for experienced Emacs users as this requires
+     setting up autoloads for '.R' files manually.  We will keep
+     maintaining 'ess-site' for easy loading of all ESS features.
+
+   * Reloading and quitting the process is now more robust.  If no
+     process is attached, ESS now switches automatically to one
+     (prompting you for selection if there are several running).
+     Reloading and quitting will now work during a debug session or when
+     R is prompting for input (for instance after a crash).  Finally,
+     the window configuration is saved and restored after reloading to
+     prevent the buffer of the new process from capturing the cursor.
+
+   * ESS[R]: New command 'ess-r-package-use-dir'.  It sets the working
+     directory of the current process to the current package directory.
+
+   * ESS[R] Lookup for references in inferior buffers has been improved.
+     New variable 'ess-r-package-source-roots' contains package
+     sub-directories which are searched recursively during the file
+     lookup point.  Directories in 'ess-tracebug-search-path' are now
+     also searched recursively.
+
+   * ESS[R] Namespaced evaluation is now automatically enabled only in
+     the 'R/' directory.  This way ESS will not attempt to update
+     function definitions from a package if you are working from e.g.  a
+     test file.
+
+   Changes and New Features in 16.10:
+
+   * ESS[R]: Syntax highlighting is now more consistent.  Backquoted
+     names are not fontified as strings (since they really are
+     identifiers).  Furthermore they are now correctly recognized when
+     they are function definitions or function calls.
+   * ESS[R]: Backquoted names and '%op%' operators are recognized as
+     sexp.  This is useful for code navigation, e.g.  with 'C-M-f' and
+     'C-M-b'.
+   * ESS[R]: Integration of outline mode with roxygen examples fields.
+     You can use outline mode's code folding commands to fold the
+     examples field.  This is especially nice to use with well
+     documented packages with long examples set.  Set
+     'ess-roxy-fold-examples' to non-nil to automatically fold the
+     examples field when you open a buffer.
+   * ESS[R]: New experimental feature: syntax highlighting in roxygen
+     examples fields.  This is turned off by default.  Set
+     'ess-roxy-fontify-examples' to non-nil to try it out.
+   * ESS[R]: New package development command 'ess-r-devtools-ask' bound
+     to 'C-c C-w C-a'.  It asks with completion for any devtools command
+     that takes 'pkg' as argument.
+   * ESS[R]: New command 'C-c C-e C-r' to reload the inferior process.
+     Currently only implemented for R. The R method runs
+     'inferior-ess-r-reload-hook' on reloading.
+   * ESS[R]: 'ess-r-package-mode' is now activated in non-file buffers
+     as well.
+
+   Bug fixes in 16.10:
+   * ESS[R]: Fix broken (un)flagging for debugging inside packages
+   * ESS[R]: Fixes (and improvements) in Package development
+   * ESS[R]: Completion no longer produces '...=' inside 'list( )'.
+   * ESS[R]: Better debugging and tracing in packages.
+   * ESS[R]: Better detection of symbols at point.
+   * ESS[R]: No more spurious warnings on deletion of temporary files.
+   * ESS[julia]: help and completion work (better)
+   * ESS[julia]: available via 'ess-remote'
+
+   Changes and New Features in 16.04:
+
+   * ESS[R]: 'developer' functionality has been refactored.  The new
+     user interface consists of a single command
+     'ess-r-set-evaluation-env' bound by default to 'C-c C-t C-s'.  Once
+     an evaluation environment has been set with, all subsequent ESS
+     evaluation will source the code into that environment.  By default,
+     for file within R packages the evaluation environment is set to the
+     package environment.  Set 'ess-r-package-auto-set-evaluation-env'
+     to 'nil' to disable this.
+   * ESS[R]: New 'ess-r-package-mode' This development mode provides
+     features to make package development easier.  Currently, most of
+     the commands are based on the 'devtools' packages and are
+     accessible with 'C-c C-w' prefix.  See the documentation of
+     'ess-r-package-mode' function for all available commands.  With
+     'C-u' prefix each command asks for extra arguments to the
+     underlying devtools function.  This mode is automatically enabled
+     in all files within R packages and is indicated with '[pkg:NAME]'
+     in the mode-line.
+   * ESS[R]: Help lookup has been improved.  It is now possible to get
+     help for namespaced objects such as pkg::foobar.  Furthermore, ESS
+     recognizes more reliably when you change 'options('html_type')'.
+   * ESS[R]: New specialized breakpoints for debugging magrittr pipes
+   * ESS: ESS now implements a simple message passing interface to
+     communicate between ESS and inferior process.
+
+   Bug fixes in 16.04:
+   * ESS[R]: Roxygen blocks with backtics are now correctly filled
+   * ESS[R]: Don't skip breakpoints in magrittr's 'debug_pipe'
+   * ESS[R]: Error highlighting now understands 'testthat' type errors
+   * ESS[Julia]: Added getwd and setwd generic commands
+
+   Changes and New Features in 15.09:
+
+   * ESS[R]: The indentation logic has been refactored.  It should be
+     faster, more consistent and more flexible.  There are three types
+     of indentation settings, those starting with 'ess-offset-' give the
+     actual offsets, those starting with 'ess-indent-' are control
+     (commonly Boolean) variables, and those starting with 'ess-align-'
+     are vertical alignment overrides which inhibit default offsets in
+     specific situations.  See 'ess-style-alist' for detailed
+     description of the new indentation system and provided default
+     indentation styles.
+
+   * ESS[R]: Deprecation of old indentation settings.  As a consequence
+     of the indentation re-factoring 'ess-brace-imaginary-offset',
+     'ess-expression-offset' and all delimiter-specific offsets are
+     deprecated.  The settings for indentation of continued statements
+     have been replaced by 'ess-offset-continuations'.  It can be set to
+     either 'cascade' or 'straight' (the default).
+     'ess-arg-function-offset' has been replaced by
+     'ess-indent-from-lhs' and has been generalised to assignments.
+     This setting now works with both statement blocks and expressions
+     and only takes effect for offsets set to 'prev-call' and
+     'open-delim' in order to produce a consistent indentation.
+
+   * ESS: A test framework has been set up.
+
+   * ESS[R]: A new RStudio style is provided to mimic as closely as
+     possible R files indented via RStudio.  To reproduce the setup of
+     some of the RStudio users, the RStudio- style with
+     'ess-offset-arguments' set to 'prev-line' is also provided.  In
+     addition, the new RRR+ style is equivalent to RRR except it indents
+     blocks in function calls relatively to the opening delimiter.  This
+     style does not try to save horizontal space and produces more
+     indentation.
+
+   * ESS[R]: Roxygen fields will now be indented on paragraph refilling
+     in order to make the documentation more readable.  You can also
+     refill commented lines in the 'examples' field without squashing
+     the surrounding code in the comments.
+
+   * ESS[R]: ESS can now format your code!  This is controlled through
+     the settings 'ess-fill-calls' and 'ess-fill-continuations'.  When
+     activated, '(fill-paragraph)' formats your calls and your
+     formulas/continuations while making sure they don't go past
+     'fill-column'.  Repeated refills cycle through different styles
+     (see the docstrings for more details).  By default, the refilled
+     region blinks.  Set 'ess-blink-filling' to nil to prevent this.
+
+   * ESS[R]: Fix occasional missing error location fontification in
+     inferior buffers.
+
+   * ESS[R]: ess-developer now correctly assigned the environment of new
+     functions to the package namespace.
+
+   * ESS[Julia]: ?[topic] now works in the *julia* buffer.  Note that
+     support for editing Julia code now depends on 'julia-mode.el' from
+     the Julia project.  If you install ESS from the official
+     tarball/zip file, 'julia-mode.el' is already included.  Otherwise,
+     if you install ESS by running 'make', then the latest version of
+     'julia-mode.el' is downloaded (and so you need an active internet
+     connection to install) during the installation process.
+     Alternatively, if you run ESS without running 'make', then ensure
+     that you have the 'julia-mode.el', which you can get easily from
+     MELPA for example.
+
+   * iESS: For naming inferior processes, ESS can use 'projectile''s
+     project root and it does so when
+     'ess-gen-proc-buffer-name-function' is set to
+     'ess-gen-proc-buffer-name:projectile-or-simple' as by default, or
+     to another value beginning with
+     'ess-gen-proc-buffer-name:projectile-*'.
+
+   Changes and New Features in 15.03-1:
+   * ESS[R]: An indentation bug has been fixed (github issue 163)
+   * ESS[R]: On windows, if 'ess-prefer-higher-bit' is non-nil (the
+     default), then R-newest will try to run a 64 bit (rather than 32
+     bit) version of R.
+
+   Changes and New Features in 15.03:
+   * ESS[R]: Full native support for 'company-mode'.
+   * ESS[R]: More efficient caching algorithm for R completion.
+   * ESS: New offset variable 'ess-close-paren-offset' to control the
+     indentation of the closing parentheses.
+   * ESS[R]: Ask for CRAN mirror only once per emacs session.
+   * ESS[R]: Detect 'library' and 'require' calls for better completion
+     caching.
+   * Buffer display is now customizable ('ess-show-buffer-action').
+   * Use 'y-or-n-p' instead of 'yes-or-no-p' throughout.
+   * More support for ODS in ess-sas-graph-view.
+   * Makefiles are now both UNIX and GNU friendly.
+   * ESS[R]: Simplify directory lookup in 'ess-developer' (#137).
+   * Make closed paren indentation consistent
+
+   Bug Fixes in 15.03:
+   * Fix open brace indentation bug (#27 in ess/R-ESS-bugs.R).
+   * Fix git version lookup
+   * Don't check directory modtime in R dialect.
+   * Declare all ess macros for edebug.
+   * Add 'ess-smart-comma' to eldoc message functions.
+   * Inform users when retrieving RDA aliases.
+   * Line ending in '~' is also a continuation line.
+   * Filing roxy paragraphs works as expected now.
+   * In 'ess-developer-add-package', remove incorrect 'wait' argument
+     from 'ess-get-words-from-vector' call.
+   * Fix #96, #117, #120, #125, #134, #137.
+   * Fix ess-quit-r.  Call base::q() even if it is masked.
+   * Fix 'ess-show-buffer' to always display the buffer in another
+     window.
+   * Makefile: Fix cd bug for directories with spaces in them
+   * 'ess-kill-buffer-and-go' modified to not restart R
+
+   Changes / Selected Bug Fixes in 14.09:
+   * ESS[Julia]: Executable is changed to 'julia'.
+   * ESS[Julia]: Completion and help system was adjusted to Julia
+     v.0.3.0.  Julia v.0.2.x is no more supported.
+   * ESS[R]: Running R with 'gdb' debugger now works as expected
+   * iESS: Inferior ESS buffers are now derived from 'comint-mode'
+   * ESS[R]: 'ess-execute-screen-options' uses correct screen width in
+     terminal sessions
+   * ESS: 'ess-build-tags-for-directory' works when no TAGS file name
+     was provided
+   * ESS: 'ess-offset-statement-continued' is now respected everywhere
+     except inside of the 'if' test condition.
+   * ESS: New variable 'ess-offset-statement-first-continued' for
+     indentation of the first line in multiline statements.
+   * ESSR: Starting ',' in multiline statements indentation is now
+     ignored to achieve a more pleasant alignment.
+   * ESSR: Improved behavior of 'RET' in roxygen blocks.
+   * ESS[R]: command cleaning with 'C-u C-u C-y' was broken with lines
+     containing " + "
+   * ESS[R]: fixed "empty watch window bug"
+   * ESS[R]: don't ask for help location on ac-quick-help (request of
+     github #81)
+   * ESS[R]: "importClassesFrom" and "importMethodsFrom" were added to
+     the list of two-parameter roxygen commands
+   * ESS[R]: fix vignetes display and hyperlinks (were broken in
+     13.09-1)
+   * ESS[Julia]: recognize function names ending with !
+   * ESS[Julia]: fix indentation of "for" comprehension syntax within
+     brackets.
+
+   Changes / Selected Bug Fixes in 13.09-1:
+   * ess-remote and TRAMP: R support code is now downloaded in binary
+     form instead of being injected from local machine.  The R code is
+     stored in '~/.config/ESSR/' directory on the remote machine
+   * TRAMP: PAGER environment variable is now correctly set to
+     'inferior-ess-pager'
+   * retrieval of help topics on remote machines is fixed
+   * org-babel: source references of R code executed from org files
+     correctly point to source references in original org files (version
+     8.2.1 or higher of org-mode is required for this feature)
+   * 'ess-execute' is now bound to 'C-c C-e C-e' in 'ess-extra-map'.
+   * completion works again in 'ess-execute'
+   * ESS[R]: 'head' and 'tail' methods were replaced by '.ess_htsummary'
+     in 'ess-R-describe-object-at-point-commands'
+   * ESS[roxygen]: evaluation commands now work in roxygen blocks.
+     Leading comments are automatically removed before the evaluation
+   * ESS[transcript]: 'Clean Region' now works with multiline
+     statements; 'ess-transcript-clean-region' etc.  correctly treat
+     multiline statements, i.e., no longer forgets the lines typically
+     preceded by '+'
+   * ESS[SAS]: Three features/fixes with special thanks to Matthew
+     Fidler https://github.com/emacs-ess/ESS/pulls/mlf176f2
+     (https://github.com/emacs-ess/ESS/pulls/mlf176f2).  Turn on SAS log
+     mode when appropriate.  Indent comments and CARDS statement more
+     appropriately.
+   * ESS[SAS]: 'ess-sas-edit-keys-toggle' default returns to 'nil'
+   * ESS[R]: support for 'prettify-symbols-mode': contribution from
+     Rudiger Sonderfeld <https://github.com/emacs-ess/ESS/pull/65>
+   * ESS[SWV]: knitr now evaluates in the current frame
+   * ESS[developer]: ess-developer doesn't kill open DESCRIPTION files
+     anymore
+   * ESS[roxygen]: 'ess-roxy-preview-HTML' is now on 'C-c C-o C-w' and
+     'ess-roxy-preview-text' is now on 'C-c C-o C-t'
+   * ESS: installation with 'make install' was simplified and should
+     work out of the box on most *nix systems
+   * ESS installation instructions simplified
+   * fixed font-lock bug introduced in 13.09 that was causing very slow
+     process output
+
+   Changes/New Features in 13.09:
+   * font-lock in process buffers doesn't "spill" over prompts.  Missing
+     closing string delimiters should not cause wrong fontification of
+     the following command input.
+   * ESS[julia]: full features M-TAB completion and auto-complete
+     support, which now works for modules, structures and data types.
+   * ESS[julia]: a much better eldoc showing arguments of methods and
+     data type constructors
+   * ESS-developer:
+        - ESS-developer work-flow pattern has been streamlined:
+          ESS-developer is now automatically activated on per-file basis
+          if the file is part of a developed package
+          'ess-developer-packages'.  The old behavior (activation on
+          per-process basis) is still available on 'M-x ess-developer'
+          in a process buffer.
+        - integration with 'devtools' package.  New command
+          'ess-developer-load-package' calls 'load_all' on the package
+          containing current file.  'ess-developer-add-package' now
+          offers IDO menu completions with available loading methods,
+          currently 'library', and 'load_all'.  Loading command can be
+          customized with 'ess-developer-load-on-add-commands'.
+   * 'TAB' now indents region if region is active (a contribution of
+     Matthew Fidler in pull #41)
+   * 'M-x ess-version' now reports full loading path and recognizes git
+     and ELPA versions.
+   * warning and error keyword are now highlighted with
+     'font-lock-warning-face' as they should be, (for quite some time
+     these keywords have been hijacked by compilation mode
+     fontification).
+   * eldoc: Eldoc now recognizes multiple processes.  If current process
+     is busy, or current buffer is not associated with a process, eldoc
+     picks its completions from the first available free process.
+   * org-babel: evaluation is now org-friendly
+   * help: new help buffers now try to reuse ess-help buffers.  This
+     behavior is controlled by 'ess-help-reuse-window' custom variable.
+   * help: ?foo pops IDO menu on multiple help files (so far it worked
+     only for 'C-c C-v')
+   * remote evaluation is considerably faster now on slow connections
+   * ESS[R] tracebug R source references regular expressions are
+     (mostly) language agnostic.
+   * 'ess-function-call-face' inherits from
+     'font-lock-function-name-face' rather than
+     'font-lock-builtin-face'.
+   * 'ess-inject-source' now accepts 'function-and-buffer' option.
+   * Documentation: The "New Features" section (and 'NEWS') now
+     represent recent changes: within the last year or so.  All changes
+     can be found in the new news.html (news.html) (or 'NEWS' and
+     'ONEWS').
+   * ESS[R] 'ess-rep-regexp' should no longer inf.loop (rarely!), and
+     hence 'M-x ess-fix-miscellaneous' should neither.
+
+   Changes/New Features in 13.05:
+   * ESS[gretl]: Support for 'gretl' (both editing and sub-process
+     interaction).  A contribution of Ahmadou Dicko.
+   * ESS: process output display is 4-10 times faster due to new caching
+     and only occasional emacs re-display (for the moment this
+     functionality is available only when 'ess-tracebug' is active).
+   * ESS: 'C-c `' is now bound to 'ess-show-traceback' and 'C-c ~' is
+     bound to 'ess-show-call-stack'.
+   * ESS[R]: ESS stores function in 'ESSR' environment to avoid kludging
+     users' global environment and accidental deletion.
+   * ESS[R]: new variable 'ess-swv-processing-command' to control
+     weaving and tangling.
+   * ESS[R]: 'ess-default-style' has been changed (from 'DEFAULT') to
+     'RRR'.  Use something like '(setq ess-default-style 'DEFAULT)' or
+     '(setq ess-indent-level 2)' in your '~/.emacs' equivalent _before_
+     loading ESS, if you do not like this new "incompatible" default
+     style.
+   * ESS[julia]: ESS stores its functions in 'ESS' module.
+   * ESS[julia]: Eldoc is now supported in julia modes
+   * ESS[julia]: Adjusted error reference detection and interactive help
+     to julia internal changes
+   * ESS[R]: 'ess-use-tracebug''s default has been changed to 't'.  Set
+     it to nil if you want to keep the previous behavior.
+   * ESS[tracebug]: Electric debug keys have been removed [breaking
+     change] The functionality was replaced with 'ess-debug-minor-mode'
+     and 'ess-debug-minor-mode-map'.
+   * ESS[tracebug]: 'ess-tracebug-map' is an alias to 'ess-dev-map' 'C-c
+     C-t'.
+   * ESS[tracebug]: 'ess-bp-toggle-state' ('C-c C-t o') can now be used
+     during the debug session to toggle breakpoints on the fly
+     (suggestion by Ross Boylan).
+   * ESS[tracebug]: 'ess-debug-flag-for-debugging' and
+     'ess-debug-unflag-for-debugging' work correctly from the debugging
+     contexts.  These commands also recognize non-exported functions for
+     the packages listed in 'ess-developer-packages' ('C-c C-t C-a').
+
+   * ESS[R]: Eldoc (activated by 'ess-use-eldoc') has become more
+     sophisticated, and hence also more intruding in the interface
+     between the Statistics softare, e.g., R, and the user.
+
+     Note that you can turn off ElDoc, by placing '(setq ess-use-eldoc
+     nil)' in your '~/.emacs' file, prior to loading ESS,
+
+   * ESS[SAS]: long over-looked 'SAS-mode-hook' appears!
+   * ESS[SAS]: 'ess-sas-edit-keys-toggle' now defaults to 't' since
+     'sas-indent-line' is still broken, i.e.  'TAB' is now bound to
+     'ess-sas-tab-to-tab-stop' by default
+
+   Changes/Bug Fixes in 12.09-2:
+   * ESS: new 'ess-switch-to-end-of-proc-buffer' variable that controls
+     whether 'C-c C-z' switches to the end of process buffer.  The
+     default is 't'.  You can use prefix argument to 'C-c C-z' to toggle
+     this variable.
+   * ESS: fix in 'ess-eval-linewise' that was causing emacs to hang
+     during R debugging with 'ess-eval-visibly' equal to 't'.
+   * ESS: fix in 'ess-eval-linewise' that was causing emacs to recenter
+     the prompt in visible window
+   * ESS[tracebug]: A better handling of "Selection" prompts and debug
+     related singlekey commands.
+   * ESS: fix a bug in 'ess-switch-process' that was causing '*new*'
+     selection to fail.
+   * ESS[R]: Solve missing 'ess-local-process-name' bug in R-dired.
+   * ESS[SWV]: 'ess-swv-PDF' doesn't ask for a command to run if there
+     is only one command in 'ess-swv-pdflatex-commands'.
+   * ESS[SWV]: 'ess-swv-weave' gained an universal argument to allow for
+     an interactive choice between available weavers (sweave, knitr).
+   * ESS: 'ess-eval-*-and-step' functions go to next empty line at eob,
+     instead of staying at the last line.
+
+   Changes/New Features in 12.09-1:
+   * ESS _Breaking Changes in Keys_:
+
+        - New keymaps: 'ess-doc-map' bound to 'C-c C-d'; 'ess-extra-map'
+          bound to 'C-c C-e'; 'ess-dump-object-into-edit-buffer' was
+          moved on 'C-c C-e C-d'
+        - roxygen map was moved on 'C-c C-o' and 'ess-roxy-update-entry'
+          now resides on 'C-c C-o C-o'
+        - ess-handy-commands is not bound anymore
+        - 'ess-dev-map' (including 'ess-tracebug' and 'ess-developer')
+          moved on 'C-c C-t'
+        - 'C-c C-y' is deprecated in favor of 'C-c C-z C-z'
+   * ESS[R] new command 'ess-describe-object-at-point' bound to 'C-c C-d
+     C-e' (repeat 'C-e' or 'e' to cycle).  It was inspired by Erik
+     Iverson's 'ess-R-object-tooltip'.  Customize
+     'ess-describe-at-point-method' to use tooltip instead of an
+     electric buffer.
+   * ESS: New command 'ess-build-tags-for-directory' bound to 'C-c C-e
+     C-t' for building dialect specific tag tables.  After building tags
+     use 'M-.' to navigate to function and objects definitions.  By
+     default 'C-c C-e C-t' builds tags based on imenu regular
+     expressions and also include other common languages '.c, .o, .cpp'
+     etc.  But it relies on external 'find' and 'etags' commands.  If
+     'ess-build-tags-command' is defined (for 'R'), the inferior process
+     is asked to build tags instead.
+   * ESS: 'ess-switch-process' offers '*new*' alternative to start a new
+     process instead of switching to one of the currently running
+     processes.
+   * ESS: Switching between processes ('C-c C-s') uses buffer names
+     instead of the internal process names.  Use 'M-x rename-buffer'
+     command to conveniently rename your process buffers.
+   * ESS: Process buffers can be automatically named on process creation
+     according to user specified scheme.  Default schemes are *proc*,
+     *proc:dir* and *proc:abbr-long-dir* where 'proc' stands for the
+     internal process name and 'dir' stands for the directory where the
+     process was started in.  The default is *proc*.  For customization
+     see 'ess-gen-proc-buffer-name-function'.
+   * ESS: 'ess-eval-visibly-p' is deprecated in favor of
+     'ess-eval-visibly'.
+   * ESS: New evaluation pattern 'nowait'.  In addition to old 'nil' and
+     't' values, 'ess-eval-visibly' accepts 'nowait' for a visible
+     evaluation with no waiting for the process.  See 'ess-eval-visibly'
+     for details on evaluation patterns.
+   * ESS: New "Process" menu entry with process related commands and
+     configuration
+   * iESS: Process buffer is now automatically shown on errors
+   * ESS: New 'ess-switch-to-inferior-or-script-buffer' command bound to
+     'C-c C-z' in both script and process buffers.  If invoked form
+     process buffer it switches to the most recent buffer of the same
+     dialect.  It is a single key command.
+   * ESSR-help: On multiple help pages with the same name, 'C-c C-v' now
+     asks for user resolution directly in emacs.
+   * ESS[R] ess-roxy: new variable 'ess-roxy-re' for fontification of
+     cases where the number of leading '#' differs from 'ess-roxy-str'.
+   * ESS[R] Eldoc was considerably enhanced.  It now finds hidden
+     default S3 methods and displays non-default methods' arguments
+     after trailing ||.
+   * ESS[R]: New 'ess-display-demos' command bound to 'C-c C-d o' and
+     'C-c C-d C-o'
+   * ESS: New 'ess-help-web-search' command bound to 'C-c C-d w' and
+     'C-c C-d C-w' to facilitate interactive search of web resources.
+     Implemented for 'R', 'Stata' and 'Julia'.  See also
+     'ess-help-web-search-command'.
+   * ESS: ess-pdf-viewer-pref accepts now command line arguments
+   * ESS[Rnw]: Add knitr support.  Customize 'ess-swv-processor' for the
+     default processor.
+   * ESS[Rnw]: More thorough renaming of remaining 'noweb-*' to
+     'ess-noweb-*'.
+   * ESS[Rnw] new commands 'ess-eval-chunk-and-step' and
+     'ess-eval-chunk' bound to 'M-n C-c' and 'M-n C-M-x' to mirror
+     standard ess commands in C-c map.
+   * ESS[R] Auto-completion: new variable 'ess-ac-R-argument-suffix' to
+     customize the insertion of trailing "=".  Defaults to " = ".
+   * ESS[Julia]: Added index, apropos and web-search to julia.
+   * ESS help: More evaluation commands were added to ess-help mode
+     ('C-c C-c', 'C-M-x' etc)
+
+   Bug Fixes in 12.09-1:
+   * iESShelp: Multiple help pages with the same name are properly
+     handled on 'C-c C-v'
+   * iESSremote: Evaluation with ESS remote no longer freezes emacs.
+   * iESS: 'comint-previous-prompt' 'C-c C-p' no longer stops on
+     secondary prompt "+".
+   * iESS[R], iESS(Sqpe) [S] on Windows: The 'options("editor")' is now
+     initialized to 'emacsclient' instead of the previous 'gnuclient'.
+     The user may need to add the line '(server-start)' to the emacs
+     initialization file.  'emacsclient' has been included with emacs
+     since GNU Emacs 22.1.
+   * ESS[Rnw] Fixed "connection to R" bug (in 12.09 only).
+   * ESS[Rnw] Explicit 'ess-swv-stangle' and 'ess-swv-sweave' functions.
+   * ESS[Rnw] Fixed completion and smart underscore problems cause by
+     unmatched "\"'
+   * ESS[R] is more careful with the 'R' code injection.  It now happens
+     only once at the start of the session.
+   * ESS[R]: Fixed auto-scrolling the comint buffer on evaluation.
+   * ESS[Julia]: Solve several indentation and word navigation problems.
+   * ESS[Julia]: Help system works again.
+
+   Changes/New Features in 12.09:
+
+   * Due to XEmacs lacking some features that ESS requires, ESS support
+     of XEmacs ends with ESS 12.04-4.  This decision will be re-visited
+     in the future as XEmacs continues to sync with GNU Emacs.
+
+   * ESS[R]: On Windows, there is now a new customizable variable
+     (currently called 'ess-directory-containing-R') to tell ESS where
+     to look for the 'Rterm.exe' executables.  The name of the variable
+     and the values it can take are both in beta and subject to change.
+     Prior to this variable, ESS searched only in the default
+     installation directory.  Setting this variable now tells ESS how to
+     find 'Rterm.exe' executables when they are installed somewhere
+     else.
+
+   * ESS[julia]: _new_ mode for editing julia code ('*.jl').  Start with
+     'M-x julia'.
+
+     Full interaction interface, imenu and basic error referencing are
+     available.
+
+   * ESS[R] noweb: 'noweb-mode' and 'noweb-font-lock-mode' have been
+     renamed to 'ess-noweb-mode' and 'ess-noweb-font-lock-mode' to avoid
+     conflicts with the "real" 'noweb-mode'.
+
+   * ESS[R] noweb: The long standing font-lock bug has been solved in
+     'ess-noweb' interface.
+
+   * ESS: Basic evaluation keys are now bound to 'ess-eval-region-*-'
+     functions:
+
+        - 'C-M-x' is bound to 'ess-eval-region-or-function-or-paragraph'
+        - 'C-c C-c' is bound to
+          'ess-eval-region-or-function-or-paragraph-and-step'
+        - 'C-RET' is bound to 'ess-eval-region-or-line-and-step'
+
+     Each of these functions first evaluates the region whenever the
+     region is active.
+
+   * ESS: 'C-M-a'/'C-M-e' now step to beginning/end of paragraph if no
+     function has been detected.
+
+   * ESS: 'ess-eval-*-and-step' family of functions are now smarter, and
+     don't step to end of buffer or end of chunk code ('@') when at the
+     end of the code.
+
+   * ESS: 'ess-handy-commands' function is bound to 'C-c h'
+
+   * ESS: ESS is now _blinking_ the evaluated region.  Set
+     'ess-blink-region' to nil to deactivate; 'ess-blink-delay' gives
+     the duration of the blink.  Evaluated region is "blinked" in
+     'highlight' face.
+
+   * ESS[R-help] New key 'a' for "apropos()" in help buffers.  Also
+     available through 'C-c h'.
+
+   * ESS[R-help] All R commands of type foo?bar and foo??bar are
+     recognized and redirected into appropriate *ESS-help* buffers.
+
+   * ESS[R]: New customization interface for _font-lock_.
+
+     ESS font-lock operates with predefined keywords.  Default keywords
+     are listed in 'ess-R-font-lock-keywords' and
+     'inferior-R-font-lock-keywords', which see.  The user can easily
+     customize those by adding new keywords.  These variables can also
+     be interactively accessed and saved through 'ESS/Font-lock'
+     submenu.
+
+     Several new fontification keywords have been added.  Most notably
+     the keywords for highlighting of function calls, numbers and
+     operators.
+
+   * ESS[R]: auto-complete is now activated by default whenever
+     auto-complete package is detected.  Set 'ess-use-auto-complete' to
+     nil to deactivate.
+   * ESS[R]: R AC sources are no longer auto-starting at 0 characters
+     but at the default 'ac-auto-start' characters.
+   * ESS no longer redefines default ac-sources, but only appends
+     'ac-source-filename' to it.
+   * ESS: 'ac-source-R' now concatenates " = " to function arguments.
+
+   * ESS: Menus for ESS and iESS have been reorganized and enriched with
+     _Tracebug_ and _Developer_ submenus.
+
+   * ESS[R]: 'ess-developer' and 'ess-tracebug' commands are available
+     by default in 'ess-dev-map' which is bound to 'C-c d' in ESS and
+     iESS maps.
+
+   * ESS[R]: 'eldoc' truncates long lines whenever
+     'eldoc-echo-area-use-multiline-p' is non-nil (the default).  Set
+     this variable to t if you insist on multiline eldoc.  See also
+     'ess-eldoc-abbreviation-style'.
+
+   * ESS[R]: completion code pre-caches arguments of heavy generics such
+     as 'plot' and 'print' to eliminated the undesirable delay on first
+     request.
+
+   * iESS: Prompts in inferior buffers are now highlighted uniformly
+     with 'comint-highlight-prompt' face.
+
+   * ESS[R]: R process no longer wait for the completion of input in
+     inferior buffer.  Thus, long running commands like 'Sys.sleep(5)'
+     no longer stall emacs.
+
+   * ESS: [R, S, Stata, Julia] have specialized 'ess-X-post-run-hook's,
+     which are run at the end of subprocess initialization.
+
+   * ESS[Stata]: All interactive evaluation commands work as expected.
+     On-line comments are removed before the evaluation and multiline
+     comments are skipped on 'C-c C-c' and other interactive commands.
+
+   * ESS no longer auto-connects to a subprocess with a different
+     dialect than the current buffer's one.
+
+   * ESS: 'ess-arg-function-offset-new-line' is now a list for all the
+     ESS indentation styles, which results in the following indentation
+     after an open "(":
+
+       a <- some.function(other.function(
+          arg1,
+          arg2)
+
+   * ESS[SAS]: Improved MS RTF support for GNU Emacs; try
+     'ess-sas-rtf-portrait' and 'ess-sas-rtf-landscape'.
+
+   Changes/Bug Fixes in 12.04-3:
+   * ESS: basic support for package.el compatibility
+   * ESS[R]: correct indentation of & and | continuation lines
+   * 'M-x ess-version' shows the svn revision even after 'make install'
+   * ESS[SAS]: improved XEmacs support
+   * iESS[R]: better finding of previous prompt
+   * ESS[Stata]: adjusted prompt for mata mode
+   * ESS[R]: resolved name clashes with cl.el
+   * ESS[R]: removed dependence on obsolete package assoc
+   * New 'make' target 'lisp', to build the lisp-only part, i.e., not
+     building the docs.
+
+   Changes/New Features in 12.04-1:
+   * iESS[Stata]: New interactive help invocation.
+   * iESS[Stata]: New custom variable 'inferior-STA-start-file'.
+   * iESS[Stata]: 'inferior-STA-program-name' is now "stata" and can be
+     customized.
+   * ESS[Stata] New sections in stata help files Syntax('s-S'),
+     Remarks('r'), Title('t').
+
+   Bug Fixes in 12.04-1:
+   * ESS[R]: Better 'ess-tracebug' error handling.
+   * ESS[R]: Corrected 'ess-eldoc' help string filtering and improved
+     argument caching.
+   * ESS[R]: Indentation of non-block if/else/for/while lines fixed.
+   * 'M-x ess-version' should work better.
+   * ESS: Filename completion now again works inside strings.
+   * iESS[Stata]: Fixed prompt detection issue.
+   * ESS[Rd]: R is autostarted also from here, when needed.
+
+   Changes/New Features in 12.04:
+   * ESS: Reverting new behavior of 12.03, 'TAB' in 'ess-mode' no longer
+     completes by default.  If you want smart 'TAB' completion in R and
+     S scripts, similarly to iESS behavior, set the variable
+     'ess-tab-complete-in-script' to 't'.  Also see
+     'ess-first-tab-never-complete' for how to customize where first
+     'TAB' is allowed to complete.
+   * ESS: completion is consistently bound to 'M-TAB' (aka 'M-C-i') in
+     both Emacs23 and Emacs24.
+   * ESS: The variable 'ess-arg-function-offset-new-line' introduced in
+     ESS(12.03) now accepts a list with the first element a number to
+     indicate that the offset should be computed from the indent of the
+     previous line.  For example setting it to '(2) results in:
+
+       a <- some.function(
+         arg1,
+         arg2)
+
+   Changes/New Features in 12.03:
+   * ESS indentation: new offset variable
+     'ess-arg-function-offset-new-line' controlling for the indentation
+     of lines immediately following open '('.  This is useful to shift
+     backwards function arguments after a long function call expression:
+
+       a <- some.function(
+              arg1,
+              arg2)
+
+     instead of the old
+
+       a <- some.function(
+                          arg1,
+                          arg2)
+
+     If '(' is not followed by new line the behavior is unchanged:
+
+       a <- some.function(arg1,
+                          arg2)
+
+     This variable should be set as part of indentation style lists, or
+     in ess-mode hook.
+   * ESS[R]: 'C-c .' sets (indentation) style.
+   * ESS: In ESS buffers 'yank'('C-y') command accepts double argument
+     'C-u C-u' to paste commands only.  It deletes any lines not
+     beginning with a prompt, and then removes the prompt from those
+     lines that remain.  Useful to paste code from emails,
+     documentation, inferior ESS buffers or transcript files.
+   * Documentation: ESS user manual has been rearranged and completed
+     with several new chapters and sections to reflect newly added
+     features ("Completion", "Developing with ESS", "ESS tracebug", "ESS
+     developer", "ESS ElDoc", "IDO Completion" and "Evaluating Code")
+   * RefCard: Reference card was updated to include new features.
+   * Eldoc: Eldoc was rewritten and is activated by default.  See
+     'ess-use-eldoc', 'ess-eldoc-show-on-symbol',
+     'ess-eldoc-abbreviation-style' variables for how to change the
+     default behavior.  _Note:_ 'skeleton-pair-insert-maybe' prohibits
+     eldoc display, on '(' insertion.
+   * ESS[R]: Eldoc shows arguments of a generic function whenever found.
+   * ESS: 'TAB' in 'ess-mode' now indents and completes, if there is
+     nothing to indent.  Set 'ess-first-tab-never-completes-p' to 't' to
+     make 'TAB' never complete on first invocation.  Completion
+     mechanism is similar to the completion in the 'inferior-ess-mode' -
+     a filename expansion is tried, if not found ESS completes the
+     symbol by querying the process.
+   * ESS for emacs version 24 or higher: ESS is fully compatible with
+     the emacs 24 completion scheme, i.e.  all the completion is done by
+     'completion-at-point'.  Also in accordance with emacs conventions,
+     ESS doesn't bind 'M-TAB' for emacs 24 or higher.  'M-TAB' calls the
+     default 'complete-symbol'.
+
+   * ESS[R]: Out of the box integration with 'Auto Completion' mode
+     http://cx4a.org/software/auto-complete
+     (http://cx4a.org/software/auto-complete) .  Three AC sources
+     'ac-source-R-args', 'ac-source-R-objects' and 'ac-source-R' are
+     provided.  The last one combines the previous two and makes them
+     play nicely together.  Set 'ess-use-auto-complete' to 't' to start
+     using it.  Refer to documentation string of 'ac-use-auto-complete'
+     for further information.
+   * ESS[R]: New unified and fast argument completion system, comprised
+     of 'ess-funname.start', 'ess-function-arguments',
+     'ess-get-object-at-point'.  Eldoc and auto-completion integration
+     are using this system.
+   * ESS: 'ess-switch-to-end-of-ESS'('C-c C-z'), and
+     'ess-switch-to-ESS'('C-c C-y'): Automatically start the process
+     whenever needed.
+   * ESS[R]: 'roxy' knows about previewing text version of the
+     documentation.  Bound to 'C-c C-e t'.
+   * ESS[R]: Solved the "nil filename" bug in roxygen support.
+   * ESS[R]: 'ess-tracebug' is now part of ESS:
+
+     New Features:
+
+        - Source injection: Tracebug now can inject source references on
+          the fly during code evaluation, i.e.  you don't have to source
+          your file, but just evaluate your code in normal fashion.
+          Variable 'ess-tracebug-inject-source-p' controls this behavior
+          - if t, always inject source reference, if ''function', inject
+          only for functions (this is the default), if 'nil', never
+          inject.
+
+          During the source injection the value of 'ess-eval-visibly' is
+          ignored.
+        - Org-mode support: Visual debugger is now aware of the
+          temporary org source editing buffer ('C-c '') and jumps
+          through this buffers if still alive, or in original org buffer
+          otherwise.
+        - New keys in watch mode: '?' and 'd'
+        - Two new hooks: ess-tracebug-enter-hook and
+          ess-tracebug-exit-hook
+
+   * ESS[R]: New package 'ess-developer' to evaluate 'R' code directly
+     in the package environment and namespace.  It can be toggled on and
+     off with 'C-c d t'.  When 'ess-developer' is on all ESS evaluation
+     commands are redefined to evaluate code in appropriate
+     environments.  Add package names to the list of your development
+     packages with 'C-d a', and remove with 'C-d r'.  Source the current
+     file with 'C-d s'.Evaluation function which depend on
+     '`ess-eval-region'' ask for the package to source the code into,
+     'ess-eval-function' and alternatives search for the function name
+     in the development packages' environment and namespace and insert
+     the definition accordingly.  See the documentation section
+     "Developing with ESS/ESS developer" for more details.
+
+   * ESS[R] help system:
+
+     New Features:
+
+        - 'q' quits window instead of calling
+          'ess-switch-to-end-of-ESS'.  This is consistent with emacs
+          behavior help and other special buffers (_breaking change_).
+        - 'k' kills window without asking for the name (pointed by Sam
+          Steingold)
+        - Help map inherits from 'special-mode-map' as sugested by Sam
+          Steingold.
+        - Package index: new function 'ess-display-index' bound to 'i'
+          in help mode map.
+        - Package vignettes: new function 'ess-display-vignettes' bound
+          to 'v' in help mode map.
+        - Display help in HTML browser: new function
+          'ess-display-help-in-browser' bound to 'w' in help mode map.
+          It depends on 'R''s 'browser' option.
+        - New custom variable 'ess-help-pop-to-buffer': if non-nil ESS
+          help buffers are given focus on display.  The default is 't'
+          (_breaking change_).
+        - New menu entries for the above functions.
+        - Bogus help buffers are no longer generated by default, i.e.
+          buffers of the form "No documentation for 'foo' in specified
+          packages and libraries: you could try '??foo' ".
+          'ess-help-kill-bogus-buffers' now defaults to 't'.  Beware,
+          there may be instances where the default is unsatisfactory
+          such as debugging and/or during R development.  Thanks to Ross
+          Boylan for making the suggestion, Sam Steingold for reminding
+          us of this variable and Martin Maechler for the warning.
+   * ESS now uses 'IDO' completing read functionality for all the
+     interactive requests.  It uses ido completion mechanism whenever
+     available, and falls back on classical completing-read otherwise.
+     You can set 'ess-use-ido' to nil if you don't want the IDO
+     completion.  See the documentation string of 'ess-use-ido' for more
+     information about 'IDO' and ESS configuration.
+
+   * ESS[S]: "','" is bound to ess-smart-comma: If comma is invoked at
+     the process marker of an ESS inferior buffer, request and execute a
+     command from '`ess-handy-commands'' list.  If
+     'ess-R-smart-operators' is t '`ess-smart-comma' also inserts " "
+     after comma.
+   * ESS[S], notably 'R': Variable '`ess-handy-commands'' stores an
+     alist of useful commands which are called by 'ess-smart-comma' in
+     the inferior buffer.
+
+     Currently containing:
+
+     change-directory
+          'ess-change-directory'
+     help-index
+          'ess-display-index'
+     help-object
+          'ess-display-help-on-object'
+     vignettes
+          'ess-display-vignettes'
+     objects[ls]
+          'ess-execute-objects'
+     search
+          'ess-execute-search'
+     set-width
+          'ess-execute-screen-options'
+     install.packages
+          'ess-install.packages'
+     library
+          'ess-library'
+     setRepos
+          'ess-setRepositories'
+     sos
+          'ess-sos'
+
+     Handy commands: 'ess-library', 'ess-install.packages', etc - ask
+     for item with completion and execute the correspond command.
+     'ess-sos' is a interface to 'findFn' function in package 'sos'.  If
+     package 'sos' is not found, ask user for interactive install.
+
+   * ESS: New dynamic mode line indicator: Process status is
+     automatically reflected in all mode-lines of associated with the
+     process buffers.  Particularly useful for displaying debug status
+     of 'ess-tracebug' and developer status of 'ess-developer' in all
+     associated buffers.
+
+   * ESS: New 'ess-completing-read' mechanism: ESS uses 'ido'
+     completions whenever possible.  Variable 'ess-use-ido' controls
+     whether to use ido completion or not.  Active by default.
+
+   * ESS now supports comint fields for output and input detection.
+     This feature is not used by default, but might be useful in the
+     future.
+
+   * ESS[S]: New custom variable 'inferior-ess-S-prompt' to customize
+     prompt detection regular expression in the inferior ESS buffers.
+     You can customize this variable to enhance comint navigation
+     ('comint-previous-prompt' and 'comint-next-prompt') the inferior
+     buffers.
+
+   * ESS[R]: Internal 'R' completion retrieval
+     ('ess-R-complete-object-name') was rewritten and is faster now.
+
+   * ESS is using process plist to store process specific variables, as
+     opposed to buffer local variables as it was using before.  The use
+     of buffer local variables to store process variables is
+     discouraged.
+
+   * ESS: new functions to manipulate process plists: 'ess-process-get'
+     and 'ess-process-set'.
+
+   * ESS: Internal process waiting mechanism was completely rewritten.
+     ESS no more relies on prompt regular expressions for the prompt
+     detection.  The only requirement on the primary process prompt is
+     to end in '> '.  This could be overwritten by setting
+     'inferor-ess-primary-prompt'.
+
+   * ESS[S], notably 'R': Saved command history: ESS-HISTORY-FILE now
+     accepts 't' (default), 'nil', or a file name.  By setting it to
+     'nil' no command line history is saved anymore.
+     ESS-HISTORY-DIRECTORY now allows to have the history all saved in
+     one "central" file.
+   * ESS[R]: more Roxygen improvements.
+   * ESS[R]: 'C-c .' to set (indentation) style.
+
+   * ESS[R]: Functions with non-standard names (for example
+     'aaa-bbb:cc') are properly handled by font-lock and evaluation
+     routines.
+   * ESS[R]:Several regexp bugs (described in etc/R-ESS-bugs.el) were
+     fixed in 'ess-get-words-from-vector' and 'ess-command'.
+
+   Changes/New Features in 5.14:
+   * ESS[BUGS/JAGS]: Batch BUGS is back!  For recent OpenBUGS versions,
+     3.0.8+, a batch BUGS script is once again available, but for Linux
+     only.  Therefore, since it seems that BUGS and JAGS must co-exist
+     (rather than a transition from BUGS to JAGS), .bug files are now in
+     ESS[BUGS] mode and .jag files are in ESS[JAGS] mode.  ESS[BUGS] now
+     works like ESS[JAGS] rather than the original mode ESS[BUGS] mode
+     which was difficult to maintain.  Although, ESS[BUGS] appears to
+     work, there still may be some features missing as well as bugs.
+
+   * ESS[R]: New customizable variable 'ess-swv-plug-into-AUCTeX-p'
+     Commands to Sweave current file and LaTeX the result are now
+     available to AUCTeX users, if this variable is set to 't'.
+
+   * ESS[S]: 'C-c C-c' ('ess-eval-function-or-paragraph-and-step') is
+     now skipping over comments as the other paragraph functions do.  It
+     (and similar functions) should no longer wrongly find 'function()'
+     beginnings inside comments or strings.
+
+   * ESS[SAS]: improved by better support for GNU Emacs
+
+   Changes/New Features in 5.13:
+   * ESS[R]: On Windows, for R 2.12.0 and later, the Rterm executables
+     (in subdirectories i386 / x64) now are found as well as for earlier
+     R versions.
+   * ESS[S+]: on Windows, both 32- and 64-bit versions of S+ ("S-PLUS")
+     are found now and made available on the menu.
+   * ESS[R]: When prompting for a starting directory, the R version is
+     (always?)  correct now.
+   * ESS[R]: on non-Windows platforms, the 'use-dialog-box' variable is
+     no longer temporarily changed (to 'nil' for R-x.y.z version
+     functions and to 't' for 'R' itself), but rather the user
+     customization is obeyed.
+   * ESS[R]: more Roxygen improvements.
+   * 'Rd-preview-help' now generates preview buffers with navigation
+     facilities the same as regular help buffers.
+   * ESS: New functions and keys C-c [up] / [down] for evaluating the
+     buffer "from beginning till here".
+
+   Changes/New Features in 5.12:
+   * ESS[SAS] Font-locking: update of PROCs keywords (up to SAS 9.22);
+     error/warnings.
+   * ESS[R]: Roxygen improvements: S4 classes; also optionally keep
+     spaces when filling arguments
+   * ESS[Rd]: support new keywords: section-name \subsection plus a
+     dozen "new" keywords; should match R 2.12.x now.
+   * 'ess-display-help-on-object' ('C-c C-v') now _caches_ the list of
+     topics, thus speeding up the improvement feature introduced in 5.9.
+
+   Changes/New Features in 5.11:
+   * Filename completion within buffers now adds only trailing
+     characters to complete the filename, rather than expanding to an
+     absolute file path.  This filename completion is bound to the TAB
+     key.
+
+   * 'M-n P' in Sweave buffers now prompts for the command to run
+     instead of using 'pdflatex' unconditionally, offering completion
+     from customizable collection 'ess-swv-pdflatex-commands', the first
+     of which is taken as default and that defaults to 'texi2pdf'.
+   * 'M-RET' is now also bound in S language (R and S+) buffers to
+     'ess-use-this-dir'.  It sends 'setwd(..)' to the S process to set
+     the working directory to the one of the source file.
+
+   Changes/New Features in 5.10:
+   * 'M-RET' in *S* buffers is now bound to 'ess-dirs'.  This function
+     will set Emacs's current directory to be the same as the *S*
+     process.  This is useful if you use 'setwd()' within a *S* process.
+
+   Changes/New Features in 5.9:
+   * Toolbar: The toolbar now has an icon for starting Splus.
+   * Indentation: New documentation and code has been added to make it
+     easier to change how ESS indents code.  In particular, see
+     'ess-default-style', 'ess-own-style-list' and the documention
+     subsection "Changing indentation styles".
+   * 'ess-display-help-on-object' ('C-c C-v') now offers completion
+     candidates for help file aliases, in addition to object names.
+   * Font locking: is now turned on even without 'window-system' is
+     'nil', whenever ESS-FONT-LOCK-MODE is non-nil, i.e., by default.
+   * ESS script editing: ess-eval-deactivate-mark default is now t, as
+     suggested by Leo Alekseyev and subsequent "unanimous" ESS-help
+     discussion.
+   * ESS[R]: Editing support for "#!"  (Rscript / littler) editing,
+     thanks to Jeffrey Arnold.
+   * ESS[R]: Now finds all R versions, both 64-bit and 32-bit, on some
+     64-bit Windows machines.  Please report back to ess-core success or
+     failure on your 64-bit Windows machine.
+   * ESS Manual now more visually pleasing;
+     <https://ess.r-project.org/Manual/ess.html>
+   * ESS[R]: Roxygen on XEmacs no longer font locks for now (as it
+     required missing features and hence broke ESS startup, there).
+   * ESS[R]: Roxygen has a sub-menu on the [ESS] menu.
+   * ESS[R]: Function 'ess-rutils-htmldocs' in 'ess-rutils.el' offers an
+     alternative to 'help.start()' for navigating R documentation, using
+     the 'browse-url' Emacs function.
+
+   Changes/New Features in 5.8:
+   * ESS[R]: New 'ess-rutils.el' with utilities for listing, loading,
+     installing, and updating packages, as well as object manipulation
+     (listing, viewing, and deleting).  It also provides an alternative
+     to 'RSiteSearch()' that uses the 'browse-url' function, so results
+     can be viewed in an Emacs web browser.
+   * ESS[R]: much more extensive Roxygen interface, via ess-roxy.el from
+     Henning Redestig.  Ess-roxy supports filling of roxygen fields,
+     generation and updating roxygen templates, completion of roxygen
+     tags, basic navigation (marking and moving between entries),
+     folding using hs-minor-mode and preview of the Rd file.
+   * Emacs lisp files have got better names (partly, for now).
+
+   Changes/New Features in 5.7:
+   * ESS[R]: loading a source file ('C-c C-l') now works in Windows,
+     similarly to other platforms; (further; it had accidentally been
+     broken in ESS 5.6 on all platforms)
+
+   Changes/New Features in 5.6:
+   * ESS[R]: help() calls have to differ from old default, with newer
+     versions of R; currently via .help.ESS <- function(...)  hack.
+
+   Changes/New Features in 5.4:
+   * ESS[SAS]: The long overdue change from 'make-regexp' to
+     'regexp-opt' for font-locking is complete.  The new 'regexp-opt' is
+     now the default since it is better than the old code in many ways
+     (and especially more maintainable).  However, there are certainly
+     some special cases missed (bug reports and patches welcome!).
+     Setting 'ess-sas-run-regexp-opt' to 'nil' will result in the old
+     code being used.
+   * ESS[BUGS] and ESS[JAGS]: typing '=' now results in '<-'.
+   * ESS[R] function arguments "show" '(ess-r-args-show)' now uses the
+     new '(tooltip-show-at-point)' contributed by Erik Iverson.
+   * Toolbar icons now also work in (beta) Emacs 23.
+   * ESS[S]: New function 'ess-change-directory' for setting both emacs'
+     current directory and the directory of an *R* or *S* buffer.
+   * ESS[S] when transient-mark-mode is true, the mark is now kept,
+     rather than deactivated, thanks to a patch from David Reitter.
+
+   Changes/New Features in 5.3.11:
+   * ESS[SAS]: work around bug in Emacs 22.2 & 22.3 which fails to set
+     case-fold fontification automatically.
+   * Rd mode: support new keyword 'Rdversion'
+   * ESS[R]: now again works with Emacs 21.x
+
+   Changes/New Features in 5.3.10:
+   * Fixed noweb-mode bug accidentally introduced into 5.3.9
+   * In noweb-mode, e.g., Rnw-mode, electric "<" also inserts closing
+     "@".  Further, the code chunk boundaries are better kept
+     up-to-date, such that code[R] <-> text[LaTeX] minor mode switching
+     should happen more reliably.
+   * In noweb-mode, fix a buglet in rare [Enter] or [Tab] behavior;
+     further, by default disable the former '[[' ..  ']]'
+     code-protection-when-filling behavior which has been found to be
+     buggy.
+
+   Changes/New Features in 5.3.9:
+   * ESS[SAS]: evince PDF viewer now supported as well; search order:
+     evince, Xpdf, Adobe/Acrobat Reader
+   * ESS[R]: added support for Roxygen, potentially to be extended.
+   * ESS[S] (and R): inferior ('*R*') and transcript modes no longer
+     fontify language keywords (such as 'for', 'in', etc).
+   * iESS[Stata]: Customize the 'ess-sta-delimiter-friendly' setting to
+     't' to convert embedded semi-colons to newlines for Stata
+     processing.
+   * Sweave fix for embedded blanks in PDF reader and PDF files
+   * Several fixes for Major Mode Convention violations in 'ess-mode'
+     and 'noweb-mode'.
+   * ESS[JAGS]: 'M-x comment-region' now available!
+   * ESS[S] The 'ess-swv-*' commands (and keybindings) are now in a
+     submenu of the "Noweb" menu, when editing Sweave files.
+
+   Changes/New Features in 5.3.8:
+   * ESS[JAGS]: more separation from ESS[BUGS] (as much as is currently
+     planned); now 'C-c C-c' on an empty '.jmd' creates a template as it
+     should; symbolic links are created for CODA output so BOA is happy:
+     from 'index.txt' to '.ind' and 'chain#.txt' to '#.out'
+   * ESS[SAS]: buffer-local 'ess-sas-submit-command' and
+     'ess-sas-submit-command-options' now recognized by
+     'ess-sas-submit-region'
+   * ESS[S]: When trying to evaluate code in an S language buffer and
+     there is no associated process, now start R automatically instead
+     of signalling an error.  Also, restart R if there is an associated
+     process which is not running.  However, do not start R just via the
+     "electric" '(' ('ess-r-args-auto-show').
+   * ESS[S]: For (one-line) functions withOUT '{ ..  }' bodys, the end
+     of function is now correctly found more often.  This notably
+     improves 'C-c C-c' ('ess-eval-function-or-paragraph-and-step').
+   * ESS[JAGS]: cleanup/re-organization of elisp code; symbolic links
+     for CODA output are now only created by the new JAGS 'system'
+     command in version 1.0.3; specify whether this command is available
+     via 'ess-jags-system'; if not present, then no links are created so
+     that the '*shell*' buffer does not become unresponsive during the
+     batch run
+
+   Changes/New Features in 5.3.7:
+   * ESS: 'ess-default-style' now *is* customizable, i.e., changing its
+     value in '~/.emacs' now does have the desired effect.
+   * ESS: 'ess-font-lock-mode' is a new variable (default: t) which
+     controls whether font-locking is enabled in ESS buffers.
+   * ESS[R]: for XEmacs on Windows; another tweak to find R versions
+   * ESS[SAS]: font-locking updated for ODS and SAS Bayesian Procedures;
+     a more consistent handling of SAS options by
+     'ess-sas-submit-command-options' which is buffer-local; portable
+     snooze for MS Windows via customize-able 'ess-sleep-for' (floats
+     welcome); Xpdf now supported as a PDF viewer
+   * ESS[Rnw]: now also works with "emacs -nw" and Emacs 22.
+   * ESS[JAGS]: now requires JAGS 1.0 (see the new ESS for JAGS help
+     section for more information): both need work; suggestions welcome
+   * ESS[R]: [TAB] completion now uses the R-internal completion
+     mechanism (for R >= 2.5.0).
+   * ESS[R] ([S]): interpretation of "_" as assignment has been removed
+     in 'ess-continued-statement-p' for R and S.
+   * several internal code cleanups.
+   * ESS[R]: An experimental version of a new command 'Rgui' on MS
+     Windows to send lines directly from emacs to 'Rgui' is available in
+     file 'lisp/essd-rgui.el'.  Preliminary documentation is in file
+     'doc/rgui-doc.txt'.
+
+   Changes/New Features in 5.3.6:
+   * ESS: for XEmacs, using "gnuclient" (without a "-q") works for
+     things like fix() after M-x gnuserv-start has been done.
+   * ESS[R]: M-x R-newest should now work in more situations on MS
+     Windows, e.g., when R has been installed in a non-default
+     "ProgramFiles" directory tree.  In these cases, there's no need to
+     specify the name (and full path) of the R program anymore.
+   * ESS[R]: For XEmacs, startup (with new tooltip code) works again.
+
+   Changes/New Features in 5.3.5:
+   * ESS[R] a new defun is available, 'M-x R-newest', which will start
+     the newest version of R that it can find on your system.
+   * ESS[R] add Sven Hartenstein's "R function arguments tips"
+     functionality, via new file '../lisp/essd-r-args.el'.  Note that
+     this includes an "electric "("" behavior inside 'R-mode' which is
+     _active by default_ and can be customized via
+     'ess-r-args-electric-paren'; i.e., use '(setq
+     ess-r-args-electric-paren nil)' to turn it off.  Further,
+     'ess-r-args-show-as' allows to switch to the "tooltip" mode.
+   * ESS: functions 'ess-get-pdf-viewer' and *-ps-viewer; built on new
+     customizable variables 'ess-pdf-viewer-pref' and
+     'ess-ps-viewer-pref'; currently used in 'ess-swv-PDF' and '*-PS'.
+   * ESS[R] Improved 'ess-swv-PDF' to run pdf viewer only if pdflatex
+     was ok
+   * ESS[R] Improved 'ess-swv-weave' to start R automatically if none is
+     running.
+   * ESS: Do no longer ask _which_ ESS process to use if there is only
+     one.
+
+   Changes/New Features in 5.3.4:
+   * ESS[R] now better work with options(error=recover); and the new
+     default of CHM help files on windows.
+   * ESS[R] some more cleanup in the "sweave" functions
+   * miscellaneous fixes
+
+   Changes/New Features in 5.3.3:
+   * ESS[S] fix buglet (5.3.2 only) which left command prompt in
+     "execute buffer" and hence help files.
+   * new customizable variable 'ess-display-buffer-reuse-frames' set to
+     true (which changes default behavior) such that execution or help
+     *frames* are reused.
+
+   Changes/New Features in 5.3.2:
+   * Classic BUGS now supported by '(require 'essd-bugs)' with ESS[BUGS]
+     and JAGS by '(require 'essd-jags)' with ESS[JAGS].  But, only one
+     of them can be used at a time since they don't play nice together.
+     Also, 'C-c C-c' is now bound to the function 'ess-bugs-next-action'
+     ('F12' has been retired).  And finally, note that 'essl-bug.el' is
+     deprecated and the replacement is 'essl-bugs.el'.
+   * ESS[R] Improved some of the "Sweave-make" functions (yet scarcely
+     documented) in 'ess-swv.el'.
+   * ESS[S] No longer mess with .Last.value (nor in other "languages").
+
+   Changes/New Features in 5.3.1:
+   * See the docs for 2 ways to install ESS for XEmacs
+       1. by uncommenting the XEmacs part of Section 1 of 'Makeconf' and
+          performing 'make install'
+       2. by unpacking either 'ess-5.3.1.tgz' or 'ess-5.3.1.zip' into
+          'PREFIX/lib/xemacs/site-packages' on unix or
+          'PREFIX\XEmacs\site-packages' on windows
+   * ESS[R]: fixed bugs so that Rterm.exe can be found by XEmacs
+   * ESS[S]: 'ess-toggle-S-assign-key' is slightly changed; in
+     particular, the default 'ess-assign-key' is now 'C-x ='.
+   * ESS[R]: 'M-x R-site-search' is a new (slightly experimental)
+     utility similar to R's 'RSiteSearch(..)' but with the advantage of
+     using Emacs' preferred browser, see 'browse-url-browser-function'
+
+   Changes/New Features in 5.3.0:
+   * ESS[BUGS]: sanely re-format statistical output, '.bog', from
+     scientific notation to numbers rounded with 4 decimal places with
+     'M-x ess-bugs-sci-round-to-4-dp'.
+   * The keys for navigating among section headings in help buffers
+     worked, but only for one language per session; they should now work
+     for multiple languages.  (They were also broken on Windows
+     machines.)
+   * ESS[S] long standing buglets in the internal logic for loading lisp
+     code on Windows.  Particularly fixed behavior in help mode with
+     S-plus GUI.
+   * New variable, 'ess-use-inferior-program-name-in-buffer-name', which
+     enables using the executable name instead of the dialect name for
+     R. Feature request.
+   * ESS[S] 'ess-execute-screen-options' now also works correctly when
+     there is more than one window *side-by-side* in the same frame and
+     runs in the correct buffer also when there is more than one S
+     buffer.
+   * iESS[S] new functions 'ess-eval-paragraph-and-step' and
+     'ess-eval-function-or-paragraph-and-step' are bound to keys 'C-c
+     C-p' and 'C-c C-c' respectively and to the menu in ESS-mode; also
+     bound in the help mode (for evaluating examples).
+   * ESS[S] new function 'ess-toggle-S-assign-key' allows to assign the
+     " <- " insertion to an arbitrary key.
+
+   Changes/New Features in 5.2.12:
+   * ESS[SAS]: 'M-;' fixed, but the XEmacs function 'comment-dwim' may
+     be broken, if so, use 'M-x comment-region' and 'M-x
+     uncomment-region' instead; only valid PROCs are fontified which is
+     very helpful finding syntax errors (currently supported: BASE, ETS,
+     FSP, GRAPH, IML, INSIGHT and STAT); the "feature" where 'F'-keys
+     take you to an empty buffer when the requested destination is a
+     file that does not exist has been fixed, now the request results in
+     a no-op.  Further, sas-mode now also works in simple terminals.
+   * Rterm/Cygwin combination works under Microsoft Windows.
+   * ESS[R]: internal calls use baseenv() instead of NULL and define
+     'baseenv' where needed.
+   * New experimental support for installing ESS. See the file
+     'lisp/ess-install.el'.
+
+   Changes/New Features in 5.2.11:
+   * ESS Info entry and 'dir' handled more effectively for GNU Emacs
+     users
+   * ESS[SAS]: temporary files created for batch submission of a region
+     are now named based on the current file; see 'ess-sas-file-root'
+     for details; all 'lag' and 'dif' functions now fontified correctly
+   * iESS[SAS]: fixed a few nagging bugs, however, still does not appear
+     to work at this time; please let us know if you have any ideas.
+   * ESS[S]: Support for running other versions of Splus has been added
+     for unix.  Two new variables, 'ess-s-versions' and
+     'ess-s-versions-list', are used to tell ESS what other versions of
+     Splus you would like to run.
+
+   Changes/New Features in 5.2.10:
+   * ESS[R]: ess-r-versions can no longer be customized (since the
+     customization was not taking effect unless customizations were
+     loaded before ESS). Its value has been changed so that it will also
+     find R executables beginning "R-devel" and "R-patched".  If you
+     wish to change this variable, it must be set in your '.emacs'
+     before ESS is loaded.
+   * Installation with GNU Make enhanced: unix and unix-like operating
+     systems will now be able to install ESS for all users in either a
+     GNU Emacs site-lisp or an XEmacs package configuration by editing
+     'lisp/ess-site.el' and 'Makeconf' accordingly, then issuing 'make
+     install'
+   * ESS[S]: Filename completion (inside strings) now also works in
+     XEmacs for R and S-plus.
+
+   Changes/New Features in 5.2.9:
+   * ESS[R] for Windows: the \ directory character bug with respect to
+     ess-load-file has been eradicated.
+   * iESS[SAS]: 'C-c C-r' and 'C-c C-b' once again work as intended and
+     documented.
+   * ESS[S]: M-x ess-fix-EQ-assign is a bit more agressive.
+   * ESS[S]: Imenu now also shows setAs(), etc.
+   * ESS[R]: R function pattern enhanced with underlying code such that
+     'M-C-a' ('ess-beginning-of-function') etc now work for many more
+     cases, including S4 method definitions.
+   * iESS[R]: myOwnhelp(1) no longer wrongly triggers help(1).
+   * ESS[R]: Improved detection of bogus help buffers: valid help
+     buffers containing with the string "no documentation"(e.g.
+     contour) were being treated as bogus.
+   * ESS[R]: In R help buffers, if 'options("help.try.all.packages" =
+     TRUE)' then '?rlm' will list which packages rlm is defined in.
+     This help buffer is not bogus, but instead is now relabelled
+     "*help[R](rlm in packages)*".
+   * ESS[STA]: add "//" as comment starting character to syntax-table.
+
+   Changes/New Features in 5.2.8:
+   * iESS: [Tab] completes *file* names "inside string" as in earlier
+     (<= 5.2.3) ESS versions.
+
+   Changes/New Features in 5.2.7:
+   * If you use Custom to change the variable ess-toolbar-items, the new
+     toolbar is used in all subsequent ESS buffers.
+   * ESS[SAS]: new feature: if ess-sas-log-max >0 and your .log grows to
+     more than ess-sas-log-max bytes, just the first ess-sas-log-max
+     bytes are refreshed; this is helpful when your .sas program
+     generates lots of error messages and gets too big for emacs to
+     display
+   * ESS[R/S]: 'M-;' in R/S editing modes will now indent with either
+     one or two hashes depending on context.
+   * ESS[R]: David Whiting's Sweave extensions (to 'noweb') are now
+     available (from ess-swv.el loaded by default).
+
+   Changes/New Features in 5.2.6:
+   * Removed non-ASCII characters in a few files.
+   * ESS[R]: now works better when UTF-8 locale is active; in
+     particular, you get correct directional quotes in R's startup
+     message for R-devel (unstable development version of R 2.1.0) when
+     using environment variables LANGUAGE=en@quot LC_ALL=en_US.UTF-8
+   * ESS[SAS]: toggling of .log mode improved ('F10'); toggling of .lst
+     mode now also available ('C-F10'); killing all buffers associated
+     with .sas program no longer bound to 'C-F10' since its a bit
+     overzealous.
+   * S-Plus 7 for Windows is now recognized.
+   * ESS[S] (incl. R): in auto-fill mode, strings are not wrapped
+     anymore.
+   * ESS[S] (incl. R): font-lock now correctly differs between R and S,
+     e.g., for "_"; both now fontify warning(.)  and S does terminate()
+     additionally.
+   * Support for 'bell' aka 'beep' aka 'ding' aka 'alarm' in all
+     inferior modes: When \a is output "to the the console" at the
+     beginning of a line, the bell is rung.
+
+   Changes/New Features in 5.2.5:
+   * ESS[R]: 'C-c C-q' or 'Quit S' from the menu now should work (again
+     and less klunkily) and do not append '-exited' to the buffer name.
+     Further, the behavior of '(ess-cleanup)', called from ess-quit, now
+     depends on the new customizable variable
+     'ess-S-quit-kill-buffers-p' which defaults to 'nil'.  Consequently,
+     the question _"Delete all buffers associated with ..?"_  will not
+     be asked anymore by default.
+   * ESS[SAS] - ess-ebcdic-to-ascii-search-and-replace will now work
+     with the 'recode' application as well which is available on many
+     platforms
+   * ESS[S] (incl. R): Name completion for slots of S4 objects now
+     works!
+
+   Changes/New Features in 5.2.4:
+   * The documentation now includes an overview of how to use the emacs
+     TAGS facility for S functions.  (The distribution also used to
+     contain a directory 'etc/other/Tags' where a ~1990 version of
+     'etags.c' was distributed; this is no longer relevant and so has
+     been deleted.)
+   * ESS[SAS] - When you are working with EBCDIC files on an ASCII
+     platform, .log NOTEs may display as gibberish since the EBCDIC
+     characters are not converted to ASCII prior to their display.  So,
+     the function ess-ebcdic-to-ascii-search-and-replace is provided for
+     convenience and is bound to 'C-F11'.  This function requires the
+     'dd' command (only available on unix or unix-like platforms).
+   * ESS: Completion of object names is now always done dynamically
+     rather than allowing the option of using a pre-computed database
+     (by 'ess-create-object-name-db') since modern computers seem fast
+     enough for dynamic completion.  (We expect few users, if any, have
+     been using the pre-computed database method.)
+   * ESS: object completion in iESS buffers running on Windows was very
+     slow (for GNU Emacs, but not XEmacs) and has now been fixed.
+     Further, it was more or less broken for all versions of S-plus 6.x,
+     and has been fixed to work everywhere but with the Windows' GUI of
+     S-plus.  The list of objects now shows unique names also when an
+     object appears more than once in the search path.
+   * ESS[R]: Completion of object names now also includes those starting
+     with ".".
+
+   Changes/New Features in 5.2.3:
+   * ESS: When new inferior ESS processes are created, by default they
+     will replace the current buffer (this restores behavior from pre
+     5.2.0).  If you wish new ESS processes to start in another window
+     of the current frame, set inferior-ess-same-window to nil.
+   * New variables inferior-Splus-args and inferior-R-args provide a way
+     to pass command line arguments to starting S and R processes.
+
+   Changes/New Features in 5.2.2:
+   * bug-fixes for 5.2.1 (require 'executable), html docs, etc.
+   * ess-lisp-directory/../doc/info added to Info-directory-list if
+     ess-info not found by info
+   * ESS[R]: If you have other versions of R on your exec-path, such as
+     "R-1.8.1" with Unix or "rw1081" with Windows, ESS will find them
+     and create appropriate functions, such as 'M-x R-1.8.1' or 'M-x
+     rw1081', for calling them.  By default only Unix programs beginning
+     "R-1" and "R-2" and Windows programs parallel to the version of R
+     in your exec-path will be found, but see ess-r-versions and
+     ess-rterm-versions for ways to find other versions of R.
+   * ESS[R]: Other versions of R, such as "R-1.8.1" on Unix and "rw1081"
+     on Windows, are added to the "ESS / Start Process / Other" menu.
+   * ESS[S]: If you have other versions of S-Plus on your Windows
+     computer, such as S-Plus 6.1 or S-Plus 4.5, ESS will find them and
+     create appropriate functions, such as 'M-x splus61', for calling
+     the console version (Sqpe) inside an emacs buffer.  By default only
+     programs installed in the default location will be found, but see
+     ess-SHOME-versions for ways to find other versions of S-Plus.
+   * ESS[S]: Other versions of Sqpe on Windows, such as "splus61", are
+     added to the "ESS / Start Process / Other" menu.
+   * ESS[R]: (bug fix) ess-quit (bound to 'C-c C-q') should now quit the
+     inferior R process, when issued from either the inferior buffer, or
+     from a .R buffer.
+
+   Changes/New Features in 5.2.1:
+   * ESS[S] (R and S-plus): now have toolbar support with icons to
+     evaluate code in the inferior process or to switch there.  This
+     code is experimental and likely to change as XEmacs/Emacs issues
+     get resolved.  The toolbar should be enabled if your Emacs displays
+     images, but can be disabled with the variable ess-use-toolbar.
+     Thanks to David Smith from Insightful for the S-plus logo.
+   * ESS[SAS]: ess-sas-graph-view ('F12') enhanced; you can specify
+     external file viewers for each graphics file type via the alist
+     ess-sas-graph-view-viewer-alist; also .jpg/.gif are now handled by
+     image-mode on XEmacs, if available, otherwise by graphics
+     primitives as before
+
+   Changes/New Features in 5.2.0:
+   * ESS[BUGS]: new info documentation!  now supports interactive
+     processing thanks to Aki Vehtari (mailto:Aki.Vehtari@hut.fi); new
+     architecture-independent unix support as well as support for BUGS
+     v.  0.5
+   * ESS[SAS]: convert .log to .sas with ess-sas-transcript; info
+     documentation improved; Local Variable bug fixes; SAS/IML
+     statements/functions now highlighted; files edited remotely by
+     ange-ftp/EFS/tramp are recognized and pressing SUBMIT opens a
+     buffer on the remote host via the local variable
+     ess-sas-shell-buffer-remote-init which defaults to "ssh"; changed
+     the definition of the variable ess-sas-edit-keys-toggle to boolean
+     rather than 0/1; added the function ess-electric-run-semicolon
+     which automatically reverse indents lines containing only "run;";
+     'C-F1' creates MS RTF portrait from the current buffer; 'C-F2'
+     creates MS RTF landscape from the current buffer; 'C-F9' opens a
+     SAS DATASET with PROC INSIGHT rather than PROC FSVIEW; "inferior"
+     aliases for SAS batch: 'C-c C-r' for submit region, 'C-c C-b' for
+     submit buffer, 'C-c C-x' for goto .log; 'C-c C-y' for goto .lst
+   * ESS[S]: Pressing underscore ("_") once inserts " <- " (as before);
+     pressing underscore twice inserts a literal underscore.  To stop
+     this smart behaviour, add "(ess-toggle-underscore nil)" to your
+     .emacs after ess-site has been loaded;
+     ess-dump-filename-template-proto (new name!)  now can be customized
+     successfully (for S language dialects); Support for Imenu has been
+     improved; set ess-imenu-use-S to non-nil to get an "Imenu-S" item
+     on your menubar; ess-help: Now using nice underlines (instead of
+     'nuke-* ^H_')
+   * ESS[R]: After (require 'essa-r), 'M-x ess-r-var' allows to load
+     numbers from any Emacs buffer into an existing *R* process; 'M-x
+     ess-rdired' gives a "directory editor" of R objects; fixed
+     ess-retr-lastvalue-command, i.e.  .Last.value bug (thanks to David
+     Brahm)
+   * ESS: Support for creating new window frames has been added to ESS.
+     Inferior ESS processes can be created in dedicated frames by
+     setting inferior-ess-own-frame to t.  ESS help buffers can also
+     open in new frames; see the documentation for ess-help-own-frame
+     for details.  (Thanks to Kevin Rodgers for contributing code.)
+
+   Changes/New Features in 5.1.24:
+   * The version number is now correct even inside ESS/Emacs
+
+   Changes/New Features in 5.1.23:
+   * Minor more Makefile clean up.
+
+   Changes/New Features in 5.1.22:
+   * Besides info documentation, PDF and HTML documentation are also
+     provided (instead of built using "make") and available on the web
+     as well; see ESS web page (https://ess.r-project.org/) and StatLib
+     (http://lib.stat.cmu.edu/general/ESS/doc)
+   * Now that info documentation is available, the README.* files are no
+     longer supported.  However, they are still distributed for what
+     it's worth.
+   * ESS is now an XEmacs package!  See XEmacs Installation HOWTO
+     (https://www.xemacs.org/Install/index.html) for details
+     (specifically, items 10-15).
+   * ESS[SAS]: more user-friendly enhancements for remote SAS batch jobs
+     with Kermit file transfers (LOG and OUTPUT function key features
+     now supported).  Multiple shells now supported so you can run SAS
+     on different computers from different buffers by setting the
+     buffer-local variable ess-sas-shell-buffer to unique buffer names.
+   * Major re-vamping of Makefile/Makeconf.
+
+   Changes/New Features in 5.1.21:
+   * ESS[SAS]: info documentation now available!, see ESS->Help for SAS;
+     'F12' opens GSASFILE nearest point for viewing either within emacs,
+     when available, or via an external viewer; more syntax highlighting
+     keywords; more enhancements for remote SAS batch jobs with Kermit;
+     new framework for remote SAS interactive jobs, see ess-remote
+   * ESS[S]: info documentation now available!, see ESS->Help for the S
+     family
+   * Makefile: tag now independent of rel; info files made by
+     doc/Makefile and installed in new info sub-directory
+
+   Changes/New Features in 5.1.20:
+   * New 'options()$STERM' in the S dialects (S, S-Plus, R). The S
+     program can determine the environment in which it is currently
+     running.  ESS sets the option to 'iESS' or 'ddeESS' when it starts
+     an S language process.  We recommend other specific values for S
+     language processes that ESS does not start.
+   * New 'ess-mouse-me' function, assigned to S-mouse-3 by default.
+     User may click on a word or region and then choose from the menu to
+     display the item, or a summary, or a plot, etc.  This feature is
+     still under development.
+   * GNU Emacs 21.1 is now supported (fixed for S dialects, SAS & BUGS),
+     (some from Stephen Eglen).
+   * XEmacs 21.x is now supported (fixed w32-using-nt bug)
+   * XEmacs on Win (NT) is better supported.
+   * Workaround for bug in Sqpe+6 (S-PLUS 6 for Win).
+   * should now work even when imenu is not available (for old
+     XEmacsen).
+   * ESS[SAS]: XEmacs-Imenu fix; 'C-TAB' is globalized along with your
+     function-key definitions, if specified; you can specify your SAS
+     library definitions outside of autoexec.sas for ess-sas-data-view
+     with SAS code placed in the variable ess-sas-data-view-libname,
+     also the dataset name is defaulted to the nearest permanent dataset
+     to point; Speedbar support now works for permanent datasets, please
+     ignore first./last.; new font-locking is now the default with more
+     improvements for font-locking PROCs, macro statements, * ; and %* ;
+     comments; you can toggle sas-log-mode with 'F10' which will
+     font-lock your .log (if it isn't too big); submit remote .sas files
+     accessed with ange-ftp, EFS or Tramp (Kermit is experimental) by
+     setting ess-sas-submit-method to 'sh; ess-sas-submit-command and
+     ess-sas-submit-command-options are buffer-local so you can have
+     local file variable sections at the end of your .sas files to
+     request different executables or specify special options and the
+     local file variables are re-read at submit instead of only at file
+     open so that if you make a change it is picked up immediately;
+   * ESS[BUGS]: font-lock with 'in' fixed.
+   * for STATA: font-lock bug fixed.
+   * for Rd mode: 'C-c C-v' and 'switch-process' in menu.  further, 'C-c
+     C-f' prefix (Rd-font) for inserting or surrounding a word by things
+     such as \code{.}, \code{\link{.}}, \emph{.} etc.
+   * new functions (ess-directory-function) and (ess-narrow-to-defun)
+     ess-directory <-> default-directory logic (Jeff Mincy).
+   * Re-organized Makefile and fixed a few bugs.
+
+   Changes/New Features in 5.1.19:
+   * S+6 now supported (Tony Rossini (Unix) and Rich Heiberger
+     (Windows))
+   * New BUGS support through ESS[BUGS] mode (Rodney Sparapani)
+     Templates assist you in writing .bug and .cmd code (.cmd and .log
+     are replaced by .bmd and .bog to avoid emacs extension collisions).
+     Substitution" parameters facilitate "automagic" generation of
+     data...in" and "init...in" filenames, "const N=" from your data
+     file and "monitor()/stats()" commands.  Activated by pressing
+     'F12'.
+   * Fixes for 'ess-smart-underscore' SAS breakage (Rich Heiberger)
+   * You can change between PC and Unix, local and global SAS
+     function-key definitions interactively (Rich Heiberger)
+   * 'C-Submit' a highlighted region to SAS batch (Rodney Sparapani)
+   * New and improved SAS syntax highlighting (Rodney Sparapani) To get
+     the new functionality, set ess-sas-run-make-regexp to nil.  Also
+     available in .log files via 'F10'.
+   * Open a permanent SAS dataset for viewing via 'F9' (Rodney
+     Sparapani) You must have the library defined in autoexec.sas for it
+     to work.
+   * User-friendly defaults for 'sas-program',
+     'ess-sas-batch-pre-command' and 'ess-sas-batch-post-command' as
+     well Customize support for these and other ESS[SAS] variables
+     (Rodney Sparapani)
+   * 'ess-sas-suffix-2' now defaults to .dat via 'F11' (Rodney
+     Sparapani)
+   * Emacs/XEmacs, Unix/Windows issues collectively handled in
+     ess-emcs.el
+   * defadvice solves problem of missing *ESS* (thanks to Jeff Mincy)
+   * Improved manual a bit by including things that were only in
+     'README'.
+
+   Changes/New Features in 5.1.18:
+   * New 'ess-smart-underscore' function, now assigned to "_" by
+     default.  Inserts 'ess-S-assign' (customizable " <- "), unless
+     inside string and comments where plain "_" is used instead.  (MM)
+   * Fixes for longstanding interactive SAS breakage (RMH)
+
+   Changes/New Features in 5.1.17:
+   * Documentation for Windows Installation (Rich Heiberger)
+   * removal of ess-vars, finalization of customize support (in the
+     sense that there is no more use of ess-vars, but that we need to
+     fix ess-cust) (AJ Rossini)
+   * Many small (and large) fixes/contributions (MMaechler)
+   * addition of the "S-equal" variable and provide 'M-x
+     ess-add-MM-keys' a way to remap "_" to 'ess-S-assign', typically "
+     <- ", but customizable.  (MMaechler)
+
+   Changes/New Features in 5.1.16:
+   * BUG FIXES
+   * Better SAS support
+
+   Changes/New Features in 5.1.15:
+   * BUG FIXES
+
+   Changes/New Features in 5.1.14:
+   * Yet more fixes to SAS mode, (Rich Heiberger and Rodney Sparapani)
+   * Customize support (for most Emacsen which support it) (AJRossini)
+   * ARC and ViSta support out of the box, and fixes for XLispStat
+     (AJRossini)
+
+   Changes/New Features in 5.1.13:
+   * Version numbering finally all depending on the ./VERSION file,
+     thanks to Martin Maechler.
+   * Yet more fixes to SAS mode, thanks to Rich Heiberger.
+
+   Changes/New Features in 5.1.12:
+   * Splus 5.1 stabilized, thanks to Martin Maechler, Bill Venables,
+     Chuck Taylor, and others.
+   * More fixes to SAS mode, thanks to Rodney Sparapani and Rich
+     Heiberger.
+
+   Changes/New Features in 5.1.11:
+   * More fixes to Stata mode, thanks to Brendan Halpin
+     (mailto:brendan@essex.ac.uk).
+   * fixed bugs in ESS-elsewhere, thanks to many testers
+   * README.SPLUS4WIN has DETAILED instructions for S-PLUS 2000, thanks
+     to David Brahm (mailto:brahm@alum.mit.edu).
+   * Fixes to SAS mode, thanks to Rodney Sparapani
+
+   Changes/New Features in 5.1.10:
+   * More fixes to Stata mode
+   * primitive generic version of ESS-elsewhere
+   * Small fixes to SAS/Stata.
+
+   Changes/New Features in 5.1.9:
+   * Stata mode works
+   * Literate Data Analysis using Noweb works
+
+   Changes/New Features in 5.1.8:
+   * Bug fixes
+   * R documentation mode defaults changed
+
+   Changes/New Features in 5.1.2:
+   * able to use inferior iESS mode to communicate directly with a
+     running S-Plus 4.x process using the Microsoft DDE protocol.  We
+     use the familiar (from Unix ESS) 'C-c C-n' and related key
+     sequences to send lines from the S-mode file to the inferior S
+     process.  We continue to edit S input files in ESS[S] mode and
+     transcripts of previous S sessions in ESS Transcript mode.  All
+     three modes know the S language, syntax, and indentation patterns
+     and provide the syntactic highlighting that eases the programming
+     tasks.
+
+
+
+Tag Table:
+
+End Tag Table

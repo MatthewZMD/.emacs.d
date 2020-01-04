@@ -1,0 +1,358 @@
+\documentclass[a4paper]{article}
+
+\usepackage{expl3}
+\usepackage[overload]{empheq}
+\usepackage{breqn}
+
+\begin{document}
+
+This is a test document for general fontification support of macros
+and environments provided by \LaTeX{} and other packages within
+AUC\TeX.  As it is not part of \verb|ert|-tests, it does not have an
+\verb|out|-counterpart.
+
+\part{Macros}
+
+\section{Special characters}
+
+\subsection{Standard reserved characters}
+
+\subsubsection{\protect\LaTeX{} input}
+
+The following symbols are reserved characters that have a special
+meaning under \LaTeX{}.
+\begin{center}
+  \begin{tabular}{@{}*{8}{c}}
+    \hline
+    \verb|#|   & \verb|$| & \verb|%| & \verb|^|
+    & \verb|&| & \verb|_| & \verb|{| & \verb|}| \\
+    \verb|~|   & \verb|`| & \verb|'| & \verb|=|
+    & \verb|.| \\
+    \hline
+  \end{tabular}\\
+\end{center}
+In a document, characters in the first line are printed by using a
+prefix \verb|\| (backslash).  The characters in the second line become
+control symbols taking an argument when prefixed with a backslash.
+
+\subsubsection{AUC\protect\TeX{} fontification}
+
+AUC\TeX{} has the following strategy for fontification:
+\begin{description}
+\item[Control symbols without argument] do not get any fontification
+  as they only print a special character and have a textual context,
+  e.g. \$10, 5\%, Mr.\&Mrs.  They are listed below:
+  \begin{center}
+    \begin{tabular}{@{}*{4}{cl}@{}}
+      \hline
+      \#   & \verb|\#| & \$ & \verb|\$|
+      & \% & \verb|\%| & \& & \verb|\&| \\
+      \_   & \verb|\_| & \{ & \verb|\{|
+      & \} & \verb|\}|                  \\
+      \hline
+    \end{tabular}
+\end{center}
+\item[Control symbols with argument] do not receive any fontification.
+  These macros take a mandatory argument, but they have a textual
+  context.  Since the argument is usually not enclosed in braces,
+  fontification would be rather distracting:
+  \begin{center}
+    \begin{tabular}{@{}*{4}{cl}@{}}
+      \hline
+      \`o   & \verb|\`o| & \'o & \verb|\'o|
+      & \^o & \verb|\^o| & \~o & \verb|\~o|  \\
+      \=o   & \verb|\=o| & \.o & \verb|\.o|
+      & \"o & \verb|\"o|                     \\
+      \hline
+    \end{tabular} \\[1ex]
+    \begin{minipage}{0.4\linewidth}\centering
+      H\^{o}tel, na\"\i ve, \'{e}l\`{e}ve,\\
+      sm\o rrebr\o d, !`Se\~{n}orita!
+    \end{minipage}\quad
+    \begin{minipage}{0.4\linewidth}\centering
+      H\^otel, na\"\i ve, \'el\`eve,\\
+      sm\o rrebr\o d, !`Se\~norita!
+    \end{minipage}
+  \end{center}
+\item[Control words] receive fontification, e.g.
+  \begin{center}
+    \begin{tabular}{@{}*{4}{cl}@{}}
+      \hline
+      \u o    & \verb|\u o| & \v o & \verb|\v o|
+      & \H o  & \verb|\H o| & \c o & \verb|\c o| \\
+      \d o    & \verb|\d o| & \b o & \verb|\b o|
+      & \t oo & \verb|\t oo|                     \\[6pt]
+      \oe     & \verb|\oe|  & \OE  & \verb|\OE|
+      & \ae   & \verb|\ae|  & \AE  & \verb|\AE|  \\
+      \aa     & \verb|\aa|  & \AA  & \verb|\AA|
+      & \c c  & \verb|\c c|                      \\[6pt]
+      \o      & \verb|\o|   & \O   & \verb|\O|
+      & \l    & \verb|\l|   & \L   & \verb|\L|   \\
+      \i      & \verb|\i|   & \j   & \verb|\J|
+      & \ss   & \verb|\ss|                       \\
+      \hline
+    \end{tabular}\\[1ex]
+  \end{center}
+\end{description}
+
+\subsection{@ character}
+
+\subsubsection{\protect\LaTeX{} input}
+
+In regular text, \verb|@| is not a special character and can be used
+as `foo@bar'.  Further, \verb|\@| can be used to force a wide space
+after an uppercase character, e.g. PC\@.
+
+On the other hand, \verb|@| is used as ``letter'' for defining internal
+macros, e.g. \verb|\@gobble|.
+
+\subsubsection{AUC\protect\TeX{} fontification}
+
+Being a non-textual macro, \verb|\@| receives a fontification in
+AUC\TeX.  Used as letter as part of a macro, it gets the fontification
+as the rest. Example \bgroup\ttfamily \string\@gobble\egroup.
+
+\subsection{\_ and : characters}
+
+\subsubsection{\protect\LaTeX{} input}
+
+For \LaTeXe, the behavior of \verb|_| and \verb|\_| was described
+above.  \verb|:| is not special for regular text.  \verb|\:| is a
+spacing macro ($\frac{4}{18}$ quad) within math mode.
+
+\LaTeX3 does not use \verb|@| as ``letter'' for defining internal
+macros.  Instead, the symbols \verb|_| and \verb|:| are used in
+internal macro names to provide structure.  These extra letters are
+used only between parts of a macro name (no strange vowel
+replacement)\cite{expl3}.
+
+\subsubsection{AUC\protect\TeX{} fontification}
+
+\verb|\:| is only allowed in math mode; fontification is done there,
+e.g. $a\:\:+b$ or
+\begin{equation}
+  \int_1^2 \ln x \mathrm{d}x
+  \qquad
+  \int_1^2 \ln x \:\:\:\mathrm{d}x
+\end{equation}
+
+Regarding \LaTeX3, \verb|expl3| says:
+\begin{quote}
+  3.2.1 Separating private and public material \\
+  Functions created by a module may either be ``public'' (documented
+  with a defined interface) or ``private'' (to be used only within
+  that module, and thus not formally documented).  It is important
+  that only documented interfaces are used; [...] \\
+  To allow clear separation of these two cases, the following
+  convention is used. Private functions should be defined with
+  \verb|__| added to the beginning of the module name. Thus
+  \begin{quote}
+    \ttfamily \catcode`\_11\relax
+    \string\module_foo:nnn
+  \end{quote}
+  is a public function which should be documented while
+  \begin{quote}
+    \ttfamily \catcode`\_11\relax
+    \string\__module_foo:nnn
+  \end{quote}
+  is private to the module, and should not be used outside of that
+  module.
+\end{quote}
+%
+Hopefully, this means that \verb|\__module_foo:nnn| macros will not be
+used somewhere in the preamble of a \verb|.tex| file -- they should
+appear only in a \verb|.dtx| file.
+
+AUC\TeX{} provides a style file \verb|expl3.el| containing this code:
+\begin{verbatim}
+(defvar LaTeX-expl3-syntax-table
+  (let ((st (copy-syntax-table LaTeX-mode-syntax-table)))
+    ;; Make _ and : symbol chars
+    (modify-syntax-entry ?\_ "_" st)
+    (modify-syntax-entry ?\: "_" st)
+    st))
+\end{verbatim}
+It changes the syntax for \verb|_| and \verb|:| from
+\textsl{punctuation} to \textsl{symbol}.  For public functions
+mentioned above, this results in correct fontification in regular
+\verb|.tex| files.  For private functions, \verb|font-latex.el|
+provides some code for doc\TeX{} mode to fontify them correctly.
+
+\section{Math mode}
+
+\subsection{\protect\LaTeX{} input}
+
+In-line math is typeset with plain \TeX{}
+\verb|$|\,\textsl{formula\_text}\,\verb|$| or \LaTeX{} shorthand
+\verb|\(|\,\textsl{formula\_text}\,\verb|\)|, e.g. $(a+b)^2$ is equal
+to \(a^2+2ab+b^2\).
+
+\subsection{AUC\protect\TeX{} fontification}
+
+AUC\TeX{} fontifies math with \texttt{font-latex-math-face}.  There is
+a bug report \#26630 for this issue: {\bfseries Text before, $(a+b)^2$
+  is equal to \(a^2+2ab+b^2\)!}  First math expression is fontified
+with
+\begin{quote}
+\verb|(font-latex-math-face font-latex-bold-face)|
+\end{quote}
+while the second with
+\begin{quote}
+\verb|(font-latex-bold-face font-latex-math-face)|
+\end{quote}
+
+\part{Environments}
+
+\section{Math mode}
+
+\subsection{\protect\LaTeX{} input}
+
+Standard \LaTeX{} math environments are \verb|equation|,
+\verb|displaymath| and others.  \verb|amsmath| package provides
+environments like \verb|align|, \verb|flalign| etc.  These
+environments do not take any arguments.  Environments like
+\verb|alignat|, \verb|xalignat| and \verb|xxalignat| take a mandatory
+argument.  Other math environments provided by packages like
+\verb|empheq.sty| or \verb|breqn.sty| take an optional and/or
+mandatory argument.
+
+\subsection{AUC\protect\TeX{} fontification}
+
+AUC\TeX{} fontifies the entire math content with
+\texttt{font-latex-math-face}.  The optional and mandatory argument(s)
+should not be fontified.  Spaces or line breaks are used in order to
+distinguish argument from math content, i.e.
+\begin{quote}
+\verb|\begin{<mathenv>}[<opt-arg>]{<mand-arg>}|
+\end{quote}
+will be fontified differently than
+\begin{quote}
+\verb|\begin{<mathenv>}[<opt-arg>] {<math-content>}|
+\end{quote}
+or
+\begin{quote}
+\verb|\begin{<mathenv>} [<math-content>]{<math-content>}|
+\end{quote}
+
+The relevant functions is \verb|font-latex.el| are
+\begin{quote}
+\verb|font-latex-match-math-envII|\quad and \\
+\verb|font-latex-extend-region-backwards-math-envII|
+\end{quote}
+
+\subsubsection{Standard \protect\LaTeX{}}
+
+Examples taken from \cite{voss16}.
+\begin{equation}
+f(x)=\prod_{i=1}^{n}\left(i-\frac{1}{2i}\right)
+\end{equation}
+or
+\begin{displaymath}
+f(x)=\prod_{i=1}^{n}\left(i-\frac{1}{2i}\right)
+\end{displaymath}
+or
+\[ f(x)=\prod_{i=1}^{n}\left(i-\frac{1}{2i}\right) \]
+or
+\begin{eqnarray*}
+  y & = & d\\
+  y & = & cx+d\\
+  y & = & bx^{2}+cx+d\\
+  y & = & ax^{3}+bx^{2}+cx+d
+\end{eqnarray*}
+
+\subsubsection{\texttt{amsmath} package}
+
+Examples taken from \cite{voss16}.
+\begin{align}
+  y &= d & z &= 1 \\
+  y &= cx+d & z &= x+1 \\
+  y_{12} &= bx^{2}+cx+d & z &= x^{2}+x+1\nonumber \\
+  y(x) &= ax^{3}+bx^{2}+cx+d & z &= x^{3}+x^{2}+x+1
+\end{align}
+or
+\begin{alignat}{2}
+  y &= d & z &= 1 \\
+  y &= cx+d & z & =x+1 \\
+  y_{12} &= bx^{2}+cx+d & z &= x^{2}+x+1\nonumber \\
+  y(x) &= ax^{3}+bx^{2}+cx+d & z &= x^{3}+x^{2}+x+1
+\end{alignat}
+
+\subsubsection{\texttt{breqn} package}
+
+Examples taken from \cite{breqn}:
+\begin{dmath}
+  f(x)=\frac{1}{x} \condition{for $x\neq 0$}
+\end{dmath}
+or
+\begin{dmath}[label={sna74}]
+  \frac{1}{6} \left(\sigma(k,h,0) +\frac{3(h-1)}{h}\right)
+  +\frac{1}{6} \left(\sigma(h,k,0) +\frac{3(k-1)}{k}\right)
+  =\frac{1}{6} \left(\frac{h}{k} +\frac{k}{h} +\frac{1}{hk}\right)
+  +\frac{1}{2} -\frac{1}{2h} -\frac{1}{2k},
+\end{dmath}
+or \newcommand\mx[1]{\begin{math}#1\end{math}}%
+\begin{dseries}[frame]
+  \mx{v^{[2]} =(0,5,5,0,9,5,1,0)},
+  \mx{v^{[3]} =(0,9,11,9,10,12,0,1)}.
+\end{dseries}
+
+\begin{dgroup*}
+  \begin{dmath*}
+    H_1^3 = x_1 + x_2 + x_3
+  \end{dmath*},
+  \begin{dmath*}
+    H_2^2 = x_1^2 + x_1 x_2 + x_2^2 - q_1 - q_2
+  \end{dmath*},
+  \begin{dsuspend}
+    and
+  \end{dsuspend}
+  \begin{dmath*}
+    H_3^1 = x_1^3 - 2x_1 q_1 - x_2 q_1
+  \end{dmath*}.
+\end{dgroup*}
+
+\subsubsection{\texttt{empheq} package}
+
+Examples taken from \cite{empheq}:
+\begin{empheq}{align*}
+  a&= b \tag{*}\\
+  E&= mc^2 + \int_a^a x\,dx
+\end{empheq}
+or
+\begin{empheq}{alignat=2}
+  a &= b &\quad c &= d \\
+  \text{this} &= \text{that} &\quad \mathit{fish}&\neq fish
+\end{empheq}
+or
+\begin{empheq}[innerbox=\fbox,
+  left=L\Rightarrow]{align}
+  a&=b\\
+  E&=mc^2 + \int_a^a x\, dx
+\end{empheq}
+or
+\begin{empheq}[
+  left={\parbox[c][\EmphEqdisplayheight+\EmphEqdisplaydepth][t]
+    {4.5cm}
+    {You may find this kind of description useful.}\enspace}%
+  ]{align}
+  a&=\int_0^1 x\,dx +\frac{foo + bar}{baz}\\
+  E&= mc^2
+\end{empheq}
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{breqn} Downes, Michael J.; H\o gholm, Morten: The
+  \texttt{breqn} package.  Released 2017/01/27.
+\bibitem{empheq} H\o gholm, Morten; Madsen, Lars: The \texttt{empheq}
+  package.  Released 2014/08/04.
+\bibitem{expl3} The \LaTeX3 Project: The expl3 package and \LaTeX3
+  programming.  Released 2017/04/01.
+\bibitem{voss16} Vo\ss, Herbert: Mathematical Typesetting with
+  \LaTeX.  TUG-Version 0.32, released 2016/11/08.
+\end{thebibliography}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

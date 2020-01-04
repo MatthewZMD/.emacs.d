@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# contributor: Li Zhu <http://www.zhuli.name>
+# name: read (*,*)
+# --
+read (${1:*},${2:*}) $0

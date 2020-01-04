@@ -1,0 +1,42 @@
+This is currfeat.info, produced by makeinfo version 6.5 from
+currfeat.texi.
+
+   * Languages Supported:
+        * S family (R, S, and S+ AKA S-PLUS)
+        * SAS
+        * BUGS/JAGS
+        * Stata
+        * Julia
+   * Editing source code (S family, SAS, BUGS/JAGS, Stata, Julia)
+        * Syntactic indentation and highlighting of source code
+        * Partial evaluation of code
+        * Loading and error-checking of code
+        * Source code revision maintenance
+        * Batch execution (SAS, BUGS/JAGS)
+        * Use of imenu to provide links to appropriate functions
+   * Interacting with the process (S family, SAS, Stata, Julia)
+        * Command-line editing
+        * Searchable Command history
+        * Command-line completion of S family object names and file
+          names
+        * Quick access to object lists and search lists
+        * Transcript recording
+        * Interface to the help system
+   * Transcript manipulation (S family, Stata)
+        * Recording and saving transcript files
+        * Manipulating and editing saved transcripts
+        * Re-evaluating commands from transcript files
+   * Interaction with Help Pages and other Documentation (R)
+        * Fast Navigation
+        * Sending Examples to running ESS process.
+        * Fast Transfer to Further Help Pages
+   * Help File Editing (R)
+        * Syntactic indentation and highlighting of source code.
+        * Sending Examples to running ESS process.
+        * Previewing
+
+
+
+Tag Table:
+
+End Tag Table

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# contributor: Li Zhu <http://www.zhuli.name>
+# name: include
+# --
+include $0

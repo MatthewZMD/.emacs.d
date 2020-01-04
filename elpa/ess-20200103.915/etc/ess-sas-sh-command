@@ -1,0 +1,76 @@
+#!/bin/sh
+
+### (C) 1997, Richard M. Heiberger.
+### This file is part of ESS.
+
+## This file is free software; you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation; either version 2, or (at your option)
+## any later version.
+
+## This file is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+
+## A copy of the GNU General Public License is available at
+## https://www.r-project.org/Licenses/
+
+
+# For executing SAS, and running it in the proper manner for ESS
+# (feeding output back into appropriate ESS buffers).
+
+#echo $0 $@
+#sas </dev/tty 1>$1 2>$2 $3
+
+set -x
+stdout=$1
+stderr=$2
+shift 2
+set +x
+echo sas \</dev/tty 1\>$stdout 2\>$stderr $@
+sas </dev/tty 1>$stdout 2>$stderr $@
+
+## From the SAS online tech support:
+##
+## Redirecting the SAS Log and Output under UNIX. 
+## 
+## There are several ways of redirecting the SAS Log and Output under
+## UNIX.  
+## 
+## To redirect the SAS Log, follow one of these steps: 
+## 
+##    1.
+##          In the source code, place the following line: 
+## 
+##          proc printto log=stdout;
+## 
+##          to make a duplicate copy of the log in a file in addition
+##          to redirecting it to stdout, use this command to invoke
+##          SAS:  
+## 
+##          sas -altlog doit.log doit.sas
+## 
+##    2.Execute SAS in the background and use the UNIX 'tail' command
+##      to copy lines to stdout as they are added to the log. Use the 
+##      command: 
+## 
+##      sas doit.sas &; tail -f doit.log
+## 
+## To redirect the SAS Log and Output under the Korn shell, use the
+## following command:  
+## 
+## sas -stdio < doit.sas > doit.lst 2> doit.log
+## 
+## To redirect the SAS Log and Output under the C-Shell, use the
+## following command:   
+## 
+## (sas -stdio < doit.sas > doit.lst) >& doit.log
+
+## From WWW.SAS.COM:
+## How can I make SAS in batch mode behave like interactive SAS,
+## continue running my SAS job, and not enter syntax check mode when
+## it encounters an error?
+##
+## You can specify the NOSYNTAXCHECK option when you invoke your SAS
+## program.

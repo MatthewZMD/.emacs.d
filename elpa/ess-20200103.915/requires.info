@@ -1,0 +1,15 @@
+This is requires.info, produced by makeinfo version 6.5 from
+requires.texi.
+
+ESS supports GNU Emacs versions 25.1 and newer.
+
+   ESS is most likely to work with current/recent versions of the
+following statistical packages: R/S-PLUS, SAS, Stata, OpenBUGS and JAGS.
+
+   To build the PDF documentation, you will need a version of TeX Live
+or texinfo that includes texi2dvi.
+
+
+Tag Table:
+
+End Tag Table

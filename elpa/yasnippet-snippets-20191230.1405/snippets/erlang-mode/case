@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: case ... of ... end
+# --
+case $1 of
+    $0
+end

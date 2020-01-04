@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: if ... -> ... ; true -> ... end
+# --
+if
+    $1 -> $2;
+    true -> $0
+end

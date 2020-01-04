@@ -1,0 +1,82 @@
+\documentclass{article}
+\begin{document}
+\begin{tabular}{llll}
+  Lorem ipsum dolor & sit amet, ei mei
+                      paulo tation honestatis,
+                      intellegam & accommodare ne vim, ut
+                                   mel solum putant
+                                   atomorum. Posse & dolores has ut,\\
+  prompta           & disputando & ne mel, ne
+                                   viderer ceteros
+                                   vel.            & No petentium
+  \\
+
+  reformidans mel.  & Quo no sale
+                      natum, cu
+                      pericula   & deterruisset
+                                   usu. Nec        & bonorum detracto\\
+  detraxit          & no.        & Ne sea doming   & deserunt.
+\end{tabular}
+
+\begin{tabular}{ll}
+  1 & 2 & 3
+  \\
+    & 4 & 5
+  \\
+  6 & 7
+        & 8\\
+  9 &
+      10
+        & 11
+\end{tabular}
+\begin{align}
+  1 & 2
+      3 & 4
+          5\\
+  6 &
+      7
+      8 &
+          9
+\end{align}
+
+% Next table tests filling with a control symbol \& inside a cell; the
+% function `LaTeX-indent-tabular' now (March 2017) detects \&, see:
+% https://debbugs.gnu.org/cgi/bugreport.cgi?bug=26010
+\begin{tabular}{llll}
+  Lorem ipsum dolor & sit amet, ei mei \&
+                      paulo tation honestatis, \&
+                      intellegam & accommodare ne vim, ut
+                                   mel solum putant
+                                   atomorum. Posse & dolores has ut,\\
+  prompta           & disputando & ne mel, ne
+                                   \& viderer ceteros
+                                   vel.            & No petentium
+\end{tabular}
+
+% Next tables test filling when & (column separator) character is
+% missing in a row; the function `LaTeX-hanging-ampersand-position'
+% now (March 2017) detects this and has a fallback, see:
+% https://debbugs.gnu.org/cgi/bugreport.cgi?bug=26032
+\begin{tabular}{llll}
+  \multicolumn{4}{c}{Lorem ipsum dolor sit amet, ei mei} \\
+  & paulo tation honestatis,
+    intellegam accommodare ne vim, ut \\
+  & mel solum putant atomorum. Posse & dolores has ut, \\
+  prompta & disputando & ne mel, ne
+                         \& viderer ceteros vel. \\
+  & No petentium
+\end{tabular}
+
+\begin{table}[tbp]
+  \begin{tabular}{llll}
+    \multicolumn{4}{c}{Lorem ipsum dolor sit amet, ei mei} \\
+    & paulo tation honestatis,
+      intellegam accommodare ne vim, ut \\
+    & mel solum putant atomorum. Posse & dolores has ut, \\
+    prompta & disputando & ne mel, ne
+                           \& viderer ceteros vel. \\
+    & No petentium
+  \end{tabular}
+\end{table}
+
+\end{document}

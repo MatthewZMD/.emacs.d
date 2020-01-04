@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Mar 18 14:20:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Dec  9 20:49:39 2019 (-0500)
+;; Last-Updated: Sat Jan  4 10:06:14 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d constants
@@ -38,8 +38,8 @@
 ;;; Code:
 
 ;; UserInfo
-(setq user-full-name "Mingde (Matthew) Zeng")
-(setq user-mail-address "matthewzmd@gmail.com")
+(setq user-full-name "Dagnachew Argaw")
+(setq user-mail-address "dagnachewa@gmail.com")
 ;; -UserInfo
 
 ;; Consts

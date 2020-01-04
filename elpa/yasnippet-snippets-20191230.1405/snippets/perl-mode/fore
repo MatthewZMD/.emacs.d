@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: foreach ... { ... }
+# key: fore
+# --
+foreach my \$${1:x} (@${2:array}) {
+    ${3:# body...}
+}

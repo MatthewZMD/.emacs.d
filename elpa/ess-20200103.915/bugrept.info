@@ -1,0 +1,26 @@
+This is bugrept.info, produced by makeinfo version 6.5 from
+bugrept.texi.
+
+Please send bug reports, suggestions etc.  to <ESS-bugs@r-project.org>,
+or post them on our github issue tracker
+(https://github.com/emacs-ess/ESS/issues)
+
+   The easiest way to do this is within Emacs by typing
+
+   'M-x ess-submit-bug-report'
+
+   This also gives the maintainers valuable information about your
+installation which may help us to identify or even fix the bug.
+
+   If Emacs reports an error, backtraces can help us debug the problem.
+Type "M-x set-variable RET debug-on-error RET t RET". Then run the
+command that causes the error and you should see a *Backtrace* buffer
+containing debug information; send us that buffer.
+
+   Note that comments, suggestions, words of praise and large cash
+donations are also more than welcome.
+
+
+Tag Table:
+
+End Tag Table

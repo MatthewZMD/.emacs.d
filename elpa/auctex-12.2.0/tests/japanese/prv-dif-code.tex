@@ -1,0 +1,42 @@
+% Please check that all preview images in this buffer come out at the
+% correct position.  I.e., preview images should hide each \section
+% command.
+% When done, type C-M-c or M-x exit-recursive-edit.
+%
+% If the image is at the beginning of the line and "\section{xxx}" is
+% placed far rightward of the image, then the result should be considered
+% as fail.
+% In addition, if the image covers "\section{xxx}" only partially, the
+% result should be considered as fail, too.
+% On the contrary, if the text shown in the image is garbled while the
+% position of the image is correct, then the result should be considered as
+% OK.  That means that your ghostscript is not configured to handle
+% Japanese postscript font names correctly and the functionality of
+% preview-latex is just fine.
+\documentclass{jarticle}
+
+\begin{document}
+
+\section{表(1)}
+
+\section{予{a}}
+
+\section{\(能\|\)}
+
+\section{アース}
+
+\section{型}
+
+% The comment "%能" will be displayed rightward to the image on the next
+% line.  That is a normal outcome and should be considered as OK.
+\section{あ} %能
+
+\end{document}
+
+%%% Local Variables:
+%%% coding: iso-2022-jp
+%%% mode: japanese-latex
+%%% TeX-master: t
+%%% TeX-engine: ptex
+%%% TeX-PDF-mode: nil
+%%% End:

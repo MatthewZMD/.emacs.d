@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: tryelse
+# key: try
+# --
+try:
+    $0
+except $1:
+    $2
+else:
+    $3

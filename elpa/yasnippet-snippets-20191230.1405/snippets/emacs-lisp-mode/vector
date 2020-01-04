@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# contributor: Xah Lee (XahLee.org)
+# name: vector
+# key: vector
+# key: v
+# --
+(vector $0)

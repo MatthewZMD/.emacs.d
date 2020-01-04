@@ -1,0 +1,72 @@
+(./test.tex (./nice-class.cls
+Document Class: nice-class 1970/01/01 v42 A good class
+
+Package nice-class Warning: ******************************************
+(nice-class)                * THIS IS JUST A WARNING WITH A PESKY
+(nice-class)                * UNMATCHED CLOSED PARENTHESIS :-)
+(nice-class)                ****************************************** on input line 32.
+
+)
+
+(/opt/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+
+./test.tex:2: Class nice-class Error: ***********************************
+(nice-class)              * This is a very bad error!
+(nice-class)              ************************************.
+
+See the suftesi class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \begin{document}
+
+(/other/packages/loaded.sty)
+ABD: EveryShipout initializing macros
+
+Package foo Warning: This is a warning! on input line 3.
+
+[1{/opt/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./test.aux)
+
+(./secondary-file.tex [8] [9] [10 <./path/to/file>]
+Underfull \hbox (badness 6608) in paragraph at lines 131--132
+[]|\T1/jkpl/m/n/10.95 (+20) Something bla
+[11] [12])
+
+LaTeX Warning: Reference `wrong' on page 1 undefined on input line 4.
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 70.
+
+[1{/opt/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./test.aux)
+
+(./test.lof
+Underfull \vbox (badness 1048) has occurred while \output is active [7]
+Overfull \hbox (0.93071pt too wide) detected at line 31
+ []\T1/jkpl/m/n/10.95 144
+)
+
+(./file  name/with spaces.tex
+chapter 5.
+<use image/an_image.pdf> [82] [83 <./image/an_image.pdf>] [84] [85] [86] (./image/another.tex
+<image/another.pdf, id=1357, 208.78pt x 146.5475pt> <use image/another.pdf>)
+<image/another2.pdf, id=1358, 542.025pt x 481.8pt> <use image/another2.pdf>
+Underfull \vbox (badness 3942) has occurred while \output is active [87 <./image/another.pdf> <./image/another2.pdf>] [88] (./image/beta.tex
+<image/beta.pdf, id=1410, 289.08pt x 201.75375pt>
+<use image/beta.pdf>) [89] [90 <./image/beta.pdf>]
+Overfull \hbox (13.59138pt too wide) in paragraph at lines 367--368
+[]\T1/pplj/m/n/10.95 Un qua-dri-vet-to-re co-va-rian-te $\OMS/zplm/m/n/10.95 f\OML/zplm/m/it/10.95 A[]\OMS/zplm/m/n/10.95 g$ \T1/pplj/m/n/10.95 e un in-sie-me di quat-tro quan-ti-ta $\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 A[]; A[]; A[]; A[]\OT1/zplm/m/n/10.95 )$
+[91] [92]
+
+[93])
+
+! Undefined control sequence.
+l.11 \doesnotexist
+
+(./foo.aux) )
+LaTeX Warning: Citation 'Knuth:TeXbook-1984' undefined on input line 48.
+
+LaTeX Warning: There were undefined references.
+
+)

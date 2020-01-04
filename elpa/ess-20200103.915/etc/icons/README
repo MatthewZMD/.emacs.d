@@ -1,0 +1,31 @@
+
+Creating pixmaps:
+
+* spluslogo.xpm was dontated by David Smith at Insightful.
+
+* Other icons were created by SJE, using mostly `kiconedit' and
+  hand-editing.
+
+* Transparency
+Need to add backgrounToolBarColor for XEmacs to show okay.
+e.g. /usr/share/xemacs-21.4.12/etc/toolbar/folder-cap-up.xpm
+has header:
+"X	c Gray75 s backgroundToolBarColor",
+whereas I have set "c None" to indicate the background pixel; this line
+seems to work for both toolbars:
+". c None s backgroundToolBarColor",
+
+* splus_letters_small.xpm
+
+2010-05-18 & -21: SJE made this new Splus icon from the
+splus_letters_large.xpm (then image001.png from Louis Bajuk-Yorgan
+@tibco.com) file that Rich provided.  I had to move the
+cross over to the left by one pixel, to then allow the image to be
+cropped to 48x48 (cropping performed in gimp).  kiconedit was then
+used to rescale the icon to 24x24.  Finally, background transparency
+added manually to the file, as noted above.
+
+2010-05-21: updated file based on new image from TIBCO.  Original
+51x38 cropped to 50x38 in xv, then shrunk to 25x19 in kiconedit.
+Transparency added, and removed a lot of the extra white pixels into
+background colours manually in kiconedit.

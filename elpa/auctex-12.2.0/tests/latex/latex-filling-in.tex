@@ -1,0 +1,28 @@
+Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod \(0 = 1\) tempor incidunt ut $a^{2} + b^{2} = c^{2}$ labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
+
+\begin{tabular}{| l | l | l | l |}
+  Lorem ipsum dolor sit amet, consectetur adipisci & Lorem ipsum dolor sit amet, consectetur adipisci & Lorem ipsum dolor sit amet, consectetur adipisci & Lorem ipsum dolor sit amet, consectetur adipisci
+\end{tabular}
+
+% Test for unambiguousness of macros starting a paragraph.  E.g.
+% caption vs. captionsetup
+Lorem ipsum dolor sit amet, consectetur adipisci,
+lorem ipsum dolor
+\captionsetup{key=val}
+sit amet, consectetur adipisci
+
+Lorem ipsum dolor sit amet, consectetur adipisci,
+lorem ipsum dolor
+\caption{key=val}
+sit amet, consectetur adipisci
+
+% par vs. parencite
+Lorem ipsum dolor sit amet, consectetur adipisci,
+lorem ipsum dolor
+\parencite{key}
+sit amet, consectetur adipisci
+
+Lorem ipsum dolor sit amet, consectetur adipisci,
+lorem ipsum dolor
+\par
+sit amet, consectetur adipisci

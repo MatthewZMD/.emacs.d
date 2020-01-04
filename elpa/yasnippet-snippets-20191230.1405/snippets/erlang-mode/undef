@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: -undef(...).
+# --
+-undef($1).
+$0

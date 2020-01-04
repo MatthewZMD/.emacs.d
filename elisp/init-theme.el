@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:11:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Aug 23 10:49:38 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Sat Jan  4 14:06:43 2020 (-0500)
+;;           By: Dagnachew Argaw
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d doom-themes doom-modeline
 ;; Compatibility: emacs-version >= 26.1
@@ -50,7 +50,7 @@
   (doom-themes-visual-bell-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
-  (load-theme 'doom-one t))
+  (load-theme 'doom-molokai t))
 ;; -DoomThemes
 
 ;; DoomModeline
@@ -62,7 +62,7 @@
   (doom-modeline-minor-modes t)
   (doom-modeline-icon t)
   (doom-modeline-major-mode-color-icon t)
-  (doom-modeline-height 15))
+  (doom-modeline-height 20))
 ;; -DoomModeline
 
 (provide 'init-theme)

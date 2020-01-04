@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: after ... ->
+# --
+after
+    $1 -> $0

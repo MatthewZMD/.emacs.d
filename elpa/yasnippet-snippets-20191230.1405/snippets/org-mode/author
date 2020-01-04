@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: author
+# key: <au
+# --
+#+author: $0

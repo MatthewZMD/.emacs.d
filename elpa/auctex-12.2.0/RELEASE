@@ -1,0 +1,162 @@
+Release notes for AUCTeX 12.2 with preview-latex
+================================================
+
+AUCTeX provides by far the most wide-spread and sophisticated
+environment for editing LaTeX, TeX, ConTeXt and Texinfo documents with
+Emacs.  Combined with packages like RefTeX, flyspell and others it is
+pretty much without peer as a comprehensive authoring solution for a
+large variety of operating system platforms and TeX distributions.  It
+supports document-dependent completion and syntax highlighting, easily
+accessible menus, jumping to error locations in the source file, a
+number of editing shortcuts, intelligent indentation and filling of
+text during entry, and WYSIWYG previews of graphical elements like
+math formulas right in the Emacs source buffer, by virtue of its
+preview-latex component.
+
+One part of the preview-latex subsystem is the central `preview.sty'
+file that is independently useful for a number of applications and is
+available in unbundled form from CTAN.[1]
+
+AUCTeX needs volunteers in particular for non-programming tasks:
+documentation writing, tutorials, translations, reference material,
+sleuth work, testing.
+
+New features and fixed bugs in this release
+-------------------------------------------
+
+AUCTeX reflects the changes in LaTeX2e 2019-10-01 release.
+'filecontents' environment now takes an optional argument and can
+be used anywhere in a document.  The macros '\Ref' and
+'\labelformat' are moved from 'varioref.sty' to LaTeX kernel.
+amsmath has a new macro '\overunderset'.
+
+A new method is implemented in preview-latex to adjust the
+foreground colors of generated images to those of Emacs, when the
+LaTeX command produces PDF.  The traditional method became invalid
+because of the change introduced in Ghostscript 9.27.
+Unfortunately, the new method doesn't work due to a bug in
+Ghostscript 9.27 and is valid only for Ghostscript > 9.27.  There
+is also a fallback method for gs 9.27 users which displays plain
+"black on white" images.  For successful function of preview-latex,
+the users are encouraged to set up the new user option
+'preview-pdf-color-adjust-method' to choose appropriate option
+among the three: new, traditional and fallback method.
+
+AUCTeX has support for the Flymake package in Emacs 26 or newer.
+To enable, call 'M-x flymake-mode RET' or add this to your '.emacs'
+file:
+     (add-hook 'LaTeX-mode-hook #'flymake-mode)
+
+The way the option 'TeX-record-buffer' is used was corrected.  It
+was used in just the opposite way as the document says.  Erase the
+customization if you have customized this option since it now acts
+in reverse to your expectation.
+
+A former customize option 'japanese-TeX-command-list' is removed.
+Use 'japanese-TeX-engine-default', or if it's really necessary,
+customize 'TeX-command-list' directly if the task which the option
+used to carry is required.
+
+Support for standard LaTeX without e-TeX extension is now very
+limited.  It doesn't work if raw TeX code is put on the command
+line to invoke latex command.  It also fails for region compilation
+('C-c C-r' and so on) with documents of non-ascii file name.  In
+addition, it no longer works with preview-latex.  We consider this
+incompatibility is permissible because e-TeX extension is enabled
+for standard LaTeX by default long ago.  LaTeX variants such as
+XeLaTeX and LuaLaTeX are not affected.
+
+Key binds in Texinfo mode are improved.  Typing '$', '^', '_' and
+'\' now just self-inserts without pointless side effects in Texinfo
+mode.
+
+In addition, the option 'TeX-electric-escape' is now effective in
+Texinfo mode.  When it is enabled, typing '@' will invoke
+'TeX-electric-macro' offering completion in similar style with
+other TeX modes of AUCTeX.
+
+Fontification support for 'biblatex' package is improved and
+updated to macros provided by package version 3.12.  For qualified
+lists, at least 2 mandatory arguments are fontified.
+
+Support for column specifiers 'w' and 'W' provided by 'array'
+package is added to 'array.el'.  The correct counting of columns
+only works when the 'align' parameter is enclosed in braces, e.g.,
+'w{l}{3cm}'.  The short version 'wl{3cm}' is not supported.
+
+Entries for 'PDF Tools' are added in
+'TeX-view-program-list-builtin' for Windows and macOS. This viewer
+can be configured under these operating systems with an entry like
+this in an init file:
+     (setq TeX-view-program-selection '((output-pdf "PDF Tools")))
+
+Several other bugs were fixed, many minor features were added.
+
+Requirements
+------------
+
+It is required that you use at least GNU Emacs 24.
+
+The preview-latex subsystem requires image support.
+
+You'll also need a working LaTeX installation and Ghostscript.
+dvipng[2] (version 1.4 or later), a very fast DVI converter, can be
+used to speed up the conversion.
+
+Availability
+------------
+
+The easiest way for getting AUCTeX is installing it with GNU ELPA, see
+<URL:https://elpa.gnu.org/packages/auctex.html> for more information.
+Other download options are available at
+<URL:https://ftp.gnu.org/gnu/auctex/>.  At release time, we provide the
+source tarball.  You can also use versions of Emacs that already
+include AUCTeX or a software package management system for your
+operating system which provides you with the latest release.
+
+A separate directory for each release contains some stuff from the
+tarball, such as ChangeLog, printable manuals, and a reference sheet.
+The download area is mirrored to the directory support/auctex on CTAN.
+AUCTeX is licensed under the GNU General Public License version 3.
+
+You'll find more information at the web site of AUCTeX
+<URL:https://www.gnu.org/software/auctex/>, including its mailing list
+addresses.
+
+Future development and additional information
+---------------------------------------------
+
+AUCTeX is proceeding as a GNU project with the long-term intent of
+merging it into Emacs.  For that reason, all new contributors need to
+assign copyright to their contributions to the FSF (the usual
+procedure for Emacs contributors).  The same holds for past
+contributors.  The principal authors and maintainers have already done
+so, but it would require a diligent and diplomatic volunteer to find
+and ask the rest.
+
+Current AUCTeX managers are Arash Esbati, Mosè Giordano, and Tassilo
+Horn.  Everybody is welcome to contribute to the project by reporting
+bugs and suggesting improvements, but the most effective way of
+helping AUCTeX development remains volunteering for tasks.
+
+The following people contributed to this release series (in
+alphabetical order): Ivan Andrus, Ralf Angeli, Masayuki Ataka,
+Mohammad Hossein Bateni, Fabrice Ben Hamouda, Thomas Baumann, Vincent
+Belaïche, Berend de Boer, Alex Branham, Uwe Brauer, Ken Brown, Joshua
+Buhl, Jean-François Burnol, Patrice Dumas, Arash Esbati, Werner Fink,
+Miguel Frasson, Peter S. Galbraith, Mosè Giordano, Patrick Gundlach,
+Jobst Hoffmann, Tassilo Horn, Yvon Hevel, Orlando Iovino, Mads Jensen,
+Arne Jørgensen, David Kastrup, Ikumi Keita, Philip Kime, Oleh Krehel,
+Joost Kremers, Frank Küster, Jan-Åke Larsson, Matthew Leach, Antoine
+Levitt, Leo Liu, Vladimir Lomov, Stefan Monnier, Dan Nicolaescu, Piet
+van Oostrum, Nicolas Richard, Augusto Ritter Stoffel, Florent Rougon,
+Santiago Saavedra, Davide G. M. Salvetti, Rüdiger Sonderfeld, Holger
+Sparr, Mike Sperber, Reiner Steib, Christian Schlauer, Shiro Takeda,
+Mark Trettin (Please accept our apologies if we forgot somebody.)
+
+Footnotes:
+
+[1]  <URL:https://www.ctan.org/pkg/preview>
+
+[2]  dvipng is available via its project page
+<URL:https://savannah.nongnu.org/projects/dvipng> and from CTAN.

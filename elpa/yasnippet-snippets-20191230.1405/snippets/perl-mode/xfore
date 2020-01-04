@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ... foreach ...
+# key: xfore
+# --
+${1:expression} foreach @${2:array};
