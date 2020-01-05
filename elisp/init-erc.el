@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Dec  4 01:57:57 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Sat Jan  4 21:17:31 2020 (-0500)
+;;           By: Dagnachew Argaw
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
 ;; Compatibility: emacs-version >= 26.1
@@ -50,7 +50,7 @@
   :custom-face
   (erc-notice-face ((t (:foreground "#ababab"))))
   :custom
-  (erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
+  (erc-autojoin-channels-alist '(("freenode.net" "#archlinux" "#archlinux-fr" "#freebsd" "##linux" "##c" "##c++" "#postgresql" "#R" "#scala" "#haskell" "#erlang" "##javascript" "#python" "#go-nuts" "##networking" "#zsh" "#git" "#Node.js" "#emacs")))
   (erc-track-exclude-types '("NICK" "PART" "MODE" "324" "329" "332" "333" "353" "477"))
   (erc-hide-list '("JOIN" "PART" "QUIT"))
   (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
@@ -69,7 +69,7 @@
   (erc-prompt-for-nickserv-password nil)
   :config
   ;; Prerequisite: Configure this to your IRC nickname
-  (defvar erc-nick ""
+  (defvar erc-nick "perrier-jouet"
     "The nickname used to login into ERC")
   (add-to-list 'erc-modules 'notifications)
   (erc-track-mode t)
