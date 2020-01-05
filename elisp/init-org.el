@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 14:05:45 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Sat Jan  4 22:03:23 2020 (-0500)
+;;           By: Dagnachew Argaw
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
 ;; Compatibility: emacs-version >= 26.1
@@ -101,7 +101,7 @@
 (use-package plantuml-mode
   :defer t
   :custom
-  (org-plantuml-jar-path (expand-file-name "~/tools/plantuml/plantuml.jar"))
+  (org-plantuml-jar-path (expand-file-name "~/.emacs.d/plantuml.jar"))
   :config
   (org-babel-do-load-languages
    'org-babel-load-languages

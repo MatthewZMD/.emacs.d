@@ -1,13 +1,13 @@
 
 ;; ----- amx-history -----
 (
- customize-group
+ package-install
  doom-modeline-mode
+ customize-group
  split-window-right
  describe-package
  describe-theme
  menu-bar-mode
- company-tabnine-install-binary
 )
 
 ;; ----- amx-data -----
@@ -18,5 +18,6 @@
  (describe-theme . 1)
  (describe-package . 1)
  (split-window-right . 1)
- (doom-modeline-mode . 2)
+ (doom-modeline-mode . 3)
+ (package-install . 4)
 )
