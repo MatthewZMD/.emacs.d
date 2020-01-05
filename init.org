@@ -74,6 +74,7 @@
   - [[C/C++/Objective C][C/C++/Objective C]]
   - [[Golang][Golang]]
   - [[Python][Python]]
+  - [[Haskell][Haskell]]
   - [[ESS][ESS]]
   - [[TeX][TeX]]
 - [[Web Development][Web Development]]
@@ -534,7 +535,7 @@
     [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
     #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "69-72"
 ** Golang
-   [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode for editing Golang code.
+   [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode Golang programming.
 
    *Prerequisite*: [[https://github.com/golang/go/wiki/gopls][gopls]] is suggested for Golang's LSP support.
    #+BEGIN_SRC bash
@@ -547,6 +548,9 @@
 *** LSP Python MS
     [[https://github.com/andrew-christianson/lsp-python-ms][LSP Python MS]], a lsp-mode client leveraging [[https://github.com/Microsoft/python-language-server][Microsoft's Python Language Server]].
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "56-61"
+** Haskell
+   [[https://github.com/haskell/haskell-mode][Haskell Mode]], an Emacs mode for Haskell programming.
+   #+INCLUDE: "~/.emacs.d/elisp/init-haskell.el" src emacs-lisp :range-begin "HaskellModePac" :range-end "-HaskellModePac" :lines "41-43"
 ** ESS
    [[https://ess.r-project.org/][Emacs Speaks Statistics]], short for ESS, it's designed to support editing of scripts and interaction with various statistical analysis programs such as R, S-Plus, SAS, Stata and OpenBUGS/JAGS.
 

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Dec 30 12:22:30 2019 (-0500)
+;; Last-Updated: Sat Jan  4 22:37:54 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -191,6 +191,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-cc)
 
 (require 'init-python)
+
+(require 'init-haskell)
 
 (require 'init-latex)
 
