@@ -37,3 +37,6 @@
 [submodule "lisp/PG"]
 	path = lisp/PG
 	url = https://github.com/ProofGeneral/PG
+[submodule "lisp/dune"]
+	path = lisp/dune
+	url = https://github.com/ocaml/dune

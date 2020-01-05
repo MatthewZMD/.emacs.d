@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 2
+;;     Update #: 4
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,7 +46,12 @@
 ;;
 ;;; Code:
 (use-package idris-mode
-    :ensure t)
+  :ensure t
+  :bind (:map idris-mode-map
+              ("C-c C-a" . idris-add-clause)
+              ("C-c C-s" . idris-case-split)
+              ("C-c C-f" . idris-proof-search)))
+
 
 (provide 'init-idris)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
