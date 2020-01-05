@@ -1,17 +1,25 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/perrierjouet/.emacs.d/elisp/init-haskell.el" . 1987)
- ("/home/perrierjouet/.emacs.d/recentf" . 1323)
+(("/home/perrierjouet/.emacs.d/recentf" . 1493)
+ ("/home/perrierjouet/.emacs.d/init.el" . 5327)
+ ("/home/perrierjouet/.emacs.d/elisp/init-idris.el" . 1376)
+ ("/home/perrierjouet/.emacs.d/elpa/elm-mode-20191228.2356/elm-mode-autoloads.el" . 6906)
+ ("/home/perrierjouet/.emacs.d/elpa/reformatter-20191103.357/reformatter-autoloads.el" . 2112)
+ ("/home/perrierjouet/.emacs.d/elisp/init-coq.el" . 1516)
+ ("/home/perrierjouet/.emacs.d/elisp/init-haskell.el" . 1707)
+ ("/home/perrierjouet/.emacs.d/elisp/init-elm.el" . 1462)
+ ("/home/perrierjouet/.emacs.d/elisp/"
+  (dired-filename . "/home/perrierjouet/.emacs.d/elisp/init-org.el"))
+ ("/home/perrierjouet/.emacs.d/"
+  (dired-filename . "/home/perrierjouet/.emacs.d/elisp"))
+ ("/home/perrierjouet/.emacs.d/elpa/company-ghc-20170918.833/company-ghc-autoloads.el" . 786)
+ ("/home/perrierjouet/.emacs.d/elpa/ghc-20180121.1218/ghc-autoloads.el" . 2715)
+ ("/home/perrierjouet/.emacs.d/elpa/hindent-20180518.902/hindent-autoloads.el" . 1487)
  ("/home/perrierjouet/.emacs.d/elpa/attrap-20191119.1515/attrap-autoloads.el" . 697)
  ("/home/perrierjouet/.emacs.d/elpa/dante-20191229.1922/dante-autoloads.el" . 933)
  ("/home/perrierjouet/.emacs.d/elpa/lcr-20180902.1919/lcr-autoloads.el" . 380)
  ("/home/perrierjouet/.emacs.d/elpa/lsp-haskell-20191230.1847/lsp-haskell-autoloads.el" . 1530)
  ("/home/perrierjouet/.emacs.d/custom-set-variables.el" . 33)
- ("/home/perrierjouet/.emacs.d/"
-  (dired-filename . "/home/perrierjouet/.emacs.d/init.el"))
- ("/home/perrierjouet/.emacs.d/init.el" . 5262)
  ("/home/perrierjouet/.emacs.d/elisp/init-org.el" . 3807)
- ("/home/perrierjouet/.emacs.d/elisp/"
-  (dired-filename . "/home/perrierjouet/.emacs.d/elisp/init-org.el"))
  ("/home/perrierjouet/.emacs.d/elpa/haskell-mode-20191229.2357/haskell-mode-autoloads.el" . 38821)
  ("/home/perrierjouet/2bwm/2bwm.c" . 6004)
  ("/home/perrierjouet/.emacs.d/elisp/init-ui-config.el" . 2884)

@@ -34,3 +34,6 @@
 [submodule "site-elisp/aweshell"]
 	path = site-elisp/aweshell
 	url = https://github.com/MatthewZMD/aweshell.git
+[submodule "lisp/PG"]
+	path = lisp/PG
+	url = https://github.com/ProofGeneral/PG

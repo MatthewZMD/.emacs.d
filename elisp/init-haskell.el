@@ -5,12 +5,12 @@
 ;; Author: Dagnachew Argaw
 ;; Maintainer:
 ;; Copyright (C) 2019 Dagnachew Argaw
-;; Created: Sat Jan  4 22:11:20 2020 (-0500)
+;; Created: Sun Jan  5 10:04:02 2020 (-0500)
 ;; Version:
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 25
+;;     Update #: 11
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,37 +45,25 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-;;; init-haskell.el --- Support the Haskell language -*- lexical-binding: t -*-
-;;; Commentary:
-;;; Code:
-;; -*- no-byte-compile: t; -*-
-;;; lang/haskell/packages.el
-
-;; HaskellModePac
 (use-package haskell-mode
+  :ensure t
   :mode "\\.hs\\'")
 
-;; dante-haskell-mode
-(use-package dante
-  :ensure t
-  :after haskell-mode
-  :commands 'dante-mode
-  :init
-  (add-hook 'haskell-mode-hook 'flycheck-mode)
-  ;; OR:
-  ;; (add-hook 'haskell-mode-hook 'flymake-mode)
-  (add-hook 'haskell-mode-hook 'dante-mode)
-  )
+;; Code formatting is easier with hindent.
 
-(setq flymake-no-changes-timeout nil)
-(setq flymake-start-syntax-check-on-newline nil)
-(setq flycheck-check-syntax-automatically '(save mode-enabled))
+(use-package hindent
+  :ensure t)
 
+(use-package ghc
+    :ensure t
+    :config
+    (add-hook 'haskell-mode-hook (lambda () (ghc-init))))
 
-;; -HaskellModePac
+(use-package company-ghc
+    :ensure t
+    :config
+    (add-to-list 'company-backends 'company-ghc))
 
 (provide 'init-haskell)
-;;; init-haskell.el ends here
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-haskell.el ends here

@@ -19,5 +19,5 @@
  (describe-package . 1)
  (split-window-right . 1)
  (doom-modeline-mode . 3)
- (package-install . 4)
+ (package-install . 5)
 )
