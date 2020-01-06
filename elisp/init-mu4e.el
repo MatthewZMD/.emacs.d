@@ -57,7 +57,7 @@
   (mu4e-maildir (expand-file-name "~/Maildir"))
   (mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a")
   (mu4e-view-prefer-html t)
-  (mu4e-update-interval 180)
+  (mu4e-update-interval 60)
   (mu4e-headers-auto-update t)
   (mu4e-compose-signature-auto-include nil)
   (mu4e-compose-format-flowed t)
@@ -122,7 +122,37 @@
 					                          ("/gmail/[email].Trash"       . ?t)
 					                          ("/gmail/[email].All Mail"  . ?a)
 					                          ("/gmail/[email].Starred"   . ?r)
-					                          ("/gmail/[email].Drafts"    . ?d))))))))
+					                          ("/gmail/[email].Drafts"    . ?d)))))))
+  (defun mu4e-action-find-in-mailing-list (msg)
+    "Find message in mailing-list archives"
+    (interactive)
+    (let* ((mlist (mu4e-message-field msg :mailing-list))
+           (msg-id (mu4e-message-field msg :message-id))
+           (url
+            (pcase mlist
+              ;; gnu.org
+              ((pred (lambda (x) (string-suffix-p "gnu.org" x)))
+               (concat
+                "https://lists.gnu.org/archive/cgi-bin/namazu.cgi?query="
+                (concat
+                 (url-hexify-string
+                  (concat
+                   "+message-id:<"
+                   msg-id
+                   ">"))
+                 "&submit=" (url-hexify-string "Search!")
+                 "&idxname="
+                 (replace-regexp-in-string "\.gnu\.org" "" mlist))))
+              ;; google.groups
+              ((pred (lambda (x) (string-suffix-p "googlegroups.com" x)))
+               (concat
+                "https://groups.google.com/forum/#!topicsearchin/"
+                (replace-regexp-in-string "\.googlegroups\.com" "" mlist)
+                "/messageid$3A"
+                (url-hexify-string (concat "\"" msg-id "\"")))))))
+      (browse-url url)))
+  (add-to-list 'mu4e-view-actions '("find in mailing-list" . mu4e-action-find-in-mailing-list))
+  (add-to-list 'mu4e-headers-actions '("find in mailing-list" . mu4e-action-find-in-mailing-list)))
 ;; -Mu4ePac
 
 (provide 'init-mu4e)
