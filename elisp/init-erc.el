@@ -45,6 +45,9 @@
 (use-package erc
   :ensure nil
   :init
+  ;; Prerequisite: Configure this to your IRC nickname
+  (defcustom erc-nick ""
+    "The nickname used to login into ERC")
   (use-package erc-hl-nicks :defer t)
   (use-package erc-image :defer t)
   :custom-face
@@ -68,9 +71,6 @@
   (erc-prompt-for-password nil)
   (erc-prompt-for-nickserv-password nil)
   :config
-  ;; Prerequisite: Configure this to your IRC nickname
-  (defvar erc-nick ""
-    "The nickname used to login into ERC")
   (add-to-list 'erc-modules 'notifications)
   (erc-track-mode t)
   (erc-services-mode 1)

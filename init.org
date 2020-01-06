@@ -368,7 +368,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "45-54"
 ** Doom Modeline
    [[https://github.com/seagle0128/doom-modeline][Doom Modeline]], a modeline from DOOM Emacs, but more powerful and faster.
-   #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "57-66"
+   #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "57-67"
 ** Dashboard
 *** Dashboard
     [[https://github.com/rakanalh/emacs-dashboard][Dashboard]], an extensible Emacs startup screen.
@@ -614,10 +614,8 @@
 ** EAF
    [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a development framework that integrates any PyQt program into Emacs.
 
-   *Prerequisite*: Please install =python3= and =pip3=. Then execute below command:
-   #+BEGIN_SRC bash
-   sudo pip3 install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib PyQtWebEngine
-   #+END_SRC
+   *Prerequisite*: Please ensure =python3= and =pip3= are installed, then follow [[https://github.com/manateelazycat/emacs-application-framework#install-eaf][install]] instructions.
+
    Note that If you are using Debian/Ubuntu, it is possible that =QtWebEngine= is [[https://marc.info/?l=kde-core-devel&m=142954900813235&w=2][not working]]. Install the following:
    #+BEGIN_SRC bash
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
@@ -640,7 +638,7 @@
    *Note*: This mu4e configuration is tailored for Gmail.
 
    *Prerequisite*:
-   1. [[https://wiki.archlinux.org/index.php/Isync][Configure]] IMAP using [[https://wiki.archlinux.org/index.php/Isync][mbsync]], put your =.mbsyncrc= config file in =~/.emacs.d/mu4e/=. A [[https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f][sample]] is provided.
+   1. Configure IMAP using [[https://wiki.archlinux.org/index.php/Isync][isync/mbsync]], put your =.mbsyncrc= config file in =~/.emacs.d/mu4e/=. A [[https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f][sample]] is provided.
    2. Install [[https://www.djcbsoftware.nl/code/mu/][mu]].
    3. Execute the follwing commands
       #+BEGIN_SRC bash
