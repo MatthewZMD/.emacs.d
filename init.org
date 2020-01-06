@@ -635,13 +635,16 @@
    Emacs Web Wowser, the HTML-based Emacs Web Browser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "44-54"
 ** MU4E
-   [[https://www.djcbsoftware.nl/code/mu/mu4e.html][Mu4e]], a package that provides an emacs-based e-mail client which uses [[https://www.djcbsoftware.nl/code/mu/][mu]] as its backend. This mu4e configuration is tailored for Gmail.
+   [[https://www.djcbsoftware.nl/code/mu/mu4e.html][Mu4e]], a package that provides an emacs-based e-mail client which uses [[https://www.djcbsoftware.nl/code/mu/][mu]] as its backend.
+
+   *Note*: This mu4e configuration is tailored for Gmail.
 
    *Prerequisite*:
    1. [[https://wiki.archlinux.org/index.php/Isync][Configure]] IMAP using [[https://wiki.archlinux.org/index.php/Isync][mbsync]], put your =.mbsyncrc= config file in =~/.emacs.d/mu4e/=. A [[https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f][sample]] is provided.
    2. Install [[https://www.djcbsoftware.nl/code/mu/][mu]].
    3. Execute the follwing commands
       #+BEGIN_SRC bash
+        mkdir ~/Maildir/gmail/
         mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -Dmn gmail
         mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a
         mu index --maildir=~/Maildir/
