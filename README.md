@@ -1,109 +1,109 @@
-<a id="org3eca508"></a>
+<a id="org54c1557"></a>
 
 # M-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [M-EMACS](#org3eca508)
--   [About EMACS](#orgb4902c3)
--   [About M-EMACS](#org40ec713)
-    -   [Screenshot](#org0f8eb12)
-    -   [About README](#org62ad6c2)
-    -   [Installation](#org14c033d)
-    -   [Modification](#orgb2195ff)
-    -   [Contribution](#orgf378bc0)
-    -   [Special Thanks](#org3b585c9)
--   [Startup](#org7cb4a84)
-    -   [Lexical Binding](#org0dc51b3)
-    -   [Early Init](#orgfead8c8)
-    -   [Garbage Collection](#org3fdd22e)
-    -   [Load Path](#orgd6f2f1c)
-    -   [Define Constants](#org2a6d48c)
--   [Package Management](#org645be48)
-    -   [Melpa Packages](#org488d833)
-    -   [Non-Melpa Packages](#org1c3e8eb)
-    -   [Configure Package Manager](#org318cf28)
-    -   [Use Package](#orgd01350a)
-    -   [Auto Package Update](#org3173db7)
-    -   [Diminish](#org648cfde)
--   [Global Functionalities](#orgdc08f7f)
-    -   [User Information](#orgd173159)
-    -   [Bindings](#org660d087)
-    -   [Avy](#org1944a09)
-    -   [Crux](#org6bea998)
-    -   [Ivy, Amx, Counsel, Swiper](#orgebe56f7)
-    -   [Color Ripgrep](#orgf4c5b82)
-    -   [Snails](#org9f629f4)
-    -   [Files Directories](#orgb8b9000)
-    -   [Winner](#orgdf55486)
-    -   [Which Key](#orge2c51dc)
-    -   [Popup Kill Ring](#org394fdee)
-    -   [Undo Tree](#org89441de)
-    -   [Discover My Major](#orge55d2df)
-    -   [Ace Window](#orgef5c05b)
-    -   [Shells](#org3b8ab6e)
-    -   [Sudo Edit](#orgdf37620)
-    -   [Configs](#org6b94550)
-    -   [Functions](#org0d8bbc4)
--   [User Interface Enhancements](#org015239c)
-    -   [Doom Themes](#orga4d1907)
-    -   [Doom Modeline](#org71839b2)
-    -   [Dashboard](#org003a127)
-    -   [Fonts and Icons](#org7abce8c)
-    -   [Smooth Scrolling](#org3295e54)
-    -   [Prettify Symbols](#orgf9e1f16)
-    -   [UI Configs](#org50007e7)
--   [General Programming](#org81e60bc)
-    -   [Magit](#org3ac427c)
-    -   [Projectile](#orgf3e95ec)
-    -   [Treemacs](#orgdbede90)
-    -   [YASnippet](#org39ec289)
-    -   [Flycheck](#org559ca42)
-    -   [Dumb Jump](#org436aadd)
-    -   [Parenthesis](#org3cc9635)
-    -   [Indentation](#org5eacfc6)
-    -   [Quickrun](#org22df422)
-    -   [Format All](#orgabe35bc)
-    -   [Evil Nerd Commenter](#orgf443587)
-    -   [Editing](#orgc8ea7da)
-    -   [Headers](#org7f3bc7a)
-    -   [Jupyter Notebook](#org9e2b7ea)
-    -   [LSP](#org31777d8)
-    -   [DAP](#org0675260)
-    -   [Company](#orgf224c43)
--   [Programming](#org40a318a)
-    -   [Java](#org6b770f7)
-    -   [C/C++/Objective C](#orge04ab05)
-    -   [Golang](#org2e2187a)
-    -   [Python](#org05b4b16)
-    -   [Haskell](#org6a7d238)
-    -   [ESS](#org8d046f4)
-    -   [TeX](#org213d9fc)
--   [Web Development](#orge4fa880)
-    -   [Web Mode](#orgbfcec38)
-    -   [JavaScript/TypeScript](#org9b3081a)
-    -   [Emmet](#org968235d)
-    -   [Instant Rename Tag](#org1bac598)
-    -   [JSON](#orgc90f628)
--   [Miscellaneous](#orgc0e5680)
-    -   [Org](#orgced554c)
-    -   [EAF](#orgf762d0e)
-    -   [ERC](#orga9bf70b)
-    -   [EWW](#orgdc16af5)
-    -   [MU4E](#orga96cfe9)
-    -   [Tramp](#org50f1cb2)
-    -   [PDF Tools](#org318ed07)
-    -   [LeetCode](#org0254758)
-    -   [Pyim](#org87dfd1e)
-    -   [EPaint](#org63bca2d)
-    -   [Tetris](#org901f460)
-    -   [Speed Type](#org2431bcb)
-    -   [2048 Game](#orga10a1e9)
-    -   [Zone](#org9dcb663)
+-   [M-EMACS](#org54c1557)
+-   [About EMACS](#orgc2fda01)
+-   [About M-EMACS](#orge49d37d)
+    -   [Screenshot](#orgfcdcd90)
+    -   [About README](#orgc1a7cde)
+    -   [Installation](#orgedf90c4)
+    -   [Modification](#org88024b3)
+    -   [Contribution](#org88dbbf5)
+    -   [Special Thanks](#orgdd40d66)
+-   [Startup](#org65631c9)
+    -   [Lexical Binding](#orgf720aaa)
+    -   [Early Init](#org64ea3de)
+    -   [Garbage Collection](#org9da5672)
+    -   [Load Path](#org8d77013)
+    -   [Define Constants](#orga9cb0d6)
+-   [Package Management](#org2ff718a)
+    -   [Melpa Packages](#org14cd6ec)
+    -   [Non-Melpa Packages](#org90a47af)
+    -   [Configure Package Manager](#org15a56e1)
+    -   [Use Package](#org0d915f1)
+    -   [Auto Package Update](#orgfa680c9)
+    -   [Diminish](#orgadb6d51)
+-   [Global Functionalities](#org1bcb84b)
+    -   [User Information](#orgd73b5fb)
+    -   [Bindings](#orgbff951a)
+    -   [Avy](#org4186453)
+    -   [Crux](#orgbce024d)
+    -   [Ivy, Amx, Counsel, Swiper](#org657e951)
+    -   [Color Ripgrep](#org27779ef)
+    -   [Snails](#org46dbfc5)
+    -   [Files Directories](#org1e5b964)
+    -   [Winner](#org82a6e45)
+    -   [Which Key](#orgfb920fd)
+    -   [Popup Kill Ring](#orga6593df)
+    -   [Undo Tree](#org06c6b0a)
+    -   [Discover My Major](#orgee7f1ed)
+    -   [Ace Window](#org45c2b35)
+    -   [Shells](#org793021a)
+    -   [Sudo Edit](#org00eacb0)
+    -   [Configs](#org1f15076)
+    -   [Functions](#org0caf858)
+-   [User Interface Enhancements](#org873892e)
+    -   [Doom Themes](#orgf41be0c)
+    -   [Doom Modeline](#org90cb663)
+    -   [Dashboard](#orgefc1b93)
+    -   [Fonts and Icons](#org630453a)
+    -   [Smooth Scrolling](#orge88aa21)
+    -   [Prettify Symbols](#orgc3fb20b)
+    -   [UI Configs](#org7aede19)
+-   [General Programming](#org8a0642c)
+    -   [Magit](#org0534fb8)
+    -   [Projectile](#org8c48c41)
+    -   [Treemacs](#org3b4100c)
+    -   [YASnippet](#org9cbd699)
+    -   [Flycheck](#org6542762)
+    -   [Dumb Jump](#orgf26a4d2)
+    -   [Parenthesis](#org7a31fbe)
+    -   [Indentation](#org38e9564)
+    -   [Quickrun](#org6771fc7)
+    -   [Format All](#org8bf1aed)
+    -   [Evil Nerd Commenter](#org849e45a)
+    -   [Editing](#org491de4a)
+    -   [Headers](#orgc0ad79c)
+    -   [Jupyter Notebook](#org1b1b8e0)
+    -   [LSP](#org3a00115)
+    -   [DAP](#org9db2b94)
+    -   [Company](#org95c907c)
+-   [Programming](#orgf5ab550)
+    -   [Java](#org7413224)
+    -   [C/C++/Objective C](#orge171434)
+    -   [Golang](#org92908e8)
+    -   [Python](#org99ee3a2)
+    -   [Haskell](#org1b554b2)
+    -   [ESS](#org77a6d42)
+    -   [TeX](#org9ab7f54)
+-   [Web Development](#org655cf9e)
+    -   [Web Mode](#orgc55811a)
+    -   [JavaScript/TypeScript](#orge9f1dc1)
+    -   [Emmet](#orgd4a0e01)
+    -   [Instant Rename Tag](#org3dd3a0a)
+    -   [JSON](#org472969c)
+-   [Miscellaneous](#org3b573c2)
+    -   [Org](#org3363b5e)
+    -   [EAF](#org07faed8)
+    -   [ERC](#orga9927e8)
+    -   [EWW](#org2e4685d)
+    -   [MU4E](#orgb74b1a0)
+    -   [Tramp](#org04a798c)
+    -   [PDF Tools](#orgbc9955e)
+    -   [LeetCode](#orge053388)
+    -   [Pyim](#org5268866)
+    -   [EPaint](#org7d66510)
+    -   [Tetris](#org9ebfabb)
+    -   [Speed Type](#orga885dd5)
+    -   [2048 Game](#orgcd97037)
+    -   [Zone](#org01fd7db)
 
 
-<a id="orgb4902c3"></a>
+<a id="orgc2fda01"></a>
 
 # About EMACS
 
@@ -134,7 +134,7 @@ Emacs doesn't have a monopoly on good ideas, and there are other great tools out
 *This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org40ec713"></a>
+<a id="orge49d37d"></a>
 
 # About M-EMACS
 
@@ -145,21 +145,21 @@ As a young EMACSer, I have experienced the struggle to find a detailed configura
 This configuration is designed and tested for **GNU Emacs 26.1 and above only**. However, it is suggested to use **emacs27**, the latest version currently available.
 
 
-<a id="org0f8eb12"></a>
+<a id="orgfcdcd90"></a>
 
 ## Screenshot
 
 ![img](images/Sample.png)
 
 
-<a id="org62ad6c2"></a>
+<a id="orgc1a7cde"></a>
 
 ## About README
 
 This README is originated from `init.org` that is generated using `M-x org-gfm-export-to-markdown`. Every block of code is generated through this function - it exports sections of code from the `elisp/` directory. You will not see their presence in `init.org`.
 
 
-<a id="org14c033d"></a>
+<a id="orgedf90c4"></a>
 
 ## Installation
 
@@ -207,7 +207,7 @@ I will be updating M-EMACS from time to time, it is best to `git pull` once a wh
 Please also execute `git submodule update --recursive --remote` to sync with all the submodules.
 
 
-<a id="orgb2195ff"></a>
+<a id="org88024b3"></a>
 
 ## Modification
 
@@ -225,14 +225,14 @@ However, what is *free* stays *free*. After all, this is [GPL](LICENSE).
 6.  Call `M-x org-gfm-export-to-markdown` to update `README.md` automatically.
 
 
-<a id="orgf378bc0"></a>
+<a id="org88dbbf5"></a>
 
 ## Contribution
 
 If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
 
 
-<a id="org3b585c9"></a>
+<a id="orgdd40d66"></a>
 
 ## Special Thanks
 
@@ -243,12 +243,12 @@ Everyone starts somewhere, and I started here.
 -   [Poncie Reyes's .emacs.d](https://github.com/poncie/.emacs.d)
 
 
-<a id="org7cb4a84"></a>
+<a id="org65631c9"></a>
 
 # Startup
 
 
-<a id="org0dc51b3"></a>
+<a id="orgf720aaa"></a>
 
 ## Lexical Binding
 
@@ -261,7 +261,7 @@ Use lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 ```
 
 
-<a id="orgfead8c8"></a>
+<a id="org64ea3de"></a>
 
 ## Early Init
 
@@ -338,7 +338,7 @@ It will be faster to disable them here before they've been initialized.
 ```
 
 
-<a id="org3fdd22e"></a>
+<a id="org9da5672"></a>
 
 ## Garbage Collection
 
@@ -385,7 +385,7 @@ Garbage Collect when Emacs is out of focus and avoid garbage collection when usi
 ```
 
 
-<a id="orgd6f2f1c"></a>
+<a id="org8d77013"></a>
 
 ## Load Path
 
@@ -409,7 +409,7 @@ Since all the configuration files are stored in `elisp/` folder, they need to be
 ```
 
 
-<a id="org2a6d48c"></a>
+<a id="orga9cb0d6"></a>
 
 ## Define Constants
 
@@ -479,14 +479,14 @@ Since all the configuration files are stored in `elisp/` folder, they need to be
 ```
 
 
-<a id="org645be48"></a>
+<a id="org2ff718a"></a>
 
 # Package Management
 
 Some packages are disabled with the `:disabled` tag, because I don't use them very often. They might not work.
 
 
-<a id="org488d833"></a>
+<a id="org14cd6ec"></a>
 
 ## Melpa Packages
 
@@ -506,7 +506,7 @@ Configure package archives, where to install online packages and add them to `lo
 ```
 
 
-<a id="org1c3e8eb"></a>
+<a id="org90a47af"></a>
 
 ## Non-Melpa Packages
 
@@ -531,7 +531,7 @@ git submodule update
 ```
 
 
-<a id="org318cf28"></a>
+<a id="org15a56e1"></a>
 
 ## Configure Package Manager
 
@@ -547,7 +547,7 @@ git submodule update
 ```
 
 
-<a id="orgd01350a"></a>
+<a id="org0d915f1"></a>
 
 ## Use Package
 
@@ -573,7 +573,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org3173db7"></a>
+<a id="orgfa680c9"></a>
 
 ## Auto Package Update
 
@@ -592,7 +592,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org648cfde"></a>
+<a id="orgadb6d51"></a>
 
 ## Diminish
 
@@ -603,12 +603,12 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgdc08f7f"></a>
+<a id="org1bcb84b"></a>
 
 # Global Functionalities
 
 
-<a id="orgd173159"></a>
+<a id="orgd73b5fb"></a>
 
 ## User Information
 
@@ -620,7 +620,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org660d087"></a>
+<a id="orgbff951a"></a>
 
 ## Bindings
 
@@ -643,7 +643,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org1944a09"></a>
+<a id="org4186453"></a>
 
 ## Avy
 
@@ -663,7 +663,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org6bea998"></a>
+<a id="orgbce024d"></a>
 
 ## Crux
 
@@ -684,7 +684,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgebe56f7"></a>
+<a id="org657e951"></a>
 
 ## Ivy, Amx, Counsel, Swiper
 
@@ -723,7 +723,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgf4c5b82"></a>
+<a id="org27779ef"></a>
 
 ## Color Ripgrep
 
@@ -739,7 +739,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org9f629f4"></a>
+<a id="org46dbfc5"></a>
 
 ## Snails
 
@@ -775,7 +775,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgb8b9000"></a>
+<a id="org1e5b964"></a>
 
 ## Files Directories
 
@@ -858,7 +858,7 @@ Dired, the directory editor.
 ```
 
 
-<a id="orgdf55486"></a>
+<a id="org82a6e45"></a>
 
 ## Winner
 
@@ -884,7 +884,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="orge2c51dc"></a>
+<a id="orgfb920fd"></a>
 
 ## Which Key
 
@@ -901,7 +901,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org394fdee"></a>
+<a id="orga6593df"></a>
 
 ## Popup Kill Ring
 
@@ -913,7 +913,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org89441de"></a>
+<a id="org06c6b0a"></a>
 
 ## Undo Tree
 
@@ -930,7 +930,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="orge55d2df"></a>
+<a id="orgee7f1ed"></a>
 
 ## Discover My Major
 
@@ -942,7 +942,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="orgef5c05b"></a>
+<a id="org45c2b35"></a>
 
 ## Ace Window
 
@@ -954,7 +954,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org3b8ab6e"></a>
+<a id="org793021a"></a>
 
 ## Shells
 
@@ -1013,7 +1013,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="orgdf37620"></a>
+<a id="org00eacb0"></a>
 
 ## Sudo Edit
 
@@ -1025,7 +1025,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org6b94550"></a>
+<a id="org1f15076"></a>
 
 ## Configs
 
@@ -1154,7 +1154,7 @@ It deletes trailing whitespace current line.  Therefore I use this alternative."
 ```
 
 
-<a id="org0d8bbc4"></a>
+<a id="org0caf858"></a>
 
 ## Functions
 
@@ -1323,12 +1323,12 @@ FACE defaults to inheriting from default and highlight."
 ```
 
 
-<a id="org015239c"></a>
+<a id="org873892e"></a>
 
 # User Interface Enhancements
 
 
-<a id="orga4d1907"></a>
+<a id="orgf41be0c"></a>
 
 ## Doom Themes
 
@@ -1347,7 +1347,7 @@ FACE defaults to inheriting from default and highlight."
 ```
 
 
-<a id="org71839b2"></a>
+<a id="org90cb663"></a>
 
 ## Doom Modeline
 
@@ -1355,18 +1355,19 @@ FACE defaults to inheriting from default and highlight."
 
 ```emacs-lisp
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
   :custom
   ;; Don't compact font caches during GC. Windows Laggy Issue
   (inhibit-compacting-font-caches t)
   (doom-modeline-minor-modes t)
   (doom-modeline-icon t)
   (doom-modeline-major-mode-color-icon t)
-  (doom-modeline-height 15))
+  (doom-modeline-height 15)
+  :config
+  (doom-modeline-mode))
 ```
 
 
-<a id="org003a127"></a>
+<a id="orgefc1b93"></a>
 
 ## Dashboard
 
@@ -1434,7 +1435,7 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
 ```
 
 
-<a id="org7abce8c"></a>
+<a id="org630453a"></a>
 
 ## Fonts and Icons
 
@@ -1501,7 +1502,7 @@ Function to switch between fonts.
 ```
 
 
-<a id="org3295e54"></a>
+<a id="orge88aa21"></a>
 
 ## Smooth Scrolling
 
@@ -1524,7 +1525,7 @@ Configurations to smooth scrolling.
 ```
 
 
-<a id="orgf9e1f16"></a>
+<a id="orgc3fb20b"></a>
 
 ## Prettify Symbols
 
@@ -1548,7 +1549,7 @@ Configurations to smooth scrolling.
 ```
 
 
-<a id="org50007e7"></a>
+<a id="org7aede19"></a>
 
 ## UI Configs
 
@@ -1601,12 +1602,12 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org81e60bc"></a>
+<a id="org8a0642c"></a>
 
 # General Programming
 
 
-<a id="org3ac427c"></a>
+<a id="org0534fb8"></a>
 
 ## Magit
 
@@ -1619,7 +1620,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="orgf3e95ec"></a>
+<a id="org8c48c41"></a>
 
 ## Projectile
 
@@ -1645,7 +1646,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="orgdbede90"></a>
+<a id="org3b4100c"></a>
 
 ## Treemacs
 
@@ -1724,7 +1725,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org39ec289"></a>
+<a id="org9cbd699"></a>
 
 ## YASnippet
 
@@ -1758,7 +1759,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org559ca42"></a>
+<a id="org6542762"></a>
 
 ## Flycheck
 
@@ -1776,7 +1777,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org436aadd"></a>
+<a id="orgf26a4d2"></a>
 
 ## Dumb Jump
 
@@ -1793,7 +1794,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org3cc9635"></a>
+<a id="org7a31fbe"></a>
 
 ## Parenthesis
 
@@ -1879,7 +1880,7 @@ Match and automatically pair parenthesis, and show parenthesis even when it went
 ```
 
 
-<a id="org5eacfc6"></a>
+<a id="org38e9564"></a>
 
 ## Indentation
 
@@ -1918,7 +1919,7 @@ Indentation Configuration
 ```
 
 
-<a id="org22df422"></a>
+<a id="org6771fc7"></a>
 
 ## Quickrun
 
@@ -1932,7 +1933,7 @@ Indentation Configuration
 ```
 
 
-<a id="orgabe35bc"></a>
+<a id="org8bf1aed"></a>
 
 ## Format All
 
@@ -1946,7 +1947,7 @@ Indentation Configuration
 ```
 
 
-<a id="orgf443587"></a>
+<a id="org849e45a"></a>
 
 ## Evil Nerd Commenter
 
@@ -1960,7 +1961,7 @@ Indentation Configuration
 ```
 
 
-<a id="orgc8ea7da"></a>
+<a id="org491de4a"></a>
 
 ## Editing
 
@@ -2009,7 +2010,7 @@ Indentation Configuration
 ```
 
 
-<a id="org7f3bc7a"></a>
+<a id="orgc0ad79c"></a>
 
 ## Headers
 
@@ -2028,7 +2029,7 @@ Indentation Configuration
 ```
 
 
-<a id="org9e2b7ea"></a>
+<a id="org1b1b8e0"></a>
 
 ## Jupyter Notebook
 
@@ -2048,7 +2049,7 @@ Indentation Configuration
 ```
 
 
-<a id="org31777d8"></a>
+<a id="org3a00115"></a>
 
 ## LSP
 
@@ -2109,7 +2110,7 @@ Indentation Configuration
 ```
 
 
-<a id="org0675260"></a>
+<a id="org9db2b94"></a>
 
 ## DAP
 
@@ -2141,7 +2142,7 @@ Indentation Configuration
 ```
 
 
-<a id="orgf224c43"></a>
+<a id="org95c907c"></a>
 
 ## Company
 
@@ -2350,12 +2351,12 @@ This is enabled by default, if ever you find it not good enough for a particular
 ```
 
 
-<a id="org40a318a"></a>
+<a id="orgf5ab550"></a>
 
 # Programming
 
 
-<a id="org6b770f7"></a>
+<a id="org7413224"></a>
 
 ## Java
 
@@ -2378,7 +2379,7 @@ This is enabled by default, if ever you find it not good enough for a particular
 ```
 
 
-<a id="orge04ab05"></a>
+<a id="orge171434"></a>
 
 ## C/C++/Objective C
 
@@ -2434,7 +2435,7 @@ This is enabled by default, if ever you find it not good enough for a particular
 ```
 
 
-<a id="org2e2187a"></a>
+<a id="org92908e8"></a>
 
 ## Golang
 
@@ -2453,7 +2454,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org05b4b16"></a>
+<a id="org99ee3a2"></a>
 
 ## Python
 
@@ -2485,7 +2486,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org6a7d238"></a>
+<a id="org1b554b2"></a>
 
 ## Haskell
 
@@ -2497,7 +2498,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org8d046f4"></a>
+<a id="org77a6d42"></a>
 
 ## ESS
 
@@ -2514,7 +2515,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org213d9fc"></a>
+<a id="org9ab7f54"></a>
 
 ## TeX
 
@@ -2563,7 +2564,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="orge4fa880"></a>
+<a id="org655cf9e"></a>
 
 # Web Development
 
@@ -2575,7 +2576,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="orgbfcec38"></a>
+<a id="orgc55811a"></a>
 
 ## Web Mode
 
@@ -2592,7 +2593,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="org9b3081a"></a>
+<a id="orge9f1dc1"></a>
 
 ## JavaScript/TypeScript
 
@@ -2619,7 +2620,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="org968235d"></a>
+<a id="orgd4a0e01"></a>
 
 ## Emmet
 
@@ -2632,7 +2633,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="org1bac598"></a>
+<a id="org3dd3a0a"></a>
 
 ## Instant Rename Tag
 
@@ -2645,7 +2646,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="orgc90f628"></a>
+<a id="org472969c"></a>
 
 ## JSON
 
@@ -2657,12 +2658,12 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="orgc0e5680"></a>
+<a id="org3b573c2"></a>
 
 # Miscellaneous
 
 
-<a id="orgced554c"></a>
+<a id="org3363b5e"></a>
 
 ## Org
 
@@ -2768,17 +2769,13 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="orgf762d0e"></a>
+<a id="org07faed8"></a>
 
 ## EAF
 
 [Emacs Application Framework](https://github.com/manateelazycat/emacs-application-framework), a development framework that integrates any PyQt program into Emacs.
 
-**Prerequisite**: Please install `python3` and `pip3`. Then execute below command:
-
-```bash
-sudo pip3 install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib PyQtWebEngine
-```
+**Prerequisite**: Please ensure `python3` and `pip3` are installed, then follow [install](https://github.com/manateelazycat/emacs-application-framework#install-eaf) instructions.
 
 Note that If you are using Debian/Ubuntu, it is possible that `QtWebEngine` is [not working](https://marc.info/?l=kde-core-devel&m=142954900813235&w=2). Install the following:
 
@@ -2809,7 +2806,7 @@ sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
 ```
 
 
-<a id="orga9bf70b"></a>
+<a id="orga9927e8"></a>
 
 ## ERC
 
@@ -2825,6 +2822,9 @@ machine irc.freenode.net login <nickname> password <password> port 6697
 (use-package erc
   :ensure nil
   :init
+  ;; Prerequisite: Configure this to your IRC nickname
+  (defcustom erc-nick ""
+    "The nickname used to login into ERC")
   (use-package erc-hl-nicks :defer t)
   (use-package erc-image :defer t)
   :custom-face
@@ -2848,9 +2848,6 @@ machine irc.freenode.net login <nickname> password <password> port 6697
   (erc-prompt-for-password nil)
   (erc-prompt-for-nickserv-password nil)
   :config
-  ;; Prerequisite: Configure this to your IRC nickname
-  (defvar erc-nick ""
-    "The nickname used to login into ERC")
   (add-to-list 'erc-modules 'notifications)
   (erc-track-mode t)
   (erc-services-mode 1)
@@ -2916,7 +2913,7 @@ machine irc.freenode.net login <nickname> password <password> port 6697
 ```
 
 
-<a id="orgdc16af5"></a>
+<a id="org2e4685d"></a>
 
 ## EWW
 
@@ -2936,7 +2933,7 @@ Emacs Web Wowser, the HTML-based Emacs Web Browser.
 ```
 
 
-<a id="orga96cfe9"></a>
+<a id="orgb74b1a0"></a>
 
 ## MU4E
 
@@ -2944,7 +2941,7 @@ Emacs Web Wowser, the HTML-based Emacs Web Browser.
 
 **Prerequisite**:
 
-1.  [Configure](https://wiki.archlinux.org/index.php/Isync) IMAP using [mbsync](https://wiki.archlinux.org/index.php/Isync), put your `.mbsyncrc` config file in `~/.emacs.d/mu4e/`. A [sample](https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f) is provided.
+1.  Configure IMAP using [isync/mbsync](https://wiki.archlinux.org/index.php/Isync), put your `.mbsyncrc` config file in `~/.emacs.d/mu4e/`. A [sample](https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f) is provided.
 2.  Install [mu](https://www.djcbsoftware.nl/code/mu/).
 3.  Execute the follwing commands
 
@@ -3074,7 +3071,7 @@ Emacs Web Wowser, the HTML-based Emacs Web Browser.
 ```
 
 
-<a id="org50f1cb2"></a>
+<a id="org04a798c"></a>
 
 ## Tramp
 
@@ -3110,7 +3107,7 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
-<a id="org318ed07"></a>
+<a id="orgbc9955e"></a>
 
 ## PDF Tools
 
@@ -3134,7 +3131,7 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
-<a id="org0254758"></a>
+<a id="orge053388"></a>
 
 ## LeetCode
 
@@ -3153,7 +3150,7 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
-<a id="org87dfd1e"></a>
+<a id="org5268866"></a>
 
 ## Pyim
 
@@ -3194,7 +3191,7 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
-<a id="org63bca2d"></a>
+<a id="org7d66510"></a>
 
 ## EPaint
 
@@ -3214,7 +3211,7 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
-<a id="org901f460"></a>
+<a id="org9ebfabb"></a>
 
 ## Tetris
 
@@ -3237,7 +3234,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="org2431bcb"></a>
+<a id="orga885dd5"></a>
 
 ## Speed Type
 
@@ -3249,7 +3246,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="orga10a1e9"></a>
+<a id="orgcd97037"></a>
 
 ## 2048 Game
 
@@ -3261,7 +3258,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="org9dcb663"></a>
+<a id="org01fd7db"></a>
 
 ## Zone
 
