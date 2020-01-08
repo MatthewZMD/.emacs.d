@@ -88,6 +88,7 @@
 		                          (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
 		                          (:size . 7))))))
   :config
+  (setq mail-user-agent (mu4e-user-agent))
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
   (setq mu4e-contexts
