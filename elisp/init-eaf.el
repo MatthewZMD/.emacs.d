@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Jan  8 01:02:51 2020 (-0500)
+;; Last-Updated: Sun Jan 12 01:05:56 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
@@ -49,6 +49,7 @@
   (browse-url-browser-function 'eaf-open-browser) ;; Make EAF Browser my default browser
   :config
   (defalias 'browse-web #'eaf-open-browser)
+  (eaf-setq eaf-browser-remember-history "false")
   ;; I already bind "RET", "<mouse-2>", "^" to `dired-find-alternate-file' in `init-dired.el'.
   ;; Comment this line out of you don't want to use EAF to open available files in dired.
   ;; (global-set-key [remap dired-find-alternate-file] #'eaf-file-open-in-dired)
