@@ -62,7 +62,6 @@
   (mu4e-compose-signature-auto-include nil)
   (mu4e-compose-format-flowed t)
   (mu4e-view-show-images t)
-  (mu4e-sent-messages-behavior 'delete)
   (mu4e-change-filenames-when-moving t) ; work better for mbsync
   (mu4e-attachment-dir "~/Downloads")
   (message-kill-buffer-on-exit t)
@@ -106,6 +105,7 @@
 	              (mu4e-sent-folder . "/gmail/[email].Sent Mail")
 	              (mu4e-drafts-folder . "/gmail/[email].Drafts")
 	              (mu4e-trash-folder . "/gmail/[email].Trash")
+                  (mu4e-sent-messages-behavior . trash) ; Prerequisite: set to trash in GMAIL Only.
 	              (mu4e-compose-signature . user-full-name)
 	              (mu4e-compose-format-flowed . t)
 	              (smtpmail-queue-dir . "~/Maildir/gmail/queue/cur")
