@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:06:08 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 11:47:45 2019 (-0500)
+;; Last-Updated: Fri Jan 17 10:57:53 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d all-the-icons
@@ -51,13 +51,7 @@
   :diminish
   :custom-face
   (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
-  :hook (dired-mode . all-the-icons-dired-mode)
-  :config
-  ;; Workaround for all-the-icons bug until PR merged https://github.com/domtronn/all-the-icons.el/pull/150
-  (when (require 'all-the-icons nil 'noerror)
-    (setq all-the-icons-mode-icon-alist
-          (delete '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-white) all-the-icons-mode-icon-alist))
-    (add-to-list 'all-the-icons-mode-icon-alist '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0))))
+  :hook (dired-mode . all-the-icons-dired-mode))
 ;; -ATIDiredPac
 
 (provide 'init-all-the-icons)

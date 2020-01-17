@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 11:48:49 2019 (-0500)
+;; Last-Updated: Fri Jan 17 11:00:25 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d parenthesis smartparens delete-block
@@ -61,12 +61,7 @@
   :config
   ;; Stop pairing single quotes in elisp
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-  (sp-local-pair 'org-mode "[" nil :actions nil)
-  ;; Smartparens is broken in `cc-mode' as of Emacs 27. See
-  ;; https://github.com/Fuco1/smartparens/issues/963
-  (unless (version< emacs-version "27")
-    (dolist (fun '(c-electric-paren c-electric-brace))
-      (add-to-list 'sp--special-self-insert-commands fun))))
+  (sp-local-pair 'org-mode "[" nil :actions nil))
 ;; -SmartParensPac
 
 ;; MatchParens
