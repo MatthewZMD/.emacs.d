@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Dec 26 01:56:25 2019 (-0500)
+;; Last-Updated: Tue Jan 14 11:55:30 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -103,7 +103,6 @@
          (ruby-mode . (lambda () (require 'dap-ruby)))
          (go-mode . (lambda () (require 'dap-go)))
          (java-mode . (lambda () (require 'dap-java)))
-         ((c-mode c++-mode objc-mode swift) . (lambda () (require 'dap-lldb)))
          (php-mode . (lambda () (require 'dap-php)))
          (elixir-mode . (lambda () (require 'dap-elixir)))
          ((js-mode js2-mode typescript-mode) . (lambda () (require 'dap-chrome)))))
