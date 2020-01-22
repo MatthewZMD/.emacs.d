@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Dec 27 01:02:58 2019 (-0500)
+;; Last-Updated: Mon Jan 13 00:11:47 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -166,9 +166,9 @@ FACE defaults to inheriting from default and highlight."
 ;; -DisplayLineOverlay
 
 ;; ReadLines
-(defun read-lines (filePath)
-  "Return a list of lines of a file at FILEPATH."
-  (with-temp-buffer (insert-file-contents filePath)
+(defun read-lines (file-path)
+  "Return a list of lines of a file at FILE-PATH."
+  (with-temp-buffer (insert-file-contents file-path)
                     (split-string (buffer-string) "\n" t)))
 ;; -ReadLines
 

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Dec 25 03:02:50 2019 (-0500)
+;; Last-Updated: Mon Jan 13 14:52:42 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -56,6 +56,7 @@
 ;; Truncate lines
 (global-set-key (kbd "C-x C-l") #'toggle-truncate-lines)
 ;; Adjust font size like web browsers
+(global-set-key (kbd "C-=") #'text-scale-increase)
 (global-set-key (kbd "C-+") #'text-scale-increase)
 (global-set-key (kbd "C--") #'text-scale-decrease)
 ;; Move up/down paragraph
@@ -80,22 +81,24 @@
 ;; EditExp
 ;; Remove useless whitespace before saving a file
 (defun delete-trailing-whitespace-except-current-line ()
-  "Sometimes `delete-trailing-whitespace' becomes very annoying.
-It deletes trailing whitespace current line.  Therefore I use this alternative."
+  "An alternative to `delete-trailing-whitespace'.
+
+The original function deletes trailing whitespace of the current line."
   (interactive)
   (let ((begin (line-beginning-position))
         (end (line-end-position)))
     (save-excursion
-      (when (< (point-min) begin)
+      (when (< (point-min) (1- begin))
         (save-restriction
           (narrow-to-region (point-min) (1- begin))
           (delete-trailing-whitespace)
           (widen)))
-      (when (> (point-max) end)
+      (when (> (point-max) (+ end 2))
         (save-restriction
           (narrow-to-region (+ end 2) (point-max))
           (delete-trailing-whitespace)
           (widen))))))
+
 (add-hook 'before-save-hook #'delete-trailing-whitespace-except-current-line)
 
 ;; Replace selection on insert
