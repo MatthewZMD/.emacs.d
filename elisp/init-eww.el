@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:13:42 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:05:44 2019 (-0400)
+;; Last-Updated: Tue Dec 24 12:18:07 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d eww
@@ -37,17 +37,20 @@
 ;;
 ;;; Code:
 
+(eval-when-compile
+  (require 'init-const))
+
 ;; EWWPac
 (use-package eww
   :ensure nil
   :commands (eww)
+  :hook (eww-mode . (lambda ()
+                      "Rename EWW's buffer so sites open in new page."
+                      (rename-buffer "eww" t)))
   :config
-  ;; Hit & to browse this url system browser
-  (setq browse-url-browser-function 'eww-browse-url)
-  (defun rename-eww-hook ()
-    "Rename EWW's buffer so sites open in new page."
-    (rename-buffer "eww" t))
-  (add-hook 'eww-mode-hook #'rename-eww-hook))
+  ;; I am using EAF-Browser instead of EWW
+  (unless *eaf-env*
+    (setq browse-url-browser-function 'eww-browse-url))) ; Hit & to browse url with system browser
 ;; -EWWPac
 
 (provide 'init-eww)

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Aug 14 10:11:59 2019 (-0400)
+;; Last-Updated: Wed Dec  4 01:57:57 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
@@ -44,13 +44,19 @@
 ;; ERCPac
 (use-package erc
   :ensure nil
+  :init
+  ;; Prerequisite: Configure this to your IRC nickname
+  (defcustom erc-nick ""
+    "The nickname used to login into ERC")
+  (use-package erc-hl-nicks :defer t)
+  (use-package erc-image :defer t)
   :custom-face
   (erc-notice-face ((t (:foreground "#ababab"))))
   :custom
   (erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
   (erc-track-exclude-types '("NICK" "PART" "MODE" "324" "329" "332" "333" "353" "477"))
-  ; (erc-hide-list '("JOIN" "PART" "QUIT"))
-  ; (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
   (erc-server-coding-system '(utf-8 . utf-8))
   (erc-interpret-mirc-color t)
   (erc-kill-buffer-on-part t)
@@ -62,31 +68,18 @@
   (erc-lurker-threshold-time 43200)
   (erc-server-reconnect-attempts 5)
   (erc-server-reconnect-timeout 3)
+  (erc-prompt-for-password nil)
+  (erc-prompt-for-nickserv-password nil)
   :config
-  (use-package erc-hl-nicks :defer t)
-  (use-package erc-image :defer t)
   (add-to-list 'erc-modules 'notifications)
   (erc-track-mode t)
   (erc-services-mode 1)
-  :preface
   (defun erc-start-or-switch ()
     "Start ERC or switch to ERC buffer if it has started already."
     (interactive)
     (if (get-buffer "irc.freenode.net:6697")
         (erc-track-switch-buffer 1)
-      (if (file-exists-p "~/.authinfo")
-          (let ((auth-list (read-lines "~/.authinfo"))
-                (nick-regexp "^machine irc.freenode.net login \\(\\w+\\)")
-                (auth))
-            (while (> (length auth-list) 0)
-              (setq auth (car auth-list))
-              (cond ((string-match nick-regexp auth)
-                     (setq erc-prompt-for-nickserv-password 'nil)
-                     (erc-tls :server "irc.freenode.net" :port 6697
-                              :nick (match-string 1 auth)))
-                    ((= (length auth-list) 1) (call-interactively #'erc-tls)))
-              (setq auth-list (cdr auth-list))))
-        (call-interactively #'erc-tls))))
+      (erc-tls :server "irc.freenode.net" :port 6697 :nick erc-nick)))
 
   (defun erc-count-users ()
     "Displays the number of users and ops connected on the current channel."
@@ -137,7 +130,7 @@
            (msg (s-trim (s-collapse-whitespace message))))
       (alert (concat nick ": " msg) :title title)))
   :bind
-  ("C-z i" . erc-start-or-switch)
+  ("M-z i" . erc-start-or-switch)
   :hook
   (ercn-notify . erc-notify))
 ;; -ERCPac

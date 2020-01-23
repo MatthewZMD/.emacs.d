@@ -6,17 +6,17 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Sep 20 17:01:54 2019 (-0400)
+;; Last-Updated: Fri Jan 17 11:00:25 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d parenthesis smartparens awesome-pair delete-block
+;; Keywords: M-EMACS .emacs.d parenthesis smartparens delete-block
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes parenthesis smartparens awesome-pair delete-block
+;; This initializes parenthesis smartparens delete-block
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -61,36 +61,8 @@
   :config
   ;; Stop pairing single quotes in elisp
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-  (sp-local-pair 'org-mode "[" nil :actions nil)
-  ;; Smartparens is broken in `cc-mode' as of Emacs 27. See
-  ;; <https://github.com/Fuco1/smartparens/issues/963>.
-  (unless (version< emacs-version "27")
-    (dolist (fun '(c-electric-paren c-electric-brace))
-      (add-to-list 'sp--special-self-insert-commands fun))))
+  (sp-local-pair 'org-mode "[" nil :actions nil))
 ;; -SmartParensPac
-
-;; AwesomePairPac
-(use-package awesome-pair
-  :load-path "~/.emacs.d/site-elisp/awesome-pair"
-  :bind
-  (:map prog-mode-map
-        (("C-c C-k" . awesome-pair-kill)
-         ("SPC" . awesome-pair-space)
-         ("=" . awesome-pair-equal)
-         ("M-F" . awesome-pair-jump-right)
-         ("M-B" . awesome-pair-jump-left)))
-  :config
-  (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1))))
-;; -AwesomePairPac
-
-;; DeleteBlockPac
-(use-package delete-block
-  :load-path "~/.emacs.d/site-elisp/delete-block"
-  :bind
-  (("M-d" . delete-block-forward)
-   ("C-<backspace>" . delete-block-backward)
-   ("M-<backspace>" . delete-block-backward)))
-;; -DeleteBlockPac
 
 ;; MatchParens
 ;; Show matching parenthesis

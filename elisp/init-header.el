@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:32:02 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:06:04 2019 (-0400)
+;; Last-Updated: Tue Dec 24 11:54:28 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d header2
@@ -39,15 +39,14 @@
 
 ;; Header2Pac
 (use-package header2
-  :load-path "~/.emacs.d/site-elisp/header2"
+  :load-path (lambda () (expand-file-name "site-elisp/header2" user-emacs-directory))
   :custom
   (header-copyright-notice (concat "Copyright (C) 2019 " (user-full-name) "\n"))
+  :hook (emacs-lisp-mode . auto-make-header)
   :config
+  (add-to-list 'write-file-functions 'auto-update-file-header)
   (autoload 'auto-make-header "header2")
-  (autoload 'auto-update-file-header "header2")
-  (add-hook 'write-file-hooks 'auto-update-file-header)
-  (add-hook 'emacs-lisp-mode-hook 'auto-make-header)
-  (add-hook 'c-mode-common-hook   'auto-make-header))
+  (autoload 'auto-update-file-header "header2"))
 ;; -Header2Pac
 
 (provide 'init-header)

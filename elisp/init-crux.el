@@ -1,22 +1,22 @@
-;;; init-tramp.el --- -*- lexical-binding: t -*-
+;;; init-crux.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-tramp.el
-;; Description: Initialize Tramp
+;; Filename: init-crux.el
+;; Description: Initialize Crux
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Fri Aug  9 21:48:32 2019 (-0400)
+;; Created: Tue Dec 24 13:15:38 2019 (-0500)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Oct 16 16:05:51 2019 (-0400)
+;; Last-Updated: Thu Dec 26 22:02:32 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d tramp
+;; Keywords: M-EMACS .emacs.d crux
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes Tramp
+;; This initializes Crux
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,26 +37,20 @@
 ;;
 ;;; Code:
 
-;; TrampPac
-(use-package tramp
-  :ensure nil
-  :defer 1
+;; CruxPac
+(use-package crux
+  :bind
+  (("C-a" . crux-move-beginning-of-line)
+   ("C-x 4 t" . crux-transpose-windows)
+   ("C-x K" . crux-kill-other-buffers)
+   ("C-k" . crux-smart-kill-line))
   :config
-  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-  ;; TRAMP gcloud ssh
-  (add-to-list 'tramp-methods
-               '("gssh"
-                 (tramp-login-program        "gcloud compute ssh")
-                 (tramp-login-args           (("%h")))
-                 (tramp-async-args           (("-q")))
-                 (tramp-remote-shell         "/bin/bash")
-                 (tramp-remote-shell-args    ("-c"))
-                 (tramp-gw-args              (("-o" "GlobalKnownHostsFile=/dev/null")
-                                              ("-o" "UserKnownHostsFile=/dev/null")
-                                              ("-o" "StrictHostKeyChecking=no")))
-                 (tramp-default-port         22))))
-;; -TrampPac
+  (crux-with-region-or-buffer indent-region)
+  (crux-with-region-or-buffer untabify)
+  (crux-with-region-or-point-to-eol kill-ring-save)
+  (defalias 'rename-file-and-buffer #'crux-rename-file-and-buffer))
+;; -CruxPac
 
-(provide 'init-tramp)
+(provide 'init-crux)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-tramp.el ends here
+;;; init-crux.el ends here

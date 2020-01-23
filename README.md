@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 <a id="org76b68fc"></a>
+=======
+<a id="orgbf245cf"></a>
+>>>>>>> master
 
 # M-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
+<<<<<<< HEAD
 -   [M-EMACS](#org76b68fc)
 -   [About EMACS](#org8530858)
 -   [About M-EMACS](#org4c1ba82)
@@ -103,6 +108,107 @@
 
 
 <a id="org8530858"></a>
+=======
+-   [M-EMACS](#orgbf245cf)
+-   [About EMACS](#orge8c2a27)
+-   [About M-EMACS](#org0e522d3)
+    -   [Screenshot](#org3eeeae9)
+    -   [About README](#org76256e2)
+    -   [Installation](#org74258cd)
+    -   [Modification](#org3ad7d03)
+    -   [Contribution](#org406c612)
+    -   [Special Thanks](#org2f80dea)
+-   [Startup](#orgb4644a1)
+    -   [Lexical Binding](#org17b9d9a)
+    -   [Early Init](#orgc49dd55)
+    -   [Garbage Collection](#org07f2230)
+    -   [Load Path](#org919d2f8)
+    -   [Define Constants](#org260c79c)
+-   [Package Management](#orgc4eb709)
+    -   [Melpa Packages](#orgad6a8d2)
+    -   [Non-Melpa Packages](#org9ef0865)
+    -   [Configure Package Manager](#org17f0fac)
+    -   [Use Package](#org4e6801f)
+    -   [Auto Package Update](#org3252642)
+    -   [Diminish](#org1383e36)
+-   [Global Functionalities](#orgc0d8b54)
+    -   [User Information](#orgd9ee091)
+    -   [Bindings](#org3237b5b)
+    -   [Avy](#org0fc1d32)
+    -   [Crux](#org84ac642)
+    -   [Ivy, Amx, Counsel, Swiper](#org9ef089b)
+    -   [Color Ripgrep](#org4e11f99)
+    -   [Snails](#org636f2a3)
+    -   [Files Directories](#orga9fcaf5)
+    -   [Winner](#org1b3a16c)
+    -   [Which Key](#orgc47b690)
+    -   [Popup Kill Ring](#orgcb77f22)
+    -   [Undo Tree](#org1753894)
+    -   [Discover My Major](#org8397f7b)
+    -   [Ace Window](#orgc982dee)
+    -   [Shells](#orge183014)
+    -   [Sudo Edit](#orge7c9782)
+    -   [Configs](#orgd7b0aa8)
+    -   [Functions](#org4dfd68d)
+-   [User Interface Enhancements](#org7423cd5)
+    -   [Doom Themes](#org70edb83)
+    -   [Doom Modeline](#org7f61bfa)
+    -   [Dashboard](#orgb6dacc1)
+    -   [Fonts and Icons](#orgbb9d419)
+    -   [Smooth Scrolling](#orgcd6810e)
+    -   [Prettify Symbols](#org96769ac)
+    -   [UI Configs](#org1a3ae8d)
+-   [General Programming](#orgf373881)
+    -   [Magit](#org62c43e3)
+    -   [Projectile](#org620fffc)
+    -   [Treemacs](#org61bfb3f)
+    -   [YASnippet](#org939ab81)
+    -   [Flycheck](#org74f390d)
+    -   [Dumb Jump](#org961af19)
+    -   [Parenthesis](#org327b147)
+    -   [Indentation](#orgcb30826)
+    -   [Quickrun](#org517bd49)
+    -   [Format All](#org7f24df1)
+    -   [Evil Nerd Commenter](#orgd09fcda)
+    -   [Editing](#org2145396)
+    -   [Headers](#org5b30cba)
+    -   [Jupyter Notebook](#org0563f4d)
+    -   [LSP](#orgc43f49b)
+    -   [DAP](#orgcc70a7b)
+    -   [Company](#org62ba52c)
+-   [Programming](#org7821d85)
+    -   [Java](#orgef8a567)
+    -   [C/C++/Objective C](#org4deb320)
+    -   [Golang](#org2786b23)
+    -   [Python](#org4b0c2c1)
+    -   [Haskell](#orgdc7ce8d)
+    -   [ESS](#orgbe0b3e4)
+    -   [TeX](#org8a0ded0)
+-   [Web Development](#orgb0a1b3a)
+    -   [Web Mode](#org7b4b3b5)
+    -   [JavaScript/TypeScript](#org56c9607)
+    -   [Emmet](#org015e95f)
+    -   [Instant Rename Tag](#org45d1390)
+    -   [JSON](#org19a802c)
+-   [Miscellaneous](#org7df3e64)
+    -   [Org](#org28fe698)
+    -   [EAF](#orged1b1a4)
+    -   [ERC](#org668a7f4)
+    -   [EWW](#org2b75070)
+    -   [MU4E](#orgefd8823)
+    -   [Tramp](#orgb5abaf4)
+    -   [PDF Tools](#orgf626d3b)
+    -   [LeetCode](#org2f1a870)
+    -   [Pyim](#orgb88fabd)
+    -   [EPaint](#org2e8c777)
+    -   [Tetris](#orgef1601e)
+    -   [Speed Type](#org6d0e15a)
+    -   [2048 Game](#orgde0b7d4)
+    -   [Zone](#orga0e8338)
+
+
+<a id="orge8c2a27"></a>
+>>>>>>> master
 
 # About EMACS
 
@@ -133,7 +239,11 @@ Emacs doesn't have a monopoly on good ideas, and there are other great tools out
 *This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
+<<<<<<< HEAD
 <a id="org4c1ba82"></a>
+=======
+<a id="org0e522d3"></a>
+>>>>>>> master
 
 # About M-EMACS
 
@@ -144,35 +254,47 @@ As a young EMACSer, I have experienced the struggle to find a detailed configura
 This configuration is designed and tested for **GNU Emacs 26.1 and above only**. However, it is suggested to use **emacs27**, the latest version currently available.
 
 
+<<<<<<< HEAD
 <a id="org6c3c59c"></a>
+=======
+<a id="org3eeeae9"></a>
+>>>>>>> master
 
 ## Screenshot
 
 ![img](images/Sample.png)
 
 
+<<<<<<< HEAD
 <a id="org7e587ca"></a>
+=======
+<a id="org76256e2"></a>
+>>>>>>> master
 
 ## About README
 
-This README is originated from init.org that is generated using `M-x org-gfm-export-to-markdown`. Every block of code is generated through this function - it exports the section of code from the `elisp/` directory. You will not see their presence in init.org.
+This README is originated from `init.org` that is generated using `M-x org-gfm-export-to-markdown`. Every block of code is generated through this function - it exports sections of code from the `elisp/` directory. You will not see their presence in `init.org`.
 
 
+<<<<<<< HEAD
 <a id="orgd6031f1"></a>
+=======
+<a id="org74258cd"></a>
+>>>>>>> master
 
 ## Installation
 
 1.  Install [GNU Emacs](https://www.gnu.org/software/emacs/).
     -   (Optional) On Ubuntu, `emacs-snapshot` is a great way to get latest version of Emacs.
 
-        ```text
+        ```bash
         sudo add-apt-repository -y ppa:ubuntu-elisp
         sudo apt-get update
         sudo apt-get install emacs-snapshot
         ```
     -   (Optional) Build latest Emacs from source.
 
-        ```text
+        ```bash
         # Install essential build tools
         sudo apt-get install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev gnutls-dev libgtk-3-dev git autoconf
         # Clone source
@@ -188,13 +310,14 @@ This README is originated from init.org that is generated using `M-x org-gfm-exp
         ```
 2.  Clone this repo to `HOME` or `~/` path using [git](https://git-scm.com/) and update all the submodules.
 
-    ```text
+    ```bash
+    cd ~
     git clone --recurse-submodules -j8 https://github.com/MatthewZMD/.emacs.d.git
     cd .emacs.d
     ```
 3.  Ensure a stable connection to Melpa Packages, then open Emacs.
 4.  Enter `y` when prompted with `Auto-update packages now?`, wait for all packages to install.
-5.  In your favorite browser, `Ctrl-F Prerequisite` through this webpage and follow the **Prerequisite** instructions.
+5.  In your favorite browser, `Ctrl-f Prerequisite` through this README and follow the **Prerequisite** instructions.
 6.  Restart Emacs.
 
 
@@ -205,7 +328,11 @@ I will be updating M-EMACS from time to time, it is best to `git pull` once a wh
 Please also execute `git submodule update --recursive --remote` to sync with all the submodules.
 
 
+<<<<<<< HEAD
 <a id="org3437c27"></a>
+=======
+<a id="org3ad7d03"></a>
+>>>>>>> master
 
 ## Modification
 
@@ -219,18 +346,26 @@ However, what is *free* stays *free*. After all, this is [GPL](LICENSE).
 2.  If you add a new mode, create a new `<file-name>.el` file in `elisp/` directory.
 3.  Put `(require '<file-name>)` in [init.el](init.el) accordingly.
 4.  Add `#+INCLUDE: "~/.emacs.d/elisp/<place-holder>.el" src emacs-lisp :range-begin "<start-line-wrapper-exclusive>" :range-end "<end-line-wrapper-exclusive>"` in the appropriate section in `init.org`.
-5.  Enter `C-x C-s` to save and update `:lines`. (if you don't see the updated effect, run `M-x update-includes` manually)
+5.  Enter `C-x C-s` to save and update `:lines`. (if you don't see the updated effect, run `M-x save-and-update-includes` manually)
 6.  Call `M-x org-gfm-export-to-markdown` to update `README.md` automatically.
 
 
+<<<<<<< HEAD
 <a id="org4a8a125"></a>
+=======
+<a id="org406c612"></a>
+>>>>>>> master
 
 ## Contribution
 
 If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
 
 
+<<<<<<< HEAD
 <a id="orgbc824a4"></a>
+=======
+<a id="org2f80dea"></a>
+>>>>>>> master
 
 ## Special Thanks
 
@@ -241,12 +376,20 @@ Everyone starts somewhere, and I started here.
 -   [Poncie Reyes's .emacs.d](https://github.com/poncie/.emacs.d)
 
 
+<<<<<<< HEAD
 <a id="org3fe1eb6"></a>
+=======
+<a id="orgb4644a1"></a>
+>>>>>>> master
 
 # Startup
 
 
+<<<<<<< HEAD
 <a id="org1501569"></a>
+=======
+<a id="org17b9d9a"></a>
+>>>>>>> master
 
 ## Lexical Binding
 
@@ -259,7 +402,11 @@ Use lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 ```
 
 
+<<<<<<< HEAD
 <a id="org348a574"></a>
+=======
+<a id="orgc49dd55"></a>
+>>>>>>> master
 
 ## Early Init
 
@@ -273,17 +420,22 @@ Ensure `emacs-version>=26`, manually require `early-init` configurations if `ema
 ```emacs-lisp
 (cond ((version< emacs-version "26.1")
        (warn "M-EMACS requires Emacs 26.1 and above!"))
-      ((version< emacs-version "27")
-       (make-directory "~/.emacs.d/early-init-do-not-edit/" t)
-       (copy-file "~/.emacs.d/early-init.el" "~/.emacs.d/early-init-do-not-edit/early-init.el" t t t t)
-       (add-to-list 'load-path "~/.emacs.d/early-init-do-not-edit/")
-       (require 'early-init)))
+      ((let* ((early-init-f (expand-file-name "early-init.el" user-emacs-directory))
+              (early-init-do-not-edit-d (expand-file-name "early-init-do-not-edit/" user-emacs-directory))
+              (early-init-do-not-edit-f (expand-file-name "early-init.el" early-init-do-not-edit-d)))
+         (and (version< emacs-version "27")
+              (or (not (file-exists-p early-init-do-not-edit-f))
+                  (file-newer-than-file-p early-init-f early-init-do-not-edit-f)))
+         (make-directory early-init-do-not-edit-d t)
+         (copy-file early-init-f early-init-do-not-edit-f t t t t)
+         (add-to-list 'load-path early-init-do-not-edit-d)
+         (require 'early-init))))
 ```
 
 
 ### Defer Garbage Collection
 
-Defer garbage collection further back in the startup process, according to [hlissner](https://github.com/hlissner/doom-emacs/wiki/FAQ#how-is-dooms-startup-so-fast).
+Defer garbage collection further back in the startup process, according to [hlissner](https://github.com/hlissner/doom-emacs/blob/develop/docs/faq.org#how-does-doom-start-up-so-quickly).
 
 > The GC eats up quite a bit of time, easily doubling startup time. The trick is to turn up the memory threshold as early as possible.
 
@@ -331,7 +483,11 @@ It will be faster to disable them here before they've been initialized.
 ```
 
 
+<<<<<<< HEAD
 <a id="orgf6a0e3a"></a>
+=======
+<a id="org07f2230"></a>
+>>>>>>> master
 
 ## Garbage Collection
 
@@ -340,10 +496,13 @@ It will be faster to disable them here before they've been initialized.
 
 A large `gc-cons-threshold` may cause freezing and stuttering during long-term interactive use.
 
+If you experience freezing, decrease this amount, if you increase stuttering, increase this amount.
+
 ```emacs-lisp
 (defvar better-gc-cons-threshold 67108864 ; 64mb
   "The default value to use for `gc-cons-threshold'.
-If you experience freezing, decrease this. If you experience stuttering, increase this.")
+
+If you experience freezing, decrease this.  If you experience stuttering, increase this.")
 
 (add-hook 'emacs-startup-hook
           (lambda ()
@@ -352,10 +511,7 @@ If you experience freezing, decrease this. If you experience stuttering, increas
             (makunbound 'file-name-handler-alist-original)))
 ```
 
-
-### Garbage Collect When Emacs is Out of Focus
-
-**Note:** Since Emacs27.1, `focus-out-hook` is obsolete.
+Garbage Collect when Emacs is out of focus and avoid garbage collection when using minibuffer.
 
 ```emacs-lisp
 (add-hook 'emacs-startup-hook
@@ -366,47 +522,51 @@ If you experience freezing, decrease this. If you experience stuttering, increas
                                 (unless (frame-focus-state)
                                   (garbage-collect))))
               (add-hook 'after-focus-change-function 'garbage-collect))
+            (defun gc-minibuffer-setup-hook ()
+              (setq gc-cons-threshold (* better-gc-cons-threshold 2)))
+
+            (defun gc-minibuffer-exit-hook ()
+              (garbage-collect)
+              (setq gc-cons-threshold better-gc-cons-threshold))
+
+            (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
+            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
 ```
 
 
-### Avoid Garbage Collect When Using Minibuffer
-
-```emacs-lisp
-(defun gc-minibuffer-setup-hook ()
-  (setq gc-cons-threshold (* better-gc-cons-threshold 2)))
-
-(defun gc-minibuffer-exit-hook ()
-  (garbage-collect)
-  (setq gc-cons-threshold better-gc-cons-threshold))
-
-(add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
-(add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
-```
-
-
+<<<<<<< HEAD
 <a id="org9152e94"></a>
+=======
+<a id="org919d2f8"></a>
+>>>>>>> master
 
 ## Load Path
 
-Since all the configuration files are stored in `elisp/` folder, they need to be added to `load-path` on startup.
+Since all the configuration files are stored in `elisp/` folder, they need to be added to `load-path` now.
 
 ```emacs-lisp
 (defun update-to-load-path (folder)
   "Update FOLDER and its subdirectories to `load-path'."
   (let ((base folder))
-    (add-to-list 'load-path base)
+    (unless (member base load-path)
+      (add-to-list 'load-path base))
     (dolist (f (directory-files base))
       (let ((name (concat base "/" f)))
         (when (and (file-directory-p name)
                    (not (equal f ".."))
                    (not (equal f ".")))
-          (add-to-list 'load-path name))))))
+          (unless (member base load-path)
+            (add-to-list 'load-path name)))))))
 
-(update-to-load-path "~/.emacs.d/elisp")
+(update-to-load-path (expand-file-name "elisp" user-emacs-directory))
 ```
 
 
+<<<<<<< HEAD
 <a id="orgde0b390"></a>
+=======
+<a id="org260c79c"></a>
+>>>>>>> master
 
 ## Define Constants
 
@@ -467,26 +627,42 @@ Since all the configuration files are stored in `elisp/` folder, they need to be
 (defconst *pdflatex*
   (executable-find "pdflatex")
   "Do we have pdflatex?")
+
+(defconst *eaf-env*
+  (and *sys/linux* *sys/gui* *python3*
+       (executable-find "pip")
+       (not (equal (shell-command-to-string "pip freeze | grep '^PyQt\\|PyQtWebEngine'") "")))
+  "Check basic requirements for EAF to run.")
 ```
 
 
+<<<<<<< HEAD
 <a id="org1379fd7"></a>
+=======
+<a id="orgc4eb709"></a>
+>>>>>>> master
 
 # Package Management
 
 Some packages are disabled with the `:disabled` tag, because I don't use them very often. They might not work.
 
 
+<<<<<<< HEAD
 <a id="org7ed3937"></a>
+=======
+<a id="orgad6a8d2"></a>
+>>>>>>> master
 
 ## Melpa Packages
+
+Configure package archives, where to install online packages and add them to `load-path`.
 
 ```emacs-lisp
 ;; Select the folder to store packages
 ;; Comment / Uncomment to use desired sites
-(setq package-user-dir "~/.emacs.d/elpa"
+(setq package-user-dir (expand-file-name "elpa" user-emacs-directory)
       package-archives
-      '(("gnu"   . "http://elpa.gnu.org/packages/")
+      '(("gnu"   . "https://elpa.gnu.org/packages/")
         ("melpa" . "https://melpa.org/packages/")
         ("cselpa" . "https://elpa.thecybershadow.net/packages/")
         ;; ("melpa-cn" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
@@ -494,10 +670,12 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
         ))
 ```
 
-Load all Melpa packages in `elisp/` to `load-path` directly to reduce startup time.
 
-
+<<<<<<< HEAD
 <a id="org248a6ec"></a>
+=======
+<a id="org9ef0865"></a>
+>>>>>>> master
 
 ## Non-Melpa Packages
 
@@ -506,7 +684,7 @@ Add packages contained in `site-elisp/` to `load-path` too.
 
 ### Add Packages Manually from Git
 
-```text
+```bash
 cd site-elisp/
 git submodule add https://github.com/foo/bar.git
 ```
@@ -516,18 +694,22 @@ Verify `/.gitmodules` file that the newly added package exist.
 
 ### Update Manually Added Packages
 
-```text
+```bash
 git submodule init
 git submodule update
 ```
 
 
+<<<<<<< HEAD
 <a id="org843958f"></a>
+=======
+<a id="org17f0fac"></a>
+>>>>>>> master
 
 ## Configure Package Manager
 
 ```emacs-lisp
-(unless (bound-and-true-p package--initialized) ; To avoid warnings in 27
+(unless (bound-and-true-p package--initialized)
   (setq package-enable-at-startup nil)          ; To prevent initializing twice
   (package-initialize))
 
@@ -538,9 +720,13 @@ git submodule update
 ```
 
 
+<<<<<<< HEAD
 <a id="org9997287"></a>
+=======
+<a id="org4e6801f"></a>
+>>>>>>> master
 
-## Use-Package
+## Use Package
 
 My Emacs configuration is almost entirely dependant on [use-package](https://github.com/jwiegley/use-package).
 
@@ -564,7 +750,11 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
+<<<<<<< HEAD
 <a id="org307ab67"></a>
+=======
+<a id="org3252642"></a>
+>>>>>>> master
 
 ## Auto Package Update
 
@@ -572,6 +762,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 
 ```emacs-lisp
 (use-package auto-package-update
+  :if (not (daemonp))
   :custom
   (auto-package-update-interval 7) ;; in days
   (auto-package-update-prompt-before-update t)
@@ -582,7 +773,11 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
+<<<<<<< HEAD
 <a id="org3f51aa4"></a>
+=======
+<a id="org1383e36"></a>
+>>>>>>> master
 
 ## Diminish
 
@@ -593,6 +788,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
+<<<<<<< HEAD
 <a id="org769207a"></a>
 
 ## GNU Elpa Keyring Update
@@ -607,11 +803,18 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 
 
 <a id="org4eeb906"></a>
+=======
+<a id="orgc0d8b54"></a>
+>>>>>>> master
 
 # Global Functionalities
 
 
+<<<<<<< HEAD
 <a id="orgddcf454"></a>
+=======
+<a id="orgd9ee091"></a>
+>>>>>>> master
 
 ## User Information
 
@@ -623,13 +826,18 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
+<<<<<<< HEAD
 <a id="org4791e60"></a>
+=======
+<a id="org3237b5b"></a>
+>>>>>>> master
 
 ## Bindings
 
 ```emacs-lisp
 ;; Unbind unneeded keys
 (global-set-key (kbd "C-z") nil)
+(global-set-key (kbd "M-z") nil)
 (global-set-key (kbd "C-x C-z") nil)
 (global-set-key (kbd "M-/") nil)
 ;; Use iBuffer instead of Buffer List
@@ -637,6 +845,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ;; Truncate lines
 (global-set-key (kbd "C-x C-l") #'toggle-truncate-lines)
 ;; Adjust font size like web browsers
+(global-set-key (kbd "C-=") #'text-scale-increase)
 (global-set-key (kbd "C-+") #'text-scale-increase)
 (global-set-key (kbd "C--") #'text-scale-decrease)
 ;; Move up/down paragraph
@@ -645,18 +854,63 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
+<<<<<<< HEAD
 <a id="orgcc4df1b"></a>
+=======
+<a id="org0fc1d32"></a>
 
-## Ivy
+## Avy
+
+[Avy](https://github.com/abo-abo/avy), a nice way to move around text.
+
+```emacs-lisp
+(use-package avy
+  :defer t
+  :bind
+  (("C-z c" . avy-goto-char-timer)
+   ("C-z l" . avy-goto-line))
+  :custom
+  (avy-timeout-seconds 0.3)
+  (avy-style 'pre)
+  :custom-face
+  (avy-lead-face ((t (:background "#51afef" :foreground "#870000" :weight bold)))));
+```
 
 
-### Ivy, Amx, Counsel, Swiper
+<a id="org84ac642"></a>
+
+## Crux
+
+[Crux](https://github.com/bbatsov/crux), a Collection of Ridiculously Useful eXtensions for Emacs.
+
+```emacs-lisp
+(use-package crux
+  :bind
+  (("C-a" . crux-move-beginning-of-line)
+   ("C-x 4 t" . crux-transpose-windows)
+   ("C-x K" . crux-kill-other-buffers)
+   ("C-k" . crux-smart-kill-line))
+  :config
+  (crux-with-region-or-buffer indent-region)
+  (crux-with-region-or-buffer untabify)
+  (crux-with-region-or-point-to-eol kill-ring-save)
+  (defalias 'rename-file-and-buffer #'crux-rename-file-and-buffer))
+```
+>>>>>>> master
+
+
+<a id="org9ef089b"></a>
+
+## Ivy, Amx, Counsel, Swiper
 
 [Ivy](https://github.com/abo-abo/swiper), a generic completion mechanism for Emacs. It utilizes [Amx](https://github.com/DarwinAwardWinner/amx), [Counsel](https://github.com/abo-abo/swiper) and [Swiper](https://github.com/abo-abo/swiper).
 
 ```emacs-lisp
 (use-package ivy
+<<<<<<< HEAD
   :bind ("M-s M-s" . swiper-isearch)
+=======
+>>>>>>> master
   :diminish
   :init
   (use-package amx :defer t)
@@ -667,8 +921,15 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
   (use-package swiper :defer t)
   (ivy-mode 1)
   :bind
-  (:map ivy-minibuffer-map
-        ("C-r" . ivy-previous-line-or-history))
+  (("C-s" . swiper-isearch)
+   ("C-z s" . counsel-rg)
+   ("C-z b" . counsel-buffer-or-recentf)
+   ("C-z C-b" . counsel-ibuffer)
+   (:map ivy-minibuffer-map
+         ("C-r" . ivy-previous-line-or-history)
+         ("M-RET" . ivy-immediate-done))
+   (:map counsel-find-file-map
+         ("C-~" . counsel-goto-local-home)))
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-height 10)
@@ -676,45 +937,39 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
   (ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
   (ivy-count-format "【%d/%d】")
   (ivy-wrap t)
-  (ivy-use-selectable-prompt t))
+  :config
+  (defun counsel-goto-local-home ()
+      "Go to the $HOME of the local machine."
+      (interactive)
+    (ivy--cd "~/")))
 ```
 
 
-### Ivy Posframe
-
-[Ivy Posframe](https://github.com/tumashu/ivy-posframe), an Ivy extension that uses posframe to show its candidate menu.
-
-```emacs-lisp
-(unless (version< emacs-version "26")
-  (use-package ivy-posframe
-    :if *sys/gui*
-    :diminish
-    :custom-face
-    (ivy-posframe ((t (:background "#303640"))))
-    :custom
-    (ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-    :config
-    (ivy-posframe-mode 1)))
-```
-
-
+<<<<<<< HEAD
 <a id="org2f6aabd"></a>
+=======
+<a id="org4e11f99"></a>
+>>>>>>> master
 
-## Color RG
+## Color Ripgrep
 
-[Color-RG](https://github.com/manateelazycat/color-rg), a search and refactoring tool based on *ripgrep* that is used to search text.
+[Color rg](https://github.com/manateelazycat/color-rg), a search and refactoring tool based on *ripgrep* that is used to search text.
 
-**Prerequisite**: Please install [ripgrep](https://github.com/BurntSushi/ripgrep#installation) and add `rg` to the `PATH`.
+**Prerequisite**: Please install [ripgrep](https://github.com/BurntSushi/ripgrep#installation) and ensure `rg` is in the `PATH`.
 
 ```emacs-lisp
 (use-package color-rg
-  :load-path "~/.emacs.d/site-elisp/color-rg"
+  :load-path (lambda () (expand-file-name "site-elisp/color-rg" user-emacs-directory))
   :if *rg*
   :bind ("C-M-s" . color-rg-search-input))
 ```
 
 
+<<<<<<< HEAD
 <a id="orgbd37aa9"></a>
+=======
+<a id="org636f2a3"></a>
+>>>>>>> master
 
 ## Snails
 
@@ -722,7 +977,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 
 ```emacs-lisp
 (use-package snails
-  :load-path "~/.emacs.d/site-elisp/snails/"
+  :load-path (lambda () (expand-file-name "site-elisp/snails/" user-emacs-directory))
   :if *sys/gui*
   :custom-face
   (snails-content-buffer-face ((t (:background "#111" :height 110))))
@@ -750,179 +1005,11 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
+<<<<<<< HEAD
 <a id="orgcca92b2"></a>
-
-## Avy
-
-[Avy](https://github.com/abo-abo/avy), a nice way to move around text.
-
-```emacs-lisp
-(use-package avy
-  :defer t
-  ;;:bind
-  ;;(("M-/" . avy-goto-char-timer)
-  ;;("M-?" . avy-goto-line))
-  :custom
-  (avy-timeout-seconds 0.3)
-  (avy-style 'pre)
-  :custom-face
-  (avy-lead-face ((t (:background "#51afef" :foreground "#870000" :weight bold)))));
-```
-
-
-<a id="org660a0f7"></a>
-
-## Winner
-
-Winner, a mode to restore previous window layouts.
-
-```emacs-lisp
-(use-package winner
-  :ensure nil
-  :custom
-  (winner-boring-buffers
-   '("*Completions*"
-     "*Compile-Log*"
-     "*inferior-lisp*"
-     "*Fuzzy Completions*"
-     "*Apropos*"
-     "*Help*"
-     "*cvs*"
-     "*Buffer List*"
-     "*Ibuffer*"
-     "*esh command on file*"))
-  :config
-  (winner-mode 1))
-```
-
-
-<a id="org7af6575"></a>
-
-## Which Key
-
-[Which Key](https://github.com/justbur/emacs-which-key), a feature that displays the key bindings following the incomplete command.
-
-```emacs-lisp
-(use-package which-key
-  :diminish
-  :custom
-  (which-key-separator " ")
-  (which-key-prefix-prefix "+")
-  :config
-  (which-key-mode))
-```
-
-
-<a id="org2fc9084"></a>
-
-## Popup Kill Ring
-
-[Popup Kill Ring](https://github.com/waymondo/popup-kill-ring), a feature that provides the ability to browse Emacs kill ring in autocomplete style popup menu.
-
-```emacs-lisp
-(use-package popup-kill-ring
-  :bind ("M-y" . popup-kill-ring))
-```
-
-
-<a id="orgd1a19fb"></a>
-
-## Undo Tree
-
-[Undo tree](https://www.emacswiki.org/emacs/UndoTree), a feature that provides a visualization of the undos in a file.
-
-```emacs-lisp
-(use-package undo-tree
-  :defer t
-  :diminish undo-tree-mode
-  :init (global-undo-tree-mode))
-```
-
-
-<a id="org6cae2b2"></a>
-
-## Discover My Major
-
-[Discover my major](https://github.com/jguenther/discover-my-major), a feature that discovers key bindings and their meaning for the current Emacs major mode.
-
-```emacs-lisp
-(use-package discover-my-major
-  :bind ("C-h C-m" . discover-my-major))
-```
-
-
-<a id="org5295032"></a>
-
-## Ace Window
-
-[Ace Window](https://github.com/abo-abo/ace-window), a package for selecting windows to switch to.
-
-```emacs-lisp
-(use-package ace-window
-  :bind
-  (("C-x o" . ace-window)
-  ("C-x C-o" . next-multiframe-window)))
-```
-
-
-<a id="org6843d05"></a>
-
-## Shells
-
-
-### Aweshell
-
-[Aweshell](https://github.com/manateelazycat/aweshell), shell extension base on eshell with better features.
-
-```emacs-lisp
-(use-package aweshell
-  :load-path "~/.emacs.d/site-elisp/aweshell"
-  :commands (aweshell-new aweshell-dedicated-open)
-  :bind
-  (("M-#" . aweshell-dedicated-open)
-   (:map eshell-mode-map ("M-#" . aweshell-dedicated-close))))
-```
-
-
-### Shell Here
-
-[Shell Here](https://github.com/ieure/shell-here), a tool that opens a shell buffer in (or relative to) `default-directory`.
-
-```emacs-lisp
-(use-package shell-here
-  :bind ("M-~" . shell-here)
-  :config
-  (when *sys/linux*
-    (setq explicit-shell-file-name "/bin/bash")))
-```
-
-
-### MultiTerm
-
-[MultiTerm](https://www.emacswiki.org/emacs/MultiTerm), a mode based on term.el, for managing multiple terminal buffers in Emacs.
-
-```emacs-lisp
-(use-package multi-term
-  :load-path "~/.emacs.d/site-elisp/multi-term"
-  :commands (multi-term)
-  :bind ("M-$" . multi-term)
-  :custom
-  (multi-term-program (executable-find "bash")))
-```
-
-
-### Term Keys
-
-[Term Keys](https://github.com/CyberShadow/term-keys), a lossless keyboard input for Emacs in terminal emulators.
-
-```emacs-lisp
-(use-package term-keys
-  :if (not *sys/gui*)
-  :config (term-keys-mode t))
-```
-
-
-<a id="orga3ce55a"></a>
+=======
+<a id="orga9fcaf5"></a>
+>>>>>>> master
 
 ## Files Directories
 
@@ -932,11 +1019,19 @@ Winner, a mode to restore previous window layouts.
 Dired, the directory editor.
 
 ```emacs-lisp
+<<<<<<< HEAD
+(use-package avy
+  :defer t
+  ;;:bind
+  ;;(("M-/" . avy-goto-char-timer)
+  ;;("M-?" . avy-goto-line))
+=======
 (use-package dired
   :ensure nil
   :bind
   (("C-x C-j" . dired-jump)
    ("C-x j" . dired-jump-other-window))
+>>>>>>> master
   :custom
   ;; Always delete and copy recursively
   (dired-recursive-deletes 'always)
@@ -948,7 +1043,14 @@ Dired, the directory editor.
   (dired-dwim-target t)
   ;; Move files to trash when deleting
   (delete-by-moving-to-trash t)
+  ;; Load the newest version of a file
+  (load-prefer-newer t)
+  ;; Detect external file changes and auto refresh file
+  (auto-revert-use-notify nil)
+  (auto-revert-interval 3) ; Auto revert every 3 sec
   :config
+  ;; Enable global auto-revert
+  (global-auto-revert-mode t)
   ;; Reuse same dired buffer, to prevent numerous buffers while navigating in dired
   (put 'dired-find-alternate-file 'disabled nil)
   :hook
@@ -998,6 +1100,208 @@ Dired, the directory editor.
 ```
 
 
+<<<<<<< HEAD
+<a id="org660a0f7"></a>
+=======
+<a id="org1b3a16c"></a>
+>>>>>>> master
+
+## Winner
+
+Winner, a mode to restore previous window layouts.
+
+```emacs-lisp
+(use-package winner
+  :ensure nil
+  :custom
+  (winner-boring-buffers
+   '("*Completions*"
+     "*Compile-Log*"
+     "*inferior-lisp*"
+     "*Fuzzy Completions*"
+     "*Apropos*"
+     "*Help*"
+     "*cvs*"
+     "*Buffer List*"
+     "*Ibuffer*"
+     "*esh command on file*"))
+  :config
+  (winner-mode 1))
+```
+
+
+<<<<<<< HEAD
+<a id="org7af6575"></a>
+=======
+<a id="orgc47b690"></a>
+>>>>>>> master
+
+## Which Key
+
+[Which Key](https://github.com/justbur/emacs-which-key), a feature that displays the key bindings following the incomplete command.
+
+```emacs-lisp
+(use-package which-key
+  :diminish
+  :custom
+  (which-key-separator " ")
+  (which-key-prefix-prefix "+")
+  :config
+  (which-key-mode))
+```
+
+
+<<<<<<< HEAD
+<a id="org2fc9084"></a>
+=======
+<a id="orgcb77f22"></a>
+>>>>>>> master
+
+## Popup Kill Ring
+
+[Popup Kill Ring](https://github.com/waymondo/popup-kill-ring), a feature that provides the ability to browse Emacs kill ring in autocomplete style popup menu.
+
+```emacs-lisp
+(use-package popup-kill-ring
+  :bind ("M-y" . popup-kill-ring))
+```
+
+
+<<<<<<< HEAD
+<a id="orgd1a19fb"></a>
+=======
+<a id="org1753894"></a>
+>>>>>>> master
+
+## Undo Tree
+
+[Undo tree](https://www.emacswiki.org/emacs/UndoTree), a feature that provides a visualization of the undos in a file.
+
+```emacs-lisp
+(use-package undo-tree
+  :defer t
+  :diminish undo-tree-mode
+  :init (global-undo-tree-mode)
+  :custom
+  (undo-tree-visualizer-diff t)
+  (undo-tree-visualizer-timestamps t))
+```
+
+
+<<<<<<< HEAD
+<a id="org6cae2b2"></a>
+=======
+<a id="org8397f7b"></a>
+>>>>>>> master
+
+## Discover My Major
+
+[Discover my major](https://github.com/jguenther/discover-my-major), a feature that discovers key bindings and their meaning for the current Emacs major mode.
+
+```emacs-lisp
+(use-package discover-my-major
+  :bind ("C-h C-m" . discover-my-major))
+```
+
+
+<<<<<<< HEAD
+<a id="org5295032"></a>
+=======
+<a id="orgc982dee"></a>
+>>>>>>> master
+
+## Ace Window
+
+[Ace Window](https://github.com/abo-abo/ace-window), a package for selecting windows to switch to.
+
+```emacs-lisp
+(use-package ace-window
+  :bind
+  (("C-x o" . ace-window)
+  ("C-x C-o" . next-multiframe-window)))
+```
+
+
+<<<<<<< HEAD
+<a id="org6843d05"></a>
+=======
+<a id="orge183014"></a>
+>>>>>>> master
+
+## Shells
+
+
+### Aweshell
+
+[Aweshell](https://github.com/manateelazycat/aweshell), shell extension base on eshell with better features.
+
+```emacs-lisp
+(use-package aweshell
+  :load-path (lambda () (expand-file-name "site-elisp/aweshell" user-emacs-directory))
+  :commands (aweshell-new aweshell-dedicated-open)
+  :bind
+  (("M-#" . aweshell-dedicated-open)
+   (:map eshell-mode-map ("M-#" . aweshell-dedicated-close))))
+```
+
+
+### Shell Here
+
+[Shell Here](https://github.com/ieure/shell-here), a tool that opens a shell buffer in (or relative to) `default-directory`.
+
+```emacs-lisp
+(use-package shell-here
+  :bind ("M-~" . shell-here)
+  :config
+  (when *sys/linux*
+    (setq explicit-shell-file-name "/bin/bash")))
+```
+
+
+### MultiTerm
+
+[MultiTerm](https://www.emacswiki.org/emacs/MultiTerm), a mode based on term.el, for managing multiple terminal buffers in Emacs.
+
+```emacs-lisp
+(use-package multi-term
+  :load-path (lambda () (expand-file-name "site-elisp/multi-term" user-emacs-directory))
+  :commands (multi-term)
+  :bind
+  (("M-$" . multi-term)
+   (:map dired-mode-map ("M-$" . multi-term)))
+  :custom
+  (multi-term-program (executable-find "bash")))
+```
+
+
+### Term Keys
+
+[Term Keys](https://github.com/CyberShadow/term-keys), a lossless keyboard input for Emacs in terminal emulators.
+
+```emacs-lisp
+(use-package term-keys
+  :if (not *sys/gui*)
+  :config (term-keys-mode t))
+```
+
+
+<<<<<<< HEAD
+<a id="orga3ce55a"></a>
+=======
+<a id="orge7c9782"></a>
+>>>>>>> master
+
+## Sudo Edit
+
+[Sudo Edit](https://github.com/nflath/sudo-edit), an utility for opening files with `sudo`.
+
+```emacs-lisp
+(use-package sudo-edit
+  :commands (sudo-edit))
+```
+
+
+<<<<<<< HEAD
 ### Rename File and Buffer Together
 
 ```emacs-lisp
@@ -1034,6 +1338,9 @@ Dired, the directory editor.
 
 
 <a id="org6b9aefb"></a>
+=======
+<a id="orgd7b0aa8"></a>
+>>>>>>> master
 
 ## Configs
 
@@ -1045,17 +1352,14 @@ Some essential configs that make my life a lot easier.
 Use UTF-8 as much as possible with unix line endings.
 
 ```emacs-lisp
-(if (eq system-type 'windows-nt)
-    (progn
-      (set-clipboard-coding-system 'utf-16-le)
-      (set-selection-coding-system 'utf-16-le))
-  (set-selection-coding-system 'utf-8))
-(prefer-coding-system 'utf-8-unix)
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
-(setq locale-coding-system 'utf-8-unix)
+(unless *sys/win32*
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+  (set-language-environment "UTF-8")
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8))
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (when *sys/gui*
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
@@ -1066,20 +1370,29 @@ Use UTF-8 as much as possible with unix line endings.
 
 ```emacs-lisp
 ;; Remove useless whitespace before saving a file
-(add-hook 'before-save-hook 'whitespace-cleanup)
-(add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
+(defun delete-trailing-whitespace-except-current-line ()
+  "An alternative to `delete-trailing-whitespace'.
 
-;; Make sentences end with a single space
-(setq-default sentence-end-double-space nil)
+The original function deletes trailing whitespace of the current line."
+  (interactive)
+  (let ((begin (line-beginning-position))
+        (end (line-end-position)))
+    (save-excursion
+      (when (< (point-min) (1- begin))
+        (save-restriction
+          (narrow-to-region (point-min) (1- begin))
+          (delete-trailing-whitespace)
+          (widen)))
+      (when (> (point-max) (+ end 2))
+        (save-restriction
+          (narrow-to-region (+ end 2) (point-max))
+          (delete-trailing-whitespace)
+          (widen))))))
 
-;; Disable Shift mark
-(setq shift-select-mode nil)
+(add-hook 'before-save-hook #'delete-trailing-whitespace-except-current-line)
 
 ;; Replace selection on insert
 (delete-selection-mode 1)
-
-;; Merge system clipboard with Emacs
-(setq-default select-enable-clipboard t)
 
 ;; Map Alt key to Meta
 (setq x-alt-keysym 'meta)
@@ -1093,6 +1406,7 @@ Use UTF-8 as much as possible with unix line endings.
   :ensure nil
   :hook (after-init . recentf-mode)
   :custom
+  (recentf-auto-cleanup "05:00am")
   (recentf-max-saved-items 200)
   (recentf-exclude '((expand-file-name package-user-dir)
                      ".cache"
@@ -1157,7 +1471,11 @@ Use UTF-8 as much as possible with unix line endings.
 ```
 
 
+<<<<<<< HEAD
 <a id="org4023f35"></a>
+=======
+<a id="org4dfd68d"></a>
+>>>>>>> master
 
 ## Functions
 
@@ -1188,6 +1506,23 @@ Important functions.
 ;; Setup shorcuts for window resize width and height
 (global-set-key (kbd "C-z w") #'resize-window-width)
 (global-set-key (kbd "C-z h") #'resize-window-height)
+
+(defun resize-window (width delta)
+  "Resize the current window's size.  If WIDTH is non-nil, resize width by some DELTA."
+  (if (> (count-windows) 1)
+      (window-resize nil delta width)
+    (error "You need more than 1 window to execute this function!")))
+
+;; Setup shorcuts for window resize width and height
+(global-set-key (kbd "M-W =") (lambda () (interactive) (resize-window t 5)))
+(global-set-key (kbd "M-W M-+") (lambda () (interactive) (resize-window t 5)))
+(global-set-key (kbd "M-W -") (lambda () (interactive) (resize-window t -5)))
+(global-set-key (kbd "M-W M-_") (lambda () (interactive) (resize-window t -5)))
+
+(global-set-key (kbd "M-H =") (lambda () (interactive) (resize-window nil 5)))
+(global-set-key (kbd "M-H M-+") (lambda () (interactive) (resize-window nil 5)))
+(global-set-key (kbd "M-H -") (lambda () (interactive) (resize-window nil -5)))
+(global-set-key (kbd "M-H M-_") (lambda () (interactive) (resize-window nil -5)))
 ```
 
 
@@ -1203,48 +1538,15 @@ Important functions.
 ```
 
 
-### Smarter Move Beginning of Line
-
-Smarter navigation to the beginning of a line by [Bozhidar Batsov](https://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/).
-
-```emacs-lisp
-(defun smarter-move-beginning-of-line (arg)
-  "Move point back to indentation of beginning of line.
-
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
-
-If ARG is not nil or 1, move forward ARG - 1 lines first.    If
-point reaches the beginning or end of the buffer, stop there."
-  (interactive "^p")
-  (setq arg (or arg 1))
-
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
-
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
-
-;; remap C-a to `smarter-move-beginning-of-line'
-(global-set-key (kbd "C-a") 'smarter-move-beginning-of-line)
-```
-
-
 ### Update Org Mode Include Automatically
 
 Update Org Mode INCLUDE Statements Automatically from [Artur Malabarba](http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html).
 
 ```emacs-lisp
-(defun save-and-update-includes (&rest ignore)
+(defun save-and-update-includes ()
   "Update the line numbers of #+INCLUDE:s in current buffer.
 Only looks at INCLUDEs that have either :range-begin or :range-end.
-This function does nothing if not in org-mode, so you can safely
+This function does nothing if not in `org-mode', so you can safely
 add it to `before-save-hook'."
   (interactive)
   (when (derived-mode-p 'org-mode)
@@ -1325,9 +1627,9 @@ FACE defaults to inheriting from default and highlight."
 ### Read Lines From File
 
 ```emacs-lisp
-(defun read-lines (filePath)
-  "Return a list of lines of a file at FILEPATH."
-  (with-temp-buffer (insert-file-contents filePath)
+(defun read-lines (file-path)
+  "Return a list of lines of a file at FILE-PATH."
+  (with-temp-buffer (insert-file-contents file-path)
                     (split-string (buffer-string) "\n" t)))
 ```
 
@@ -1336,32 +1638,26 @@ FACE defaults to inheriting from default and highlight."
 
 ```emacs-lisp
 (defun where-am-i ()
-    "An interactive function that displays `buffer-file-name' when visiting a file.
-Otherwise the function displays `buffer-name'."
-    (interactive)
-    (let ((dir-file (buffer-file-name)))
-      (if dir-file
-          (message dir-file)
-        (message (buffer-name)))))
-```
-
-
-### Get File Name From Path
-
-```emacs-lisp
-(defun get-file-name-from-path (path)
-  "Extracts the file name from the given PATH."
+  "An interactive function showing function `buffer-file-name' or `buffer-name'."
   (interactive)
-  (substring path (string-match "[^\/]*\/?$" path)))
+  (message (kill-new (if (buffer-file-name) (buffer-file-name) (buffer-name)))))
 ```
 
 
+<<<<<<< HEAD
 <a id="org51d0cb0"></a>
+=======
+<a id="org7423cd5"></a>
+>>>>>>> master
 
 # User Interface Enhancements
 
 
+<<<<<<< HEAD
 <a id="org101039e"></a>
+=======
+<a id="org70edb83"></a>
+>>>>>>> master
 
 ## Doom Themes
 
@@ -1380,7 +1676,11 @@ Otherwise the function displays `buffer-name'."
 ```
 
 
+<<<<<<< HEAD
 <a id="org2543a39"></a>
+=======
+<a id="org7f61bfa"></a>
+>>>>>>> master
 
 ## Doom Modeline
 
@@ -1388,18 +1688,23 @@ Otherwise the function displays `buffer-name'."
 
 ```emacs-lisp
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
   :custom
   ;; Don't compact font caches during GC. Windows Laggy Issue
   (inhibit-compacting-font-caches t)
   (doom-modeline-minor-modes t)
   (doom-modeline-icon t)
   (doom-modeline-major-mode-color-icon t)
-  (doom-modeline-height 15))
+  (doom-modeline-height 15)
+  :config
+  (doom-modeline-mode))
 ```
 
 
+<<<<<<< HEAD
 <a id="org598802f"></a>
+=======
+<a id="orgb6dacc1"></a>
+>>>>>>> master
 
 ## Dashboard
 
@@ -1417,34 +1722,32 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
   :bind ("C-z d" . open-dashboard)
   :custom
   (dashboard-banner-logo-title "Close the world. Open the nExt.")
-  (dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
+  (dashboard-startup-banner (expand-file-name "images/KEC_Dark_BK_Small.png" user-emacs-directory))
   (dashboard-items '((recents  . 7)
-                     (bookmarks . 5)
+                     (bookmarks . 7)
                      (agenda . 5)))
+  (initial-buffer-choice (lambda () (get-buffer dashboard-buffer-name)))
+  (dashboard-set-heading-icons t)
+  (dashboard-set-navigator t)
+  (dashboard-navigator-buttons
+   (if (featurep 'all-the-icons)
+       `(((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust -0.05)
+           "M-EMACS" "Browse M-EMACS Homepage"
+           (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
+          (,(all-the-icons-fileicon "elisp" :height 1.0 :v-adjust -0.1)
+           "Configuration" "" (lambda (&rest _) (edit-configs)))
+          (,(all-the-icons-faicon "cogs" :height 1.0 :v-adjust -0.1)
+           "Update" "" (lambda (&rest _) (auto-package-update-now)))))
+     `((("" "M-EMACS" "Browse M-EMACS Homepage"
+         (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
+        ("" "Configuration" "" (lambda (&rest _) (edit-configs)))
+        ("" "Update" "" (lambda (&rest _) (auto-package-update-now)))))))
   :custom-face
   (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 123))))
   :config
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                    (bookmarks . "book")))
   (dashboard-setup-startup-hook)
-  ;; Additional Dashboard widgets.
-  (defun dashboard-insert-widgets (list-size)
-    ;; (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
-    (insert "Navigation: ")
-    ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
-    (widget-create 'url-link
-                   :tag (propertize "Github" 'face 'font-lock-keyword-face)
-                   :help-echo "Open M-EMACS Github"
-                   :mouse-face 'highlight
-                   "https://github.com/MatthewZMD/.emacs.d")
-    (insert " ")
-    (widget-create 'push-button
-                   :help-echo "Edit M-EMACS configuration"
-                   :action (lambda (&rest _) (edit-configs))
-                   :mouse-face 'highlight
-                   :button-prefix ""
-                   :button-suffix ""
-                   (propertize "Configuration" 'face 'font-lock-keyword-face)))
-  (add-to-list 'dashboard-item-generators  '(buttons . dashboard-insert-widgets))
-  (add-to-list 'dashboard-items '(buttons))
   ;; Open Dashboard function
   (defun open-dashboard ()
     "Open the *dashboard* buffer and jump to the first widget."
@@ -1454,11 +1757,6 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
     (dashboard-insert-startupify-lists)
     (switch-to-buffer dashboard-buffer-name)
     (goto-char (point-min))
-    (if (> (length (window-list-1))
-           ;; exclude `treemacs' window
-           (if (and (fboundp 'treemacs-current-visibility)
-                    (eq (treemacs-current-visibility) 'visible)) 2 1))
-        (setq dashboard-recover-layout-p t))
     (delete-other-windows)))
 ```
 
@@ -1474,7 +1772,11 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
 ```
 
 
+<<<<<<< HEAD
 <a id="orgad3754b"></a>
+=======
+<a id="orgbb9d419"></a>
+>>>>>>> master
 
 ## Fonts and Icons
 
@@ -1531,17 +1833,15 @@ Function to switch between fonts.
   :diminish
   :custom-face
   (all-the-icons-dired-dir-face ((t `(:foreground ,(face-background 'default)))))
-  :config
-  (add-hook 'dired-mode-hook #'all-the-icons-dired-mode)
-  ;; Workaround for all-the-icons bug until PR merged https://github.com/domtronn/all-the-icons.el/pull/150
-  (when (require 'all-the-icons nil 'noerror)
-    (setq all-the-icons-mode-icon-alist
-          (delete '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-white) all-the-icons-mode-icon-alist))
-    (add-to-list 'all-the-icons-mode-icon-alist '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0))))
+  :hook (dired-mode . all-the-icons-dired-mode))
 ```
 
 
+<<<<<<< HEAD
 <a id="org5d27e7e"></a>
+=======
+<a id="orgcd6810e"></a>
+>>>>>>> master
 
 ## Smooth Scrolling
 
@@ -1564,7 +1864,11 @@ Configurations to smooth scrolling.
 ```
 
 
+<<<<<<< HEAD
 <a id="org6f0398e"></a>
+=======
+<a id="org96769ac"></a>
+>>>>>>> master
 
 ## Prettify Symbols
 
@@ -1573,7 +1877,7 @@ Configurations to smooth scrolling.
 ```emacs-lisp
 (global-prettify-symbols-mode 1)
 (defun add-pretty-lambda ()
-  "Make some word or string show as pretty Unicode symbols. See https://unicodelookup.com for more."
+  "Make some word or string show as pretty Unicode symbols.  See https://unicodelookup.com for more."
   (setq prettify-symbols-alist
         '(
           ("lambda" . 955)
@@ -1588,7 +1892,11 @@ Configurations to smooth scrolling.
 ```
 
 
+<<<<<<< HEAD
 <a id="orgfe56594"></a>
+=======
+<a id="org1a3ae8d"></a>
+>>>>>>> master
 
 ## UI Configs
 
@@ -1612,7 +1920,7 @@ Configurations to smooth scrolling.
 ```emacs-lisp
 (setq inhibit-startup-screen t)
 (setq initial-major-mode 'text-mode)
-(setq initial-scratch-message "Present Day, Present Time...")
+(setq initial-scratch-message "Present Day, Present Time...\n")
 ```
 
 
@@ -1641,12 +1949,20 @@ Display time and battery information in modeline.
 ```
 
 
+<<<<<<< HEAD
 <a id="orge184260"></a>
+=======
+<a id="orgf373881"></a>
+>>>>>>> master
 
 # General Programming
 
 
+<<<<<<< HEAD
 <a id="org689ed08"></a>
+=======
+<a id="org62c43e3"></a>
+>>>>>>> master
 
 ## Magit
 
@@ -1659,13 +1975,17 @@ Display time and battery information in modeline.
 ```
 
 
+<<<<<<< HEAD
 <a id="orgee027eb"></a>
+=======
+<a id="org620fffc"></a>
+>>>>>>> master
 
 ## Projectile
 
 [Projectile](https://github.com/bbatsov/projectile), a Project Interaction Library for Emacs.
 
-**Prerequisite**: Windows OS: Install [Gow](https://github.com/bmatzelle/gow/releases) and add to `PATH`.
+**Prerequisite**: Windows OS: Install [Gow](https://github.com/bmatzelle/gow/releases) and ensure it's in `PATH`.
 
 [Gow](https://github.com/bmatzelle/gow) is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, `tr` is needed for Projectile alien indexing.
 
@@ -1685,7 +2005,11 @@ Display time and battery information in modeline.
 ```
 
 
+<<<<<<< HEAD
 <a id="org3ea9862"></a>
+=======
+<a id="org61bfb3f"></a>
+>>>>>>> master
 
 ## Treemacs
 
@@ -1735,10 +2059,6 @@ Display time and battery information in modeline.
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
   (treemacs-fringe-indicator-mode t)
-  (pcase (cons (not (null (executable-find "git")))
-               (not (null (executable-find "python3"))))
-    (`(t . t) (treemacs-git-mode 'deferred))
-    (`(t . _) (treemacs-git-mode 'simple)))
   :bind
   (("M-0"       . treemacs-select-window)
    ("C-x t 1"   . treemacs-delete-other-windows)
@@ -1768,7 +2088,11 @@ Display time and battery information in modeline.
 ```
 
 
+<<<<<<< HEAD
 <a id="org11f7138"></a>
+=======
+<a id="org939ab81"></a>
+>>>>>>> master
 
 ## YASnippet
 
@@ -1780,6 +2104,8 @@ Display time and battery information in modeline.
 ```emacs-lisp
 (use-package yasnippet
   :diminish yas-minor-mode
+  :init
+  (use-package yasnippet-snippets :after yasnippet)
   :hook ((prog-mode LaTeX-mode org-mode) . yas-minor-mode)
   :bind
   (:map yas-minor-mode-map ("C-c C-n" . yas-expand-from-trigger-key))
@@ -1787,7 +2113,6 @@ Display time and battery information in modeline.
         (("TAB" . smarter-yas-expand-next-field)
          ([(tab)] . smarter-yas-expand-next-field)))
   :config
-  (use-package yasnippet-snippets)
   (yas-reload-all)
   (defun smarter-yas-expand-next-field ()
     "Try to `yas-expand' then `yas-next-field' at current cursor position."
@@ -1801,7 +2126,11 @@ Display time and battery information in modeline.
 ```
 
 
+<<<<<<< HEAD
 <a id="org00769a2"></a>
+=======
+<a id="org74f390d"></a>
+>>>>>>> master
 
 ## Flycheck
 
@@ -1819,7 +2148,11 @@ Display time and battery information in modeline.
 ```
 
 
+<<<<<<< HEAD
 <a id="orgaa1e654"></a>
+=======
+<a id="org961af19"></a>
+>>>>>>> master
 
 ## Dumb Jump
 
@@ -1836,7 +2169,11 @@ Display time and battery information in modeline.
 ```
 
 
+<<<<<<< HEAD
 <a id="org28a8816"></a>
+=======
+<a id="org327b147"></a>
+>>>>>>> master
 
 ## Parenthesis
 
@@ -1866,45 +2203,7 @@ Display time and battery information in modeline.
   :config
   ;; Stop pairing single quotes in elisp
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-  (sp-local-pair 'org-mode "[" nil :actions nil)
-  ;; Smartparens is broken in `cc-mode' as of Emacs 27. See
-  ;; <https://github.com/Fuco1/smartparens/issues/963>.
-  (unless (version< emacs-version "27")
-    (dolist (fun '(c-electric-paren c-electric-brace))
-      (add-to-list 'sp--special-self-insert-commands fun))))
-```
-
-
-### Awesome Pair
-
-[Awesome Pair](https://github.com/manateelazycat/awesome-pair), a feature that provides grammatical parenthesis completion.
-
-```emacs-lisp
-(use-package awesome-pair
-  :load-path "~/.emacs.d/site-elisp/awesome-pair"
-  :bind
-  (:map prog-mode-map
-        (("C-c C-k" . awesome-pair-kill)
-         ("SPC" . awesome-pair-space)
-         ("=" . awesome-pair-equal)
-         ("M-F" . awesome-pair-jump-right)
-         ("M-B" . awesome-pair-jump-left)))
-  :config
-  (add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1))))
-```
-
-
-### Delete Block
-
-[Delete Block](https://github.com/manateelazycat/delete-block), a feature that deletes block efficiently.
-
-```emacs-lisp
-(use-package delete-block
-  :load-path "~/.emacs.d/site-elisp/delete-block"
-  :bind
-  (("M-d" . delete-block-forward)
-   ("C-<backspace>" . delete-block-backward)
-   ("M-<backspace>" . delete-block-backward)))
+  (sp-local-pair 'org-mode "[" nil :actions nil))
 ```
 
 
@@ -1955,7 +2254,11 @@ Match and automatically pair parenthesis, and show parenthesis even when it went
 ```
 
 
+<<<<<<< HEAD
 <a id="orgc7d6d68"></a>
+=======
+<a id="orgcb30826"></a>
+>>>>>>> master
 
 ## Indentation
 
@@ -1984,16 +2287,21 @@ Indentation Configuration
 (c-set-offset 'comment-intro 0)
 (c-set-offset 'innamespace 0)
 (c-set-offset 'case-label '+)
+(c-set-offset 'access-label 0)
 (c-set-offset (quote cpp-macro) 0 nil)
 (add-hook 'after-change-major-mode-hook
           (lambda () (if (equal electric-indent-mode 't)
-                    (when (equal major-mode 'text-mode)
+                    (when (derived-mode-p 'text-mode)
                       (electric-indent-mode -1))
                   (electric-indent-mode 1))))
 ```
 
 
+<<<<<<< HEAD
 <a id="orgd130e00"></a>
+=======
+<a id="org517bd49"></a>
+>>>>>>> master
 
 ## Quickrun
 
@@ -2007,7 +2315,11 @@ Indentation Configuration
 ```
 
 
+<<<<<<< HEAD
 <a id="org2d27ae8"></a>
+=======
+<a id="org7f24df1"></a>
+>>>>>>> master
 
 ## Format All
 
@@ -2021,7 +2333,11 @@ Indentation Configuration
 ```
 
 
+<<<<<<< HEAD
 <a id="orgefd4313"></a>
+=======
+<a id="orgd09fcda"></a>
+>>>>>>> master
 
 ## Evil Nerd Commenter
 
@@ -2030,26 +2346,21 @@ Indentation Configuration
 ```emacs-lisp
 (use-package evil-nerd-commenter
   :bind
-  ("M-;" . evilnc-comment-or-uncomment-lines))
+  (("C-c M-;" . c-toggle-comment-style)
+   ("M-;" . evilnc-comment-or-uncomment-lines)))
 ```
 
 
+<<<<<<< HEAD
 <a id="org14ef9bc"></a>
+=======
+<a id="org2145396"></a>
 
-## How Do You
-
-[How Do You](https://github.com/thanhvg/emacs-howdoyou), a package to search and read stackoverflow and its sisters’ sites and show the results in `org-mode`.
-
-```emacs-lisp
-(use-package howdoyou
-  :defer t
-  :commands (howdoyou-query))
-```
+## Editing
+>>>>>>> master
 
 
-<a id="org4732e76"></a>
-
-## Iedit
+### Iedit
 
 [Iedit](https://github.com/victorhge/iedit), a minor mode that allows editing multiple regions simultaneousy in a buffer or a region.
 
@@ -2060,7 +2371,48 @@ Indentation Configuration
 ```
 
 
+<<<<<<< HEAD
+<a id="org4732e76"></a>
+=======
+### Awesome Pair
+>>>>>>> master
+
+[Awesome Pair](https://github.com/manateelazycat/awesome-pair), a feature that provides grammatical parenthesis completion.
+
+```emacs-lisp
+(use-package awesome-pair
+  :load-path (lambda () (expand-file-name "site-elisp/awesome-pair" user-emacs-directory))
+  :bind
+  (:map prog-mode-map
+        (("M-D" . awesome-pair-kill)
+         ("SPC" . awesome-pair-space)
+         ("=" . awesome-pair-equal)
+         ("M-F" . awesome-pair-jump-right)
+         ("M-B" . awesome-pair-jump-left)))
+  :hook (prog-mode . awesome-pair-mode))
+```
+
+
+### Delete Block
+
+[Delete Block](https://github.com/manateelazycat/delete-block), a feature that deletes block efficiently.
+
+```emacs-lisp
+(use-package delete-block
+  :load-path (lambda () (expand-file-name "site-elisp/delete-block" user-emacs-directory))
+  :bind
+  (("M-d" . delete-block-forward)
+   ("C-<backspace>" . delete-block-backward)
+   ("M-<backspace>" . delete-block-backward)
+   ("M-DEL" . delete-block-backward)))
+```
+
+
+<<<<<<< HEAD
 <a id="orgaca28ec"></a>
+=======
+<a id="org5b30cba"></a>
+>>>>>>> master
 
 ## Headers
 
@@ -2068,19 +2420,22 @@ Indentation Configuration
 
 ```emacs-lisp
 (use-package header2
-  :load-path "~/.emacs.d/site-elisp/header2"
+  :load-path (lambda () (expand-file-name "site-elisp/header2" user-emacs-directory))
   :custom
   (header-copyright-notice (concat "Copyright (C) 2019 " (user-full-name) "\n"))
+  :hook (emacs-lisp-mode . auto-make-header)
   :config
+  (add-to-list 'write-file-functions 'auto-update-file-header)
   (autoload 'auto-make-header "header2")
-  (autoload 'auto-update-file-header "header2")
-  (add-hook 'write-file-hooks 'auto-update-file-header)
-  (add-hook 'emacs-lisp-mode-hook 'auto-make-header)
-  (add-hook 'c-mode-common-hook   'auto-make-header))
+  (autoload 'auto-update-file-header "header2"))
 ```
 
 
+<<<<<<< HEAD
 <a id="orgd932704"></a>
+=======
+<a id="org0563f4d"></a>
+>>>>>>> master
 
 ## Jupyter Notebook
 
@@ -2100,7 +2455,11 @@ Indentation Configuration
 ```
 
 
+<<<<<<< HEAD
 <a id="org4c5c64c"></a>
+=======
+<a id="orgc43f49b"></a>
+>>>>>>> master
 
 ## LSP
 
@@ -2116,6 +2475,8 @@ Indentation Configuration
   :custom
   (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil) ; Use flycheck instead of flymake
+  (lsp-file-watch-threshold 2000)
+  (read-process-output-max (* 1024 1024))
   :bind (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
   :hook ((java-mode python-mode go-mode
           js-mode js2-mode typescript-mode web-mode
@@ -2159,7 +2520,11 @@ Indentation Configuration
 ```
 
 
+<<<<<<< HEAD
 <a id="orgfccfa8a"></a>
+=======
+<a id="orgcc70a7b"></a>
+>>>>>>> master
 
 ## DAP
 
@@ -2184,14 +2549,17 @@ Indentation Configuration
          (ruby-mode . (lambda () (require 'dap-ruby)))
          (go-mode . (lambda () (require 'dap-go)))
          (java-mode . (lambda () (require 'dap-java)))
-         ((c-mode c++-mode objc-mode swift) . (lambda () (require 'dap-lldb)))
          (php-mode . (lambda () (require 'dap-php)))
          (elixir-mode . (lambda () (require 'dap-elixir)))
          ((js-mode js2-mode typescript-mode) . (lambda () (require 'dap-chrome)))))
 ```
 
 
+<<<<<<< HEAD
 <a id="org5a9616e"></a>
+=======
+<a id="org62ba52c"></a>
+>>>>>>> master
 
 ## Company
 
@@ -2216,12 +2584,13 @@ The function `smarter-yas-expand-next-field-complete` is to smartly resolve TAB 
   (company-begin-commands '(self-insert-command))
   (company-require-match 'never)
   ;; Don't use company in the following modes
-  (company-global-modes '(not shell-mode))
+  (company-global-modes '(not shell-mode eaf-mode))
   ;; Trigger completion immediately.
   (company-idle-delay 0.1)
   ;; Number the candidates (use M-1, M-2 etc to select completions).
   (company-show-numbers t)
   :config
+  (unless *clangd* (delete 'company-clang company-backends))
   (global-company-mode 1)
   (defun smarter-yas-expand-next-field-complete ()
     "Try to `yas-expand' and `yas-next-field' at current cursor position.
@@ -2263,12 +2632,18 @@ This is enabled by default, if ever you find it not good enough for a particular
 
 ```emacs-lisp
 (use-package company-tabnine
-  :demand
+  :defer 1
   :custom
   (company-tabnine-max-num-results 9)
   :bind
   (("M-q" . company-other-backend)
    ("C-z t" . company-tabnine))
+  :hook
+  (lsp-after-open . (lambda ()
+                      (setq company-tabnine-max-num-results 3)
+                      (add-to-list 'company-transformers 'company//sort-by-tabnine t)
+                      (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))))
+  (kill-emacs . company-tabnine-kill-process)
   :config
   ;; Enable TabNine on default
   (add-to-list 'company-backends #'company-tabnine)
@@ -2291,21 +2666,122 @@ This is enabled by default, if ever you find it not good enough for a particular
         (setq candidates-lsp (nreverse candidates-lsp))
         (setq candidates-tabnine (nreverse candidates-tabnine))
         (nconc (seq-take candidates-tabnine 3)
-               (seq-take candidates-lsp 6)))))
-  (add-hook 'lsp-after-open-hook
-            (lambda ()
-              (setq company-tabnine-max-num-results 3)
-              (add-to-list 'company-transformers 'company//sort-by-tabnine t)
-              (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate)))))
+               (seq-take candidates-lsp 6))))))
 ```
 
 
+<<<<<<< HEAD
 <a id="orge191486"></a>
+=======
+### Company Box
+
+[Company Box](https://github.com/sebastiencs/company-box), a company front-end with icons.
+
+```emacs-lisp
+(use-package company-box
+  :diminish
+  :functions (my-company-box--make-line
+              my-company-box-icons--elisp)
+  :commands (company-box--get-color
+             company-box--resolve-colors
+             company-box--add-icon
+             company-box--apply-color
+             company-box--make-line
+             company-box-icons--elisp)
+  :hook (company-mode . company-box-mode)
+  :custom
+  (company-box-backends-colors nil)
+  (company-box-show-single-candidate t)
+  (company-box-max-candidates 50)
+  (company-box-doc-delay 0.3)
+  :config
+  ;; Support `company-common'
+  (defun my-company-box--make-line (candidate)
+    (-let* (((candidate annotation len-c len-a backend) candidate)
+            (color (company-box--get-color backend))
+            ((c-color a-color i-color s-color) (company-box--resolve-colors color))
+            (icon-string (and company-box--with-icons-p (company-box--add-icon candidate)))
+            (candidate-string (concat (propertize (or company-common "") 'face 'company-tooltip-common)
+                                      (substring (propertize candidate 'face 'company-box-candidate) (length company-common) nil)))
+            (align-string (when annotation
+                            (concat " " (and company-tooltip-align-annotations
+                                             (propertize " " 'display `(space :align-to (- right-fringe ,(or len-a 0) 1)))))))
+            (space company-box--space)
+            (icon-p company-box-enable-icon)
+            (annotation-string (and annotation (propertize annotation 'face 'company-box-annotation)))
+            (line (concat (unless (or (and (= space 2) icon-p) (= space 0))
+                            (propertize " " 'display `(space :width ,(if (or (= space 1) (not icon-p)) 1 0.75))))
+                          (company-box--apply-color icon-string i-color)
+                          (company-box--apply-color candidate-string c-color)
+                          align-string
+                          (company-box--apply-color annotation-string a-color)))
+            (len (length line)))
+      (add-text-properties 0 len (list 'company-box--len (+ len-c len-a)
+                                       'company-box--color s-color)
+                           line)
+      line))
+  (advice-add #'company-box--make-line :override #'my-company-box--make-line)
+
+  ;; Prettify icons
+  (defun my-company-box-icons--elisp (candidate)
+    (when (derived-mode-p 'emacs-lisp-mode)
+      (let ((sym (intern candidate)))
+        (cond ((fboundp sym) 'Function)
+              ((featurep sym) 'Module)
+              ((facep sym) 'Color)
+              ((boundp sym) 'Variable)
+              ((symbolp sym) 'Text)
+              (t . nil)))))
+  (advice-add #'company-box-icons--elisp :override #'my-company-box-icons--elisp)
+
+  (when (and *sys/gui*
+             (require 'all-the-icons nil t))
+    (declare-function all-the-icons-faicon 'all-the-icons)
+    (declare-function all-the-icons-material 'all-the-icons)
+    (declare-function all-the-icons-octicon 'all-the-icons)
+    (setq company-box-icons-all-the-icons
+          `((Unknown . ,(all-the-icons-material "find_in_page" :height 0.85 :v-adjust -0.2))
+            (Text . ,(all-the-icons-faicon "text-width" :height 0.8 :v-adjust -0.05))
+            (Method . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.05 :face 'all-the-icons-purple))
+            (Function . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.05 :face 'all-the-icons-purple))
+            (Constructor . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.05 :face 'all-the-icons-purple))
+            (Field . ,(all-the-icons-octicon "tag" :height 0.8 :v-adjust 0 :face 'all-the-icons-lblue))
+            (Variable . ,(all-the-icons-octicon "tag" :height 0.8 :v-adjust 0 :face 'all-the-icons-lblue))
+            (Class . ,(all-the-icons-material "settings_input_component" :height 0.85 :v-adjust -0.2 :face 'all-the-icons-orange))
+            (Interface . ,(all-the-icons-material "share" :height 0.85 :v-adjust -0.2 :face 'all-the-icons-lblue))
+            (Module . ,(all-the-icons-material "view_module" :height 0.85 :v-adjust -0.2 :face 'all-the-icons-lblue))
+            (Property . ,(all-the-icons-faicon "wrench" :height 0.8 :v-adjust -0.05))
+            (Unit . ,(all-the-icons-material "settings_system_daydream" :height 0.85 :v-adjust -0.2))
+            (Value . ,(all-the-icons-material "format_align_right" :height 0.85 :v-adjust -0.2 :face 'all-the-icons-lblue))
+            (Enum . ,(all-the-icons-material "storage" :height 0.85 :v-adjust -0.2 :face 'all-the-icons-orange))
+            (Keyword . ,(all-the-icons-material "filter_center_focus" :height 0.85 :v-adjust -0.2))
+            (Snippet . ,(all-the-icons-material "format_align_center" :height 0.85 :v-adjust -0.2))
+            (Color . ,(all-the-icons-material "palette" :height 0.85 :v-adjust -0.2))
+            (File . ,(all-the-icons-faicon "file-o" :height 0.85 :v-adjust -0.05))
+            (Reference . ,(all-the-icons-material "collections_bookmark" :height 0.85 :v-adjust -0.2))
+            (Folder . ,(all-the-icons-faicon "folder-open" :height 0.85 :v-adjust -0.05))
+            (EnumMember . ,(all-the-icons-material "format_align_right" :height 0.85 :v-adjust -0.2 :face 'all-the-icons-lblue))
+            (Constant . ,(all-the-icons-faicon "square-o" :height 0.85 :v-adjust -0.05))
+            (Struct . ,(all-the-icons-material "settings_input_component" :height 0.85 :v-adjust -0.2 :face 'all-the-icons-orange))
+            (Event . ,(all-the-icons-faicon "bolt" :height 0.8 :v-adjust -0.05 :face 'all-the-icons-orange))
+            (Operator . ,(all-the-icons-material "control_point" :height 0.85 :v-adjust -0.2))
+            (TypeParameter . ,(all-the-icons-faicon "arrows" :height 0.8 :v-adjust -0.05))
+            (Template . ,(all-the-icons-material "format_align_center" :height 0.85 :v-adjust -0.2)))
+          company-box-icons-alist 'company-box-icons-all-the-icons)))
+```
+
+
+<a id="org7821d85"></a>
+>>>>>>> master
 
 # Programming
 
 
+<<<<<<< HEAD
 <a id="orgcf75bf7"></a>
+=======
+<a id="orgef8a567"></a>
+>>>>>>> master
 
 ## Java
 
@@ -2314,7 +2790,7 @@ This is enabled by default, if ever you find it not good enough for a particular
 
 [LSP Java](https://github.com/emacs-lsp/lsp-java), Emacs Java IDE using [Eclipse JDT Language Server](https://projects.eclipse.org/projects/eclipse.jdt.ls). Note that this package is dependant on [Request](https://github.com/tkf/emacs-request).
 
-**Prerequisite**: Install [Maven](https://maven.apache.org/download.cgi) and add to `PATH`.
+**Prerequisite**: Install [Maven](https://maven.apache.org/download.cgi) and ensure it's in `PATH`.
 
 ```emacs-lisp
 (use-package lsp-java
@@ -2328,7 +2804,11 @@ This is enabled by default, if ever you find it not good enough for a particular
 ```
 
 
+<<<<<<< HEAD
 <a id="org1cae1d8"></a>
+=======
+<a id="org4deb320"></a>
+>>>>>>> master
 
 ## C/C++/Objective C
 
@@ -2340,7 +2820,7 @@ This is enabled by default, if ever you find it not good enough for a particular
     -   Set `ccls-executable` to the directory where your ccls is built.
 -   Windows OS:
     -   Install [MinGW](http://www.mingw.org/wiki/Install_MinGW) for Compilation.
-    -   It is a pain to build CCLS on Windows, install [Clangd](https://clang.llvm.org/extra/clangd/Installation.html) and add to `PATH` instead.
+    -   It is a pain to build CCLS on Windows, install [Clangd](https://clang.llvm.org/extra/clangd/Installation.html) and ensure it's in `PATH` instead.
 
 
 ### CCLS
@@ -2354,12 +2834,14 @@ This is enabled by default, if ever you find it not good enough for a particular
   :hook ((c-mode c++-mode objc-mode) .
          (lambda () (require 'ccls) (lsp)))
   :custom
-  (ccls-executable "~/tools/ccls/Release/ccls")
+  (ccls-executable (executable-find "ccls")) ; Add ccls to path if you haven't done so
+  (ccls-sem-highlight-method 'font-lock)
+  (ccls-enable-skipped-ranges nil)
   :config
   (lsp-register-client
    (make-lsp-client
-    :new-connection (lsp-tramp-connection ccls-executable)
-    :major-modes '(c-mode c++-mode objc-mode)
+    :new-connection (lsp-tramp-connection (cons ccls-executable ccls-args))
+    :major-modes '(c-mode c++-mode cuda-mode objc-mode)
     :server-id 'ccls-remote
     :multi-root nil
     :remote? t
@@ -2382,15 +2864,19 @@ This is enabled by default, if ever you find it not good enough for a particular
 ```
 
 
+<<<<<<< HEAD
 <a id="org2186628"></a>
+=======
+<a id="org2786b23"></a>
+>>>>>>> master
 
 ## Golang
 
-[Go Mode](https://github.com/dominikh/go-mode.el), an Emacs mode for editing Golang code.
+[Go Mode](https://github.com/dominikh/go-mode.el), an Emacs mode Golang programming.
 
 **Prerequisite**: [gopls](https://github.com/golang/go/wiki/gopls) is suggested for Golang's LSP support.
 
-```text
+```bash
 go get golang.org/x/tools/gopls@latest
 ```
 
@@ -2401,7 +2887,11 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
+<<<<<<< HEAD
 <a id="org2c5829e"></a>
+=======
+<a id="org4b0c2c1"></a>
+>>>>>>> master
 
 ## Python
 
@@ -2433,42 +2923,27 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
+<<<<<<< HEAD
 <a id="orgccb7536"></a>
+=======
+<a id="orgdc7ce8d"></a>
+>>>>>>> master
 
-## Arduino
+## Haskell
 
-
-### Arduino Mode
-
-[Arduino mode](https://github.com/bookest/arduino-mode), a major mode for editing Arduino sketches.
+[Haskell Mode](https://github.com/haskell/haskell-mode), an Emacs mode for Haskell programming.
 
 ```emacs-lisp
-(use-package arduino-mode
-  :disabled
-  :defer t
-  :mode
-  ("\\.ino\\'" "\\.pde\\'")
-  :config
-  (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
+(use-package haskell-mode
+  :mode "\\.hs\\'")
 ```
 
 
-### Company Arduino
-
-[Company Arduino](https://github.com/yuutayamada/company-arduino), a set of configuration to let you auto-completion by using irony-mode, company-irony and company-c-headers on arduino-mode.
-
-```emacs-lisp
-(use-package company-arduino
-  :disabled
-  :defer t
-  :config
-  (add-hook 'irony-mode-hook 'company-arduino-turn-on)
-  ;; Activate irony-mode on arduino-mode
-  (add-hook 'arduino-mode-hook 'irony-mode))
-```
-
-
+<<<<<<< HEAD
 <a id="orgdeb17b2"></a>
+=======
+<a id="orgbe0b3e4"></a>
+>>>>>>> master
 
 ## ESS
 
@@ -2485,7 +2960,11 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
+<<<<<<< HEAD
 <a id="orgdd11e97"></a>
+=======
+<a id="org8a0ded0"></a>
+>>>>>>> master
 
 ## TeX
 
@@ -2509,17 +2988,17 @@ go get golang.org/x/tools/gopls@latest
                               TeX-source-correlate-start-server t)
   (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
   (TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+  :hook
+  (LaTeX-mode . (lambda ()
+                  (turn-on-reftex)
+                  (setq reftex-plug-into-AUCTeX t)
+                  (reftex-isearch-minor-mode)
+                  (setq TeX-PDF-mode t)
+                  (setq TeX-source-correlate-method 'synctex)
+                  (setq TeX-source-correlate-start-server t)))
   :config
-  (if (version< emacs-version "26")
-      (add-hook LaTeX-mode-hook #'display-line-numbers-mode))
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (turn-on-reftex)
-              (setq reftex-plug-into-AUCTeX t)
-              (reftex-isearch-minor-mode)
-              (setq TeX-PDF-mode t)
-              (setq TeX-source-correlate-method 'synctex)
-              (setq TeX-source-correlate-start-server t))))
+  (when (version< emacs-version "26")
+    (add-hook LaTeX-mode-hook #'display-line-numbers-mode)))
 ```
 
 
@@ -2534,6 +3013,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
+<<<<<<< HEAD
 ### Org Export To PDF And Open
 
 ```emacs-lisp
@@ -2567,6 +3047,21 @@ go get golang.org/x/tools/gopls@latest
 
 
 <a id="orga1e6d96"></a>
+=======
+<a id="orgb0a1b3a"></a>
+
+# Web Development
+
+**Prerequisite**: Install [NodeJS](https://nodejs.org/en/download/) and ensure it's in `PATH`. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
+
+```bash
+npm i -g typescript
+npm i -g typescript-language-server
+```
+
+
+<a id="org7b4b3b5"></a>
+>>>>>>> master
 
 ## Web Mode
 
@@ -2583,7 +3078,11 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
+<<<<<<< HEAD
 <a id="orgd0dd526"></a>
+=======
+<a id="org56c9607"></a>
+>>>>>>> master
 
 ## JavaScript/TypeScript
 
@@ -2610,7 +3109,11 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
+<<<<<<< HEAD
 <a id="org4d4f449"></a>
+=======
+<a id="org015e95f"></a>
+>>>>>>> master
 
 ## Emmet
 
@@ -2618,13 +3121,16 @@ go get golang.org/x/tools/gopls@latest
 
 ```emacs-lisp
 (use-package emmet-mode
-  :hook web-mode
-  :config
-  (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
+  :hook ((web-mode . emmet-mode)
+         (css-mode . emmet-mode)))
 ```
 
 
+<<<<<<< HEAD
 <a id="org1f2a9dd"></a>
+=======
+<a id="org45d1390"></a>
+>>>>>>> master
 
 ## Instant Rename Tag
 
@@ -2632,12 +3138,16 @@ go get golang.org/x/tools/gopls@latest
 
 ```emacs-lisp
 (use-package instant-rename-tag
-  :load-path "~/.emacs.d/site-elisp/instant-rename-tag"
+  :load-path (lambda () (expand-file-name "site-elisp/instant-rename-tag" user-emacs-directory))
   :bind ("C-z <" . instant-rename-tag))
 ```
 
 
+<<<<<<< HEAD
 <a id="orgef7622b"></a>
+=======
+<a id="org19a802c"></a>
+>>>>>>> master
 
 ## JSON
 
@@ -2649,18 +3159,26 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
+<<<<<<< HEAD
 <a id="org93292c9"></a>
+=======
+<a id="org7df3e64"></a>
+>>>>>>> master
 
 # Miscellaneous
 
 
+<<<<<<< HEAD
 <a id="org5d1f19b"></a>
+=======
+<a id="org28fe698"></a>
+>>>>>>> master
 
 ## Org
 
 [Org](https://orgmode.org/), a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
-**Prerequisite**: Modify `(setq org-agenda-files (list "~/org/agenda/"))` to your agenda folder.
+**Prerequisite**: Configure `(org-agenda-files (list "~/org/agenda/"))` to your agenda folder to use org-agenda.
 
 ```emacs-lisp
 (use-package org
@@ -2671,6 +3189,7 @@ go get golang.org/x/tools/gopls@latest
   ("C-c a" . org-agenda)
   ("C-c c" . org-capture)
   ("C-c b" . org-switch)
+  (:map org-mode-map ("C-c C-p" . org-export-as-pdf-and-open))
   :custom
   (org-log-done 'time)
   (org-export-backends (quote (ascii html icalendar latex md odt)))
@@ -2680,18 +3199,32 @@ go get golang.org/x/tools/gopls@latest
    '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE")))
   (org-agenda-window-setup 'other-window)
   :config
-  (require 'org-tempo)
+  (unless (version< org-version "9.2")
+    (require 'org-tempo))
   (when (file-directory-p "~/org/agenda/")
     (setq org-agenda-files (list "~/org/agenda/")))
 
-  (defun org-export-turn-on-syntax-highlight()
-    "Setup variables to turn on syntax highlighting when calling `org-latex-export-to-pdf'"
+  (defun org-export-turn-on-syntax-highlight ()
+    "Setup variables to turn on syntax highlighting when calling `org-latex-export-to-pdf'."
     (interactive)
     (setq org-latex-listings 'minted
           org-latex-packages-alist '(("" "minted"))
           org-latex-pdf-process
-          '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))))
+          '("pdflatex -shelnl-escape -interaction nonstopmode -output-directory %o %f"
+            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
+
+  (defun org-export-as-pdf-and-open ()
+    "Run `org-latex-export-to-pdf', delete the tex file and open pdf in a new buffer."
+    (interactive)
+    (save-buffer)
+    (let* ((pdf-path (org-latex-export-to-pdf))
+           (pdf-name (file-name-nondirectory pdf-path)))
+      (if (try-completion pdf-name (mapcar #'buffer-name (buffer-list)))
+          (progn
+            (kill-matching-buffers (concat "^" pdf-name) t t)
+            (find-file-other-window pdf-name))
+        (find-file-other-window pdf-name))
+      (delete-file (concat (substring pdf-path 0 (string-match "[^\.]*\/?$" pdf-path)) "tex")))))
 ```
 
 
@@ -2723,66 +3256,103 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
+<<<<<<< HEAD
 <a id="orgb3b5121"></a>
+=======
+### PlantUML and Graphviz
+>>>>>>> master
+
+[PlantUML Mode](https://github.com/skuro/plantuml-mode), a major mode for editing PlantUML sources.
+
+**Prerequisite**:
+
+1.  Install [plantuml](http://plantuml.com/download) and configure `(org-plantuml-jar-path (expand-file-name "path/to/plantuml.jar"))`.
+2.  Install [Graphviz](https://graphviz.gitlab.io/download/) on your system to support graph visualization. Execute `sudo apt install graphviz` in Ubuntu.
+
+```emacs-lisp
+(use-package plantuml-mode
+  :defer t
+  :custom
+  (org-plantuml-jar-path (expand-file-name "~/tools/plantuml/plantuml.jar"))
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(;; other Babel languages
+     (plantuml . t))))
+```
+
+
+<a id="orged1b1a4"></a>
 
 ## EAF
 
 [Emacs Application Framework](https://github.com/manateelazycat/emacs-application-framework), a development framework that integrates any PyQt program into Emacs.
 
-**Note**: I am using my own [fork](https://github.com/MatthewZMD/emacs-application-framework), which has more functions and capabilities that are yet to be merged into upstream. If you want to use this config, clone my fork instead. Otherwise it won't work.
-
-**Prerequisite**: Please install `python3` and `pip3`. Then execute below command:
-
-```text
-sudo pip3 install dbus-python PyMuPDF grip qrcode pyqt5 python-xlib PyQtWebEngine
-```
+**Prerequisite**: Please ensure `python3` and `pip3` are installed, then follow [install](https://github.com/manateelazycat/emacs-application-framework#install-eaf) instructions.
 
 Note that If you are using Debian/Ubuntu, it is possible that `QtWebEngine` is [not working](https://marc.info/?l=kde-core-devel&m=142954900813235&w=2). Install the following:
 
-```text
+```bash
 sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
 ```
 
 ```emacs-lisp
 (use-package eaf
-  :load-path "~/.emacs.d/site-elisp/emacs-application-framework"
-  :if (and *sys/linux* *sys/gui* *python3*)
+  :load-path (lambda () (expand-file-name "site-elisp/emacs-application-framework" user-emacs-directory))
+  :if *eaf-env*
   :custom
   (eaf-find-alternate-file-in-dired t)
+  (browse-url-browser-function 'eaf-open-browser) ;; Make EAF Browser my default browser
   :config
+  (defalias 'browse-web #'eaf-open-browser)
+  (eaf-setq eaf-browser-default-zoom "1.25")
   ;; I already bind "RET", "<mouse-2>", "^" to `dired-find-alternate-file' in `init-dired.el'.
   ;; Comment this line out of you don't want to use EAF to open available files in dired.
-  ; (global-set-key [remap dired-find-alternate-file] #'eaf-file-open-in-dired)
-
-  (defun eaf-open-google ()
-    "Open Google using EAF."
-    (interactive)
-    (eaf-open-browser "https://www.google.com")))
+  ;; (global-set-key [remap dired-find-alternate-file] #'eaf-file-open-in-dired)
+  (eaf-bind-key open_link "C-M-s" eaf-browser-keybinding)
+  (eaf-bind-key scroll_up "RET" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_down_page "DEL" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_down_page "u" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_up_page "d" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_to_end "M->" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_to_home "M-<" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key quit-window "q" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key take_photo "p" eaf-camera-keybinding))
 ```
 
 
+<<<<<<< HEAD
 <a id="org5012e34"></a>
+=======
+<a id="org668a7f4"></a>
+>>>>>>> master
 
 ## ERC
 
 [Emacs Relay Chat](https://www.emacswiki.org/emacs/ERC), a powerful, modular, and extensible [IRC](http://www.irc.org/) client for Emacs. It utilizes [erc-hl-nicks](https://github.com/leathekd/erc-hl-nicks) for nickname highlighting and [erc-image](https://github.com/kidd/erc-image.el) to fetch and show received images in ERC.
 
-**Prerequisite**: Put IRC credentials like the following in the file `~/.authinfo`:
+**Prerequisite**: Put IRC credentials in the file `~/.authinfo` and configure `erc-nick` to your IRC nickname.
 
 ```text
-machine irc.freenode.net login <nickname> password <password>
+machine irc.freenode.net login <nickname> password <password> port 6697
 ```
 
 ```emacs-lisp
 (use-package erc
   :ensure nil
+  :init
+  ;; Prerequisite: Configure this to your IRC nickname
+  (defcustom erc-nick ""
+    "The nickname used to login into ERC")
+  (use-package erc-hl-nicks :defer t)
+  (use-package erc-image :defer t)
   :custom-face
   (erc-notice-face ((t (:foreground "#ababab"))))
   :custom
   (erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
   (erc-track-exclude-types '("NICK" "PART" "MODE" "324" "329" "332" "333" "353" "477"))
-  ; (erc-hide-list '("JOIN" "PART" "QUIT"))
-  ; (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
   (erc-server-coding-system '(utf-8 . utf-8))
   (erc-interpret-mirc-color t)
   (erc-kill-buffer-on-part t)
@@ -2794,31 +3364,18 @@ machine irc.freenode.net login <nickname> password <password>
   (erc-lurker-threshold-time 43200)
   (erc-server-reconnect-attempts 5)
   (erc-server-reconnect-timeout 3)
+  (erc-prompt-for-password nil)
+  (erc-prompt-for-nickserv-password nil)
   :config
-  (use-package erc-hl-nicks :defer t)
-  (use-package erc-image :defer t)
   (add-to-list 'erc-modules 'notifications)
   (erc-track-mode t)
   (erc-services-mode 1)
-  :preface
   (defun erc-start-or-switch ()
     "Start ERC or switch to ERC buffer if it has started already."
     (interactive)
     (if (get-buffer "irc.freenode.net:6697")
         (erc-track-switch-buffer 1)
-      (if (file-exists-p "~/.authinfo")
-          (let ((auth-list (read-lines "~/.authinfo"))
-                (nick-regexp "^machine irc.freenode.net login \\(\\w+\\)")
-                (auth))
-            (while (> (length auth-list) 0)
-              (setq auth (car auth-list))
-              (cond ((string-match nick-regexp auth)
-                     (setq erc-prompt-for-nickserv-password 'nil)
-                     (erc-tls :server "irc.freenode.net" :port 6697
-                              :nick (match-string 1 auth)))
-                    ((= (length auth-list) 1) (call-interactively #'erc-tls)))
-              (setq auth-list (cdr auth-list))))
-        (call-interactively #'erc-tls))))
+      (erc-tls :server "irc.freenode.net" :port 6697 :nick erc-nick)))
 
   (defun erc-count-users ()
     "Displays the number of users and ops connected on the current channel."
@@ -2869,13 +3426,17 @@ machine irc.freenode.net login <nickname> password <password>
            (msg (s-trim (s-collapse-whitespace message))))
       (alert (concat nick ": " msg) :title title)))
   :bind
-  ("C-z i" . erc-start-or-switch)
+  ("M-z i" . erc-start-or-switch)
   :hook
   (ercn-notify . erc-notify))
 ```
 
 
+<<<<<<< HEAD
 <a id="org5442f5a"></a>
+=======
+<a id="org2b75070"></a>
+>>>>>>> master
 
 ## EWW
 
@@ -2885,17 +3446,163 @@ Emacs Web Wowser, the HTML-based Emacs Web Browser.
 (use-package eww
   :ensure nil
   :commands (eww)
+  :hook (eww-mode . (lambda ()
+                      "Rename EWW's buffer so sites open in new page."
+                      (rename-buffer "eww" t)))
   :config
-  ;; Hit & to browse this url system browser
-  (setq browse-url-browser-function 'eww-browse-url)
-  (defun rename-eww-hook ()
-    "Rename EWW's buffer so sites open in new page."
-    (rename-buffer "eww" t))
-  (add-hook 'eww-mode-hook #'rename-eww-hook))
+  ;; I am using EAF-Browser instead of EWW
+  (unless *eaf-env*
+    (setq browse-url-browser-function 'eww-browse-url))) ; Hit & to browse url with system browser
 ```
 
 
+<<<<<<< HEAD
 <a id="orga269aaf"></a>
+=======
+<a id="orgefd8823"></a>
+
+## MU4E
+
+[Mu4e](https://www.djcbsoftware.nl/code/mu/mu4e.html), a package that provides an emacs-based e-mail client which uses [mu](https://www.djcbsoftware.nl/code/mu/) as its backend.
+
+**Note**: This mu4e configuration is tailored for Gmail.
+
+**Prerequisite**:
+
+1.  Configure IMAP using [isync/mbsync](https://wiki.archlinux.org/index.php/Isync), put your `.mbsyncrc` config file in `~/.emacs.d/mu4e/`. A [sample](https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f) is provided.
+2.  Install [mu](https://www.djcbsoftware.nl/code/mu/).
+3.  Execute the follwing commands
+
+    ```bash
+    mkdir ~/Maildir/gmail/
+    mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -Dmn gmail
+    mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a
+    mu index --maildir=~/Maildir/
+    ```
+
+    -   If you are getting `Invalid Credentials` error and you are sure the password is correct, check [this](https://appuals.com/fix-your-imap-server-wants-to-alert-you-invalid-credentials/) link.
+
+```emacs-lisp
+(use-package mu4e
+  :ensure nil
+  :commands (mu4e)
+  :init
+  (use-package mu4e-alert
+    :defer t
+    :config
+    (when (executable-find "notify-send")
+      (mu4e-alert-set-default-style 'libnotify))
+    :hook
+    ((after-init . mu4e-alert-enable-notifications)
+     (after-init . mu4e-alert-enable-mode-line-display)))
+  (use-package mu4e-overview :defer t)
+  :bind ("M-z m" . mu4e)
+  :custom
+  (mu4e-maildir (expand-file-name "~/Maildir"))
+  (mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a")
+  (mu4e-view-prefer-html t)
+  (mu4e-update-interval 60)
+  (mu4e-headers-auto-update t)
+  (mu4e-compose-signature-auto-include nil)
+  (mu4e-compose-format-flowed t)
+  (mu4e-view-show-images t)
+  (mu4e-change-filenames-when-moving t) ; work better for mbsync
+  (mu4e-attachment-dir "~/Downloads")
+  (message-kill-buffer-on-exit t)
+  (mu4e-compose-dont-reply-to-self t)
+  (mu4e-view-show-addresses t)
+  (mu4e-confirm-quit nil)
+  (mu4e-use-fancy-chars t)
+  :hook
+  ((mu4e-view-mode . visual-line-mode)
+   (mu4e-compose-mode . (lambda ()
+                          (visual-line-mode)
+                          (use-hard-newlines -1)
+                          (flyspell-mode)))
+   (mu4e-view-mode . (lambda() ;; try to emulate some of the eww key-bindings
+                       (local-set-key (kbd "<tab>") 'shr-next-link)
+                       (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+   (mu4e-headers-mode . (lambda ()
+                          (interactive)
+                          (setq mu4e-headers-fields
+                                `((:human-date . 25) ;; alternatively, use :date
+                                  (:flags . 6)
+                                  (:from . 22)
+                                  (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
+                                  (:size . 7))))))
+  :config
+  (setq mail-user-agent (mu4e-user-agent))
+  (add-to-list 'mu4e-view-actions
+               '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+  (setq mu4e-contexts
+        (list
+         (make-mu4e-context
+          :name "gmail"
+          :enter-func (lambda () (mu4e-message "Entering context gmail"))
+          :leave-func (lambda () (mu4e-message "Leaving context gmail"))
+          :match-func
+          (lambda (msg)
+            (when msg
+              (mu4e-message-contact-field-matches
+               msg '(:from :to :cc :bcc) user-mail-address))) ; Set to your email address
+          :vars '((mu4e-refile-folder "/gmail/Archive")
+                  (mu4e-sent-folder . "/gmail/[email].Sent Mail")
+                  (mu4e-drafts-folder . "/gmail/[email].Drafts")
+                  (mu4e-trash-folder . "/gmail/[email].Trash")
+                  (mu4e-sent-messages-behavior . trash) ; Prerequisite: set to trash in GMAIL Only.
+                  (mu4e-compose-signature . user-full-name)
+                  (mu4e-compose-format-flowed . t)
+                  (smtpmail-queue-dir . "~/Maildir/gmail/queue/cur")
+                  (message-send-mail-function . smtpmail-send-it)
+                  (smtpmail-smtp-user . "matthewzmd") ; Set to your username
+                  (smtpmail-starttls-credentials . (("smtp.gmail.com" 587 nil nil)))
+                  (smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))
+                  (smtpmail-default-smtp-server . "smtp.gmail.com")
+                  (smtpmail-smtp-server . "smtp.gmail.com")
+                  (smtpmail-smtp-service . 587)
+                  (smtpmail-debug-info . t)
+                  (smtpmail-debug-verbose . t)
+                  (mu4e-maildir-shortcuts . ( ("/gmail/INBOX"            . ?i)
+                                              ("/gmail/[email].Sent Mail" . ?s)
+                                              ("/gmail/[email].Trash"       . ?t)
+                                              ("/gmail/[email].All Mail"  . ?a)
+                                              ("/gmail/[email].Starred"   . ?r)
+                                              ("/gmail/[email].Drafts"    . ?d)))))))
+  (defun mu4e-action-find-in-mailing-list (msg)
+    "Find message in mailing-list archives"
+    (interactive)
+    (let* ((mlist (mu4e-message-field msg :mailing-list))
+           (msg-id (mu4e-message-field msg :message-id))
+           (url
+            (pcase mlist
+              ;; gnu.org
+              ((pred (lambda (x) (string-suffix-p "gnu.org" x)))
+               (concat
+                "https://lists.gnu.org/archive/cgi-bin/namazu.cgi?query="
+                (concat
+                 (url-hexify-string
+                  (concat
+                   "+message-id:<"
+                   msg-id
+                   ">"))
+                 "&submit=" (url-hexify-string "Search!")
+                 "&idxname="
+                 (replace-regexp-in-string "\.gnu\.org" "" mlist))))
+              ;; google.groups
+              ((pred (lambda (x) (string-suffix-p "googlegroups.com" x)))
+               (concat
+                "https://groups.google.com/forum/#!topicsearchin/"
+                (replace-regexp-in-string "\.googlegroups\.com" "" mlist)
+                "/messageid$3A"
+                (url-hexify-string (concat "\"" msg-id "\"")))))))
+      (browse-url url)))
+  (add-to-list 'mu4e-view-actions '("find in mailing-list" . mu4e-action-find-in-mailing-list))
+  (add-to-list 'mu4e-headers-actions '("find in mailing-list" . mu4e-action-find-in-mailing-list)))
+```
+
+
+<a id="orgb5abaf4"></a>
+>>>>>>> master
 
 ## Tramp
 
@@ -2922,7 +3629,7 @@ Connect to Google Cloud Platform using the following:
                  (tramp-login-program        "gcloud compute ssh")
                  (tramp-login-args           (("%h")))
                  (tramp-async-args           (("-q")))
-                 (tramp-remote-shell         "/bin/sh")
+                 (tramp-remote-shell         "/bin/bash")
                  (tramp-remote-shell-args    ("-c"))
                  (tramp-gw-args              (("-o" "GlobalKnownHostsFile=/dev/null")
                                               ("-o" "UserKnownHostsFile=/dev/null")
@@ -2931,7 +3638,11 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
+<<<<<<< HEAD
 <a id="org35db283"></a>
+=======
+<a id="orgf626d3b"></a>
+>>>>>>> master
 
 ## PDF Tools
 
@@ -2942,20 +3653,24 @@ Connect to Google Cloud Platform using the following:
 ```emacs-lisp
 (use-package pdf-tools-install
   :ensure pdf-tools
-  :if (and *sys/gui* (not *sys/win32*))
+  :if (and *sys/gui* (not *sys/win32*) (not *eaf-env*))
   :mode "\\.pdf\\'"
   :commands (pdf-loader-install)
   :custom
   (TeX-view-program-selection '((output-pdf "pdf-tools")))
   (TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
-  :init
-  (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
+  :hook
+  (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
   :config
   (pdf-loader-install))
 ```
 
 
+<<<<<<< HEAD
 <a id="orgd7c23eb"></a>
+=======
+<a id="org2f1a870"></a>
+>>>>>>> master
 
 ## LeetCode
 
@@ -2963,7 +3678,7 @@ Connect to Google Cloud Platform using the following:
 
 ```emacs-lisp
 (use-package leetcode
-  :load-path "~/.emacs.d/site-elisp/leetcode.el"
+  :load-path (lambda () (expand-file-name "site-elisp/leetcode.el" user-emacs-directory))
   :commands (leetcode)
   :init
   (use-package graphql :defer t)
@@ -2974,36 +3689,37 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
+<<<<<<< HEAD
 <a id="org0e3ea21"></a>
+=======
+<a id="orgb88fabd"></a>
+>>>>>>> master
 
 ## Pyim
 
-[Pyim](https://github.com/tumashu/pyim), an Emacs Chinese Pinyin Input.
+[Pyim](https://github.com/tumashu/pyim), an Emacs Chinese Pinyin Input. It uses [posframe](https://github.com/tumashu/posframe) package to display candidates.
+
+我已经停止使用作者推荐的无痛中英切换，它对需要同时打英文和中文的情况不是很友好。如需切换输入法，请善用 `C-\` 。
 
 ```emacs-lisp
 (use-package pyim
+  :init
+  (use-package posframe :defer t)
   :custom
   (default-input-method "pyim")
   (pyim-default-scheme 'quanpin)
-  (pyim-page-tooltip 'popup)
+  (pyim-page-tooltip 'posframe)
   (pyim-page-length 9)
   :config
   (pyim-isearch-mode 1)
-  ;; 设置 pyim 探针设置，这是 pyim 高级功能设置，可以实现 *无痛* 中英文切换速度 :-)
-  ;; 我自己使用的中英文动态切换规则是：
-  ;; 1. 光标只有在注释里面时，才可以输入中文。
-  ;; 2. 光标前是汉字字符时，才能输入中文。
-  ;; 3. 使用 M-j 快捷键，强制将光标前的拼音字符串转换为中文。
   (setq-default pyim-english-input-switch-functions
-                '(pyim-probe-dynamic-english
-                  pyim-probe-isearch-mode
-                  pyim-probe-program-mode
+                '(pyim-probe-isearch-mode
                   pyim-probe-org-structure-template))
   (setq-default pyim-punctuation-half-width-functions
                 '(pyim-probe-punctuation-line-beginning
                   pyim-probe-punctuation-after-punctuation))
   :bind
-  ("M-j" . pyim-convert-string-at-point))
+  ("M-j" . pyim-convert-string-at-point)) ; M-j 强制将光标前的拼音字符串转换为中文。
 ```
 
 
@@ -3018,7 +3734,11 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
+<<<<<<< HEAD
 <a id="org03db06c"></a>
+=======
+<a id="org2e8c777"></a>
+>>>>>>> master
 
 ## EPaint
 
@@ -3027,7 +3747,7 @@ Connect to Google Cloud Platform using the following:
 ```emacs-lisp
 (use-package epaint
   :if *sys/gui*
-  :load-path "~/.emacs.d/site-elisp/epaint"
+  :load-path (lambda () (expand-file-name "site-elisp/epaint" user-emacs-directory))
   :commands (epaint)
   :init
   (with-eval-after-load (quote epaint-context)
@@ -3038,26 +3758,38 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
+<<<<<<< HEAD
 <a id="org55fe7db"></a>
+=======
+<a id="orgef1601e"></a>
+>>>>>>> master
 
 ## Tetris
 
 Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, but there still could be some configurations.
 
 ```emacs-lisp
-(defvar tetris-mode-map
-  (make-sparse-keymap 'tetris-mode-map))
-(define-key tetris-mode-map (kbd "C-p") 'tetris-rotate-prev)
-(define-key tetris-mode-map (kbd "C-n") 'tetris-move-down)
-(define-key tetris-mode-map (kbd "C-b") 'tetris-move-left)
-(define-key tetris-mode-map (kbd "C-f") 'tetris-move-right)
-(define-key tetris-mode-map (kbd "C-SPC") 'tetris-move-bottom)
-(defadvice tetris-end-game (around zap-scores activate)
-  (save-window-excursion ad-do-it))
+(use-package tetris
+  :ensure nil
+  :commands (tetris)
+  :bind
+  (:map tetris-mode-map
+        ("C-p" . tetris-rotate-prev)
+        ("C-n" . tetris-rotate-down)
+        ("C-b" . tetris-move-left)
+        ("C-f" . tetris-move-right)
+        ("C-SPC" . tetris-move-bottom))
+  :config
+  (defadvice tetris-end-game (around zap-scores activate)
+    (save-window-excursion ad-do-it)))
 ```
 
 
+<<<<<<< HEAD
 <a id="org2ca2ddc"></a>
+=======
+<a id="org6d0e15a"></a>
+>>>>>>> master
 
 ## Speed Type
 
@@ -3065,11 +3797,15 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 
 ```emacs-lisp
 (use-package speed-type
-  :defer t)
+  :commands (speed-type-text))
 ```
 
 
+<<<<<<< HEAD
 <a id="org5846515"></a>
+=======
+<a id="orgde0b7d4"></a>
+>>>>>>> master
 
 ## 2048 Game
 
@@ -3077,11 +3813,15 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 
 ```emacs-lisp
 (use-package 2048-game
-  :defer t)
+  :commands (2048-game))
 ```
 
 
+<<<<<<< HEAD
 <a id="org3679086"></a>
+=======
+<a id="orga0e8338"></a>
+>>>>>>> master
 
 ## Zone
 

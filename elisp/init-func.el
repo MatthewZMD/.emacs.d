@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:53:44 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Oct  4 18:14:14 2019 (-0400)
+;; Last-Updated: Mon Jan 13 00:11:47 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -62,6 +62,23 @@
 ;; Setup shorcuts for window resize width and height
 (global-set-key (kbd "C-z w") #'resize-window-width)
 (global-set-key (kbd "C-z h") #'resize-window-height)
+
+(defun resize-window (width delta)
+  "Resize the current window's size.  If WIDTH is non-nil, resize width by some DELTA."
+  (if (> (count-windows) 1)
+      (window-resize nil delta width)
+    (error "You need more than 1 window to execute this function!")))
+
+;; Setup shorcuts for window resize width and height
+(global-set-key (kbd "M-W =") (lambda () (interactive) (resize-window t 5)))
+(global-set-key (kbd "M-W M-+") (lambda () (interactive) (resize-window t 5)))
+(global-set-key (kbd "M-W -") (lambda () (interactive) (resize-window t -5)))
+(global-set-key (kbd "M-W M-_") (lambda () (interactive) (resize-window t -5)))
+
+(global-set-key (kbd "M-H =") (lambda () (interactive) (resize-window nil 5)))
+(global-set-key (kbd "M-H M-+") (lambda () (interactive) (resize-window nil 5)))
+(global-set-key (kbd "M-H -") (lambda () (interactive) (resize-window nil -5)))
+(global-set-key (kbd "M-H M-_") (lambda () (interactive) (resize-window nil -5)))
 ;; -ResizeWidthheight
 
 ;; EditConfig
@@ -73,39 +90,11 @@
 (global-set-key (kbd "C-z e") #'edit-configs)
 ;; -EditConfig
 
-;; MoveBeginningLine
-(defun smarter-move-beginning-of-line (arg)
-  "Move point back to indentation of beginning of line.
-
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
-
-If ARG is not nil or 1, move forward ARG - 1 lines first.    If
-point reaches the beginning or end of the buffer, stop there."
-  (interactive "^p")
-  (setq arg (or arg 1))
-
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
-
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
-
-;; remap C-a to `smarter-move-beginning-of-line'
-(global-set-key (kbd "C-a") 'smarter-move-beginning-of-line)
-;; -MoveBeginningLine
-
 ;; OrgIncludeAuto
-(defun save-and-update-includes (&rest ignore)
+(defun save-and-update-includes ()
   "Update the line numbers of #+INCLUDE:s in current buffer.
 Only looks at INCLUDEs that have either :range-begin or :range-end.
-This function does nothing if not in org-mode, so you can safely
+This function does nothing if not in `org-mode', so you can safely
 add it to `before-save-hook'."
   (interactive)
   (when (derived-mode-p 'org-mode)
@@ -177,29 +166,18 @@ FACE defaults to inheriting from default and highlight."
 ;; -DisplayLineOverlay
 
 ;; ReadLines
-(defun read-lines (filePath)
-  "Return a list of lines of a file at FILEPATH."
-  (with-temp-buffer (insert-file-contents filePath)
+(defun read-lines (file-path)
+  "Return a list of lines of a file at FILE-PATH."
+  (with-temp-buffer (insert-file-contents file-path)
                     (split-string (buffer-string) "\n" t)))
 ;; -ReadLines
 
 ;; WhereAmI
 (defun where-am-i ()
-    "An interactive function that displays `buffer-file-name' when visiting a file.
-Otherwise the function displays `buffer-name'."
-    (interactive)
-    (let ((dir-file (buffer-file-name)))
-      (if dir-file
-          (message dir-file)
-        (message (buffer-name)))))
-;; -WhereAmI
-
-;; GetFileNameFromPath
-(defun get-file-name-from-path (path)
-  "Extracts the file name from the given PATH."
+  "An interactive function showing function `buffer-file-name' or `buffer-name'."
   (interactive)
-  (substring path (string-match "[^\/]*\/?$" path)))
-;; -GetFileNameFromPath
+  (message (kill-new (if (buffer-file-name) (buffer-file-name) (buffer-name)))))
+;; -WhereAmI
 
 (provide 'init-func)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

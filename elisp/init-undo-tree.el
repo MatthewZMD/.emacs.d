@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 15:28:48 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:08:13 2019 (-0400)
+;; Last-Updated: Wed Jan  1 18:34:37 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d undo-tree
@@ -41,7 +41,10 @@
 (use-package undo-tree
   :defer t
   :diminish undo-tree-mode
-  :init (global-undo-tree-mode))
+  :init (global-undo-tree-mode)
+  :custom
+  (undo-tree-visualizer-diff t)
+  (undo-tree-visualizer-timestamps t))
 ;; -UndoTreePac
 
 (provide 'init-undo-tree)

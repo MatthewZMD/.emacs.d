@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Sep 25 00:12:42 2019 (-0400)
+;; Last-Updated: Wed Dec 25 03:05:11 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui
@@ -43,7 +43,7 @@
 ;; PreSym
 (global-prettify-symbols-mode 1)
 (defun add-pretty-lambda ()
-  "Make some word or string show as pretty Unicode symbols. See https://unicodelookup.com for more."
+  "Make some word or string show as pretty Unicode symbols.  See https://unicodelookup.com for more."
   (setq prettify-symbols-alist
         '(
           ("lambda" . 955)
@@ -68,7 +68,7 @@
 ;; StartupScreen
 (setq inhibit-startup-screen t)
 (setq initial-major-mode 'text-mode)
-(setq initial-scratch-message "Present Day, Present Time...")
+(setq initial-scratch-message "Present Day, Present Time...\n")
 ;; -StartupScreen
 
 ;; DisLineNum

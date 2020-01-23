@@ -1,22 +1,22 @@
-;;; init-arduino.el --- -*- lexical-binding: t -*-
+;;; init-haskell.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-arduino.el
-;; Description: Initialize Arduino Mode
+;; Filename: init-haskell.el
+;; Description: Initialize Haskell
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Fri Mar 15 11:00:55 2019 (-0400)
+;; Created: Tue Apr 23 10:00:42 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  1 23:31:57 2019 (-0400)
+;; Last-Updated: Sat Jan  4 22:35:24 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d
+;; Keywords: M-EMACS .emacs.d haskell
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes arduino-mode and company-arduino
+;; This initializes haskell-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,26 +37,11 @@
 ;;
 ;;; Code:
 
-;; ArduinoPac
-(use-package arduino-mode
-  :disabled
-  :defer t
-  :mode
-  ("\\.ino\\'" "\\.pde\\'")
-  :config
-  (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t))
-;; -ArduinoPac
+;; HaskellModePac
+(use-package haskell-mode
+  :mode "\\.hs\\'")
+;; -HaskellModePac
 
-;; CompanyArduinoPac
-(use-package company-arduino
-  :disabled
-  :defer t
-  :config
-  (add-hook 'irony-mode-hook 'company-arduino-turn-on)
-  ;; Activate irony-mode on arduino-mode
-  (add-hook 'arduino-mode-hook 'irony-mode))
-;; -CompanyArduinoPac
-
-(provide 'init-arduino)
+(provide 'init-haskell)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-arduino.el ends here
+;;; init-haskell.el ends here

@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Nov 25 22:40:07 2019 (-0500)
-;;           By: Bilaal Hussain
+;; Last-Updated: Thu Jan 23 11:24:05 2020 (-0500)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 26.1
@@ -40,9 +40,15 @@
 (eval-when-compile
   (require 'init-const))
 
+;; SudoEditPac
+(use-package sudo-edit
+  :commands (sudo-edit))
+;; -SudoEditPac
+
 ;; DefBindings
 ;; Unbind unneeded keys
 (global-set-key (kbd "C-z") nil)
+(global-set-key (kbd "M-z") nil)
 (global-set-key (kbd "C-x C-z") nil)
 (global-set-key (kbd "M-/") nil)
 ;; Use iBuffer instead of Buffer List
@@ -50,6 +56,7 @@
 ;; Truncate lines
 (global-set-key (kbd "C-x C-l") #'toggle-truncate-lines)
 ;; Adjust font size like web browsers
+(global-set-key (kbd "C-=") #'text-scale-increase)
 (global-set-key (kbd "C-+") #'text-scale-increase)
 (global-set-key (kbd "C--") #'text-scale-decrease)
 ;; Move up/down paragraph
@@ -57,17 +64,14 @@
 (global-set-key (kbd "M-p") #'backward-paragraph)
 ;; -DefBindings
 ;; UTF8Coding
-(if (eq system-type 'windows-nt)
-    (progn
-      (set-clipboard-coding-system 'utf-16-le)
-      (set-selection-coding-system 'utf-16-le))
-  (set-selection-coding-system 'utf-8))
-(prefer-coding-system 'utf-8-unix)
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
-(setq locale-coding-system 'utf-8-unix)
+(unless *sys/win32*
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+  (set-language-environment "UTF-8")
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8))
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (when *sys/gui*
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
@@ -75,20 +79,29 @@
 
 ;; EditExp
 ;; Remove useless whitespace before saving a file
-(add-hook 'before-save-hook 'whitespace-cleanup)
-(add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
+(defun delete-trailing-whitespace-except-current-line ()
+  "An alternative to `delete-trailing-whitespace'.
 
-;; Make sentences end with a single space
-(setq-default sentence-end-double-space nil)
+The original function deletes trailing whitespace of the current line."
+  (interactive)
+  (let ((begin (line-beginning-position))
+        (end (line-end-position)))
+    (save-excursion
+      (when (< (point-min) (1- begin))
+        (save-restriction
+          (narrow-to-region (point-min) (1- begin))
+          (delete-trailing-whitespace)
+          (widen)))
+      (when (> (point-max) (+ end 2))
+        (save-restriction
+          (narrow-to-region (+ end 2) (point-max))
+          (delete-trailing-whitespace)
+          (widen))))))
 
-;; Disable Shift mark
-(setq shift-select-mode nil)
+(add-hook 'before-save-hook #'delete-trailing-whitespace-except-current-line)
 
 ;; Replace selection on insert
 (delete-selection-mode 1)
-
-;; Merge system clipboard with Emacs
-(setq-default select-enable-clipboard t)
 
 ;; Map Alt key to Meta
 (setq x-alt-keysym 'meta)
@@ -99,6 +112,7 @@
   :ensure nil
   :hook (after-init . recentf-mode)
   :custom
+  (recentf-auto-cleanup "05:00am")
   (recentf-max-saved-items 200)
   (recentf-exclude '((expand-file-name package-user-dir)
                      ".cache"

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:03:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:08:20 2019 (-0400)
+;; Last-Updated: Tue Dec 24 12:03:28 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d web-mode js2-mode typescript-mode emmet instant-rename-tag json-mode
@@ -61,14 +61,13 @@
 
 ;; EmmetPac
 (use-package emmet-mode
-  :hook web-mode
-  :config
-  (add-hook 'css-mode-hooktype  'emmet-mode)) ;; enable Emmet's css abbreviation
+  :hook ((web-mode . emmet-mode)
+         (css-mode . emmet-mode)))
 ;; -EmmetPac
 
 ;; InstantRenameTagPac
 (use-package instant-rename-tag
-  :load-path "~/.emacs.d/site-elisp/instant-rename-tag"
+  :load-path (lambda () (expand-file-name "site-elisp/instant-rename-tag" user-emacs-directory))
   :bind ("C-z <" . instant-rename-tag))
 ;; -InstantRenameTagPac
 

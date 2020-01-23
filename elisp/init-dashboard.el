@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:21:46 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:04:57 2019 (-0400)
+;; Last-Updated: Sat Dec 28 22:56:41 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dashboard
@@ -44,34 +44,32 @@
   :bind ("C-z d" . open-dashboard)
   :custom
   (dashboard-banner-logo-title "Close the world. Open the nExt.")
-  (dashboard-startup-banner "~/.emacs.d/images/KEC_Dark_BK_Small.png")
+  (dashboard-startup-banner (expand-file-name "images/KEC_Dark_BK_Small.png" user-emacs-directory))
   (dashboard-items '((recents  . 7)
-                     (bookmarks . 5)
+                     (bookmarks . 7)
                      (agenda . 5)))
+  (initial-buffer-choice (lambda () (get-buffer dashboard-buffer-name)))
+  (dashboard-set-heading-icons t)
+  (dashboard-set-navigator t)
+  (dashboard-navigator-buttons
+   (if (featurep 'all-the-icons)
+       `(((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust -0.05)
+           "M-EMACS" "Browse M-EMACS Homepage"
+           (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
+          (,(all-the-icons-fileicon "elisp" :height 1.0 :v-adjust -0.1)
+           "Configuration" "" (lambda (&rest _) (edit-configs)))
+          (,(all-the-icons-faicon "cogs" :height 1.0 :v-adjust -0.1)
+           "Update" "" (lambda (&rest _) (auto-package-update-now)))))
+     `((("" "M-EMACS" "Browse M-EMACS Homepage"
+         (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
+        ("" "Configuration" "" (lambda (&rest _) (edit-configs)))
+        ("" "Update" "" (lambda (&rest _) (auto-package-update-now)))))))
   :custom-face
   (dashboard-banner-logo-title ((t (:family "Love LetterTW" :height 123))))
   :config
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                    (bookmarks . "book")))
   (dashboard-setup-startup-hook)
-  ;; Additional Dashboard widgets.
-  (defun dashboard-insert-widgets (list-size)
-    ;; (insert (format "%d packages loaded in %s.\n" (length package-activated-list) (emacs-init-time)))
-    (insert "Navigation: ")
-    ;;(insert (make-string (max 0 (floor (/ (- dashboard-banner-length 25) 2))) ?\ ))
-    (widget-create 'url-link
-                   :tag (propertize "Github" 'face 'font-lock-keyword-face)
-                   :help-echo "Open M-EMACS Github"
-                   :mouse-face 'highlight
-                   "https://github.com/MatthewZMD/.emacs.d")
-    (insert " ")
-    (widget-create 'push-button
-                   :help-echo "Edit M-EMACS configuration"
-                   :action (lambda (&rest _) (edit-configs))
-                   :mouse-face 'highlight
-                   :button-prefix ""
-                   :button-suffix ""
-                   (propertize "Configuration" 'face 'font-lock-keyword-face)))
-  (add-to-list 'dashboard-item-generators  '(buttons . dashboard-insert-widgets))
-  (add-to-list 'dashboard-items '(buttons))
   ;; Open Dashboard function
   (defun open-dashboard ()
     "Open the *dashboard* buffer and jump to the first widget."
@@ -81,11 +79,6 @@
     (dashboard-insert-startupify-lists)
     (switch-to-buffer dashboard-buffer-name)
     (goto-char (point-min))
-    (if (> (length (window-list-1))
-           ;; exclude `treemacs' window
-           (if (and (fboundp 'treemacs-current-visibility)
-                    (eq (treemacs-current-visibility) 'visible)) 2 1))
-        (setq dashboard-recover-layout-p t))
     (delete-other-windows)))
 ;; -DashboardPac
 

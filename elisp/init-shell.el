@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Sep 15 10:22:21 2019 (-0400)
+;; Last-Updated: Tue Oct  8 00:20:32 2019 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here
@@ -42,7 +42,7 @@
 
 ;; AweshellPac
 (use-package aweshell
-  :load-path "~/.emacs.d/site-elisp/aweshell"
+  :load-path (lambda () (expand-file-name "site-elisp/aweshell" user-emacs-directory))
   :commands (aweshell-new aweshell-dedicated-open)
   :bind
   (("M-#" . aweshell-dedicated-open)
@@ -59,9 +59,11 @@
 
 ;; MultiTermPac
 (use-package multi-term
-  :load-path "~/.emacs.d/site-elisp/multi-term"
+  :load-path (lambda () (expand-file-name "site-elisp/multi-term" user-emacs-directory))
   :commands (multi-term)
-  :bind ("M-$" . multi-term)
+  :bind
+  (("M-$" . multi-term)
+   (:map dired-mode-map ("M-$" . multi-term)))
   :custom
   (multi-term-program (executable-find "bash")))
 ;; -MultiTermPac

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Oct  5 02:49:10 2019 (-0400)
+;; Last-Updated: Wed Dec 25 02:33:09 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired auto-save
@@ -54,7 +54,14 @@
   (dired-dwim-target t)
   ;; Move files to trash when deleting
   (delete-by-moving-to-trash t)
+  ;; Load the newest version of a file
+  (load-prefer-newer t)
+  ;; Detect external file changes and auto refresh file
+  (auto-revert-use-notify nil)
+  (auto-revert-interval 3) ; Auto revert every 3 sec
   :config
+  ;; Enable global auto-revert
+  (global-auto-revert-mode t)
   ;; Reuse same dired buffer, to prevent numerous buffers while navigating in dired
   (put 'dired-find-alternate-file 'disabled nil)
   :hook
@@ -89,36 +96,6 @@
 (global-set-key (kbd "C-x C-s") nil)
 (global-set-key (kbd "C-x C-s") #'save-all-buffers)
 ;; -SaveAllBuffers
-
-
-;; RenameFileBuffer
-;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
-(defun rename-file-and-buffer (new-name)
-  "Renames both current buffer and file it's visiting to NEW-NAME."
-  (interactive "sNew name: ")
-  (let ((name (buffer-name))
-    (filename (buffer-file-name)))
-    (if (not filename)
-    (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-      (message "A buffer named '%s' already exists!" new-name)
-    (progn
-      (rename-file filename new-name 1)
-      (rename-buffer new-name)
-      (set-visited-file-name new-name)
-      (set-buffer-modified-p nil))))))
-;; -RenameFileBuffer
-
-;; DiredConfigs
-;; Load the newest version of a file
-(setq load-prefer-newer t)
-
-;; Detect external file changes and auto refresh file
-(global-auto-revert-mode t)
-
-;; Transparently open compressed files
-(auto-compression-mode t)
-;; -DiredConfigs
 
 (provide 'init-dired)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
