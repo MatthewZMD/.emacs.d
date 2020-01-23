@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jan 14 11:55:30 2020 (-0500)
+;; Last-Updated: Thu Jan 23 13:38:11 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -66,9 +66,9 @@
   :bind (:map lsp-ui-mode-map
               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
               ([remap xref-find-references] . lsp-ui-peek-find-references)
-              ("C-c u" . lsp-ui-imenu))
+              ("C-c u" . lsp-ui-imenu)
+              ("M-i" . lsp-ui-doc-better-glance))
   :custom
-  (lsp-ui-doc-enable t)
   (lsp-ui-doc-header t)
   (lsp-ui-doc-include-signature t)
   (lsp-ui-doc-position 'top)
@@ -77,13 +77,24 @@
   (lsp-ui-sideline-ignore-duplicate t)
   (lsp-ui-sideline-show-code-actions nil)
   :config
+  (defun lsp-ui-doc-better-glance ()
+    "A better `lsp-ui-doc-glance' that ignores mouse scroll.
+
+This is needed when you want to use mouse scroll to read the lsp-ui-doc data."
+    (interactive)
+    (lsp-ui-doc-show)
+    (add-hook 'pre-command-hook
+              (lambda ()
+                (unless (eq this-command 'mwheel-scroll)
+                    (lsp-ui-doc--glance-hide-frame)))))
   ;; Use lsp-ui-doc-webkit only in GUI
   (if *sys/gui*
       (setq lsp-ui-doc-use-webkit t))
   ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
   ;; https://github.com/emacs-lsp/lsp-ui/issues/243
   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
-    (setq mode-line-format nil)))
+    (setq mode-line-format nil))
+  (advice-add #'keyboard-quit :before #'lsp-ui-doc-hide))
 ;; -LSPUI
 
 ;; DAPPac
@@ -96,16 +107,7 @@
          ("<f9>" . dap-next)
          ("<M-f11>" . dap-step-in)
          ("C-M-<f11>" . dap-step-out)
-         ("<f7>" . dap-breakpoint-toggle)))
-  :hook ((after-init . dap-mode)
-         (dap-mode . dap-ui-mode)
-         (python-mode . (lambda () (require 'dap-python)))
-         (ruby-mode . (lambda () (require 'dap-ruby)))
-         (go-mode . (lambda () (require 'dap-go)))
-         (java-mode . (lambda () (require 'dap-java)))
-         (php-mode . (lambda () (require 'dap-php)))
-         (elixir-mode . (lambda () (require 'dap-elixir)))
-         ((js-mode js2-mode typescript-mode) . (lambda () (require 'dap-chrome)))))
+         ("<f7>" . dap-breakpoint-toggle))))
 ;; -DAPPac
 
 (provide 'init-lsp)
