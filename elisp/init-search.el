@@ -61,8 +61,9 @@
    (:map ivy-minibuffer-map
          ("C-r" . ivy-previous-line-or-history)
          ("M-RET" . ivy-immediate-done))
-   (:map counsel-find-file-map
-         ("C-~" . counsel-goto-local-home)))
+   ;; (:map counsel-find-file-map
+   ;;       ("C-~" . counsel-goto-local-home))
+   )
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-height 10)
