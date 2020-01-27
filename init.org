@@ -31,6 +31,7 @@
   - [[Crux][Crux]]
   - [[Ivy, Amx, Counsel, Swiper][Ivy, Amx, Counsel, Swiper]]
   - [[Color Ripgrep][Color Ripgrep]]
+  - [[Find File In Project][Find File In Project]]
   - [[Snails][Snails]]
   - [[Files Directories][Files Directories]]
   - [[Winner][Winner]]
@@ -232,7 +233,7 @@
    Since all the configuration files are stored in =elisp/= folder, they need to be added to =load-path= now.
    #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "LoadPath" :range-end "-LoadPath"  :lines "89-103"
 ** Define Constants
-   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "46-108"
+   #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "46-112"
 * Package Management
   Some packages are disabled with the =:disabled= tag, because I don't use them very often. They might not work.
 ** Melpa Packages
@@ -283,11 +284,16 @@
 ** Color Ripgrep
    [[https://github.com/manateelazycat/color-rg][Color rg]], a search and refactoring tool based on /ripgrep/ that is used to search text.
 
-   *Prerequisite*: Please install [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and ensure =rg= is in the =PATH=.
+   *Prerequisite*: Ensure [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and ensure =rg= is in =PATH=.
    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "77-81"
+** Find File In Project
+   [[https://github.com/technomancy/find-file-in-project][Find File In Project]], quick access to project files in Emacs.
+
+   *Prerequisite*: Ensure =GNU Find= is in =PATH=. Install [[https://github.com/bmatzelle/gow][Gow]] or Cygwin or MYSYS2 on Windows.
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "FFIPPac" :range-end "-FFIPPac" :lines "84-87"
 ** Snails
    [[https://github.com/manateelazycat/snails][Snails]], a fuzzy search framework. It utilizes [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] if you are using Mac.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "84-110"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "90-116"
 ** Files Directories
 *** Dired
     Dired, the directory editor.
@@ -418,7 +424,7 @@
    *Prerequisite*: Windows OS: Install [[https://github.com/bmatzelle/gow/releases][Gow]] and ensure it's in =PATH=.
 
    [[https://github.com/bmatzelle/gow][Gow]] is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
-   #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "44-56"
+   #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "44-55"
 ** Treemacs
    [[https://github.com/Alexander-Miller/treemacs][Treemacs]], a tree layout file explorer for Emacs.
 *** Treemacs
