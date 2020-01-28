@@ -42,6 +42,7 @@
   - [[Ace Window][Ace Window]]
   - [[Shells][Shells]]
   - [[Sudo Edit][Sudo Edit]]
+  - [[Ibuffer][Ibuffer]]
   - [[Configs][Configs]]
   - [[Functions][Functions]]
 - [[User Interface Enhancements][User Interface Enhancements]]
@@ -271,7 +272,7 @@
    *Prerequisite*: Please update this file your personal info.
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "41-43"
 ** Bindings
-   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "49-65"
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "68-82"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "44-54"
@@ -340,17 +341,20 @@
 ** Sudo Edit
    [[https://github.com/nflath/sudo-edit][Sudo Edit]], an utility for opening files with =sudo=.
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SudoEditPac" :range-end "-SudoEditPac" :lines "44-46"
+** Ibuffer
+   [[https://www.emacswiki.org/emacs/IbufferMode][Ibuffer]], an advanced replacement for BufferMenu, which lets you operate on buffers much in the same manner as Dired.
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "IBufferPac" :range-end "-IBufferPac" :lines "49-64"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
     Use UTF-8 as much as possible with unix line endings.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "68-79"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "85-96"
 *** Optimize Editing Experience
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "82-109"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "99-126"
 *** History
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "112-136"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "129-153"
 *** Small Configs
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SmallConfigs" :range-end "-SmallConfigs" :lines "139-175"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SmallConfigs" :range-end "-SmallConfigs" :lines "156-192"
 ** Functions
    Important functions.
 *** Resize Window Width / Height Functions
