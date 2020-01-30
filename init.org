@@ -636,11 +636,11 @@
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
-   *Prerequisite*: Put IRC credentials in the file =~/.authinfo= and configure =erc-nick= to your IRC nickname.
+   *Prerequisite*: Put IRC credentials in the file =~/.authinfo= and configure =my-erc-nick= to your IRC nickname.
    #+BEGIN_SRC text
      machine irc.freenode.net login <nickname> password <password> port 6697
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "45-137"
+   #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "45-139"
 ** EWW
    Emacs Web Wowser, the HTML-based Emacs Web Browser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "44-54"

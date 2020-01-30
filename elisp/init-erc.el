@@ -46,7 +46,7 @@
   :ensure nil
   :init
   ;; Prerequisite: Configure this to your IRC nickname
-  (defcustom erc-nick ""
+  (defcustom my-irc-nick ""
     "The nickname used to login into ERC")
   (use-package erc-hl-nicks :defer t)
   (use-package erc-image :defer t)
@@ -79,7 +79,7 @@
     (interactive)
     (if (get-buffer "irc.freenode.net:6697")
         (erc-track-switch-buffer 1)
-      (erc-tls :server "irc.freenode.net" :port 6697 :nick erc-nick)))
+      (erc-tls :server "irc.freenode.net" :port 6697 :nick my-irc-nick)))
 
   (defun erc-count-users ()
     "Displays the number of users and ops connected on the current channel."
