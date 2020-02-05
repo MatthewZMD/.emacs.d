@@ -141,8 +141,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; User Interface Enhancements
 (require 'init-ui-config)
 
-(require 'init-all-the-icons)
-
 (require 'init-theme)
 
 (require 'init-dashboard)
