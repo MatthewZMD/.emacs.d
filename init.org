@@ -343,7 +343,9 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SudoEditPac" :range-end "-SudoEditPac" :lines "44-46"
 ** Ibuffer
    [[https://www.emacswiki.org/emacs/IbufferMode][Ibuffer]], an advanced replacement for BufferMenu, which lets you operate on buffers much in the same manner as Dired.
-   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "IBufferPac" :range-end "-IBufferPac" :lines "49-64"
+
+   It uses [[https://github.com/purcell/ibuffer-vc][IBuffer VC]] that group buffers by git project and show file state.
+   #+INCLUDE: "~/.emacs.d/elisp/init-buffer.el" src emacs-lisp :range-begin "IBufferPac" :range-end "-IBufferPac" :lines "41-61"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System

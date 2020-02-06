@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jan 27 23:29:41 2020 (-0500)
+;; Last-Updated: Thu Feb  6 16:26:17 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -44,25 +44,6 @@
 (use-package sudo-edit
   :commands (sudo-edit))
 ;; -SudoEditPac
-
-;; IBufferPac
-(use-package ibuffer
-  :ensure nil
-  :bind ("C-x C-b" . ibuffer) ; Use iBuffer instead of Buffer List
-  :custom
-  (ibuffer-formats
-   '((mark modified read-only locked " "
-           (name 35 35 :left :elide)
-           " "
-           (size 9 -1 :right)
-           " "
-           (mode 16 16 :left :elide)
-           " " filename-and-process)
-     (mark " "
-           (name 16 -1)
-           " " filename))))
-;; -IBufferPac
-
 
 ;; DefBindings
 ;; Unbind unneeded keys
