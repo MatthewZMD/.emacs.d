@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jan 27 23:13:41 2020 (-0500)
+;; Last-Updated: Sat Feb  8 14:11:55 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -67,9 +67,8 @@
               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
               ([remap xref-find-references] . lsp-ui-peek-find-references)
               ("C-c u" . lsp-ui-imenu)
-              ("M-i" . lsp-ui-doc-better-glance))
+              ("M-i" . lsp-ui-doc-focus-frame))
   :custom
-  (lsp-ui-doc-enable nil)
   (lsp-ui-doc-header t)
   (lsp-ui-doc-include-signature t)
   (lsp-ui-doc-border (face-foreground 'default))
@@ -77,16 +76,6 @@
   (lsp-ui-sideline-ignore-duplicate t)
   (lsp-ui-sideline-show-code-actions nil)
   :config
-  (defun lsp-ui-doc-better-glance ()
-    "A better `lsp-ui-doc-glance' that ignores mouse scroll.
-
-This is needed when you want to use mouse scroll to read the lsp-ui-doc data."
-    (interactive)
-    (lsp-ui-doc-show)
-    (add-hook 'pre-command-hook
-              (lambda ()
-                (unless (eq this-command 'mwheel-scroll)
-                    (lsp-ui-doc--glance-hide-frame)))))
   ;; Use lsp-ui-doc-webkit only in GUI
   (if *sys/gui*
       (setq lsp-ui-doc-use-webkit t))
@@ -94,6 +83,7 @@ This is needed when you want to use mouse scroll to read the lsp-ui-doc data."
   ;; https://github.com/emacs-lsp/lsp-ui/issues/243
   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
     (setq mode-line-format nil))
+  ;; Waiting for https://github.com/emacs-lsp/lsp-ui/pull/390
   (advice-add #'keyboard-quit :before #'lsp-ui-doc-hide))
 ;; -LSPUI
 
