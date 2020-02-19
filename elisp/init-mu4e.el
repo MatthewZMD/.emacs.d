@@ -57,9 +57,8 @@
   (mu4e-maildir (expand-file-name "~/Maildir"))
   (mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a")
   (mu4e-view-prefer-html t)
-  (mu4e-update-interval 60)
+  (mu4e-update-interval 180)
   (mu4e-headers-auto-update t)
-  (mu4e-compose-signature-auto-include nil)
   (mu4e-compose-format-flowed t)
   (mu4e-view-show-images t)
   (mu4e-change-filenames-when-moving t) ; work better for mbsync

@@ -294,7 +294,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "FFIPPac" :range-end "-FFIPPac" :lines "84-87"
 ** Snails
    [[https://github.com/manateelazycat/snails][Snails]], a fuzzy search framework. It utilizes [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] if you are using Mac.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "90-116"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "90-115"
 ** Files Directories
 *** Dired
     Dired, the directory editor.
@@ -443,7 +443,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "-YASnippetPac" :lines "41-62"
 ** Flycheck
    [[https://www.flycheck.org/en/latest/][Flycheck]], a syntax checking extension.
-   #+INCLUDE: "~/.emacs.d/elisp/init-flycheck.el" src emacs-lisp :range-begin "FlyCheckPac" :range-end "-FlyCheckPac" :lines "41-49"
+   #+INCLUDE: "~/.emacs.d/elisp/init-flycheck.el" src emacs-lisp :range-begin "FlyCheckPac" :range-end "-FlyCheckPac" :lines "44-74"
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]], an Emacs "jump to definition" package.
    #+INCLUDE: "~/.emacs.d/elisp/init-dumb-jump.el" src emacs-lisp :range-begin "DumbJump" :range-end "-DumbJump" :lines "41-48"
@@ -660,7 +660,7 @@
         mu index --maildir=~/Maildir/
       #+END_SRC
       - If you are getting =Invalid Credentials= error and you are sure the password is correct, check [[https://appuals.com/fix-your-imap-server-wants-to-alert-you-invalid-credentials/][this]] link.
-   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-157"
+   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-156"
 ** Tramp
    [[https://www.emacswiki.org/emacs/TrampMode][Tramp]], short for Transparent Remote Access, Multiple Protocols is a package for editing remote files using a remote shell connection (rlogin, telnet, ssh).
 *** Google Cloud Platform
