@@ -294,7 +294,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "FFIPPac" :range-end "-FFIPPac" :lines "84-87"
 ** Snails
    [[https://github.com/manateelazycat/snails][Snails]], a fuzzy search framework. It utilizes [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] if you are using Mac.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "90-115"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "90-112"
 ** Files Directories
 *** Dired
     Dired, the directory editor.
@@ -624,9 +624,9 @@
     2. Install [[https://graphviz.gitlab.io/download/][Graphviz]] on your system to support graph visualization. Execute =sudo apt install graphviz= in Ubuntu.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "PlantUMLPac" :range-end "-PlantUMLPac" :lines "101-110"
 ** EAF
-   [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a development framework that integrates any PyQt program into Emacs.
+   [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a GUI application framework that revolutionizes Emacs graphical capabilities.
 
-   *Prerequisite*: Please ensure =python3= and =pip3= are installed, then follow [[https://github.com/manateelazycat/emacs-application-framework#install-eaf][install]] instructions.
+   *Prerequisite*: Please ensure =python3= and =pip3= are installed, then follow [[https://github.com/manateelazycat/emacs-application-framework#install][install]] instructions.
 
    Note that If you are using Debian/Ubuntu, it is possible that =QtWebEngine= is [[https://marc.info/?l=kde-core-devel&m=142954900813235&w=2][not working]]. Install the following:
    #+BEGIN_SRC bash
