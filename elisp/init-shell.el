@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  8 00:20:32 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Fri Feb 21 09:45:44 2020 (-0500)
+;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here
 ;; Compatibility: emacs-version >= 26.1
@@ -51,7 +51,7 @@
 
 ;; ShellHerePac
 (use-package shell-here
-  :bind ("M-~" . shell-here)
+  :bind ("M-j" . shell-here)
   :config
   (when *sys/linux*
     (setq explicit-shell-file-name "/bin/bash")))
@@ -62,8 +62,8 @@
   :load-path (lambda () (expand-file-name "site-elisp/multi-term" user-emacs-directory))
   :commands (multi-term)
   :bind
-  (("M-$" . multi-term)
-   (:map dired-mode-map ("M-$" . multi-term)))
+  (("M-*" . multi-term)
+   (:map dired-mode-map ("M-*" . multi-term)))
   :custom
   (multi-term-program (executable-find "bash")))
 ;; -MultiTermPac
