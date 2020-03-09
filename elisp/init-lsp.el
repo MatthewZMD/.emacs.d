@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Feb  8 14:11:55 2020 (-0500)
+;; Last-Updated: Mon Mar  9 13:07:21 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -82,9 +82,7 @@
   ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
   ;; https://github.com/emacs-lsp/lsp-ui/issues/243
   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
-    (setq mode-line-format nil))
-  ;; Waiting for https://github.com/emacs-lsp/lsp-ui/pull/390
-  (advice-add #'keyboard-quit :before #'lsp-ui-doc-hide))
+    (setq mode-line-format nil)))
 ;; -LSPUI
 
 ;; DAPPac
