@@ -72,12 +72,16 @@
   "Do we have GNU find?")
 
 (defconst *python*
-  (executable-find "python")
-  "Do we have python?")
-
-(defconst *python3*
-  (executable-find "python3")
+  (or (executable-find "python3")
+      (and (executable-find "python")
+           (> (length (shell-command-to-string "python --version | grep 'Python 3'")) 0)))
   "Do we have python3?")
+
+(defconst *pip*
+  (or (executable-find "pip3")
+      (and (executable-find "pip")
+           (> (length (shell-command-to-string "pip --version | grep 'python 3'")) 0)))
+  "Do we have pip3?")
 
 (defconst *tr*
   (executable-find "tr")
@@ -105,8 +109,7 @@
   "Do we have pdflatex?")
 
 (defconst *eaf-env*
-  (and *sys/linux* *sys/gui* *python3*
-       (executable-find "pip")
+  (and *sys/linux* *sys/gui* *python* *pip*
        (not (equal (shell-command-to-string "pip freeze | grep '^PyQt\\|PyQtWebEngine'") "")))
   "Check basic requirements for EAF to run.")
 ;; -Consts
