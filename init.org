@@ -79,6 +79,7 @@
   - [[Haskell][Haskell]]
   - [[ESS][ESS]]
   - [[TeX][TeX]]
+  - [[Buildsystem][Buildsystem]]
 - [[Web Development][Web Development]]
   - [[Web Mode][Web Mode]]
   - [[JavaScript/TypeScript][JavaScript/TypeScript]]
@@ -576,6 +577,15 @@
 *** Org Edit LaTeX
     [[https://github.com/et2010/org-edit-latex][Org Edit LaTeX]], an extension to edit LaTeX fragment/environment in an edit buffer, even to complete and preview LaTeX in the edit buffer.
     #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexPac" :range-end "-OrgLatexPac" :lines "72-75"
+** Buildsystem
+*** Docker
+    [[https://github.com/Silex/docker.el][Docker]], a mode to manage docker from Emacs.
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerPac" :range-end "-DockerPac" :lines "41-42"
+    [[https://github.com/spotify/dockerfile-mode][Dockerfile Mode]], an Emacs mode for handling Dockerfiles.
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerfilePac" :range-end "-DockerfilePac" :lines "46-47"
+*** Groovy
+    [[https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes][Groovy Mode]], a groovy major mode, grails minor mode, and a groovy inferior mode.
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "GroovyPac" :range-end "-GroovyPac" :lines "50-51"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and ensure it's in =PATH=. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC bash
