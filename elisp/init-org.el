@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 14:05:45 2019 (-0500)
+;; Last-Updated: Wed Mar 18 22:00:11 2020 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -48,12 +48,28 @@
   ("C-c b" . org-switch)
   (:map org-mode-map ("C-c C-p" . org-export-as-pdf-and-open))
   :custom
+  (org-agenda-files '("~/org/inbox.org"
+                      "~/org/projects.org"
+                      "~/org/tickler.org"))
+  (org-capture-templates '(("t" "Todo [inbox]" entry
+                            (file+headline "~/org/inbox.org" "Tasks")
+                            "* TODO %i%?")
+                           ("T" "Tickler" entry
+                            (file+headline "~/org/tickler.org" "Tickler")
+                            "* %i%? \n %U")))
+  (org-refile-targets '(("~/org/projects.org" :maxlevel . 2)
+                        ("~/org/someday.org" :level . 1)
+                        ("~/org/tickler.org" :maxlevel . 2)
+                        ("~/org/coming-soon.org" :maxlevel . 2)))
+  (org-agenda-custom-commands
+   '(("d" "All tasks" tags "TODO={.+}")))
   (org-log-done 'time)
+  (org-agenda-window-setup 'only-window)
   (org-export-backends (quote (ascii html icalendar latex md odt)))
   (org-use-speed-commands t)
   (org-confirm-babel-evaluate 'nil)
   (org-todo-keywords
-   '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE")))
+   '((sequence "TODO" "WAITING" "|" "DONE")))
   (org-agenda-window-setup 'other-window)
   :config
   (unless (version< org-version "9.2")
