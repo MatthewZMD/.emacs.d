@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Mar  2 15:10:49 2020 (-0500)
+;; Last-Updated: Thu Mar 19 22:11:36 2020 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here
@@ -62,8 +62,8 @@
   :load-path (lambda () (expand-file-name "site-elisp/multi-term" user-emacs-directory))
   :commands (multi-term)
   :bind
-  (("M-$" . multi-term)
-   (:map dired-mode-map ("M-$" . multi-term)))
+  (("M-4" . multi-term)
+   (:map dired-mode-map ("M-4" . multi-term)))
   :custom
   (multi-term-program (executable-find "bash"))
   (term-bind-key-alist

@@ -1013,7 +1013,7 @@ Winner, a mode to restore previous window layouts.
   :load-path (lambda () (expand-file-name "site-elisp/multi-term" user-emacs-directory))
   :commands (multi-term)
   :bind
-  (("M-$" . multi-term)
+  (("M-4" . multi-term)
    (:map dired-mode-map ("M-$" . multi-term)))
   :custom
   (multi-term-program (executable-find "bash"))
