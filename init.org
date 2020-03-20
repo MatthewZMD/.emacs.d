@@ -40,7 +40,7 @@
   - [[Undo Tree][Undo Tree]]
   - [[Discover My Major][Discover My Major]]
   - [[Ace Window][Ace Window]]
-  - [[Shells][Shells]]
+  - [[Terminal][Terminal]]
   - [[Sudo Edit][Sudo Edit]]
   - [[Ibuffer][Ibuffer]]
   - [[Configs][Configs]]
@@ -326,7 +326,7 @@
 ** Ace Window
    [[https://github.com/abo-abo/ace-window][Ace Window]], a package for selecting windows to switch to.
    #+INCLUDE: "~/.emacs.d/elisp/init-ace-window.el" src emacs-lisp :range-begin "AceWindowPac" :range-end "-AceWindowPac"  :lines "41-43"
-** Shells
+** Terminal
 *** Aweshell
     [[https://github.com/manateelazycat/aweshell][Aweshell]], shell extension base on eshell with better features.
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "AweshellPac" :range-end "-AweshellPac" :lines "44-50"
