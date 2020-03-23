@@ -32,30 +32,46 @@
 
 
 (use-package window-purpose)
+(purpose-mode)
 
 (require 'imenu-list)
 
 (defvar purpose-programming-window-layout
   '(nil
-   (0 0 364 100)
-   (:purpose treemacs :purpose-dedicated t :width 0.10497237569060773 :height 0.9900990099009901
-             :edges (0.0 0.0 0.10497237569060773 0.9900990099009901))
-   (:purpose edit :purpose-dedicated t :width 0.45027624309392267 :height 0.9900990099009901
-             :edges (0.10497237569060773 0.0 0.5552486187845304 0.9900990099009901))
-   (t
-    (201 0 364 100)
-    (:purpose info :purpose-dedicated t :width 0.45027624309392267 :height 0.49504950495049505
-              :edges (0.5552486187845304 0.0 1.0055248618784531 0.49504950495049505))
-    (:purpose repl :purpose-dedicated t :width 0.45027624309392267 :height 0.49504950495049505
-              :edges (0.5552486187845304 0.49504950495049505 1.0055248618784531 0.9900990099009901)))))
+    (0 0 364 100)
+    (t
+     (0 0 49 100)
+     (:purpose buffers :purpose-dedicated t :width 0.13535911602209943 :height 0.1782178217821782
+	       :edges (0.0 0.0 0.13535911602209943 0.1782178217821782))
+     (:purpose treemacs :purpose-dedicated t :width 0.13535911602209943 :height 0.5742574257425742
+	       :edges (0.0 0.1782178217821782 0.13535911602209943 0.7524752475247525))
+     (:purpose ilist :purpose-dedicated t :width 0.13535911602209943 :height 0.2376237623762376
+	       :edges (0.0 0.7524752475247525 0.13535911602209943 0.9900990099009901)))
+    (t
+     (49 0 364 100)
+     (nil
+      (49 0 364 78)
+      (:purpose edit :purpose-dedicated t :width 0.4889502762430939 :height 0.7722772277227723
+		:edges (0.13535911602209943 0.0 0.6243093922651933 0.7722772277227723))
+      (t
+       (226 0 364 78)
+       (:purpose general :purpose-dedicated t :width 0.3812154696132597 :height 0.38613861386138615
+		 :edges (0.6243093922651933 0.0 1.0055248618784531 0.38613861386138615))
+       (:purpose repl :purpose-dedicated t :width 0.3812154696132597 :height 0.38613861386138615
+		 :edges (0.6243093922651933 0.38613861386138615 1.0055248618784531 0.7722772277227723))))
+     (:purpose shell :purpose-dedicated t :width 0.8701657458563536 :height 0.21782178217821782
+	       :edges (0.13535911602209943 0.7722772277227723 1.0055248618784531 0.9900990099009901)))))
 
 
 (defvar purpose-programming-config
   (purpose-conf
                 :mode-purposes
                  '((treemacs-mode . treemacs)
-                   (imenu-list-major-mode . info)
-                   (cider-repl . repl))))
+                   (imenu-list-major-mode . ilist)
+                   (term-mode . shell)
+                   (cider-repl-mode . repl)
+                   (debugger-mode . general)
+                   (org-agenda-mode . general))))
 
 (defvar purpose-programming-buffers-changed nil
   "Internal variable for use with `frame-or-buffer-changed-p'.")
@@ -75,8 +91,6 @@ buffer had changed."
   (imenu-list-minor-mode)
   (frame-or-buffer-changed-p 'purpose-programming-buffers-changed)
   (add-hook 'post-command-hook #'purpose-programming-update-changed)
-  (treemacs-mode)
-
   (purpose-set-window-layout purpose-programming-window-layout))
 
 (defun purpose-programming-unset ()

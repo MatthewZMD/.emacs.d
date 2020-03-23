@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 09:56:12 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 11:56:52 2019 (-0500)
+;; Last-Updated: Mon Mar 23 14:07:50 2020 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d treemacs
@@ -45,7 +45,7 @@
   :custom
   (treemacs-collapse-dirs 3)
   (treemacs-deferred-git-apply-delay 0.5)
-  (treemacs-display-in-side-window t)
+  (treemacs-display-in-side-window nil)
   (treemacs-file-event-delay 5000)
   (treemacs-file-follow-delay 0.2)
   (treemacs-follow-after-init t)
@@ -60,13 +60,13 @@
   (treemacs-no-delete-other-windows t)
   (treemacs-project-follow-cleanup nil)
   (treemacs-persist-file (expand-file-name ".cache/treemacs-persist" user-emacs-directory))
-  (treemacs-recenter-after-file-follow nil)
-  (treemacs-recenter-after-tag-follow nil)
+  (treemacs-recenter-after-file-follow t)
+  (treemacs-recenter-after-tag-follow t)
   (treemacs-show-cursor nil)
   (treemacs-show-hidden-files t)
   (treemacs-silent-filewatch nil)
   (treemacs-silent-refresh nil)
-  (treemacs-sorting 'alphabetic-desc)
+  (treemacs-sorting 'alphabetic-asc)
   (treemacs-space-between-root-nodes t)
   (treemacs-tag-follow-cleanup t)
   (treemacs-tag-follow-delay 1.5)
@@ -77,8 +77,7 @@
   ;;(treemacs-resize-icons 44)
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
-  (treemacs-fringe-indicator-mode t)
-  :bind
+  (treemacs-fringe-indicator-mode t)  :bind
   (("M-0"       . treemacs-select-window)
    ("C-x t 1"   . treemacs-delete-other-windows)
    ("C-x t t"   . treemacs)
