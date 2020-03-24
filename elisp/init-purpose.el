@@ -30,10 +30,13 @@
 ;; TODO: Add open buffers frame
 ;; TODO: Fix Treemacs loading
 
+;; Adapted from https://github.com/bmag/emacs-purpose/blob/master/window-purpose-x.el
 
 (use-package window-purpose)
 (purpose-mode)
 
+(require 'ibuffer)
+(require 'ibuf-ext)
 (require 'imenu-list)
 
 (defvar purpose-programming-window-layout
@@ -66,15 +69,57 @@
 (defvar purpose-programming-config
   (purpose-conf
                 :mode-purposes
-                 '((treemacs-mode . treemacs)
-                   (imenu-list-major-mode . ilist)
-                   (term-mode . shell)
-                   (cider-repl-mode . repl)
-                   (debugger-mode . general)
-                   (org-agenda-mode . general))))
+                '((ibuffer-mode . buffers)
+                  (treemacs-mode . treemacs)
+                  (imenu-list-major-mode . ilist)
+                  (term-mode . shell)
+                  (cider-repl-mode . repl)
+                  (debugger-mode . general)
+                  (org-agenda-mode . general))))
 
 (defvar purpose-programming-buffers-changed nil
   "Internal variable for use with `frame-or-buffer-changed-p'.")
+
+(define-ibuffer-filter purpose-programming-ibuffer-files-only
+    "Display only buffers that are bound to files."
+  ()
+  (buffer-file-name buf))
+
+(defun purpose-programming--setup-ibuffer ()
+  "Set up ibuffer settings."
+  (add-hook 'ibuffer-mode-hook
+            #'(lambda ()
+                (ibuffer-filter-by-purpose-programming-ibuffer-files-only nil)))
+  (add-hook 'ibuffer-mode-hook #'ibuffer-auto-mode)
+  (setq ibuffer-formats '((mark " " name)))
+  (setq ibuffer-display-summary nil)
+  (setq ibuffer-use-header-line nil)
+  ;; not sure if we want this...
+  ;; (setq ibuffer-default-shrink-to-minimum-size t)
+  (when (get-buffer "*Ibuffer*")
+    (kill-buffer "*Ibuffer*"))
+  (save-selected-window
+    (ibuffer-list-buffers)))
+
+(defun purpose-programming--unset-ibuffer ()
+  "Unset ibuffer settings."
+  (remove-hook 'ibuffer-mode-hook
+               #'(lambda ()
+                   (ibuffer-filter-by-purpose-programming-ibuffer-files-only nil)))
+  (remove-hook 'ibuffer-mode-hook #'ibuffer-auto-mode)
+  (setq ibuffer-formats '((mark modified read-only " "
+                                (name 18 18 :left :elide)
+                                " "
+                                (size 9 -1 :right)
+                                " "
+                                (mode 16 16 :left :elide)
+                                " " filename-and-process)
+                          (mark " "
+                                (name 16 -1)
+                                " " filename)))
+  (setq ibuffer-display-summary t)
+  (setq ibuffer-use-header-line t))
+
 
 (defun purpose-programming-update-changed ()
   "Update auxiliary buffers if frame/buffer had changed.
@@ -88,6 +133,7 @@ buffer had changed."
   "Setup purpose-programming config."
   (interactive)
   (purpose-set-extension-configuration :purpose-programming purpose-programming-config)
+  (purpose-programming--setup-ibuffer)
   (imenu-list-minor-mode)
   (frame-or-buffer-changed-p 'purpose-programming-buffers-changed)
   (add-hook 'post-command-hook #'purpose-programming-update-changed)
@@ -97,6 +143,7 @@ buffer had changed."
   "Unset purpose-programming."
   (interactive)
   (purpose-del-extension-configuration :purpose-programming)
+  (purpose-programming--unset-ibuffer)
   (imenu-list-minor-mode -1)
   (remove-hook 'post-command-hook #'purpose-programming-update-changed))
 
@@ -105,3 +152,5 @@ buffer had changed."
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-purpose.el ends here
+
+
