@@ -44,7 +44,9 @@
 (use-package highlight-indent-guides
   :if *sys/gui*
   :diminish
-  :hook ((prog-mode web-mode nxml-mode) . highlight-indent-guides-mode)
+  ;; Enable manually if needed, it a severe bug which potentially core-dumps Emacs
+  ;; https://github.com/DarthFennec/highlight-indent-guides/issues/76
+  :commands (highlight-indent-guides-mode)
   :custom
   (highlight-indent-guides-method 'character)
   (highlight-indent-guides-responsive 'top)
