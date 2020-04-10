@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Mar 27 14:32:59 2020 (-0400)
+;; Last-Updated: Thu Apr  9 11:25:05 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
@@ -65,8 +65,10 @@
   (eaf-bind-key quit-window "q" eaf-pdf-viewer-keybinding)
   (eaf-bind-key zoom_in "C-=" eaf-pdf-viewer-keybinding)
   (eaf-bind-key zoom_out "C--" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key take_photo "p" eaf-camera-keybinding))
+  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
+  (eaf-bind-key eaf-send-key-sequence "M-]" eaf-terminal-keybinding))
 ;; -EAFPac
+
 
 (provide 'init-eaf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
