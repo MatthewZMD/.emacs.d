@@ -670,7 +670,7 @@
         mu index --maildir=~/Maildir/
       #+END_SRC
       - If you are getting =Invalid Credentials= error and you are sure the password is correct, check [[https://appuals.com/fix-your-imap-server-wants-to-alert-you-invalid-credentials/][this]] link.
-   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-155"
+   #+INCLUDE: "~/.emacs.d/elisp/init-mu4e.el" src emacs-lisp :range-begin "Mu4ePac" :range-end "-Mu4ePac" :lines "42-157"
 ** Tramp
    [[https://www.emacswiki.org/emacs/TrampMode][Tramp]], short for Transparent Remote Access, Multiple Protocols is a package for editing remote files using a remote shell connection (rlogin, telnet, ssh).
 *** Google Cloud Platform

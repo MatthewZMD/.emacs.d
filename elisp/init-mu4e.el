@@ -86,6 +86,8 @@
                                   (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
                                   (:size . 7))))))
   :config
+  (defalias 'mu4e-add-attachment 'mail-add-attachment
+    "I prefer the add-attachment function to begin wih mu4e so I can find it easily.")
   (setq mail-user-agent (mu4e-user-agent))
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
