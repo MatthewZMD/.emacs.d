@@ -131,7 +131,9 @@
       (alert (concat nick ": " msg) :title title)))
   :bind
   (("M-z i" . erc-start-or-switch)
-   ("C-c C-b" . erc-switch-to-buffer))
+   ("C-c C-b" . erc-switch-to-buffer)
+   (:map erc-mode-map
+         ("M-RET" . newline)))
   :hook
   (ercn-notify . erc-notify))
 ;; -ERCPac
