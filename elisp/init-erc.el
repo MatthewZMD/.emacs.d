@@ -135,6 +135,7 @@
    (:map erc-mode-map
          ("M-RET" . newline)))
   :hook
+  (erc-mode . (lambda () (electric-indent-mode 0)))
   (ercn-notify . erc-notify))
 ;; -ERCPac
 
