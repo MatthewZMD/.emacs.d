@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Jun 20 00:36:05 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Feb 21 09:45:15 2020 (-0500)
+;; Last-Updated: Tue May 12 13:40:20 2020 (-0400)
 ;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -55,7 +55,8 @@
                 '(pyim-probe-punctuation-line-beginning
                   pyim-probe-punctuation-after-punctuation))
   :bind
-  ;("M-j" . pyim-convert-string-at-point)) ; M-j 强制将光标前的拼音字符串转换为中文。
+;("M-j" . pyim-convert-string-at-point)) ; M-j 强制将光标前的拼音字符串转换为中文。
+)  
 ;; -PyimPac
 
 ;; PyimBaseDictPac

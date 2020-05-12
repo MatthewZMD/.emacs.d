@@ -229,3 +229,4 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
+(put 'erase-buffer 'disabled nil)
