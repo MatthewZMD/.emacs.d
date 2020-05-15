@@ -237,7 +237,11 @@
 ** Define Constants
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "46-115"
 * Package Management
-  Some packages are disabled with the =:disabled= tag, because I don't use them very often. They might not work.
+  Some packages are disabled with the =:disabled= tag, because I don't use them very often. You can disable packages similarly yourself too:
+  #+begin_src emacs-lisp
+    (use-package foo
+    :disabled)
+  #+end_src
 ** Melpa Packages
    Configure package archives, where to install online packages and add them to =load-path=.
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "42-52"
