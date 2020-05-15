@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu May 14 21:46:51 2020 (-0400)
+;; Last-Updated: Fri May 15 13:52:22 2020 (-0400)
 ;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -68,7 +68,7 @@
               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
               ([remap xref-find-references] . lsp-ui-peek-find-references)
               ("C-c u" . lsp-ui-imenu)
-              ("M-'" . lsp-find-references))
+              ("M-'" . lsp-find-references)
               ("M-i" . lsp-ui-doc-focus-frame))
   :custom
   (lsp-ui-doc-header t)
