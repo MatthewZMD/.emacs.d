@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sat Jan  4 22:37:54 2020 (-0500)
+;; Last-Updated: Thu Mar 12 17:03:46 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -138,10 +138,10 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-dired)
 
+(require 'init-buffer)
+
 ;; User Interface Enhancements
 (require 'init-ui-config)
-
-(require 'init-all-the-icons)
 
 (require 'init-theme)
 
@@ -194,9 +194,11 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-haskell)
 
+(require 'init-ess)
+
 (require 'init-latex)
 
-(require 'init-ess)
+(require 'init-buildsystem)
 
 ;; Web Development
 (require 'init-webdev)

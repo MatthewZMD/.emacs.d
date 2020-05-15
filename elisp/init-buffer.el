@@ -1,22 +1,22 @@
-;;; init-java.el --- -*- lexical-binding: t -*-
+;;; init-buffer.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-java.el
-;; Description: Initialize lsp-java java-one-click-run
+;; Filename: init-buffer.el
+;; Description: Initialize ibuffer and ibuffer-vc
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Thu Jul  4 21:26:24 2019 (-0400)
+;; Created: Thu Feb  6 16:25:12 2020 (-0500)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Feb 19 16:09:18 2020 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated:
+;;           By:
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d lsp-java java-one-click-run
+;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes lsp-java and java-one-click-run
+;; This file initializes ibuffer and ibuffer-vc
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,20 +37,29 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
-
-;; LSPJavaPac
-(use-package lsp-java
-  :after lsp-mode
-  :if *mvn*
+;; IBufferPac
+(use-package ibuffer
+  :ensure nil
+  :bind ("C-x C-b" . ibuffer)
   :init
-  (use-package request :defer t)
+  (use-package ibuffer-vc
+    :commands (ibuffer-vc-set-filter-groups-by-vc-root)
+    :custom
+    (ibuffer-vc-skip-if-remote 'nil))
   :custom
-  (lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/"))
-  (lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/")))
-;; -LSPJavaPac
+  (ibuffer-formats
+   '((mark modified read-only locked " "
+           (name 35 35 :left :elide)
+           " "
+           (size 9 -1 :right)
+           " "
+           (mode 16 16 :left :elide)
+           " " filename-and-process)
+     (mark " "
+           (name 16 -1)
+           " " filename))))
+;; -IBufferPac
 
-(provide 'init-java)
+(provide 'init-buffer)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-java.el ends here
+;;; init-buffer.el ends here

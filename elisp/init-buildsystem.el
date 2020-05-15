@@ -1,22 +1,22 @@
-;;; init-java.el --- -*- lexical-binding: t -*-
+;;; init-buildsystem.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-java.el
-;; Description: Initialize lsp-java java-one-click-run
+;; Filename: init-buildsystem.el
+;; Description: Initialize Dockerfile, Jenkinsfile modes
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Thu Jul  4 21:26:24 2019 (-0400)
+;; Created: Thu Mar 12 16:59:51 2020 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Feb 19 16:09:18 2020 (-0500)
+;; Last-Updated: Thu Mar 12 17:04:16 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d lsp-java java-one-click-run
+;; Keywords: M-EMACS .emacs.d docker dockerfile jenkinsfile
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes lsp-java and java-one-click-run
+;; This initializes docker dockerfile-mode jenkinsfile-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,20 +37,19 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
+;; DockerPac
+(use-package docker)
+;; -DockerPac
 
-;; LSPJavaPac
-(use-package lsp-java
-  :after lsp-mode
-  :if *mvn*
-  :init
-  (use-package request :defer t)
-  :custom
-  (lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/"))
-  (lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/")))
-;; -LSPJavaPac
 
-(provide 'init-java)
+;; DockerfilePac
+(use-package dockerfile-mode :defer t)
+;; -DockerfilePac
+
+;; GroovyPac
+(use-package groovy-mode :defer t)
+;; -GroovyPac
+
+(provide 'init-buildsystem)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-java.el ends here
+;;; init-buildsystem.el ends here

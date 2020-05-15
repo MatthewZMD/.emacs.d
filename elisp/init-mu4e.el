@@ -57,9 +57,8 @@
   (mu4e-maildir (expand-file-name "~/Maildir"))
   (mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a")
   (mu4e-view-prefer-html t)
-  (mu4e-update-interval 60)
+  (mu4e-update-interval 180)
   (mu4e-headers-auto-update t)
-  (mu4e-compose-signature-auto-include nil)
   (mu4e-compose-format-flowed t)
   (mu4e-view-show-images t)
   (mu4e-change-filenames-when-moving t) ; work better for mbsync
@@ -79,14 +78,16 @@
                        (local-set-key (kbd "<tab>") 'shr-next-link)
                        (local-set-key (kbd "<backtab>") 'shr-previous-link)))
    (mu4e-headers-mode . (lambda ()
-	                      (interactive)
-	                      (setq mu4e-headers-fields
-	                            `((:human-date . 25) ;; alternatively, use :date
-		                          (:flags . 6)
-		                          (:from . 22)
-		                          (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
-		                          (:size . 7))))))
+                          (interactive)
+                          (setq mu4e-headers-fields
+                                `((:human-date . 25) ;; alternatively, use :date
+                                  (:flags . 6)
+                                  (:from . 22)
+                                  (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
+                                  (:size . 7))))))
   :config
+  (defalias 'mu4e-add-attachment 'mail-add-attachment
+    "I prefer the add-attachment function to begin wih mu4e so I can find it easily.")
   (setq mail-user-agent (mu4e-user-agent))
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
@@ -98,32 +99,31 @@
           :leave-func (lambda () (mu4e-message "Leaving context gmail"))
           :match-func
           (lambda (msg)
-		    (when msg
-		      (mu4e-message-contact-field-matches
-		       msg '(:from :to :cc :bcc) user-mail-address))) ; Set to your email address
-          :vars '((mu4e-refile-folder "/gmail/Archive")
-	              (mu4e-sent-folder . "/gmail/[email].Sent Mail")
-	              (mu4e-drafts-folder . "/gmail/[email].Drafts")
-	              (mu4e-trash-folder . "/gmail/[email].Trash")
-                  (mu4e-sent-messages-behavior . trash) ; Prerequisite: set to trash in GMAIL Only.
-	              (mu4e-compose-signature . user-full-name)
-	              (mu4e-compose-format-flowed . t)
-	              (smtpmail-queue-dir . "~/Maildir/gmail/queue/cur")
-	              (message-send-mail-function . smtpmail-send-it)
-	              (smtpmail-smtp-user . "matthewzmd") ; Set to your username
-	              (smtpmail-starttls-credentials . (("smtp.gmail.com" 587 nil nil)))
-	              (smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))
-	              (smtpmail-default-smtp-server . "smtp.gmail.com")
-	              (smtpmail-smtp-server . "smtp.gmail.com")
-	              (smtpmail-smtp-service . 587)
-	              (smtpmail-debug-info . t)
-	              (smtpmail-debug-verbose . t)
-	              (mu4e-maildir-shortcuts . ( ("/gmail/INBOX"            . ?i)
-					                          ("/gmail/[email].Sent Mail" . ?s)
-					                          ("/gmail/[email].Trash"       . ?t)
-					                          ("/gmail/[email].All Mail"  . ?a)
-					                          ("/gmail/[email].Starred"   . ?r)
-					                          ("/gmail/[email].Drafts"    . ?d)))))))
+            (when msg
+              (string-match "gmail" (mu4e-message-field msg :maildir))))
+          :vars '((mu4e-sent-folder . "/gmail/[email].Sent Mail")
+                  (mu4e-drafts-folder . "/gmail/[email].Drafts")
+                  (mu4e-trash-folder . "/gmail/[email].Trash")
+                  (mu4e-sent-messages-behavior . sent)
+                  (mu4e-compose-signature . user-full-name)
+                  (user-mail-address . user-mail-address) ; Prerequisite: Set this to your email
+                  (mu4e-compose-format-flowed . t)
+                  (smtpmail-queue-dir . "~/Maildir/gmail/queue/cur")
+                  (message-send-mail-function . smtpmail-send-it)
+                  (smtpmail-smtp-user . "matthewzmd") ; Set to your username
+                  (smtpmail-starttls-credentials . (("smtp.gmail.com" 587 nil nil)))
+                  (smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))
+                  (smtpmail-default-smtp-server . "smtp.gmail.com")
+                  (smtpmail-smtp-server . "smtp.gmail.com")
+                  (smtpmail-smtp-service . 587)
+                  (smtpmail-debug-info . t)
+                  (smtpmail-debug-verbose . t)
+                  (mu4e-maildir-shortcuts . ( ("/gmail/INBOX"            . ?i)
+                                              ("/gmail/[email].Sent Mail" . ?s)
+                                              ("/gmail/[email].Trash"       . ?t)
+                                              ("/gmail/[email].All Mail"  . ?a)
+                                              ("/gmail/[email].Starred"   . ?r)
+                                              ("/gmail/[email].Drafts"    . ?d)))))))
   (defun mu4e-action-find-in-mailing-list (msg)
     "Find message in mailing-list archives"
     (interactive)

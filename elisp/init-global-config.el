@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jan 23 11:24:05 2020 (-0500)
+;; Last-Updated: Thu Feb  6 16:26:17 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -51,8 +51,6 @@
 (global-set-key (kbd "M-z") nil)
 (global-set-key (kbd "C-x C-z") nil)
 (global-set-key (kbd "M-/") nil)
-;; Use iBuffer instead of Buffer List
-(global-set-key (kbd "C-x C-b") #'ibuffer)
 ;; Truncate lines
 (global-set-key (kbd "C-x C-l") #'toggle-truncate-lines)
 ;; Adjust font size like web browsers
@@ -63,6 +61,7 @@
 (global-set-key (kbd "M-n") #'forward-paragraph)
 (global-set-key (kbd "M-p") #'backward-paragraph)
 ;; -DefBindings
+
 ;; UTF8Coding
 (unless *sys/win32*
   (set-selection-coding-system 'utf-8)
@@ -172,25 +171,6 @@ The original function deletes trailing whitespace of the current line."
 (add-to-list 'auto-mode-alist '("\\.out\\'" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.args\\'" . text-mode))
 ;; -SmallConfigs
-
-;; Registers
-(if (string= (system-name) "DESKTOP-24FKRDK")
-    (progn
-      (set-register ?i '(file . "C:/Users/User/AppData/Roaming/.emacs.d/emacs-init/emacs-init.el"))
-      (set-register ?t '(file . "C:/Users/User/Documents/Tobyx"))
-      (set-register ?d '(file . "C:/Users/User/Drive"))
-      (set-register ?4 '(file . "C:/Users/User/Drive/CS341"))
-      (set-register ?c '(file . "C:/Users/User/Documents"))
-      (set-register ?o '(file . "C:/Users/User/Downloads"))
-      (set-register ?j '(file . "C:/Users/User/Drive/books/JojoPart7"))
-      (set-register ?m '(file . "C:/MinGW/bin")))
-  )
-
-(if (string= (system-name) "ubuntu1804-002")
-    (progn
-      (set-register ?i '(file .  "~/.emacs.d/emacs-init/emacs-init.el"))
-      (set-register ?b '(file .  "~/cs350-os161/root/"))))
-;; -Registers
 
 (provide 'init-global-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

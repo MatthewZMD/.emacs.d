@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Jan 23 11:24:49 2020 (-0500)
+;; Last-Updated: Tue Mar 10 13:48:48 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -43,14 +43,10 @@
 
 ;; IvyPac
 (use-package ivy
-  :bind ("M-s M-s" . swiper-isearch)
   :diminish
   :init
   (use-package amx :defer t)
-  (use-package counsel
-    :diminish
-    :bind ("M-s M-k" . counsel-git-grep)
-    :config (counsel-mode 1))
+  (use-package counsel :diminish :config (counsel-mode 1))
   (use-package swiper :defer t)
   (ivy-mode 1)
   :bind
@@ -61,9 +57,8 @@
    (:map ivy-minibuffer-map
          ("C-r" . ivy-previous-line-or-history)
          ("M-RET" . ivy-immediate-done))
-   ;; (:map counsel-find-file-map
-   ;;       ("C-~" . counsel-goto-local-home))
-   )
+   (:map counsel-find-file-map
+         ("C-~" . counsel-goto-local-home)))
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-height 10)
@@ -85,6 +80,12 @@
   :bind ("C-M-s" . color-rg-search-input))
 ;; -ColorRGPac
 
+;; FFIPPac
+(use-package find-file-in-project
+  :if *find*
+  :bind ("C-z o" . ffip))
+;; -FFIPPac
+
 ;; SnailsPac
 (use-package snails
   :load-path (lambda () (expand-file-name "site-elisp/snails/" user-emacs-directory))
@@ -93,10 +94,9 @@
   (snails-content-buffer-face ((t (:background "#111" :height 110))))
   (snails-input-buffer-face ((t (:background "#222" :foreground "gold" :height 110))))
   (snails-header-line-face ((t (:inherit font-lock-function-name-face :underline t :height 1.1))))
+  :init
+  (use-package exec-path-from-shell :if (featurep 'cocoa) :defer t)
   :config
-  (use-package exec-path-from-shell
-    :if (featurep 'cocoa) :defer t)
-
   ;; Functions for specific backends
   (defun snails-current-project ()
     (interactive)
@@ -106,14 +106,9 @@
     (snails '(snails-backend-buffer snails-backend-recentf)))
   (defun snails-everywhere ()
     (interactive)
-    (snails '(snails-backend-everything snails-backend-mdfind)))
-  :bind
-  (("M-s s" . snails)
-   ("M-s g" . snails-current-project)
-   ("M-s b" . snails-active-recent-buffers)
-   ("M-s e" . snails-everywhere)))
+    (snails '(snails-backend-everything snails-backend-mdfind))))
 ;; -SnailsPac
 
 (provide 'init-search)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ag.el ends here
+;;; init-search.el ends here
