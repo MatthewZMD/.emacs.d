@@ -1,22 +1,22 @@
-;;; init-leetcode.el --- -*- lexical-binding: t -*-
+;;; init-buildsystem.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-leetcode.el
-;; Description: Initialize LeetCode Client
+;; Filename: init-buildsystem.el
+;; Description: Initialize Dockerfile, Jenkinsfile modes
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Thu Apr 11 22:28:41 2019 (-0400)
+;; Created: Thu Mar 12 16:59:51 2020 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Nov 25 20:16:44 2019 (-0500)
-;;           By: Bilaal Hussain
+;; Last-Updated: Thu Mar 12 17:04:16 2020 (-0400)
+;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d leetcode
+;; Keywords: M-EMACS .emacs.d docker dockerfile jenkinsfile
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes a LeetCode client
+;; This initializes docker dockerfile-mode jenkinsfile-mode
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,21 +37,19 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
+;; DockerPac
+(use-package docker)
+;; -DockerPac
 
-;; LeetCodePac
-(use-package leetcode
-  :load-path (lambda () (expand-file-name "site-elisp/leetcode.el" user-emacs-directory))
-  :commands (leetcode)
-  :init
-  (use-package graphql :defer t)
-  (use-package aio :defer t)
-  :custom
-  (url-debug t)
-  (leetcode-prefer-language "cpp"))
-;; -Leetcodepac
 
-(provide 'init-leetcode)
+;; DockerfilePac
+(use-package dockerfile-mode :defer t)
+;; -DockerfilePac
+
+;; GroovyPac
+(use-package groovy-mode :defer t)
+;; -GroovyPac
+
+(provide 'init-buildsystem)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-leetcode.el ends here
+;;; init-buildsystem.el ends here

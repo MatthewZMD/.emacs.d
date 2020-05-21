@@ -1,12 +1,12 @@
 ;;; init-fonts.el --- -*- lexical-binding: t -*-
 ;;
 ;; Filename: init-fonts.el
-;; Description: Initialize Fonts
+;; Description: Initialize Fonts and Icons
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:32:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:05:49 2019 (-0400)
+;; Last-Updated: Tue Feb  4 19:34:55 2020 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d fonts
@@ -16,7 +16,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes fonts
+;; This initializes fonts and icons
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -67,6 +67,10 @@
 (when *sys/gui*
   (change-font))
 ;; -FontFun
+
+;; ATIPac
+(use-package all-the-icons :if *sys/gui*)
+;; -ATIPac
 
 (provide 'init-fonts)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

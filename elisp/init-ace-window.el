@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Apr 23 10:00:42 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:02:47 2019 (-0400)
+;; Last-Updated: Sun Nov 24 18:56:33 2019 (-0500)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ace-window
@@ -39,7 +39,9 @@
 
 ;; AceWindowPac
 (use-package ace-window
-  :bind ("C-x C-o" . ace-window))
+  :bind
+  (("C-x o" . ace-window)
+  ("C-x C-o" . next-multiframe-window)))
 ;; -AceWindowPac
 
 (provide 'init-ace-window)

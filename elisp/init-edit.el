@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 28 13:25:24 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 11:50:24 2019 (-0500)
+;; Last-Updated: Thu May 14 14:27:10 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d iedit
@@ -57,6 +57,18 @@
          ("M-B" . awesome-pair-jump-left)))
   :hook (prog-mode . awesome-pair-mode))
 ;; -AwesomePairPac
+
+;; ConfModePac
+(use-package conf-mode
+  :ensure nil
+  :bind
+  (:map conf-mode-map
+        (("M-D" . awesome-pair-kill)
+         ("SPC" . awesome-pair-space)
+         ("=" . awesome-pair-equal)
+         ("M-F" . awesome-pair-jump-right)
+         ("M-B" . awesome-pair-jump-left))))
+;; -ConfModePac
 
 ;; DeleteBlockPac
 (use-package delete-block

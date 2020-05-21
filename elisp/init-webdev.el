@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:03:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 12:03:28 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Fri May 15 12:50:39 2020 (-0400)
+;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d web-mode js2-mode typescript-mode emmet instant-rename-tag json-mode
 ;; Compatibility: emacs-version >= 26.1
@@ -44,7 +44,7 @@
   (font-lock-comment-face ((t (:foreground "#828282"))))
   :mode
   ("\\.phtml\\'" "\\.tpl\\.php\\'" "\\.[agj]sp\\'" "\\.as[cp]x\\'"
-   "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'"))
+   "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'" "\\.[jt]sx?\\'"))
 ;; -WebModePac
 
 ;; Js2Pac

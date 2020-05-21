@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Oct  8 00:20:32 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Thu May 14 21:44:46 2020 (-0400)
+;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here
 ;; Compatibility: emacs-version >= 26.1
@@ -51,7 +51,7 @@
 
 ;; ShellHerePac
 (use-package shell-here
-  :bind ("M-~" . shell-here)
+  :bind ("M-j" . shell-here)
   :config
   (when *sys/linux*
     (setq explicit-shell-file-name "/bin/bash")))
@@ -62,10 +62,30 @@
   :load-path (lambda () (expand-file-name "site-elisp/multi-term" user-emacs-directory))
   :commands (multi-term)
   :bind
-  (("M-$" . multi-term)
-   (:map dired-mode-map ("M-$" . multi-term)))
+  (("M-*" . multi-term)
+   (:map dired-mode-map ("M-*" . multi-term)))
   :custom
-  (multi-term-program (executable-find "bash")))
+  (multi-term-program (executable-find "bash"))
+  (term-bind-key-alist
+   '(("C-c C-c" . term-interrupt-subjob)
+     ("C-c C-e" . term-send-esc)
+     ("C-p" . previous-line)
+     ("C-n" . next-line)
+     ("C-m" . term-send-return)
+     ("C-y" . term-paste)
+     ("M-f" . term-send-forward-word)
+     ("M-b" . term-send-backward-word)
+     ("M-o" . term-send-backspace)
+     ("M-p" . term-send-up)
+     ("M-n" . term-send-down)
+     ("M-M" . term-send-forward-kill-word)
+     ("M-N" . term-send-backward-kill-word)
+     ("<C-backspace>" . term-send-backward-kill-word)
+     ("<M-backspace>" . term-send-backward-kill-word)
+     ("M-r" . term-send-reverse-search-history)
+     ("M-d" . term-send-delete-word)
+     ("M-," . term-send-raw)
+     ("M-." . comint-dynamic-complete))))
 ;; -MultiTermPac
 
 ;; TermKeysPac

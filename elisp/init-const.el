@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Mar 18 14:20:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Dec  9 20:49:39 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Thu May 14 21:47:40 2020 (-0400)
+;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d constants
 ;; Compatibility: emacs-version >= 26.1
@@ -38,8 +38,8 @@
 ;;; Code:
 
 ;; UserInfo
-(setq user-full-name "Mingde (Matthew) Zeng")
-(setq user-mail-address "matthewzmd@gmail.com")
+(setq user-full-name "Bilaal Hussain")
+(setq user-mail-address "bilaal.hussain1999@gmail.com")
 ;; -UserInfo
 
 ;; Consts
@@ -67,13 +67,21 @@
   (executable-find "rg")
   "Do we have ripgrep?")
 
-(defconst *python*
-  (executable-find "python")
-  "Do we have python?")
+(defconst *find*
+  (executable-find "find")
+  "Do we have GNU find?")
 
-(defconst *python3*
-  (executable-find "python3")
+(defconst *python*
+  (or (executable-find "python3")
+      (and (executable-find "python")
+           (> (length (shell-command-to-string "python --version | grep 'Python 3'")) 0)))
   "Do we have python3?")
+
+(defconst *pip*
+  (or (executable-find "pip3")
+      (and (executable-find "pip")
+           (> (length (shell-command-to-string "pip --version | grep 'python 3'")) 0)))
+  "Do we have pip3?")
 
 (defconst *tr*
   (executable-find "tr")
@@ -101,8 +109,7 @@
   "Do we have pdflatex?")
 
 (defconst *eaf-env*
-  (and *sys/linux* *sys/gui* *python3*
-       (executable-find "pip")
+  (and *sys/linux* *sys/gui* *python* *pip*
        (not (equal (shell-command-to-string "pip freeze | grep '^PyQt\\|PyQtWebEngine'") "")))
   "Check basic requirements for EAF to run.")
 ;; -Consts

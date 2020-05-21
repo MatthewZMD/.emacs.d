@@ -1,22 +1,22 @@
-;;; init-leetcode.el --- -*- lexical-binding: t -*-
+;;; init-buffer.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-leetcode.el
-;; Description: Initialize LeetCode Client
+;; Filename: init-buffer.el
+;; Description: Initialize ibuffer and ibuffer-vc
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Thu Apr 11 22:28:41 2019 (-0400)
+;; Created: Thu Feb  6 16:25:12 2020 (-0500)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Nov 25 20:16:44 2019 (-0500)
-;;           By: Bilaal Hussain
+;; Last-Updated:
+;;           By:
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d leetcode
+;; Keywords: M-EMACS .emacs.d
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes a LeetCode client
+;; This file initializes ibuffer and ibuffer-vc
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,21 +37,29 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
-
-;; LeetCodePac
-(use-package leetcode
-  :load-path (lambda () (expand-file-name "site-elisp/leetcode.el" user-emacs-directory))
-  :commands (leetcode)
+;; IBufferPac
+(use-package ibuffer
+  :ensure nil
+  :bind ("C-x C-b" . ibuffer)
   :init
-  (use-package graphql :defer t)
-  (use-package aio :defer t)
+  (use-package ibuffer-vc
+    :commands (ibuffer-vc-set-filter-groups-by-vc-root)
+    :custom
+    (ibuffer-vc-skip-if-remote 'nil))
   :custom
-  (url-debug t)
-  (leetcode-prefer-language "cpp"))
-;; -Leetcodepac
+  (ibuffer-formats
+   '((mark modified read-only locked " "
+           (name 35 35 :left :elide)
+           " "
+           (size 9 -1 :right)
+           " "
+           (mode 16 16 :left :elide)
+           " " filename-and-process)
+     (mark " "
+           (name 16 -1)
+           " " filename))))
+;; -IBufferPac
 
-(provide 'init-leetcode)
+(provide 'init-buffer)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-leetcode.el ends here
+;;; init-buffer.el ends here
