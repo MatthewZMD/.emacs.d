@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Mar 10 13:48:48 2020 (-0400)
+;; Last-Updated: Fri Jun 12 10:34:15 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -83,7 +83,8 @@
 ;; FFIPPac
 (use-package find-file-in-project
   :if *find*
-  :bind ("C-z o" . ffip))
+  :bind (("C-z o" . ffap)
+         ("C-z p" . ffip)))
 ;; -FFIPPac
 
 ;; SnailsPac

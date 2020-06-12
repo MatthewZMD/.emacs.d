@@ -296,10 +296,10 @@
    [[https://github.com/technomancy/find-file-in-project][Find File In Project]], quick access to project files in Emacs.
 
    *Prerequisite*: Ensure =GNU Find= is in =PATH=. Install [[https://github.com/bmatzelle/gow][Gow]] or Cygwin or MYSYS2 on Windows.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "FFIPPac" :range-end "-FFIPPac" :lines "84-87"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "FFIPPac" :range-end "-FFIPPac" :lines "84-88"
 ** Snails
    [[https://github.com/manateelazycat/snails][Snails]], a fuzzy search framework. It utilizes [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] if you are using Mac.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "90-110"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "91-111"
 ** Files Directories
 *** Dired
     Dired, the directory editor.
@@ -308,7 +308,7 @@
     [[https://gitlab.com/ambrevar/emacs-disk-usage][Disk Usage]], a file system analyzer that offers a tabulated view of file listings sorted by size.
     #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "DiskUsage" :range-end "-DiskUsage" :lines "76-78"
 *** Save All Buffers
-    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "SaveAllBuffers" :range-end "-SaveAllBuffers" :lines "92-98"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dired.el" src emacs-lisp :range-begin "SaveAllBuffers" :range-end "-SaveAllBuffers" :lines "81-87"
 ** Winner
    Winner, a mode to restore previous window layouts.
    #+INCLUDE: "~/.emacs.d/elisp/init-winner.el" src emacs-lisp :range-begin "WinnerPac" :range-end "-WinnerPac" :lines "41-57"
@@ -430,7 +430,7 @@
    *Prerequisite*: Windows OS: Install [[https://github.com/bmatzelle/gow/releases][Gow]] and ensure it's in =PATH=.
 
    [[https://github.com/bmatzelle/gow][Gow]] is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
-   #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "44-55"
+   #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "44-54"
 ** Treemacs
    [[https://github.com/Alexander-Miller/treemacs][Treemacs]], a tree layout file explorer for Emacs.
 *** Treemacs
