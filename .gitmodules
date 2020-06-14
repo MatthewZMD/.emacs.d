@@ -34,3 +34,6 @@
 [submodule "site-elisp/aweshell"]
 	path = site-elisp/aweshell
 	url = https://github.com/MatthewZMD/aweshell.git
+[submodule "site-elisp/org-latex-instant-preview"]
+	path = site-elisp/org-latex-instant-preview
+	url = https://github.com/yangsheng6810/org-latex-instant-preview.git

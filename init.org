@@ -581,6 +581,16 @@
 *** Org Edit LaTeX
     [[https://github.com/et2010/org-edit-latex][Org Edit LaTeX]], an extension to edit LaTeX fragment/environment in an edit buffer, even to complete and preview LaTeX in the edit buffer.
     #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexPac" :range-end "-OrgLatexPac" :lines "72-75"
+*** Org Latex Instant Preview
+    [[https://github.com/yangsheng6810/org-latex-instant-preview][Org Latex Instant Preview]], a package that provides instant preview of LaTeX snippets via MathJax outputed SVG.
+
+    *Prerequisite*: Please install =MathJax-node-cli= and set =org-latex-instant-preview-tex2svg-bin= to the location of the executable =tex2svg=.
+    #+BEGIN_SRC bash
+      npm i -g mathjax-node-cli
+      which tex2svg # mine is in /usr/bin/tex2svg
+    #+END_SRC
+    Finally, invoke with =M-x org-latex-instant-preview-start= when needed.
+    #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexInstantPreviewPac" :range-end "-OrgLatexInstantPreviewPac" :lines "78-83"
 ** Buildsystem
 *** Docker
     [[https://github.com/Silex/docker.el][Docker]], a mode to manage docker from Emacs.
@@ -646,7 +656,7 @@
    #+BEGIN_SRC bash
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "44-71"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "44-72"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
