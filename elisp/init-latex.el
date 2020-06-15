@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Wed Sep  4 16:35:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Jun 14 19:47:44 2020 (-0400)
+;; Last-Updated: Sun Jun 14 22:10:23 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d auctex
@@ -67,12 +67,6 @@
   (when (version< emacs-version "26")
     (add-hook LaTeX-mode-hook #'display-line-numbers-mode)))
 ;; -AUCTeXPac
-
-;; OrgLatexPac
-(use-package org-edit-latex
-  :defer t
-  :after org)
-;; -OrgLatexPac
 
 ;; OrgLatexInstantPreviewPac
 (use-package org-latex-instant-preview

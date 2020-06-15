@@ -578,9 +578,6 @@
 *** AUCTeX
     [[https://www.gnu.org/software/auctex/][AUCTeX]], an extensible package for writing and formatting TeX files. It supports many different TeX macro packages, including AMS-TEX, LaTeX, Texinfo, ConTEXt, and docTEX (dtx files).
     #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "AUCTeXPac" :range-end "-AUCTeXPac" :lines "46-69"
-*** Org Edit LaTeX
-    [[https://github.com/et2010/org-edit-latex][Org Edit LaTeX]], an extension to edit LaTeX fragment/environment in an edit buffer, even to complete and preview LaTeX in the edit buffer.
-    #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexPac" :range-end "-OrgLatexPac" :lines "72-75"
 *** Org Latex Instant Preview
     [[https://github.com/yangsheng6810/org-latex-instant-preview][Org Latex Instant Preview]], a package that provides instant preview of LaTeX snippets via MathJax outputed SVG.
 
@@ -590,7 +587,7 @@
       which tex2svg # mine is in /usr/bin/tex2svg
     #+END_SRC
     Finally, invoke with =M-x org-latex-instant-preview-start= when needed.
-    #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexInstantPreviewPac" :range-end "-OrgLatexInstantPreviewPac" :lines "78-83"
+    #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexInstantPreviewPac" :range-end "-OrgLatexInstantPreviewPac" :lines "72-77"
 ** Buildsystem
 *** Docker
     [[https://github.com/Silex/docker.el][Docker]], a mode to manage docker from Emacs.
