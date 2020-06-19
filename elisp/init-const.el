@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Mar 18 14:20:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jan 27 01:03:10 2020 (-0500)
+;; Last-Updated: Fri Jun 19 16:36:11 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d constants
@@ -104,9 +104,9 @@
   (executable-find "git")
   "Do we have git?")
 
-(defconst *pdflatex*
-  (executable-find "pdflatex")
-  "Do we have pdflatex?")
+(defconst *fcitx5*
+  (executable-find "fcitx5")
+  "Do we have GNU fcitx5?")
 
 (defconst *eaf-env*
   (and *sys/linux* *sys/gui* *python* *pip*

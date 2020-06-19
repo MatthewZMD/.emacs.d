@@ -1,12 +1,12 @@
-;;; init-pyim.el --- -*- lexical-binding: t -*-
+;;; init-input-method.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-pyim.el
+;; Filename: init-input-method.el
 ;; Description: Initialize Pyim
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Jun 20 00:36:05 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Dec 26 21:54:20 2019 (-0500)
+;; Last-Updated: Fri Jun 19 16:41:58 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -37,6 +37,9 @@
 ;;
 ;;; Code:
 
+(eval-when-compile
+  (require 'init-const))
+
 ;; PyimPac
 (use-package pyim
   :init
@@ -64,6 +67,34 @@
   :config (pyim-basedict-enable))
 ;; -PyimBaseDictPac
 
-(provide 'init-pyim)
+;; SmartInputSourcePac
+(use-package smart-input-source
+  :when *fcitx5*
+  :custom
+  (smart-input-source-external-ism "fcitx5-remote")
+  (smart-input-source-english "1")
+  (smart-input-source-other "2")
+  (smart-input-source-do-get
+   (lambda()
+     (string-trim
+      (shell-command-to-string
+       smart-input-source-external-ism))))
+  (smart-input-source-do-set
+   (lambda(source)
+     (pcase source
+       ("1" (string-trim (shell-command-to-string
+                          (concat smart-input-source-external-ism " -c"))))
+       ("2" (string-trim (shell-command-to-string
+                          (concat smart-input-source-external-ism " -o")))))))
+  :config
+  (smart-input-source-global-auto-english-mode t)
+  (smart-input-source-global-preserve-mode t)
+  (add-hook 'text-mode-hook #'smart-input-source-follow-context-mode)
+  (add-hook 'prog-mode-hook #'smart-input-source-follow-context-mode)
+  (add-hook 'text-mode-hook #'smart-input-source-inline-english-mode)
+  (add-hook 'prog-mode-hook #'smart-input-source-inline-english-mode))
+;; -SmartInputSourcePac
+
+(provide 'init-input-method)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-pyim.el ends here
+;;; init-input-method.el ends here
