@@ -40,6 +40,15 @@
 (eval-when-compile
   (require 'init-const))
 
+;; -ExecPath Use shell path on OS X
+(use-package exec-path-from-shell
+  :ensure
+  :if (memq window-system '(mac ns x))
+  :config
+  (exec-path-from-shell-initialize))
+;; - ExecPath
+
+
 ;; SudoEditPac
 (use-package sudo-edit
   :commands (sudo-edit))
