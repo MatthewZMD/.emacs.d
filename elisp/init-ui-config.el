@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 16:12:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Dec 25 03:05:11 2019 (-0500)
+;; Last-Updated: Tue Jun 23 20:39:50 2020 (+0100)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d ui
@@ -82,8 +82,8 @@
 ;; -DisLineNum
 
 ;; DisTimeBat
-(display-time-mode 1)
-(display-battery-mode 1)
+(display-time-mode 0)
+(display-battery-mode 0)
 ;; -DisTimeBat
 
 (provide 'init-ui-config)
