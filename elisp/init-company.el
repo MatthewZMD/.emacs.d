@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:02:00 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Mar 19 21:01:27 2020 (+0000)
+;; Last-Updated: Tue Jun 23 19:09:44 2020 (+0100)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d company company-tabnine
@@ -87,43 +87,43 @@ If failed try to complete the common part with `company-complete-common'"
 ;; -CompanyLSPPac
 
 ;; CompanyTabNinePac
-(use-package company-tabnine
-  :defer 1
-  :custom
-  (company-tabnine-max-num-results 9)
-  :bind
-  (("M-q" . company-other-backend)
-   ("C-z t" . company-tabnine))
-  :hook
-  (lsp-after-open . (lambda ()
-                      (setq company-tabnine-max-num-results 3)
-                      (add-to-list 'company-transformers 'company//sort-by-tabnine t)
-                      (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))))
-  (kill-emacs . company-tabnine-kill-process)
-  :config
-  ;; Enable TabNine on default
-  (add-to-list 'company-backends #'company-tabnine)
+;; (use-package company-tabnine
+;;   :defer 1
+;;   :custom
+;;   (company-tabnine-max-num-results 9)
+;;   :bind
+;;   (("M-q" . company-other-backend)
+;;    ("C-z t" . company-tabnine))
+;;   :hook
+;;   (lsp-after-open . (lambda ()
+;;                       (setq company-tabnine-max-num-results 3)
+;;                       (add-to-list 'company-transformers 'company//sort-by-tabnine t)
+;;                       (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))))
+;;   (kill-emacs . company-tabnine-kill-process)
+;;   :config
+;;   ;; Enable TabNine on default
+;;   (add-to-list 'company-backends #'company-tabnine)
 
-  ;; Integrate company-tabnine with lsp-mode
-  (defun company//sort-by-tabnine (candidates)
-    (if (or (functionp company-backend)
-            (not (and (listp company-backend) (memq 'company-tabnine company-backend))))
-        candidates
-      (let ((candidates-table (make-hash-table :test #'equal))
-            candidates-lsp
-            candidates-tabnine)
-        (dolist (candidate candidates)
-          (if (eq (get-text-property 0 'company-backend candidate)
-                  'company-tabnine)
-              (unless (gethash candidate candidates-table)
-                (push candidate candidates-tabnine))
-            (push candidate candidates-lsp)
-            (puthash candidate t candidates-table)))
-        (setq candidates-lsp (nreverse candidates-lsp))
-        (setq candidates-tabnine (nreverse candidates-tabnine))
-        (nconc (seq-take candidates-tabnine 3)
-               (seq-take candidates-lsp 6))))))
-;; -CompanyTabNinePac
+;;   ;; Integrate company-tabnine with lsp-mode
+;;   (defun company//sort-by-tabnine (candidates)
+;;     (if (or (functionp company-backend)
+;;             (not (and (listp company-backend) (memq 'company-tabnine company-backend))))
+;;         candidates
+;;       (let ((candidates-table (make-hash-table :test #'equal))
+;;             candidates-lsp
+;;             candidates-tabnine)
+;;         (dolist (candidate candidates)
+;;           (if (eq (get-text-property 0 'company-backend candidate)
+;;                   'company-tabnine)
+;;               (unless (gethash candidate candidates-table)
+;;                 (push candidate candidates-tabnine))
+;;             (push candidate candidates-lsp)
+;;             (puthash candidate t candidates-table)))
+;;         (setq candidates-lsp (nreverse candidates-lsp))
+;;         (setq candidates-tabnine (nreverse candidates-tabnine))
+;;         (nconc (seq-take candidates-tabnine 3)
+;;                (seq-take candidates-lsp 6))))))
+;; ;; -CompanyTabNinePac
 
 ;; CompanyBoxPac
 (use-package company-box

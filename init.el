@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Mar 19 22:29:55 2020 (+0000)
+;; Last-Updated: Tue Jun 23 19:25:02 2020 (+0100)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -120,8 +120,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-crux)
 
-(require 'init-avy)
-
 (require 'init-winner)
 
 (require 'init-which-key)
@@ -178,8 +176,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-header)
 
-(require 'init-ein)
-
 (require 'init-lsp)
 
 (require 'init-company)
@@ -194,13 +190,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-python)
 
-(require 'init-haskell)
-
-(require 'init-ess)
-
 (require 'init-latex)
-
-(require 'init-buildsystem)
 
 ;; Web Development
 (require 'init-webdev)
@@ -210,8 +200,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-eaf)
 
-(require 'init-erc)
-
 (require 'init-eww)
 
 (require 'init-tramp)
@@ -219,10 +207,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-pdf)
 
 (require 'init-leetcode)
-
-(require 'init-pyim)
-
-(require 'init-epaint)
 
 (require 'init-games)
 
