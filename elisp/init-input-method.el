@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Jun 20 00:36:05 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Jun 19 16:41:58 2020 (-0400)
+;; Last-Updated: Sun Jun 21 00:52:39 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
@@ -74,6 +74,7 @@
   (smart-input-source-external-ism "fcitx5-remote")
   (smart-input-source-english "1")
   (smart-input-source-other "2")
+  (original-cursor-background nil)
   (smart-input-source-do-get
    (lambda()
      (string-trim
@@ -87,12 +88,20 @@
        ("2" (string-trim (shell-command-to-string
                           (concat smart-input-source-external-ism " -o")))))))
   :config
-  (smart-input-source-global-auto-english-mode t)
-  (smart-input-source-global-preserve-mode t)
-  (add-hook 'text-mode-hook #'smart-input-source-follow-context-mode)
-  (add-hook 'prog-mode-hook #'smart-input-source-follow-context-mode)
-  (add-hook 'text-mode-hook #'smart-input-source-inline-english-mode)
-  (add-hook 'prog-mode-hook #'smart-input-source-inline-english-mode))
+  (add-hook 'smart-input-source-set-english-hook
+            (lambda ()
+              (when original-cursor-background
+                (set-face-background 'cursor original-cursor-background))))
+  (add-hook 'smart-input-source-set-other-hook
+            (lambda ()
+              (unless original-cursor-background
+                (setq original-cursor-background (face-background 'cursor)))
+              (set-face-background 'cursor "orange")))
+  ;; enable the /respect/ mode
+  (smart-input-source-global-respect-mode t)
+  ;; enable the /follow context/ and /inline english/ mode for all buffers
+  (smart-input-source-global-follow-context-mode t)
+  (smart-input-source-global-inline-english-mode t))
 ;; -SmartInputSourcePac
 
 (provide 'init-input-method)
