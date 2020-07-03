@@ -707,11 +707,6 @@
 **** Pyim BaseDict
      [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
      #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "PyimBaseDictPac" :range-end "-PyimBaseDictPac" :lines "65-68"
-*** Smart Input Method
-    [[https://github.com/laishulu/emacs-smart-input-source][Smart Input Source]], a package that switches OS native input source smartly.
-
-    *Prerequisite*: Please refer to the [[https://github.com/laishulu/emacs-smart-input-source/blob/master/README.org][README]] to configure accordingly.
-    #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "SmartInputSourcePac" :range-end "-SmartInputSourcePac" :lines "71-105"
 ** EPaint
    [[https://github.com/chuntaro/epaint][EPaint]], a simple paint tool for emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-epaint.el" src emacs-lisp :range-begin "EPaintPac" :range-end "-EPaintPac" :lines "44-54"

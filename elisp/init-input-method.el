@@ -67,43 +67,6 @@
   :config (pyim-basedict-enable))
 ;; -PyimBaseDictPac
 
-;; SmartInputSourcePac
-(use-package smart-input-source
-  :when *fcitx5*
-  :custom
-  (smart-input-source-external-ism "fcitx5-remote")
-  (smart-input-source-english "1")
-  (smart-input-source-other "2")
-  (original-cursor-background nil)
-  (smart-input-source-do-get
-   (lambda()
-     (string-trim
-      (shell-command-to-string
-       smart-input-source-external-ism))))
-  (smart-input-source-do-set
-   (lambda(source)
-     (pcase source
-       ("1" (string-trim (shell-command-to-string
-                          (concat smart-input-source-external-ism " -c"))))
-       ("2" (string-trim (shell-command-to-string
-                          (concat smart-input-source-external-ism " -o")))))))
-  :config
-  (add-hook 'smart-input-source-set-english-hook
-            (lambda ()
-              (when original-cursor-background
-                (set-face-background 'cursor original-cursor-background))))
-  (add-hook 'smart-input-source-set-other-hook
-            (lambda ()
-              (unless original-cursor-background
-                (setq original-cursor-background (face-background 'cursor)))
-              (set-face-background 'cursor "orange")))
-  ;; enable the /respect/ mode
-  (smart-input-source-global-respect-mode t)
-  ;; enable the /follow context/ and /inline english/ mode for all buffers
-  (smart-input-source-global-follow-context-mode t)
-  (smart-input-source-global-inline-english-mode t))
-;; -SmartInputSourcePac
-
 (provide 'init-input-method)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-input-method.el ends here
