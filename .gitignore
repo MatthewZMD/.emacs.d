@@ -1,4 +1,5 @@
 .cache/
+.erc-logs/
 .python-environments/
 /.dap-breakpoints
 /.emacs.desktop
