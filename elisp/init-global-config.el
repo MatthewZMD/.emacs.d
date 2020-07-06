@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 14:01:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Feb  6 16:26:17 2020 (-0500)
+;; Last-Updated: Thu Jul  2 23:21:33 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d
@@ -134,6 +134,9 @@ The original function deletes trailing whitespace of the current line."
 ;; -History
 
 ;; SmallConfigs
+;; Ask before killing emacs
+(setq confirm-kill-emacs 'y-or-n-p)
+
 ;; Turn Off Cursor Alarms
 (setq ring-bell-function 'ignore)
 
