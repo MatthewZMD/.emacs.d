@@ -47,7 +47,8 @@
   :init
   ;; Prerequisite: Configure this to your IRC nickname
   (defcustom my-irc-nick ""
-    "The nickname used to login into ERC")
+    "The nickname used to login into ERC"
+    :type 'string)
   (use-package erc-hl-nicks :defer t)
   (use-package erc-image :defer t)
   :custom-face
