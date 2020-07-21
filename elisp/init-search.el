@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Mar 10 13:48:48 2020 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Sun May 24 01:08:51 2020 (-0400)
+;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
 ;; Compatibility: emacs-version >= 26.1
@@ -51,7 +51,7 @@
   (ivy-mode 1)
   :bind
   (("C-s" . swiper-isearch)
-   ("C-z s" . counsel-rg)
+   ("M-s M-k" . counsel-rg)
    ("C-z b" . counsel-buffer-or-recentf)
    ("C-z C-b" . counsel-ibuffer)
    (:map ivy-minibuffer-map

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri May 15 13:52:22 2020 (-0400)
+;; Last-Updated: Sun May 24 16:08:03 2020 (-0400)
 ;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
@@ -50,10 +50,19 @@
   (lsp-file-watch-threshold 2000)
   (read-process-output-max (* 1024 1024))
   (lsp-eldoc-hook nil)
+  (lsp-enable-text-document-color t)
+  (lsp-enable-snippet t)
   :bind (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
-  :hook ((java-mode python-mode go-mode
-          js-mode js2-mode typescript-mode web-mode
-          c-mode c++-mode objc-mode) . lsp))
+  :hook ((java-mode
+          python-mode
+          go-mode
+          js-mode
+          js2-mode
+          typescript-mode
+          web-mode
+          c-mode
+          c++-mode
+          objc-mode) . lsp))
 ;; -LSPPac
 
 ;; LSPUI

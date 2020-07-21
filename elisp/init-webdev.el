@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:03:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri May 15 12:50:39 2020 (-0400)
+;; Last-Updated: Mon May 25 19:13:58 2020 (-0400)
 ;;           By: Bilaal Hussain
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d web-mode js2-mode typescript-mode emmet instant-rename-tag json-mode
@@ -75,6 +75,18 @@
 (use-package json-mode
   :mode "\\.json\\'")
 ;; -JsonPac
+
+
+;;
+(use-package add-node-modules-path
+  :hook (web-mode . add-node-modules-path))
+
+;; PrettierPac
+(use-package prettier-js
+  :hook ((js2-mode . prettier-js-mode)
+         (web-mode . prettier-js-mode)))
+;; -PrettierPac
+
 
 (provide 'init-webdev)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
