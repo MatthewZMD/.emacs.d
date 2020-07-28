@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:32:54 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jun 23 19:25:56 2020 (+0100)
+;; Last-Updated: Tue Jul 28 11:09:16 2020 (+0100)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d fonts
@@ -41,8 +41,12 @@
   (require 'init-const))
 
 ;; FontsList
-;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
-(defvar font-list '(("Fira Code" . 12) ("Office Code Pro 12" . 12) ("DejaVu Sans Mono" . 12) ("Hack" . 12))
+(defvar font-list '(("Fira Code" . 14)
+                    ("Source Code Pro for Powerline" . 14)
+                    ("Droid Sans Mono for Powerline" . 12)
+                    ("Inconsolata for Powerline". 12)
+                    ("DejaVu Sans Mono" . 12)
+					("FiraGO" . 12))
   "List of fonts and sizes.  The first one available will be used.")
 ;; -FontsList
 
@@ -61,8 +65,7 @@
             (setq font-name (car chosen) font-size (read-number "Font size: " (cdr chosen))))
         (setq font-name (caar available-fonts) font-size (cdar available-fonts)))
       (setq font-setting (format "%s-%d" font-name font-size))
-      (set-frame-font font-setting nil t)
-      (add-to-list 'default-frame-alist (cons 'font font-setting)))))
+      (set-frame-font font-setting))))
 
 (when *sys/gui*
   (change-font))
