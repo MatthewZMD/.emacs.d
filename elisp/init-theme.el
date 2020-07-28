@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:11:56 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jan  6 14:32:34 2020 (-0500)
+;; Last-Updated: Mon Jul 27 14:06:40 2020 (+0100)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d doom-themes doom-modeline
@@ -42,29 +42,40 @@
   (require 'init-const))
 
 ;; DoomThemes
-(use-package doom-themes
-  :custom-face
-  (cursor ((t (:background "BlanchedAlmond"))))
-  :config
-  ;; flashing mode-line on errors
-  (doom-themes-visual-bell-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config)
-  (load-theme 'doom-one t))
-;; -DoomThemes
+;; (use-package doom-themes
+;;   :custom-face
+;;   (cursor ((t (:background "BlanchedAlmond"))))
+;;   :config
+;;   ;; flashing mode-line on errors
+;;   (doom-themes-visual-bell-config)
+;;   ;; Corrects (and improves) org-mode's native fontification.
+;;   (doom-themes-org-config)
+;;   (load-theme 'doom-one t))
+;; ;; -DoomThemes
 
-;; DoomModeline
-(use-package doom-modeline
-  :custom
-  ;; Don't compact font caches during GC. Windows Laggy Issue
-  (inhibit-compacting-font-caches t)
-  (doom-modeline-minor-modes t)
-  (doom-modeline-icon t)
-  (doom-modeline-major-mode-color-icon t)
-  (doom-modeline-height 15)
+;; ;; DoomModeline
+;; (use-package doom-modeline
+;;   :custom
+;;   ;; Don't compact font caches during GC. Windows Laggy Issue
+;;   (inhibit-compacting-font-caches t)
+;;   (doom-modeline-minor-modes t)
+;;   (doom-modeline-icon t)
+;;   (doom-modeline-major-mode-color-icon t)
+;;   (doom-modeline-height 15)
+;;   :config
+;;   (doom-modeline-mode))
+;; ;; -DoomModeline
+
+(use-package modus-operandi-theme
+  :ensure
+  :init
+  (setq
+  modus-operandi-theme-section-headings t
+  modus-operandi-theme-visible-fringes t
+  modus-operandi-theme-bold-constructs t
+  modus-operandi-theme-3d-modeline t)
   :config
-  (doom-modeline-mode))
-;; -DoomModeline
+  (load-theme 'modus-operandi t))
 
 (provide 'init-theme)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
