@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jun  9 17:58:05 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Tue Sep 17 01:13:45 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init early-init
 ;; Compatibility: emacs-version >= 27

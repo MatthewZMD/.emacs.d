@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 15:15:40 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:32 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d popup-kill-ring
 ;; Compatibility: emacs-version >= 26.1

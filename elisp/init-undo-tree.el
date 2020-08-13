@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 15:28:48 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Wed Jan  1 18:34:37 2020 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d undo-tree
 ;; Compatibility: emacs-version >= 26.1

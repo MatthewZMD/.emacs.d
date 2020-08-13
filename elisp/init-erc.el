@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jul 30 22:15:50 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu Jul  2 22:02:47 2020 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d erc irc
 ;; Compatibility: emacs-version >= 26.1

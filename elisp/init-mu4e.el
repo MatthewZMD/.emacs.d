@@ -5,10 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Dec  2 15:17:14 2019 (-0500)
-;; Version: 2.0.0
-;; Package-Requires: (mu4e)
-;; Last-Updated:
-;;           By:
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d mu mu4e
 ;; Compatibility: emacs-version >= 26.1
