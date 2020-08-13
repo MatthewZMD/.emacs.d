@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Sep 16 15:47:34 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Sep 16 16:17:43 2019 (-0400)
+;; Last-Updated: Wed Aug 12 21:28:45 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d epaint
@@ -37,12 +37,9 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
-
 ;; EPaintPac
 (use-package epaint
-  :if *sys/gui*
+  :if (display-graphic-p)
   :load-path (lambda () (expand-file-name "site-elisp/epaint" user-emacs-directory))
   :commands (epaint)
   :init

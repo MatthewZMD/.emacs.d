@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:01:43 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Fri Jun 12 10:34:15 2020 (-0400)
+;; Last-Updated: Wed Aug 12 21:31:57 2020 (-0400)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d color-rg rg
@@ -38,8 +38,7 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'init-global-config)
-  (require 'init-const))
+  (require 'init-global-config))
 
 ;; IvyPac
 (use-package ivy
@@ -76,13 +75,16 @@
 ;; ColorRGPac
 (use-package color-rg
   :load-path (lambda () (expand-file-name "site-elisp/color-rg" user-emacs-directory))
-  :if *rg*
+  :if (executable-find "rg")
   :bind ("C-M-s" . color-rg-search-input))
 ;; -ColorRGPac
 
 ;; FFIPPac
 (use-package find-file-in-project
-  :if *find*
+  :if (executable-find "find")
+  :init
+  (when (executable-find "fd")
+    (setq ffip-use-rust-fd t))
   :bind (("C-z o" . ffap)
          ("C-z p" . ffip)))
 ;; -FFIPPac
@@ -90,7 +92,7 @@
 ;; SnailsPac
 (use-package snails
   :load-path (lambda () (expand-file-name "site-elisp/snails/" user-emacs-directory))
-  :if *sys/gui*
+  :if (display-graphic-p)
   :custom-face
   (snails-content-buffer-face ((t (:background "#111" :height 110))))
   (snails-input-buffer-face ((t (:background "#222" :foreground "gold" :height 110))))
