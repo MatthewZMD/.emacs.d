@@ -73,6 +73,7 @@
   (erc-log-channels-directory (expand-file-name ".erc-logs" user-emacs-directory))
   :bind
   (("M-z i" . erc-start-or-switch)
+   ("M-m i" . erc-start-or-switch)
    ("C-c C-b" . erc-switch-to-buffer)
    (:map erc-mode-map
          ("M-RET" . newline)))

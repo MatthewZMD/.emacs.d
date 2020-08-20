@@ -51,6 +51,7 @@
   (use-package mu4e-overview :defer t)
   :bind
   (("M-z m" . mu4e)
+   ("M-m m" . mu4e)
    (:map mu4e-view-mode-map
          ("e" . mu4e-view-save-attachment)))
   :custom
