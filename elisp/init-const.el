@@ -69,6 +69,11 @@
   (or (executable-find "clangd")  ;; usually
       (executable-find "/usr/local/opt/llvm/bin/clangd"))  ;; macOS
   "Do we have clangd?")
+
+(defconst eaf-env-p
+  (and *sys/linux* (display-graphic-p) python-p pip-p
+       (not (equal (shell-command-to-string "pip freeze | grep '^PyQt\\|PyQtWebEngine'") "")))
+  "Do we have EAF environment setup?")
 ;; -Consts
 
 (provide 'init-const)
