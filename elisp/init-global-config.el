@@ -138,6 +138,9 @@ The original function deletes trailing whitespace of the current line."
 ;; -History
 
 ;; SmallConfigs
+;; Move the backup fies to user-emacs-directory/.backup
+(setq backup-directory-alist `(("." . ,(expand-file-name ".backup" user-emacs-directory))))
+
 ;; Ask before killing emacs
 (setq confirm-kill-emacs 'y-or-n-p)
 
