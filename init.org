@@ -96,6 +96,7 @@
   - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
   - [[Input Method][Input Method]]
+  - [[Debbugs][Debbugs]]
   - [[EPaint][EPaint]]
   - [[Tetris][Tetris]]
   - [[Speed Type][Speed Type]]
@@ -653,7 +654,7 @@
    #+BEGIN_SRC bash
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-74"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-75"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
@@ -678,7 +679,8 @@
         mkdir -p ~/Maildir/gmail/
         mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -Dmn gmail
         mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a
-        mu index --maildir=~/Maildir/
+        mu init --maildir=~/Maildir/ --my-address=YOUR_EMAIL1 YOUR_EMAIL2
+        mu index
       #+END_SRC
       - If you are getting =Invalid Credentials= error and you are sure the password is correct, check [[https://appuals.com/fix-your-imap-server-wants-to-alert-you-invalid-credentials/][this]] link.
    4. (Optional) If you want to track meetings using =org-mode=, set =gnus-icalendar-org-capture-file= to the meeting's file.
@@ -708,6 +710,9 @@
 **** Pyim BaseDict
      [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
      #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "PyimBaseDictPac" :range-end "-PyimBaseDictPac" :lines "60-63"
+** Debbugs
+   [[https://elpa.gnu.org/packages/debbugs.html][Debbugs]], a package lets you access the GNU Bug Tracker from within Emacs.
+   #+INCLUDE: "~/.emacs.d/elisp/init-debbugs.el" src emacs-lisp :range-begin "DebbugsPac" :range-end "-DebbugsPac" :lines "40-42"
 ** EPaint
    [[https://github.com/chuntaro/epaint][EPaint]], a simple paint tool for emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-epaint.el" src emacs-lisp :range-begin "EPaintPac" :range-end "-EPaintPac" :lines "39-49"
