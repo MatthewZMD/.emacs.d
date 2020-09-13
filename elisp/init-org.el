@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Mar 18 22:00:11 2020 (+0000)
+;; Last-Updated: Sun Sep 13 20:59:28 2020 (+0100)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -47,6 +47,8 @@
   ("C-c c" . org-capture)
   ("C-c b" . org-switch)
   (:map org-mode-map ("C-c C-p" . org-export-as-pdf-and-open))
+  :hook
+  (org-mode . visual-line-mode)
   :custom
   (org-agenda-files '("~/org/inbox.org"
                       "~/org/projects.org"
@@ -68,9 +70,9 @@
   (org-export-backends (quote (ascii html icalendar latex md odt)))
   (org-use-speed-commands t)
   (org-confirm-babel-evaluate 'nil)
+  (org-startup-indented t)
   (org-todo-keywords
    '((sequence "TODO" "WAITING" "|" "DONE")))
-  (org-agenda-window-setup 'other-window)
   :config
   (unless (version< org-version "9.2")
     (require 'org-tempo))

@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 09:10:23 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Jan 27 01:03:56 2020 (-0500)
+;; Last-Updated: Sun Sep 13 19:47:43 2020 (+0100)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d projectile
@@ -42,6 +42,9 @@
 
 ;; ProjPac
 (use-package projectile
+  :init
+  (setq projectile-keymap-prefix (kbd "C-c p")
+        projectile-enable-caching t)
   :bind
   ("C-c p" . projectile-command-map)
   ("C-z p" . projectile-add-known-project)
