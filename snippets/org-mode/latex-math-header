@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: latex-math-header
+# key: lmheader
+# --
+#+LATEX_HEADER: \newtheorem{theorem}{Theorem}[subsection]
+#+LATEX_HEADER: \newtheorem{corollary}{Corollary}[theorem]
+#+LATEX_HEADER: \theoremstyle{remark}
+#+LATEX_HEADER: \newtheorem*{remark}{Remark}
+#+LATEX_HEADER: \theoremstyle{definition}
+#+LATEX_HEADER: \newtheorem{definition}{Definition}[subsection]
+#+LATEX_HEADER: \newtheorem{example}{Example}[subsection]
+$0

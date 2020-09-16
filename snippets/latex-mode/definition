@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: definition
+# key: def
+# --
+\begin{definition}[${1:name}]
+  $0
+\end{definition}

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: ve
+# name: vector-bold
 # key: ve
 # --
 \\mathbf{$1}

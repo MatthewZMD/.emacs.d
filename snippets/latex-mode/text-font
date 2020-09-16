@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: text
-# key: text
+# name: text-font
+# key: txt
 # --
 \\text{$1}

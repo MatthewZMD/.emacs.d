@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: mv
+# name: make-vector
 # key: mv
 # --
 \\begin{bmatrix} $1 \\\\ $0 \\\\ \\end{bmatrix}

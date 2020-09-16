@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: underbrace
+# key: u{
+# --
+\\underbrace{$1}_{$2}

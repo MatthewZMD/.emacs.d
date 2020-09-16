@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: mstyle
-# key: mstyle
+# name: inline-big-math
+# key: imath
 # --
 \\displaystyle

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: feq
+# name: function-eq
 # key: feq
 # --
-\\$1eq
+\\$1eq $0
