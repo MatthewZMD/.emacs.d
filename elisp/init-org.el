@@ -53,6 +53,7 @@
   (org-confirm-babel-evaluate 'nil)
   (org-latex-listings-options '(("breaklines" "true")))
   (org-latex-listings t)
+  (org-deadline-warning-days 7)
   (org-todo-keywords
    '((sequence "TODO" "IN-PROGRESS" "ON-HOLD" "REVIEW" "QUEUE" "|" "DONE" "CANCELED")))
   (org-agenda-window-setup 'other-window)
