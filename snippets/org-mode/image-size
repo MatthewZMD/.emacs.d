@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: image-size
+# key: isize
+# --
+#+ATTR_LATEX: :width ${1:200}px

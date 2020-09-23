@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: theorem
-# key: theorem
+# key: thm
 # --
 \begin{theorem}[${1:name}]
   $0

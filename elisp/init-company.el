@@ -77,12 +77,6 @@ If all failed, try to complete the common part with `company-complete-common'"
             (company-complete-common))))))
 ;; -ComPac
 
-;; CompanyLSPPac
-(use-package company-lsp
-  :defer t
-  :custom (company-lsp-cache-candidates 'auto))
-;; -CompanyLSPPac
-
 ;; CompanyTabNinePac
 (use-package company-tabnine
   :defer 1
@@ -95,7 +89,7 @@ If all failed, try to complete the common part with `company-complete-common'"
   (lsp-after-open . (lambda ()
                       (setq company-tabnine-max-num-results 3)
                       (add-to-list 'company-transformers 'company//sort-by-tabnine t)
-                      (add-to-list 'company-backends '(company-lsp :with company-tabnine :separate))))
+                      (add-to-list 'company-backends '(company-capf :with company-tabnine :separate))))
   (kill-emacs . company-tabnine-kill-process)
   :config
   ;; Enable TabNine on default

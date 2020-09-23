@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: calligraphic
+# key: cl
+# --
+\mathcal{$1}

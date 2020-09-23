@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: brace
-# key: B{
+# name: big-brace
+# key: b{
 # --
 \\left$1 $3 \\right$2

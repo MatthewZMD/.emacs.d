@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: implies->
+# key: impl
+# --
+\rightarrow $0
