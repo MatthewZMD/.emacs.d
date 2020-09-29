@@ -66,14 +66,6 @@
     (add-hook LaTeX-mode-hook #'display-line-numbers-mode)))
 ;; -AUCTeXPac
 
-;; OrgLatexInstantPreviewPac
-(use-package org-latex-instant-preview
-  :load-path (lambda () (expand-file-name "site-elisp/org-latex-instant-preview" user-emacs-directory))
-  :after org
-  :custom (org-latex-instant-preview-tex2svg-bin "/usr/bin/tex2svg") ;; Prerequisite
-  :hook (org-mode . org-latex-instant-preview-mode))
-;; -OrgLatexInstantPreviewPac
-
 (provide 'init-latex)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-latex.el ends here

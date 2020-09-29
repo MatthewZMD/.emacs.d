@@ -55,23 +55,23 @@
   (org-latex-listings t)
   (org-deadline-warning-days 7)
   (org-todo-keywords
-   '((sequence "TODO" "IN-PROGRESS" "ON-HOLD" "REVIEW" "QUEUE" "|" "DONE" "CANCELED")))
+   '((sequence "TODO" "IN-PROGRESS" "REVIEW" "|" "DONE" "CANCELED")))
   (org-agenda-window-setup 'other-window)
+  (org-latex-pdf-process
+   '("pdflatex -shelnl-escape -interaction nonstopmode -output-directory %o %f"
+     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
   :config
-  (add-to-list 'org-latex-packages-alist '("" "listings" nil))
+  (add-to-list 'org-latex-packages-alist '("" "listings"))
   (unless (version< org-version "9.2")
     (require 'org-tempo))
   (when (file-directory-p "~/org/agenda/")
     (setq org-agenda-files (list "~/org/agenda/")))
 
-  (defun org-export-turn-on-syntax-highlight ()
+  (defun org-export-toggle-syntax-highlight ()
     "Setup variables to turn on syntax highlighting when calling `org-latex-export-to-pdf'."
     (interactive)
-    (setq org-latex-listings 'minted
-          org-latex-packages-alist '(("" "minted"))
-          org-latex-pdf-process
-          '("pdflatex -shelnl-escape -interaction nonstopmode -output-directory %o %f"
-            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
+    (setq-local org-latex-listings 'minted)
+    (add-to-list 'org-latex-packages-alist '("newfloat" "minted")))
 
   (defun org-export-as-pdf-and-open ()
     "Run `org-latex-export-to-pdf', delete the tex file and open pdf in a new buffer."

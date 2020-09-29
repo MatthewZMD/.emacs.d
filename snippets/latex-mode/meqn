@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: meqn
+# key: meqn
+# --
+\\begin{align*}
+  $0
+\\end{align*}

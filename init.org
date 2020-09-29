@@ -464,7 +464,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "53-70"
 ** Quickrun
    [[https://github.com/syohex/emacs-quickrun][Quickrun]], compile and run source code quickly.
-   #+INCLUDE: "~/.emacs.d/elisp/init-quickrun.el" src emacs-lisp :range-begin "QuickrunPac" :range-end "-QuickrunPac" :lines "39-43"
+   #+INCLUDE: "~/.emacs.d/elisp/init-quickrun.el" src emacs-lisp :range-begin "QuickrunPac" :range-end "-QuickrunPac" :lines "39-45"
 ** Format All
    [[https://github.com/lassik/emacs-format-all-the-code][Format all]], a feature that lets you auto-format source code.
 
@@ -576,16 +576,6 @@
 *** AUCTeX
     [[https://www.gnu.org/software/auctex/][AUCTeX]], an extensible package for writing and formatting TeX files. It supports many different TeX macro packages, including AMS-TEX, LaTeX, Texinfo, ConTEXt, and docTEX (dtx files).
     #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "AUCTeXPac" :range-end "-AUCTeXPac" :lines "44-67"
-*** Org Latex Instant Preview
-    [[https://github.com/yangsheng6810/org-latex-instant-preview][Org Latex Instant Preview]], a package that provides instant preview of LaTeX snippets via MathJax outputed SVG.
-
-    *Prerequisite*: Please install =MathJax-node-cli= and set =org-latex-instant-preview-tex2svg-bin= to the location of the executable =tex2svg=.
-    #+BEGIN_SRC bash
-      npm i -g mathjax-node-cli
-      which tex2svg # mine is in /usr/bin/tex2svg
-    #+END_SRC
-    Finally, invoke with =M-x org-latex-instant-preview-start= when needed.
-    #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "OrgLatexInstantPreviewPac" :range-end "-OrgLatexInstantPreviewPac" :lines "70-75"
 ** Buildsystem
 *** Docker
     [[https://github.com/Silex/docker.el][Docker]], a mode to manage docker from Emacs.
@@ -651,7 +641,7 @@
    #+BEGIN_SRC bash
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-75"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-76"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 

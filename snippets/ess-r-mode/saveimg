@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: saveimg
+# key: saveimg
+# --
+jpeg('${1:file-name}.jpg')
+$0
+dev.off()

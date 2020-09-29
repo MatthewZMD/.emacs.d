@@ -89,7 +89,7 @@
     (interactive)
     (if (get-buffer "irc.freenode.net:6697")
         (erc-track-switch-buffer 1)
-      (erc-tls :server "irc.freenode.net" :port 6697 :nick my-irc-nick)))
+      (erc-tls :server "irc.freenode.net" :port 6697 :nick my-irc-nick :full-name user-full-name)))
 
   (defun erc-notify (nickname message)
     "Displays a notification message for ERC."

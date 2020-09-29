@@ -2,6 +2,6 @@
 # name: eqn
 # key: eqn
 # --
-\\begin{align*}
+\\begin{equation*}
   $0
-\\end{align*}
+\\end{equation*}
