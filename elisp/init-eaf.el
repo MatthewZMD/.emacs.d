@@ -66,7 +66,7 @@
   (eaf-bind-key scroll_down_page "u" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_up_page "d" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_to_end "M->" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key scroll_to_home "M-<" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_to_begin "M-<" eaf-pdf-viewer-keybinding)
   (eaf-bind-key quit-window "q" eaf-pdf-viewer-keybinding)
   (eaf-bind-key zoom_in "C-=" eaf-pdf-viewer-keybinding)
   (eaf-bind-key zoom_out "C--" eaf-pdf-viewer-keybinding)
