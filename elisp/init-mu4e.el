@@ -108,9 +108,9 @@
           (lambda (msg)
             (when msg
               (string-match "gmail" (mu4e-message-field msg :maildir))))
-          :vars '((mu4e-sent-folder . "/gmail/[email].Sent Mail")
-                  (mu4e-drafts-folder . "/gmail/[email].Drafts")
-                  (mu4e-trash-folder . "/gmail/[email].Trash")
+          :vars '((mu4e-sent-folder . "/gmail/Sent Mail")
+                  (mu4e-drafts-folder . "/gmail/Drafts")
+                  (mu4e-trash-folder . "/gmail/Trash")
                   (mu4e-sent-messages-behavior . sent)
                   (mu4e-compose-signature . user-full-name)
                   (user-mail-address . user-mail-address) ; Prerequisite: Set this to your email
@@ -126,11 +126,11 @@
                   (smtpmail-debug-info . t)
                   (smtpmail-debug-verbose . t)
                   (mu4e-maildir-shortcuts . ( ("/gmail/INBOX"            . ?i)
-                                              ("/gmail/[email].Sent Mail" . ?s)
-                                              ("/gmail/[email].Trash"       . ?t)
-                                              ("/gmail/[email].All Mail"  . ?a)
-                                              ("/gmail/[email].Starred"   . ?r)
-                                              ("/gmail/[email].Drafts"    . ?d))))))))
+                                              ("/gmail/Sent Mail" . ?s)
+                                              ("/gmail/Trash"       . ?t)
+                                              ("/gmail/All Mail"  . ?a)
+                                              ("/gmail/Starred"   . ?r)
+                                              ("/gmail/Drafts"    . ?d))))))))
 ;; -Mu4ePac
 
 (provide 'init-mu4e)

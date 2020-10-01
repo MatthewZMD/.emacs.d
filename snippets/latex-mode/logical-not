@@ -2,4 +2,4 @@
 # name: logical-not
 # key: not
 # --
-\neg $0
+\neg

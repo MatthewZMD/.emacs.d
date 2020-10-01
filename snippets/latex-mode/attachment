@@ -5,3 +5,4 @@
 \begin{center}
 \includegraphics[width=${1:.9\linewidth}]{${2:location}}
 \end{center}
+$0
