@@ -614,7 +614,7 @@
 ** Org
    [[https://orgmode.org/][Org]], a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
-   *Prerequisite*: Configure =(org-agenda-files (list "~/org/agenda/"))= to your agenda folder to use org-agenda.
+   *Prerequisite*: Configure =(org-agenda-files (list "~/org/agenda/"))= to your agenda folder to use org-agenda. Once this is set, the agenda items tagged with =DEADLINE= or =SCHEDULED= will be displayed on the [[Dashboard][Dashboard]] (hopefully the dashboard will be more detailed in the [[https://github.com/MatthewZMD/.emacs.d/issues/37][future]]).
    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgPac" :range-end "-OrgPac" :lines "39-88"
 *** TOC Org
     [[https://github.com/snosov1/toc-org][TOC Org]] generates table of contents for =.org= files
