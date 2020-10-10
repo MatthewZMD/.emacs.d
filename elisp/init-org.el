@@ -73,6 +73,11 @@
     (setq-local org-latex-listings 'minted)
     (add-to-list 'org-latex-packages-alist '("newfloat" "minted")))
 
+  (defun org-table-insert-vertical-hline ()
+    "Insert a #+attr_latex to the current buffer, default the align to |c|c|c|, adjust if necessary."
+    (interactive)
+    (insert "#+attr_latex: :align |c|c|c|"))
+
   (defun org-export-as-pdf-and-open ()
     "Run `org-latex-export-to-pdf', delete the tex file and open pdf in a new buffer."
     (interactive)

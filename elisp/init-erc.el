@@ -53,6 +53,7 @@
   (erc-notice-face ((t (:foreground "#ababab"))))
   :custom
   (erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
+  (erc-user-full-name user-full-name)
   (erc-track-exclude-types '("NICK" "PART" "MODE" "324" "329" "332" "333" "353" "477"))
   (erc-server-coding-system '(utf-8 . utf-8))
   (erc-interpret-mirc-color t)
