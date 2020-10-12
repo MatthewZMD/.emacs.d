@@ -119,10 +119,11 @@ If all failed, try to complete the common part with `company-complete-common'"
 ;; CompanyBoxPac
 (use-package company-box
   :diminish
+  :if (display-graphic-p)
   :defines company-box-icons-all-the-icons
   :hook (company-mode . company-box-mode)
-  :init (setq company-box-backends-colors nil
-              company-box-highlight-prefix t)
+  :custom
+  (company-box-backends-colors nil)
   :config
   (with-no-warnings
     ;; Prettify icons
