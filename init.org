@@ -7,6 +7,7 @@
 - [[About M-EMACS][About M-EMACS]]
   - [[Screenshot][Screenshot]]
   - [[About README][About README]]
+  - [[Community Responses ❤️][Community Responses ❤️]]
   - [[Installation][Installation]]
   - [[Modification][Modification]]
   - [[Contribution][Contribution]]
@@ -137,6 +138,12 @@
    [[file:images/Sample.png]]
 ** About README
    This README is originated from =init.org= that is generated using =M-x org-gfm-export-to-markdown=. Every block of code is generated through this function - it exports sections of code from the =elisp/= directory. You will not see their presence in =init.org=.
+** Community Responses ❤️
+   Some heartwarming responses from the Emacs community:
+   - /"Actually I understated how much I liked reading through your config... What makes me excited about this config is the readability and possibility of extending in a similar way."/ -- from [[https://www.reddit.com/r/emacs/comments/eewwyh/officially_introducing_memacs/fc5x1lz?utm_source=share&utm_medium=web2x&context=3][u/Orgmonics]]
+   - /"I have to say Matt's setup has the best clarity of all emacs setups I have ever tried. It's really a good template to develop your own emacs config. Thanks again..."/ -- from [[https://www.reddit.com/r/emacs/comments/eewwyh/officially_introducing_memacs/fbxk831?utm_source=share&utm_medium=web2x&context=3][u/fqye]]
+   - /"Thank you for helping a guy out and for sharing this. I hope this evolves to be into something really big."/ -- from [[https://github.com/MatthewZMD/.emacs.d/issues/38#issuecomment-706657288][d3v-S]]
+   - and more... Love you guys! ❤️❤️
 ** Installation
    1. Install [[https://www.gnu.org/software/emacs/][GNU Emacs]].
       - (Optional) On Ubuntu, =emacs-snapshot= is a great way to get latest version of Emacs.
@@ -193,7 +200,6 @@
   - [[https://github.com/seagle0128/.emacs.d][Vincent Zhang's Centaur Emacs]]
   - [[https://github.com/hlissner/doom-emacs][Henrik Lissner's Doom Emacs]]
   - [[https://github.com/poncie/.emacs.d][Poncie Reyes's .emacs.d]]
-
 * Startup
 ** Lexical Binding
    Use lexical-binding. [[https://nullprogram.com/blog/2016/12/22/][Why?]]
