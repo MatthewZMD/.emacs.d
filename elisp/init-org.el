@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:09:30 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Sun Sep 13 20:59:28 2020 (+0100)
+;; Last-Updated: Thu Sep 17 10:24:54 2020 (+0100)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d org toc-org htmlize ox-gfm
@@ -66,6 +66,7 @@
   (org-agenda-custom-commands
    '(("d" "All tasks" tags "TODO={.+}")))
   (org-log-done 'time)
+  (org-default-priority 70)
   (org-agenda-window-setup 'only-window)
   (org-export-backends (quote (ascii html icalendar latex md odt)))
   (org-use-speed-commands t)
