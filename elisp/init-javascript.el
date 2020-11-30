@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 9
+;;     Update #: 27
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -52,5 +52,23 @@
 ;;; init-javascript.el ends here
 
 (setq js-indent-level 2)
+
+(use-package flycheck-flow)
+(use-package company-flow)
+
+(use-package flow-minor-mode
+  :config
+  (add-hook 'js2-mode-hook 'flow-minor-enable-automatically)
+  (with-eval-after-load 'flycheck
+    (flycheck-add-mode 'javascript-flow 'flow-mode)
+    (flycheck-add-mode 'javascript-eslint 'flow-mode)
+    (flycheck-add-next-checker 'javascript-flow 'javascript-eslint))
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-flow))
+  (with-eval-after-load 'projectile
+    (add-to-list 'projectile-project-root-files ".flowconfig"))
+  (with-eval-after-load 'ohai-js-web-mode
+    (add-hook 'web-mode-hook 'flow-minor-enable-automatically))
+  (add-to-list 'auto-mode-alist '("\\.flowconfig\\'" . conf-mode)))
 
 (provide 'init-javascript)
