@@ -21,6 +21,9 @@
 ;;
 ;;; Code:
 
+(use-package flycheck-clj-kondo
+  :ensure t)
+
 (use-package clojure-mode
   :ensure t
 	:after (company paredit)
@@ -28,6 +31,7 @@
   (add-hook 'clojure-mode-hook #'company-mode)
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'projectile-mode)
+  (require 'flycheck-clj-kondo)
   (setq show-trailing-whitespace t))
 
 (use-package cider
