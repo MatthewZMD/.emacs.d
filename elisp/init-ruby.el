@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 7
+;;     Update #: 29
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,11 +46,63 @@
 ;;
 ;;; Code:
 
-
-(use-package rvm
+(use-package rbenv
   :ensure t
+  :config (rbenv-use-global))
+
+;; (use-package enh-ruby-mode
+;;   :ensure t
+;;   :mode "\\.rb\\'"
+;;   :interpreter "ruby")
+
+(use-package robe
+  :ensure t
+  :config (global-robe-mode))
+  ;;:hook ((ruby-mode enh-ruby-mode) . robe-mode))
+
+(use-package yari
+  :ensure t
+  :init
+  (add-hook 'ruby-mode-hook
+            (lambda ()
+              (local-set-key [f1] 'yari))))
+
+(use-package inf-ruby
+  :ensure t
+  :init
+  (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode))
+
+(use-package rubocop
+  :ensure t
+  :init
+  (add-hook 'ruby-mode-hook 'rubocop-mode)
+  :diminish rubocop-mode)
+
+;; Activate Robe and company-robe when we start ruby-mode
+(use-package ruby-mode
   :config
-  (rvm-use-default))
+  (add-hook 'ruby-mode-hook
+            (lambda ()
+              (when (derived-mode-p 'ruby-mode)
+                (add-to-list 'company-backends 'company-robe))))
+  (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
+  (add-hook 'ruby-mode-hook 'robe-start))
+ 
+
+
+;; (use-package projectile-rails :ensure t :defer t
+;;   :config
+;;   (add-hook 'projectile-mode-hook 'projectile-rails-on))
+
+;; (use-package rinari :ensure t :defer t)
+;; (use-package bundler :ensure t :defer t)
+;; (use-package rspec-mode
+;;   :ensure t :defer t
+;;   :commands rspec-mode
+;;   :config
+;;   (progn (rspec-install-snippets)
+;;          (inf-ruby-switch-setup)
+;;          (setq compilation-scroll-output t)))
 
 (provide 'init-ruby)
 
