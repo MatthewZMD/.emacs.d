@@ -6,7 +6,7 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:08:22 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Wed Feb 19 16:28:16 2020 (-0500)
+;; Last-Updated: Mon Oct 26 15:10:08 2020 (+0000)
 ;;           By: Mingde (Matthew) Zeng
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d flycheck
@@ -44,7 +44,7 @@
 (use-package flycheck
   :defer t
   :diminish
-  :hook ((prog-mode markdown-mode) . flycheck-mode)
+  ;;:hook (k 'after-init-hook #'global-flycheck-mode) ;; ((prog-mode markdown-mode) . flycheck-mode)
   :custom
   (flycheck-global-modes
    '(not text-mode outline-mode fundamental-mode org-mode
@@ -72,6 +72,21 @@
   (flycheck-add-mode 'javascript-eslint 'js-mode)
   (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
 ;; -FlyCheckPac
+
+;; TODO: Move into own package
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;;(setq flycheck-markdown-mdl-executable "~/.rvm/wrappers/ruby-2.7.1/mdl")
+
+(setq-default flycheck-disabled-checkers '(yaml-ruby))
+(use-package flycheck-yamllint
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (eval-after-load 'flycheck
+      '(add-hook 'flycheck-mode-hook 'flycheck-yamllint-setup))))
+;;    (flycheck-add-mode 'yaml-yamllint 'yaml-mode)))
 
 (provide 'init-flycheck)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
