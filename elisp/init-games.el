@@ -61,6 +61,12 @@
   :commands (2048-game))
 ;; -2048Pac
 
+;; SnowPac
+(use-package snow
+  :load-path (lambda () (expand-file-name "site-elisp/snow.el" user-emacs-directory))
+  :commands (let-it-snow))
+;; -SnowPac
+
 (provide 'init-games)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-games.el ends here

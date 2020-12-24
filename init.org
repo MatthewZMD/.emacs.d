@@ -103,6 +103,7 @@
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
   - [[Zone][Zone]]
+  - [[Snow][Snow]]
 
 * About EMACS
   Emacs changes how you /think/ about programming.
@@ -721,3 +722,6 @@
 ** Zone
    [[https://www.emacswiki.org/emacs/ZoneMode][Zone]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer.
    #+INCLUDE: "~/.emacs.d/elisp/init-zone.el" src emacs-lisp :range-begin "ZonePac" :range-end "-ZonePac" :lines "39-53"
+** Snow
+   Let it [[https://github.com/alphapapa/snow.el][snow]] in Emacs!
+   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "SnowPac" :range-end "-SnowPac" :lines "65-68"
