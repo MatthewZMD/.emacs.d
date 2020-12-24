@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: child-null
+# key: nchild
+# --
+child[missing]{}

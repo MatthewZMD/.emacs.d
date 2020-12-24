@@ -2,4 +2,4 @@
 # name: image-size
 # key: isize
 # --
-#+ATTR_LATEX: :width ${1:200}px
+#+ATTR_LATEX: :height ${1:300}px :width ${2:300}px

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: tree
+# key: tree
+# --
+\begin{tikzpicture}[level distance=1.5cm,
+  level 1/.style={sibling distance=3cm},
+  level 2/.style={sibling distance=1.5cm}]
+  \node {${1:root}}
+  ${2:child?}
+  ${3:child?}
+\end{tikzpicture}

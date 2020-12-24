@@ -2,4 +2,4 @@
 # name: big-bracket
 # key: bk
 # --
-\\left${1:(-or-[} ${3:math} \\right${2:]-or-)}
+\\left${1:(-or-[} ${3} \\right${2:]-or-)}

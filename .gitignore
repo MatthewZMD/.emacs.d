@@ -19,3 +19,8 @@
 /pyim/
 /.dap-breakpoints
 /eshell/
+/%backup%~
+/.emacs.desktop
+/.org-id-locations
+/eln-cache/
+/url/

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: tautological-implies
-# key: timpl
+# key: tmpl
 # --
 \vDash
