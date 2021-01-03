@@ -36,12 +36,14 @@
 ;;; Code:
 
 ;; DockerPac
-(use-package docker)
+(use-package docker
+  :defer t)
 ;; -DockerPac
 
 
 ;; DockerfilePac
-(use-package dockerfile-mode :defer t)
+(use-package dockerfile-mode
+  :defer t)
 ;; -DockerfilePac
 
 ;; GroovyPac

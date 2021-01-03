@@ -586,12 +586,12 @@
 ** Buildsystem
 *** Docker
     [[https://github.com/Silex/docker.el][Docker]], a mode to manage docker from Emacs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerPac" :range-end "-DockerPac" :lines "39-40"
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerPac" :range-end "-DockerPac" :lines "39-41"
     [[https://github.com/spotify/dockerfile-mode][Dockerfile Mode]], an Emacs mode for handling Dockerfiles.
-    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerfilePac" :range-end "-DockerfilePac" :lines "44-45"
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerfilePac" :range-end "-DockerfilePac" :lines "45-47"
 *** Groovy
     [[https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes][Groovy Mode]], a groovy major mode, grails minor mode, and a groovy inferior mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "GroovyPac" :range-end "-GroovyPac" :lines "48-49"
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "GroovyPac" :range-end "-GroovyPac" :lines "50-51"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and ensure it's in =PATH=. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC bash
@@ -648,7 +648,7 @@
    #+BEGIN_SRC bash
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-76"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-72"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
