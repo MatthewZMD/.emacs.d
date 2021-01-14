@@ -44,9 +44,10 @@
   - [[Terminal][Terminal]]
   - [[Sudo Edit][Sudo Edit]]
   - [[Ibuffer][Ibuffer]]
+  - [[Input Method][Input Method]]
   - [[Configs][Configs]]
   - [[Functions][Functions]]
-- [[User Interface Enhancements][User Interface Enhancements]]
+- [[UI Enhancements][UI Enhancements]]
   - [[Doom Themes][Doom Themes]]
   - [[Doom Modeline][Doom Modeline]]
   - [[Dashboard][Dashboard]]
@@ -87,23 +88,25 @@
   - [[Emmet][Emmet]]
   - [[Instant Rename Tag][Instant Rename Tag]]
   - [[JSON][JSON]]
-- [[Miscellaneous][Miscellaneous]]
+- [[Office][Office]]
   - [[Org][Org]]
+  - [[PDF Tools][PDF Tools]]
+- [[Internet][Internet]]
   - [[EAF][EAF]]
   - [[ERC][ERC]]
-  - [[EWW][EWW]]
   - [[MU4E][MU4E]]
   - [[Tramp][Tramp]]
-  - [[PDF Tools][PDF Tools]]
   - [[LeetCode][LeetCode]]
-  - [[Input Method][Input Method]]
   - [[Debbugs][Debbugs]]
-  - [[EPaint][EPaint]]
+  - [[Hacker News][Hacker News]]
+  - [[EWW][EWW]]
+- [[Miscellaneous][Miscellaneous]]
   - [[Tetris][Tetris]]
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
-  - [[Zone][Zone]]
   - [[Snow][Snow]]
+  - [[EPaint][EPaint]]
+  - [[Zone][Zone]]
 
 * About EMACS
   Emacs changes how you /think/ about programming.
@@ -356,6 +359,15 @@
 
    It uses [[https://github.com/purcell/ibuffer-vc][IBuffer VC]] that group buffers by git project and show file state.
    #+INCLUDE: "~/.emacs.d/elisp/init-buffer.el" src emacs-lisp :range-begin "IBufferPac" :range-end "-IBufferPac" :lines "39-59"
+** Input Method
+*** Pyim
+    [[https://github.com/tumashu/pyim][Pyim]], an Emacs Chinese Pinyin Input. It uses [[https://github.com/tumashu/posframe][posframe]] package to display candidates.
+
+    我已经停止使用作者推荐的无痛中英切换，它对需要同时打英文和中文的情况不是很友好。如需切换输入法，请善用 =C-\= 。
+    #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "39-57"
+**** Pyim BaseDict
+     [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
+     #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "PyimBaseDictPac" :range-end "-PyimBaseDictPac" :lines "60-63"
 ** Configs
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
@@ -384,7 +396,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "167-171"
 *** Where Am I
     #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "174-178"
-* User Interface Enhancements
+* UI Enhancements
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.
    #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "43-57"
@@ -617,7 +629,7 @@
 ** JSON
    [[https://github.com/joshwnj/json-mode][JSON Mode]], a major mode for editing JSON files.
    #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "JsonPac" :range-end "-JsonPac" :lines "73-75"
-* Miscellaneous
+* Office
 ** Org
    [[https://orgmode.org/][Org]], a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
@@ -639,6 +651,12 @@
     1. Install [[http://plantuml.com/download][plantuml]] and configure =(org-plantuml-jar-path (expand-file-name "path/to/plantuml.jar"))=.
     2. Install [[https://graphviz.gitlab.io/download/][Graphviz]] on your system to support graph visualization. Execute =sudo apt install graphviz= in Ubuntu.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "PlantUMLPac" :range-end "-PlantUMLPac" :lines "109-118"
+** PDF Tools
+   [[https://github.com/politza/pdf-tools][PDF Tools]], an Emacs support library for PDF files. It works best on non-Windows OS.
+
+   *Note*: You need [[https://linux.die.net/man/1/convert][convert]] provided from imagemagick to /Pick a Link and Jump/ with F.
+   #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "42-54"
+* Internet
 ** EAF
    [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a GUI application framework that revolutionizes Emacs graphical capabilities.
 
@@ -657,9 +675,6 @@
      machine irc.freenode.net login <nickname> password <password> port 6697
    #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-erc.el" src emacs-lisp :range-begin "ERCPac" :range-end "-ERCPac" :lines "43-104"
-** EWW
-   Emacs Web Wowser, the HTML-based Emacs Web Browser.
-   #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "42-52"
 ** MU4E
    [[https://www.djcbsoftware.nl/code/mu/mu4e.html][Mu4e]], a package that provides an emacs-based e-mail client which uses [[https://www.djcbsoftware.nl/code/mu/][mu]] as its backend.
 
@@ -687,29 +702,19 @@
       /gssh:some-instance:/path/to/file
     #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-tramp.el" src emacs-lisp :range-begin "TrampPac" :range-end "-TrampPac" :lines "39-56"
-** PDF Tools
-   [[https://github.com/politza/pdf-tools][PDF Tools]], an Emacs support library for PDF files. It works best on non-Windows OS.
-
-   *Note*: You need [[https://linux.die.net/man/1/convert][convert]] provided from imagemagick to /Pick a Link and Jump/ with F.
-   #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "42-54"
 ** LeetCode
    [[https://github.com/kaiwk/leetcode.el][LeetCode]], an Emacs LeetCode client. Note that this package is dependant on [[https://github.com/skeeto/emacs-aio][aio]] and [[https://github.com/davazp/graphql-mode][GraphQL]].
    #+INCLUDE: "~/.emacs.d/elisp/init-leetcode.el" src emacs-lisp :range-begin "LeetCodePac" :range-end "-LeetCodePac" :lines "42-51"
-** Input Method
-*** Pyim
-    [[https://github.com/tumashu/pyim][Pyim]], an Emacs Chinese Pinyin Input. It uses [[https://github.com/tumashu/posframe][posframe]] package to display candidates.
-
-    我已经停止使用作者推荐的无痛中英切换，它对需要同时打英文和中文的情况不是很友好。如需切换输入法，请善用 =C-\= 。
-    #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "39-57"
-**** Pyim BaseDict
-     [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
-     #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "PyimBaseDictPac" :range-end "-PyimBaseDictPac" :lines "60-63"
 ** Debbugs
    [[https://elpa.gnu.org/packages/debbugs.html][Debbugs]], a package lets you access the GNU Bug Tracker from within Emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-debbugs.el" src emacs-lisp :range-begin "DebbugsPac" :range-end "-DebbugsPac" :lines "40-42"
-** EPaint
-   [[https://github.com/chuntaro/epaint][EPaint]], a simple paint tool for emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-epaint.el" src emacs-lisp :range-begin "EPaintPac" :range-end "-EPaintPac" :lines "39-49"
+** Hacker News
+   A simple [[https://github.com/clarete/hackernews.el][Hacker News]] Emacs client.
+   #+INCLUDE: "~/.emacs.d/elisp/init-hackernews.el" src emacs-lisp :range-begin "HackerNewsPac" :range-end "-HackerNewsPac" :lines "42-47"
+** EWW
+   Emacs Web Wowser, the HTML-based Emacs Web Browser.
+   #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "42-52"
+* Miscellaneous
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "39-52"
@@ -719,9 +724,12 @@
 ** 2048 Game
    [[https://bitbucket.org/zck/2048.el][2048 Game]], an implementation of 2048 in Emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "2048Pac" :range-end "-2048Pac" :lines "60-62"
-** Zone
-   [[https://www.emacswiki.org/emacs/ZoneMode][Zone]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer.
-   #+INCLUDE: "~/.emacs.d/elisp/init-zone.el" src emacs-lisp :range-begin "ZonePac" :range-end "-ZonePac" :lines "39-53"
 ** Snow
    Let it [[https://github.com/alphapapa/snow.el][snow]] in Emacs!
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "SnowPac" :range-end "-SnowPac" :lines "65-68"
+** EPaint
+   [[https://github.com/chuntaro/epaint][EPaint]], a simple paint tool for emacs.
+   #+INCLUDE: "~/.emacs.d/elisp/init-epaint.el" src emacs-lisp :range-begin "EPaintPac" :range-end "-EPaintPac" :lines "39-49"
+** Zone
+   [[https://www.emacswiki.org/emacs/ZoneMode][Zone]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer.
+   #+INCLUDE: "~/.emacs.d/elisp/init-zone.el" src emacs-lisp :range-begin "ZonePac" :range-end "-ZonePac" :lines "39-53"

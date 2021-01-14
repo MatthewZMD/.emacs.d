@@ -134,11 +134,13 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-shell)
 
+(require 'init-input-method)
+
 (require 'init-dired)
 
 (require 'init-buffer)
 
-;; User Interface Enhancements
+;; UI Enhancements
 (require 'init-ui-config)
 
 (require 'init-theme)
@@ -183,7 +185,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-company)
 
 ;; Programming
-
 (require 'init-java)
 
 (require 'init-cc)
@@ -201,32 +202,35 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; Web Development
 (require 'init-webdev)
 
-;; Miscellaneous
+;; Office
 (require 'init-org)
 
+(require 'init-pdf)
+
+;; Internet
 (require 'init-eaf)
 
 (require 'init-erc)
-
-(require 'init-eww)
 
 (require 'init-mu4e)
 
 (require 'init-tramp)
 
-(require 'init-pdf)
-
 (require 'init-leetcode)
-
-(require 'init-input-method)
 
 (require 'init-debbugs)
 
-(require 'init-epaint)
+(require 'init-hackernews)
 
+(require 'init-eww)
+
+;; Miscellaneous
 (require 'init-games)
 
+(require 'init-epaint)
+
 (require 'init-zone)
+
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
