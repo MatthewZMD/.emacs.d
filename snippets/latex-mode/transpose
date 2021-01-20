@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: transpose
+# key: tr
+# --
+^\intercal $0
