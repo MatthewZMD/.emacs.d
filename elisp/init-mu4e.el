@@ -38,7 +38,7 @@
 ;; Mu4ePac
 (use-package mu4e
   :ensure nil
-  :commands (mu4e)
+  :commands (mu4e make-mu4e-context)
   :init
   (use-package mu4e-alert
     :defer t
