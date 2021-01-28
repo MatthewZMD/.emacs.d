@@ -87,7 +87,7 @@
                 (add-to-list 'company-backends 'company-robe))))
   (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
   (add-hook 'ruby-mode-hook 'robe-start))
- 
+
 
 
 ;; (use-package projectile-rails :ensure t :defer t

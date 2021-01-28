@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:15:28 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Tue Jun 23 19:25:02 2020 (+0100)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Fri Jan 22 11:13:34 2021 (+0000)
+;;           By: Lee Coomber
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
 ;; Compatibility: emacs-version >= 26.1
@@ -102,6 +102,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (update-to-load-path (expand-file-name "elisp" user-emacs-directory))
 ;; -LoadPath
 
+(setq default-directory "~/")
+
 ;; Constants
 
 (require 'init-const)
@@ -118,7 +120,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-search)
 
-(require 'init-crux)
+;;(require 'init-crux)
 
 (require 'init-winner)
 
@@ -130,20 +132,14 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-discover-my-major)
 
-(require 'init-ace-window)
-
-(require 'init-shell)
+;;(require 'init-shell)
 
 (require 'init-dired)
-
-(require 'init-buffer)
 
 ;; User Interface Enhancements
 (require 'init-ui-config)
 
-(require 'init-theme)
-
-(require 'init-dashboard)
+;;(require 'init-theme)
 
 (require 'init-fonts)
 
@@ -156,25 +152,13 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-treemacs)
 
-(require 'init-yasnippet)
+;;(require 'init-yasnippet)
 
 (require 'init-flycheck)
-
-(require 'init-dumb-jump)
 
 (require 'init-parens)
 
 (require 'init-indent)
-
-(require 'init-quickrun)
-
-(require 'init-format)
-
-(require 'init-comment)
-
-(require 'init-edit)
-
-(require 'init-header)
 
 (require 'init-lsp)
 
@@ -186,15 +170,13 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-clojure)
 
-(require 'init-cc)
-
 (require 'init-python)
 
 (require 'init-javascript)
 
-(require 'init-latex)
-
 (require 'init-ruby)
+
+(require 'init-scala)
 
 ;; Web Development
 (require 'init-webdev)
@@ -202,22 +184,22 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; Miscellaneous
 (require 'init-org)
 
-(require 'init-eaf)
+;;(require 'init-eaf)
 
-(require 'init-eww)
-
-(require 'init-tramp)
-
-(require 'init-pdf)
-
-(require 'init-leetcode)
-
-(require 'init-games)
-
-(require 'init-zone)
+;;(require 'init-eww)
 
 (require 'init-purpose)
+
+
+;; Stuff that should go into other files
+(use-package dockerfile-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
+
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

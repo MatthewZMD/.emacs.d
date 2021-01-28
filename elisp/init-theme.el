@@ -66,16 +66,16 @@
 ;;   (doom-modeline-mode))
 ;; ;; -DoomModeline
 
-(use-package modus-operandi-theme
-  :ensure
-  :init
-  (setq
-  modus-operandi-theme-section-headings t
-  modus-operandi-theme-visible-fringes t
-  modus-operandi-theme-bold-constructs t
-  modus-operandi-theme-3d-modeline t)
-  :config
-  (load-theme 'modus-operandi t))
+;; (use-package modus-operandi-theme
+;;   :ensure
+;;   :init
+;;   (setq
+;;   modus-operandi-theme-section-headings t
+;;   modus-operandi-theme-visible-fringes t
+;;   modus-operandi-theme-bold-constructs t
+;;   modus-operandi-theme-3d-modeline t)
+;;   :config
+;;   (load-theme 'modus-operandi t))
 
 (provide 'init-theme)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

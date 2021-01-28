@@ -71,4 +71,7 @@
     (add-hook 'web-mode-hook 'flow-minor-enable-automatically))
   (add-to-list 'auto-mode-alist '("\\.flowconfig\\'" . conf-mode)))
 
+(use-package npm-mode)
+(use-package jest)
+
 (provide 'init-javascript)

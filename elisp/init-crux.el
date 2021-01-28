@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Dec 24 13:15:38 2019 (-0500)
 ;; Version: 2.0.0
-;; Last-Updated: Thu Dec 26 22:02:32 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Fri Jan 22 10:50:49 2021 (+0000)
+;;           By: Lee Coomber
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d crux
 ;; Compatibility: emacs-version >= 26.1
@@ -38,19 +38,19 @@
 ;;; Code:
 
 ;; CruxPac
-(use-package crux
-  :bind
-  (("C-a" . crux-move-beginning-of-line)
-   ("C-x 4 t" . crux-transpose-windows)
-   ("C-x K" . crux-kill-other-buffers)
-   ("C-k" . crux-smart-kill-line))
-  :config
-  (crux-with-region-or-buffer indent-region)
-  (crux-with-region-or-buffer untabify)
-  (crux-with-region-or-point-to-eol kill-ring-save)
-  (defalias 'rename-file-and-buffer #'crux-rename-file-and-buffer))
-;; -CruxPac
+;; (use-package crux
+;;   :bind
+;;   (("C-a" . crux-move-beginning-of-line)
+;;    ("C-x 4 t" . crux-transpose-windows)
+;;    ("C-x K" . crux-kill-other-buffers)
+;;    ("C-k" . crux-smart-kill-line))
+;;   :config
+;;   (crux-with-region-or-buffer indent-region)
+;;   (crux-with-region-or-buffer untabify)
+;;   (crux-with-region-or-point-to-eol kill-ring-save)
+;;   (defalias 'rename-file-and-buffer #'crux-rename-file-and-buffer))
+;; ;; -CruxPac
 
-(provide 'init-crux)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (provide 'init-crux)
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-crux.el ends here

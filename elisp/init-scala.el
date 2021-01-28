@@ -1,22 +1,6 @@
-;;; init-quickrun.el --- -*- lexical-binding: t -*-
+;;; init-scala.el ---
 ;;
-;; Filename: init-quickrun.el
-;; Description: Initialize quickrun
-;; Author: Mingde (Matthew) Zeng
-;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Sun Jul  7 16:32:16 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:44 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d init
-;; Compatibility: emacs-version >= 26.1
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Commentary:
-;;
-;; This initializes quickrun
+;; Filename: init-scala.el
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -37,13 +21,35 @@
 ;;
 ;;; Code:
 
-;; QuickrunPac
-(use-package quickrun
-  :bind
-  (("<f5>" . quickrun)
-   ("M-<f5>" . quickrun-shell)))
-;; -QuickrunPac
 
-(provide 'init-quickrun)
+(use-package scala-mode
+  :ensure t
+  :interpreter
+  ("scala" . scala-mode))
+
+(use-package sbt-mode
+  :ensure t
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  ;;(substitute-key-definition
+  ;;'minibuffer-complete-word
+  ;; 'self-insert-command
+   ;;minibuffer-local-completion-map)
+   ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
+   (setq sbt:program-options '("-Dsbt.supershell=false")))
+
+
+;; :after lsp-mode
+
+;; (use-package lsp-mode
+;;   ;; Optional - enable lsp-mode automatically in scala files
+;;   :hook  (scala-mode . lsp)
+;;          (lsp-mode . lsp-lens-mode)
+;;   :config (setq lsp-prefer-flymake nil))
+
+(provide 'init-scala)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-quickrun.el ends here
+;;; init-scala.el ends here

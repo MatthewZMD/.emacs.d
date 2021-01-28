@@ -6,8 +6,8 @@
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 10:42:09 2019 (-0400)
 ;; Version: 2.0.0
-;; Last-Updated: Mon Mar  9 13:07:21 2020 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Last-Updated: Fri Jan  8 09:43:19 2021 (+0000)
+;;           By: Lee Coomber
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp
 ;; Compatibility: emacs-version >= 26.1
@@ -58,45 +58,45 @@
 ;; LSPUI
 (use-package lsp-ui
   :after lsp-mode
-  :diminish
-  :commands lsp-ui-mode
-  :custom-face
-  (lsp-ui-doc-background ((t (:background nil))))
-  (lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
-  :bind (:map lsp-ui-mode-map
-              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-              ([remap xref-find-references] . lsp-ui-peek-find-references)
-              ("C-c u" . lsp-ui-imenu)
-              ("M-i" . lsp-ui-doc-focus-frame))
-  :custom
-  (lsp-ui-doc-header t)
-  (lsp-ui-doc-include-signature t)
-  (lsp-ui-doc-border (face-foreground 'default))
-  (lsp-ui-sideline-enable nil)
-  (lsp-ui-sideline-ignore-duplicate t)
-  (lsp-ui-sideline-show-code-actions nil)
-  :config
-  ;; Use lsp-ui-doc-webkit only in GUI
-  (if *sys/gui*
-      (setq lsp-ui-doc-use-webkit t))
-  ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
-  ;; https://github.com/emacs-lsp/lsp-ui/issues/243
-  (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
-    (setq mode-line-format nil)))
-;; -LSPUI
+  :diminish)
+;;   :commands lsp-ui-mode
+;;   :custom-face
+;;   (lsp-ui-doc-background ((t (:background nil))))
+;;   (lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
+;;   :bind (:map lsp-ui-mode-map
+;;               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+;;               ([remap xref-find-references] . lsp-ui-peek-find-references)
+;;               ("C-c u" . lsp-ui-imenu)
+;;               ("M-i" . lsp-ui-doc-focus-frame))
+;;   :custom
+;;   (lsp-ui-doc-header t)
+;;   (lsp-ui-doc-include-signature t)
+;;   (lsp-ui-doc-border (face-foreground 'default))
+;;   (lsp-ui-sideline-enable nil)
+;;   (lsp-ui-sideline-ignore-duplicate t)
+;;   (lsp-ui-sideline-show-code-actions nil)
+;;   :config
+;;   ;; Use lsp-ui-doc-webkit only in GUI
+;;   (if *sys/gui*
+;;       (setq lsp-ui-doc-use-webkit t))
+;;   ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
+;;   ;; https://github.com/emacs-lsp/lsp-ui/issues/243
+;;   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
+;;     (setq mode-line-format nil)))
+;; ;; -LSPUI
 
 ;; DAPPac
-(use-package dap-mode
-  :diminish
-  :bind
-  (:map dap-mode-map
-        (("<f12>" . dap-debug)
-         ("<f8>" . dap-continue)
-         ("<f9>" . dap-next)
-         ("<M-f11>" . dap-step-in)
-         ("C-M-<f11>" . dap-step-out)
-         ("<f7>" . dap-breakpoint-toggle))))
-;; -DAPPac
+;; (use-package dap-mode
+;;   :diminish
+;;   :bind
+;;   (:map dap-mode-map
+;;         (("<f12>" . dap-debug)
+;;          ("<f8>" . dap-continue)
+;;          ("<f9>" . dap-next)
+;;          ("<M-f11>" . dap-step-in)
+;;          ("C-M-<f11>" . dap-step-out)
+;;          ("<f7>" . dap-breakpoint-toggle))))
+;; ;; -DAPPac
 
 (provide 'init-lsp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
