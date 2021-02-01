@@ -36,7 +36,7 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'init-flycheck)
+  (require 'init-syntax)
   (require 'init-const))
 
 ;; PythonConfig

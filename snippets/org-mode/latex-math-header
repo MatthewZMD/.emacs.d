@@ -10,4 +10,5 @@
 #+LATEX_HEADER: \theoremstyle{definition}
 #+LATEX_HEADER: \newtheorem{definition}{Definition}[subsection]
 #+LATEX_HEADER: \newtheorem{example}{Example}[subsection]
+#+LATEX_HEADER: \newenvironment{solution}{\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}{\end{proof}}
 $0

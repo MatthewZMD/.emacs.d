@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: tilde
-# key: ^~
+# key: tilde
 # --
-\\widetilde{$1}
+\widetilde{$1}

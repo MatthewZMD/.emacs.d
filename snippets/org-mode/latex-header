@@ -3,7 +3,7 @@
 # key: lheader
 # --
 #+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
-#+LATEX_HEADER: \usepackage{amsthm, amsmath,amsfonts,amssymb, mathabx, parskip, physics}
+#+LATEX_HEADER: \usepackage{amsthm, amsmath, amsfonts, amssymb, mathabx, parskip, physics}
 #+LATEX_HEADER: \setlength\parindent{0pt}
 \clearpage
 $0

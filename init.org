@@ -45,8 +45,7 @@
   - [[Terminal][Terminal]]
   - [[Sudo Edit][Sudo Edit]]
   - [[Ibuffer][Ibuffer]]
-  - [[Input Method][Input Method]]
-  - [[Configs][Configs]]
+  - [[Config][Config]]
   - [[Functions][Functions]]
 - [[UI Enhancements][UI Enhancements]]
   - [[Doom Themes][Doom Themes]]
@@ -61,7 +60,7 @@
   - [[Projectile][Projectile]]
   - [[Treemacs][Treemacs]]
   - [[YASnippet][YASnippet]]
-  - [[Flycheck][Flycheck]]
+  - [[Syntax][Syntax]]
   - [[Dumb Jump][Dumb Jump]]
   - [[Parenthesis][Parenthesis]]
   - [[Indentation][Indentation]]
@@ -102,6 +101,7 @@
   - [[Hacker News][Hacker News]]
   - [[EWW][EWW]]
 - [[Miscellaneous][Miscellaneous]]
+  - [[Chinese][Chinese]]
   - [[Tetris][Tetris]]
   - [[Speed Type][Speed Type]]
   - [[2048 Game][2048 Game]]
@@ -363,16 +363,7 @@
 
    It uses [[https://github.com/purcell/ibuffer-vc][IBuffer VC]] that group buffers by git project and show file state.
    #+INCLUDE: "~/.emacs.d/elisp/init-buffer.el" src emacs-lisp :range-begin "IBufferPac" :range-end "-IBufferPac" :lines "39-59"
-** Input Method
-*** Pyim
-    [[https://github.com/tumashu/pyim][Pyim]], an Emacs Chinese Pinyin Input. It uses [[https://github.com/tumashu/posframe][posframe]] package to display candidates.
-
-    我已经停止使用作者推荐的无痛中英切换，它对需要同时打英文和中文的情况不是很友好。如需切换输入法，请善用 =C-\= 。
-    #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "39-57"
-**** Pyim BaseDict
-     [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
-     #+INCLUDE: "~/.emacs.d/elisp/init-input-method.el" src emacs-lisp :range-begin "PyimBaseDictPac" :range-end "-PyimBaseDictPac" :lines "60-63"
-** Configs
+** Config
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
     Use UTF-8 as much as possible with unix line endings.
@@ -467,9 +458,13 @@
 *** YASnippet
     [[https://github.com/joaotavora/yasnippet][YASnippet]], a programming template system for Emacs. It loads [[https://github.com/AndreaCrotti/yasnippet-snippets][YASnippet Snippets]], a collection of yasnippet snippets for many languages.
     #+INCLUDE: "~/.emacs.d/elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "-YASnippetPac" :lines "39-60"
-** Flycheck
-   [[https://www.flycheck.org/en/latest/][Flycheck]], a syntax checking extension.
-   #+INCLUDE: "~/.emacs.d/elisp/init-flycheck.el" src emacs-lisp :range-begin "FlyCheckPac" :range-end "-FlyCheckPac" :lines "39-69"
+** Syntax
+*** Flycheck
+    [[https://www.flycheck.org/en/latest/][Flycheck]], a syntax checking extension.
+    #+INCLUDE: "~/.emacs.d/elisp/init-syntax.el" src emacs-lisp :range-begin "FlyCheckPac" :range-end "-FlyCheckPac" :lines "39-75"
+*** Flyspell
+    [[https://www.emacswiki.org/emacs/FlySpell][Flyspell]] enables on-the-fly spell checking in Emacs and uses [[https://github.com/d12frosted/flyspell-correct][Flyspell Correct]] for distraction-free words correction using Ivy.
+    #+INCLUDE: "~/.emacs.d/elisp/init-syntax.el" src emacs-lisp :range-begin "FlyspellPac" :range-end "-FlyspellPac" :lines "78-96"
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]], an Emacs "jump to definition" package.
    #+INCLUDE: "~/.emacs.d/elisp/init-dumb-jump.el" src emacs-lisp :range-begin "DumbJump" :range-end "-DumbJump" :lines "39-46"
@@ -670,7 +665,7 @@
    #+BEGIN_SRC bash
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-75"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-76"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
@@ -719,6 +714,17 @@
    Emacs Web Wowser, the HTML-based Emacs Web Browser.
    #+INCLUDE: "~/.emacs.d/elisp/init-eww.el" src emacs-lisp :range-begin "EWWPac" :range-end "-EWWPac" :lines "42-52"
 * Miscellaneous
+** Chinese
+   Packages and configurations suitable for Chinese users. Non-Chinese users feel free to add =:disabled= tags for them.
+*** Pyim
+    - [[https://github.com/tumashu/pyim][Pyim]], an Emacs Chinese Pinyin Input. It uses [[https://github.com/tumashu/posframe][posframe]] package to display candidates.
+    - [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
+
+    我已经停止使用作者推荐的无痛中英切换，它对需要同时打英文和中文的情况不是很友好。如需切换输入法，请善用 =C-\= 。
+    #+INCLUDE: "~/.emacs.d/elisp/init-chinese.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "39-60"
+*** Youdao
+    [[https://github.com/xuchunyang/youdao-dictionary.el][Youdao]] interface for Emacs.
+    #+INCLUDE: "~/.emacs.d/elisp/init-chinese.el" src emacs-lisp :range-begin "YoudaoPac" :range-end "-YoudaoPac" :lines "63-68"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "39-52"

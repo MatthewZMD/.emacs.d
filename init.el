@@ -51,7 +51,7 @@
 ;; -CheckVer
 
 ;; BetterGC
-(defvar better-gc-cons-threshold 67108864 ; 64mb
+(defvar better-gc-cons-threshold 134217728 ; 128mb
   "The default value to use for `gc-cons-threshold'.
 
 If you experience freezing, decrease this.  If you experience stuttering, increase this.")
@@ -134,8 +134,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-shell)
 
-(require 'init-input-method)
-
 (require 'init-dired)
 
 (require 'init-buffer)
@@ -160,7 +158,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-yasnippet)
 
-(require 'init-flycheck)
+(require 'init-syntax)
 
 (require 'init-dumb-jump)
 
@@ -225,6 +223,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-eww)
 
 ;; Miscellaneous
+(require 'init-chinese)
+
 (require 'init-games)
 
 (require 'init-epaint)

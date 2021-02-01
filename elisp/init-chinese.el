@@ -1,6 +1,6 @@
-;;; init-input-method.el --- -*- lexical-binding: t -*-
+;;; init-chinese.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-input-method.el
+;; Filename: init-chinese.el
 ;; Description: Initialize Pyim
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
@@ -14,7 +14,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes pyim
+;; This initializes pyim and youdao-dictionary suitable for Chinese users.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,6 +45,9 @@
   (pyim-page-tooltip 'posframe)
   (pyim-page-length 9)
   :config
+  (use-package pyim-basedict
+    :after pyim
+    :config (pyim-basedict-enable))
   (pyim-isearch-mode 1)
   (setq-default pyim-english-input-switch-functions
                 '(pyim-probe-isearch-mode
@@ -56,12 +59,14 @@
   ("M-j" . pyim-convert-string-at-point)) ; M-j 强制将光标前的拼音字符串转换为中文。
 ;; -PyimPac
 
-;; PyimBaseDictPac
-(use-package pyim-basedict
-  :after pyim
-  :config (pyim-basedict-enable))
-;; -PyimBaseDictPac
+;; YoudaoPac
+(use-package youdao-dictionary
+  :commands (youdao-dictionary-search
+             youdao-dictionary-search-at-point
+             youdao-dictionary-search-at-point-posframe)
+  :bind ("C-M-y" . youdao-dictionary-search-at-point-posframe))
+;; -YoudaoPac
 
-(provide 'init-input-method)
+(provide 'init-chinese)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-input-method.el ends here
+;;; init-chinese.el ends here

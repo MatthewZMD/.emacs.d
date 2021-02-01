@@ -3,5 +3,8 @@
 # key: ex
 # --
 \begin{example}
-  $0
+  $1
+  \begin{solution}
+    $0
+  \end{solution}
 \end{example}

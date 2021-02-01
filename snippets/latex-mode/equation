@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: eqn-multiline
-# key: eqnm
+# name: equation
+# key: eqn
 # --
 \\begin{align*}
   $0
