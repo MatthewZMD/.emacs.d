@@ -79,7 +79,7 @@
   :ensure nil
   :diminish
   :if (executable-find "aspell")
-  :hook (((prog-mode text-mode outline-mode latex-mode) . flyspell-mode))
+  :hook (((text-mode outline-mode latex-mode org-mode markdown-mode) . flyspell-mode))
   :custom
   (flyspell-issue-message-flag nil)
   (ispell-program-name "aspell")

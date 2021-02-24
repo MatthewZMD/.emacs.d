@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: matrix-vector
+# key: mv
+# --
+\\begin{bmatrix} $1 \\\\ $0 \\\\ \\end{bmatrix}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: integral-substitute
+# key: int|
+# --
+\Big|^{$1}_{$2}

@@ -42,7 +42,8 @@
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture)
-         (:map org-mode-map ("C-c C-p" . eaf-org-export-to-pdf-and-open)))
+         (:map org-mode-map (("C-c C-p" . eaf-org-export-to-pdf-and-open)
+                             ("C-c ;" . nil))))
   :custom
   (org-log-done 'time)
   (calendar-latitude 43.65107) ;; Prerequisite: set it to your location, currently default: Toronto, Canada
