@@ -54,7 +54,8 @@
         (flycheck-posframe-info-face ((t (:foreground ,(face-foreground 'success)))))
         :hook (flycheck-mode . flycheck-posframe-mode)
         :custom
-        (flycheck-posframe-border-width 4)
+        (flycheck-posframe-position 'window-bottom-left-corner)
+        (flycheck-posframe-border-width 3)
         (flycheck-posframe-inhibit-functions
          '((lambda (&rest _) (bound-and-true-p company-backend)))))
     (use-package flycheck-pos-tip
