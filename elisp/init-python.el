@@ -60,6 +60,8 @@
   (lsp-python-executable-cmd "python3"))
 ;; -LSPPythonPac
 
+(use-package pyvenv)
+
 (provide 'init-python)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-python.el ends here

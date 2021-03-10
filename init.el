@@ -197,6 +197,14 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
   :config
   (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
 
+(use-package plantuml-mode
+  :ensure t
+  :mode "\\.puml\\'"
+  :config
+  (setq plantuml-executable-path "/usr/local/bin/plantuml")
+  (setq plantuml-default-exec-mode 'executable))
+
+
 
 (provide 'init)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
