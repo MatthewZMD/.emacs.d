@@ -3,5 +3,5 @@
 # key: mx
 # --
 \\begin{${1:b}matrix}
-  $2 && $3 \\\\$0
+  $2 & $3 \\\\$0
 \\end{$1matrix}

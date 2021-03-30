@@ -61,6 +61,7 @@
 
 ;; YorN
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq use-dialog-box nil)
 ;; -YorN
 
 ;; StartupScreen

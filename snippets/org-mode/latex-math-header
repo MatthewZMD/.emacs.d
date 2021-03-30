@@ -4,6 +4,7 @@
 # --
 #+LATEX_HEADER: \newtheorem{theorem}{Theorem}[subsection]
 #+LATEX_HEADER: \newtheorem{corollary}{Corollary}[theorem]
+#+LATEX_HEADER: \newtheorem{proposition}{Proposition}[theorem]
 #+LATEX_HEADER: \newtheorem{lemma}{Lemma}[theorem]
 #+LATEX_HEADER: \theoremstyle{remark}
 #+LATEX_HEADER: \newtheorem*{remark}{Remark}
