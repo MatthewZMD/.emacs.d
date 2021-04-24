@@ -239,7 +239,7 @@
 *** Set =gc-cons-threshold= Smaller for Interactive Use
     A large =gc-cons-threshold= may cause freezing and stuttering during long-term interactive use.
 
-    If you experience freezing, decrease this amount, if you increase stuttering, increase this amount.
+    If you experience freezing, decrease this amount, if you experience stuttering, increase this amount.
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "BetterGC" :range-end "-BetterGC" :lines "54-64"
     Garbage Collect when Emacs is out of focus and avoid garbage collection when using minibuffer.
     #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "AutoGC" :range-end "-AutoGC" :lines "67-84"
