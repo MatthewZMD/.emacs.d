@@ -43,14 +43,12 @@
 (defun add-pretty-lambda ()
   "Make some word or string show as pretty Unicode symbols.  See https://unicodelookup.com for more."
   (setq prettify-symbols-alist
-        '(
-          ("lambda" . 955)
+        '(("lambda" . 955)
           ("delta" . 120517)
           ("epsilon" . 120518)
           ("->" . 8594)
           ("<=" . 8804)
-          (">=" . 8805)
-          )))
+          (">=" . 8805))))
 (add-hook 'prog-mode-hook 'add-pretty-lambda)
 (add-hook 'org-mode-hook 'add-pretty-lambda)
 ;; -PreSym
@@ -67,6 +65,7 @@
 ;; StartupScreen
 (setq inhibit-startup-screen t)
 (setq initial-major-mode 'text-mode)
+;; https://www.youtube.com/watch?v=NfjsLmya1PI
 (setq initial-scratch-message "Present Day, Present Time...\n")
 ;; -StartupScreen
 
