@@ -570,7 +570,7 @@
 ** Golang
    [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode Golang programming.
 
-   *Prerequisite*: [[https://github.com/golang/go/wiki/gopls][gopls]] is suggested for Golang's LSP support.
+   *Prerequisite*: [[https://github.com/golang/tools/blob/master/gopls/README.md][gopls]] is suggested for Golang's LSP support.
    #+BEGIN_SRC bash
      go get golang.org/x/tools/gopls@latest
    #+END_SRC
