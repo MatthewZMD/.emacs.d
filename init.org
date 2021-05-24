@@ -81,6 +81,7 @@
   - [[Haskell][Haskell]]
   - [[ESS][ESS]]
   - [[TeX][TeX]]
+  - [[Yaml][Yaml]]
   - [[Buildsystem][Buildsystem]]
 - [[Web Development][Web Development]]
   - [[Web Mode][Web Mode]]
@@ -351,10 +352,10 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHerePac" :range-end "-ShellHerePac" :lines "51-56"
 *** Multi Term
     [[https://github.com/manateelazycat/multi-term][Multi Term]], a mode based on term.el, for managing multiple terminal buffers in Emacs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "MultiTermPac" :range-end "-MultiTermPac" :lines "59-87"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "MultiTermPac" :range-end "-MultiTermPac" :lines "59-89"
 *** Term Keys
     [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "90-93"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "92-95"
 ** Sudo Edit
    [[https://github.com/nflath/sudo-edit][Sudo Edit]], an utility for opening files with =sudo=.
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SudoEditPac" :range-end "-SudoEditPac" :lines "42-44"
@@ -594,15 +595,18 @@
 *** AUCTeX
     [[https://www.gnu.org/software/auctex/][AUCTeX]], an extensible package for writing and formatting TeX files. It supports many different TeX macro packages, including AMS-TEX, LaTeX, Texinfo, ConTEXt, and docTEX (dtx files).
     #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "AUCTeXPac" :range-end "-AUCTeXPac" :lines "44-67"
+** Yaml
+   [[https://github.com/yoshiki/yaml-mode][Yaml mode]], the Emacs major mode for editing files in the YAML data serialization format.
+   #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "YamlPac" :range-end "-YamlPac" :lines "52-53"
 ** Buildsystem
 *** Docker
     [[https://github.com/Silex/docker.el][Docker]], a mode to manage docker from Emacs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerPac" :range-end "-DockerPac" :lines "39-41"
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerPac" :range-end "-DockerPac" :lines "39-40"
     [[https://github.com/spotify/dockerfile-mode][Dockerfile Mode]], an Emacs mode for handling Dockerfiles.
-    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerfilePac" :range-end "-DockerfilePac" :lines "45-47"
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "DockerfilePac" :range-end "-DockerfilePac" :lines "44-45"
 *** Groovy
     [[https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes][Groovy Mode]], a groovy major mode, grails minor mode, and a groovy inferior mode.
-    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "GroovyPac" :range-end "-GroovyPac" :lines "50-51"
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "GroovyPac" :range-end "-GroovyPac" :lines "48-49"
 * Web Development
   *Prerequisite*: Install [[https://nodejs.org/en/download/][NodeJS]] and ensure it's in =PATH=. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
   #+BEGIN_SRC bash

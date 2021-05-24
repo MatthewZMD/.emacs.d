@@ -36,19 +36,21 @@
 ;;; Code:
 
 ;; DockerPac
-(use-package docker
-  :defer t)
+(use-package docker :defer t)
 ;; -DockerPac
 
 
 ;; DockerfilePac
-(use-package dockerfile-mode
-  :defer t)
+(use-package dockerfile-mode :defer t)
 ;; -DockerfilePac
 
 ;; GroovyPac
 (use-package groovy-mode :defer t)
 ;; -GroovyPac
+
+;; YamlPac
+(use-package yaml-mode :defer t)
+;; -YamlPac
 
 (provide 'init-buildsystem)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

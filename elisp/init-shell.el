@@ -71,6 +71,8 @@
      ("C-n" . next-line)
      ("C-m" . term-send-return)
      ("C-y" . term-paste)
+     ("C-v" . scroll-up-command)
+     ("M-v" . scroll-down-command)
      ("M-f" . term-send-forward-word)
      ("M-b" . term-send-backward-word)
      ("M-o" . term-send-backspace)
