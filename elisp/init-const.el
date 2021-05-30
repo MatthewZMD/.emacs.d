@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Mar 18 14:20:54 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu May 14 21:47:40 2020 (-0400)
-;;           By: Bilaal Hussain
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d constants
 ;; Compatibility: emacs-version >= 26.1
@@ -43,10 +41,6 @@
 ;; -UserInfo
 
 ;; Consts
-(defconst *sys/gui*
-  (display-graphic-p)
-  "Are we running on a GUI Emacs?")
-
 (defconst *sys/win32*
   (eq system-type 'windows-nt)
   "Are we running on a WinTel system?")
@@ -59,59 +53,27 @@
   (eq system-type 'darwin)
   "Are we running on a Mac system?")
 
-(defconst *sys/root*
-  (string-equal "root" (getenv "USER"))
-  "Are you a ROOT user?")
-
-(defconst *rg*
-  (executable-find "rg")
-  "Do we have ripgrep?")
-
-(defconst *find*
-  (executable-find "find")
-  "Do we have GNU find?")
-
-(defconst *python*
+(defconst python-p
   (or (executable-find "python3")
       (and (executable-find "python")
            (> (length (shell-command-to-string "python --version | grep 'Python 3'")) 0)))
   "Do we have python3?")
 
-(defconst *pip*
+(defconst pip-p
   (or (executable-find "pip3")
       (and (executable-find "pip")
            (> (length (shell-command-to-string "pip --version | grep 'python 3'")) 0)))
   "Do we have pip3?")
 
-(defconst *tr*
-  (executable-find "tr")
-  "Do we have tr?")
-
-(defconst *mvn*
-  (executable-find "mvn")
-  "Do we have Maven?")
-
-(defconst *clangd*
+(defconst clangd-p
   (or (executable-find "clangd")  ;; usually
       (executable-find "/usr/local/opt/llvm/bin/clangd"))  ;; macOS
   "Do we have clangd?")
 
-(defconst *gcc*
-  (executable-find "gcc")
-  "Do we have gcc?")
-
-(defconst *git*
-  (executable-find "git")
-  "Do we have git?")
-
-(defconst *pdflatex*
-  (executable-find "pdflatex")
-  "Do we have pdflatex?")
-
-(defconst *eaf-env*
-  (and *sys/linux* *sys/gui* *python* *pip*
+(defconst eaf-env-p
+  (and *sys/linux* (display-graphic-p) python-p pip-p
        (not (equal (shell-command-to-string "pip freeze | grep '^PyQt\\|PyQtWebEngine'") "")))
-  "Check basic requirements for EAF to run.")
+  "Do we have EAF environment setup?")
 ;; -Consts
 
 (provide 'init-const)

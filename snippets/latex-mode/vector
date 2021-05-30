@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: vector
+# key: ve
+# --
+\\vec{$1}

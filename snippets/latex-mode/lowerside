@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lowerside
+# key: ls
+# --
+$1_{$2}

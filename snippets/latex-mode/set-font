@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: set-font
+# key: set
+# --
+\mathbb{$1}

@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 12 16:59:51 2020 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu Mar 12 17:04:16 2020 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d docker dockerfile jenkinsfile
 ;; Compatibility: emacs-version >= 26.1
@@ -38,7 +36,7 @@
 ;;; Code:
 
 ;; DockerPac
-(use-package docker)
+(use-package docker :defer t)
 ;; -DockerPac
 
 
@@ -49,6 +47,10 @@
 ;; GroovyPac
 (use-package groovy-mode :defer t)
 ;; -GroovyPac
+
+;; YamlPac
+(use-package yaml-mode :defer t)
+;; -YamlPac
 
 (provide 'init-buildsystem)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

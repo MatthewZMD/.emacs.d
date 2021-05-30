@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: upperside
+# key: us
+# --
+$1^{$2}

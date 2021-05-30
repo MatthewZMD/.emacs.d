@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: normal
+# name: normal-text
 # key: normal
 # --
 \text{$0}

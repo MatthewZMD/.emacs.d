@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: logical-not
+# key: not
+# --
+\neg

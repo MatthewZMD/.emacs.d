@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: equation
+# key: eqn
+# --
+\\begin{align*}
+  $0
+\\end{align*}

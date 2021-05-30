@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: attachment
+# key: attach
+# --
+\begin{center}
+\includegraphics[width=${1:.9\linewidth}]{${2:location}}
+\end{center}

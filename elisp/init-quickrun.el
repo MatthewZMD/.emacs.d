@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Sun Jul  7 16:32:16 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:44 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d init
 ;; Compatibility: emacs-version >= 26.1
@@ -41,7 +39,9 @@
 (use-package quickrun
   :bind
   (("<f5>" . quickrun)
-   ("M-<f5>" . quickrun-shell)))
+   ("M-<f5>" . quickrun-shell)
+   ("C-c e" . quickrun)
+   ("C-c C-e" . quickrun-shell)))
 ;; -QuickrunPac
 
 (provide 'init-quickrun)

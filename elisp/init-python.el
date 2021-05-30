@@ -5,11 +5,9 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Mon Jun 10 18:58:02 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Wed Mar 11 13:48:21 2020 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: lsp-python-ms
+;; Keywords: lsp python pyright
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -38,7 +36,7 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'init-flycheck)
+  (require 'init-syntax)
   (require 'init-const))
 
 ;; PythonConfig
@@ -53,11 +51,10 @@
 ;; -PythonConfig
 
 ;; LSPPythonPac
-(use-package lsp-python-ms
-  :after lsp-mode python
-  :if *python*
-  :custom
-  (lsp-python-executable-cmd "python3"))
+(use-package lsp-pyright
+  :hook (python-mode . (lambda () (require 'lsp-pyright)))
+  :init (when (executable-find "python3")
+          (setq lsp-pyright-python-executable-cmd "python3")))
 ;; -LSPPythonPac
 
 (provide 'init-python)

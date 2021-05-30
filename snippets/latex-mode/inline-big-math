@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: inline-big-math
+# key: imath
+# --
+\\displaystyle

@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Mar 19 09:20:19 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu May 14 21:44:46 2020 (-0400)
-;;           By: Bilaal Hussain
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d shell shell-here
 ;; Compatibility: emacs-version >= 26.1
@@ -73,6 +71,8 @@
      ("C-n" . next-line)
      ("C-m" . term-send-return)
      ("C-y" . term-paste)
+     ("C-v" . scroll-up-command)
+     ("M-v" . scroll-down-command)
      ("M-f" . term-send-forward-word)
      ("M-b" . term-send-backward-word)
      ("M-o" . term-send-backspace)
@@ -90,7 +90,7 @@
 
 ;; TermKeysPac
 (use-package term-keys
-  :if (not *sys/gui*)
+  :if (not (display-graphic-p))
   :config (term-keys-mode t))
 ;; -TermKeysPac
 

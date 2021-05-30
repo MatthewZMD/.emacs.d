@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: node
+# key: node
+# --
+node {${1:name}}

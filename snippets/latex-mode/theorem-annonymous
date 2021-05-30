@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: theorem-annonymous
+# key: thm*
+# --
+\begin{theorem}
+  $0
+\end{theorem}

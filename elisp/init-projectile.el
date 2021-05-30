@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 09:10:23 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Mon Jan 27 01:03:56 2020 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d projectile
 ;; Compatibility: emacs-version >= 26.1
@@ -44,12 +42,12 @@
 (use-package projectile
   :bind
   ("C-c p" . projectile-command-map)
-  ("C-z p" . projectile-add-known-project)
   :custom
   (projectile-completion-system 'ivy)
   :config
   (projectile-mode 1)
-  (when (and *sys/win32* *tr*)
+  (when (and *sys/win32*
+             (executable-find "tr"))
     (setq projectile-indexing-method 'alien))
   (add-to-list 'projectile-globally-ignored-directories "node_modules"))
 ;; -ProjPac

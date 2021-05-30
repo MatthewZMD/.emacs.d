@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: vector-bold
+# key: veb
+# --
+\\mathbf{$1}

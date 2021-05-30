@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: linebreak
+# key: ------
+# --
+\\\\\noindent\rule{\textwidth}{0.5pt}\\\\
+$0

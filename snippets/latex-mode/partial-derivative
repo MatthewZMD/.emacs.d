@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: partial-derivative
+# key: pdv
+# --
+\\pdv{$1}{$2}

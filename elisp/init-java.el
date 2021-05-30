@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Jul  4 21:26:24 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Wed Feb 19 16:09:18 2020 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d lsp-java java-one-click-run
 ;; Compatibility: emacs-version >= 26.1
@@ -37,13 +35,10 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
-
 ;; LSPJavaPac
 (use-package lsp-java
   :after lsp-mode
-  :if *mvn*
+  :if (executable-find "mvn")
   :init
   (use-package request :defer t)
   :custom

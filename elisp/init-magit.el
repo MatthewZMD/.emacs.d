@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 08:40:27 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu Aug  8 16:07:17 2019 (-0400)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d magit
 ;; Compatibility: emacs-version >= 26.1
@@ -37,13 +35,18 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
-
 ;; MagitPac
 (use-package magit
-  :if *git*
-  :bind ("C-x g" . magit-status))
+  :if (executable-find "git")
+  :bind
+  (("C-x g" . magit-status)
+   (:map magit-status-mode-map
+         ("M-RET" . magit-diff-visit-file-other-window)))
+  :config
+  (defun magit-log-follow-current-file ()
+    "A wrapper around `magit-log-buffer-file' with `--follow' argument."
+    (interactive)
+    (magit-log-buffer-file t)))
 ;; -MagitPac
 
 (provide 'init-magit)

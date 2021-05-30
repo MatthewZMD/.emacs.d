@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: pdv
-# key: pdv
-# --
-\\pdv{$1}{$2}

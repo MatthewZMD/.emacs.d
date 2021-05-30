@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: tautological-implies
+# key: tmpl
+# --
+\vDash

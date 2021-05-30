@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: small-brace
+# key: s{
+# --
+\\{$1\\}

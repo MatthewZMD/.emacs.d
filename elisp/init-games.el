@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:16:53 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Thu Dec 26 02:55:21 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d tetris speed-type 2048
 ;; Compatibility: emacs-version >= 26.1
@@ -62,6 +60,12 @@
 (use-package 2048-game
   :commands (2048-game))
 ;; -2048Pac
+
+;; SnowPac
+(use-package snow
+  :load-path (lambda () (expand-file-name "site-elisp/snow.el" user-emacs-directory))
+  :commands (let-it-snow))
+;; -SnowPac
 
 (provide 'init-games)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

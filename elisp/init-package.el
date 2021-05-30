@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 10:53:00 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Sun May 24 01:15:36 2020 (-0400)
-;;           By: Bilaal Hussain
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d packages use-package
 ;; Compatibility: emacs-version >= 26.1

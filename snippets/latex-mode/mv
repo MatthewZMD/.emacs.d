@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: mv
-# key: mv
-# --
-\\begin{bmatrix} $1 \\\\ $0 \\\\ \\end{bmatrix}

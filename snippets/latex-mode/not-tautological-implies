@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: not-tautological-implies
+# key: ntmpl
+# --
+\nvDash

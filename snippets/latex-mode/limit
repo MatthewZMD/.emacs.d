@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: limit
+# key: lim
+# --
+\lim\limits_{$1} $0

@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 17:32:54 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Tue Feb  4 19:34:55 2020 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d fonts
 ;; Compatibility: emacs-version >= 26.1
@@ -37,9 +35,6 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
-
 ;; FontsList
 ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
 (defvar font-list '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
@@ -64,12 +59,12 @@
       (set-frame-font font-setting nil t)
       (add-to-list 'default-frame-alist (cons 'font font-setting)))))
 
-(when *sys/gui*
+(when (display-graphic-p)
   (change-font))
 ;; -FontFun
 
 ;; ATIPac
-(use-package all-the-icons :if *sys/gui*)
+(use-package all-the-icons :if (display-graphic-p))
 ;; -ATIPac
 
 (provide 'init-fonts)

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: text-font
+# key: tt
+# --
+\\text{$1}

@@ -4,5 +4,5 @@
 # --
 \begin{cases}
   ${1:c1} & \text{if } ${2:case1} \\\\
-  ${3:c2} & \text{if } ${4:case2}
+  ${3:c2} & \text{otherwise}
 \end{cases}

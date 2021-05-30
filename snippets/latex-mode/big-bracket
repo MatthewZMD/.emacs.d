@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: big-bracket
+# key: bk
+# --
+\\left${1:(} $3 \\right${2:)}

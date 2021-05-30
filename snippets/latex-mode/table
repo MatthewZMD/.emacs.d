@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: table
+# key: table
+# --
+\begin{center}
+\begin{tabular}{ ${1:|c|c|c|} }
+ \hline
+ ${2:cell1} & ${3:cell2} & ${4:cell3} \\\\
+ $0
+ \hline
+\end{tabular}
+\end{center}

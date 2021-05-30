@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: latex-math-header
+# key: lmheader
+# --
+#+LATEX_HEADER: \newtheorem{theorem}{Theorem}[subsection]
+#+LATEX_HEADER: \newtheorem{corollary}{Corollary}[theorem]
+#+LATEX_HEADER: \newtheorem{proposition}{Proposition}[theorem]
+#+LATEX_HEADER: \newtheorem{lemma}{Lemma}[theorem]
+#+LATEX_HEADER: \theoremstyle{remark}
+#+LATEX_HEADER: \newtheorem*{remark}{Remark}
+#+LATEX_HEADER: \theoremstyle{definition}
+#+LATEX_HEADER: \newtheorem{definition}{Definition}[subsection]
+#+LATEX_HEADER: \newtheorem{example}{Example}[subsection]
+#+LATEX_HEADER: \newenvironment{solution}{\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}{\end{proof}}
+$0

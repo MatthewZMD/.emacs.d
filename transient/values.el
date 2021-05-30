@@ -1,0 +1,1 @@
+((magit-commit "--signoff"))

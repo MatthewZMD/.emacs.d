@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: eqn
-# key: eqn
-# --
-\\begin{align*}
-  $0
-\\end{align*}

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: example
+# key: ex
+# --
+\begin{example}
+  $1
+  \begin{solution}
+    $0
+  \end{solution}
+\end{example}

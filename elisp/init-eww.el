@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Fri Mar 15 11:13:42 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Tue Dec 24 12:18:07 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d eww
 ;; Compatibility: emacs-version >= 26.1
@@ -49,7 +47,7 @@
                       (rename-buffer "eww" t)))
   :config
   ;; I am using EAF-Browser instead of EWW
-  (unless *eaf-env*
+  (unless eaf-env-p
     (setq browse-url-browser-function 'eww-browse-url))) ; Hit & to browse url with system browser
 ;; -EWWPac
 

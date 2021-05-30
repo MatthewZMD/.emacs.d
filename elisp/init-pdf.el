@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Tue Jun  4 00:26:09 2019 (-0400)
-;; Version: 1.0.0
-;; Last-Updated: Tue Jan 14 00:12:52 2020 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d pdf-tools
 ;; Compatibility: emacs-version >= 26.1
@@ -43,7 +41,7 @@
 ;; PDFToolsPac
 (use-package pdf-tools-install
   :ensure pdf-tools
-  :if (and *sys/gui* (not *sys/win32*) (not *eaf-env*))
+  :if (and (display-graphic-p) (not *sys/win32*) (not eaf-env-p))
   :mode "\\.pdf\\'"
   :commands (pdf-loader-install)
   :custom

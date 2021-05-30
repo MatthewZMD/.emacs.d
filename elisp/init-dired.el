@@ -5,9 +5,7 @@
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
 ;; Created: Thu Mar 14 11:37:00 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Wed Dec 25 02:33:09 2019 (-0500)
-;;           By: Mingde (Matthew) Zeng
+;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
 ;; Keywords: M-EMACS .emacs.d dired auto-save
 ;; Compatibility: emacs-version >= 26.1
@@ -45,6 +43,7 @@
    ("C-x j" . dired-jump-other-window))
   :custom
   ;; Always delete and copy recursively
+  (dired-listing-switches "-lah")
   (dired-recursive-deletes 'always)
   (dired-recursive-copies 'always)
   ;; Auto refresh Dired, but be quiet about it
@@ -76,17 +75,6 @@
 (use-package disk-usage
   :commands (disk-usage))
 ;; -DiskUsage
-
-;; SuperSave
-(use-package super-save
-  :diminish
-  :custom
-  (super-save-auto-save-when-idle t)
-  (auto-save-default nil)
-  (make-backup-files nil)
-  :config
-  (super-save-mode 1))
-;; -SuperSave
 
 ;; SaveAllBuffers
 (defun save-all-buffers ()
