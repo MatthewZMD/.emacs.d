@@ -89,6 +89,27 @@
                                   (:from . 22)
                                   (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
                                   (:size . 7))))))
+  :init
+  (use-package mu4e-thread-folding
+    :load-path (lambda () (expand-file-name "site-elisp/mu4e-thread-folding" user-emacs-directory))
+    :after mu4e
+    :bind
+    ((:map mu4e-headers-mode-map
+           ("TAB" . mu4e-headers-toggle-at-point)
+           ("C-<tab>" . mu4e-headers-toggle-fold-all)))
+    :custom
+    (mu4e-thread-folding-default-view `folded)
+    (mu4e-headers-fields '((:empty         .    2)
+                           (:human-date    .   12)
+                           (:flags         .    6)
+                           (:mailing-list  .   10)
+                           (:from          .   22)
+                           (:subject       .   nil)))
+    :config
+    (add-to-list 'mu4e-header-info-custom
+                 '(:empty . (:name "Empty"
+                                   :shortname ""
+                                   :function (lambda (msg) "  ")))))
   :config
   (require 'mu4e-icalendar)
   (mu4e-icalendar-setup)

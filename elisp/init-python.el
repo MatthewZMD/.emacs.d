@@ -52,9 +52,7 @@
 
 ;; LSPPythonPac
 (use-package lsp-pyright
-  :hook (python-mode . (lambda () (require 'lsp-pyright)))
-  :init (when (executable-find "python3")
-          (setq lsp-pyright-python-executable-cmd "python3")))
+  :hook (python-mode . (lambda () (require 'lsp-pyright))))
 ;; -LSPPythonPac
 
 (provide 'init-python)

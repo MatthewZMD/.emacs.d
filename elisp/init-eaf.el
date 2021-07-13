@@ -42,6 +42,7 @@
 (use-package eaf
   :load-path (lambda () (expand-file-name "site-elisp/emacs-application-framework" user-emacs-directory))
   :if eaf-env-p
+  :commands (eaf-open eaf-open-browser eaf-open-browser-with-history)
   :init
   (use-package epc :defer t)
   (use-package ctable :defer t)

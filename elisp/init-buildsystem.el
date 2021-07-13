@@ -48,6 +48,10 @@
 (use-package groovy-mode :defer t)
 ;; -GroovyPac
 
+;; BazelPac
+(use-package bazel :defer t)
+;; -BazelPac
+
 ;; YamlPac
 (use-package yaml-mode :defer t)
 ;; -YamlPac

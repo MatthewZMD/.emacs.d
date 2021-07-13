@@ -37,13 +37,13 @@
 
 ;; FontsList
 ;; Input Mono, Monaco Style, Line Height 1.3 download from http://input.fontbureau.com/
-(defvar font-list '(("Input" . 11) ("SF Mono" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
+(defvar font-list '(("Input" . 11) ("Hack" . 12) ("Consolas" . 12) ("Love LetterTW" . 12.5))
   "List of fonts and sizes.  The first one available will be used.")
 ;; -FontsList
 
 ;; FontFun
 (defun change-font ()
-  "Documentation."
+  "Interactively change a font from a list a available fonts."
   (interactive)
   (let* (available-fonts font-name font-size font-setting)
     (dolist (font font-list (setq available-fonts (nreverse available-fonts)))

@@ -38,6 +38,10 @@
 (eval-when-compile
   (require 'init-const))
 
+;; Highlight
+(global-hl-line-mode 1)
+;; -Highlight
+
 ;; PreSym
 (global-prettify-symbols-mode 1)
 (defun add-pretty-lambda ()
