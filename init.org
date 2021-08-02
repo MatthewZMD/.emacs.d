@@ -77,6 +77,7 @@
   - [[Java][Java]]
   - [[C/C++/Objective C][C/C++/Objective C]]
   - [[Golang][Golang]]
+  - [[Rust][Rust]]
   - [[Python][Python]]
   - [[Haskell][Haskell]]
   - [[ESS][ESS]]
@@ -84,7 +85,7 @@
   - [[Yaml][Yaml]]
   - [[Buildsystem][Buildsystem]]
 - [[Web Development][Web Development]]
-  - [[Web Mode][Web Mode]]
+  - [[Web][Web]]
   - [[JavaScript/TypeScript][JavaScript/TypeScript]]
   - [[Emmet][Emmet]]
   - [[Instant Rename Tag][Instant Rename Tag]]
@@ -139,13 +140,13 @@
 
   As a young EMACSer, I have experienced the struggle to find a detailed configuration that is loosely coupled and highly readable. This mostly due to the nature of source codes, sometimes comments are harder to notice or simply not enough. Therefore I decided to construct this README and present any human-readable explanation in a much more human-friendly way. Anyone, particularly Emacs beginners who have no idea where to start with their personal config, is more than welcome to read through this document and copy/paste any part to use it on their own.
 
-  This distribution is designed and tested for *GNU Emacs 26.1 and above only*. However, it is suggested to use *Emacs 27*, the latest stable version released, for its significant improvement in the core that's out of the scope of M-EMACS.
+  This distribution is designed and tested for *GNU Emacs 26.1 and above only*. However, it is always suggested to use *Emacs 27*, the latest stable version released, for its significant improvement in the core that's out of the scope of M-EMACS.
   [[file:images/Sample.png]]
 ** Community Responses ❤️
    Some heartwarming responses from the Emacs community:
    - /"Actually I understated how much I liked reading through your config... What makes me excited about this config is the readability and possibility of extending in a similar way."/ -- from [[https://www.reddit.com/r/emacs/comments/eewwyh/officially_introducing_memacs/fc5x1lz?utm_source=share&utm_medium=web2x&context=3][u/Orgmonics]]
    - /"I have to say Matt's setup has the best clarity of all emacs setups I have ever tried. It's really a good template to develop your own emacs config. Thanks again..."/ -- from [[https://www.reddit.com/r/emacs/comments/eewwyh/officially_introducing_memacs/fbxk831?utm_source=share&utm_medium=web2x&context=3][u/fqye]]
-   - /"thanks for the fantastic emacs setup, I love emacs, but trying to get lsp working right was killing me, yours worked out of the box and all I had to do was add some bindings, it's really a time saver"/ -- from [[https://github.com/MatthewZMD/.emacs.d/issues/48#issuecomment-877827124][ahonnecke]]
+   - /"Thanks for the fantastic emacs setup, I love emacs, but trying to get lsp working right was killing me, yours worked out of the box and all I had to do was add some bindings, it's really a time saver"/ -- from [[https://github.com/MatthewZMD/.emacs.d/issues/48#issuecomment-877827124][ahonnecke]]
    - /"Thank you for helping a guy out and for sharing this. I hope this evolves to be into something really big."/ -- from [[https://github.com/MatthewZMD/.emacs.d/issues/38#issuecomment-706657288][d3v-S]]
    - and more... Love you guys! ❤️❤️
 ** About README
@@ -571,13 +572,17 @@
     [[https://github.com/ludwigpacifici/modern-cpp-font-lock][Modern CPP Font Lock]], font-locking for "Modern C++".
     #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "CPPFontLockPac" :range-end "-CPPFontLockPac" :lines "67-70"
 ** Golang
-   [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode Golang programming.
+   [[https://github.com/dominikh/go-mode.el][Go Mode]], an Emacs mode for Golang programming.
 
    *Prerequisite*: [[https://github.com/golang/tools/blob/master/gopls/README.md][gopls]] is required for Golang's LSP support.
    #+BEGIN_SRC bash
      go get golang.org/x/tools/gopls@latest
    #+END_SRC
    #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "73-76"
+** Rust
+   [[https://github.com/rust-lang/rust-mode][Rust Mode]], an Emacs mode for Rust programming.
+
+   #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "RustPac" :range-end "-RustPac" :lines "79-90"
 ** Python
 *** Python Configuration
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "43-51"
@@ -618,25 +623,28 @@
     npm i -g typescript
     npm i -g typescript-language-server
   #+END_SRC
-** Web Mode
+** Web
    [[https://github.com/fxbois/web-mode][Web mode]], a major mode for editing web templates.
    #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "WebModePac" :range-end "-WebModePac" :lines "39-46"
 ** JavaScript/TypeScript
-*** JavaScript2 Mode
+*** JavaScript2
     [[https://github.com/mooz/js2-mode][JS2 mode]], a feature that offers improved JavsScript editing mode.
     #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "Js2Pac" :range-end "-Js2Pac" :lines "49-52"
-*** TypeScript Mode
+*** TypeScript
     [[https://github.com/emacs-typescript/typescript.el][TypeScript mode]], a feature that offers TypeScript support for Emacs.
     #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "TypeScriptPac" :range-end "-TypeScriptPac" :lines "55-58"
+*** Vue
+    [[https://github.com/AdamNiederer/vue-mode][Vue mode]], a major mode for Vue.js.
+    #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "VuePac" :range-end "-VuePac" :lines "61-64"
 ** Emmet
    [[https://github.com/smihica/emmet-mode][Emmet]], a feature that allows writing HTML using CSS selectors along with =C-j=. See [[https://github.com/smihica/emmet-mode#usage][usage]] for more information.
-   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "EmmetPac" :range-end "-EmmetPac" :lines "61-64"
+   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "EmmetPac" :range-end "-EmmetPac" :lines "67-70"
 ** Instant Rename Tag
    [[https://github.com/manateelazycat/instant-rename-tag][Instant Rename Tag]], a plugin that provides ability to rename html tag pairs instantly.
-   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "InstantRenameTagPac" :range-end "-InstantRenameTagPac" :lines "67-70"
+   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "InstantRenameTagPac" :range-end "-InstantRenameTagPac" :lines "73-76"
 ** JSON
    [[https://github.com/joshwnj/json-mode][JSON Mode]], a major mode for editing JSON files.
-   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "JsonPac" :range-end "-JsonPac" :lines "73-75"
+   #+INCLUDE: "~/.emacs.d/elisp/init-webdev.el" src emacs-lisp :range-begin "JsonPac" :range-end "-JsonPac" :lines "79-81"
 * Office
 ** Org
    [[https://orgmode.org/][Org]], a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.

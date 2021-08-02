@@ -72,11 +72,11 @@
   (eaf-bind-key zoom_out "C--" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (eaf-bind-key eaf-send-key-sequence "M-]" eaf-terminal-keybinding)
-  (eaf-setq eaf-browser-default-zoom "1.25")
-  (eaf-setq eaf-browser-dark-mode "false")
-  (eaf-setq eaf-browser-enable-adblocker "true")
-  (eaf-setq eaf-pdf-dark-mode "false")
-  (eaf-setq eaf-browser-enable-autofill "true"))
+  (setq eaf-browser-default-zoom 1.25)
+  (setq eaf-browser-dark-mode nil)
+  (setq eaf-browser-enable-adblocker t)
+  (setq eaf-pdf-dark-mode nil)
+  (setq eaf-browser-enable-autofill t))
 ;; -EAFPac
 
 

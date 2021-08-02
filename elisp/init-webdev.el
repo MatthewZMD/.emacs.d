@@ -57,6 +57,12 @@
   :commands (typescript-mode))
 ;; -TypeScriptPac
 
+;; VuePac
+(use-package vue-mode
+  :mode "\\.vue\\'"
+  :commands (vue-mode))
+;; -VuePac
+
 ;; EmmetPac
 (use-package emmet-mode
   :hook ((web-mode . emmet-mode)
