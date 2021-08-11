@@ -578,11 +578,11 @@
    #+BEGIN_SRC bash
      go get golang.org/x/tools/gopls@latest
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "73-76"
+   #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "GoPac" :range-end "-GoPac" :lines "73-77"
 ** Rust
    [[https://github.com/rust-lang/rust-mode][Rust Mode]], an Emacs mode for Rust programming.
 
-   #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "RustPac" :range-end "-RustPac" :lines "79-90"
+   #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "RustPac" :range-end "-RustPac" :lines "80-91"
 ** Python
 *** Python Configuration
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "43-51"

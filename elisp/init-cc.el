@@ -72,7 +72,8 @@
 ;; GoPac
 (use-package go-mode
   :mode "\\.go\\'"
-  :hook (before-save . gofmt-before-save))
+  :hook (before-save . gofmt-before-save)
+  :custom (gofmt-command "goimports"))
 ;; -GoPac
 
 ;; RustPac
