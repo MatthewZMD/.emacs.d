@@ -176,6 +176,9 @@ The original function deletes trailing whitespace of the current line."
 ;; Add a newline automatically at the end of the file upon save.
 (setq require-final-newline t)
 
+;; Enable `erase-buffer' function
+(put 'erase-buffer 'disabled nil)
+
 ;; Default .args, .in, .out files to text-mode
 (add-to-list 'auto-mode-alist '("\\.in\\'" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.out\\'" . text-mode))
