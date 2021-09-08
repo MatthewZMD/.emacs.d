@@ -525,17 +525,17 @@
 *** LSP Mode
     [[https://github.com/emacs-lsp/lsp-mode][Language Server Protocol Mode]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]]. M-EMACS tries to use lsp-mode whenever possible.
 
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "39-52"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "39-61"
 *** LSP UI
     [[https://github.com/emacs-lsp/lsp-ui][Language Server Protocol UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
 
     Note: =lsp-ui-doc= is too annoying, so it will not be triggered upon hovering. You have to toggle it using =M-i=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "55-86"
+    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "64-97"
 ** DAP
    [[https://github.com/emacs-lsp/dap-mode][Debug Adapter Protocol Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
 
    *Prerequisite*: See [[https://github.com/emacs-lsp/dap-mode#configuration][Configuration]] to configure DAP appropriately.
-   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "89-99"
+   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "100-110"
 ** Company
 *** Company Mode
     [[http://company-mode.github.io/][Company]], a text completion framework for Emacs.
@@ -591,7 +591,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "43-51"
 *** LSP Pyright
     [[https://github.com/emacs-lsp/lsp-pyright][LSP Pyright]], a lsp-mode client leveraging [[https://github.com/microsoft/pyright][Pyright language server]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "54-56"
+    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "54-58"
 ** Haskell
    [[https://github.com/haskell/haskell-mode][Haskell Mode]], an Emacs mode for Haskell programming.
    #+INCLUDE: "~/.emacs.d/elisp/init-haskell.el" src emacs-lisp :range-begin "HaskellModePac" :range-end "-HaskellModePac" :lines "39-41"

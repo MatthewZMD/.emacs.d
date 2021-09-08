@@ -1,121 +1,121 @@
-<a id="orgd468d58"></a>
+<a id="org479c1bb"></a>
 
 # M-EMACS
 
 
 # Table of Contents     :TOC_2_ORG:
 
--   [M-EMACS](#orgd468d58)
--   [About EMACS](#org8d1aa43)
--   [About M-EMACS](#org68a0d70)
-    -   [Community Responses ❤️](#org997feb6)
-    -   [About README](#org7ad754e)
-    -   [Installation](#orgec87e52)
-    -   [Modification](#org78be0c6)
-    -   [Contribution](#orgcc29a89)
-    -   [Special Thanks](#org2a841c3)
--   [Startup](#org8c3d3d2)
-    -   [Lexical Binding](#org6f84358)
-    -   [Early Init](#orgcc7e820)
-    -   [Garbage Collection](#orgc0a6f49)
-    -   [Load Path](#org691a7a0)
-    -   [Define Constants](#org3eba0a7)
-    -   [Load Private File](#org4d85926)
--   [Package Management](#org0fdb4e9)
-    -   [Melpa Packages](#org180efe4)
-    -   [Non-Melpa Packages](#orga5d541a)
-    -   [Configure Package Manager](#org44d6ac0)
-    -   [Use Package](#org2295436)
-    -   [Auto Package Update](#org765ba8f)
-    -   [Diminish](#org78b89a1)
--   [Global Functionalities](#orgd88c81b)
-    -   [User Information](#org8f8b000)
-    -   [Bindings](#orgc20fad8)
-    -   [Avy](#orgafd4028)
-    -   [Crux](#orgd41ad8f)
-    -   [Ivy, Amx, Counsel, Swiper](#orgfe3668e)
-    -   [Color Ripgrep](#org55b1492)
-    -   [Find File In Project](#org1f3dc04)
-    -   [Snails](#org0ea6abf)
-    -   [Files Directories](#org2bc79b8)
-    -   [Winner](#org074674b)
-    -   [Which Key](#orgdfe613a)
-    -   [Popup Kill Ring](#org9a635dc)
-    -   [Undo Tree](#org7c6cb18)
-    -   [Discover My Major](#orgcd0fa7a)
-    -   [Ace Window](#orge210ef5)
-    -   [Terminal](#org4a19939)
-    -   [Sudo Edit](#org8e2cec2)
-    -   [Ibuffer](#org83839a7)
-    -   [Config](#org02a5da9)
-    -   [Functions](#org843e86b)
--   [UI Enhancements](#orgc39c501)
-    -   [Doom Themes](#org3064b65)
-    -   [Doom Modeline](#org1901fee)
-    -   [Dashboard](#org30bab51)
-    -   [Fonts and Icons](#org35259e8)
-    -   [Smooth Scrolling](#orgea4e2db)
-    -   [Highlight Lines](#orged94d84)
-    -   [Prettify Symbols](#org87955a8)
-    -   [UI Configs](#orga946580)
--   [General Programming](#org6ebd40d)
-    -   [Magit](#orgd41a830)
-    -   [Projectile](#org31f613d)
-    -   [Treemacs](#org889d1c2)
-    -   [YASnippet](#orga7f458a)
-    -   [Syntax](#org8a257e3)
-    -   [Dumb Jump](#org3d5e7ae)
-    -   [Parenthesis](#org4a3f9e5)
-    -   [Indentation](#org3218f3e)
-    -   [Quickrun](#org4890c10)
-    -   [Format All](#org152bc50)
-    -   [Evil Nerd Commenter](#org1e8afff)
-    -   [Editing](#orgeb5a6b8)
-    -   [Headers](#org6625756)
-    -   [Jupyter Notebook](#orga7cd74f)
-    -   [LSP](#org6f6aee3)
-    -   [DAP](#orgf5a19e1)
-    -   [Company](#org8b786fa)
--   [Programming](#org2d6db81)
-    -   [Java](#org704229c)
-    -   [C/C++/Objective C](#orgf880fce)
-    -   [Golang](#orge6a6855)
-    -   [Rust](#orgfc2fd40)
-    -   [Python](#org32c2aec)
-    -   [Haskell](#orgc1703a4)
-    -   [ESS](#orgb3a6045)
-    -   [TeX](#org7503893)
-    -   [Yaml](#org0386fd8)
-    -   [Buildsystem](#org8e473b5)
--   [Web Development](#org24e0e2e)
-    -   [Web](#orgec0b396)
-    -   [JavaScript/TypeScript](#org6f5c958)
-    -   [Emmet](#orge24dfcb)
-    -   [Instant Rename Tag](#org0014e3a)
-    -   [JSON](#orgd867cde)
--   [Office](#org9cb68d6)
-    -   [Org](#orgea9304c)
-    -   [PDF Tools](#org0c164c9)
--   [Internet](#orgf77612c)
-    -   [EAF](#orgb04431a)
-    -   [ERC](#orgfa7ecb0)
-    -   [MU4E](#orge46d68e)
-    -   [Tramp](#org87be051)
-    -   [LeetCode](#org1b7082f)
-    -   [Debbugs](#org0905f03)
-    -   [Hacker News](#org4f73ead)
-    -   [EWW](#org3654992)
--   [Miscellaneous](#org57f748f)
-    -   [Chinese](#org0540317)
-    -   [Tetris](#orgbe45688)
-    -   [Speed Type](#org22f1e7f)
-    -   [2048 Game](#org0d0f060)
-    -   [Snow](#org674b543)
-    -   [EPaint](#org08979f7)
-    -   [Zone](#org74e24fc)
+-   [M-EMACS](#org479c1bb)
+-   [About EMACS](#org5217f8d)
+-   [About M-EMACS](#org37f28e4)
+    -   [Community Responses ❤️](#org4e8d77f)
+    -   [About README](#org851b844)
+    -   [Installation](#org3acbcda)
+    -   [Modification](#orgba8a00c)
+    -   [Contribution](#orgd2757a5)
+    -   [Special Thanks](#org7239fc1)
+-   [Startup](#org1fb633a)
+    -   [Lexical Binding](#org536c32d)
+    -   [Early Init](#org4ec8bf3)
+    -   [Garbage Collection](#org82196ec)
+    -   [Load Path](#orgab29dc2)
+    -   [Define Constants](#org1324fa4)
+    -   [Load Private File](#orgb7cfe98)
+-   [Package Management](#orgfbd1773)
+    -   [Melpa Packages](#orgde4beff)
+    -   [Non-Melpa Packages](#orgcbaaf68)
+    -   [Configure Package Manager](#org8a4f4ae)
+    -   [Use Package](#org55a3a9d)
+    -   [Auto Package Update](#org75d28d3)
+    -   [Diminish](#org9ab5cb9)
+-   [Global Functionalities](#org4d16af3)
+    -   [User Information](#org36165d0)
+    -   [Bindings](#org64ab2f5)
+    -   [Avy](#orgc5849d5)
+    -   [Crux](#orgafe3c86)
+    -   [Ivy, Amx, Counsel, Swiper](#org92a287c)
+    -   [Color Ripgrep](#orgd949b64)
+    -   [Find File In Project](#org6776bff)
+    -   [Snails](#org3223382)
+    -   [Files Directories](#orgf75468b)
+    -   [Winner](#orgb8091fb)
+    -   [Which Key](#org7c3f553)
+    -   [Popup Kill Ring](#org651bdbf)
+    -   [Undo Tree](#org8df9448)
+    -   [Discover My Major](#org1892001)
+    -   [Ace Window](#orgb3b3bd2)
+    -   [Terminal](#org669fafe)
+    -   [Sudo Edit](#org94c3db4)
+    -   [Ibuffer](#orgf26609c)
+    -   [Config](#org1c116c6)
+    -   [Functions](#org8aeee6d)
+-   [UI Enhancements](#org3fdac69)
+    -   [Doom Themes](#org201e1b3)
+    -   [Doom Modeline](#org85b3a8c)
+    -   [Dashboard](#org409ec15)
+    -   [Fonts and Icons](#org5613adb)
+    -   [Smooth Scrolling](#org9f42891)
+    -   [Highlight Lines](#org6e2ba11)
+    -   [Prettify Symbols](#org54aea98)
+    -   [UI Configs](#org23a2668)
+-   [General Programming](#org0654e39)
+    -   [Magit](#orge19c1dd)
+    -   [Projectile](#orgedfb4bd)
+    -   [Treemacs](#orgaf3fbba)
+    -   [YASnippet](#org0d9a353)
+    -   [Syntax](#orgd6e90d0)
+    -   [Dumb Jump](#org206a771)
+    -   [Parenthesis](#orgddb84a4)
+    -   [Indentation](#org3cbe3ff)
+    -   [Quickrun](#org93e1734)
+    -   [Format All](#org8c95443)
+    -   [Evil Nerd Commenter](#org1c8998c)
+    -   [Editing](#orge3ed2d4)
+    -   [Headers](#org4373fad)
+    -   [Jupyter Notebook](#orgce20066)
+    -   [LSP](#org8ed6744)
+    -   [DAP](#orgb7e26fa)
+    -   [Company](#org1555bd2)
+-   [Programming](#org7c7f403)
+    -   [Java](#org6e72cdb)
+    -   [C/C++/Objective C](#org6a9727f)
+    -   [Golang](#orgc5a5f84)
+    -   [Rust](#orgde75142)
+    -   [Python](#orgc94face)
+    -   [Haskell](#org984ec7e)
+    -   [ESS](#orgedaa27b)
+    -   [TeX](#orgba38f38)
+    -   [Yaml](#org1476c41)
+    -   [Buildsystem](#orgb9f2554)
+-   [Web Development](#org13e1f2a)
+    -   [Web](#orgf1e8971)
+    -   [JavaScript/TypeScript](#org43e7588)
+    -   [Emmet](#org5f2b10e)
+    -   [Instant Rename Tag](#orgabb13a8)
+    -   [JSON](#orgbf5ba34)
+-   [Office](#org4a67eeb)
+    -   [Org](#org1b1c97a)
+    -   [PDF Tools](#orge0376d5)
+-   [Internet](#org61d38bf)
+    -   [EAF](#orgde0d700)
+    -   [ERC](#orge3e153b)
+    -   [MU4E](#orgf5685d2)
+    -   [Tramp](#orge341171)
+    -   [LeetCode](#org717db1d)
+    -   [Debbugs](#org34f7ca3)
+    -   [Hacker News](#orgc41db2e)
+    -   [EWW](#org7041c17)
+-   [Miscellaneous](#org642bb2a)
+    -   [Chinese](#org5b96882)
+    -   [Tetris](#orgad8d662)
+    -   [Speed Type](#org5d98a07)
+    -   [2048 Game](#org67eaa15)
+    -   [Snow](#org4b335d2)
+    -   [EPaint](#orgc95ccf4)
+    -   [Zone](#org7b00ae8)
 
 
-<a id="org8d1aa43"></a>
+<a id="org5217f8d"></a>
 
 # About EMACS
 
@@ -146,7 +146,7 @@ Emacs doesn't have a monopoly on good ideas, and there are other great tools out
 *This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).*
 
 
-<a id="org68a0d70"></a>
+<a id="org37f28e4"></a>
 
 # About M-EMACS
 
@@ -157,7 +157,7 @@ As a young EMACSer, I have experienced the struggle to find a detailed configura
 This distribution is designed and tested for **GNU Emacs 26.1 and above only**. However, it is always suggested to use **Emacs 27**, the latest stable version released, for its significant improvement in the core that's out of the scope of M-EMACS. ![img](images/Sample.png)
 
 
-<a id="org997feb6"></a>
+<a id="org4e8d77f"></a>
 
 ## Community Responses ❤️
 
@@ -170,14 +170,14 @@ Some heartwarming responses from the Emacs community:
 -   and more&#x2026; Love you guys! ❤️❤️
 
 
-<a id="org7ad754e"></a>
+<a id="org851b844"></a>
 
 ## About README
 
 This README is originated from `init.org` that is generated using `M-x org-gfm-export-to-markdown`. Every block of code is generated through this function - it exports sections of code from the `elisp/` directory. You will not see their presence in `init.org`. This not only enables a cleaner organization but also significantly improves Emacs start-up time than the traditional *everything in an org file* approach.
 
 
-<a id="orgec87e52"></a>
+<a id="org3acbcda"></a>
 
 ## Installation
 
@@ -225,7 +225,7 @@ I will be updating M-EMACS from time to time, it is best to `git pull` once a wh
 Please also execute `git submodule update --recursive --remote` to sync with all the submodules.
 
 
-<a id="org78be0c6"></a>
+<a id="orgba8a00c"></a>
 
 ## Modification
 
@@ -243,14 +243,14 @@ However, what is *free* stays *free*. After all, this is [GPL](LICENSE).
 6.  Call `M-x org-gfm-export-to-markdown` to update `README.md` automatically.
 
 
-<a id="orgcc29a89"></a>
+<a id="orgd2757a5"></a>
 
 ## Contribution
 
 If you spotted a bug or you have any suggestions, please fill in an issue. If you have something to fix, feel free to create a pull request.
 
 
-<a id="org2a841c3"></a>
+<a id="org7239fc1"></a>
 
 ## Special Thanks
 
@@ -261,12 +261,12 @@ Everyone starts somewhere, and I started here.
 -   [Poncie Reyes's .emacs.d](https://github.com/poncie/.emacs.d)
 
 
-<a id="org8c3d3d2"></a>
+<a id="org1fb633a"></a>
 
 # Startup
 
 
-<a id="org6f84358"></a>
+<a id="org536c32d"></a>
 
 ## Lexical Binding
 
@@ -279,7 +279,7 @@ Use lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 ```
 
 
-<a id="orgcc7e820"></a>
+<a id="org4ec8bf3"></a>
 
 ## Early Init
 
@@ -356,7 +356,7 @@ It will be faster to disable them here before they've been initialized.
 ```
 
 
-<a id="orgc0a6f49"></a>
+<a id="org82196ec"></a>
 
 ## Garbage Collection
 
@@ -403,7 +403,7 @@ Garbage Collect when Emacs is out of focus and avoid garbage collection when usi
 ```
 
 
-<a id="org691a7a0"></a>
+<a id="orgab29dc2"></a>
 
 ## Load Path
 
@@ -427,7 +427,7 @@ Since all the configuration files are stored in `elisp/` folder, they need to be
 ```
 
 
-<a id="org3eba0a7"></a>
+<a id="org1324fa4"></a>
 
 ## Define Constants
 
@@ -468,7 +468,7 @@ Since all the configuration files are stored in `elisp/` folder, they need to be
 ```
 
 
-<a id="org4d85926"></a>
+<a id="orgb7cfe98"></a>
 
 ## Load Private File
 
@@ -481,7 +481,7 @@ An `init-private.el` file has been designated at `user-emacs-directory` for you 
 ```
 
 
-<a id="org0fdb4e9"></a>
+<a id="orgfbd1773"></a>
 
 # Package Management
 
@@ -493,7 +493,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 ```
 
 
-<a id="org180efe4"></a>
+<a id="orgde4beff"></a>
 
 ## Melpa Packages
 
@@ -513,7 +513,7 @@ Configure package archives, where to install online packages and add them to `lo
 ```
 
 
-<a id="orga5d541a"></a>
+<a id="orgcbaaf68"></a>
 
 ## Non-Melpa Packages
 
@@ -538,7 +538,7 @@ git submodule update
 ```
 
 
-<a id="org44d6ac0"></a>
+<a id="org8a4f4ae"></a>
 
 ## Configure Package Manager
 
@@ -554,7 +554,7 @@ git submodule update
 ```
 
 
-<a id="org2295436"></a>
+<a id="org55a3a9d"></a>
 
 ## Use Package
 
@@ -580,7 +580,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org765ba8f"></a>
+<a id="org75d28d3"></a>
 
 ## Auto Package Update
 
@@ -599,7 +599,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org78b89a1"></a>
+<a id="org9ab5cb9"></a>
 
 ## Diminish
 
@@ -610,12 +610,12 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgd88c81b"></a>
+<a id="org4d16af3"></a>
 
 # Global Functionalities
 
 
-<a id="org8f8b000"></a>
+<a id="org36165d0"></a>
 
 ## User Information
 
@@ -627,7 +627,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgc20fad8"></a>
+<a id="org64ab2f5"></a>
 
 ## Bindings
 
@@ -650,7 +650,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgafd4028"></a>
+<a id="orgc5849d5"></a>
 
 ## Avy
 
@@ -670,7 +670,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgd41ad8f"></a>
+<a id="orgafe3c86"></a>
 
 ## Crux
 
@@ -691,7 +691,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="orgfe3668e"></a>
+<a id="org92a287c"></a>
 
 ## Ivy, Amx, Counsel, Swiper
 
@@ -730,7 +730,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org55b1492"></a>
+<a id="orgd949b64"></a>
 
 ## Color Ripgrep
 
@@ -746,7 +746,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org1f3dc04"></a>
+<a id="org6776bff"></a>
 
 ## Find File In Project
 
@@ -765,7 +765,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org0ea6abf"></a>
+<a id="org3223382"></a>
 
 ## Snails
 
@@ -795,7 +795,7 @@ My Emacs configuration is almost entirely dependant on [use-package](https://git
 ```
 
 
-<a id="org2bc79b8"></a>
+<a id="orgf75468b"></a>
 
 ## Files Directories
 
@@ -808,8 +808,7 @@ Dired, the directory editor.
 (use-package dired
   :ensure nil
   :bind
-  (("C-x C-j" . dired-jump)
-   ("C-x j" . dired-jump-other-window))
+  (("C-x C-j" . dired-jump))
   :custom
   ;; Always delete and copy recursively
   (dired-listing-switches "-lah")
@@ -863,7 +862,7 @@ Dired, the directory editor.
 ```
 
 
-<a id="org074674b"></a>
+<a id="orgb8091fb"></a>
 
 ## Winner
 
@@ -889,7 +888,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="orgdfe613a"></a>
+<a id="org7c3f553"></a>
 
 ## Which Key
 
@@ -906,7 +905,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org9a635dc"></a>
+<a id="org651bdbf"></a>
 
 ## Popup Kill Ring
 
@@ -918,7 +917,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org7c6cb18"></a>
+<a id="org8df9448"></a>
 
 ## Undo Tree
 
@@ -935,7 +934,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="orgcd0fa7a"></a>
+<a id="org1892001"></a>
 
 ## Discover My Major
 
@@ -947,7 +946,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="orge210ef5"></a>
+<a id="orgb3b3bd2"></a>
 
 ## Ace Window
 
@@ -959,7 +958,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org4a19939"></a>
+<a id="org669fafe"></a>
 
 ## Terminal
 
@@ -1040,7 +1039,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org8e2cec2"></a>
+<a id="org94c3db4"></a>
 
 ## Sudo Edit
 
@@ -1052,7 +1051,7 @@ Winner, a mode to restore previous window layouts.
 ```
 
 
-<a id="org83839a7"></a>
+<a id="orgf26609c"></a>
 
 ## Ibuffer
 
@@ -1084,7 +1083,7 @@ It uses [IBuffer VC](https://github.com/purcell/ibuffer-vc) that group buffers b
 ```
 
 
-<a id="org02a5da9"></a>
+<a id="org1c116c6"></a>
 
 ## Config
 
@@ -1232,7 +1231,7 @@ The original function deletes trailing whitespace of the current line."
 ```
 
 
-<a id="org843e86b"></a>
+<a id="org8aeee6d"></a>
 
 ## Functions
 
@@ -1401,12 +1400,12 @@ FACE defaults to inheriting from default and highlight."
 ```
 
 
-<a id="orgc39c501"></a>
+<a id="org3fdac69"></a>
 
 # UI Enhancements
 
 
-<a id="org3064b65"></a>
+<a id="org201e1b3"></a>
 
 ## Doom Themes
 
@@ -1430,7 +1429,7 @@ FACE defaults to inheriting from default and highlight."
 ```
 
 
-<a id="org1901fee"></a>
+<a id="org85b3a8c"></a>
 
 ## Doom Modeline
 
@@ -1450,7 +1449,7 @@ FACE defaults to inheriting from default and highlight."
 ```
 
 
-<a id="org30bab51"></a>
+<a id="org409ec15"></a>
 
 ## Dashboard
 
@@ -1524,7 +1523,7 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
 ```
 
 
-<a id="org35259e8"></a>
+<a id="org5613adb"></a>
 
 ## Fonts and Icons
 
@@ -1573,7 +1572,18 @@ Function to switch between fonts.
 ```
 
 
-<a id="orgea4e2db"></a>
+### Emojify
+
+[Emojify](https://github.com/iqbalansari/emacs-emojify), display emojis in Emacs
+
+```emacs-lisp
+(use-package emojify
+  :if (display-graphic-p)
+    :hook (after-init . global-emojify-mode))
+```
+
+
+<a id="org9f42891"></a>
 
 ## Smooth Scrolling
 
@@ -1596,7 +1606,7 @@ Configurations to smooth scrolling.
 ```
 
 
-<a id="orged94d84"></a>
+<a id="org6e2ba11"></a>
 
 ## Highlight Lines
 
@@ -1605,7 +1615,7 @@ Configurations to smooth scrolling.
 ```
 
 
-<a id="org87955a8"></a>
+<a id="org54aea98"></a>
 
 ## Prettify Symbols
 
@@ -1627,7 +1637,7 @@ Configurations to smooth scrolling.
 ```
 
 
-<a id="orga946580"></a>
+<a id="org23a2668"></a>
 
 ## UI Configs
 
@@ -1682,12 +1692,12 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org6ebd40d"></a>
+<a id="org0654e39"></a>
 
 # General Programming
 
 
-<a id="orgd41a830"></a>
+<a id="orge19c1dd"></a>
 
 ## Magit
 
@@ -1708,7 +1718,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org31f613d"></a>
+<a id="orgedfb4bd"></a>
 
 ## Projectile
 
@@ -1733,7 +1743,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org889d1c2"></a>
+<a id="orgaf3fbba"></a>
 
 ## Treemacs
 
@@ -1812,7 +1822,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="orga7f458a"></a>
+<a id="org0d9a353"></a>
 
 ## YASnippet
 
@@ -1846,7 +1856,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org8a257e3"></a>
+<a id="orgd6e90d0"></a>
 
 ## Syntax
 
@@ -1922,7 +1932,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org3d5e7ae"></a>
+<a id="org206a771"></a>
 
 ## Dumb Jump
 
@@ -1939,7 +1949,7 @@ Display time and battery information in modeline.
 ```
 
 
-<a id="org4a3f9e5"></a>
+<a id="orgddb84a4"></a>
 
 ## Parenthesis
 
@@ -2020,7 +2030,7 @@ Match and automatically pair parenthesis, and show parenthesis even when it went
 ```
 
 
-<a id="org3218f3e"></a>
+<a id="org3cbe3ff"></a>
 
 ## Indentation
 
@@ -2063,7 +2073,7 @@ Indentation Configuration
 ```
 
 
-<a id="org4890c10"></a>
+<a id="org93e1734"></a>
 
 ## Quickrun
 
@@ -2079,7 +2089,7 @@ Indentation Configuration
 ```
 
 
-<a id="org152bc50"></a>
+<a id="org8c95443"></a>
 
 ## Format All
 
@@ -2093,7 +2103,7 @@ Indentation Configuration
 ```
 
 
-<a id="org1e8afff"></a>
+<a id="org1c8998c"></a>
 
 ## Evil Nerd Commenter
 
@@ -2107,7 +2117,7 @@ Indentation Configuration
 ```
 
 
-<a id="orgeb5a6b8"></a>
+<a id="orge3ed2d4"></a>
 
 ## Editing
 
@@ -2173,7 +2183,7 @@ Conf Mode, a simple major mode for editing conf/ini/properties files.
 ```
 
 
-<a id="org6625756"></a>
+<a id="org4373fad"></a>
 
 ## Headers
 
@@ -2192,7 +2202,7 @@ Conf Mode, a simple major mode for editing conf/ini/properties files.
 ```
 
 
-<a id="orga7cd74f"></a>
+<a id="orgce20066"></a>
 
 ## Jupyter Notebook
 
@@ -2212,7 +2222,7 @@ Conf Mode, a simple major mode for editing conf/ini/properties files.
 ```
 
 
-<a id="org6f6aee3"></a>
+<a id="org8ed6744"></a>
 
 ## LSP
 
@@ -2226,15 +2236,24 @@ Conf Mode, a simple major mode for editing conf/ini/properties files.
   :defer t
   :commands lsp
   :custom
+  (lsp-keymap-prefix "C-x l")
   (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil) ; Use flycheck instead of flymake
-  (lsp-file-watch-threshold nil)
+  (lsp-enable-file-watchers nil)
+  (lsp-enable-folding nil)
   (read-process-output-max (* 1024 1024))
+  (lsp-keep-workspace-alive nil)
   (lsp-eldoc-hook nil)
   :bind (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
   :hook ((java-mode python-mode go-mode rust-mode
           js-mode js2-mode typescript-mode web-mode
-          c-mode c++-mode objc-mode) . lsp-deferred))
+          c-mode c++-mode objc-mode) . lsp-deferred)
+  :config
+  (defun lsp-update-server ()
+    "Update LSP server."
+    (interactive)
+    ;; Equals to `C-u M-x lsp-install-server'
+    (lsp-install-server t)))
 ```
 
 
@@ -2270,16 +2289,18 @@ Note: `lsp-ui-doc` is too annoying, so it will not be triggered upon hovering. Y
   (lsp-ui-sideline-show-code-actions nil)
   :config
   ;; Use lsp-ui-doc-webkit only in GUI
-  (if (display-graphic-p)
-      (setq lsp-ui-doc-use-webkit t))
+  (when (display-graphic-p)
+    (setq lsp-ui-doc-use-webkit t))
   ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
   ;; https://github.com/emacs-lsp/lsp-ui/issues/243
   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
-    (setq mode-line-format nil)))
+    (setq mode-line-format nil))
+  ;; `C-g'to close doc
+  (advice-add #'keyboard-quit :before #'lsp-ui-doc-hide))
 ```
 
 
-<a id="orgf5a19e1"></a>
+<a id="orgb7e26fa"></a>
 
 ## DAP
 
@@ -2301,7 +2322,7 @@ Note: `lsp-ui-doc` is too annoying, so it will not be triggered upon hovering. Y
 ```
 
 
-<a id="org8b786fa"></a>
+<a id="org1555bd2"></a>
 
 ## Company
 
@@ -2371,20 +2392,6 @@ This is enabled by default, if ever you find it not good enough for a particular
   (("M-q" . company-other-backend)
    ("C-z t" . company-tabnine))
   :init
-  (defun company-tabnine-toggle (&optional enable)
-    "Enable/Disable TabNine. If ENABLE is non-nil, definitely enable it."
-    (interactive)
-    (if (or enable (not (memq 'company-tabnine company-backends)))
-        (progn
-          (add-hook 'lsp-after-open-hook #'lsp-after-open-tabnine)
-          (add-to-list 'company-backends #'company-tabnine)
-          (when (bound-and-true-p lsp-mode) (lsp-after-open-tabnine))
-          (message "TabNine enabled."))
-      (setq company-backends (delete 'company-tabnine company-backends))
-      (setq company-backends (delete '(company-capf :with company-tabnine :separate) company-backends))
-      (remove-hook 'lsp-after-open-hook #'lsp-after-open-tabnine)
-      (company-tabnine-kill-process)
-      (message "TabNine disabled.")))
   (defun company//sort-by-tabnine (candidates)
     "Integrate company-tabnine with lsp-mode"
     (if (or (functionp company-backend)
@@ -2409,6 +2416,20 @@ This is enabled by default, if ever you find it not good enough for a particular
     (setq-local company-tabnine-max-num-results 3)
     (add-to-list 'company-transformers 'company//sort-by-tabnine t)
     (add-to-list 'company-backends '(company-capf :with company-tabnine :separate)))
+  (defun company-tabnine-toggle (&optional enable)
+    "Enable/Disable TabNine. If ENABLE is non-nil, definitely enable it."
+    (interactive)
+    (if (or enable (not (memq 'company-tabnine company-backends)))
+        (progn
+          (add-hook 'lsp-after-open-hook #'lsp-after-open-tabnine)
+          (add-to-list 'company-backends #'company-tabnine)
+          (when (bound-and-true-p lsp-mode) (lsp-after-open-tabnine))
+          (message "TabNine enabled."))
+      (setq company-backends (delete 'company-tabnine company-backends))
+      (setq company-backends (delete '(company-capf :with company-tabnine :separate) company-backends))
+      (remove-hook 'lsp-after-open-hook #'lsp-after-open-tabnine)
+      (company-tabnine-kill-process)
+      (message "TabNine disabled.")))
   :hook
   (kill-emacs . company-tabnine-kill-process)
   :config
@@ -2428,11 +2449,15 @@ This is enabled by default, if ever you find it not good enough for a particular
   :hook (company-mode . company-box-mode)
   :custom
   (company-box-backends-colors nil)
+  (company-box-doc-delay 0.1)
+  (company-box-doc-frame-parameters '((internal-border-width . 1)
+                                      (left-fringe . 3)
+                                      (right-fringe . 3)))
   :config
   (with-no-warnings
     ;; Prettify icons
     (defun my-company-box-icons--elisp (candidate)
-      (when (derived-mode-p 'emacs-lisp-mode)
+      (when (or (derived-mode-p 'emacs-lisp-mode) (derived-mode-p 'lisp-mode))
         (let ((sym (intern candidate)))
           (cond ((fboundp sym) 'Function)
                 ((featurep sym) 'Module)
@@ -2440,51 +2465,197 @@ This is enabled by default, if ever you find it not good enough for a particular
                 ((boundp sym) 'Variable)
                 ((symbolp sym) 'Text)
                 (t . nil)))))
-    (advice-add #'company-box-icons--elisp :override #'my-company-box-icons--elisp))
+    (advice-add #'company-box-icons--elisp :override #'my-company-box-icons--elisp)
 
-  (when (and (display-graphic-p)
-             (require 'all-the-icons nil t))
+    ;; Credits to Centaur for these configurations
+    ;; Display borders and optimize performance
+    (defun my-company-box--display (string on-update)
+      "Display the completions."
+      (company-box--render-buffer string on-update)
+
+      (let ((frame (company-box--get-frame))
+            (border-color (face-foreground 'font-lock-comment-face nil t)))
+        (unless frame
+          (setq frame (company-box--make-frame))
+          (company-box--set-frame frame))
+        (company-box--compute-frame-position frame)
+        (company-box--move-selection t)
+        (company-box--update-frame-position frame)
+        (unless (frame-visible-p frame)
+          (make-frame-visible frame))
+        (company-box--update-scrollbar frame t)
+        (set-face-background 'internal-border border-color frame)
+        (when (facep 'child-frame-border)
+          (set-face-background 'child-frame-border border-color frame)))
+      (with-current-buffer (company-box--get-buffer)
+        (company-box--maybe-move-number (or company-box--last-start 1))))
+    (advice-add #'company-box--display :override #'my-company-box--display)
+
+    (defun my-company-box-doc--make-buffer (object)
+      (let* ((buffer-list-update-hook nil)
+             (inhibit-modification-hooks t)
+             (string (cond ((stringp object) object)
+                           ((bufferp object) (with-current-buffer object (buffer-string))))))
+        (when (and string (> (length (string-trim string)) 0))
+          (with-current-buffer (company-box--get-buffer "doc")
+            (erase-buffer)
+            (insert (propertize "\n" 'face '(:height 0.5)))
+            (insert string)
+            (insert (propertize "\n\n" 'face '(:height 0.5)))
+
+            ;; Handle hr lines of markdown
+            ;; @see `lsp-ui-doc--handle-hr-lines'
+            (with-current-buffer (company-box--get-buffer "doc")
+              (let (bolp next before after)
+                (goto-char 1)
+                (while (setq next (next-single-property-change (or next 1) 'markdown-hr))
+                  (when (get-text-property next 'markdown-hr)
+                    (goto-char next)
+                    (setq bolp (bolp)
+                          before (char-before))
+                    (delete-region (point) (save-excursion (forward-visible-line 1) (point)))
+                    (setq after (char-after (1+ (point))))
+                    (insert
+                     (concat
+                      (and bolp (not (equal before ?\n)) (propertize "\n" 'face '(:height 0.5)))
+                      (propertize "\n" 'face '(:height 0.5))
+                      (propertize " "
+                                  'display '(space :height (1))
+                                  'company-box-doc--replace-hr t
+                                  'face `(:background ,(face-foreground 'font-lock-comment-face)))
+                      (propertize " " 'display '(space :height (1)))
+                      (and (not (equal after ?\n)) (propertize " \n" 'face '(:height 0.5)))))))))
+
+            (setq mode-line-format nil
+                  display-line-numbers nil
+                  header-line-format nil
+                  show-trailing-whitespace nil
+                  cursor-in-non-selected-windows nil)
+            (current-buffer)))))
+    (advice-add #'company-box-doc--make-buffer :override #'my-company-box-doc--make-buffer)
+
+    ;; Display the border and fix the markdown header properties
+    (defun my-company-box-doc--show (selection frame)
+      (cl-letf (((symbol-function 'completing-read) #'company-box-completing-read)
+                (window-configuration-change-hook nil)
+                (inhibit-redisplay t)
+                (display-buffer-alist nil)
+                (buffer-list-update-hook nil))
+        (-when-let* ((valid-state (and (eq (selected-frame) frame)
+                                       company-box--bottom
+                                       company-selection
+                                       (company-box--get-frame)
+                                       (frame-visible-p (company-box--get-frame))))
+                     (candidate (nth selection company-candidates))
+                     (doc (or (company-call-backend 'quickhelp-string candidate)
+                              (company-box-doc--fetch-doc-buffer candidate)))
+                     (doc (company-box-doc--make-buffer doc)))
+          (let ((frame (frame-local-getq company-box-doc-frame))
+                (border-color (face-foreground 'font-lock-comment-face nil t)))
+            (unless (frame-live-p frame)
+              (setq frame (company-box-doc--make-frame doc))
+              (frame-local-setq company-box-doc-frame frame))
+            (set-face-background 'internal-border border-color frame)
+            (when (facep 'child-frame-border)
+              (set-face-background 'child-frame-border border-color frame))
+            (company-box-doc--set-frame-position frame)
+
+            ;; Fix hr props. @see `lsp-ui-doc--fix-hr-props'
+            (with-current-buffer (company-box--get-buffer "doc")
+              (let (next)
+                (while (setq next (next-single-property-change (or next 1) 'company-box-doc--replace-hr))
+                  (when (get-text-property next 'company-box-doc--replace-hr)
+                    (put-text-property next (1+ next) 'display
+                                       '(space :align-to (- right-fringe 1) :height (1)))
+                    (put-text-property (1+ next) (+ next 2) 'display
+                                       '(space :align-to right-fringe :height (1)))))))
+
+            (unless (frame-visible-p frame)
+              (make-frame-visible frame))))))
+    (advice-add #'company-box-doc--show :override #'my-company-box-doc--show)
+
+    (defun my-company-box-doc--set-frame-position (frame)
+      (-let* ((frame-resize-pixelwise t)
+
+              (box-frame (company-box--get-frame))
+              (box-position (frame-position box-frame))
+              (box-width (frame-pixel-width box-frame))
+              (box-height (frame-pixel-height box-frame))
+              (box-border-width (frame-border-width box-frame))
+
+              (window (frame-root-window frame))
+              ((text-width . text-height) (window-text-pixel-size window nil nil
+                                                                  (/ (frame-pixel-width) 2)
+                                                                  (/ (frame-pixel-height) 2)))
+              (border-width (or (alist-get 'internal-border-width company-box-doc-frame-parameters) 0))
+
+              (x (- (+ (car box-position) box-width) border-width))
+              (space-right (- (frame-pixel-width) x))
+              (space-left (car box-position))
+              (fringe-left (or (alist-get 'left-fringe company-box-doc-frame-parameters) 0))
+              (fringe-right (or (alist-get 'right-fringe company-box-doc-frame-parameters) 0))
+              (width (+ text-width border-width fringe-left fringe-right))
+              (x (if (> width space-right)
+                     (if (> space-left width)
+                         (- space-left width)
+                       space-left)
+                   x))
+              (y (cdr box-position))
+              (bottom (+ company-box--bottom (frame-border-width)))
+              (height (+ text-height (* 2 border-width)))
+              (y (cond ((= x space-left)
+                        (if (> (+ y box-height height) bottom)
+                            (+ (- y height) border-width)
+                          (- (+ y box-height) border-width)))
+                       ((> (+ y height) bottom)
+                        (- (+ y box-height) height))
+                       (t y))))
+        (set-frame-position frame (max x 0) (max y 0))
+        (set-frame-size frame text-width text-height t)))
+    (advice-add #'company-box-doc--set-frame-position :override #'my-company-box-doc--set-frame-position))
+
+  (when (require 'all-the-icons nil t)
     (declare-function all-the-icons-faicon 'all-the-icons)
     (declare-function all-the-icons-material 'all-the-icons)
     (declare-function all-the-icons-octicon 'all-the-icons)
     (setq company-box-icons-all-the-icons
-          `((Unknown . ,(all-the-icons-material "find_in_page" :height 0.8 :v-adjust -0.15))
-            (Text . ,(all-the-icons-faicon "text-width" :height 0.8 :v-adjust -0.02))
-            (Method . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.02 :face 'all-the-icons-purple))
-            (Function . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.02 :face 'all-the-icons-purple))
-            (Constructor . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.02 :face 'all-the-icons-purple))
-            (Field . ,(all-the-icons-octicon "tag" :height 0.85 :v-adjust 0 :face 'all-the-icons-lblue))
-            (Variable . ,(all-the-icons-octicon "tag" :height 0.85 :v-adjust 0 :face 'all-the-icons-lblue))
-            (Class . ,(all-the-icons-material "settings_input_component" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-orange))
-            (Interface . ,(all-the-icons-material "share" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-lblue))
-            (Module . ,(all-the-icons-material "view_module" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-lblue))
-            (Property . ,(all-the-icons-faicon "wrench" :height 0.8 :v-adjust -0.02))
-            (Unit . ,(all-the-icons-material "settings_system_daydream" :height 0.8 :v-adjust -0.15))
-            (Value . ,(all-the-icons-material "format_align_right" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-lblue))
-            (Enum . ,(all-the-icons-material "storage" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-orange))
-            (Keyword . ,(all-the-icons-material "filter_center_focus" :height 0.8 :v-adjust -0.15))
-            (Snippet . ,(all-the-icons-material "format_align_center" :height 0.8 :v-adjust -0.15))
-            (Color . ,(all-the-icons-material "palette" :height 0.8 :v-adjust -0.15))
-            (File . ,(all-the-icons-faicon "file-o" :height 0.8 :v-adjust -0.02))
-            (Reference . ,(all-the-icons-material "collections_bookmark" :height 0.8 :v-adjust -0.15))
-            (Folder . ,(all-the-icons-faicon "folder-open" :height 0.8 :v-adjust -0.02))
-            (EnumMember . ,(all-the-icons-material "format_align_right" :height 0.8 :v-adjust -0.15))
-            (Constant . ,(all-the-icons-faicon "square-o" :height 0.8 :v-adjust -0.1))
-            (Struct . ,(all-the-icons-material "settings_input_component" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-orange))
-            (Event . ,(all-the-icons-octicon "zap" :height 0.8 :v-adjust 0 :face 'all-the-icons-orange))
-            (Operator . ,(all-the-icons-material "control_point" :height 0.8 :v-adjust -0.15))
-            (TypeParameter . ,(all-the-icons-faicon "arrows" :height 0.8 :v-adjust -0.02))
-            (Template . ,(all-the-icons-material "format_align_left" :height 0.8 :v-adjust -0.15)))
+          `((Unknown . ,(all-the-icons-material "find_in_page" :height 1.0 :v-adjust -0.2))
+                        (Text . ,(all-the-icons-faicon "text-width" :height 1.0 :v-adjust -0.02))
+                        (Method . ,(all-the-icons-faicon "cube" :height 1.0 :v-adjust -0.02 :face 'all-the-icons-purple))
+                        (Function . ,(all-the-icons-faicon "cube" :height 1.0 :v-adjust -0.02 :face 'all-the-icons-purple))
+                        (Constructor . ,(all-the-icons-faicon "cube" :height 1.0 :v-adjust -0.02 :face 'all-the-icons-purple))
+                        (Field . ,(all-the-icons-octicon "tag" :height 1.1 :v-adjust 0 :face 'all-the-icons-lblue))
+                        (Variable . ,(all-the-icons-octicon "tag" :height 1.1 :v-adjust 0 :face 'all-the-icons-lblue))
+                        (Class . ,(all-the-icons-material "settings_input_component" :height 1.0 :v-adjust -0.2 :face 'all-the-icons-orange))
+                        (Interface . ,(all-the-icons-material "share" :height 1.0 :v-adjust -0.2 :face 'all-the-icons-lblue))
+                        (Module . ,(all-the-icons-material "view_module" :height 1.0 :v-adjust -0.2 :face 'all-the-icons-lblue))
+                        (Property . ,(all-the-icons-faicon "wrench" :height 1.0 :v-adjust -0.02))
+                        (Unit . ,(all-the-icons-material "settings_system_daydream" :height 1.0 :v-adjust -0.2))
+                        (Value . ,(all-the-icons-material "format_align_right" :height 1.0 :v-adjust -0.2 :face 'all-the-icons-lblue))
+                        (Enum . ,(all-the-icons-material "storage" :height 1.0 :v-adjust -0.2 :face 'all-the-icons-orange))
+                        (Keyword . ,(all-the-icons-material "filter_center_focus" :height 1.0 :v-adjust -0.2))
+                        (Snippet . ,(all-the-icons-material "format_align_center" :height 1.0 :v-adjust -0.2))
+                        (Color . ,(all-the-icons-material "palette" :height 1.0 :v-adjust -0.2))
+                        (File . ,(all-the-icons-faicon "file-o" :height 1.0 :v-adjust -0.02))
+                        (Reference . ,(all-the-icons-material "collections_bookmark" :height 1.0 :v-adjust -0.2))
+                        (Folder . ,(all-the-icons-faicon "folder-open" :height 1.0 :v-adjust -0.02))
+                        (EnumMember . ,(all-the-icons-material "format_align_right" :height 1.0 :v-adjust -0.2))
+                        (Constant . ,(all-the-icons-faicon "square-o" :height 1.0 :v-adjust -0.1))
+                        (Struct . ,(all-the-icons-material "settings_input_component" :height 1.0 :v-adjust -0.2 :face 'all-the-icons-orange))
+                        (Event . ,(all-the-icons-octicon "zap" :height 1.0 :v-adjust 0 :face 'all-the-icons-orange))
+                        (Operator . ,(all-the-icons-material "control_point" :height 1.0 :v-adjust -0.2))
+                        (TypeParameter . ,(all-the-icons-faicon "arrows" :height 1.0 :v-adjust -0.02))
+                        (Template . ,(all-the-icons-material "format_align_left" :height 1.0 :v-adjust -0.2)))
           company-box-icons-alist 'company-box-icons-all-the-icons)))
 ```
 
 
-<a id="org2d6db81"></a>
+<a id="org7c7f403"></a>
 
 # Programming
 
 
-<a id="org704229c"></a>
+<a id="org6e72cdb"></a>
 
 ## Java
 
@@ -2507,7 +2678,7 @@ This is enabled by default, if ever you find it not good enough for a particular
 ```
 
 
-<a id="orgf880fce"></a>
+<a id="org6a9727f"></a>
 
 ## C/C++/Objective C
 
@@ -2563,7 +2734,7 @@ This is enabled by default, if ever you find it not good enough for a particular
 ```
 
 
-<a id="orge6a6855"></a>
+<a id="orgc5a5f84"></a>
 
 ## Golang
 
@@ -2583,7 +2754,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="orgfc2fd40"></a>
+<a id="orgde75142"></a>
 
 ## Rust
 
@@ -2604,7 +2775,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org32c2aec"></a>
+<a id="orgc94face"></a>
 
 ## Python
 
@@ -2629,11 +2800,13 @@ go get golang.org/x/tools/gopls@latest
 
 ```emacs-lisp
 (use-package lsp-pyright
-  :hook (python-mode . (lambda () (require 'lsp-pyright))))
+  :hook (python-mode . (lambda () (require 'lsp-pyright)))
+  :custom
+  (lsp-pyright-multi-root nil))
 ```
 
 
-<a id="orgc1703a4"></a>
+<a id="org984ec7e"></a>
 
 ## Haskell
 
@@ -2645,7 +2818,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="orgb3a6045"></a>
+<a id="orgedaa27b"></a>
 
 ## ESS
 
@@ -2662,7 +2835,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org7503893"></a>
+<a id="orgba38f38"></a>
 
 ## TeX
 
@@ -2700,7 +2873,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org0386fd8"></a>
+<a id="org1476c41"></a>
 
 ## Yaml
 
@@ -2711,7 +2884,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org8e473b5"></a>
+<a id="orgb9f2554"></a>
 
 ## Buildsystem
 
@@ -2749,7 +2922,7 @@ go get golang.org/x/tools/gopls@latest
 ```
 
 
-<a id="org24e0e2e"></a>
+<a id="org13e1f2a"></a>
 
 # Web Development
 
@@ -2761,7 +2934,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="orgec0b396"></a>
+<a id="orgf1e8971"></a>
 
 ## Web
 
@@ -2778,7 +2951,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="org6f5c958"></a>
+<a id="org43e7588"></a>
 
 ## JavaScript/TypeScript
 
@@ -2816,7 +2989,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="orge24dfcb"></a>
+<a id="org5f2b10e"></a>
 
 ## Emmet
 
@@ -2829,7 +3002,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="org0014e3a"></a>
+<a id="orgabb13a8"></a>
 
 ## Instant Rename Tag
 
@@ -2842,7 +3015,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="orgd867cde"></a>
+<a id="orgbf5ba34"></a>
 
 ## JSON
 
@@ -2854,18 +3027,18 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="org9cb68d6"></a>
+<a id="org4a67eeb"></a>
 
 # Office
 
 
-<a id="orgea9304c"></a>
+<a id="org1b1c97a"></a>
 
 ## Org
 
 [Org](https://orgmode.org/), a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
-**Prerequisite**: Configure `(org-agenda-files (list "~/org/agenda/"))` to your agenda folder to use org-agenda. Once this is set, the agenda items tagged with `DEADLINE` or `SCHEDULED` will be displayed on the [Dashboard](#org30bab51) (hopefully the dashboard will be more detailed in the [future](https://github.com/MatthewZMD/.emacs.d/issues/37)).
+**Prerequisite**: Configure `(org-agenda-files (list "~/org/agenda/"))` to your agenda folder to use org-agenda. Once this is set, the agenda items tagged with `DEADLINE` or `SCHEDULED` will be displayed on the [Dashboard](#org409ec15) (hopefully the dashboard will be more detailed in the [future](https://github.com/MatthewZMD/.emacs.d/issues/37)).
 
 ```emacs-lisp
 (use-package org
@@ -2964,7 +3137,7 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="org0c164c9"></a>
+<a id="orge0376d5"></a>
 
 ## PDF Tools
 
@@ -2988,12 +3161,12 @@ npm i -g typescript-language-server
 ```
 
 
-<a id="orgf77612c"></a>
+<a id="org61d38bf"></a>
 
 # Internet
 
 
-<a id="orgb04431a"></a>
+<a id="orgde0d700"></a>
 
 ## EAF
 
@@ -3020,13 +3193,16 @@ sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
   (eaf-browser-enable-adblocker t)
   (eaf-pdf-dark-mode nil)
   (eaf-browser-enable-autofill t)
+  (eaf-file-manager-show-preview nil)
+  :demand
+  :bind
+  (("C-x j" . eaf-open-in-file-manager))
   :config
   ;; Require all EAF apps unconditionally, change to apps you're interested in.
   (require 'eaf-file-manager nil t)
   (require 'eaf-music-player nil t)
   (require 'eaf-image-viewer nil t)
   (require 'eaf-camera nil t)
-  (require 'eaf-js-video-player nil t)
   (require 'eaf-demo nil t)
   (require 'eaf-airshare nil t)
   (require 'eaf-terminal nil t)
@@ -3043,6 +3219,7 @@ sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
   (require 'eaf-file-browser nil t)
   (require 'eaf-browser nil t)
   (require 'eaf-org)
+  (require 'eaf-mail)
   (when (display-graphic-p)
     (require 'eaf-all-the-icons))
   (defalias 'browse-web #'eaf-open-browser)
@@ -3062,11 +3239,17 @@ sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
   (eaf-bind-key zoom_in "C-=" eaf-pdf-viewer-keybinding)
   (eaf-bind-key zoom_out "C--" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
-  (eaf-bind-key eaf-send-key-sequence "M-]" eaf-terminal-keybinding))
+  (eaf-bind-key eaf-send-key-sequence "M-]" eaf-terminal-keybinding)
+  (eaf-bind-key eaf-send-key-sequence "M-]" eaf-terminal-keybinding)
+  (eaf-bind-key js_select_next_file "n" eaf-file-manager-keybinding)
+  (eaf-bind-key js_select_prev_file "p" eaf-file-manager-keybinding)
+  (eaf-bind-key new_file "F" eaf-file-manager-keybinding)
+  (eaf-bind-key new_directory "D" eaf-file-manager-keybinding)
+  (eaf-bind-key toggle_preview "P" eaf-file-manager-keybinding))
 ```
 
 
-<a id="orgfa7ecb0"></a>
+<a id="orge3e153b"></a>
 
 ## ERC
 
@@ -3143,7 +3326,7 @@ machine irc.freenode.net login <nickname> password <password> port 6697
 ```
 
 
-<a id="orge46d68e"></a>
+<a id="orgf5685d2"></a>
 
 ## MU4E
 
@@ -3288,7 +3471,7 @@ machine irc.freenode.net login <nickname> password <password> port 6697
 ```
 
 
-<a id="org87be051"></a>
+<a id="orge341171"></a>
 
 ## Tramp
 
@@ -3324,7 +3507,7 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
-<a id="org1b7082f"></a>
+<a id="org717db1d"></a>
 
 ## LeetCode
 
@@ -3343,7 +3526,7 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
-<a id="org0905f03"></a>
+<a id="org34f7ca3"></a>
 
 ## Debbugs
 
@@ -3355,7 +3538,7 @@ Connect to Google Cloud Platform using the following:
 ```
 
 
-<a id="org4f73ead"></a>
+<a id="orgc41db2e"></a>
 
 ## Hacker News
 
@@ -3370,7 +3553,7 @@ A simple [Hacker News](https://github.com/clarete/hackernews.el) Emacs client.
 ```
 
 
-<a id="org3654992"></a>
+<a id="org7041c17"></a>
 
 ## EWW
 
@@ -3390,12 +3573,12 @@ Emacs Web Wowser, the HTML-based Emacs Web Browser.
 ```
 
 
-<a id="org57f748f"></a>
+<a id="org642bb2a"></a>
 
 # Miscellaneous
 
 
-<a id="org0540317"></a>
+<a id="org5b96882"></a>
 
 ## Chinese
 
@@ -3447,7 +3630,7 @@ Packages and configurations suitable for Chinese users. Non-Chinese users feel f
 ```
 
 
-<a id="orgbe45688"></a>
+<a id="orgad8d662"></a>
 
 ## Tetris
 
@@ -3470,7 +3653,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="org22f1e7f"></a>
+<a id="org5d98a07"></a>
 
 ## Speed Type
 
@@ -3482,7 +3665,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="org0d0f060"></a>
+<a id="org67eaa15"></a>
 
 ## 2048 Game
 
@@ -3494,7 +3677,7 @@ Although [Tetris](https://www.emacswiki.org/emacs/TetrisMode) is part of Emacs, 
 ```
 
 
-<a id="org674b543"></a>
+<a id="org4b335d2"></a>
 
 ## Snow
 
@@ -3507,7 +3690,7 @@ Let it [snow](https://github.com/alphapapa/snow.el) in Emacs!
 ```
 
 
-<a id="org08979f7"></a>
+<a id="orgc95ccf4"></a>
 
 ## EPaint
 
@@ -3527,7 +3710,7 @@ Let it [snow](https://github.com/alphapapa/snow.el) in Emacs!
 ```
 
 
-<a id="org74e24fc"></a>
+<a id="org7b00ae8"></a>
 
 ## Zone
 
