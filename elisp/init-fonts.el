@@ -67,6 +67,12 @@
 (use-package all-the-icons :if (display-graphic-p))
 ;; -ATIPac
 
+;; EmojifyPac
+(use-package emojify
+  :if (display-graphic-p)
+    :hook (after-init . global-emojify-mode))
+;; -EmojifyPac
+
 (provide 'init-fonts)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-fonts.el ends here

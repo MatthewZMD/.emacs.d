@@ -39,8 +39,7 @@
 (use-package dired
   :ensure nil
   :bind
-  (("C-x C-j" . dired-jump)
-   ("C-x j" . dired-jump-other-window))
+  (("C-x C-j" . dired-jump))
   :custom
   ;; Always delete and copy recursively
   (dired-listing-switches "-lah")

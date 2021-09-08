@@ -52,7 +52,9 @@
 
 ;; LSPPythonPac
 (use-package lsp-pyright
-  :hook (python-mode . (lambda () (require 'lsp-pyright))))
+  :hook (python-mode . (lambda () (require 'lsp-pyright)))
+  :custom
+  (lsp-pyright-multi-root nil))
 ;; -LSPPythonPac
 
 (provide 'init-python)
