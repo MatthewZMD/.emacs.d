@@ -49,9 +49,9 @@
   (eaf-browser-default-zoom 1.25)
   (eaf-browser-dark-mode nil)
   (eaf-browser-enable-adblocker t)
-  (eaf-pdf-dark-mode nil)
   (eaf-browser-enable-autofill t)
   (eaf-file-manager-show-preview nil)
+  (eaf-pdf-dark-mode "ignore")
   :demand
   :bind
   (("C-x j" . eaf-open-in-file-manager))
@@ -74,6 +74,7 @@
   (require 'eaf-jupyter nil t)
   (require 'eaf-org-previewer nil t)
   (require 'eaf-system-monitor nil t)
+  (require 'eaf-rss-reader nil t)
   (require 'eaf-file-browser nil t)
   (require 'eaf-browser nil t)
   (require 'eaf-org)
