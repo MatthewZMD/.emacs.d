@@ -33,7 +33,6 @@
   - [[Ivy, Amx, Counsel, Swiper][Ivy, Amx, Counsel, Swiper]]
   - [[Color Ripgrep][Color Ripgrep]]
   - [[Find File In Project][Find File In Project]]
-  - [[Snails][Snails]]
   - [[Files Directories][Files Directories]]
   - [[Winner][Winner]]
   - [[Which Key][Which Key]]
@@ -314,9 +313,6 @@
 
    *Prerequisite*: Ensure =GNU Find= is in =PATH=. Install [[https://github.com/bmatzelle/gow][Gow]] or Cygwin or MYSYS2 on Windows.
    #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "FFIPPac" :range-end "-FFIPPac" :lines "81-88"
-** Snails
-   [[https://github.com/manateelazycat/snails][Snails]], a fuzzy search framework. It utilizes [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] if you are using Mac.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "SnailsPac" :range-end "-SnailsPac" :lines "91-111"
 ** Files Directories
 *** Dired
     Dired, the directory editor.
