@@ -57,7 +57,6 @@
 - [[General Programming][General Programming]]
   - [[Magit][Magit]]
   - [[Projectile][Projectile]]
-  - [[Treemacs][Treemacs]]
   - [[YASnippet][YASnippet]]
   - [[Syntax][Syntax]]
   - [[Dumb Jump][Dumb Jump]]
@@ -251,7 +250,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "44-77"
 ** Load Private File
    An =init-private.el= file has been designated at =user-emacs-directory= for you to store personal configurations that you don't want to source-control.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "235-238"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "233-236"
 * Package Management
   Some packages are disabled with the =:disabled= tag, because I don't use them very often. You can disable packages similarly yourself too:
   #+begin_src emacs-lisp
@@ -268,7 +267,7 @@
       cd site-elisp/
       git submodule add https://github.com/foo/bar.git
     #+END_SRC
-    Verify =/.gitmodules= file that the newly added package exist.
+    Verify =.gitmodules= file that the newly added package exist.
 *** Update Manually Added Packages
     #+BEGIN_SRC bash
       git submodule init
@@ -449,14 +448,6 @@
 
    [[https://github.com/bmatzelle/gow][Gow]] is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, =tr= is needed for Projectile alien indexing.
    #+INCLUDE: "~/.emacs.d/elisp/init-projectile.el" src emacs-lisp :range-begin "ProjPac" :range-end "-ProjPac" :lines "42-53"
-** Treemacs
-   [[https://github.com/Alexander-Miller/treemacs][Treemacs]], a tree layout file explorer for Emacs.
-*** Treemacs
-    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreemacsPac" :range-end "-TreemacsPac" :lines "39-87"
-*** Treemacs Magit
-    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeMagit" :range-end "-TreeMagit" :lines "90-93"
-*** Treemacs Projectile
-    #+INCLUDE: "~/.emacs.d/elisp/init-treemacs.el" src emacs-lisp :range-begin "TreeProj" :range-end "-TreeProj" :lines "96-99"
 ** YASnippet
 *** YASnippet
     [[https://github.com/joaotavora/yasnippet][YASnippet]], a programming template system for Emacs. It loads [[https://github.com/AndreaCrotti/yasnippet-snippets][YASnippet Snippets]], a collection of yasnippet snippets for many languages.
