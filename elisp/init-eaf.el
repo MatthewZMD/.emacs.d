@@ -36,7 +36,8 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'init-const))
+  (require 'init-const)
+  (require 'init-global-config))
 
 ;; EAFPac
 (use-package eaf
@@ -54,7 +55,9 @@
   (eaf-pdf-dark-mode "ignore")
   :demand
   :bind
-  (("C-x j" . eaf-open-in-file-manager))
+  (("C-x j" . eaf-open-in-file-manager)
+   ("M-z r" . eaf-open-rss-reader)
+   ("M-m r" . eaf-open-rss-reader))
   :config
   ;; Require all EAF apps unconditionally, change to apps you're interested in.
   (require 'eaf-file-manager nil t)

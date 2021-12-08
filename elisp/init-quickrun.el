@@ -37,6 +37,8 @@
 
 ;; QuickrunPac
 (use-package quickrun
+  :custom
+  (quickrun-timeout-seconds 60)
   :bind
   (("<f5>" . quickrun)
    ("M-<f5>" . quickrun-shell)

@@ -40,3 +40,6 @@
 [submodule "site-elisp/mu4e-thread-folding"]
 	path = site-elisp/mu4e-thread-folding
 	url = https://github.com/rougier/mu4e-thread-folding.git
+[submodule "site-elisp/popweb"]
+	path = site-elisp/popweb
+	url = https://github.com/manateelazycat/popweb.git
