@@ -68,15 +68,31 @@
     (error "You need more than 1 window to execute this function!")))
 
 ;; Setup shorcuts for window resize width and height
-(global-set-key (kbd "M-W =") (lambda () (interactive) (resize-window t 5)))
-(global-set-key (kbd "M-W M-+") (lambda () (interactive) (resize-window t 5)))
-(global-set-key (kbd "M-W -") (lambda () (interactive) (resize-window t -5)))
-(global-set-key (kbd "M-W M-_") (lambda () (interactive) (resize-window t -5)))
+(defun window-width-increase ()
+  (interactive)
+  (resize-window t 5))
 
-(global-set-key (kbd "M-H =") (lambda () (interactive) (resize-window nil 5)))
-(global-set-key (kbd "M-H M-+") (lambda () (interactive) (resize-window nil 5)))
-(global-set-key (kbd "M-H -") (lambda () (interactive) (resize-window nil -5)))
-(global-set-key (kbd "M-H M-_") (lambda () (interactive) (resize-window nil -5)))
+(defun window-width-decrease ()
+  (interactive)
+  (resize-window t -5))
+
+(defun window-height-increase ()
+  (interactive)
+  (resize-window nil 5))
+
+(defun window-height-decrease ()
+  (interactive)
+  (resize-window nil -5))
+
+(global-set-key (kbd "M-W =") #'window-width-increase)
+(global-set-key (kbd "M-W M-+") #'window-width-increase)
+(global-set-key (kbd "M-W -") #'window-width-decrease)
+(global-set-key (kbd "M-W M-_") #'window-width-decrease)
+
+(global-set-key (kbd "M-E =") #'window-height-increase)
+(global-set-key (kbd "M-E M-+") #'window-height-increase)
+(global-set-key (kbd "M-E -") #'window-height-decrease)
+(global-set-key (kbd "M-E M-_") #'window-height-decrease)
 ;; -ResizeWidthheight
 
 ;; EditConfig

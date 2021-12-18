@@ -93,6 +93,7 @@
   - [[PDF Tools][PDF Tools]]
 - [[Internet][Internet]]
   - [[EAF][EAF]]
+  - [[Popweb][Popweb]]
   - [[ERC][ERC]]
   - [[MU4E][MU4E]]
   - [[Tramp][Tramp]]
@@ -370,24 +371,24 @@
 *** History
     #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "114-138"
 *** Small Configs
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SmallConfigs" :range-end "-SmallConfigs" :lines "141-189"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SmallConfigs" :range-end "-SmallConfigs" :lines "141-195"
 ** Functions
    Important functions.
 *** Resize Window Width / Height Functions
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "42-80"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ResizeWidthheight" :range-end "-ResizeWidthheight" :lines "42-96"
 *** Edit This Configuration File Shortcut
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "83-89"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "EditConfig" :range-end "-EditConfig" :lines "99-105"
 *** Update Org Mode Include Automatically
     Update Org Mode INCLUDE Statements Automatically from [[http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html][Artur Malabarba]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "92-137"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "OrgIncludeAuto" :range-end "-OrgIncludeAuto" :lines "108-153"
 *** MiniBuffer Functions
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "140-149"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "BetterMiniBuffer" :range-end "-BetterMiniBuffer" :lines "156-165"
 *** Display Line Overlay
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "152-164"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "DisplayLineOverlay" :range-end "-DisplayLineOverlay" :lines "168-180"
 *** Read Lines From File
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "167-171"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "ReadLines" :range-end "-ReadLines" :lines "183-187"
 *** Where Am I
-    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "174-178"
+    #+INCLUDE: "~/.emacs.d/elisp/init-func.el" src emacs-lisp :range-begin "WhereAmI" :range-end "-WhereAmI" :lines "190-194"
 * UI Enhancements
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.
@@ -476,7 +477,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "53-70"
 ** Quickrun
    [[https://github.com/syohex/emacs-quickrun][Quickrun]], compile and run source code quickly.
-   #+INCLUDE: "~/.emacs.d/elisp/init-quickrun.el" src emacs-lisp :range-begin "QuickrunPac" :range-end "-QuickrunPac" :lines "39-45"
+   #+INCLUDE: "~/.emacs.d/elisp/init-quickrun.el" src emacs-lisp :range-begin "QuickrunPac" :range-end "-QuickrunPac" :lines "39-47"
 ** Format All
    [[https://github.com/lassik/emacs-format-all-the-code][Format all]], a feature that lets you auto-format source code.
 
@@ -672,7 +673,10 @@
    #+BEGIN_SRC bash
    sudo apt-get install python3-pyqt5.qtwebengine python3-pyqt5.qtmultimedia
    #+END_SRC
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "42-108"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-111"
+** Popweb
+   [[https://github.com/manateelazycat/popweb][Popweb]], a lightweight version of EAF that provides multimedia capabilities.
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "PopwebPac" :range-end "-PopwebPac" :lines "114-124"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
