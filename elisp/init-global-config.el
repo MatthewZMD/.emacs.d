@@ -144,6 +144,12 @@ The original function deletes trailing whitespace of the current line."
 ;; Ask before killing emacs
 (setq confirm-kill-emacs 'y-or-n-p)
 
+;; Automatically kill all active processes when closing Emacs
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (cl-letf (((symbol-function #'process-list) (lambda ())))
+    ad-do-it))
+
 ;; Turn Off Cursor Alarms
 (setq ring-bell-function 'ignore)
 

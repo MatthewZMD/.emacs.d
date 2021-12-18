@@ -111,6 +111,23 @@
 ;; -EAFPac
 
 
+;; PopwebPac
+(use-package popweb
+  :if eaf-env-p
+  :load-path (lambda () (expand-file-name "site-elisp/popweb" user-emacs-directory))
+  :custom
+  (popweb-popup-pos "point-bottom")
+  :config
+  (use-package popweb-latex
+    :after popweb
+    :load-path (lambda () (expand-file-name "extension/latex" (file-name-directory (locate-library "popweb"))))
+    :hook ((org-mode . popweb-latex-mode)
+           (tex-mode . popweb-latex-mode)))
+  (use-package popweb-dict-youdao
+    :after popweb
+    :load-path (lambda () (expand-file-name "extension/dict" (file-name-directory (locate-library "popweb"))))))
+;; -PopwebPac
+
 (provide 'init-eaf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-eaf.el ends here
