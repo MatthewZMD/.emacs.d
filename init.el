@@ -204,6 +204,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
   (setq plantuml-executable-path "/usr/local/bin/plantuml")
   (setq plantuml-default-exec-mode 'executable))
 
+(use-package yaml-mode
+  :ensure t)
 
 
 (provide 'init)

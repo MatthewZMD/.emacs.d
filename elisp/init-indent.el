@@ -69,6 +69,15 @@
 (add-hook 'prog-mode-hook
           (lambda () (electric-indent-local-mode t)))
 
+(add-hook 'text-mode-hook
+          (lambda () (electric-indent-local-mode -1)))
+
+;; TODO: Test this, may break some prog-modes
+;; (add-hook 'after-change-major-mode-hook
+;;           (lambda ()
+;;             (electric-indent-mode -1)
+;;             (paragraph-indent-minor-mode t)))
+
 ;; -IndentConfig
 
 (provide 'init-indent)

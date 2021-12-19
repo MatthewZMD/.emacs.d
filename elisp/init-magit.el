@@ -40,15 +40,10 @@
 (eval-when-compile
   (require 'init-const))
 
-(use-package magit-circleci
-  :ensure)
-
 ;; MagitPac
 (use-package magit
   :if *git*
-  :bind ("C-x g" . magit-status)
-  :config
-  (add-hook 'magit-mode-hook (lambda () (magit-circleci-mode))))
+  :bind ("C-x g" . magit-status))
 ;; -MagitPac
 
 
@@ -67,8 +62,8 @@
 
 
 ;; ForgePac
-(use-package forge
-  :after magit)
+;;(use-package forge
+;;  :after magit)
 ;; -ForcePac
 
 (provide 'init-magit)

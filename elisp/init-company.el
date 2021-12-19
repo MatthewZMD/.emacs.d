@@ -81,9 +81,9 @@ If failed try to complete the common part with `company-complete-common'"
 ;; -ComPac
 
 ;; CompanyLSPPac
-(use-package company-lsp
-  :defer t
-  :custom (company-lsp-cache-candidates 'auto))
+;;(use-package company-lsp
+;;  :defer t
+;;  :custom (company-lsp-cache-candidates 'auto))
 ;; -CompanyLSPPac
 
 ;; CompanyTabNinePac

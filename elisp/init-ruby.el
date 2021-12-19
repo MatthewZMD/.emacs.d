@@ -48,16 +48,16 @@
 
 (use-package rbenv
   :ensure t
-  :config (rbenv-use-global))
+  :config (rbenv-use-corresponding))
 
 ;; (use-package enh-ruby-mode
 ;;   :ensure t
 ;;   :mode "\\.rb\\'"
 ;;   :interpreter "ruby")
 
-(use-package robe
-  :ensure t
-  :config (global-robe-mode))
+;;(use-package robe
+;;  :ensure t
+;;  :config (global-robe-mode))
   ;;:hook ((ruby-mode enh-ruby-mode) . robe-mode))
 
 (use-package yari

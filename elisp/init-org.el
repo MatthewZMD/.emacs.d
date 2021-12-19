@@ -45,7 +45,6 @@
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
   ("C-c c" . org-capture)
-  ("C-c b" . org-switch)
   (:map org-mode-map ("C-c C-p" . org-export-as-pdf-and-open))
   :hook
   (org-mode . visual-line-mode)
@@ -59,15 +58,16 @@
                            ("T" "Tickler" entry
                             (file+headline "~/org/tickler.org" "Tickler")
                             "* %i%? \n %U")))
-  (org-refile-targets '(("~/org/projects.org" :maxlevel . 2)
-                        ("~/org/someday.org" :level . 1)
-                        ("~/org/tickler.org" :maxlevel . 2)
-                        ("~/org/coming-soon.org" :maxlevel . 2)))
-  (org-agenda-custom-commands
-   '(("d" "All tasks" tags "TODO={.+}")))
+ (org-refile-targets '(("~/org/projects.org" :maxlevel . 2)
+                       ("~/org/someday.org" :level . 1)
+                       ("~/org/tickler.org" :maxlevel . 2)
+                       ("~/org/coming-soon.org" :maxlevel . 2)))
+ (org-agenda-custom-commands
+  '(("d" "All tasks" tags "TODO={.+}")))
   (org-log-done 'time)
   (org-default-priority 70)
   (org-agenda-window-setup 'only-window)
+  (org-agenda-todo-ignore-scheduled t)
   (org-export-backends (quote (ascii html icalendar latex md odt)))
   (org-use-speed-commands t)
   (org-confirm-babel-evaluate 'nil)
@@ -103,6 +103,62 @@
       (delete-file (concat (substring pdf-path 0 (string-match "[^\.]*\/?$" pdf-path)) "tex")))))
 ;; -OrgPac
 
+
+
+;;(use-package org-gtd
+;;  :after org
+;;   :demand t
+;;   :bind
+;;   ("C-c d c" . org-gtd-capture)
+;;   ("C-c d a" . org-agenda-list)
+;;   ("C-c d p" . org-gtd-process-inbox)
+;;   ("C-c d n" . org-gtd-show-all-next)
+;;   ("C-c d s" . org-gtd-show-stuck-projects)
+;;   :config
+;;   (setq org-gtd-directory "~/org/gtd/")
+;;   (setq org-gtd-process-item-hooks '(org-set-tags-command))
+;;   (setq org-edna-use-inheritance t)
+;;   (org-edna-mode 1))
+
+;; (use-package org-agenda
+;;    :ensure nil
+;;    :after org-gtd
+;;    :config
+;;    (setq org-agenda-files `(,org-gtd-directory))
+;;    (setq org-agenda-custom-commands '(("g" "Scheduled today and all NEXT items" ((agenda "" ((org-agenda-span 1))) (todo "NEXT"))))))
+
+;; (use-package org-capture
+;;   :ensure nil
+;;   :after org-gtd
+;;   :config
+;;   (setq org-capture-templates
+;;         `(("i" "Inbox"
+;;            entry (file "~/org/gtd/inbox.org")   ;; TODO: Debug why this doesn't work,(org-gtd-inbox-path))
+;;            "* %?\n%U\n\n  %i"
+;;            :kill-buffer t)
+;;           ("l" "Todo with link"
+;;            entry (file "~/org/gtd/inbox.org")  ;; TODO debug,(org-gtd-inbox-path))
+;;            "* %?\n%U\n\n  %i\n  %a"
+;;            :kill-buffer t))))
+
+;; this is used in a very specific minor mode, so you can have a pretty common keybinding.
+;;(bind-key "C-c c" 'org-gtd-clarify-finalize)))
+
+;; ;; this allows you use `(,org-gtd-directory) for your agenda files
+;; (use-package org-agenda
+;;   :ensure nil
+;;   :after org-gtd)
+
+;; ;; this allows you to use (org-gtd-inbox-path) for your capture destinations
+;; (use-package org-capture
+;;   :ensure nil
+;;   :after org-gtd)
+
+;; (use-package org-agenda-property
+;;   :custom
+;;   )
+
+
 ;; TocOrgPac
 (use-package toc-org
   :hook (org-mode . toc-org-mode))
@@ -127,6 +183,27 @@
    '(;; other Babel languages
      (plantuml . t))))
 ;; -PlantUMLPac
+
+
+(use-package ox-reveal
+  :custom
+  (org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js"))
+
+(defun my-org-screenshot ()
+  "Take a screenshot into a time stamped unique-named file in the
+same directory as the org-buffer and insert a link to this file."
+  (interactive)
+  (setq filename
+        (concat
+         (make-temp-name
+          (concat (file-name-nondirectory (buffer-file-name))
+                  "_"
+                  (format-time-string "%Y%m%d_%H%M%S_")) ) ".png"))
+  (call-process "screencapture" nil nil nil "-i" filename)
+  (insert (concat "[[./" filename "]]"))
+  (org-display-inline-images))
+
+(load "~/.emacs.d/site-elisp/org-export-as-s5.el")
 
 (provide 'init-org)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
