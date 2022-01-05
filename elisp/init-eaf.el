@@ -114,9 +114,11 @@
 (use-package popweb
   :if eaf-env-p
   :load-path (lambda () (expand-file-name "site-elisp/popweb" user-emacs-directory))
-  :config
+  :init
   (add-to-list 'load-path (expand-file-name "site-elisp/popweb/extension/latex" user-emacs-directory))
   (add-to-list 'load-path (expand-file-name "site-elisp/popweb/extension/dict" user-emacs-directory))
+  (require 'popweb-latex)
+  (require 'popweb-dict-youdao)
   :custom
   (popweb-popup-pos "point-bottom")
   :hook ((org-mode . popweb-latex-mode)
