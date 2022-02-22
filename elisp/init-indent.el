@@ -58,6 +58,7 @@
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
 (setq-default js-switch-indent-offset 2)
+(setq-default fill-column 100)
 (c-set-offset 'comment-intro 0)
 (c-set-offset 'innamespace 0)
 (c-set-offset 'case-label '+)
