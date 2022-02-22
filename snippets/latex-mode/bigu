@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: bigu
-# key: bigu
-# --
-\\bigcup_{$1}^{$2}

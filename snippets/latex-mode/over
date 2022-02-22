@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: over
-# key: over
-# --
-\\overset{${1:over}}{${2:normal}}

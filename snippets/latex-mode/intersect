@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: intersect
-# key: intersect
-# --
-\cap_{$1}^{$2}

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: ul
-# key: ul
-# --
-\\underline{$1}
