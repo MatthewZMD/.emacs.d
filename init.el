@@ -1,244 +1,92 @@
-;;; init.el --- -*- lexical-binding: t -*-
-;;
-;; Filename: init.el
-;; Description: Initialize M-EMACS
-;; Author: Mingde (Matthew) Zeng
-;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 10:15:28 2019 (-0400)
-;; Version: 2.0.0
-;; Last-Updated: Fri Jan 22 11:13:34 2021 (+0000)
-;;           By: Lee Coomber
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d init
-;; Compatibility: emacs-version >= 26.1
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; init.el --- Initialise Emacs using my configuration
 ;;
 ;;; Commentary:
 ;;
-;; This is the init.el file for M-EMACS
+;; This configuration will only work on Mac OS X as it is the only OS I have available for testing.
 ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; This program is free software: you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or (at
-;; your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful, but
-;; WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; This config is heavily based on my previous config which itself was a version of M-Emacs:
+;; https://github.com/MatthewZMD/.emacs.d.  I have reconstructed it from the ground up trying to
+;; keep customisations to a minimum.
 ;;
 ;;; Code:
 
-;; CheckVer
-(cond ((version< emacs-version "26.1")
-       (warn "M-EMACS requires Emacs 26.1 and above!"))
-      ((let* ((early-init-f (expand-file-name "early-init.el" user-emacs-directory))
-              (early-init-do-not-edit-d (expand-file-name "early-init-do-not-edit/" user-emacs-directory))
-              (early-init-do-not-edit-f (expand-file-name "early-init.el" early-init-do-not-edit-d)))
-         (and (version< emacs-version "27")
-              (or (not (file-exists-p early-init-do-not-edit-f))
-                  (file-newer-than-file-p early-init-f early-init-do-not-edit-f)))
-         (make-directory early-init-do-not-edit-d t)
-         (copy-file early-init-f early-init-do-not-edit-f t t t t)
-         (add-to-list 'load-path early-init-do-not-edit-d)
-         (require 'early-init))))
-;; -CheckVer
+;; Increase the default GC threshold
+(setq gc-cons-threshold 104857600) ;; 100mb
 
-;; BetterGC
-(defvar better-gc-cons-threshold 67108864 ; 64mb
-  "The default value to use for `gc-cons-threshold'.
-
-If you experience freezing, decrease this.  If you experience stuttering, increase this.")
-
+;; Keep an eye on startup time
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (setq gc-cons-threshold better-gc-cons-threshold)
-            (setq file-name-handler-alist file-name-handler-alist-original)
-            (makunbound 'file-name-handler-alist-original)))
-;; -BetterGC
+            (message "*** Emacs loaded in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
 
-;; AutoGC
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (if (boundp 'after-focus-change-function)
-                (add-function :after after-focus-change-function
-                              (lambda ()
-                                (unless (frame-focus-state)
-                                  (garbage-collect))))
-              (add-hook 'after-focus-change-function 'garbage-collect))
-            (defun gc-minibuffer-setup-hook ()
-              (setq gc-cons-threshold (* better-gc-cons-threshold 2)))
+;; Add the location of the features to the load path
+(add-to-list 'load-path "~/.emacs.d/elisp")
 
-            (defun gc-minibuffer-exit-hook ()
-              (garbage-collect)
-              (setq gc-cons-threshold better-gc-cons-threshold))
+;; Lockfiles are not needed
+(setq-default create-lockfiles nil)
 
-            (add-hook 'minibuffer-setup-hook #'gc-minibuffer-setup-hook)
-            (add-hook 'minibuffer-exit-hook #'gc-minibuffer-exit-hook)))
-;; -AutoGC
+;; Use more recent compiled files if available
+(setq load-prefer-newer t)
 
-;; LoadPath
-(defun update-to-load-path (folder)
-  "Update FOLDER and its subdirectories to `load-path'."
-  (let ((base folder))
-    (unless (member base load-path)
-      (add-to-list 'load-path base))
-    (dolist (f (directory-files base))
-      (let ((name (concat base "/" f)))
-        (when (and (file-directory-p name)
-                   (not (equal f ".."))
-                   (not (equal f ".")))
-          (unless (member base load-path)
-            (add-to-list 'load-path name)))))))
-
-(update-to-load-path (expand-file-name "elisp" user-emacs-directory))
-;; -LoadPath
-
-(setq default-directory "~/")
-
-;; Constants
-
-(require 'init-const)
-
-;; Packages
-
-;; Package Management
+;; TODO: Why does flycheck register an error here?
 (require 'init-package)
 
-;; Global Functionalities
-(require 'init-global-config)
+(require 'init-ui)
 
-(require 'init-func)
+(require 'init-ivy)
 
 (require 'init-search)
 
-;;(require 'init-crux)
-
-(require 'init-winner)
-
-(require 'init-which-key)
-
-(require 'init-popup-kill-ring)
-
 (require 'init-undo-tree)
-
-(require 'init-discover-my-major)
-
-;;(require 'init-shell)
 
 (require 'init-dired)
 
-;; User Interface Enhancements
-(require 'init-ui-config)
+(require 'init-org)
 
-;;(require 'init-theme)
+;; General programming modes
 
-(require 'init-fonts)
-
-(require 'init-scroll)
-
-;; General Programming
 (require 'init-magit)
 
 (require 'init-projectile)
 
 (require 'init-treemacs)
 
-;;(require 'init-yasnippet)
-
-(require 'init-flycheck)
-
-(require 'init-parens)
-
 (require 'init-indent)
-
-(require 'init-lsp)
 
 (require 'init-company)
 
-;; Programming
+(require 'init-flycheck)
 
-(require 'init-java)
+(require 'init-lsp)
+
+;; Programming modes
+(require 'init-markdown)
+
+(require 'init-yaml)
 
 (require 'init-clojure)
 
-(require 'init-python)
-
-(require 'init-javascript)
-
 (require 'init-ruby)
 
-(require 'init-scala)
-
-;; Web Development
-(require 'init-webdev)
-
-;; Miscellaneous
-(require 'init-org)
-
-;;(require 'init-eaf)
-
-;;(require 'init-eww)
-
-(require 'init-purpose)
+(require 'init-python)
 
 
-;; Stuff that should go into other files
-(use-package dockerfile-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
 
-(use-package plantuml-mode
-  :ensure t
-  :mode "\\.puml\\'"
-  :config
-  (setq plantuml-executable-path "/usr/local/bin/plantuml")
-  (setq plantuml-default-exec-mode 'executable))
-
-(use-package yaml-mode
-  :ensure t)
-
-
-(use-package helpful
-  :ensure t)
-
-;; Note that the built-in `describe-function' includes both functions
-;; and macros. `helpful-function' is functions only, so we provide
-;; `helpful-callable' as a drop-in replacement.
-(global-set-key (kbd "C-h f") #'helpful-callable)
-
-(global-set-key (kbd "C-h v") #'helpful-variable)
-(global-set-key (kbd "C-h k") #'helpful-key)
-
-;; Lookup the current symbol at point. C-c C-d is a common keybinding
-;; for this in lisp modes.
-(global-set-key (kbd "C-c C-d") #'helpful-at-point)
-
-;; Look up *F*unctions (excludes macros).
-;;
-;; By default, C-h F is bound to `Info-goto-emacs-command-node'. Helpful
-;; already links to the manual, if a function is referenced there.
-(global-set-key (kbd "C-h F") #'helpful-function)
-
-;; Look up *C*ommands.
-;;
-;; By default, C-h C is bound to describe `describe-coding-system'. I
-;; don't find this very useful, but it's frequently useful to only
-;; look at interactive functions.
-(global-set-key (kbd "C-h C") #'helpful-command)
-
-
-(provide 'init)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init.el ends here
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+;; TODO: Move these somewhere else
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-show-quick-access t nil nil "Customized with use-package company")
+ '(package-selected-packages
+   '(rbenv rubocop clojure-mode markdown-mode flycheck toc-org org-gtd company highlight-indent-guides magit undo-tree exec-path-from-shell use-package-ensure-system-package counsel amx ivy ag diminish auto-package-update use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
