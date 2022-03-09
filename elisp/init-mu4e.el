@@ -71,7 +71,6 @@
   (mu4e-use-fancy-chars t)
   (mu4e-headers-results-limit 1000)
   (mu4e-view-use-gnus t)
-  (mail-user-agent (mu4e-user-agent))
   (gnus-icalendar-org-capture-file "~/org/agenda/meetings.org") ; Prerequisite: set it to meetings org fie
   (gnus-icalendar-org-capture-headline '("Meetings")) ; Make sure to create Calendar heading first
   :hook
@@ -114,6 +113,7 @@
                                    :function (lambda (msg) "  ")))))
   :config
   (require 'mu4e-icalendar)
+  (setq mail-user-agent (mu4e-user-agent))
   (mu4e-icalendar-setup)
   (gnus-icalendar-org-setup)
   (defalias 'mu4e-add-attachment 'mail-add-attachment

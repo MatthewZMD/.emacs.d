@@ -49,8 +49,8 @@
   (eaf-start-python-process-when-require t)
   (eaf-browser-default-zoom 1.25)
   (eaf-browser-dark-mode nil)
+  (eaf-browser-scroll-step 200)
   (eaf-browser-enable-adblocker t)
-  (eaf-browser-enable-autofill t)
   (eaf-file-manager-show-preview nil)
   (eaf-pdf-dark-mode "ignore")
   :demand
@@ -122,7 +122,9 @@
   :custom
   (popweb-popup-pos "point-bottom")
   :hook ((org-mode . popweb-latex-mode)
-         (tex-mode . popweb-latex-mode)))
+         (tex-mode . popweb-latex-mode)
+         (ein:markdown-mode . popweb-latex-mode))
+  )
 ;; -PopwebPac
 
 (provide 'init-eaf)

@@ -43,7 +43,9 @@
    ("C-c C-e" . ein:worksheet-execute-all-cells))
   :custom-face
   (ein:basecell-input-area-face ((t (:extend t :background "#303640"))))
-  :defer t)
+  :defer t
+  :custom
+  (ein:worksheet-enable-undo t))
 ;; -EINPac
 
 (provide 'init-ein)
