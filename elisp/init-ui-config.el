@@ -36,7 +36,8 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'init-const))
+  (require 'init-const)
+  (require 'battery))
 
 ;; Highlight
 (global-hl-line-mode 1)
@@ -85,7 +86,9 @@
 
 ;; DisTimeBat
 (display-time-mode 1)
-(display-battery-mode 1)
+(when (and battery-status-function
+           (not (string-match-p "N/A" (battery-format "%B" (funcall battery-status-function)))))
+  (display-battery-mode 1))
 ;; -DisTimeBat
 
 (provide 'init-ui-config)
