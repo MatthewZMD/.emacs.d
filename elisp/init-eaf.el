@@ -45,12 +45,12 @@
   :if eaf-env-p
   :custom
   (browse-url-browser-function #'eaf-open-browser) ;; Make EAF Browser my default browser
-  (eaf-browser-continue-where-left-off t)
   (eaf-start-python-process-when-require t)
-  (eaf-browser-default-zoom 1.25)
   (eaf-browser-dark-mode nil)
-  (eaf-browser-scroll-step 200)
   (eaf-browser-enable-adblocker t)
+  (eaf-webengine-continue-where-left-off t)
+  (eaf-webengine-default-zoom 1.25)
+  (eaf-webengine-scroll-step 200)
   (eaf-file-manager-show-preview nil)
   (eaf-pdf-dark-mode "ignore")
   :demand
