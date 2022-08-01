@@ -1,20 +1,20 @@
-;;; init-haskell.el --- -*- lexical-binding: t -*-
+;;; init-tree-sitter.el --- -*- lexical-binding: t -*-
 ;;
-;; Filename: init-haskell.el
-;; Description: Initialize Haskell
+;; Filename: init-tree-sitter.el
+;; Description: Initialize Parenthesis
 ;; Author: Mingde (Matthew) Zeng
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Tue Apr 23 10:00:42 2019 (-0400)
+;; Created: Fri Mar 15 10:17:13 2019 (-0400)
 ;; Version: 3.0
 ;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d haskell
+;; Keywords: M-EMACS .emacs.d parenthesis smartparens delete-block
 ;; Compatibility: emacs-version >= 26.1
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes haskell-mode
+;; This initializes tree-sitter
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,17 +35,17 @@
 ;;
 ;;; Code:
 
-;; HaskellModePac
-(use-package haskell-mode
-  :mode "\\.hs\\'")
+(eval-when-compile
+  (require 'init-global-config))
 
-;; Install and configure lsp-haskell
-(use-package lsp-haskell
-  :hook ((haskell-mode haskell-literate-mode) . lsp-deferred)
-  :config (setq lsp-haskell-server-path "haskell-language-server"))
+(use-package tree-sitter-langs)
 
-;; -HaskellModePac
+(use-package tree-sitter
+  :after tree-sitter-langs
+  :config
+  (global-tree-sitter-mode)
+  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
 
-(provide 'init-haskell)
+(provide 'init-tree-sitter)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-haskell.el ends here
+;;; init-tree-sitter.el ends here

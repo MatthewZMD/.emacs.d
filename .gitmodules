@@ -43,3 +43,6 @@
 [submodule "site-elisp/indent-bars"]
 	path = site-elisp/indent-bars
 	url = https://github.com/jdtsmith/indent-bars.git
+[submodule "site-elisp/lsp-bridge"]
+	path = site-elisp/lsp-bridge
+	url = https://github.com/manateelazycat/lsp-bridge.git

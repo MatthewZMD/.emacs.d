@@ -43,31 +43,6 @@
   :diminish)
 ;; -IEditPac
 
-;; AwesomePairPac
-(use-package awesome-pair
-  :load-path (lambda () (expand-file-name "site-elisp/awesome-pair" user-emacs-directory))
-  :bind
-  (:map prog-mode-map
-        (("M-D" . awesome-pair-kill)
-         ("SPC" . awesome-pair-space)
-         ("=" . awesome-pair-equal)
-         ("M-F" . awesome-pair-jump-right)
-         ("M-B" . awesome-pair-jump-left)))
-  :hook (prog-mode . awesome-pair-mode))
-;; -AwesomePairPac
-
-;; ConfModePac
-(use-package conf-mode
-  :ensure nil
-  :bind
-  (:map conf-mode-map
-        (("M-D" . awesome-pair-kill)
-         ("SPC" . awesome-pair-space)
-         ("=" . awesome-pair-equal)
-         ("M-F" . awesome-pair-jump-right)
-         ("M-B" . awesome-pair-jump-left))))
-;; -ConfModePac
-
 ;; DeleteBlockPac
 (use-package delete-block
   :load-path (lambda () (expand-file-name "site-elisp/delete-block" user-emacs-directory))
@@ -77,6 +52,73 @@
    ("M-<backspace>" . delete-block-backward)
    ("M-DEL" . delete-block-backward)))
 ;; -DeleteBlockPac
+
+;; SmartParensPac
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode)
+  :diminish smartparens-mode
+  :bind
+  (:map smartparens-mode-map
+        ("C-M-f" . sp-forward-sexp)
+        ("C-M-b" . sp-backward-sexp)
+        ("C-M-a" . sp-backward-down-sexp)
+        ("C-M-e" . sp-up-sexp)
+        ("C-M-w" . sp-copy-sexp)
+        ("C-M-k" . sp-change-enclosing)
+        ("M-k" . sp-kill-sexp)
+        ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
+        ("C-S-<backspace>" . sp-splice-sexp-killing-around)
+        ("C-]" . sp-select-next-thing-exchange))
+  :custom
+  (sp-escape-quotes-after-insert nil)
+  :config
+  ;; Stop pairing single quotes in elisp
+  (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+  (sp-local-pair 'org-mode "[" nil :actions nil))
+;; -SmartParensPac
+
+;; MatchParens
+;; Show matching parenthesis
+(show-paren-mode 1)
+;; we will call `blink-matching-open` ourselves...
+(remove-hook 'post-self-insert-hook
+             #'blink-paren-post-self-insert-function)
+
+;; this still needs to be set for `blink-matching-open` to work
+(setq blink-matching-paren 'show)
+(let ((ov nil)) ; keep track of the overlay
+  (advice-add
+   #'show-paren-function
+   :after
+    (defun show-paren--off-screen+ (&rest _args)
+      "Display matching line for off-screen paren."
+      (when (overlayp ov)
+        (delete-overlay ov))
+      ;; check if it's appropriate to show match info,
+      ;; see `blink-paren-post-self-insert-function'
+      (when (and (overlay-buffer show-paren--overlay)
+                 (not (or cursor-in-echo-area
+                          executing-kbd-macro
+                          noninteractive
+                          (minibufferp)
+                          this-command))
+                 (and (not (bobp))
+                      (memq (char-syntax (char-before)) '(?\) ?\$)))
+                 (= 1 (logand 1 (- (point)
+                                   (save-excursion
+                                     (forward-char -1)
+                                     (skip-syntax-backward "/\\")
+                                     (point))))))
+        ;; rebind `minibuffer-message' called by
+        ;; `blink-matching-open' to handle the overlay display
+        (cl-letf (((symbol-function #'minibuffer-message)
+                   (lambda (msg &rest args)
+                     (let ((msg (apply #'format-message msg args)))
+                       (setq ov (display-line-overlay+
+                                 (window-start) msg))))))
+          (blink-matching-open))))))
+;; -MatchParens
+
 
 (provide 'init-edit)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
