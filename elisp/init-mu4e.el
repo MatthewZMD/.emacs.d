@@ -97,7 +97,9 @@
     :bind
     ((:map mu4e-headers-mode-map
            ("TAB" . mu4e-headers-toggle-at-point)
-           ("C-<tab>" . mu4e-headers-toggle-fold-all)))
+           ("C-<tab>" . mu4e-headers-toggle-fold-all))
+     (:map mu4e-search-minor-mode-map
+           ("S" . mu4e-kill-update-mail)))
     :custom
     (mu4e-thread-folding-default-view `folded)
     (mu4e-headers-fields '((:empty         .    2)
