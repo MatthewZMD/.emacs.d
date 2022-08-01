@@ -57,7 +57,6 @@
   - [[Magit][Magit]]
   - [[Projectile][Projectile]]
   - [[YASnippet][YASnippet]]
-  - [[Syntax][Syntax]]
   - [[Dumb Jump][Dumb Jump]]
   - [[Parenthesis][Parenthesis]]
   - [[Indentation][Indentation]]
@@ -67,16 +66,12 @@
   - [[Editing][Editing]]
   - [[Headers][Headers]]
   - [[Jupyter Notebook][Jupyter Notebook]]
-  - [[LSP][LSP]]
-  - [[DAP][DAP]]
-  - [[Company][Company]]
+  - [[Completion / LSP][Completion / LSP]]
 - [[Programming][Programming]]
-  - [[Java][Java]]
   - [[C/C++/Objective C][C/C++/Objective C]]
   - [[Golang][Golang]]
   - [[Rust][Rust]]
   - [[Python][Python]]
-  - [[Haskell][Haskell]]
   - [[ESS][ESS]]
   - [[TeX][TeX]]
   - [[Yaml][Yaml]]
@@ -250,7 +245,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "44-76"
 ** Load Private File
    An =init-private.el= file has been designated at =user-emacs-directory= for you to store personal configurations that you don't want to source-control.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "229-232"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "221-224"
 * Package Management
   Some packages are disabled with the =:disabled= tag, because I don't use them very often. You can disable packages similarly yourself too:
   #+begin_src emacs-lisp
@@ -449,23 +444,16 @@
 *** YASnippet
     [[https://github.com/joaotavora/yasnippet][YASnippet]], a programming template system for Emacs. It loads [[https://github.com/AndreaCrotti/yasnippet-snippets][YASnippet Snippets]], a collection of yasnippet snippets for many languages.
     #+INCLUDE: "~/.emacs.d/elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "-YASnippetPac" :lines "39-60"
-** Syntax
-*** Flycheck
-    [[https://www.flycheck.org/en/latest/][Flycheck]], a syntax checking extension.
-    #+INCLUDE: "~/.emacs.d/elisp/init-syntax.el" src emacs-lisp :range-begin "FlyCheckPac" :range-end "-FlyCheckPac" :lines "39-76"
-*** Flyspell
-    [[https://www.emacswiki.org/emacs/FlySpell][Flyspell]] enables on-the-fly spell checking in Emacs and uses [[https://github.com/d12frosted/flyspell-correct][Flyspell Correct]] for distraction-free words correction using Ivy.
-    #+INCLUDE: "~/.emacs.d/elisp/init-syntax.el" src emacs-lisp :range-begin "FlyspellPac" :range-end "-FlyspellPac" :lines "79-97"
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]], an Emacs "jump to definition" package.
    #+INCLUDE: "~/.emacs.d/elisp/init-dumb-jump.el" src emacs-lisp :range-begin "DumbJump" :range-end "-DumbJump" :lines "39-46"
 ** Parenthesis
 *** Smartparens
     [[https://github.com/Fuco1/smartparens][Smartparens]], a minor mode for dealing with pairs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "SmartParensPac" :range-end "-SmartParensPac" :lines "42-63"
+    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "SmartParensPac" :range-end "-SmartParensPac" :lines "57-78"
 *** Match Parenthesis
     Match and automatically pair parenthesis, and show parenthesis even when it went offscreen from [[https://with-emacs.com/posts/editing/show-matching-lines-when-parentheses-go-off-screen/][Clemens Radermacher]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-parens.el" src emacs-lisp :range-begin "MatchParens" :range-end "-MatchParens" :lines "66-105"
+    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "MatchParens" :range-end "-MatchParens" :lines "81-120"
 ** Indentation
    [[https://github.com/jdtsmith/indent-bars][Indent Bars]], a fast, configurable indentation guide-bars for Emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentBarsPac" :range-end "-IndentBarsPac" :lines "39-56"
@@ -486,15 +474,9 @@
 *** Iedit
     [[https://github.com/victorhge/iedit][Iedit]], a minor mode that allows editing multiple regions simultaneousy in a buffer or a region.
     #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "IEditPac" :range-end "-IEditPac" :lines "41-44"
-*** Awesome Pair
-    [[https://github.com/manateelazycat/awesome-pair][Awesome Pair]], a feature that provides grammatical parenthesis completion.
-    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "AwesomePairPac" :range-end "-AwesomePairPac" :lines "47-57"
-*** Conf Mode
-    Conf Mode, a simple major mode for editing conf/ini/properties files.
-    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "ConfModePac" :range-end "-ConfModePac" :lines "60-69"
 *** Delete Block
     [[https://github.com/manateelazycat/delete-block][Delete Block]], a feature that deletes block efficiently.
-    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "DeleteBlockPac" :range-end "-DeleteBlockPac" :lines "72-79"
+    #+INCLUDE: "~/.emacs.d/elisp/init-edit.el" src emacs-lisp :range-begin "DeleteBlockPac" :range-end "-DeleteBlockPac" :lines "47-54"
 ** Headers
    [[https://www.emacswiki.org/emacs/header2.el][Header2]], a support for creation and update of file headers.
    #+INCLUDE: "~/.emacs.d/elisp/init-header.el" src emacs-lisp :range-begin "Header2Pac" :range-end "-Header2Pac" :lines "39-48"
@@ -505,44 +487,10 @@
     2. Login with =M-x ein:login= to a local or remote session.
     3. Open =.ipynb= file and press =C-c C-o=.
     #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "39-49"
-** LSP
-*** LSP Mode
-    [[https://github.com/emacs-lsp/lsp-mode][Language Server Protocol Mode]], a client/library for the [[https://microsoft.github.io/language-server-protocol/][Language Server Protocol]]. M-EMACS tries to use lsp-mode whenever possible.
-
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "39-61"
-*** LSP UI
-    [[https://github.com/emacs-lsp/lsp-ui][Language Server Protocol UI]], provides all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
-
-    Note: =lsp-ui-doc= is too annoying, so it will not be triggered upon hovering. You have to toggle it using =M-i=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "LSPUI" :range-end "-LSPUI" :lines "64-97"
-** DAP
-   [[https://github.com/emacs-lsp/dap-mode][Debug Adapter Protocol Mode]], a client/library for the [[https://code.visualstudio.com/api/extension-guides/debugger-extension][Debug Adapter Protocol]].
-
-   *Prerequisite*: See [[https://github.com/emacs-lsp/dap-mode#configuration][Configuration]] to configure DAP appropriately.
-   #+INCLUDE: "~/.emacs.d/elisp/init-lsp.el" src emacs-lisp :range-begin "DAPPac" :range-end "-DAPPac" :lines "100-110"
-** Company
-*** Company Mode
-    [[http://company-mode.github.io/][Company]], a text completion framework for Emacs.
-
-    The function =smarter-yas-expand-next-field-complete= is to smartly resolve TAB conflicts in company and yasnippet packages.
-    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "ComPac" :range-end "-ComPac" :lines "42-80"
-*** Company TabNine
-    [[https://github.com/TommyX12/company-tabnine][Company TabNine]], A company-mode backend for [[https://tabnine.com/][TabNine]], the all-language autocompleter.
-
-    This is enabled by default, if ever you find it not good enough for a particular completion, simply use =M-q= to immediately switch to default backends.
-
-    *Prerequisite*: Execute =M-x company-tabnine-install-binary= to install the TabNine binary for your system.
-    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyTabNinePac" :range-end "-CompanyTabNinePac" :lines "83-133"
-*** Company Box
-    [[https://github.com/sebastiencs/company-box][Company Box]], a company front-end with icons.
-    #+INCLUDE: "~/.emacs.d/elisp/init-company.el" src emacs-lisp :range-begin "CompanyBoxPac" :range-end "-CompanyBoxPac" :lines "136-341"
+** Completion / LSP
+   Instead of the popular [[http://company-mode.github.io/][Company]], I opt-ed to use [[https://github.com/manateelazycat/lsp-bridge][lsp-bridge]] that is completely *multi-threading* technology, handles almost all of my completion needs.
+    #+INCLUDE: "~/.emacs.d/elisp/init-complete.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "42-72"
 * Programming
-** Java
-*** LSP Java
-    [[https://github.com/emacs-lsp/lsp-java][LSP Java]], Emacs Java IDE using [[https://projects.eclipse.org/projects/eclipse.jdt.ls][Eclipse JDT Language Server]]. Note that this package is dependant on [[https://github.com/tkf/emacs-request][Request]].
-
-    *Prerequisite*: Install [[https://maven.apache.org/download.cgi][Maven]] and ensure it's in =PATH=.
-    #+INCLUDE: "~/.emacs.d/elisp/init-java.el" src emacs-lisp :range-begin "LSPJavaPac" :range-end "-LSPJavaPac" :lines "39-47"
 ** C/C++/Objective C
    *Prerequisite*: Since all completion features are provided by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]], it needs to setup.
    - Install [[https://cmake.org/download/][CMake]] >= 3.8 for all OS.
@@ -571,14 +519,7 @@
 
    #+INCLUDE: "~/.emacs.d/elisp/init-cc.el" src emacs-lisp :range-begin "RustPac" :range-end "-RustPac" :lines "80-91"
 ** Python
-*** Python Configuration
-    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "43-51"
-*** LSP Pyright
-    [[https://github.com/emacs-lsp/lsp-pyright][LSP Pyright]], a lsp-mode client leveraging [[https://github.com/microsoft/pyright][Pyright language server]].
-    #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "54-58"
-** Haskell
-   [[https://github.com/haskell/haskell-mode][Haskell Mode]], an Emacs mode for Haskell programming.
-   #+INCLUDE: "~/.emacs.d/elisp/init-haskell.el" src emacs-lisp :range-begin "HaskellModePac" :range-end "-HaskellModePac" :lines "39-47"
+   #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "PythonConfig" :range-end "-PythonConfig" :lines "42-49"
 ** ESS
    [[https://ess.r-project.org/][Emacs Speaks Statistics]], short for ESS, it's designed to support editing of scripts and interaction with various statistical analysis programs such as R, S-Plus, SAS, Stata and OpenBUGS/JAGS.
 

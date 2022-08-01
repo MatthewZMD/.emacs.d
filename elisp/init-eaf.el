@@ -112,7 +112,7 @@
   (add-to-list 'load-path (expand-file-name "site-elisp/popweb/extension/latex" user-emacs-directory))
   (add-to-list 'load-path (expand-file-name "site-elisp/popweb/extension/dict" user-emacs-directory))
   (require 'popweb-latex)
-  (require 'popweb-dict-youdao)
+  (require 'popweb-dict)
   :custom
   (popweb-popup-pos "point-bottom")
   :hook ((org-mode . popweb-latex-mode)
