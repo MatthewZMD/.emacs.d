@@ -57,7 +57,9 @@
   :defer t
   :config
   (use-package yaml-pro
-    :hook (yaml-mode . yaml-pro-mode)))
+    :hook (yaml-mode . yaml-pro-mode)
+    :bind (("C-c M-p" . yaml-pro-move-subtree-up)
+           ("C-c M-n" . yaml-pro-move-subtree-down))))
 ;; -YamlPac
 
 (provide 'init-buildsystem)
