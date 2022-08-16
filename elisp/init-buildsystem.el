@@ -53,7 +53,11 @@
 ;; -BazelPac
 
 ;; YamlPac
-(use-package yaml-mode :defer t)
+(use-package yaml-mode
+  :defer t
+  :config
+  (use-package yaml-pro
+    :hook (yaml-mode . yaml-pro-mode)))
 ;; -YamlPac
 
 (provide 'init-buildsystem)
