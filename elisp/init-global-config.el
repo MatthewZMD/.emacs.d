@@ -101,6 +101,16 @@ The original function deletes trailing whitespace of the current line."
   (unless (member major-mode '(diff-mode))
     (delete-trailing-whitespace-except-current-line)))
 
+(defun toggle-auto-trailing-ws-removal ()
+  "Toggle trailing whitespace removal."
+  (interactive)
+  (if (member #'smart-delete-trailing-whitespace before-save-hook)
+      (progn
+        (remove-hook 'before-save-hook #'smart-delete-trailing-whitespace)
+        (message "Disabled auto remove trailing whitespace."))
+    (add-hook 'before-save-hook #'smart-delete-trailing-whitespace)
+    (message "Enabled auto remove trailing whitespace.")))
+;; Add to hook during startup
 (add-hook 'before-save-hook #'smart-delete-trailing-whitespace)
 
 ;; Replace selection on insert
