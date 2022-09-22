@@ -64,6 +64,7 @@
   - [[Indentation][Indentation]]
   - [[Quickrun][Quickrun]]
   - [[Format All][Format All]]
+  - [[Ediff][Ediff]]
   - [[Evil Nerd Commenter][Evil Nerd Commenter]]
   - [[Editing][Editing]]
   - [[Headers][Headers]]
@@ -353,6 +354,9 @@
 *** Term Keys
     [[https://github.com/CyberShadow/term-keys][Term Keys]], a lossless keyboard input for Emacs in terminal emulators.
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "92-95"
+*** Exec Path From Shell
+    [[https://github.com/purcell/exec-path-from-shell][Exec Path From Shell]], a library to ensure environment variables inside Emacs look the same as in the user's shell.
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ExecPathFromShellPac" :range-end "-ExecPathFromShellPac" :lines "98-102"
 ** Sudo Edit
    [[https://github.com/nflath/sudo-edit][Sudo Edit]], an utility for opening files with =sudo=.
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SudoEditPac" :range-end "-SudoEditPac" :lines "42-44"
@@ -483,6 +487,9 @@
 
    *Prerequisite*: Read [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][Supported Languages]] to see which additional tool you need to install for the specific language.
    #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "FormatAllPac" :range-end "-FormatAllPac" :lines "39-41"
+** Ediff
+   [[https://www.gnu.org/software/emacs/manual/html_mono/ediff.html][Ediff]], a mode to simultaneously browse through the differences between a pair of files or buffers.
+   #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "EdiffPac" :range-end "-EdiffPac" :lines "44-48"
 ** Evil Nerd Commenter
    [[https://github.com/redguardtoo/evil-nerd-commenter][Evil Nerd Commenter]], a tool that helps you comment code efficiently.
    #+INCLUDE: "~/.emacs.d/elisp/init-comment.el" src emacs-lisp :range-begin "EvilNerdCommenPac" :range-end "-EvilNerdCommenPac" :lines "39-43"
