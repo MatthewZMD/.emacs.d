@@ -86,6 +86,25 @@
     (insert "#+attr_latex: :align |c|c|c|")))
 ;; -OrgPac
 
+;; OrgRoamPac
+(use-package org-roam
+  :after org
+  :custom
+  (org-roam-node-display-template
+   (concat "${title:*} "
+           (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-completion-everywhere t)
+  :bind
+  (("C-c n l" . org-roam-buffer-toggle)
+   ("C-c n f" . org-roam-node-find)
+   ("C-c n i" . org-roam-node-insert)
+   ("C-c n h" . org-id-get-create))
+  :config
+  (when (file-directory-p "~/org/roam/")
+    (setq org-roam-directory (file-truename "~/org/roam")))
+  (org-roam-db-autosync-mode))
+;; -OrgRoamPac
+
 ;; TocOrgPac
 (use-package toc-org
   :hook (org-mode . toc-org-mode))

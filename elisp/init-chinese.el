@@ -49,6 +49,7 @@
     :after pyim
     :config (pyim-basedict-enable))
   (pyim-isearch-mode 1)
+  (diminish pyim-isearch-mode "")
   (setq-default pyim-english-input-switch-functions
                 '(pyim-probe-isearch-mode
                   pyim-probe-org-structure-template))
