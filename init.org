@@ -405,12 +405,12 @@
     [[https://github.com/rakanalh/emacs-dashboard][Dashboard]], an extensible Emacs startup screen.
 
     Use either =KEC_Dark_BK.png= or =KEC_Light_BK.png= depends on the backgrond theme.
-    #+INCLUDE: "~/.emacs.d/elisp/init-dashboard.el" src emacs-lisp :range-begin "DashboardPac" :range-end "-DashboardPac" :lines "39-85"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dashboard.el" src emacs-lisp :range-begin "DashboardPac" :range-end "-DashboardPac" :lines "39-83"
 *** Page Break Lines
     [[https://github.com/purcell/page-break-lines][Page-break-lines]], a feature that displays ugly form feed characters as tidy horizontal rules.
-    #+INCLUDE: "~/.emacs.d/elisp/init-dashboard.el" src emacs-lisp :range-begin "PBLPac" :range-end "-PBLPac" :lines "88-91"
+    #+INCLUDE: "~/.emacs.d/elisp/init-dashboard.el" src emacs-lisp :range-begin "PBLPac" :range-end "-PBLPac" :lines "86-89"
 ** Fonts and Icons
-   *Prerequisite*: Install all the available fonts and icons from =fonts/=.
+   *Prerequisite*: Install all the available fonts and icons from =fonts/=. Execute =M-x all-the-icons-install-fonts= and =M-x nerd-icons-install-fonts=.
 *** Fonts
     #+INCLUDE: "~/.emacs.d/elisp/init-fonts.el" src emacs-lisp :range-begin "FontsList" :range-end "-FontsList" :lines "39-42"
     Function to switch between fonts.
@@ -682,10 +682,10 @@
 
    *Prerequisite*: Please ensure =python3= and =pip3= are installed, then follow [[https://github.com/manateelazycat/emacs-application-framework#install][install]] instructions.
 
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-113"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-114"
 ** Popweb
    [[https://github.com/manateelazycat/popweb][Popweb]], a lightweight version of EAF that provides multimedia capabilities.
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "PopwebPac" :range-end "-PopwebPac" :lines "116-130"
+   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "PopwebPac" :range-end "-PopwebPac" :lines "117-131"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
@@ -741,10 +741,10 @@
     - [[https://github.com/tumashu/pyim-basedict][Pyim BaseDict]], the default Chinese-Pyim dictionary.
 
     我已经停止使用作者推荐的无痛中英切换，它对需要同时打英文和中文的情况不是很友好。如需切换输入法，请善用 =C-\= 。
-    #+INCLUDE: "~/.emacs.d/elisp/init-chinese.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "39-60"
+    #+INCLUDE: "~/.emacs.d/elisp/init-chinese.el" src emacs-lisp :range-begin "PyimPac" :range-end "-PyimPac" :lines "39-61"
 *** Youdao
     [[https://github.com/xuchunyang/youdao-dictionary.el][Youdao]] interface for Emacs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-chinese.el" src emacs-lisp :range-begin "YoudaoPac" :range-end "-YoudaoPac" :lines "63-68"
+    #+INCLUDE: "~/.emacs.d/elisp/init-chinese.el" src emacs-lisp :range-begin "YoudaoPac" :range-end "-YoudaoPac" :lines "64-69"
 ** Tetris
    Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
    #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "39-52"
