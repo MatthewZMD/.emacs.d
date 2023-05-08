@@ -418,9 +418,6 @@
 *** All The Icons
     [[https://github.com/domtronn/all-the-icons.el][All The Icons]], a utility package to collect various Icon Fonts. Enable only in GUI Emacs.
     #+INCLUDE: "~/.emacs.d/elisp/init-fonts.el" src emacs-lisp :range-begin "ATIPac" :range-end "-ATIPac" :lines "67-68"
-*** Emojify
-    [[https://github.com/iqbalansari/emacs-emojify][Emojify]], display emojis in Emacs
-    #+INCLUDE: "~/.emacs.d/elisp/init-fonts.el" src emacs-lisp :range-begin "EmojifyPac" :range-end "-EmojifyPac" :lines "71-74"
 ** Smooth Scrolling
    Configurations to smooth scrolling.
    #+INCLUDE: "~/.emacs.d/elisp/init-scroll.el" src emacs-lisp :range-begin "SmoothScroll" :range-end "-SmoothScroll" :lines "39-52"
