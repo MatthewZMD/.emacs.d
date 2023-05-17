@@ -37,7 +37,8 @@
 
 ;; PopKillRing
 (use-package popup-kill-ring
-  :bind ("M-y" . popup-kill-ring))
+  :bind ("M-y" . popup-kill-ring)
+  :custom (kill-do-not-save-duplicates t))
 ;; -PopKillRing
 
 (provide 'init-popup-kill-ring)
