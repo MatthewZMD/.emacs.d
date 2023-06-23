@@ -55,7 +55,8 @@
   (eaf-pdf-dark-mode "ignore")
   :demand
   :bind
-  (("M-z r" . eaf-open-rss-reader)
+  (("C-x j" . eaf-open-in-file-manager)
+   ("M-z r" . eaf-open-rss-reader)
    ("M-m r" . eaf-open-rss-reader)
    ("M-#" . eaf-open-pyqterminal))
   :config
