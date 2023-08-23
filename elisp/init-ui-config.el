@@ -91,6 +91,11 @@
   (display-battery-mode 1))
 ;; -DisTimeBat
 
+;; PixelScrollPrecMode
+(when (version<= "29.1" emacs-version)
+  (pixel-scroll-precision-mode 1))
+;; -PixelScrollPrecMode
+
 (provide 'init-ui-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-ui-config.el ends here

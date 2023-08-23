@@ -436,6 +436,9 @@
 *** Modeline Time and Battery
     Display time and battery information in modeline.
     #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "DisTimeBat" :range-end "-DisTimeBat" :lines "88-92"
+*** Pixel Scroll Precision Mode
+    Pixel scroll precision mode, introduced in Emacs 29.1, displays text pixel-by-pixel.
+    #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "PixelScrollPrecMode" :range-end "-PixelScrollPrecMode" :lines "95-97"
 * General Programming
 ** Magit
    [[https://magit.vc/][Magit]], an interface to the version control system Git.
