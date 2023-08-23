@@ -52,12 +52,10 @@
   (eaf-webengine-continue-where-left-off t)
   (eaf-webengine-default-zoom 1.25)
   (eaf-webengine-scroll-step 200)
-  (eaf-file-manager-show-preview nil)
   (eaf-pdf-dark-mode "ignore")
   :demand
   :bind
-  (("C-x j" . eaf-open-in-file-manager)
-   ("M-z r" . eaf-open-rss-reader)
+  (("M-z r" . eaf-open-rss-reader)
    ("M-m r" . eaf-open-rss-reader)
    ("M-#" . eaf-open-pyqterminal))
   :config
@@ -103,14 +101,7 @@
   (eaf-bind-key quit-window "q" eaf-pdf-viewer-keybinding)
   (eaf-bind-key zoom_in "C-=" eaf-pdf-viewer-keybinding)
   (eaf-bind-key zoom_out "C--" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
-  (eaf-bind-key eaf-send-key-sequence "M-]" eaf-terminal-keybinding)
-  (eaf-bind-key eaf-send-key-sequence "M-]" eaf-terminal-keybinding)
-  (eaf-bind-key js_select_next_file "n" eaf-file-manager-keybinding)
-  (eaf-bind-key js_select_prev_file "p" eaf-file-manager-keybinding)
-  (eaf-bind-key new_file "F" eaf-file-manager-keybinding)
-  (eaf-bind-key new_directory "D" eaf-file-manager-keybinding)
-  (eaf-bind-key toggle_preview "P" eaf-file-manager-keybinding))
+  (eaf-bind-key take_photo "p" eaf-camera-keybinding))
 ;; -EAFPac
 
 ;; PopwebPac
