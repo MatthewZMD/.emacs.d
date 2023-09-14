@@ -41,13 +41,8 @@
 
 ;; Install and configure lsp-haskell
 (use-package lsp-haskell
-  :ensure t
-  :config
-  (setq lsp-haskell-server-path "haskell-language-server")
-  )
-
-(add-hook 'haskell-mode-hook #'lsp)
-(add-hook 'haskell-literate-mode-hook #'lsp)
+  :hook ((haskell-mode haskell-literate-mode) . #`lsp)
+  :config (setq lsp-haskell-server-path "haskell-language-server"))
 
 ;; -HaskellModePac
 
