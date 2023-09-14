@@ -38,6 +38,12 @@
 ;; HaskellModePac
 (use-package haskell-mode
   :mode "\\.hs\\'")
+
+;; Install and configure lsp-haskell
+(use-package lsp-haskell
+  :hook ((haskell-mode haskell-literate-mode) . lsp-deferred)
+  :config (setq lsp-haskell-server-path "haskell-language-server"))
+
 ;; -HaskellModePac
 
 (provide 'init-haskell)
