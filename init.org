@@ -36,7 +36,6 @@
   - [[Files Directories][Files Directories]]
   - [[Winner][Winner]]
   - [[Which Key][Which Key]]
-  - [[Popup Kill Ring][Popup Kill Ring]]
   - [[Undo Tree][Undo Tree]]
   - [[Discover My Major][Discover My Major]]
   - [[Ace Window][Ace Window]]
@@ -252,7 +251,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "44-76"
 ** Load Private File
    An =init-private.el= file has been designated at =user-emacs-directory= for you to store personal configurations that you don't want to source-control.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "233-236"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "231-234"
 * Package Management
   Some packages are disabled with the =:disabled= tag, because I don't use them very often. You can disable packages similarly yourself too:
   #+begin_src emacs-lisp
@@ -303,17 +302,17 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-crux.el" src emacs-lisp :range-begin "CruxPac" :range-end "-CruxPac" :lines "39-50"
 ** Ivy, Amx, Counsel, Swiper
    [[https://github.com/abo-abo/swiper][Ivy]], a generic completion mechanism for Emacs. It utilizes [[https://github.com/DarwinAwardWinner/amx][Amx]], [[https://github.com/abo-abo/swiper][Counsel]] and [[https://github.com/abo-abo/swiper][Swiper]].
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "42-70"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "IvyPac" :range-end "-IvyPac" :lines "42-71"
 ** Color Ripgrep
    [[https://github.com/manateelazycat/color-rg][Color rg]], a search and refactoring tool based on /ripgrep/ that is used to search text.
 
    *Prerequisite*: Ensure [[https://github.com/BurntSushi/ripgrep#installation][ripgrep]] and ensure =rg= is in =PATH=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "73-77"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "ColorRGPac" :range-end "-ColorRGPac" :lines "74-78"
 ** Find File In Project
    [[https://github.com/technomancy/find-file-in-project][Find File In Project]], quick access to project files in Emacs.
 
    *Prerequisite*: Ensure =GNU Find= is in =PATH=. Install [[https://github.com/bmatzelle/gow][Gow]] or Cygwin or MYSYS2 on Windows.
-   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "FFIPPac" :range-end "-FFIPPac" :lines "80-87"
+   #+INCLUDE: "~/.emacs.d/elisp/init-search.el" src emacs-lisp :range-begin "FFIPPac" :range-end "-FFIPPac" :lines "81-88"
 ** Files Directories
 *** Dired
     Dired, the directory editor.
@@ -329,9 +328,6 @@
 ** Which Key
    [[https://github.com/justbur/emacs-which-key][Which Key]], a feature that displays the key bindings following the incomplete command.
    #+INCLUDE: "~/.emacs.d/elisp/init-which-key.el" src emacs-lisp :range-begin "WhichKeyPac" :range-end "-WhichKeyPac" :lines "39-46"
-** Popup Kill Ring
-   [[https://github.com/waymondo/popup-kill-ring][Popup Kill Ring]], a feature that provides the ability to browse Emacs kill ring in autocomplete style popup menu.
-   #+INCLUDE: "~/.emacs.d/elisp/init-popup-kill-ring.el" src emacs-lisp :range-begin "PopKillRing" :range-end "-PopKillRing" :lines "39-42"
 ** Undo Tree
    [[https://www.emacswiki.org/emacs/UndoTree][Undo tree]], a feature that provides a visualization of the undos in a file.
    #+INCLUDE: "~/.emacs.d/elisp/init-undo-tree.el" src emacs-lisp :range-begin "UndoTreePac" :range-end "-UndoTreePac" :lines "39-47"
@@ -393,10 +389,10 @@
 * UI Enhancements
 ** Doom Themes
    [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]], an UI plugin and pack of themes.
-   #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "43-57"
+   #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomThemes" :range-end "-DoomThemes" :lines "43-58"
 ** Doom Modeline
    [[https://github.com/seagle0128/doom-modeline][Doom Modeline]], a modeline from DOOM Emacs, but more powerful and faster.
-   #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "60-70"
+   #+INCLUDE: "~/.emacs.d/elisp/init-theme.el" src emacs-lisp :range-begin "DoomModeline" :range-end "-DoomModeline" :lines "61-71"
 ** Dashboard
 *** Dashboard
     [[https://github.com/rakanalh/emacs-dashboard][Dashboard]], an extensible Emacs startup screen.
@@ -586,7 +582,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-python.el" src emacs-lisp :range-begin "LSPPythonPac" :range-end "-LSPPythonPac" :lines "54-58"
 ** Haskell
    [[https://github.com/haskell/haskell-mode][Haskell Mode]], an Emacs mode for Haskell programming.
-   #+INCLUDE: "~/.emacs.d/elisp/init-haskell.el" src emacs-lisp :range-begin "HaskellModePac" :range-end "-HaskellModePac" :lines "39-41"
+   #+INCLUDE: "~/.emacs.d/elisp/init-haskell.el" src emacs-lisp :range-begin "HaskellModePac" :range-end "-HaskellModePac" :lines "39-47"
 ** ESS
    [[https://ess.r-project.org/][Emacs Speaks Statistics]], short for ESS, it's designed to support editing of scripts and interaction with various statistical analysis programs such as R, S-Plus, SAS, Stata and OpenBUGS/JAGS.
 

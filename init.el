@@ -124,8 +124,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-which-key)
 
-(require 'init-popup-kill-ring)
-
 (require 'init-undo-tree)
 
 (require 'init-discover-my-major)

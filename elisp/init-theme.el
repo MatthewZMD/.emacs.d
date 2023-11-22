@@ -42,7 +42,7 @@
 ;; DoomThemes
 (use-package doom-themes
   :custom-face
-  (cursor ((t (:background "BlanchedAlmond"))))
+  (cursor ((t (:background "Red"))))
   :config
   ;; flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -52,7 +52,8 @@
   (defun switch-theme ()
     "An interactive funtion to switch themes."
     (interactive)
-    (disable-theme (intern (car (mapcar #'symbol-name custom-enabled-themes))))
+    (when custom-enabled-themes
+      (disable-theme (intern (car (mapcar #'symbol-name custom-enabled-themes)))))
     (call-interactively #'load-theme)))
 ;; -DoomThemes
 

@@ -51,6 +51,7 @@
    ("C-z s" . counsel-rg)
    ("C-z b" . counsel-buffer-or-recentf)
    ("C-z C-b" . counsel-ibuffer)
+   ("M-y" . counsel-yank-pop)
    (:map ivy-minibuffer-map
          ("M-RET" . ivy-immediate-done))
    (:map counsel-find-file-map
