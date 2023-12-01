@@ -40,3 +40,6 @@
 [submodule "site-elisp/popweb"]
 	path = site-elisp/popweb
 	url = https://github.com/manateelazycat/popweb.git
+[submodule "site-elisp/indent-bars"]
+	path = site-elisp/indent-bars
+	url = https://github.com/jdtsmith/indent-bars.git

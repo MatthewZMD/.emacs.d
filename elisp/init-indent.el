@@ -14,7 +14,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; This initializes highlight-indent-guides
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,20 +35,19 @@
 ;;
 ;;; Code:
 
-;; HighLightIndentPac
-(use-package highlight-indent-guides
-  :if (display-graphic-p)
-  :diminish
-  ;; Enable manually if needed, it a severe bug which potentially core-dumps Emacs
-  ;; https://github.com/DarthFennec/highlight-indent-guides/issues/76
-  :commands (highlight-indent-guides-mode)
-  :mode ("\\.yml\\'" . highlight-indent-guides-mode)
+;; IndentBarsPac
+(use-package indent-bars
+  :load-path (lambda () (expand-file-name "site-elisp/indent-bars" user-emacs-directory))
   :custom
-  (highlight-indent-guides-method 'character)
-  (highlight-indent-guides-responsive 'top)
-  (highlight-indent-guides-delay 0)
-  (highlight-indent-guides-auto-character-face-perc 7))
-;; -HighLightIndentPac
+  (indent-bars-treesit-support t)
+  (indent-bars-no-descend-string t)
+  (indent-bars-treesit-ignore-blank-lines-types '("module"))
+  (indent-bars-treesit-wrap '((python argument_list parameters ; for python, as an example
+				      list list_comprehension
+				      dictionary dictionary_comprehension
+				      parenthesized_expression subscript)))
+  :hook (prog-mode . indent-bars-mode))
+;; -IndentBarsPac
 
 ;; IndentConfig
 (setq-default indent-tabs-mode nil)
