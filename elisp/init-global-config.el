@@ -59,6 +59,8 @@
 ;; Move up/down paragraph
 (global-set-key (kbd "M-n") #'forward-paragraph)
 (global-set-key (kbd "M-p") #'backward-paragraph)
+;; Revert buffer
+(global-set-key (kbd "<f5>") (lambda () (interactive) (revert-buffer nil t)))
 ;; -DefBindings
 
 ;; UTF8Coding

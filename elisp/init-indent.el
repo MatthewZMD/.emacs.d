@@ -42,11 +42,11 @@
   (indent-bars-treesit-support t)
   (indent-bars-no-descend-string t)
   (indent-bars-treesit-ignore-blank-lines-types '("module"))
-  (indent-bars-treesit-wrap '((python argument_list parameters ; for python, as an example
+  (indent-bars-treesit-wrap '((python argument_list parameters
 				      list list_comprehension
 				      dictionary dictionary_comprehension
 				      parenthesized_expression subscript)))
-  :hook (prog-mode . indent-bars-mode))
+  :hook ((prog-mode yaml-mode) . indent-bars-mode))
 ;; -IndentBarsPac
 
 ;; IndentConfig

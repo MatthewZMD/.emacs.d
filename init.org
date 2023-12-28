@@ -61,7 +61,6 @@
   - [[Dumb Jump][Dumb Jump]]
   - [[Parenthesis][Parenthesis]]
   - [[Indentation][Indentation]]
-  - [[Quickrun][Quickrun]]
   - [[Format All][Format All]]
   - [[Ediff][Ediff]]
   - [[Evil Nerd Commenter][Evil Nerd Commenter]]
@@ -251,7 +250,7 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "44-76"
 ** Load Private File
    An =init-private.el= file has been designated at =user-emacs-directory= for you to store personal configurations that you don't want to source-control.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "231-234"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "229-232"
 * Package Management
   Some packages are disabled with the =:disabled= tag, because I don't use them very often. You can disable packages similarly yourself too:
   #+begin_src emacs-lisp
@@ -293,7 +292,7 @@
    *Prerequisite*: Please update this file your personal info.
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo"" :lines "39-41"
 ** Bindings
-   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "47-62"
+   #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings"" :lines "47-64"
 ** Avy
    [[https://github.com/abo-abo/avy][Avy]], a nice way to move around text.
    #+INCLUDE: "~/.emacs.d/elisp/init-avy.el" src emacs-lisp :range-begin "AvyPac" :range-end "-AvyPac" :lines "42-52"
@@ -362,13 +361,13 @@
    Some essential configs that make my life a lot easier.
 *** UTF-8 Coding System
     Use UTF-8 as much as possible with unix line endings.
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "65-76"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "UTF8Coding" :range-end "-UTF8Coding" :lines "67-78"
 *** Optimize Editing Experience
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "79-121"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "EditExp" :range-end "-EditExp" :lines "81-123"
 *** History
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "124-148"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "History" :range-end "-History" :lines "126-150"
 *** Small Configs
-    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SmallConfigs" :range-end "-SmallConfigs" :lines "151-202"
+    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SmallConfigs" :range-end "-SmallConfigs" :lines "153-204"
 ** Functions
    Important functions.
 *** Resize Window Width / Height Functions
@@ -472,9 +471,6 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentBarsPac" :range-end "-IndentBarsPac" :lines "39-50"
    Indentation Configuration
    #+INCLUDE: "~/.emacs.d/elisp/init-indent.el" src emacs-lisp :range-begin "IndentConfig" :range-end "-IndentConfig" :lines "53-70"
-** Quickrun
-   [[https://github.com/syohex/emacs-quickrun][Quickrun]], compile and run source code quickly.
-   #+INCLUDE: "~/.emacs.d/elisp/init-quickrun.el" src emacs-lisp :range-begin "QuickrunPac" :range-end "-QuickrunPac" :lines "39-47"
 ** Format All
    [[https://github.com/lassik/emacs-format-all-the-code][Format all]], a feature that lets you auto-format source code.
 

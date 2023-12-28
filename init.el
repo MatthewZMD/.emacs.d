@@ -162,8 +162,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-indent)
 
-(require 'init-quickrun)
-
 (require 'init-format)
 
 (require 'init-comment)
