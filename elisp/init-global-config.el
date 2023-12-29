@@ -60,7 +60,7 @@
 (global-set-key (kbd "M-n") #'forward-paragraph)
 (global-set-key (kbd "M-p") #'backward-paragraph)
 ;; Revert buffer
-(global-set-key (kbd "<f5>") (lambda () (interactive) (revert-buffer nil t)))
+(global-set-key (kbd "<f5>") #'revert-buffer-quick)
 ;; -DefBindings
 
 ;; UTF8Coding
