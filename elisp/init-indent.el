@@ -46,6 +46,12 @@
 				      list list_comprehension
 				      dictionary dictionary_comprehension
 				      parenthesized_expression subscript)))
+  (indent-bars-pattern ". . . . ")
+  (indent-bars-width-frac 0.25)
+  (indent-bars-pad-frac 0.2)
+  (indent-bars-zigzag 0.1)
+  (indent-bars-color-by-depth '(:regexp "outline-\\([0-9]+\\)" :blend 1))
+  (indent-bars-highlight-current-depth '(:pattern "." :pad 0.1 :width 0.45))
   :hook ((prog-mode yaml-mode) . indent-bars-mode))
 ;; -IndentBarsPac
 
