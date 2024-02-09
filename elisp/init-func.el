@@ -89,10 +89,10 @@
 (global-set-key (kbd "M-W -") #'window-width-decrease)
 (global-set-key (kbd "M-W M-_") #'window-width-decrease)
 
-(global-set-key (kbd "M-E =") #'window-height-increase)
-(global-set-key (kbd "M-E M-+") #'window-height-increase)
-(global-set-key (kbd "M-E -") #'window-height-decrease)
-(global-set-key (kbd "M-E M-_") #'window-height-decrease)
+(global-set-key (kbd "M-Q =") #'window-height-increase)
+(global-set-key (kbd "M-Q M-+") #'window-height-increase)
+(global-set-key (kbd "M-Q -") #'window-height-decrease)
+(global-set-key (kbd "M-Q M-_") #'window-height-decrease)
 ;; -ResizeWidthheight
 
 ;; EditConfig

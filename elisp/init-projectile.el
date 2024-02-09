@@ -41,7 +41,7 @@
 ;; ProjPac
 (use-package projectile
   :bind
-  ("C-c p" . projectile-command-map)
+  ("C-x p" . projectile-command-map)
   :custom
   (projectile-completion-system 'ivy)
   :config

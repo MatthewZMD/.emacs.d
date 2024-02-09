@@ -48,7 +48,8 @@
 ;; Js2Pac
 (use-package js2-mode
   :mode "\\.js\\'"
-  :interpreter "node")
+  :interpreter "node"
+  :bind (:map js-mode-map ("M-." . nil)))
 ;; -Js2Pac
 
 ;; TypeScriptPac

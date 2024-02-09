@@ -58,7 +58,7 @@
 ;; YamlPac
 (use-package yaml-mode
   :defer t
-  :bind (("C-c p" . yaml-get-path-at-point))
+  :commands (yaml-get-path-at-point)
   :mode "\\.yml\\'"
   :config
   (use-package yaml-pro
