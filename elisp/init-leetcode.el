@@ -40,7 +40,7 @@
 
 ;; LeetCodePac
 (use-package leetcode
-  :load-path (lambda () (expand-file-name "site-elisp/leetcode.el" user-emacs-directory))
+  :straight (leetcode :type git :host github :repo "kaiwk/leetcode.el")
   :commands (leetcode)
   :init
   (use-package graphql :defer t)

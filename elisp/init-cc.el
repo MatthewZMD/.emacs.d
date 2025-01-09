@@ -41,7 +41,7 @@
 ;; CPPFontLockPac
 (use-package modern-cpp-font-lock
   :diminish t
-  :init (modern-c++-font-lock-global-mode t))
+  :config (modern-c++-font-lock-global-mode t))
 ;; -CPPFontLockPac
 
 ;; GoPac

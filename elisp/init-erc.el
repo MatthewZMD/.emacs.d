@@ -41,7 +41,7 @@
 
 ;; ERCPac
 (use-package erc
-  :ensure nil
+  :straight (:type built-in)
   :init
   ;; Prerequisite: Configure this to your IRC nickname
   (defcustom my-irc-nick ""

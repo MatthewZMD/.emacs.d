@@ -40,7 +40,7 @@
 
 ;; PythonConfig
 (use-package python-mode
-  :ensure nil
+  :straight (:type built-in)
   :mode "\\.py\\'"
   :custom
   (python-indent-offset 4)

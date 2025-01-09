@@ -37,22 +37,34 @@
 
 ;; TrampPac
 (use-package tramp
-  :ensure nil
+  :straight (:type built-in)
   :defer 1
   :config
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-  ;; TRAMP gcloud ssh
-  (add-to-list 'tramp-methods
-               '("gssh"
-                 (tramp-login-program        "gcloud compute ssh")
-                 (tramp-login-args           (("%h")))
-                 (tramp-async-args           (("-q")))
-                 (tramp-remote-shell         "/bin/bash")
-                 (tramp-remote-shell-args    ("-c"))
-                 (tramp-gw-args              (("-o" "GlobalKnownHostsFile=/dev/null")
-                                              ("-o" "UserKnownHostsFile=/dev/null")
-                                              ("-o" "StrictHostKeyChecking=no")))
-                 (tramp-default-port         22))))
+  (let ((ghcs (assoc "ghcs" tramp-methods))
+        (ghcs-methods '((tramp-login-program "gh")
+                        (tramp-login-args (("codespace") ("ssh") ("-c") ("%h")))
+                        (tramp-remote-shell "/bin/sh")
+                        (tramp-remote-shell-login ("-l"))
+                        (tramp-remote-shell-args ("-c")))))
+    ;; just for debugging the methods
+    (if ghcs (setcdr ghcs ghcs-methods)
+      (push (cons "ghcs" ghcs-methods) tramp-methods)))
+
+  ;; provide codespace name completion for ghcs tramp method
+  ;; use C-j if you use ivy to kick in host completion
+  (defun my/tramp-parse-codespaces (&optional nop)
+    (let ((results '())
+          (codespaces
+           (split-string
+            (shell-command-to-string
+             "gh codespace list --json name -q '.[].name'"))))
+      (dolist (name codespaces)
+        ;; tramp completion expects a list of (user host)
+        (add-to-list 'results (list nil name)))
+      results))
+
+  (tramp-set-completion-function "ghcs" '((my/tramp-parse-codespaces ""))))
 ;; -TrampPac
 
 (provide 'init-tramp)

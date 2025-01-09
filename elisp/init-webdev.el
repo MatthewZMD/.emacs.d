@@ -72,7 +72,7 @@
 
 ;; InstantRenameTagPac
 (use-package instant-rename-tag
-  :load-path (lambda () (expand-file-name "site-elisp/instant-rename-tag" user-emacs-directory))
+  :straight (instant-rename-tag :type git :host github :repo "manateelazycat/instant-rename-tag")
   :bind ("C-z <" . instant-rename-tag))
 ;; -InstantRenameTagPac
 

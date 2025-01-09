@@ -37,7 +37,7 @@
 
 ;; Mu4ePac
 (use-package mu4e
-  :ensure nil
+  :straight (:type built-in)
   :commands (mu4e make-mu4e-context)
   :init
   (use-package mu4e-alert
@@ -92,7 +92,7 @@
                                   (:size . 7))))))
   :init
   (use-package mu4e-thread-folding
-    :load-path (lambda () (expand-file-name "site-elisp/mu4e-thread-folding" user-emacs-directory))
+    :straight (mu4e-thread-folding :type git :host github :repo "rougier/mu4e-thread-folding")
     :after mu4e
     :bind
     ((:map mu4e-headers-mode-map

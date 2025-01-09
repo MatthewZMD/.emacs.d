@@ -37,7 +37,7 @@
 
 ;; OrgPac
 (use-package org
-  :ensure nil
+  :straight (:type built-in)
   :defer t
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
@@ -113,6 +113,10 @@
 ;; HTMLIZEPac
 (use-package htmlize :defer t)
 ;; -HTMLIZEPac
+
+;; MarkdownModePac
+(use-package markdown-mode :defer t)
+;; -MarkdownModePac
 
 ;; OXGFMPac
 (use-package ox-gfm :defer t)

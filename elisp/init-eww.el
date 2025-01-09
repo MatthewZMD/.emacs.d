@@ -40,7 +40,7 @@
 
 ;; EWWPac
 (use-package eww
-  :ensure nil
+  :straight (:type built-in)
   :commands (eww)
   :hook (eww-mode . (lambda ()
                       "Rename EWW's buffer so sites open in new page."

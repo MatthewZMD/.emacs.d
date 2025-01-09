@@ -40,15 +40,20 @@
 
 ;; LSPPac
 (use-package lsp-bridge
-  :load-path (lambda () (expand-file-name "site-elisp/lsp-bridge" user-emacs-directory))
+  :straight (lsp-bridge
+             :type git
+             :host github
+             :repo "manateelazycat/lsp-bridge"
+             :files ("*"))
   :defer 1
   :commands (global-lsp-bridge-mode lsp-bridge-mode)
   :custom
-  (acm-enable-codeium t)
+  (acm-enable-codeium nil)
   (acm-enable-tabnine nil)
   (acm-enable-yas nil)
   (acm-enable-quick-access t)
   (lsp-bridge-enable-hover-diagnostic t)
+  (lsp-bridge-python-lsp-server "pyright")
   :bind (("M-." . lsp-bridge-find-def)
          ("M-," . lsp-bridge-find-def-return)
          ("M-i" . lsp-bridge-popup-documentation)

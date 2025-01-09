@@ -19,9 +19,7 @@
   - [[Define Constants][Define Constants]]
   - [[Load Private File][Load Private File]]
 - [[Package Management][Package Management]]
-  - [[Melpa Packages][Melpa Packages]]
-  - [[Non-Melpa Packages][Non-Melpa Packages]]
-  - [[Configure Package Manager][Configure Package Manager]]
+  - [[Straight][Straight]]
   - [[Use Package][Use Package]]
   - [[Auto Package Update][Auto Package Update]]
   - [[Diminish][Diminish]]
@@ -84,10 +82,10 @@
   - [[JSON][JSON]]
 - [[Office][Office]]
   - [[Org][Org]]
-  - [[PDF Tools][PDF Tools]]
-- [[Internet][Internet]]
+- [[Multimedia][Multimedia]]
   - [[EAF][EAF]]
-  - [[Popweb][Popweb]]
+- [[Internet][Internet]]
+  - [[LLM][LLM]]
   - [[ERC][ERC]]
   - [[MU4E][MU4E]]
   - [[Tramp][Tramp]]
@@ -97,12 +95,6 @@
   - [[EWW][EWW]]
 - [[Miscellaneous][Miscellaneous]]
   - [[Chinese][Chinese]]
-  - [[Tetris][Tetris]]
-  - [[Speed Type][Speed Type]]
-  - [[2048 Game][2048 Game]]
-  - [[Snow][Snow]]
-  - [[EPaint][EPaint]]
-  - [[Zone][Zone]]
 
 * About EMACS
   Emacs changes how you /think/ about programming.
@@ -245,43 +237,25 @@
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts"  :lines "44-76"
 ** Load Private File
    An =init-private.el= file has been designated at =user-emacs-directory= for you to store personal configurations that you don't want to source-control.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "221-224"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate"  :lines "216-219"
 * Package Management
   Some packages are disabled with the =:disabled= tag, because I don't use them very often. You can disable packages similarly yourself too:
   #+begin_src emacs-lisp
     (use-package foo
       :disabled)
   #+end_src
-** Melpa Packages
-   Configure package archives, where to install online packages and add them to =load-path=.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "MelpaPackages" :range-end "-MelpaPackages" :lines "40-50"
-** Non-Melpa Packages
-   Add packages contained in =site-elisp/= to =load-path= too.
-*** Add Packages Manually from Git
-    #+BEGIN_SRC bash
-      cd site-elisp/
-      git submodule add https://github.com/foo/bar.git
-    #+END_SRC
-    Verify =.gitmodules= file that the newly added package exist.
-*** Update Manually Added Packages
-    #+BEGIN_SRC bash
-      git submodule init
-      git submodule update
-    #+END_SRC
-** Configure Package Manager
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigurePackageManager" :range-end "-ConfigurePackageManager" :lines "53-61"
+** Straight
+   [[https://github.com/radian-software/straight.el][Straight.el]] is chosen over package.el for its declarative and reproducible configuration, ensuring reliable package management and seamless updates by leveraging Git to track and manage package versions directly.
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "StraightBootstrap" :range-end "-StraightBootstrap" :lines "40-54"
 ** Use Package
-   My Emacs configuration is almost entirely dependant on [[https://github.com/jwiegley/use-package][use-package]].
-   #+BEGIN_QUOTE
-   The =use-package= macro allows you to isolate package configuration in your .emacs file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!
-   #+END_QUOTE
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "ConfigureUsePackage" :range-end "-ConfigureUsePackage"  :lines "64-78"
+   [[https://github.com/jwiegley/use-package][Use-package]] streamlines Emacs package configuration for performance and clarity, and when combined with straight.el, it facilitates fast and seamless package management and installation.
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "StraightUsePackage" :range-end "-StraightUsePackage"  :lines "57-68"
 ** Auto Package Update
    [[https://github.com/rranelli/auto-package-update.el][Auto package update]] automatically updates installed packages if at least =auto-package-update-interval= days have passed since the last update.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "81-90"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "AutoPackageUpdate" :range-end "-AutoPackageUpdate" :lines "71-80"
 ** Diminish
    [[https://github.com/emacsmirror/diminish][Diminish]], a feature that removes certain minor modes from mode-line.
-   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "93-94"
+   #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "83-84"
 * Global Functionalities
 ** User Information
    *Prerequisite*: Please update this file your personal info.
@@ -489,7 +463,7 @@
     #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "39-49"
 ** Completion / LSP
    Instead of the popular [[http://company-mode.github.io/][Company]], I opt-ed to use [[https://github.com/manateelazycat/lsp-bridge][lsp-bridge]] that is completely *multi-threading* technology, handles almost all of my completion needs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-complete.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "42-72"
+    #+INCLUDE: "~/.emacs.d/elisp/init-complete.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "42-74"
 * Programming
 ** C/C++/Objective C
    *Prerequisite*: Since all completion features are provided by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]], it needs to setup.
@@ -601,20 +575,16 @@
     1. Install [[http://plantuml.com/download][plantuml]] and configure =(org-plantuml-jar-path (expand-file-name "path/to/plantuml.jar"))=.
     2. Install [[https://graphviz.gitlab.io/download/][Graphviz]] on your system to support graph visualization. Execute =sudo apt install graphviz= in Ubuntu.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "PlantUMLPac" :range-end "-PlantUMLPac" :lines "122-126"
-** PDF Tools
-   [[https://github.com/politza/pdf-tools][PDF Tools]], an Emacs support library for PDF files. It works best on non-Windows OS.
-
-   *Note*: You need [[https://linux.die.net/man/1/convert][convert]] provided from imagemagick to /Pick a Link and Jump/ with F.
-   #+INCLUDE: "~/.emacs.d/elisp/init-pdf.el" src emacs-lisp :range-begin "PDFToolsPac" :range-end "-PDFToolsPac" :lines "42-54"
-* Internet
+* Multimedia
 ** EAF
    [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application Framework]], a GUI application framework that revolutionizes Emacs graphical capabilities.
 
    *Prerequisite*: Please ensure =python3= and =pip3= are installed, then follow [[https://github.com/manateelazycat/emacs-application-framework#install][install]] instructions.
    #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-105"
-** Popweb
-   [[https://github.com/manateelazycat/popweb][Popweb]], a lightweight version of EAF that provides multimedia capabilities.
-   #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "PopwebPac" :range-end "-PopwebPac" :lines "108-122"
+* Internet
+** LLM
+   [[https://github.com/karthink/gptel][GPTEL]], A simple LLM client for Emacs.
+   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "GPTELPac" :range-end "-GPTELPac" :lines "50-51"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]], a powerful, modular, and extensible [[http://www.irc.org/][IRC]] client for Emacs. It utilizes [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] for nickname highlighting and [[https://github.com/kidd/erc-image.el][erc-image]] to fetch and show received images in ERC.
 
@@ -674,21 +644,3 @@
 *** Youdao
     [[https://github.com/xuchunyang/youdao-dictionary.el][Youdao]] interface for Emacs.
     #+INCLUDE: "~/.emacs.d/elisp/init-chinese.el" src emacs-lisp :range-begin "YoudaoPac" :range-end "-YoudaoPac" :lines "64-69"
-** Tetris
-   Although [[https://www.emacswiki.org/emacs/TetrisMode][Tetris]] is part of Emacs, but there still could be some configurations.
-   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "TetrisConfig" :range-end "-TetrisConfig" :lines "39-52"
-** Speed Type
-   [[https://github.com/hagleitn/speed-type][Speed type]], a game to practice touch/speed typing in Emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "SpeedTypePac" :range-end "-SpeedTypePac" :lines "55-57"
-** 2048 Game
-   [[https://bitbucket.org/zck/2048.el][2048 Game]], an implementation of 2048 in Emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "2048Pac" :range-end "-2048Pac" :lines "60-62"
-** Snow
-   Let it [[https://github.com/alphapapa/snow.el][snow]] in Emacs!
-   #+INCLUDE: "~/.emacs.d/elisp/init-games.el" src emacs-lisp :range-begin "SnowPac" :range-end "-SnowPac" :lines "65-68"
-** EPaint
-   [[https://github.com/chuntaro/epaint][EPaint]], a simple paint tool for emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-epaint.el" src emacs-lisp :range-begin "EPaintPac" :range-end "-EPaintPac" :lines "39-49"
-** Zone
-   [[https://www.emacswiki.org/emacs/ZoneMode][Zone]], a minor-mode 'zones' Emacs out, choosing one of its random modes to obfuscate the current buffer.
-   #+INCLUDE: "~/.emacs.d/elisp/init-zone.el" src emacs-lisp :range-begin "ZonePac" :range-end "-ZonePac" :lines "39-53"

@@ -37,7 +37,7 @@
 
 ;; IndentBarsPac
 (use-package indent-bars
-  :load-path (lambda () (expand-file-name "site-elisp/indent-bars" user-emacs-directory))
+  :straight (indent-bars :type git :host github :repo "jdtsmith/indent-bars")
   :custom
   (indent-bars-treesit-support t)
   (indent-bars-no-descend-string t)

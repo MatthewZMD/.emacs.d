@@ -45,7 +45,7 @@
 
 ;; DeleteBlockPac
 (use-package delete-block
-  :load-path (lambda () (expand-file-name "site-elisp/delete-block" user-emacs-directory))
+  :straight (delete-block :type git :host github :repo "manateelazycat/delete-block")
   :bind
   (("M-d" . delete-block-forward)
    ("C-<backspace>" . delete-block-backward)

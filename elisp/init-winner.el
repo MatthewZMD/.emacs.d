@@ -37,7 +37,7 @@
 
 ;; WinnerPac
 (use-package winner
-  :ensure nil
+  :straight (:type built-in)
   :custom
   (winner-boring-buffers
    '("*Completions*"

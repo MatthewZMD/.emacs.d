@@ -37,7 +37,7 @@
 
 ;; IBufferPac
 (use-package ibuffer
-  :ensure nil
+  :straight (:type built-in)
   :bind ("C-x C-b" . ibuffer)
   :init
   (use-package ibuffer-vc

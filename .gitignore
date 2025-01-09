@@ -7,7 +7,6 @@
 /custom-set-variables.el
 /eaf/
 /early-init-do-not-edit/
-/elpa/
 /mu4e/
 /places
 /projectile-bookmarks.eld
@@ -30,3 +29,4 @@
 /emojis/
 /org-roam.db
 /lsp-bridge/
+/straight/

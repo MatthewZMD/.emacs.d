@@ -48,7 +48,7 @@
 
 ;; MultiTermPac
 (use-package multi-term
-  :load-path (lambda () (expand-file-name "site-elisp/multi-term" user-emacs-directory))
+  :straight (multi-term :type git :host github :repo "manateelazycat/multi-term")
   :commands (multi-term)
   :bind
   (("M-$" . multi-term)
@@ -81,6 +81,7 @@
 
 ;; TermKeysPac
 (use-package term-keys
+  :straight (term-keys :type git :host github :repo "CyberShadow/term-keys")
   :if (not (display-graphic-p))
   :config (term-keys-mode t))
 ;; -TermKeysPac

@@ -189,10 +189,11 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; Office
 (require 'init-org)
 
-(require 'init-pdf)
+;; Multimedia
+(require 'init-eaf)
 
 ;; Internet
-(require 'init-eaf)
+(require 'init-llm)
 
 (require 'init-erc)
 
@@ -210,12 +211,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 ;; Miscellaneous
 (require 'init-chinese)
-
-(require 'init-games)
-
-(require 'init-epaint)
-
-(require 'init-zone)
 
 ;; InitPrivate
 ;; Load init-private.el if it exists

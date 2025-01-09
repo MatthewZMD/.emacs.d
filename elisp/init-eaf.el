@@ -41,8 +41,16 @@
 
 ;; EAFPac
 (use-package eaf
-  :load-path (lambda () (expand-file-name "site-elisp/emacs-application-framework" user-emacs-directory))
-  :if eaf-env-p
+  :straight (emacs-application-framework
+             :type git
+             :host github
+             :repo "emacs-eaf/emacs-application-framework"
+             :files ("*"))
+  :if (and eaf-env-p
+           (file-directory-p
+            (expand-file-name
+             "straight/build/emacs-application-framework/app/browser"
+             user-emacs-directory)))
   :custom
   (eaf-start-python-process-when-require nil)
   (browse-url-browser-function #'eaf-open-browser) ;; Make EAF Browser my default browser
@@ -103,23 +111,6 @@
   (eaf-bind-key zoom_out "C--" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding))
 ;; -EAFPac
-
-;; PopwebPac
-(use-package popweb
-  :if eaf-env-p
-  :load-path (lambda () (expand-file-name "site-elisp/popweb" user-emacs-directory))
-  :init
-  (add-to-list 'load-path (expand-file-name "site-elisp/popweb/extension/latex" user-emacs-directory))
-  (add-to-list 'load-path (expand-file-name "site-elisp/popweb/extension/dict" user-emacs-directory))
-  (require 'popweb-latex)
-  (require 'popweb-dict)
-  :custom
-  (popweb-popup-pos "point-bottom")
-  :hook ((org-mode . popweb-latex-mode)
-         (tex-mode . popweb-latex-mode)
-         (ein:markdown-mode . popweb-latex-mode))
-  )
-;; -PopwebPac
 
 (provide 'init-eaf)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

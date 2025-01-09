@@ -1,20 +1,31 @@
-;;; init-zone.el --- -*- lexical-binding: t -*-
+;;; init-llm.el ---
 ;;
-;; Filename: init-zone.el
-;; Description: Initialize Zone
+;; Filename: init-llm.el
+;; Description:
 ;; Author: Mingde (Matthew) Zeng
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 17:38:34 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d zone
-;; Compatibility: emacs-version >= 26.1
+;; Created: Thu Jan  9 13:07:47 2025 (-0500)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 3
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes zone mode
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,23 +46,10 @@
 ;;
 ;;; Code:
 
-;; ZonePac
-(use-package zone
-  :ensure nil
-  :defer 5
-  :config
-  ;; (zone-when-idle 600) ; in seconds
-  (defun zone-choose (pgm)
-    "Choose a PGM to run for `zone'."
-    (interactive
-     (list
-      (completing-read
-       "Program: "
-       (mapcar 'symbol-name zone-programs))))
-    (let ((zone-programs (list (intern pgm))))
-      (zone))))
-;; -ZonePac
+;; GPTELPac
+(use-package gptel)
+;; -GPTELPac
 
-(provide 'init-zone)
+(provide 'init-llm)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-zone.el ends here
+;;; init-llm.el ends here
