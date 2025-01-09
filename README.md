@@ -3,137 +3,136 @@
 
 # Table of Contents     :TOC_2_ORG:
 
--   [M-EMACS](#org26b250a)
--   [About EMACS](#orgc9f2d30)
--   [About M-EMACS](#orga106279)
-    -   [Community Responses ❤️](#org516f5d8)
-    -   [About README](#org129f80e)
-    -   [Installation](#org7becaca)
-    -   [Modification](#org234f03c)
-    -   [Contribution](#org4c6a439)
-    -   [Special Thanks](#orge4d2c95)
--   [Startup](#org99f7a74)
-    -   [Lexical Binding](#org1c4acf3)
-    -   [Early Init](#org7e3d364)
-    -   [Garbage Collection](#org6c80067)
-    -   [Load Path](#org91c481a)
-    -   [Define Constants](#org800151e)
-    -   [Load Private File](#org4757f98)
--   [Package Management](#orgcf38ec0)
-    -   [Straight](#org9990f5d)
-    -   [Use Package](#org4bea4b6)
-    -   [Auto Package Update](#org27d0209)
-    -   [Diminish](#org7847509)
--   [Global Functionalities](#orgc278d98)
-    -   [User Information](#org7cad0ac)
-    -   [Bindings](#orge6dbfb9)
-    -   [Avy](#orgc4742c9)
-    -   [Crux](#orgb2d76f3)
-    -   [Ivy, Amx, Counsel, Swiper](#orgaa6a4b8)
-    -   [Color Ripgrep](#org4f8f12c)
-    -   [Find File In Project](#orge777717)
-    -   [Files Directories](#org88c014b)
-    -   [Winner](#orgb08fa6a)
-    -   [Which Key](#org3b67e13)
-    -   [Undo Tree](#org4b7d388)
-    -   [Discover My Major](#orgf6ba0e5)
-    -   [Ace Window](#org192c070)
-    -   [Terminal](#orgddf52a6)
-    -   [Sudo Edit](#orgc8c769b)
-    -   [Ibuffer](#org9930fca)
-    -   [Config](#org9478d3d)
-    -   [Functions](#orgcc65b5c)
--   [UI Enhancements](#orgcd70ac2)
-    -   [Doom Themes](#org78da382)
-    -   [Doom Modeline](#orgebe2591)
-    -   [Dashboard](#orgeb25112)
-    -   [Fonts and Icons](#org3499bcf)
-    -   [Smooth Scrolling](#orgb054c9c)
-    -   [Highlight Lines](#org3792916)
-    -   [Prettify Symbols](#org90837fa)
-    -   [UI Configs](#org24bf631)
--   [General Programming](#org54e62a9)
-    -   [Magit](#orga1c1a85)
-    -   [Projectile](#org926591d)
-    -   [YASnippet](#org55600a4)
-    -   [Dumb Jump](#org2fbfc07)
-    -   [Parenthesis](#org07ba6f0)
-    -   [Indentation](#orgb3cd8b5)
-    -   [Format All](#org3b2c9b2)
-    -   [Ediff](#org51cf0a5)
-    -   [Evil Nerd Commenter](#org0dedc4d)
-    -   [Editing](#orgcb9f681)
-    -   [Headers](#orge0db506)
-    -   [Jupyter Notebook](#orgb4bdcb6)
-    -   [Completion / LSP](#orgf26c9a6)
--   [Programming](#orgceb89bb)
-    -   [C/C++/Objective C](#org1763a4a)
-    -   [Golang](#org901d4d2)
-    -   [Rust](#org5d51cdf)
-    -   [Python](#org9fe15da)
-    -   [ESS](#org55e05bd)
-    -   [TeX](#org220922d)
-    -   [Yaml](#orgebb8474)
-    -   [Buildsystem](#org2725ef6)
--   [Web Development](#orgb4fa071)
-    -   [Web](#org77df29f)
-    -   [JavaScript/TypeScript](#org68bfc59)
-    -   [Emmet](#orgde040d9)
-    -   [Instant Rename Tag](#orgb50623e)
-    -   [JSON](#orgd993b30)
--   [Office](#org2bf7332)
-    -   [Org](#org5c18b1d)
--   [Multimedia](#org1122d75)
-    -   [EAF](#orgaf53159)
--   [Internet](#org8247adc)
-    -   [LLM](#org9d20c4b)
-    -   [ERC](#orgbf56658)
-    -   [MU4E](#org2a0d613)
-    -   [Tramp](#orgca321f1)
-    -   [LeetCode](#org2b66dae)
-    -   [Debbugs](#org87ad9b4)
-    -   [Hacker News](#org2447d5f)
-    -   [EWW](#org8fb6011)
--   [Miscellaneous](#org9e082ed)
-    -   [Chinese](#org5492396)
+-   [M-EMACS](#org424c301)
+-   [Why EMACS](#org4132a2d)
+-   [Why M-EMACS](#org9baf2e5)
+    -   [Community Responses ❤️](#org6281f49)
+    -   [About README](#org119cd56)
+    -   [Installation](#org3acce3c)
+    -   [Modification](#org0527b6e)
+    -   [Contribution](#org6e19a75)
+    -   [Special Thanks](#orga7312f0)
+-   [Startup](#org2db67c0)
+    -   [Lexical Binding](#org055bd5a)
+    -   [Early Init](#orgf2a0eec)
+    -   [Garbage Collection](#orge2597c5)
+    -   [Load Path](#orgea877fb)
+    -   [Define Constants](#org231a264)
+    -   [Load Private File](#org216d6bd)
+-   [Package Management](#org3171276)
+    -   [Straight](#org2862f91)
+    -   [Use Package](#org1dad1bc)
+    -   [Diminish](#org0f63fee)
+-   [Global Functionalities](#orgf310277)
+    -   [User Information](#orgc4f3073)
+    -   [Bindings](#orgb0c3f6c)
+    -   [Avy](#org53886e2)
+    -   [Crux](#orgf7ae6ae)
+    -   [Ivy, Amx, Counsel, Swiper](#org4df9aab)
+    -   [Color Ripgrep](#orgc0ed42a)
+    -   [Find File In Project](#orgbdaad12)
+    -   [Files Directories](#org2d2bf86)
+    -   [Winner](#orga1cd781)
+    -   [Which Key](#org3af405b)
+    -   [Undo Tree](#org9d472c7)
+    -   [Discover My Major](#orge1dafba)
+    -   [Ace Window](#orgc375655)
+    -   [Terminal](#org6c0ca5a)
+    -   [Sudo Edit](#orgab1d597)
+    -   [Ibuffer](#orgea32535)
+    -   [Config](#org49dddfd)
+    -   [Functions](#org4f838b7)
+-   [UI Enhancements](#orgf4f8795)
+    -   [Doom Themes](#org0321722)
+    -   [Doom Modeline](#orgfab28ba)
+    -   [Dashboard](#org144ec5c)
+    -   [Fonts and Icons](#org60f29e8)
+    -   [Smooth Scrolling](#org6a21162)
+    -   [Highlight Lines](#orgb6eef07)
+    -   [Prettify Symbols](#org47afc30)
+    -   [UI Configs](#org06b861f)
+-   [General Programming](#org9942628)
+    -   [Magit](#org99b7216)
+    -   [Projectile](#org9fec157)
+    -   [YASnippet](#orgbe3f87c)
+    -   [Dumb Jump](#org157ef29)
+    -   [Parenthesis](#org19c5dca)
+    -   [Indentation](#orgf06c744)
+    -   [Format All](#orge987f6f)
+    -   [Ediff](#org5ddb6cb)
+    -   [Evil Nerd Commenter](#org3d0efa7)
+    -   [Editing](#org8906314)
+    -   [Headers](#org3f55aa9)
+    -   [Jupyter Notebook](#org2ef22ec)
+    -   [Completion / LSP](#orgac5003c)
+-   [Programming](#org53cfa2b)
+    -   [C/C++/Objective C](#org0b38555)
+    -   [Golang](#org625fa4d)
+    -   [Rust](#org8d478c1)
+    -   [Python](#org43b32e5)
+    -   [ESS](#org4dee927)
+    -   [TeX](#orgd0f9fe5)
+    -   [Yaml](#org2fac1e3)
+    -   [Buildsystem](#org2ed7508)
+-   [Web Development](#orgd352149)
+    -   [Web](#orge9397a2)
+    -   [JavaScript/TypeScript](#org871f5d0)
+    -   [Emmet](#org8f8812f)
+    -   [Instant Rename Tag](#orgc114a1b)
+    -   [JSON](#org4c3d128)
+-   [Office](#orgfab2063)
+    -   [Org](#org8b1dc07)
+-   [Multimedia](#orgd8e4d57)
+    -   [EAF](#org1258c1a)
+-   [Internet](#orgc5729cb)
+    -   [LLM](#orgfc87598)
+    -   [ERC](#org8e7dd26)
+    -   [MU4E](#org5374141)
+    -   [Tramp](#orgafcde2a)
+    -   [LeetCode](#orge0f6d1e)
+    -   [Debbugs](#org5bfb30f)
+    -   [Hacker News](#org1bba12e)
+    -   [EWW](#org77dcdd1)
+-   [Miscellaneous](#org4e4e233)
+    -   [Chinese](#org0a54d73)
 
 
-# About EMACS
+# Why EMACS
 
-Emacs changes how you *think* about programming.
+Emacs transforms your approach to programming.
 
-Emacs is **totally introspectable**. You can always find out 'what code runs when I press this button?'.
+Emacs is **entirely introspectable**, allowing you to easily discover, "What code executes when I press this button?" This level of insight promotes an understanding of your work and deepens your engagement with the code.
 
-Emacs is an **incremental programming environment**. There's no edit-compile-run cycle. There isn't even an edit-run cycle. You can execute snippets of code and gradually turn them into a finished project. There's no distinction between your editor and your interpreter.
+Emacs serves as an **incremental programming environment**. You can avoid the traditional edit-compile-run cycle, which often interrupts workflow. Instead, you can write and execute small snippets of code, gradually developing them into a complete project without the need to switch contexts. The lines between your editor and interpreter blur seamlessly.
 
-Emacs is a **mutable environment**. You can set variables, tweak functions with advice, or redefine entire functions. Nothing is off-limits.
+Emacs offers a **mutable environment**. You can modify variables, adjust functions with advice, or even redefine entire functions on the fly. This flexibility ensures that everything is open for customization, empowering you to create an environment tailored to your needs.
 
-Emacs provides **functionality without applications**. Rather than separate applications, functionality is all integrated into your Emacs instance. Amazingly, this works. Ever wanted to use the same snippet tool for writing C++ classes as well as emails?
+Emacs delivers **integrated functionality without the need for applications**. Instead of relying on disparate applications, all features are cohesively bundled within your Emacs instance. This means you can leverage the same snippet tool for writing C++ classes or crafting emails, enhancing efficiency and coherence in your tasks.
 
-Emacs is full of **incredible software concepts that haven't hit the mainstream yet**. For example:
+Emacs is rich with **innovative software concepts that have yet to gain mainstream traction**. Highlights include:
 
--   Many platforms have a single item clipboard. Emacs has an **infinite clipboard**.
--   If you undo a change, and then continue editing, you can't redo the original change. Emacs allows **undoing to any historical state**, even allowing tree-based exploration of history.
--   Emacs supports a **reverse variable search**: you can find variables with a given value.
--   You can perform **structural editing** of code, allowing you to make changes without breaking syntax. This works for lisps (paredit) and non-lisps (smartparens).
--   Many applications use a modal GUI: for example, you can't do other edits during a find-and-replace operation. Emacs provides **recursive editing** that allow you to suspend what you're currently doing, perform other edits, then continue the original task.
+-   While most platforms are limited to a single-item clipboard, Emacs boasts an **infinite clipboard**, allowing for more fluid copying and pasting.
+-   If you undo a change and then keep editing, many applications restrict you from redoing the original change. In contrast, Emacs enables **undoing to any historical state**, supporting a tree-based exploration of your editing history.
+-   With Emacs, you can perform a **reverse variable search**, making it possible to find variables set to a specific value.
+-   It facilitates **structural editing** of code, enabling you to make changes without breaking the syntax, effective for both Lisp (using paredit) and non-Lisp languages (using smartparens).
+-   Many applications employ a modal GUI where certain tasks block other edits, such as during a find-and-replace operation. Emacs, however, provides **recursive editing**, allowing you to pause your current task, perform other edits, and then return to where you left off.
 
-Emacs has a **documentation culture**. Emacs includes a usage manual, a lisp programming manual, pervasive docstrings and even an interactive tutorial.
+Emacs fosters a **rich documentation culture**. It includes an extensive usage manual, a Lisp programming manual, in-depth docstrings, and even an interactive tutorial, ensuring that help is always readily available.
 
-Emacs has a **broad ecosystem**. If you want to edit code in a niche language, there's probably an Emacs package for it.
+Emacs also boasts a **broad ecosystem**. Whatever niche programming language you wish to work with, there’s likely an Emacs package available for it, enhancing its versatility.
 
-Emacs doesn't have a monopoly on good ideas, and there are other great tools out there. Nonetheless, we believe the [Emacs learning curve](https://i.stack.imgur.com/7Cu9Z.jpg) pays off.
+While Emacs certainly isn’t the only tool with valuable features, we believe that the [Emacs learning curve](https://i.stack.imgur.com/7Cu9Z.jpg) is well worth the investment.
 
-*This beautifully written **About EMACS** section credits to [Remacs](https://github.com/remacs/remacs).*
+*This section was based on [Remacs](https://github.com/remacs/remacs).*
 
 
-# About M-EMACS
+# Why M-EMACS
 
-M-EMACS is a custom GNU Emacs setup and configuration distribution that aims not only to enhance the default Emacs experience, and hopefully be a sample that everyone can easily navigate and reference through a highly detailed README that contains 99% of the **entire** configuration code.
+M-EMACS is a customized GNU Emacs setup designed to enhance your experience while providing an easily navigable resource. Our detailed README includes nearly the entire configuration code, making it a valuable reference for users.
 
-As a young EMACSer, I have experienced the struggle to find a detailed configuration that is loosely coupled and highly readable. This mostly due to the nature of source codes, sometimes comments are harder to notice or simply not enough. Therefore I decided to construct this README and present any human-readable explanation in a much more human-friendly way. Anyone, particularly Emacs beginners who have no idea where to start with their personal config, is more than welcome to read through this document and copy/paste any part to use it on their own.
+I remember the challenges of finding a clear and well-organized configuration when I first started using Emacs. Often, source code comments can be hard to notice or insufficiently detailed. That's why I've created this README to offer clear, human-friendly explanations. This guide is perfect for beginners who are unsure where to start with their personal configuration. Feel free to explore this document and copy any part of it for your own use.
 
-This distribution is designed and tested for **GNU Emacs 26.1 and above only**. However, it is always suggested to use **Emacs 27**, the latest stable version released, for its significant improvement in the core that's out of the scope of M-EMACS. ![img](images/Sample.png)
+This distribution is specifically designed and tested for GNU Emacs 26.1 and higher. However, we recommend using Emacs 29, the latest stable version, due to its significant core improvements that enhance the overall experience beyond M-EMACS. ![img](images/Sample.png)
 
 
 ## Community Responses ❤️
@@ -233,9 +232,9 @@ Everyone starts somewhere, and I started here.
 
 ## Lexical Binding
 
-Use lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
+Enable lexical binding for better variable scoping. [Why?](https://nullprogram.com/blog/2016/12/22/)
 
-> Until Emacs 24.1 (June 2012), Elisp only had dynamically scoped variables, a feature, mostly by accident, common to old lisp dialects. While dynamic scope has some selective uses, it’s widely regarded as a mistake for local variables, and virtually no other languages have adopted it.
+> Until Emacs version 24.1 (June 2012), Elisp predominantly utilized dynamically scoped variables, a characteristic common in older Lisp dialects. While dynamic scope has its specific applications, it is generally deemed unsuitable for local variables, and very few modern programming languages embrace it.
 
 ```emacs-lisp
 ;;; init.el --- -*- lexical-binding: t -*-
@@ -244,12 +243,12 @@ Use lexical-binding. [Why?](https://nullprogram.com/blog/2016/12/22/)
 
 ## Early Init
 
-Emacs27 introduces `early-init.el`, which is run before `init.el`, before package and UI initialization happens.
+Emacs 27 introduces `early-init.el`, a configuration file that executes prior to `init.el`, coinciding with package and UI initialization.
 
 
 ### Compatibility With 26
 
-Ensure `emacs-version>=26`, manually require `early-init` configurations if `emacs-version<27`.
+Ensure the configuration accommodates both versions by checking if the `emacs-version >` 26= and manually requiring `early-init` settings if `emacs-version < 27`.
 
 ```emacs-lisp
 (cond ((version< emacs-version "26.1")
@@ -269,9 +268,9 @@ Ensure `emacs-version>=26`, manually require `early-init` configurations if `ema
 
 ### Defer Garbage Collection
 
-Defer garbage collection further back in the startup process, according to [hlissner](https://github.com/hlissner/doom-emacs/blob/develop/docs/faq.org#how-does-doom-start-up-so-quickly).
+Postpone garbage collection earlier in the startup sequence to improve performance, as highlighted by [hlissner](https://github.com/hlissner/doom-emacs/blob/develop/docs/faq.org#how-does-doom-start-up-so-quickly).
 
-> The GC eats up quite a bit of time, easily doubling startup time. The trick is to turn up the memory threshold as early as possible.
+> Garbage collection can significantly slow down startup time, often doubling it. The key is to raise the memory threshold as early as possible.
 
 ```emacs-lisp
 (setq gc-cons-threshold 100000000)
@@ -280,7 +279,7 @@ Defer garbage collection further back in the startup process, according to [hlis
 
 ### Disable `package-enable-at-startup`
 
-Package initialize occurs automatically, before `user-init-file` is loaded, but after `early-init-file`. We handle package initialization, so we must prevent Emacs from doing it early!
+Package initialization occurs automatically before loading the user configuration, which means we need to prevent Emacs from executing it prematurely.
 
 ```emacs-lisp
 (setq package-enable-at-startup nil)
@@ -289,7 +288,7 @@ Package initialize occurs automatically, before `user-init-file` is loaded, but 
 
 ### Unset `file-name-handler-alist`
 
-Every file opened and loaded by Emacs will run through this list to check for a proper handler for the file, but during startup, it won’t need any of them.
+During startup, Emacs doesn't require specific file handlers for every file it opens or loads; thus, we should unset this list to optimize the startup process.
 
 ```emacs-lisp
 (defvar file-name-handler-alist-original file-name-handler-alist)
@@ -306,7 +305,7 @@ Every file opened and loaded by Emacs will run through this list to check for a 
 
 ### Disable Unnecessary Interface
 
-It will be faster to disable them here before they've been initialized.
+Disabling unnecessary interfaces at this stage enhances speed before they are initialized.
 
 ```emacs-lisp
 (menu-bar-mode -1)
@@ -320,11 +319,9 @@ It will be faster to disable them here before they've been initialized.
 ## Garbage Collection
 
 
-### Set `gc-cons-threshold` Smaller for Interactive Use
+### Adjust `gc-cons-threshold` for Interactive Use
 
-A large `gc-cons-threshold` may cause freezing and stuttering during long-term interactive use.
-
-If you experience freezing, decrease this amount, if you experience stuttering, increase this amount.
+A excessively high `gc-cons-threshold` can lead to freezing and stuttering during prolonged interactive sessions. If stuttering occurs, increase the threshold; if freezing happens, decrease it.
 
 ```emacs-lisp
 (defvar better-gc-cons-threshold 134217728 ; 128mb
@@ -339,7 +336,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
             (makunbound 'file-name-handler-alist-original)))
 ```
 
-Garbage Collect when Emacs is out of focus and avoid garbage collection when using minibuffer.
+Additionally, enabling garbage collection when Emacs loses focus and minimizing it during the use of the minibuffer can enhance responsiveness.
 
 ```emacs-lisp
 (add-hook 'emacs-startup-hook
@@ -364,7 +361,7 @@ Garbage Collect when Emacs is out of focus and avoid garbage collection when usi
 
 ## Load Path
 
-Since all the configuration files are stored in `elisp/` folder, they need to be added to `load-path` now.
+Since all configuration files reside in the `elisp/` directory, it is essential to include this path in the `load-path` to ensure proper loading.
 
 ```emacs-lisp
 (defun update-to-load-path (folder)
@@ -424,7 +421,7 @@ Since all the configuration files are stored in `elisp/` folder, they need to be
 
 ## Load Private File
 
-An `init-private.el` file has been designated at `user-emacs-directory` for you to store personal configurations that you don't want to source-control.
+The `init-private.el` file has been designated within the `user-emacs-directory` for personal configurations you wish to keep outside source control.
 
 ```emacs-lisp
 ;; Load init-private.el if it exists
@@ -435,7 +432,7 @@ An `init-private.el` file has been designated at `user-emacs-directory` for you 
 
 # Package Management
 
-Some packages are disabled with the `:disabled` tag, because I don't use them very often. You can disable packages similarly yourself too:
+Some packages are disabled using the `:disabled` tag due to infrequent usage. You can similarly disable packages as needed:
 
 ```emacs-lisp
 (use-package foo
@@ -445,7 +442,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ## Straight
 
-[Straight.el](https://github.com/radian-software/straight.el) is chosen over package.el for its declarative and reproducible configuration, ensuring reliable package management and seamless updates by leveraging Git to track and manage package versions directly.
+[Straight](https://github.com/radian-software/straight.el) is preferred over `package.el` for its declarative and reproducible configuration, ensuring reliable package management and easy updates by utilizing Git for version tracking.
 
 ```emacs-lisp
 (defvar bootstrap-version)
@@ -467,7 +464,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ## Use Package
 
-[Use-package](https://github.com/jwiegley/use-package) streamlines Emacs package configuration for performance and clarity, and when combined with straight.el, it facilitates fast and seamless package management and installation.
+[Use-package](https://github.com/jwiegley/use-package) simplifies Emacs package configuration, enhancing performance and clarity. When paired with straight.el, it allows for quick and seamless package management.
 
 ```emacs-lisp
 (straight-use-package 'use-package)
@@ -484,26 +481,12 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 ```
 
 
-## Auto Package Update
+## Diminish
 
-[Auto package update](https://github.com/rranelli/auto-package-update.el) automatically updates installed packages if at least `auto-package-update-interval` days have passed since the last update.
+[Diminish](https://github.com/emacsmirror/diminish) can remove certain minor modes from the mode-line to declutter the interface.
 
 ```emacs-lisp
 (use-package diminish)
-;; -DimPac
-
-(provide 'init-package)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-package.el ends here
-```
-
-
-## Diminish
-
-[Diminish](https://github.com/emacsmirror/diminish), a feature that removes certain minor modes from mode-line.
-
-```emacs-lisp
-
 ```
 
 
@@ -512,11 +495,11 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ## User Information
 
-**Prerequisite**: Please update this file your personal info.
+**Prerequisite**: Feel free to update this section with your information.
 
 ```emacs-lisp
-(setq user-full-name "Mingde (Matthew) Zeng")
-(setq user-mail-address "matthewzmd@gmail.com")
+(setq user-full-name "John Doe")
+(setq user-mail-address "johndoe@johndoe.net")
 ```
 
 
@@ -545,7 +528,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ## Avy
 
-[Avy](https://github.com/abo-abo/avy), a nice way to move around text.
+[Avy](https://github.com/abo-abo/avy) offers an efficient method for navigating text.
 
 ```emacs-lisp
 (use-package avy
@@ -563,7 +546,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ## Crux
 
-[Crux](https://github.com/bbatsov/crux), a Collection of Ridiculously Useful eXtensions for Emacs.
+[Crux](https://github.com/bbatsov/crux) is a collection of incredibly useful extensions for Emacs, enhancing functionality and ease of use.
 
 ```emacs-lisp
 (use-package crux
@@ -582,7 +565,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ## Ivy, Amx, Counsel, Swiper
 
-[Ivy](https://github.com/abo-abo/swiper), a generic completion mechanism for Emacs. It utilizes [Amx](https://github.com/DarwinAwardWinner/amx), [Counsel](https://github.com/abo-abo/swiper) and [Swiper](https://github.com/abo-abo/swiper).
+[Ivy](https://github.com/abo-abo/swiper) is a versatile completion mechanism for Emacs. It incorporates tools such as [Amx](https://github.com/DarwinAwardWinner/amx), [Counsel](https://github.com/abo-abo/swiper), and [Swiper](https://github.com/abo-abo/swiper) to enhance the user experience.
 
 ```emacs-lisp
 (use-package ivy
@@ -619,9 +602,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ## Color Ripgrep
 
-[Color rg](https://github.com/manateelazycat/color-rg), a search and refactoring tool based on *ripgrep* that is used to search text.
-
-**Prerequisite**: Ensure [ripgrep](https://github.com/BurntSushi/ripgrep#installation) and ensure `rg` is in `PATH`.
+[Color rg](https://github.com/manateelazycat/color-rg) is a search and refactoring tool built on *ripgrep*, designed to search text efficiently. **Prerequisite**: Ensure that [ripgrep](https://github.com/BurntSushi/ripgrep#installation) is installed and the \`rg\` command is included in your \`PATH\`.
 
 ```emacs-lisp
 (use-package color-rg
@@ -633,9 +614,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ## Find File In Project
 
-[Find File In Project](https://github.com/technomancy/find-file-in-project), quick access to project files in Emacs.
-
-**Prerequisite**: Ensure `GNU Find` is in `PATH`. Install [Gow](https://github.com/bmatzelle/gow) or Cygwin or MYSYS2 on Windows.
+[Find File In Project](https://github.com/technomancy/find-file-in-project) provides quick access to files within a project in Emacs. **Prerequisite**: Ensure \`GNU Find\` is in your \`PATH\`, and install [Gow](https://github.com/bmatzelle/gow), Cygwin, or MSYS2 on Windows to use this feature.
 
 ```emacs-lisp
 (use-package find-file-in-project
@@ -653,7 +632,7 @@ Some packages are disabled with the `:disabled` tag, because I don't use them ve
 
 ### Dired
 
-Dired, the directory editor.
+Dired serves as the directory editor in Emacs, facilitating file management.
 
 ```emacs-lisp
 (use-package dired
@@ -693,7 +672,7 @@ Dired, the directory editor.
 
 ### Disk Usage
 
-[Disk Usage](https://gitlab.com/ambrevar/emacs-disk-usage), a file system analyzer that offers a tabulated view of file listings sorted by size.
+[Disk Usage](https://gitlab.com/ambrevar/emacs-disk-usage) is a file system analyzer that provides a tabulated view of file listings sorted by size, helping you manage disk space.
 
 ```emacs-lisp
 (use-package disk-usage
@@ -715,7 +694,7 @@ Dired, the directory editor.
 
 ## Winner
 
-Winner, a mode to restore previous window layouts.
+Winner mode allows you to restore previous window layouts, providing a quick way to manage your workspace.
 
 ```emacs-lisp
 (use-package winner
@@ -739,7 +718,7 @@ Winner, a mode to restore previous window layouts.
 
 ## Which Key
 
-[Which Key](https://github.com/justbur/emacs-which-key), a feature that displays the key bindings following the incomplete command.
+[Which Key](https://github.com/justbur/emacs-which-key) displays key bindings that follow an incomplete command, enhancing usability by reminding users of available options.
 
 ```emacs-lisp
 (use-package which-key
@@ -754,7 +733,7 @@ Winner, a mode to restore previous window layouts.
 
 ## Undo Tree
 
-[Undo tree](https://www.emacswiki.org/emacs/UndoTree), a feature that provides a visualization of the undos in a file.
+[Undo tree](https://www.emacswiki.org/emacs/UndoTree) visualizes the history of changes made in a file, making it easier to manage and navigate undo operations.
 
 ```emacs-lisp
 (use-package undo-tree
@@ -770,7 +749,7 @@ Winner, a mode to restore previous window layouts.
 
 ## Discover My Major
 
-[Discover my major](https://github.com/jguenther/discover-my-major), a feature that discovers key bindings and their meaning for the current Emacs major mode.
+[Discover my major](https://github.com/jguenther/discover-my-major) helps you explore key bindings and their meanings for the current Emacs major mode, which enhances the learning experience.
 
 ```emacs-lisp
 (use-package discover-my-major
@@ -780,7 +759,7 @@ Winner, a mode to restore previous window layouts.
 
 ## Ace Window
 
-[Ace Window](https://github.com/abo-abo/ace-window), a package for selecting windows to switch to.
+[Ace Window](https://github.com/abo-abo/ace-window) enables you to efficiently select and switch between windows in Emacs.
 
 ```emacs-lisp
 (use-package ace-window
@@ -793,7 +772,7 @@ Winner, a mode to restore previous window layouts.
 
 ### Shell Here
 
-[Shell Here](https://github.com/ieure/shell-here), a tool that opens a shell buffer in (or relative to) `default-directory`.
+[Shell Here](https://github.com/ieure/shell-here) opens a shell buffer within the context of the current \`default-directory\`, providing quick terminal access.
 
 ```emacs-lisp
 (use-package shell-here
@@ -806,7 +785,7 @@ Winner, a mode to restore previous window layouts.
 
 ### Multi Term
 
-[Multi Term](https://github.com/manateelazycat/multi-term), a mode based on term.el, for managing multiple terminal buffers in Emacs.
+[Multi Term](https://github.com/manateelazycat/multi-term) is a terminal management mode that allows you to handle multiple terminal buffers conveniently within Emacs.
 
 ```emacs-lisp
 (use-package multi-term
@@ -844,30 +823,31 @@ Winner, a mode to restore previous window layouts.
 
 ### Term Keys
 
-[Term Keys](https://github.com/CyberShadow/term-keys), a lossless keyboard input for Emacs in terminal emulators.
+[Term Keys](https://github.com/CyberShadow/term-keys) provides seamless keyboard input for Emacs in terminal emulators, ensuring consistent performance.
 
 ```emacs-lisp
 (use-package term-keys
   :straight (term-keys :type git :host github :repo "CyberShadow/term-keys")
   :if (not (display-graphic-p))
+  :config (term-keys-mode t))
 ```
 
 
 ### Exec Path From Shell
 
-[Exec Path From Shell](https://github.com/purcell/exec-path-from-shell), a library to ensure environment variables inside Emacs look the same as in the user's shell.
+[Exec Path From Shell](https://github.com/purcell/exec-path-from-shell) ensures that environment variables in Emacs match those of the user's shell, maintaining consistency across different environments.
 
 ```emacs-lisp
-;; ExecPathFromShellPac
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
   :config
+  (exec-path-from-shell-initialize))
 ```
 
 
 ## Sudo Edit
 
-[Sudo Edit](https://github.com/nflath/sudo-edit), an utility for opening files with `sudo`.
+[Sudo Edit](https://github.com/nflath/sudo-edit) allows you to open files with \`sudo\`, enabling easier access to protected files.
 
 ```emacs-lisp
 (use-package sudo-edit
@@ -877,9 +857,7 @@ Winner, a mode to restore previous window layouts.
 
 ## Ibuffer
 
-[Ibuffer](https://www.emacswiki.org/emacs/IbufferMode), an advanced replacement for BufferMenu, which lets you operate on buffers much in the same manner as Dired.
-
-It uses [IBuffer VC](https://github.com/purcell/ibuffer-vc) that group buffers by git project and show file state.
+[Ibuffer](https://www.emacswiki.org/emacs/IbufferMode) is an advanced alternative to BufferMenu that allows you to manage buffers similarly to how Dired handles files, vastly improving efficiency. It integrates with [IBuffer VC](https://github.com/purcell/ibuffer-vc), which groups buffers by git project and displays file state.
 
 ```emacs-lisp
 (use-package ibuffer
@@ -907,12 +885,12 @@ It uses [IBuffer VC](https://github.com/purcell/ibuffer-vc) that group buffers b
 
 ## Config
 
-Some essential configs that make my life a lot easier.
+A collection of essential configurations that greatly enhance usability and productivity.
 
 
 ### UTF-8 Coding System
 
-Use UTF-8 as much as possible with unix line endings.
+Configure Emacs to utilize UTF-8 encoding with Unix line endings for optimal compatibility.
 
 ```emacs-lisp
 (unless *sys/win32*
@@ -978,6 +956,8 @@ The original function deletes trailing whitespace of the current line."
 
 
 ### History
+
+This section manages aspects of the editing history to enhance user experience.
 
 ```emacs-lisp
 (use-package recentf
@@ -1066,7 +1046,7 @@ The original function deletes trailing whitespace of the current line."
 
 ## Functions
 
-Important functions.
+A selection of important functions to streamline your workflow.
 
 
 ### Resize Window Width / Height Functions
@@ -1143,7 +1123,7 @@ Important functions.
 
 ### Update Org Mode Include Automatically
 
-Update Org Mode INCLUDE Statements Automatically from [Artur Malabarba](http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html).
+Automatically updates Org Mode INCLUDE statements based on guidance from [Artur Malabarba](http://endlessparentheses.com/updating-org-mode-include-statements-on-the-fly.html).
 
 ```emacs-lisp
 (defun save-and-update-includes ()
@@ -1252,7 +1232,7 @@ FACE defaults to inheriting from default and highlight."
 
 ## Doom Themes
 
-[Doom Themes](https://github.com/hlissner/emacs-doom-themes), an UI plugin and pack of themes.
+[Doom Themes](https://github.com/hlissner/emacs-doom-themes) is a powerful UI plugin that provides a comprehensive collection of themes to enhance visual aesthetics in Emacs.
 
 ```emacs-lisp
 (use-package doom-themes
@@ -1275,7 +1255,7 @@ FACE defaults to inheriting from default and highlight."
 
 ## Doom Modeline
 
-[Doom Modeline](https://github.com/seagle0128/doom-modeline), a modeline from DOOM Emacs, but more powerful and faster.
+[Doom Modeline](https://github.com/seagle0128/doom-modeline) offers a feature-rich modeline, inspired by DOOM Emacs, that is both faster and more powerful than traditional modelines.
 
 ```emacs-lisp
 (use-package doom-modeline
@@ -1296,9 +1276,7 @@ FACE defaults to inheriting from default and highlight."
 
 ### Dashboard
 
-[Dashboard](https://github.com/rakanalh/emacs-dashboard), an extensible Emacs startup screen.
-
-Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond theme.
+[Dashboard](https://github.com/rakanalh/emacs-dashboard) is an extensible startup screen for Emacs, providing a customizable interface when launching the application. Choose either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depending on your preferred background theme.
 
 ```emacs-lisp
 (use-package dashboard
@@ -1350,7 +1328,7 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
 
 ### Page Break Lines
 
-[Page-break-lines](https://github.com/purcell/page-break-lines), a feature that displays ugly form feed characters as tidy horizontal rules.
+[Page-break-lines](https://github.com/purcell/page-break-lines) displays form feed characters as clean, horizontal rules, improving readability.
 
 ```emacs-lisp
 (use-package page-break-lines
@@ -1361,7 +1339,7 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
 
 ## Fonts and Icons
 
-**Prerequisite**: Install all the available fonts and icons from `fonts/`. Execute `M-x all-the-icons-install-fonts` and `M-x nerd-icons-install-fonts`.
+**Prerequisite**: Install all available fonts and icons from the \`fonts/\` directory. Then execute `M-x all-the-icons-install-fonts` and `M-x nerd-icons-install-fonts` to apply them.
 
 
 ### Fonts
@@ -1372,7 +1350,7 @@ Use either `KEC_Dark_BK.png` or `KEC_Light_BK.png` depends on the backgrond them
   "List of fonts and sizes.  The first one available will be used.")
 ```
 
-Function to switch between fonts.
+Function dedicated to switching between installed fonts seamlessly.
 
 ```emacs-lisp
 (defun change-font ()
@@ -1399,7 +1377,7 @@ Function to switch between fonts.
 
 ### All The Icons
 
-[All The Icons](https://github.com/domtronn/all-the-icons.el), a utility package to collect various Icon Fonts. Enable only in GUI Emacs.
+[All The Icons](https://github.com/domtronn/all-the-icons.el) is a utility package designed to aggregate various icon fonts, specifically for GUI Emacs.
 
 ```emacs-lisp
 (use-package all-the-icons :if (display-graphic-p))
@@ -1408,7 +1386,7 @@ Function to switch between fonts.
 
 ## Smooth Scrolling
 
-Configurations to smooth scrolling.
+Configuration settings are provided to enable smooth scrolling in Emacs, enhancing reading and navigation comfort.
 
 ```emacs-lisp
 ;; Vertical Scroll
@@ -1436,7 +1414,7 @@ Configurations to smooth scrolling.
 
 ## Prettify Symbols
 
-[Prettify symbols mode](https://www.emacswiki.org/emacs/PrettySymbol), a built-in mode for displaying sequences of characters as fancy characters or symbols.
+[Prettify symbols mode](https://www.emacswiki.org/emacs/PrettySymbol) is a built-in feature that enables the display of character sequences as aesthetically pleasing symbols, improving code readability.
 
 ```emacs-lisp
 (global-prettify-symbols-mode 1)
@@ -1484,7 +1462,7 @@ Configurations to smooth scrolling.
 
 ### Line Numbers
 
-Display line numbers, and column numbers in modeline.
+Configure Emacs to display both line and column numbers in the modeline for better code navigation.
 
 ```emacs-lisp
 ;; Hook line numbers to only when files are opened, also use linum-mode for emacs-version< 26
@@ -1499,7 +1477,7 @@ Display line numbers, and column numbers in modeline.
 
 ### Modeline Time and Battery
 
-Display time and battery information in modeline.
+This feature displays time and battery statistics in the modeline, providing useful information at a glance.
 
 ```emacs-lisp
 (display-time-mode 1)
@@ -1511,7 +1489,7 @@ Display time and battery information in modeline.
 
 ### Pixel Scroll Precision Mode
 
-Pixel scroll precision mode, introduced in Emacs 29.1, displays text pixel-by-pixel.
+Pixel scroll precision mode, introduced in Emacs 29.1, enables finer scrolling control within a buffer, displaying content pixel-by-pixel for increased precision.
 
 ```emacs-lisp
 (when (version<= "29.1" emacs-version)
@@ -1524,7 +1502,7 @@ Pixel scroll precision mode, introduced in Emacs 29.1, displays text pixel-by-pi
 
 ## Magit
 
-[Magit](https://magit.vc/), an interface to the version control system Git.
+[Magit](https://magit.vc/) provides a user-friendly interface for interacting with the Git version control system, streamlining version management tasks.
 
 ```emacs-lisp
 (use-package magit
@@ -1543,11 +1521,7 @@ Pixel scroll precision mode, introduced in Emacs 29.1, displays text pixel-by-pi
 
 ## Projectile
 
-[Projectile](https://github.com/bbatsov/projectile), a Project Interaction Library for Emacs.
-
-**Prerequisite**: Windows OS: Install [Gow](https://github.com/bmatzelle/gow/releases) and ensure it's in `PATH`.
-
-[Gow](https://github.com/bmatzelle/gow) is a lightweight installer that installs useful open source UNIX applications compiled as native win32 binaries. Specifically, `tr` is needed for Projectile alien indexing.
+[Projectile](https://github.com/bbatsov/projectile) is a powerful project interaction library that simplifies navigating and managing projects in Emacs. **Prerequisite**: For Windows OS users, install [Gow](https://github.com/bmatzelle/gow/releases) and ensure it is added to the \`PATH\`. [Gow](https://github.com/bmatzelle/gow) is a handy lightweight installer that facilitates the use of various open source UNIX applications compiled as native Win32 binaries. The \`tr\` command is particularly needed for Projectile's alien indexing.
 
 ```emacs-lisp
 (use-package projectile
@@ -1569,7 +1543,7 @@ Pixel scroll precision mode, introduced in Emacs 29.1, displays text pixel-by-pi
 
 ### YASnippet
 
-[YASnippet](https://github.com/joaotavora/yasnippet), a programming template system for Emacs. It loads [YASnippet Snippets](https://github.com/AndreaCrotti/yasnippet-snippets), a collection of yasnippet snippets for many languages.
+[YASnippet](https://github.com/joaotavora/yasnippet) is a versatile programming template system for Emacs. It can load [YASnippet Snippets](https://github.com/AndreaCrotti/yasnippet-snippets), which is a rich collection of snippets for a variety of languages.
 
 ```emacs-lisp
 (use-package yasnippet
@@ -1598,7 +1572,7 @@ Pixel scroll precision mode, introduced in Emacs 29.1, displays text pixel-by-pi
 
 ## Dumb Jump
 
-[Dumb jump](https://github.com/jacktasia/dumb-jump), an Emacs "jump to definition" package.
+[Dumb jump](https://github.com/jacktasia/dumb-jump) allows for swift navigation to definition within your codebase, enhancing the coding experience.
 
 ```emacs-lisp
 (use-package dumb-jump
@@ -1616,7 +1590,7 @@ Pixel scroll precision mode, introduced in Emacs 29.1, displays text pixel-by-pi
 
 ### Smartparens
 
-[Smartparens](https://github.com/Fuco1/smartparens), a minor mode for dealing with pairs.
+[Smartparens](https://github.com/Fuco1/smartparens) is a minor mode designed for effectively handling paired constructs, streamlining coding involving parentheses and brackets.
 
 ```emacs-lisp
 (use-package smartparens
@@ -1645,7 +1619,7 @@ Pixel scroll precision mode, introduced in Emacs 29.1, displays text pixel-by-pi
 
 ### Match Parenthesis
 
-Match and automatically pair parenthesis, and show parenthesis even when it went offscreen from [Clemens Radermacher](https://with-emacs.com/posts/editing/show-matching-lines-when-parentheses-go-off-screen/).
+This feature ensures that parentheses are matched and automatically paired while providing visual cues even when they are offscreen, enhancing code clarity.
 
 ```emacs-lisp
 ;; Show matching parenthesis
@@ -1692,7 +1666,7 @@ Match and automatically pair parenthesis, and show parenthesis even when it went
 
 ## Indentation
 
-[Indent Bars](https://github.com/jdtsmith/indent-bars), a fast, configurable indentation guide-bars for Emacs.
+[Indent Bars](https://github.com/jdtsmith/indent-bars) is a customizable indentation guide that provides fast and efficient visual cues for code structure in Emacs.
 
 ```emacs-lisp
 (use-package indent-bars
@@ -1714,7 +1688,7 @@ Match and automatically pair parenthesis, and show parenthesis even when it went
   :hook ((prog-mode yaml-mode) . indent-bars-mode))
 ```
 
-Indentation Configuration
+This section also covers indentation configuration for optimal coding experiences.
 
 ```emacs-lisp
 (setq-default indent-tabs-mode nil)
@@ -1739,9 +1713,7 @@ Indentation Configuration
 
 ## Format All
 
-[Format all](https://github.com/lassik/emacs-format-all-the-code), a feature that lets you auto-format source code.
-
-**Prerequisite**: Read [Supported Languages](https://github.com/lassik/emacs-format-all-the-code#supported-languages) to see which additional tool you need to install for the specific language.
+[Format all](https://github.com/lassik/emacs-format-all-the-code) provides a convenient feature to auto-format source code, catering to numerous programming languages. **Prerequisite**: Consult [Supported Languages](https://github.com/lassik/emacs-format-all-the-code#supported-languages) to identify which additional tools are necessary for specific languages.
 
 ```emacs-lisp
 (use-package format-all
@@ -1751,7 +1723,7 @@ Indentation Configuration
 
 ## Ediff
 
-[Ediff](https://www.gnu.org/software/emacs/manual/html_mono/ediff.html), a mode to simultaneously browse through the differences between a pair of files or buffers.
+[Ediff](https://www.gnu.org/software/emacs/manual/html_mono/ediff.html) enables users to compare differences between pairs of files or buffers simultaneously, streamlining the process of resolving discrepancies.
 
 ```emacs-lisp
 (use-package ediff
@@ -1763,7 +1735,7 @@ Indentation Configuration
 
 ## Evil Nerd Commenter
 
-[Evil Nerd Commenter](https://github.com/redguardtoo/evil-nerd-commenter), a tool that helps you comment code efficiently.
+[Evil Nerd Commenter](https://github.com/redguardtoo/evil-nerd-commenter) assists users in efficiently commenting out sections of code, enhancing productivity when writing or debugging.
 
 ```emacs-lisp
 (use-package evil-nerd-commenter
@@ -1778,7 +1750,7 @@ Indentation Configuration
 
 ### Iedit
 
-[Iedit](https://github.com/victorhge/iedit), a minor mode that allows editing multiple regions simultaneousy in a buffer or a region.
+[Iedit](https://github.com/victorhge/iedit) is a versatile minor mode that facilitates simultaneous editing of multiple regions within a buffer or a selected region, streamlining the editing process.
 
 ```emacs-lisp
 (use-package iedit
@@ -1789,7 +1761,7 @@ Indentation Configuration
 
 ### Delete Block
 
-[Delete Block](https://github.com/manateelazycat/delete-block), a feature that deletes block efficiently.
+[Delete Block](https://github.com/manateelazycat/delete-block) provides an efficient method for deleting blocks of text or code, promoting a smoother editing workflow.
 
 ```emacs-lisp
 (use-package delete-block
@@ -1804,7 +1776,7 @@ Indentation Configuration
 
 ## Headers
 
-[Header2](https://www.emacswiki.org/emacs/header2.el), a support for creation and update of file headers.
+[Header2](https://www.emacswiki.org/emacs/header2.el) simplifies the process of creating and updating file headers, automating documentation tasks.
 
 ```emacs-lisp
 (use-package header2
@@ -1821,14 +1793,14 @@ Indentation Configuration
 
 ## Jupyter Notebook
 
-[Emacs IPython Notebook](https://github.com/millejoh/emacs-ipython-notebook), a [Jupyter](https://jupyter.org/) (formerly IPython) client in Emacs.
+[Emacs IPython Notebook](https://github.com/millejoh/emacs-ipython-notebook) serves as a client for [Jupyter](https://jupyter.org/), previously known as IPython, allowing for interactive coding sessions within Emacs.
 
 
 ### Usage
 
-1.  Execute `M-x ein:run` to launch a local Jupyter session.
-2.  Login with `M-x ein:login` to a local or remote session.
-3.  Open `.ipynb` file and press `C-c C-o`.
+1.  Execute `M-x ein:run` to initiate a local Jupyter session.
+2.  Login with `M-x ein:login` to connect to a local or remote session.
+3.  Open a `.ipynb` file and press `C-c C-o`.
 
 ```emacs-lisp
 (use-package ein
@@ -1846,11 +1818,15 @@ Indentation Configuration
 
 ## Completion / LSP
 
-Instead of the popular [Company](http://company-mode.github.io/), I opt-ed to use [lsp-bridge](https://github.com/manateelazycat/lsp-bridge) that is completely **multi-threading** technology, handles almost all of my completion needs.
+Instead of the widely-used [Company](http://company-mode.github.io/), I have chosen to use [lsp-bridge](https://github.com/manateelazycat/lsp-bridge), which is entirely multi-threaded and adept at handling all completion needs within Emacs.
 
 ```emacs-lisp
 (use-package lsp-bridge
-  :straight (lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge")
+  :straight (lsp-bridge
+             :type git
+             :host github
+             :repo "manateelazycat/lsp-bridge"
+             :files ("*"))
   :defer 1
   :commands (global-lsp-bridge-mode lsp-bridge-mode)
   :custom
@@ -1889,20 +1865,20 @@ Instead of the popular [Company](http://company-mode.github.io/), I opt-ed to us
 
 ## C/C++/Objective C
 
-**Prerequisite**: Since all completion features are provided by [LSP Mode](https://github.com/emacs-lsp/lsp-mode), it needs to setup.
+**Prerequisite**: Since all completion features are supported by [LSP Mode](https://github.com/emacs-lsp/lsp-mode), it needs to be set up correctly.
 
--   Install [CMake](https://cmake.org/download/) >= 3.8 for all OS.
--   \*nix OS:
-    -   It is suggested to use [CCLS](https://github.com/MaskRay/ccls) as LSP server. Now [build](https://github.com/MaskRay/ccls/wiki/Build) it.
-    -   Set `ccls-executable` to the directory where your ccls is built.
--   Windows OS:
-    -   Install [MinGW](http://www.mingw.org/wiki/Install_MinGW) for Compilation.
-    -   It is a pain to build CCLS on Windows, install [Clangd](https://clang.llvm.org/extra/clangd/Installation.html) and ensure it's in `PATH` instead.
+-   Install [CMake](https://cmake.org/download/) version 3.8 or higher for all operating systems.
+-   For Unix-like OS:
+    -   It is recommended to use [CCLS](https://github.com/MaskRay/ccls) as the LSP server. Refer to [build instructions](https://github.com/MaskRay/ccls/wiki/Build) for detailed setup.
+    -   Set \`ccls-executable\` to the directory where your CCLS is built.
+-   For Windows OS:
+    -   Install [MinGW](http://www.mingw.org/wiki/Install_MinGW) for compilation.
+    -   Due to the complexities of building CCLS on Windows, it is advisable to install [Clangd](https://clang.llvm.org/extra/clangd/Installation.html) instead and ensure it is available in your \`PATH\`.
 
 
 ### CCLS
 
-[Emacs CCLS](https://github.com/MaskRay/emacs-ccls), a client for [CCLS](https://github.com/MaskRay/ccls), a C/C++/Objective-C language server supporting multi-million line C++ code-bases, powered by libclang.
+[Emacs CCLS](https://github.com/MaskRay/emacs-ccls) is a client for [CCLS](https://github.com/MaskRay/ccls), which is a language server for C/C++/Objective-C. It supports massive codebases, leveraging the capabilities of libclang for enhanced performance.
 
 ```emacs-lisp
 (use-package modern-cpp-font-lock
@@ -1932,7 +1908,7 @@ Instead of the popular [Company](http://company-mode.github.io/), I opt-ed to us
 
 ### Modern C++ Font Lock
 
-[Modern CPP Font Lock](https://github.com/ludwigpacifici/modern-cpp-font-lock), font-locking for "Modern C++".
+[Modern CPP Font Lock](https://github.com/ludwigpacifici/modern-cpp-font-lock) enhances syntax highlighting specifically for modern C++ syntax, improving readability and code comprehension.
 
 ```emacs-lisp
 
@@ -1941,9 +1917,7 @@ Instead of the popular [Company](http://company-mode.github.io/), I opt-ed to us
 
 ## Golang
 
-[Go Mode](https://github.com/dominikh/go-mode.el), an Emacs mode for Golang programming.
-
-**Prerequisite**: [gopls](https://github.com/golang/tools/blob/master/gopls/README.md) is required for Golang's LSP support.
+[Go Mode](https://github.com/dominikh/go-mode.el) is an Emacs mode specifically designed for Golang programming, providing syntax highlighting and other essential tools. **Prerequisite**: Setting up [gopls](https://github.com/golang/tools/blob/master/gopls/README.md) is necessary for Golang's LSP support.
 
 ```bash
 go get golang.org/x/tools/gopls@latest
@@ -1956,7 +1930,7 @@ go get golang.org/x/tools/gopls@latest
 
 ## Rust
 
-[Rust Mode](https://github.com/rust-lang/rust-mode), an Emacs mode for Rust programming.
+[Rust Mode](https://github.com/rust-lang/rust-mode) is tailored for Rust programming within Emacs, ensuring robust development support.
 
 ```emacs-lisp
 
@@ -1978,9 +1952,7 @@ go get golang.org/x/tools/gopls@latest
 
 ## ESS
 
-[Emacs Speaks Statistics](https://ess.r-project.org/), short for ESS, it's designed to support editing of scripts and interaction with various statistical analysis programs such as R, S-Plus, SAS, Stata and OpenBUGS/JAGS.
-
-**Prerequisite**: Install [R](https://cran.r-project.org/mirrors.html) to start using ESS with R.
+[Emacs Speaks Statistics](https://ess.r-project.org/) (ESS) is designed to facilitate editing scripts and interaction with various statistical analysis programs such as R, S-Plus, SAS, Stata, and OpenBUGS/JAGS. **Prerequisite**: Ensure [R](https://cran.r-project.org/mirrors.html) is installed to utilize ESS effectively with R.
 
 ```emacs-lisp
 (use-package ess
@@ -1993,12 +1965,12 @@ go get golang.org/x/tools/gopls@latest
 
 ## TeX
 
-**Prerequisite**: Please install [TeX Live](https://www.tug.org/texlive/quickinstall.html).
+**Prerequisite**: Please ensure you have [TeX Live](https://www.tug.org/texlive/quickinstall.html) installed on your system.
 
 
 ### AUCTeX
 
-[AUCTeX](https://www.gnu.org/software/auctex/), an extensible package for writing and formatting TeX files. It supports many different TeX macro packages, including AMS-TEX, LaTeX, Texinfo, ConTEXt, and docTEX (dtx files).
+[AUCTeX](https://www.gnu.org/software/auctex/) is a comprehensive package designed for authoring and formatting TeX documents, supporting multiple TeX macro packages such as AMS-TEX, LaTeX, Texinfo, ConTEXt, and docTEX (dtx files).
 
 ```emacs-lisp
 (use-package auctex
@@ -2029,7 +2001,7 @@ go get golang.org/x/tools/gopls@latest
 
 ## Yaml
 
-[Yaml mode](https://github.com/yoshiki/yaml-mode), the Emacs major mode for editing files in the YAML data serialization format.
+[Yaml mode](https://github.com/yoshiki/yaml-mode) is the dedicated major mode for editing files in the YAML data serialization format within Emacs.
 
 ```emacs-lisp
 (use-package yaml-mode
@@ -2078,13 +2050,13 @@ go get golang.org/x/tools/gopls@latest
 
 ### Docker
 
-[Docker](https://github.com/Silex/docker.el), a mode to manage docker from Emacs.
+[Docker](https://github.com/Silex/docker.el) is a mode enabling management of Docker containers directly from Emacs, facilitating container-based workflows.
 
 ```emacs-lisp
 (use-package docker :defer t)
 ```
 
-[Dockerfile Mode](https://github.com/spotify/dockerfile-mode), an Emacs mode for handling Dockerfiles.
+[Dockerfile Mode](https://github.com/spotify/dockerfile-mode) offers specific features for editing Dockerfiles in Emacs.
 
 ```emacs-lisp
 (use-package dockerfile-mode :defer t)
@@ -2093,7 +2065,7 @@ go get golang.org/x/tools/gopls@latest
 
 ### Groovy
 
-[Groovy Mode](https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes), a groovy major mode, grails minor mode, and a groovy inferior mode.
+[Groovy Mode](https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes) encompasses a comprehensive major mode for Groovy, grails minor mode, and a groovy inferior mode, catering to Groovy developers.
 
 ```emacs-lisp
 (use-package groovy-mode :defer t)
@@ -2102,7 +2074,7 @@ go get golang.org/x/tools/gopls@latest
 
 ### Cmake
 
-[Cmake Mode](https://melpa.org/#/cmake-mode), a library that provides syntax highlighting and indentation for CMakeLists.txt and \*.cmake source files.
+[Cmake Mode](https://melpa.org/#/cmake-mode) is a library that provides syntax highlighting and indentation functionalities for CMakeLists.txt and \*.cmake files.
 
 ```emacs-lisp
 (use-package cmake-mode :defer t)
@@ -2111,7 +2083,7 @@ go get golang.org/x/tools/gopls@latest
 
 ### Bazel
 
-[Bazel Mode](https://github.com/bazelbuild/emacs-bazel-mode), a library that provides major modes for editing Bazel `BUILD` files, `WORKSPACE` files, `.bazelrc` files, as well as `Starlark` files.
+[Bazel Mode](https://github.com/bazelbuild/emacs-bazel-mode) grants major modes for editing Bazel-specific files including `BUILD` files, `WORKSPACE` files, and `.bazelrc` files, as well as Starlark files.
 
 ```emacs-lisp
 (use-package bazel :defer t)
@@ -2120,7 +2092,7 @@ go get golang.org/x/tools/gopls@latest
 
 # Web Development
 
-**Prerequisite**: Install [NodeJS](https://nodejs.org/en/download/) and ensure it's in `PATH`. Execute following commands to enable LSP for JavaScript/TypeScript/HTML:
+**Prerequisite**: Install [NodeJS](https://nodejs.org/en/download/) and ensure it is included in your \`PATH\`. Execute the following commands to enable LSP for JavaScript, TypeScript, and HTML:
 
 ```bash
 npm i -g typescript
@@ -2130,7 +2102,7 @@ npm i -g typescript-language-server
 
 ## Web
 
-[Web mode](https://github.com/fxbois/web-mode), a major mode for editing web templates.
+[Web mode](https://github.com/fxbois/web-mode) is a specialized major mode designed for editing web templates and related technologies.
 
 ```emacs-lisp
 (use-package web-mode
@@ -2148,7 +2120,7 @@ npm i -g typescript-language-server
 
 ### JavaScript2
 
-[JS2 mode](https://github.com/mooz/js2-mode), a feature that offers improved JavsScript editing mode.
+[JS2 mode](https://github.com/mooz/js2-mode) provides an enhanced JavaScript editing experience with features aimed at improving productivity.
 
 ```emacs-lisp
 (use-package js2-mode
@@ -2160,7 +2132,7 @@ npm i -g typescript-language-server
 
 ### TypeScript
 
-[TypeScript mode](https://github.com/emacs-typescript/typescript.el), a feature that offers TypeScript support for Emacs.
+[TypeScript mode](https://github.com/emacs-typescript/typescript.el) adds dedicated support for TypeScript programming within Emacs, enhancing the development experience.
 
 ```emacs-lisp
 (use-package typescript-mode
@@ -2171,7 +2143,7 @@ npm i -g typescript-language-server
 
 ### Vue
 
-[Vue mode](https://github.com/AdamNiederer/vue-mode), a major mode for Vue.js.
+[Vue mode](https://github.com/AdamNiederer/vue-mode) provides specialized major mode for developing applications using Vue.js, improving the coding workflow.
 
 ```emacs-lisp
 (use-package vue-mode
@@ -2182,7 +2154,7 @@ npm i -g typescript-language-server
 
 ## Emmet
 
-[Emmet](https://github.com/smihica/emmet-mode), a feature that allows writing HTML using CSS selectors along with `C-j`. See [usage](https://github.com/smihica/emmet-mode#usage) for more information.
+[Emmet](https://github.com/smihica/emmet-mode) enables users to write HTML swiftly using CSS-style selectors, enhancing coding efficiency. Refer to [usage instructions](https://github.com/smihica/emmet-mode#usage) for further information.
 
 ```emacs-lisp
 (use-package emmet-mode
@@ -2193,7 +2165,7 @@ npm i -g typescript-language-server
 
 ## Instant Rename Tag
 
-[Instant Rename Tag](https://github.com/manateelazycat/instant-rename-tag), a plugin that provides ability to rename html tag pairs instantly.
+[Instant Rename Tag](https://github.com/manateelazycat/instant-rename-tag) offers the functionality to quickly rename HTML tag pairs, serendipitously speeding up markup editing.
 
 ```emacs-lisp
 (use-package instant-rename-tag
@@ -2204,7 +2176,7 @@ npm i -g typescript-language-server
 
 ## JSON
 
-[JSON Mode](https://github.com/joshwnj/json-mode), a major mode for editing JSON files.
+[JSON Mode](https://github.com/joshwnj/json-mode) is specifically crafted for editing JSON files, enhancing the formatting and navigation experience.
 
 ```emacs-lisp
 (use-package json-mode
@@ -2217,9 +2189,7 @@ npm i -g typescript-language-server
 
 ## Org
 
-[Org](https://orgmode.org/), a Emacs built-in tool for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
-
-**Prerequisite**: Configure `(org-agenda-files (list "~/org/agenda/"))` to your agenda folder to use org-agenda. Once this is set, the agenda items tagged with `DEADLINE` or `SCHEDULED` will be displayed on the [Dashboard](#orgeb25112) (hopefully the dashboard will be more detailed in the [future](https://github.com/MatthewZMD/.emacs.d/issues/37)).
+[Org](https://orgmode.org/) is a powerful built-in tool in Emacs for note-taking, maintaining TODO lists, project planning, and authoring documents in a fast and efficient plain-text format. **Prerequisite**: Configure `(org-agenda-files (list "~/org/agenda/"))` to specify your agenda folder for using org-agenda. Once this is configured, agenda items tagged with `DEADLINE` or `SCHEDULED` will show up on the [Dashboard](#org144ec5c), which will be updated to provide detailed insights in the [future](https://github.com/MatthewZMD/.emacs.d/issues/37).
 
 ```emacs-lisp
 (use-package org
@@ -2275,7 +2245,7 @@ npm i -g typescript-language-server
 
 ### Org Roam
 
-[Org Roam](https://www.orgroam.com/), a plain-text personal knowledge management system.
+[Org Roam](https://www.orgroam.com/) is a personal knowledge management system based on plain text, enabling collection and organization of ideas seamlessly.
 
 ```emacs-lisp
 (use-package org-roam
@@ -2299,7 +2269,7 @@ npm i -g typescript-language-server
 
 ### TOC Org
 
-[TOC Org](https://github.com/snosov1/toc-org) generates table of contents for `.org` files
+[TOC Org](https://github.com/snosov1/toc-org) automatically generates a table of contents for `.org` files, streamlining document navigation.
 
 ```emacs-lisp
 (use-package toc-org
@@ -2309,7 +2279,7 @@ npm i -g typescript-language-server
 
 ### HTMLize
 
-[HTMLize](https://github.com/hniksic/emacs-htmlize), a tool that converts buffer text and decorations to HTML.
+[HTMLize](https://github.com/hniksic/emacs-htmlize) is a powerful tool that converts buffer text and its decorations into HTML format, facilitating web integration.
 
 ```emacs-lisp
 (use-package htmlize :defer t)
@@ -2318,7 +2288,7 @@ npm i -g typescript-language-server
 
 ### GFM Exporter
 
-[OX-GFM](https://github.com/larstvei/ox-gfm), a Github Flavored Markdown exporter for Org Mode.
+[OX-GFM](https://github.com/larstvei/ox-gfm) enables Org Mode to export documents into GitHub Flavored Markdown format, enhancing sharing capabilities.
 
 ```emacs-lisp
 (use-package markdown-mode :defer t)
@@ -2327,12 +2297,10 @@ npm i -g typescript-language-server
 
 ### PlantUML and Graphviz
 
-[PlantUML Mode](https://github.com/skuro/plantuml-mode), a major mode for editing PlantUML sources.
+[PlantUML Mode](https://github.com/skuro/plantuml-mode) offers a dedicated environment for editing PlantUML sources. **Prerequisite**:
 
-**Prerequisite**:
-
-1.  Install [plantuml](http://plantuml.com/download) and configure `(org-plantuml-jar-path (expand-file-name "path/to/plantuml.jar"))`.
-2.  Install [Graphviz](https://graphviz.gitlab.io/download/) on your system to support graph visualization. Execute `sudo apt install graphviz` in Ubuntu.
+1.  Install [plantuml](http://plantuml.com/download) and configure `(org-plantuml-jar-path (expand-file-name "path/to/plantuml.jar"))` to specify its location.
+2.  Additionally, install [Graphviz](https://graphviz.gitlab.io/download/) on your system to enable graph visualization. For example, use `sudo apt install graphviz` on Ubuntu to install it.
 
 ```emacs-lisp
 (use-package ox-gfm :defer t)
@@ -2347,9 +2315,7 @@ npm i -g typescript-language-server
 
 ## EAF
 
-[Emacs Application Framework](https://github.com/manateelazycat/emacs-application-framework), a GUI application framework that revolutionizes Emacs graphical capabilities.
-
-**Prerequisite**: Please ensure `python3` and `pip3` are installed, then follow [install](https://github.com/manateelazycat/emacs-application-framework#install) instructions.
+[Emacs Application Framework](https://github.com/manateelazycat/emacs-application-framework) revolutionizes graphical capabilities in Emacs by providing a comprehensive GUI application framework. **Prerequisite**: Ensure that `python3` and `pip3` are installed, then follow the [installation instructions](https://github.com/manateelazycat/emacs-application-framework#install) to get started.
 
 ```emacs-lisp
 (use-package eaf
@@ -2358,7 +2324,11 @@ npm i -g typescript-language-server
              :host github
              :repo "emacs-eaf/emacs-application-framework"
              :files ("*"))
-  :if eaf-env-p
+  :if (and eaf-env-p
+           (file-directory-p
+            (expand-file-name
+             "straight/build/emacs-application-framework/app/browser"
+             user-emacs-directory)))
   :custom
   (eaf-start-python-process-when-require nil)
   (browse-url-browser-function #'eaf-open-browser) ;; Make EAF Browser my default browser
@@ -2410,10 +2380,6 @@ npm i -g typescript-language-server
   (eaf-bind-key delete_all_cookies "C-M-Q" eaf-browser-keybinding)
   (eaf-bind-key clear_history "C-M-p" eaf-browser-keybinding)
   (eaf-bind-key scroll_down_page "DEL" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key scroll_down_page "u" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key scroll_up_page "d" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key scroll_to_end "M->" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key scroll_to_begin "M-<" eaf-pdf-viewer-keybinding)
 ```
 
 
@@ -2422,7 +2388,7 @@ npm i -g typescript-language-server
 
 ## LLM
 
-[GPTEL](https://github.com/karthink/gptel), A simple LLM client for Emacs.
+[GPTEL](https://github.com/karthink/gptel) is a straightforward LLM client for Emacs, allowing users to interact with language models effortlessly.
 
 ```emacs-lisp
 (use-package gptel)
@@ -2431,9 +2397,7 @@ npm i -g typescript-language-server
 
 ## ERC
 
-[Emacs Relay Chat](https://www.emacswiki.org/emacs/ERC), a powerful, modular, and extensible [IRC](http://www.irc.org/) client for Emacs. It utilizes [erc-hl-nicks](https://github.com/leathekd/erc-hl-nicks) for nickname highlighting and [erc-image](https://github.com/kidd/erc-image.el) to fetch and show received images in ERC.
-
-**Prerequisite**: Put IRC credentials in the file `~/.authinfo` and configure `my-irc-nick` to your IRC nickname.
+[Emacs Relay Chat](https://www.emacswiki.org/emacs/ERC) is a modular, extensible IRC client for Emacs, supporting various functionalities like nickname highlighting through [erc-hl-nicks](https://github.com/leathekd/erc-hl-nicks) and image display via [erc-image](https://github.com/kidd/erc-image.el). **Prerequisite**: Add your IRC credentials to the file `~/.authinfo` and configure `my-irc-nick` to specify your IRC nickname.
 
 ```text
 machine irc.freenode.net login <nickname> password <password> port 6697
@@ -2506,15 +2470,11 @@ machine irc.freenode.net login <nickname> password <password> port 6697
 
 ## MU4E
 
-[Mu4e](https://www.djcbsoftware.nl/code/mu/mu4e.html), a package that provides an emacs-based e-mail client which uses [mu](https://www.djcbsoftware.nl/code/mu/) as its backend. [Mu4e Thread Folding](https://github.com/rougier/mu4e-thread-folding) is used to toggle between long threads.
+[Mu4e](https://www.djcbsoftware.nl/code/mu/mu4e.html) is a robust email client within Emacs powered by [mu](https://www.djcbsoftware.nl/code/mu/) as its backend. It features [Mu4e Thread Folding](https://github.com/rougier/mu4e-thread-folding) for managing lengthy email threads efficiently. **Note**: This mu4e configuration is tailored specifically for Gmail users. **Prerequisite**:
 
-**Note**: This mu4e configuration is tailored for Gmail.
-
-**Prerequisite**:
-
-1.  Configure IMAP using [isync/mbsync](https://wiki.archlinux.org/index.php/Isync), put your `.mbsyncrc` config file in `~/.emacs.d/mu4e/`. A [sample](https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f) is provided.
-2.  Install [mu](https://www.djcbsoftware.nl/code/mu/).
-3.  Execute the follwing commands
+1.  Set up IMAP using [isync/mbsync](https://wiki.archlinux.org/index.php/Isync) and place your `.mbsyncrc` config in `~/.emacs.d/mu4e/`. A [sample](https://gist.github.com/MatthewZMD/39cc00260486d17450f7228a4f36891f) configuration is available.
+2.  Install [mu](https://www.djcbsoftware.nl/code/mu/) for email handling.
+3.  Execute the following commands to initialize your email environment.
     
     ```bash
     mkdir -p ~/Maildir/gmail/
@@ -2524,8 +2484,8 @@ machine irc.freenode.net login <nickname> password <password> port 6697
     mu index
     ```
     
-    -   If you are getting `Invalid Credentials` error and you are sure the password is correct, check [this](https://appuals.com/fix-your-imap-server-wants-to-alert-you-invalid-credentials/) link.
-4.  (Optional) If you want to track meetings using `org-mode`, set `gnus-icalendar-org-capture-file` to the meeting's file.
+    -   If you encounter an `Invalid Credentials` error while confident of your password correctness, consult [this guide](https://appuals.com/fix-your-imap-server-wants-to-alert-you-invalid-credentials/) for troubleshooting.
+4.  (Optional) To track meetings using `org-mode`, assign `gnus-icalendar-org-capture-file` to your designated meeting file.
 
 ```emacs-lisp
 (use-package mu4e
@@ -2653,12 +2613,12 @@ machine irc.freenode.net login <nickname> password <password> port 6697
 
 ## Tramp
 
-[Tramp](https://www.emacswiki.org/emacs/TrampMode), short for Transparent Remote Access, Multiple Protocols is a package for editing remote files using a remote shell connection (rlogin, telnet, ssh).
+[Tramp](https://www.emacswiki.org/emacs/TrampMode) allows users to edit remote files seamlessly using various remote shell protocols (such as rlogin, telnet, or ssh).
 
 
 ### Google Cloud Platform
 
-Connect to Google Cloud Platform using the following:
+Connect to instances on Google Cloud Platform using the format:
 
 ```text
 /gssh:some-instance:/path/to/file
@@ -2687,7 +2647,7 @@ Connect to Google Cloud Platform using the following:
 
 ## LeetCode
 
-[LeetCode](https://github.com/kaiwk/leetcode.el), an Emacs LeetCode client. Note that this package is dependant on [aio](https://github.com/skeeto/emacs-aio) and [GraphQL](https://github.com/davazp/graphql-mode).
+[LeetCode](https://github.com/kaiwk/leetcode.el) is an Emacs client designed for interacting with LeetCode problem sets. Note that it depends on both [aio](https://github.com/skeeto/emacs-aio) and [GraphQL](https://github.com/davazp/graphql-mode) packages.
 
 ```emacs-lisp
 (use-package leetcode
@@ -2704,7 +2664,7 @@ Connect to Google Cloud Platform using the following:
 
 ## Debbugs
 
-[Debbugs](https://elpa.gnu.org/packages/debbugs.html), a package lets you access the GNU Bug Tracker from within Emacs.
+[Debbugs](https://elpa.gnu.org/packages/debbugs.html) is a package that grants access to the GNU Bug Tracker directly within Emacs, facilitating bug tracking processes.
 
 ```emacs-lisp
 (use-package debbugs
@@ -2714,7 +2674,7 @@ Connect to Google Cloud Platform using the following:
 
 ## Hacker News
 
-A simple [Hacker News](https://github.com/clarete/hackernews.el) Emacs client.
+A straightforward [Hacker News](https://github.com/clarete/hackernews.el) client for Emacs, enabling users to stay updated with the latest news from the platform.
 
 ```emacs-lisp
 (use-package hackernews
@@ -2727,7 +2687,7 @@ A simple [Hacker News](https://github.com/clarete/hackernews.el) Emacs client.
 
 ## EWW
 
-Emacs Web Wowser, the HTML-based Emacs Web Browser.
+Emacs Web Wowser (EWW) is a built-in HTML-based web browser for Emacs, allowing users to browse the web seamlessly.
 
 ```emacs-lisp
 (use-package eww
@@ -2748,15 +2708,15 @@ Emacs Web Wowser, the HTML-based Emacs Web Browser.
 
 ## Chinese
 
-Packages and configurations suitable for Chinese users. Non-Chinese users feel free to add `:disabled` tags for them.
+This section includes packages and configurations tailored for Chinese users. Non-Chinese users can opt to disable these features by adding `:disabled` tags.
 
 
 ### Pyim
 
--   [Pyim](https://github.com/tumashu/pyim), an Emacs Chinese Pinyin Input. It uses [posframe](https://github.com/tumashu/posframe) package to display candidates.
--   [Pyim BaseDict](https://github.com/tumashu/pyim-basedict), the default Chinese-Pyim dictionary.
+-   [Pyim](https://github.com/tumashu/pyim) is a versatile Chinese Pinyin input method for Emacs, enhancing text input efficiency. It leverages the [posframe](https://github.com/tumashu/posframe) package for displaying candidate options.
+-   [Pyim BaseDict](https://github.com/tumashu/pyim-basedict) serves as the default dictionary for Chinese-Pyim input.
 
-我已经停止使用作者推荐的无痛中英切换，它对需要同时打英文和中文的情况不是很友好。如需切换输入法，请善用 `C-\` 。
+I have stopped using the recommended painless Chinese-English switching feature, as it's not very user-friendly for those needing to type in both languages simultaneously. Please use `C-\` for switching input methods if needed.
 
 ```emacs-lisp
 (use-package pyim
@@ -2786,7 +2746,7 @@ Packages and configurations suitable for Chinese users. Non-Chinese users feel f
 
 ### Youdao
 
-[Youdao](https://github.com/xuchunyang/youdao-dictionary.el) interface for Emacs.
+[Youdao](https://github.com/xuchunyang/youdao-dictionary.el) provides an interface for leveraging Youdao's dictionary functionalities within Emacs.
 
 ```emacs-lisp
 (use-package youdao-dictionary
