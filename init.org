@@ -1,100 +1,5 @@
-#+OPTIONS: toc:nil
 #+EXPORT_FILE_NAME: README
 * M-EMACS
-* Table of Contents                                               :TOC_2_ORG:
-- [[M-EMACS][M-EMACS]]
-- [[Why EMACS][Why EMACS]]
-- [[Why M-EMACS][Why M-EMACS]]
-  - [[Community Responses ❤️][Community Responses ❤️]]
-  - [[About README][About README]]
-  - [[Installation][Installation]]
-  - [[Modification][Modification]]
-  - [[Contribution][Contribution]]
-  - [[Special Thanks][Special Thanks]]
-- [[Startup][Startup]]
-  - [[Lexical Binding][Lexical Binding]]
-  - [[Early Init][Early Init]]
-  - [[Garbage Collection][Garbage Collection]]
-  - [[Load Path][Load Path]]
-  - [[Define Constants][Define Constants]]
-  - [[Load Private File][Load Private File]]
-- [[Package Management][Package Management]]
-  - [[Straight][Straight]]
-  - [[Use Package][Use Package]]
-  - [[Diminish][Diminish]]
-- [[Global Functionalities][Global Functionalities]]
-  - [[User Information][User Information]]
-  - [[Bindings][Bindings]]
-  - [[Avy][Avy]]
-  - [[Crux][Crux]]
-  - [[Ivy, Amx, Counsel, Swiper][Ivy, Amx, Counsel, Swiper]]
-  - [[Color Ripgrep][Color Ripgrep]]
-  - [[Find File In Project][Find File In Project]]
-  - [[Files Directories][Files Directories]]
-  - [[Winner][Winner]]
-  - [[Which Key][Which Key]]
-  - [[Undo Tree][Undo Tree]]
-  - [[Discover My Major][Discover My Major]]
-  - [[Ace Window][Ace Window]]
-  - [[Terminal][Terminal]]
-  - [[Sudo Edit][Sudo Edit]]
-  - [[Ibuffer][Ibuffer]]
-  - [[Config][Config]]
-  - [[Functions][Functions]]
-- [[UI Enhancements][UI Enhancements]]
-  - [[Doom Themes][Doom Themes]]
-  - [[Doom Modeline][Doom Modeline]]
-  - [[Dashboard][Dashboard]]
-  - [[Fonts and Icons][Fonts and Icons]]
-  - [[Smooth Scrolling][Smooth Scrolling]]
-  - [[Highlight Lines][Highlight Lines]]
-  - [[Prettify Symbols][Prettify Symbols]]
-  - [[UI Configs][UI Configs]]
-- [[General Programming][General Programming]]
-  - [[Magit][Magit]]
-  - [[Projectile][Projectile]]
-  - [[YASnippet][YASnippet]]
-  - [[Dumb Jump][Dumb Jump]]
-  - [[Parenthesis][Parenthesis]]
-  - [[Indentation][Indentation]]
-  - [[Format All][Format All]]
-  - [[Ediff][Ediff]]
-  - [[Evil Nerd Commenter][Evil Nerd Commenter]]
-  - [[Editing][Editing]]
-  - [[Headers][Headers]]
-  - [[Jupyter Notebook][Jupyter Notebook]]
-  - [[Completion / LSP][Completion / LSP]]
-- [[Programming][Programming]]
-  - [[C/C++/Objective C][C/C++/Objective C]]
-  - [[Golang][Golang]]
-  - [[Rust][Rust]]
-  - [[Python][Python]]
-  - [[ESS][ESS]]
-  - [[TeX][TeX]]
-  - [[Yaml][Yaml]]
-  - [[Buildsystem][Buildsystem]]
-- [[Web Development][Web Development]]
-  - [[Web][Web]]
-  - [[JavaScript/TypeScript][JavaScript/TypeScript]]
-  - [[Emmet][Emmet]]
-  - [[Instant Rename Tag][Instant Rename Tag]]
-  - [[JSON][JSON]]
-- [[Office][Office]]
-  - [[Org][Org]]
-- [[Multimedia][Multimedia]]
-  - [[EAF][EAF]]
-- [[Internet][Internet]]
-  - [[LLM][LLM]]
-  - [[ERC][ERC]]
-  - [[MU4E][MU4E]]
-  - [[Tramp][Tramp]]
-  - [[LeetCode][LeetCode]]
-  - [[Debbugs][Debbugs]]
-  - [[Hacker News][Hacker News]]
-  - [[EWW][EWW]]
-- [[Miscellaneous][Miscellaneous]]
-  - [[Chinese][Chinese]]
-
 * Why EMACS
 Emacs transforms your approach to programming.
 
@@ -309,7 +214,7 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "83-87"
 *** Exec Path From Shell
     [[https://github.com/purcell/exec-path-from-shell][Exec Path From Shell]] ensures that environment variables in Emacs match those of the user's shell, maintaining consistency across different environments.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ExecPathFromShellPac" :range-end "-ExecPathFromShellPac" :lines "90-94"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ExecPathFromShellPac" :range-end "-ExecPathFromShellPac" :lines "90-97"
 ** Sudo Edit
    [[https://github.com/nflath/sudo-edit][Sudo Edit]] allows you to open files with `sudo`, enabling easier access to protected files.
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SudoEditPac" :range-end "-SudoEditPac" :lines "42-44"
@@ -543,9 +448,6 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
 *** Org Roam
     [[https://www.orgroam.com/][Org Roam]] is a personal knowledge management system based on plain text, enabling collection and organization of ideas seamlessly.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "OrgRoamPac" :range-end "-OrgRoamPac" :lines "90-106"
-*** TOC Org
-    [[https://github.com/snosov1/toc-org][TOC Org]] automatically generates a table of contents for =.org= files, streamlining document navigation.
-    #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "TocOrgPac" :range-end "-TocOrgPac" :lines "109-111"
 *** HTMLize
     [[https://github.com/hniksic/emacs-htmlize][HTMLize]] is a powerful tool that converts buffer text and its decorations into HTML format, facilitating web integration.
     #+INCLUDE: "~/.emacs.d/elisp/init-org.el" src emacs-lisp :range-begin "HTMLIZEPac" :range-end "-HTMLIZEPac" :lines "114-115"
@@ -565,8 +467,8 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
    #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-105"
 * Internet
 ** LLM
-   [[https://github.com/karthink/gptel][GPTEL]] is a straightforward LLM client for Emacs, allowing users to interact with language models effortlessly.
-   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "GPTELPac" :range-end "-GPTELPac" :lines "50-51"
+   [[https://github.com/tninja/aider.el][Aider]] is AI Pair Programming Inside Emacs.
+   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "AiderPac" :range-end "-AiderPac" :lines "50-57"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]] is a modular, extensible IRC client for Emacs, supporting various functionalities like nickname highlighting through [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] and image display via [[https://github.com/kidd/erc-image.el][erc-image]].
    *Prerequisite*: Add your IRC credentials to the file =~/.authinfo= and configure =my-irc-nick= to specify your IRC nickname.

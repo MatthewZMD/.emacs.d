@@ -105,11 +105,6 @@
   (org-roam-db-autosync-mode))
 ;; -OrgRoamPac
 
-;; TocOrgPac
-(use-package toc-org
-  :hook (org-mode . toc-org-mode))
-;; -TocOrgPac
-
 ;; HTMLIZEPac
 (use-package htmlize :defer t)
 ;; -HTMLIZEPac

@@ -10,7 +10,7 @@
 ;; Package-Requires: ()
 ;; Last-Updated:
 ;;           By:
-;;     Update #: 3
+;;     Update #: 17
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,9 +46,15 @@
 ;;
 ;;; Code:
 
-;; GPTELPac
-(use-package gptel)
-;; -GPTELPac
+;; AiderPac
+(use-package aider
+  :if (executable-find "aider")
+  :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
+  :custom
+  (aider-args '("--model" "anthropic/claude-3-5-sonnet-20241022"))
+  :bind
+  (("C-z a" . aider-transient-menu)))
+;; -AiderPac
 
 (provide 'init-llm)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

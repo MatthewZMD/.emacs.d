@@ -89,6 +89,9 @@
 ;; ExecPathFromShellPac
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
+  :custom
+  (exec-path-from-shell-variables
+   '("PATH" "MANPATH" "OPENAI_API_KEY" "ANTHROPIC_API_KEY"))
   :config
   (exec-path-from-shell-initialize))
 ;; -ExecPathFromShellPac
