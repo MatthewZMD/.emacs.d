@@ -44,18 +44,20 @@
 ;; -Highlight
 
 ;; PreSym
-(global-prettify-symbols-mode 1)
-(defun add-pretty-lambda ()
-  "Make some word or string show as pretty Unicode symbols.  See https://unicodelookup.com for more."
+(defun setup-prettify-symbols ()
+  "Setup prettify-symbols-mode with predefined symbols."
   (setq prettify-symbols-alist
         '(("lambda" . 955)
           ("delta" . 120517)
           ("epsilon" . 120518)
           ("->" . 8594)
           ("<=" . 8804)
-          (">=" . 8805))))
-(add-hook 'prog-mode-hook 'add-pretty-lambda)
-(add-hook 'org-mode-hook 'add-pretty-lambda)
+          (">=" . 8805)))
+  (prettify-symbols-mode 1))
+
+(global-prettify-symbols-mode 1)
+(add-hook 'prog-mode-hook #'setup-prettify-symbols)
+(add-hook 'org-mode-hook #'setup-prettify-symbols)
 ;; -PreSym
 
 ;; TitleBar

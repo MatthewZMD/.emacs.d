@@ -40,22 +40,24 @@
 
 ;; ResizeWidthHeight
 ;; Resizes the window width based on the input
-(defun resize-window-width (w)
-  "Resizes the window width based on W."
-  (interactive (list (if (> (count-windows) 1)
-                         (read-number "Set the current window width in [1~9]x10%: ")
-                       (error "You need more than 1 window to execute this function!"))))
-  (message "%s" w)
-  (window-resize nil (- (truncate (* (/ w 10.0) (frame-width))) (window-total-width)) t))
+(defun resize-window-dimension (dimension)
+  "Resize window by DIMENSION (width or height) with percentage input."
+  (lambda (percent)
+    (interactive (list (if (> (count-windows) 1)
+                          (read-number (format "Set current window %s in [1~9]x10%%: " dimension))
+                        (error "You need more than 1 window to execute this function!"))))
+    (message "%s" percent)
+    (let ((is-width (eq dimension 'width)))
+      (window-resize nil
+                    (- (truncate (* (/ percent 10.0)
+                                   (if is-width (frame-width) (frame-height))))
+                       (if is-width (window-total-width) (window-total-height)))
+                    is-width))))
 
-;; Resizes the window height based on the input
-(defun resize-window-height (h)
-  "Resizes the window height based on H."
-  (interactive (list (if (> (count-windows) 1)
-                         (read-number "Set the current window height in [1~9]x10%: ")
-                       (error "You need more than 1 window to execute this function!"))))
-  (message "%s" h)
-  (window-resize nil (- (truncate (* (/ h 10.0) (frame-height))) (window-total-height)) nil))
+(defalias 'resize-window-width (resize-window-dimension 'width)
+  "Resizes the window width based on percentage input.")
+(defalias 'resize-window-height (resize-window-dimension 'height)
+  "Resizes the window height based on percentage input.")
 
 ;; Setup shorcuts for window resize width and height
 (global-set-key (kbd "C-z w") #'resize-window-width)

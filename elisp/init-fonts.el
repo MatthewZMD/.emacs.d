@@ -42,13 +42,18 @@
 ;; -FontsList
 
 ;; FontFun
+(defun get-available-fonts ()
+  "Get list of available fonts from font-list."
+  (let (available-fonts)
+    (dolist (font font-list (nreverse available-fonts))
+      (when (member (car font) (font-family-list))
+        (push font available-fonts)))))
+
 (defun change-font ()
   "Interactively change a font from a list a available fonts."
   (interactive)
-  (let* (available-fonts font-name font-size font-setting)
-    (dolist (font font-list (setq available-fonts (nreverse available-fonts)))
-      (when (member (car font) (font-family-list))
-        (push font available-fonts)))
+  (let* ((available-fonts (get-available-fonts))
+         font-name font-size font-setting)
     (if (not available-fonts)
         (message "No fonts from the chosen set are available")
       (if (called-interactively-p 'interactive)
