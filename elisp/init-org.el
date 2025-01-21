@@ -100,8 +100,8 @@
    ("C-c n i" . org-roam-node-insert)
    ("C-c n h" . org-id-get-create))
   :config
-  (when (file-directory-p "~/org/roam/")
-    (setq org-roam-directory (file-truename "~/org/roam")))
+  (when (file-directory-p "~/Documents/roam")
+    (setq org-roam-directory (file-truename "~/Documents/roam")))
   (org-roam-db-autosync-mode))
 ;; -OrgRoamPac
 

@@ -1,1 +1,2 @@
-((magit-commit "--signoff"))
+((aider-transient-menu)
+ (magit-commit "--signoff"))
