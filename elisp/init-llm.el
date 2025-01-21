@@ -51,7 +51,15 @@
   :if (executable-find "aider")
   :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
   :custom
-  (aider-args '("--model" "anthropic/claude-3-5-sonnet-20241022"))
+  (aider-model "deepseek")
+  (aider-args
+   (cond
+    ((string= aider-model "anthropic")
+     '("--model" "anthropic/claude-3-5-sonnet-20241022"))
+    ((string= aider-model "deepseek")
+     '("--model" "openrouter/deepseek/deepseek-r1"))
+    ((string= aider-model "openai")
+     '("--model" "gpt-4o"))))
   :bind
   (("C-z a" . aider-transient-menu)))
 ;; -AiderPac
