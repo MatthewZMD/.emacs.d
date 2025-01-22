@@ -8,9 +8,6 @@
 ;; Created: Thu Jan  9 13:07:47 2025 (-0500)
 ;; Version:
 ;; Package-Requires: ()
-;; Last-Updated:
-;;           By:
-;;     Update #: 17
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -50,16 +47,16 @@
 (use-package aider
   :if (executable-find "aider")
   :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
-  :custom
-  (aider-model "deepseek")
-  (aider-args
-   (cond
-    ((string= aider-model "anthropic")
-     '("--model" "anthropic/claude-3-5-sonnet-20241022"))
-    ((string= aider-model "deepseek")
-     '("--model" "openrouter/deepseek/deepseek-r1"))
-    ((string= aider-model "openai")
-     '("--model" "gpt-4o"))))
+  :config
+  (setq aider-model "deepseek")
+  (setq aider-args
+        (cond
+         ((string= aider-model "anthropic")
+          '("--model" "anthropic/claude-3-5-sonnet-20241022"))
+         ((string= aider-model "deepseek")
+          '("--model" "r1"))
+         ((string= aider-model "openai")
+          '("--model" "gpt-4o"))))
   :bind
   (("C-z a" . aider-transient-menu)))
 ;; -AiderPac
