@@ -214,7 +214,7 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "83-87"
 *** Exec Path From Shell
     [[https://github.com/purcell/exec-path-from-shell][Exec Path From Shell]] ensures that environment variables in Emacs match those of the user's shell, maintaining consistency across different environments.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ExecPathFromShellPac" :range-end "-ExecPathFromShellPac" :lines "90-97"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ExecPathFromShellPac" :range-end "-ExecPathFromShellPac" :lines "90-100"
 ** Sudo Edit
    [[https://github.com/nflath/sudo-edit][Sudo Edit]] allows you to open files with `sudo`, enabling easier access to protected files.
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SudoEditPac" :range-end "-SudoEditPac" :lines "42-44"
