@@ -312,6 +312,9 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
 *** YASnippet
     [[https://github.com/joaotavora/yasnippet][YASnippet]] is a versatile programming template system for Emacs. It can load [[https://github.com/AndreaCrotti/yasnippet-snippets][YASnippet Snippets]], which is a rich collection of snippets for a variety of languages.
     #+INCLUDE: "~/.emacs.d/elisp/init-yasnippet.el" src emacs-lisp :range-begin "YASnippetPac" :range-end "-YASnippetPac" :lines "39-60"
+** Treesit Parser Manager
+   [[https://codeberg.org/ckruse/treesit-parser-manager][Treesit Parser Manager]] simplifies installation and management of tree-sitter grammars for advanced syntax parsing. Manages grammar compilation and updates for multiple languages.
+   #+INCLUDE: "~/.emacs.d/elisp/init-treesit.el" src emacs-lisp :range-begin "TreesitParserManagerPac" :range-end "-TreesitParserManagerPac" :lines "42-63"
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]] allows for swift navigation to definition within your codebase, enhancing the coding experience.
    #+INCLUDE: "~/.emacs.d/elisp/init-dumb-jump.el" src emacs-lisp :range-begin "DumbJump" :range-end "-DumbJump" :lines "39-46"
