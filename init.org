@@ -315,13 +315,13 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
 ** Treesit Parser Manager
    [[https://github.com/renzmann/treesit-auto][treesit-auto]] simplifies installation/management of tree-sitter grammars. Automatically handles grammar compilation/updates for multiple languages.
    
-   *Prerequisite*: Run =M-x treesit-auto-install= to install grammars.
+   *Prerequisite*: Run =M-x treesit-auto-install-all= to install grammars.
    
    #+BEGIN_QUOTE
    This package is, admittedly, a hack. treesit.el provides an excellent foundation for incremental source code parsing in Emacs 29. Over time this foundation will expand into an improved core editing experience. While this package will likely become obsolete in Emacs 30+ (which may have built-in alternatives), it still provides quality-of-life improvements for Emacs 29 users.
    #+END_QUOTE
    
-   #+INCLUDE: "~/.emacs.d/elisp/init-treesit.el" src emacs-lisp :range-begin "TreesitAutoPac" :range-end "-TreesitAutoPac" :lines "42-63"
+   #+INCLUDE: "~/.emacs.d/elisp/init-treesit.el" src emacs-lisp :range-begin "TreesitAutoPac" :range-end "-TreesitAutoPac" :lines "42-58"
 ** Dumb Jump
    [[https://github.com/jacktasia/dumb-jump][Dumb jump]] allows for swift navigation to definition within your codebase, enhancing the coding experience.
    #+INCLUDE: "~/.emacs.d/elisp/init-dumb-jump.el" src emacs-lisp :range-begin "DumbJump" :range-end "-DumbJump" :lines "39-46"
