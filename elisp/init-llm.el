@@ -59,6 +59,20 @@
           '("--model" "gpt-4o"))))
   :bind
   (("C-z a" . aider-transient-menu)))
+
+(defun aider-reload ()
+  "Interactively reload aider with selected model."
+  (interactive)
+  (let ((model (completing-read "Select model: " '("deepseek" "anthropic" "openai") nil t)))
+    (setq aider-model model)
+    (setq aider-args
+          (cond
+           ((string= model "anthropic") '("--model" "anthropic/claude-3-5-sonnet-20241022"))
+           ((string= model "deepseek") '("--model" "r1"))
+           ((string= model "openai") '("--model" "gpt-4o"))))
+    (when (derived-mode-p 'aider-mode)
+      (kill-buffer (current-buffer))
+      (aider-transient-menu))))
 ;; -AiderPac
 
 (provide 'init-llm)
