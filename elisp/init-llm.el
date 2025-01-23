@@ -48,25 +48,22 @@
   :if (executable-find "aider")
   :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
   :config
+  (defun aider--get-args (model)
+    "Get aider-args for specified MODEL."
+    (cond
+     ((string= model "anthropic") '("--model" "anthropic/claude-3-5-sonnet-20241022"))
+     ((string= model "deepseek") '("--model" "r1"))
+     ((string= model "openai") '("--model" "gpt-4o"))))
+
   (setq aider-model "deepseek")
-  (setq aider-args
-        (cond
-         ((string= aider-model "anthropic")
-          '("--model" "anthropic/claude-3-5-sonnet-20241022"))
-         ((string= aider-model "deepseek")
-          '("--model" "r1"))
-         ((string= aider-model "openai")
-          '("--model" "gpt-4o"))))
+  (setq aider-args (aider--get-args aider-model))
+
   (defun aider-reload ()
     "Interactively reload aider with selected model."
     (interactive)
     (let ((model (completing-read "Select model: " '("deepseek" "anthropic" "openai") nil t)))
       (setq aider-model model)
-      (setq aider-args
-            (cond
-             ((string= model "anthropic") '("--model" "anthropic/claude-3-5-sonnet-20241022"))
-             ((string= model "deepseek") '("--model" "r1"))
-             ((string= model "openai") '("--model" "gpt-4o"))))
+      (setq aider-args (aider--get-args model))
       (when (derived-mode-p 'aider-mode)
         (kill-buffer (current-buffer))
         (aider-transient-menu))))
