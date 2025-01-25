@@ -46,14 +46,15 @@
 ;; AiderPac
 (use-package aider
   :if (executable-find "aider")
-  :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
+  :straight (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-mode.el"))
   :config
   (defun aider--get-args (model)
-    "Get aider-args for specified MODEL."
+    "Get aider-args for specified MODEL. Ensure `exec-path-from-shell' is updated"
     (cond
      ((string= model "anthropic") '("--model" "anthropic/claude-3-5-sonnet-20241022"))
      ((string= model "deepseek") '("--model" "r1"))
-     ((string= model "openai") '("--model" "gpt-4o"))))
+     ((string= model "openai") '("--model" "gpt-4o"))
+     ((string= model "gemini") '("--model" "gemini/gemini-2.0-flash-thinking-exp"))))
 
   (setq aider-model "deepseek")
   (setq aider-args (aider--get-args aider-model))
@@ -61,7 +62,7 @@
   (defun aider-reload ()
     "Interactively reload aider with selected model."
     (interactive)
-    (let ((model (completing-read "Select model: " '("deepseek" "anthropic" "openai") nil t)))
+    (let ((model (completing-read "Select model: " '("deepseek" "anthropic" "openai" "gemini") nil t)))
       (setq aider-model model)
       (setq aider-args (aider--get-args model))
       (when (derived-mode-p 'aider-mode)

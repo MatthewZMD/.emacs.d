@@ -124,6 +124,9 @@
   (org-plantuml-jar-path (expand-file-name "~/tools/plantuml/plantuml.jar")))
 ;; -PlantUMLPac
 
+;; PolymodePac
+(use-package polymode)
+
 (provide 'init-org)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-org.el ends here
