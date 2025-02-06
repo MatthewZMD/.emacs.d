@@ -61,10 +61,6 @@
   :commands (yaml-get-path-at-point)
   :mode "\\.yml\\'"
   :config
-  (use-package yaml-pro
-    :hook (yaml-mode . yaml-pro-mode)
-    :bind (("C-c M-p" . yaml-pro-move-subtree-up)
-           ("C-c M-n" . yaml-pro-move-subtree-down)))
   ;; Based on https://github.com/chopmo/dotfiles/blob/master/.emacs.d/customizations/yaml.el
   (defun yaml-indentation-level (s)
     (if (string-match "^ " s)
@@ -95,6 +91,13 @@
       (run-with-timer 1 nil (lambda () (when (overlayp ov)
                                          (delete-overlay ov)))))))
 ;; -YamlPac
+
+;; YamlProPac
+(use-package yaml-pro
+  :hook (yaml-mode . yaml-pro-mode)
+  :bind (("C-c M-p" . yaml-pro-move-subtree-up)
+         ("C-c M-n" . yaml-pro-move-subtree-down)))
+;; -YamlProPac
 
 (provide 'init-buildsystem)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

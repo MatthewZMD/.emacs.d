@@ -406,7 +406,10 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
     #+INCLUDE: "~/.emacs.d/elisp/init-latex.el" src emacs-lisp :range-begin "AUCTeXPac" :range-end "-AUCTeXPac" :lines "44-67"
 ** Yaml
    [[https://github.com/yoshiki/yaml-mode][Yaml mode]] is the dedicated major mode for editing files in the YAML data serialization format within Emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "YamlPac" :range-end "-YamlPac" :lines "59-97"
+   #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "YamlPac" :range-end "-YamlPac" :lines "59-93"
+*** Yaml-Pro
+    [[https://github.com/zkry/yaml-pro][Yaml-pro]] contains tools for editing YAML leveraging tree-sitter/parser.
+    #+INCLUDE: "~/.emacs.d/elisp/init-buildsystem.el" src emacs-lisp :range-begin "YamlProPac" :range-end "-YamlProPac" :lines "96-100"
 ** Buildsystem
 *** Docker
     [[https://github.com/Silex/docker.el][Docker]] is a mode enabling management of Docker containers directly from Emacs, facilitating container-based workflows.
