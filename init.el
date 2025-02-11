@@ -148,6 +148,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-scroll)
 
 ;; General Programming
+(require 'init-llm)
+
 (require 'init-magit)
 
 (require 'init-projectile)
@@ -193,7 +195,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-eaf)
 
 ;; Internet
-(require 'init-llm)
 
 (require 'init-erc)
 

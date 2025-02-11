@@ -139,7 +139,7 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "Consts" :range-end "-Consts" :lines "44-76"
 ** Load Private File
    The =init-private.el= file has been designated within the =user-emacs-directory= for personal configurations you wish to keep outside source control.
-   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate" :lines "216-219"
+   #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "InitPrivate" :range-end "-InitPrivate" :lines "217-220"
 * Package Management
    Some packages are disabled using the =:disabled= tag due to infrequent usage. You can similarly disable packages as needed:
    #+begin_src emacs-lisp
@@ -300,6 +300,10 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
     Pixel scroll precision mode, introduced in Emacs 29.1, enables finer scrolling control within a buffer, displaying content pixel-by-pixel for increased precision.
     #+INCLUDE: "~/.emacs.d/elisp/init-ui-config.el" src emacs-lisp :range-begin "PixelScrollPrecMode" :range-end "-PixelScrollPrecMode" :lines "97-99"
 * General Programming
+** Aidermacs
+   [[https://github.com/MatthewZMD/aidermacs][Aidermacs]], Aider AI Pair Programming for Emacs
+   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "AidermacsPac" :range-end "-AidermacsPac" :lines "47-74"
+
 ** Magit
    [[https://magit.vc/][Magit]] provides a user-friendly interface for interacting with the Git version control system, streamlining version management tasks.
    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "MagitPac" :range-end "-MagitPac" :lines "39-50"
@@ -479,9 +483,6 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
    *Prerequisite*: Ensure that =python3= and =pip3= are installed, then follow the [[https://github.com/manateelazycat/emacs-application-framework#install][installation instructions]] to get started.
    #+INCLUDE: "~/.emacs.d/elisp/init-eaf.el" src emacs-lisp :range-begin "EAFPac" :range-end "-EAFPac" :lines "43-105"
 * Internet
-** LLM
-   [[https://github.com/tninja/aider.el][Aider]] is AI Pair Programming Inside Emacs.
-   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "AiderPac" :range-end "-AiderPac" :lines "50-57"
 ** ERC
    [[https://www.emacswiki.org/emacs/ERC][Emacs Relay Chat]] is a modular, extensible IRC client for Emacs, supporting various functionalities like nickname highlighting through [[https://github.com/leathekd/erc-hl-nicks][erc-hl-nicks]] and image display via [[https://github.com/kidd/erc-image.el][erc-image]].
    *Prerequisite*: Add your IRC credentials to the file =~/.authinfo= and configure =my-irc-nick= to specify your IRC nickname.

@@ -43,18 +43,19 @@
 ;;
 ;;; Code:
 
-;; AiderPac
-(use-package aider
+;; AidermacsPac
+(use-package aidermacs
   :if (executable-find "aider")
-  :straight (:host github :repo "tninja/aider.el" :files ("aider.el" "aider-mode.el"))
+  :straight (:host github :repo "MatthewZMD/aidermacs" :files ("aider.el"))
   :config
   (defun aider--get-args (model)
     "Get aider-args for specified MODEL. Ensure `exec-path-from-shell' is updated"
-    (cond
-     ((string= model "anthropic") '("--model" "anthropic/claude-3-5-sonnet-20241022"))
-     ((string= model "deepseek") '("--model" "r1"))
-     ((string= model "openai") '("--model" "gpt-4o"))
-     ((string= model "gemini") '("--model" "gemini/gemini-2.0-flash-thinking-exp"))))
+    (list "--model"
+          (cond
+           ((string= model "anthropic") "anthropic/claude-3-5-sonnet-20241022")
+           ((string= model "deepseek") "r1")
+           ((string= model "openai") "gpt-4o")
+           ((string= model "gemini") "gemini/gemini-2.0-flash-thinking-exp"))))
 
   (setq aider-model "deepseek")
   (setq aider-args (aider--get-args aider-model))
@@ -70,7 +71,7 @@
         (aider-transient-menu))))
   :bind
   (("C-z a" . aider-transient-menu)))
-;; -AiderPac
+;; -AidermacsPac
 
 (provide 'init-llm)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
