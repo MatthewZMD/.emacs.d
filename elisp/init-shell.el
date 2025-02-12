@@ -86,6 +86,20 @@
   :config (term-keys-mode t))
 ;; -TermKeysPac
 
+;; VTermPac
+(use-package vterm
+  :commands vterm
+  :bind (("M-=" . vterm)
+         (:map vterm-mode-map 
+               ("C-y" . vterm-yank)
+               ("M-y" . vterm-yank-pop)
+               ("C-q" . vterm-send-next-key)))
+  :custom
+  (vterm-kill-buffer-on-exit t)
+  (vterm-max-scrollback 10000)
+  (vterm-buffer-name-string "vterm %s"))
+;; -VTermPac
+
 ;; ExecPathFromShellPac
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))

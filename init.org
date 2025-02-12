@@ -157,7 +157,11 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
    #+INCLUDE: "~/.emacs.d/elisp/init-package.el" src emacs-lisp :range-begin "DimPac" :range-end "-DimPac" :lines "71-72"
 * Global Functionalities
 ** User Information
-   *Prerequisite*: Feel free to update this section with your information.
+   *Prerequisite*: 
+   - Feel free to update this section with your information
+   - For vterm support:
+     1. Install cmake (>= 3.11): `brew install cmake`
+     2. Install libtool: `brew install libtool`
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo" :lines "39-41"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings" :lines "47-64"
