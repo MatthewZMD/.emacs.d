@@ -159,9 +159,6 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
 ** User Information
    *Prerequisite*: 
    - Feel free to update this section with your information
-   - For vterm support:
-     1. Install cmake (>= 3.11): `brew install cmake`
-     2. Install libtool: `brew install libtool`
    #+INCLUDE: "~/.emacs.d/elisp/init-const.el" src emacs-lisp :range-begin "UserInfo" :range-end "-UserInfo" :lines "39-41"
 ** Bindings
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "DefBindings" :range-end "-DefBindings" :lines "47-64"
@@ -207,6 +204,9 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
    [[https://github.com/abo-abo/ace-window][Ace Window]] enables you to efficiently select and switch between windows in Emacs.
    #+INCLUDE: "~/.emacs.d/elisp/init-ace-window.el" src emacs-lisp :range-begin "AceWindowPac" :range-end "-AceWindowPac"  :lines "39-41"
 ** Terminal
+*** Vterm
+    [[https://github.com/akermu/emacs-libvterm][Vterm]] is fully-fledged terminal emulator inside GNU Emacs based on libvterm, a C library. As a result of using compiled code (instead of elisp), emacs-libvterm is fully capable, fast, and it can seamlessly handle large outputs.
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "VTermPac" :range-end "-VTermPac" :lines "90-100"
 *** Shell Here
     [[https://github.com/ieure/shell-here][Shell Here]] opens a shell buffer within the context of the current `default-directory`, providing quick terminal access.
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ShellHerePac" :range-end "-ShellHerePac" :lines "42-47"
@@ -218,7 +218,7 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
     #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "TermKeysPac" :range-end "-TermKeysPac" :lines "83-87"
 *** Exec Path From Shell
     [[https://github.com/purcell/exec-path-from-shell][Exec Path From Shell]] ensures that environment variables in Emacs match those of the user's shell, maintaining consistency across different environments.
-    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ExecPathFromShellPac" :range-end "-ExecPathFromShellPac" :lines "90-100"
+    #+INCLUDE: "~/.emacs.d/elisp/init-shell.el" src emacs-lisp :range-begin "ExecPathFromShellPac" :range-end "-ExecPathFromShellPac" :lines "103-113"
 ** Sudo Edit
    [[https://github.com/nflath/sudo-edit][Sudo Edit]] allows you to open files with `sudo`, enabling easier access to protected files.
    #+INCLUDE: "~/.emacs.d/elisp/init-global-config.el" src emacs-lisp :range-begin "SudoEditPac" :range-end "-SudoEditPac" :lines "42-44"
@@ -306,7 +306,7 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
 * General Programming
 ** Aidermacs
    [[https://github.com/MatthewZMD/aidermacs][Aidermacs]], Aider AI Pair Programming for Emacs
-   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "AidermacsPac" :range-end "-AidermacsPac" :lines "47-74"
+   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "AidermacsPac" :range-end "-AidermacsPac" :lines "47-54"
 
 ** Magit
    [[https://magit.vc/][Magit]] provides a user-friendly interface for interacting with the Git version control system, streamlining version management tasks.

@@ -46,31 +46,11 @@
 ;; AidermacsPac
 (use-package aidermacs
   :if (executable-find "aider")
-  :straight (:host github :repo "MatthewZMD/aidermacs" :files ("aider.el"))
-  :config
-  (defun aider--get-args (model)
-    "Get aider-args for specified MODEL. Ensure `exec-path-from-shell' is updated"
-    (list "--model"
-          (cond
-           ((string= model "anthropic") "anthropic/claude-3-5-sonnet-20241022")
-           ((string= model "deepseek") "r1")
-           ((string= model "openai") "gpt-4o")
-           ((string= model "gemini") "gemini/gemini-2.0-flash-thinking-exp"))))
-
-  (setq aider-model "deepseek")
-  (setq aider-args (aider--get-args aider-model))
-
-  (defun aider-reload ()
-    "Interactively reload aider with selected model."
-    (interactive)
-    (let ((model (completing-read "Select model: " '("deepseek" "anthropic" "openai" "gemini") nil t)))
-      (setq aider-model model)
-      (setq aider-args (aider--get-args model))
-      (when (derived-mode-p 'aider-mode)
-        (kill-buffer (current-buffer))
-        (aider-transient-menu))))
+  :straight (:host github :repo "MatthewZMD/aidermacs" :files ("*.el"))
+  :custom
+  (aidermacs-backend 'vterm)
   :bind
-  (("C-z a" . aider-transient-menu)))
+  (("C-z a" . aidermacs-transient-menu)))
 ;; -AidermacsPac
 
 (provide 'init-llm)

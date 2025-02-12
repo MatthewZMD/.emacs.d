@@ -89,11 +89,11 @@
 ;; VTermPac
 (use-package vterm
   :commands vterm
-  :bind (("M-=" . vterm)
-         (:map vterm-mode-map 
+  :bind ((:map vterm-mode-map
                ("C-y" . vterm-yank)
                ("M-y" . vterm-yank-pop)
-               ("C-q" . vterm-send-next-key)))
+               ("C-q" . vterm-send-next-key)
+               ("C-z" . nil)))
   :custom
   (vterm-kill-buffer-on-exit t)
   (vterm-max-scrollback 10000)
