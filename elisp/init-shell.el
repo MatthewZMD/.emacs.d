@@ -93,7 +93,8 @@
                ("C-y" . vterm-yank)
                ("M-y" . vterm-yank-pop)
                ("C-q" . vterm-send-next-key)
-               ("C-z" . nil)))
+               ("C-z" . nil)
+               ("M-:" . nil)))
   :custom
   (vterm-kill-buffer-on-exit t)
   (vterm-max-scrollback 10000)

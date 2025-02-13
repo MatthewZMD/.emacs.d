@@ -49,6 +49,10 @@
   :straight (:host github :repo "MatthewZMD/aidermacs" :files ("*.el"))
   :custom
   (aidermacs-backend 'vterm)
+  :config
+  (add-to-list 'display-buffer-alist
+               `("\\*aidermacs.*\\*"
+                 (display-buffer-pop-up-window)))
   :bind
   (("C-z a" . aidermacs-transient-menu)))
 ;; -AidermacsPac
