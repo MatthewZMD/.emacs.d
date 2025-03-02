@@ -299,7 +299,7 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
 * General Programming
 ** Aidermacs
    [[https://github.com/MatthewZMD/aidermacs][Aidermacs]], Aider AI Pair Programming for Emacs
-   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "AidermacsPac" :range-end "-AidermacsPac" :lines "47-59"
+   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "AidermacsPac" :range-end "-AidermacsPac" :lines "47-61"
 
 ** Magit
    [[https://magit.vc/][Magit]] provides a user-friendly interface for interacting with the Git version control system, streamlining version management tasks.
@@ -345,6 +345,11 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
 ** Ediff
    [[https://www.gnu.org/software/emacs/manual/html_mono/ediff.html][Ediff]] enables users to compare differences between pairs of files or buffers simultaneously, streamlining the process of resolving discrepancies.
    #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "EdiffPac" :range-end "-EdiffPac" :lines "44-48"
+
+** Package Lint
+   [[https://github.com/purcell/package-lint][Package Lint]] checks the current buffer for package.el formatting issues, ensuring your Emacs Lisp packages follow best practices and meet the requirements for submission to MELPA or GNU ELPA.
+   #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "PackageLintPac" :range-end "-PackageLintPac" :lines "51-53"
+
 ** Evil Nerd Commenter
    [[https://github.com/redguardtoo/evil-nerd-commenter][Evil Nerd Commenter]] assists users in efficiently commenting out sections of code, enhancing productivity when writing or debugging.
    #+INCLUDE: "~/.emacs.d/elisp/init-comment.el" src emacs-lisp :range-begin "EvilNerdCommenPac" :range-end "-EvilNerdCommenPac" :lines "39-43"

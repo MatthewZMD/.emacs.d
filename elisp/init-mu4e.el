@@ -37,6 +37,7 @@
 
 ;; Mu4ePac
 (use-package mu4e
+  :if (executable-find "mu")
   :straight (:type built-in)
   :commands (mu4e make-mu4e-context)
   :init

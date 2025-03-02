@@ -50,6 +50,8 @@
   :custom
   (aidermacs-backend 'comint)
   (aidermacs-auto-commits nil)
+  (aidermacs-use-architect-mode nil)
+  (aidermacs-default-model "openrouter/anthropic/claude-3.7-sonnet")
   :config
   (add-to-list 'display-buffer-alist
                `("\\*aidermacs.*\\*"
