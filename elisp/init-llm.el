@@ -50,8 +50,8 @@
   :custom
   (aidermacs-backend 'comint)
   (aidermacs-auto-commits nil)
-  (aidermacs-use-architect-mode nil)
-  (aidermacs-default-model "openrouter/anthropic/claude-3.7-sonnet")
+  (aidermacs-default-model "openrouter/google/gemini-2.5-pro-exp-03-25:free")
+  (aidermacs-weak-model "openrouter/deepseek/deepseek-chat")
   :config
   (add-to-list 'display-buffer-alist
                `("\\*aidermacs.*\\*"
@@ -59,6 +59,18 @@
   :bind
   (("C-z a" . aidermacs-transient-menu)))
 ;; -AidermacsPac
+
+;; EmigoPac
+(use-package emigo
+  :straight (:host github :repo "MatthewZMD/emigo" :files ("*"))
+  :config
+  (setq emigo-model "openrouter/deepseek/deepseek-chat-v3-0324")
+  (setq emigo-base-url "https://openrouter.ai/api/v1")
+  (setq emigo-api-key (getenv "OPENROUTER_API_KEY"))
+  (emigo-start-process))
+;; -EmigoPac
+
+(use-package gptel)
 
 (provide 'init-llm)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

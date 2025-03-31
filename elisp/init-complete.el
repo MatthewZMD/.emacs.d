@@ -54,6 +54,7 @@
   (acm-enable-quick-access t)
   (lsp-bridge-enable-hover-diagnostic t)
   (lsp-bridge-python-lsp-server "pyright")
+  (lsp-bridge-c-lsp-server "ccls")
   :bind (("M-." . lsp-bridge-find-def)
          ("M-," . lsp-bridge-find-def-return)
          ("M-i" . lsp-bridge-popup-documentation)

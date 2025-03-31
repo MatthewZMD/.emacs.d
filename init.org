@@ -301,6 +301,10 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
    [[https://github.com/MatthewZMD/aidermacs][Aidermacs]], Aider AI Pair Programming for Emacs
    #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "AidermacsPac" :range-end "-AidermacsPac" :lines "47-61"
 
+** Emigo
+   [[https://github.com/MatthewZMD/emigo][Emigo]] is an expert AI assistant integrated into Emacs.
+   #+INCLUDE: "~/.emacs.d/elisp/init-llm.el" src emacs-lisp :range-begin "EmigoPac" :range-end "-EmigoPac" :lines "64-71"
+
 ** Magit
    [[https://magit.vc/][Magit]] provides a user-friendly interface for interacting with the Git version control system, streamlining version management tasks.
    #+INCLUDE: "~/.emacs.d/elisp/init-magit.el" src emacs-lisp :range-begin "MagitPac" :range-end "-MagitPac" :lines "39-50"
@@ -347,7 +351,7 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
    #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "EdiffPac" :range-end "-EdiffPac" :lines "44-48"
 
 ** Package Lint
-   [[https://github.com/purcell/package-lint][Package Lint]] checks the current buffer for package.el formatting issues, ensuring your Emacs Lisp packages follow best practices and meet the requirements for submission to MELPA or GNU ELPA.
+d   [[https://github.com/purcell/package-lint][Package Lint]] checks the current buffer for package.el formatting issues, ensuring your Emacs Lisp packages follow best practices and meet the requirements for submission to MELPA or GNU ELPA.
    #+INCLUDE: "~/.emacs.d/elisp/init-format.el" src emacs-lisp :range-begin "PackageLintPac" :range-end "-PackageLintPac" :lines "51-53"
 
 ** Evil Nerd Commenter
@@ -372,7 +376,7 @@ While Emacs certainly isn’t the only tool with valuable features, we believe t
     #+INCLUDE: "~/.emacs.d/elisp/init-ein.el" src emacs-lisp :range-begin "EINPac" :range-end "-EINPac" :lines "39-49"
 ** Completion / LSP
    Instead of the widely-used [[http://company-mode.github.io/][Company]], I have chosen to use [[https://github.com/manateelazycat/lsp-bridge][lsp-bridge]], which is entirely multi-threaded and adept at handling all completion needs within Emacs.
-    #+INCLUDE: "~/.emacs.d/elisp/init-complete.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "42-78"
+    #+INCLUDE: "~/.emacs.d/elisp/init-complete.el" src emacs-lisp :range-begin "LSPPac" :range-end "-LSPPac" :lines "42-79"
 * Programming
 ** C/C++/Objective C
    *Prerequisite*: Since all completion features are supported by [[https://github.com/emacs-lsp/lsp-mode][LSP Mode]], it needs to be set up correctly.
