@@ -114,6 +114,12 @@
   (exec-path-from-shell-initialize))
 ;; -ExecPathFromShellPac
 
+;; DotEnvModePac
+(use-package dotenv-mode
+  :mode (("\\.env\\..*\\'" . dotenv-mode)
+         ("\\.env\\'"      . dotenv-mode)))
+;; -DotEnvModePac
+
 (provide 'init-shell)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-shell.el ends here

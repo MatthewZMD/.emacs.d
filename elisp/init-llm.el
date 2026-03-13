@@ -50,7 +50,7 @@
   :custom
   (aidermacs-backend 'comint)
   (aidermacs-auto-commits nil)
-  (aidermacs-default-model "openrouter/google/gemini-2.5-pro-exp-03-25:free")
+  (aidermacs-default-model "openrouter/google/gemini-3.1-pro-preview")
   (aidermacs-weak-model "openrouter/deepseek/deepseek-chat")
   :config
   (add-to-list 'display-buffer-alist
@@ -62,15 +62,13 @@
 
 ;; EmigoPac
 (use-package emigo
-  :straight (:host github :repo "MatthewZMD/emigo" :files ("*"))
+  :straight (:host github :repo "MatthewZMD/emigo" :files ("emacs/*.el" "*"))
   :config
-  (setq emigo-model "openrouter/deepseek/deepseek-chat-v3-0324")
+  (setq emigo-model "openrouter/moonshotai/kimi-k2")
   (setq emigo-base-url "https://openrouter.ai/api/v1")
   (setq emigo-api-key (getenv "OPENROUTER_API_KEY"))
   (emigo-start-process))
 ;; -EmigoPac
-
-(use-package gptel)
 
 (provide 'init-llm)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

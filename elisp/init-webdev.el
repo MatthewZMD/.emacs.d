@@ -53,9 +53,11 @@
 ;; -Js2Pac
 
 ;; TypeScriptPac
-(use-package typescript-mode
+(use-package typescript-ts-mode
   :mode "\\.ts\\'"
-  :commands (typescript-mode))
+  :custom
+  (typescript-ts-mode-indent-offset 2)
+  :commands (typescript-ts-mode))
 ;; -TypeScriptPac
 
 ;; VuePac

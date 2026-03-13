@@ -110,7 +110,10 @@
 ;; -HTMLIZEPac
 
 ;; MarkdownModePac
-(use-package markdown-mode :defer t)
+(use-package markdown-mode
+  :defer t
+  :mode (("\\.md\\..*\\'" . markdown-mode)
+         ("\\.mdc\\'"      . markdown-mode)))
 ;; -MarkdownModePac
 
 ;; OXGFMPac

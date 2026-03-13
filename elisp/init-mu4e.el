@@ -35,13 +35,7 @@
 ;;
 ;;; Code:
 
-;; Mu4ePac
-(use-package mu4e
-  :if (executable-find "mu")
-  :straight (:type built-in)
-  :commands (mu4e make-mu4e-context)
-  :init
-  (use-package mu4e-alert
+(use-package mu4e-alert
     :defer t
     :config
     (when (executable-find "notify-send")
@@ -49,7 +43,18 @@
     :hook
     ((after-init . mu4e-alert-enable-notifications)
      (after-init . mu4e-alert-enable-mode-line-display)))
-  (use-package mu4e-overview :defer t)
+
+(use-package mu4e-overview :defer t)
+
+;; Mu4ePac
+(use-package mu4e
+  :straight (mu
+             :type git
+             :host github
+             :repo "djcb/mu"
+             :files ("build/mu4e/*.el"))
+  :if (executable-find "mu")
+  :commands (mu4e make-mu4e-context)
   :bind
   (("M-z m" . mu4e)
    ("M-m m" . mu4e)
@@ -63,7 +68,7 @@
   (mu4e-headers-auto-update t)
   (mu4e-compose-format-flowed t)
   (mu4e-view-show-images t)
-  (mu4e-change-filenames-when-moving t) ; work better for mbsync
+  (mu4e-change-filenames-when-moving t)
   (mu4e-attachment-dir "~/Downloads")
   (message-kill-buffer-on-exit t)
   (mu4e-compose-dont-reply-to-self t)
@@ -72,8 +77,6 @@
   (mu4e-use-fancy-chars t)
   (mu4e-headers-results-limit 1000)
   (mu4e-view-use-gnus t)
-  (gnus-icalendar-org-capture-file "~/org/agenda/meetings.org") ; Prerequisite: set it to meetings org fie
-  (gnus-icalendar-org-capture-headline '("Meetings")) ; Make sure to create Calendar heading first
   :hook
   ((mu4e-view-mode . visual-line-mode)
    (mu4e-compose-mode . (lambda ()
@@ -91,7 +94,7 @@
                                   (:from . 22)
                                   (:thread-subject . ,(- (window-body-width) 70)) ;; alternatively, use :subject
                                   (:size . 7))))))
-  :init
+  :config
   (use-package mu4e-thread-folding
     :straight (mu4e-thread-folding :type git :host github :repo "rougier/mu4e-thread-folding")
     :after mu4e
@@ -114,49 +117,14 @@
                  '(:empty . (:name "Empty"
                                    :shortname ""
                                    :function (lambda (msg) "  ")))))
-  :config
   (require 'mu4e-icalendar)
   (setq mail-user-agent (mu4e-user-agent))
   (mu4e-icalendar-setup)
   (gnus-icalendar-org-setup)
   (defalias 'mu4e-add-attachment 'mail-add-attachment
     "I prefer the add-attachment function to begin wih mu4e so I can find it easily.")
-
   (add-to-list 'mu4e-view-actions
-               '("ViewInBrowser" . mu4e-action-view-in-browser) t)
-  (setq mu4e-contexts
-        (list
-         (make-mu4e-context
-          :name "gmail"
-          :enter-func (lambda () (mu4e-message "Entering context gmail"))
-          :leave-func (lambda () (mu4e-message "Leaving context gmail"))
-          :match-func
-          (lambda (msg)
-            (when msg
-              (string-match "gmail" (mu4e-message-field msg :maildir))))
-          :vars '((mu4e-sent-folder . "/gmail/Sent Mail")
-                  (mu4e-drafts-folder . "/gmail/Drafts")
-                  (mu4e-trash-folder . "/gmail/Trash")
-                  (mu4e-sent-messages-behavior . sent)
-                  (mu4e-compose-signature . user-full-name)
-                  (user-mail-address . user-mail-address) ; Prerequisite: Set this to your email
-                  (mu4e-compose-format-flowed . t)
-                  (smtpmail-queue-dir . "~/Maildir/gmail/queue/cur")
-                  (message-send-mail-function . smtpmail-send-it)
-                  (smtpmail-smtp-user . "matthewzmd") ; Set to your username
-                  (smtpmail-starttls-credentials . (("smtp.gmail.com" 587 nil nil)))
-                  (smtpmail-auth-credentials . (expand-file-name "~/.authinfo.gpg"))
-                  (smtpmail-default-smtp-server . "smtp.gmail.com")
-                  (smtpmail-smtp-server . "smtp.gmail.com")
-                  (smtpmail-smtp-service . 587)
-                  (smtpmail-debug-info . t)
-                  (smtpmail-debug-verbose . t)
-                  (mu4e-maildir-shortcuts . ( ("/gmail/INBOX"            . ?i)
-                                              ("/gmail/Sent Mail" . ?s)
-                                              ("/gmail/Trash"       . ?t)
-                                              ("/gmail/All Mail"  . ?a)
-                                              ("/gmail/Starred"   . ?r)
-                                              ("/gmail/Drafts"    . ?d))))))))
+               '("ViewInBrowser" . mu4e-action-view-in-browser) t))
 ;; -Mu4ePac
 
 (provide 'init-mu4e)
